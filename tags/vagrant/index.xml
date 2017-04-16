@@ -2,51 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vagrant on Deimosfr Blog</title>
-    <link>http://blog.deimos.fr/tags/vagrant/</link>
+    <link>https://deimosfr.github.io/blog/tags/vagrant/</link>
     <description>Recent content in Vagrant on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 13 Jan 2015 11:00:15 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.deimos.fr/tags/vagrant/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://deimosfr.github.io/blog/tags/vagrant/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Vagrant: provision vms and containers with Ansible</title>
-      <link>http://blog.deimos.fr/2015/01/13/vagrant-provision-vms-and-containers-with-ansible/</link>
+      <link>https://deimosfr.github.io/blog/2015/01/13/vagrant-provision-vms-and-containers-with-ansible/</link>
       <pubDate>Tue, 13 Jan 2015 11:00:15 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2015/01/13/vagrant-provision-vms-and-containers-with-ansible/</guid>
+      <guid>https://deimosfr.github.io/blog/2015/01/13/vagrant-provision-vms-and-containers-with-ansible/</guid>
       <description>In the last post, I talked about how to manage Docker and VirtualBox with Vagrant. This post follows the last one, with the integration of Ansible as a provisioner. Once again, I&amp;rsquo;m using it for the Smash project.
 With Ansible, I made several &amp;ldquo;group_vars&amp;rdquo; files containing custom and common information related to the used environment (dev, uat, staging&amp;hellip;). This helps to setup different kind of environment easily. Vagrant will help to build images with Ansible deployed inside.</description>
     </item>
     
     <item>
       <title>Vagrant: manage Docker &#43; VirtualBox easily</title>
-      <link>http://blog.deimos.fr/2015/01/08/vagrant-manage-docker-virtualbox-easily/</link>
+      <link>https://deimosfr.github.io/blog/2015/01/08/vagrant-manage-docker-virtualbox-easily/</link>
       <pubDate>Thu, 08 Jan 2015 11:00:02 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2015/01/08/vagrant-manage-docker-virtualbox-easily/</guid>
+      <guid>https://deimosfr.github.io/blog/2015/01/08/vagrant-manage-docker-virtualbox-easily/</guid>
       <description>As you may know, I&amp;rsquo;m using Vagrant for more than a year now with VirtualBox. Docker is a faster alternative that needs to be taken into consideration. Having the possibility to manage both of them with the same tool can be very interesting. For information, I mainly use it with VirtualBox because it&amp;rsquo;s any platform compatible and Docker because it&amp;rsquo;s perfect for a CI like Jenkins.
 I recently talked about my implication into the Smash project.</description>
     </item>
     
     <item>
       <title>Packer: 1 command line to create a Debian VirtualBox/Vagrant box</title>
-      <link>http://blog.deimos.fr/2014/09/04/packer-easily-create-a-debian-virtualboxvagrant-box/</link>
+      <link>https://deimosfr.github.io/blog/2014/09/04/packer-easily-create-a-debian-virtualboxvagrant-box/</link>
       <pubDate>Thu, 04 Sep 2014 10:00:01 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/09/04/packer-easily-create-a-debian-virtualboxvagrant-box/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/09/04/packer-easily-create-a-debian-virtualboxvagrant-box/</guid>
       <description>I recently wanted to update my Vagrant box running Debian Wheezy. The problem is, the box size is growing on each updates for several reasons. And I prefer to create a new box from scratch on any new Debian release.
 Starting from scratch each time is a little bit boring, that&amp;rsquo;s why I created a preseed file (french). That made the install automatically, however I always had to do other step by hands (or need to write a script for it).</description>
     </item>
     
     <item>
       <title>Vagrant and Ansible are out in version 1.6</title>
-      <link>http://blog.deimos.fr/2014/05/07/vagrant-and-ansible-are-out-in-version-1-6/</link>
+      <link>https://deimosfr.github.io/blog/2014/05/07/vagrant-and-ansible-are-out-in-version-1-6/</link>
       <pubDate>Wed, 07 May 2014 10:00:25 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/05/07/vagrant-and-ansible-are-out-in-version-1-6/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/05/07/vagrant-and-ansible-are-out-in-version-1-6/</guid>
       <description>Vagrant and Ansible are out in version 1.6! They are both bringing new super features.
 For Vagrant, each major versions are bringing incredible features, this time they are:
  Global Status and Control: Global Status shows you the status of all created Vagrant environments on your machine. Global Control lets you control any of these created environments from anywhere on your machine. You unfortunately need to have VM created under 1.</description>
@@ -54,10 +54,10 @@ For Vagrant, each major versions are bringing incredible features, this time the
     
     <item>
       <title>Vagrant: 2 super cool new features in V1.5</title>
-      <link>http://blog.deimos.fr/2014/03/12/vagrant-v1-5-use-boxes-on-vagrantcloud/</link>
+      <link>https://deimosfr.github.io/blog/2014/03/12/vagrant-v1-5-use-boxes-on-vagrantcloud/</link>
       <pubDate>Wed, 12 Mar 2014 11:00:48 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/03/12/vagrant-v1-5-use-boxes-on-vagrantcloud/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/03/12/vagrant-v1-5-use-boxes-on-vagrantcloud/</guid>
       <description>The 1.5 version of Vagrant has been released and that&amp;rsquo;s awesome ! They finally did a Cloud where all Vagrant boxes could (https://vagrantcloud.com/) be inventoried and easily deployed through command line !
 You can find my boxes here. If you want to add one, it&amp;rsquo;s really simple:
 vagrant box add deimosfr/debian-wheezy  And the second awesome feature is&amp;hellip;the sharing! You can for example have access to a distant and nated Vagrant instance through SSH!</description>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Packer on Deimosfr Blog</title>
-    <link>http://blog.deimos.fr/tags/packer/</link>
+    <link>https://deimosfr.github.io/blog/tags/packer/</link>
     <description>Recent content in Packer on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 16 Jan 2015 11:00:52 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.deimos.fr/tags/packer/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://deimosfr.github.io/blog/tags/packer/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Packer: build multiple images easily</title>
-      <link>http://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/</link>
+      <link>https://deimosfr.github.io/blog/2015/01/16/packer-build-multiple-images-easily/</link>
       <pubDate>Fri, 16 Jan 2015 11:00:52 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/</guid>
+      <guid>https://deimosfr.github.io/blog/2015/01/16/packer-build-multiple-images-easily/</guid>
       <description>Packer is one of the tools I&amp;rsquo;ve used in the past to build VirtualBox boxes. You can find what I&amp;rsquo;ve done on my GitHub account.
 For Smash project, I wanted to make a packer configuration to manage Docker and VirtualBox. I also wanted to call Ansible to build specific images for each needs. The goal is to be able to build cloud image ready to start, without any special dependencies. This because I need different usages:</description>
     </item>

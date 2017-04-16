@@ -2,49 +2,49 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dev on Deimosfr Blog</title>
-    <link>http://blog.deimos.fr/tags/dev/</link>
+    <link>https://deimosfr.github.io/blog/tags/dev/</link>
     <description>Recent content in Dev on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 20 Apr 2010 15:58:24 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.deimos.fr/tags/dev/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://deimosfr.github.io/blog/tags/dev/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>DeleteHistory : Mon extension pour MediaWiki</title>
-      <link>http://blog.deimos.fr/2010/04/20/deletehistory-mon-extension-pour-mediawiki/</link>
+      <link>https://deimosfr.github.io/blog/2010/04/20/deletehistory-mon-extension-pour-mediawiki/</link>
       <pubDate>Tue, 20 Apr 2010 15:58:24 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2010/04/20/deletehistory-mon-extension-pour-mediawiki/</guid>
+      <guid>https://deimosfr.github.io/blog/2010/04/20/deletehistory-mon-extension-pour-mediawiki/</guid>
       <description>Et bien me voilà encore en pleine créativité, on ne m’arrête plus !!!! Pour la petite histoire, il y a maintenant peut être 2 ans, je cherchais une extension pour MediaWiki me permettant de supprimer mon historique. J’avais trouvé l’extension parfaite SpecialDeleteOldRevisions, mais lors d’une upgrade, impossible de la faire fonctionner correctement. Toujours pas d’update de cette extension 1 an après. Je m’étais dis que j’en ferais une un de ces 4.</description>
     </item>
     
     <item>
       <title>GeSHi : Quelques modifs sur mon wiki</title>
-      <link>http://blog.deimos.fr/2010/04/11/geshi-quelques-modifs-sur-mon-wiki/</link>
+      <link>https://deimosfr.github.io/blog/2010/04/11/geshi-quelques-modifs-sur-mon-wiki/</link>
       <pubDate>Sun, 11 Apr 2010 00:38:04 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2010/04/11/geshi-quelques-modifs-sur-mon-wiki/</guid>
+      <guid>https://deimosfr.github.io/blog/2010/04/11/geshi-quelques-modifs-sur-mon-wiki/</guid>
       <description>J’en ai eu marre de taper toujours et encore du code pour avoir de la numérotation de ligne commençant par 0 sur ma colorisation syntaxique de code avec GeSHi. En l’absence de documentation sur l’extension SyntaxHighlight_GeSHi j’ai du me farcir le code à la mainet trouver comment setter des valeurs par défaut. J’ai donc maintenant “line=1 start=0” à tous mes codes sur mon wiki sans me prendre la tête à l’écrire à chaque fois.</description>
     </item>
     
     <item>
       <title>Automatiser l’optimisation de ses tables MySQL</title>
-      <link>http://blog.deimos.fr/2010/04/08/automatiser-loptimisation-de-ses-tables-mysql/</link>
+      <link>https://deimosfr.github.io/blog/2010/04/08/automatiser-loptimisation-de-ses-tables-mysql/</link>
       <pubDate>Thu, 08 Apr 2010 00:47:06 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2010/04/08/automatiser-loptimisation-de-ses-tables-mysql/</guid>
+      <guid>https://deimosfr.github.io/blog/2010/04/08/automatiser-loptimisation-de-ses-tables-mysql/</guid>
       <description>J’ai concocté un petit script permettant d’optimiser toutes les tables de ses bases MySQL. Mon petit script récupère les noms des bases de données, liste les tables et optimise tout ce petit monde pour gagner de l’espace sur le disque :-). Bref, je ne vais pas expliquer de long en large ce que fait la fonction ‘OPTIMIZE’ de MySQL mais en gros l’idée est là.
 Pour trouver ce petit script, je vous invite à suivre ce liens.</description>
     </item>
     
     <item>
       <title>media2conflu: version 0.3</title>
-      <link>http://blog.deimos.fr/2010/03/05/media2conflu-version-0-3/</link>
+      <link>https://deimosfr.github.io/blog/2010/03/05/media2conflu-version-0-3/</link>
       <pubDate>Fri, 05 Mar 2010 06:19:20 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2010/03/05/media2conflu-version-0-3/</guid>
+      <guid>https://deimosfr.github.io/blog/2010/03/05/media2conflu-version-0-3/</guid>
       <description>Je reviens sur ce projet car j’ai sortit hier la version 0.3.
 Pas mal de nouveautés et évidemment une grande amélioration quant aux conversions effectuées. Il y a encore quelques trucs que je ne gère pas comme les images ou ce genre de chose, mais n&amp;rsquo;hésitez pas à me faire savoir si vous voulez voir d&amp;rsquo;autres choses.
 Comme d&amp;rsquo;habitude, cette nouvelle mouture est disponible sur mon git.</description>
@@ -52,20 +52,20 @@ Comme d&amp;rsquo;habitude, cette nouvelle mouture est disponible sur mon git.</
     
     <item>
       <title>media2conflu : encore un nouveau projet</title>
-      <link>http://blog.deimos.fr/2010/02/10/media2conflu-encore-un-nouveau-projet/</link>
+      <link>https://deimosfr.github.io/blog/2010/02/10/media2conflu-encore-un-nouveau-projet/</link>
       <pubDate>Wed, 10 Feb 2010 21:05:57 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2010/02/10/media2conflu-encore-un-nouveau-projet/</guid>
+      <guid>https://deimosfr.github.io/blog/2010/02/10/media2conflu-encore-un-nouveau-projet/</guid>
       <description>Décidément, je n’arrête pas ces temps ci ! Là c’est un petit projet par rapport aux autres, mais c’est peut être pour le moment un de ceux que je vais utiliser le plus souvent car très utile pour mon boulot.
 Un peu d&amp;rsquo;explication ne fait pas de mal. J&amp;rsquo;utilise depuis des années MediaWiki et en suis pleinement satisfait ! Au boulot, il y a quelques années aussi, je n&amp;rsquo;ai pas réussi à faire appliquer MediaWiki car il ne prenait pas en charge le WIZIWIG et une gestion des ACLs simple.</description>
     </item>
     
     <item>
       <title>phpCV 0.1 est sortie :-)</title>
-      <link>http://blog.deimos.fr/2010/01/17/phpcv-0-1-est-sortie/</link>
+      <link>https://deimosfr.github.io/blog/2010/01/17/phpcv-0-1-est-sortie/</link>
       <pubDate>Sun, 17 Jan 2010 22:54:03 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2010/01/17/phpcv-0-1-est-sortie/</guid>
+      <guid>https://deimosfr.github.io/blog/2010/01/17/phpcv-0-1-est-sortie/</guid>
       <description>La première version de phpCV est sortie :-). Soyez donc indulgent…
 Je prévois de belles améliorations mais pour le moment, ça vous permet de faire simplement un beau CV sans trop se fouler.
 Il me reste un beau README a faire, mais pour l&amp;rsquo;heure voici en gros les quelques fonctionnalités :
@@ -77,10 +77,10 @@ Il me reste un beau README a faire, mais pour l&amp;rsquo;heure voici en gros le
     
     <item>
       <title>phpCV : Un de mes nouveaux projets</title>
-      <link>http://blog.deimos.fr/2010/01/13/phpcv-un-de-mes-nouveaux-projets/</link>
+      <link>https://deimosfr.github.io/blog/2010/01/13/phpcv-un-de-mes-nouveaux-projets/</link>
       <pubDate>Wed, 13 Jan 2010 06:42:49 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2010/01/13/phpcv-un-de-mes-nouveaux-projets/</guid>
+      <guid>https://deimosfr.github.io/blog/2010/01/13/phpcv-un-de-mes-nouveaux-projets/</guid>
       <description>J’ai récemment décidé de passer un VAE pour me faire valider un BTS. Pour ça, on me demande un CV. CV que j’ai mis à jour il y a quelques temps déjà et j’en avais parlé dans des billets précédents sur ce blog (-&amp;gt; http://www.mavro.fr).
 J&amp;rsquo;utilise donc le superbe Sample Resume Template qui en fait est une template HTML. Il faut donc faire pas mal de changements pour arriver à un résultat convenable.</description>
     </item>

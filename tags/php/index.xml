@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Php on Deimosfr Blog</title>
-    <link>http://blog.deimos.fr/tags/php/</link>
+    <link>https://deimosfr.github.io/blog/tags/php/</link>
     <description>Recent content in Php on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 20 Apr 2010 15:58:24 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.deimos.fr/tags/php/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://deimosfr.github.io/blog/tags/php/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>DeleteHistory : Mon extension pour MediaWiki</title>
-      <link>http://blog.deimos.fr/2010/04/20/deletehistory-mon-extension-pour-mediawiki/</link>
+      <link>https://deimosfr.github.io/blog/2010/04/20/deletehistory-mon-extension-pour-mediawiki/</link>
       <pubDate>Tue, 20 Apr 2010 15:58:24 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2010/04/20/deletehistory-mon-extension-pour-mediawiki/</guid>
+      <guid>https://deimosfr.github.io/blog/2010/04/20/deletehistory-mon-extension-pour-mediawiki/</guid>
       <description>Et bien me voilà encore en pleine créativité, on ne m’arrête plus !!!! Pour la petite histoire, il y a maintenant peut être 2 ans, je cherchais une extension pour MediaWiki me permettant de supprimer mon historique. J’avais trouvé l’extension parfaite SpecialDeleteOldRevisions, mais lors d’une upgrade, impossible de la faire fonctionner correctement. Toujours pas d’update de cette extension 1 an après. Je m’étais dis que j’en ferais une un de ces 4.</description>
     </item>
     
     <item>
       <title>phpCV 0.1 est sortie :-)</title>
-      <link>http://blog.deimos.fr/2010/01/17/phpcv-0-1-est-sortie/</link>
+      <link>https://deimosfr.github.io/blog/2010/01/17/phpcv-0-1-est-sortie/</link>
       <pubDate>Sun, 17 Jan 2010 22:54:03 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2010/01/17/phpcv-0-1-est-sortie/</guid>
+      <guid>https://deimosfr.github.io/blog/2010/01/17/phpcv-0-1-est-sortie/</guid>
       <description>La première version de phpCV est sortie :-). Soyez donc indulgent…
 Je prévois de belles améliorations mais pour le moment, ça vous permet de faire simplement un beau CV sans trop se fouler.
 Il me reste un beau README a faire, mais pour l&amp;rsquo;heure voici en gros les quelques fonctionnalités :
@@ -37,10 +37,10 @@ Il me reste un beau README a faire, mais pour l&amp;rsquo;heure voici en gros le
     
     <item>
       <title>phpCV : Un de mes nouveaux projets</title>
-      <link>http://blog.deimos.fr/2010/01/13/phpcv-un-de-mes-nouveaux-projets/</link>
+      <link>https://deimosfr.github.io/blog/2010/01/13/phpcv-un-de-mes-nouveaux-projets/</link>
       <pubDate>Wed, 13 Jan 2010 06:42:49 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2010/01/13/phpcv-un-de-mes-nouveaux-projets/</guid>
+      <guid>https://deimosfr.github.io/blog/2010/01/13/phpcv-un-de-mes-nouveaux-projets/</guid>
       <description>J’ai récemment décidé de passer un VAE pour me faire valider un BTS. Pour ça, on me demande un CV. CV que j’ai mis à jour il y a quelques temps déjà et j’en avais parlé dans des billets précédents sur ce blog (-&amp;gt; http://www.mavro.fr).
 J&amp;rsquo;utilise donc le superbe Sample Resume Template qui en fait est une template HTML. Il faut donc faire pas mal de changements pour arriver à un résultat convenable.</description>
     </item>

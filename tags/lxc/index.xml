@@ -2,60 +2,60 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lxc on Deimosfr Blog</title>
-    <link>http://blog.deimos.fr/tags/lxc/</link>
+    <link>https://deimosfr.github.io/blog/tags/lxc/</link>
     <description>Recent content in Lxc on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 02 Sep 2014 10:00:43 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.deimos.fr/tags/lxc/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://deimosfr.github.io/blog/tags/lxc/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Naemon/Nagios: LXC check resources</title>
-      <link>http://blog.deimos.fr/2014/09/02/naemonnagios-lxc-check-resources/</link>
+      <link>https://deimosfr.github.io/blog/2014/09/02/naemonnagios-lxc-check-resources/</link>
       <pubDate>Tue, 02 Sep 2014 10:00:43 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/09/02/naemonnagios-lxc-check-resources/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/09/02/naemonnagios-lxc-check-resources/</guid>
       <description>You may know that I really like LXC and the major problem when you want to use that solution in production is: how do you monitor memory and CPU?
 Regarding the CPU side, I do not have an easy answer for the moment :-(. However regarding the memory, I&amp;rsquo;ve made a Nagios/Naemon check which will check the memory (RAM) and SWAP of a container. Here is how to use it:</description>
     </item>
     
     <item>
       <title>LXC 1.0 on Debian Wheezy</title>
-      <link>http://blog.deimos.fr/2014/08/29/lxc-1-0-on-debian-wheezy/</link>
+      <link>https://deimosfr.github.io/blog/2014/08/29/lxc-1-0-on-debian-wheezy/</link>
       <pubDate>Fri, 29 Aug 2014 10:00:52 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/08/29/lxc-1-0-on-debian-wheezy/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/08/29/lxc-1-0-on-debian-wheezy/</guid>
       <description>I&amp;rsquo;m using for my own servers LXC for about a year now. I&amp;rsquo;m still fed up about bugs introduced by the beta version of LXC (0.8b) present in Debian Wheezy. As now LXC project has released a stable version, I&amp;rsquo;ve looked at the Debian backports, but didn&amp;rsquo;t have any chance to find a newer version on it :-(. However, a version 1.0.4 exist on Debian Jessie. I took the Debian sources and recompiled them on Wheezy (available here).</description>
     </item>
     
     <item>
       <title>LXC: ressources statistics</title>
-      <link>http://blog.deimos.fr/2014/06/16/lxc-ressources-statistics/</link>
+      <link>https://deimosfr.github.io/blog/2014/06/16/lxc-ressources-statistics/</link>
       <pubDate>Mon, 16 Jun 2014 10:00:00 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/06/16/lxc-ressources-statistics/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/06/16/lxc-ressources-statistics/</guid>
       <description>I wanted to find a way to properly view resources (memory/CPU/IO) usages or configuration. For that I need to use cgroups. But the problem are on free, top, htop or common any tools, as they do not get the real informations of the container.
 We&amp;rsquo;re in fact waiting on a lot of work on the kernel side or systemd side. More information&amp;rsquo;s can be found here. Another solution that permit to bind a socks inside containers exists called CGManager, however classical tools doesn&amp;rsquo;t use it to get informations.</description>
     </item>
     
     <item>
       <title>Migrating from KVM to LXC…feedbacks</title>
-      <link>http://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/</link>
+      <link>https://deimosfr.github.io/blog/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/</link>
       <pubDate>Tue, 10 Jun 2014 10:00:00 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/</guid>
       <description>I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&amp;hellip;Thanks Online.
 I&amp;rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&amp;rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to migrate my VM from KVM. All my KVM VM are on Debian Wheezy so that was pretty easy.</description>
     </item>
     
     <item>
       <title>Ansible: LXC role v1.1</title>
-      <link>http://blog.deimos.fr/2014/06/02/ansible-lxc-role-v1-1/</link>
+      <link>https://deimosfr.github.io/blog/2014/06/02/ansible-lxc-role-v1-1/</link>
       <pubDate>Mon, 02 Jun 2014 10:00:08 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/06/02/ansible-lxc-role-v1-1/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/06/02/ansible-lxc-role-v1-1/</guid>
       <description>I&amp;rsquo;ve recently updated my LXC role for ansible. You can get it like that:
 ansible-galaxy install deimosfr.lxc  Here is the change log:
 + Adding new parameters for dnsmasq and interfaces + Adding new prequesite to avoid unwanted modules to load in the latest kernel versions = Corrected networking configuration issue = Templates do not create @LOCALSTATEDIR@ folder anymore  It works perfectly on my new Dedibox :-)</description>
@@ -63,30 +63,30 @@ ansible-galaxy install deimosfr.lxc  Here is the change log:
     
     <item>
       <title>LXC : my documentation finally finished</title>
-      <link>http://blog.deimos.fr/2013/11/30/lxc-my-documentation-finally-finished/</link>
+      <link>https://deimosfr.github.io/blog/2013/11/30/lxc-my-documentation-finally-finished/</link>
       <pubDate>Sat, 30 Nov 2013 11:00:21 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2013/11/30/lxc-my-documentation-finally-finished/</guid>
+      <guid>https://deimosfr.github.io/blog/2013/11/30/lxc-my-documentation-finally-finished/</guid>
       <description>I&amp;rsquo;ve finally finished my documentation on LXC for Debian Wheezy. I think I&amp;rsquo;ve added the most interesting features.
 I&amp;rsquo;m now going to migrate my servers from KVM to LXC as I only POC it for now. I&amp;rsquo;ll keep you up to date when everything will be migrated.</description>
     </item>
     
     <item>
       <title>LXC : how to convert a host/vm to a container</title>
-      <link>http://blog.deimos.fr/2013/09/11/lxc-how-to-convert-a-hostvm-to-a-container/</link>
+      <link>https://deimosfr.github.io/blog/2013/09/11/lxc-how-to-convert-a-hostvm-to-a-container/</link>
       <pubDate>Wed, 11 Sep 2013 10:00:59 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2013/09/11/lxc-how-to-convert-a-hostvm-to-a-container/</guid>
+      <guid>https://deimosfr.github.io/blog/2013/09/11/lxc-how-to-convert-a-hostvm-to-a-container/</guid>
       <description>As you can see, I write more and more posts on LXC. The latest thing I worked on, was how to convert a host/vm to a LXC container. I needed to write a script for it as I didn&amp;rsquo;t find what I needed.
 The script will remove unneeded elements in a Debian system, removing folders (dev,proc,sys), recreate devices and configure etc files. You can find more informations by following the link.</description>
     </item>
     
     <item>
       <title>LXC : Some little setbacks</title>
-      <link>http://blog.deimos.fr/2013/08/28/some-little-setbacks-with-lxc/</link>
+      <link>https://deimosfr.github.io/blog/2013/08/28/some-little-setbacks-with-lxc/</link>
       <pubDate>Wed, 28 Aug 2013 10:00:00 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2013/08/28/some-little-setbacks-with-lxc/</guid>
+      <guid>https://deimosfr.github.io/blog/2013/08/28/some-little-setbacks-with-lxc/</guid>
       <description>As I&amp;rsquo;m new to LXC, I am discovering how it works, see the maturity of the project and it&amp;rsquo;s integration in Debian. I&amp;rsquo;ve made a post a few weeks ago to introduce the basics and now I&amp;rsquo;m digging in advanced features.
 I&amp;rsquo;ve encountered several issues. Most of them are not critical but unfortunately looks like a lack of integration on Debian.
  The first one is related to wheezy template and I&amp;rsquo;ve already talked about it in a previous post.</description>

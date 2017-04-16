@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Environnement on Deimosfr Blog</title>
-    <link>http://blog.deimos.fr/categories/environnement/</link>
+    <link>https://deimosfr.github.io/blog/categories/environnement/</link>
     <description>Recent content in Environnement on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 17 Jun 2009 19:57:31 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.deimos.fr/categories/environnement/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://deimosfr.github.io/blog/categories/environnement/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>phpWOL : Nouveau Projet pour l’environnement</title>
-      <link>http://blog.deimos.fr/2009/06/17/nouveau-projet-pour-lenvironnement/</link>
+      <link>https://deimosfr.github.io/blog/2009/06/17/nouveau-projet-pour-lenvironnement/</link>
       <pubDate>Wed, 17 Jun 2009 19:57:31 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2009/06/17/nouveau-projet-pour-lenvironnement/</guid>
+      <guid>https://deimosfr.github.io/blog/2009/06/17/nouveau-projet-pour-lenvironnement/</guid>
       <description>Pour ceux qui ne savent pas, je suis le co-fondateur du projet MySecureShell.
 Mon précédent post parlait de l&amp;rsquo;environnement et du film Home qui m&amp;rsquo;a déclenché l&amp;rsquo;envie d&amp;rsquo;accélérer un projet que j&amp;rsquo;ai commencé il y a quelques mois maintenant appellé phpWOL (php Wake On Lan).
 Je vais le continuer en partenaria avec Teka (Sébastien), mon ami avec qui je fais MySecureShell également afin d&amp;rsquo;accélérer son développement.
@@ -25,10 +25,10 @@ phpWOL a pour but de démarrer des machines à distance.</description>
     
     <item>
       <title>Home : il faut faire quelquechose maintenant !</title>
-      <link>http://blog.deimos.fr/2009/06/17/home-il-faut-faire-quelquechose-maintenant/</link>
+      <link>https://deimosfr.github.io/blog/2009/06/17/home-il-faut-faire-quelquechose-maintenant/</link>
       <pubDate>Wed, 17 Jun 2009 19:42:28 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2009/06/17/home-il-faut-faire-quelquechose-maintenant/</guid>
+      <guid>https://deimosfr.github.io/blog/2009/06/17/home-il-faut-faire-quelquechose-maintenant/</guid>
       <description>Pour ceux qui n’ont pas encore vu le film, je le conseil vivement ! Vous pouvez même l’acheter vu le prix du film (5 € le DVD) !
 Je vous résume la chose, il faut aller vite et commencer maintenant ! On a moins de 10 ans pour que les choses changent !
 Plutôt que de longs discours, regardez le films. Ceux qui ne savent pas quoi faire pour améliorer les choses, renseignez vous, il existe 1001 façons de le faire.</description>

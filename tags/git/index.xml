@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Git on Deimosfr Blog</title>
-    <link>http://blog.deimos.fr/tags/git/</link>
+    <link>https://deimosfr.github.io/blog/tags/git/</link>
     <description>Recent content in Git on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 Feb 2015 11:00:22 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.deimos.fr/tags/git/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://deimosfr.github.io/blog/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Generate changelog from git commits and integrate with Sphinxdoc</title>
-      <link>http://blog.deimos.fr/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/</link>
+      <link>https://deimosfr.github.io/blog/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/</link>
       <pubDate>Wed, 11 Feb 2015 11:00:22 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/</guid>
+      <guid>https://deimosfr.github.io/blog/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/</guid>
       <description>For another personal project (that I can&amp;rsquo;t talk about for the moment ;-)), I wanted to have a Changelog file to get a better following of the infrastructure evolution (configuration management, scripts&amp;hellip;all under git). Of course the documentation is very important, but when you do not write it at the same time you&amp;rsquo;re building the infrastructure, it may be complex to remember each little things you&amp;rsquo;ve done. That&amp;rsquo;s why a Changelog can help to understand how the infrastructure has been built step by step.</description>
     </item>
     
     <item>
       <title>Git: update date and name to commits</title>
-      <link>http://blog.deimos.fr/2014/12/02/git-update-date-and-name-to-commits/</link>
+      <link>https://deimosfr.github.io/blog/2014/12/02/git-update-date-and-name-to-commits/</link>
       <pubDate>Tue, 02 Dec 2014 11:00:31 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/12/02/git-update-date-and-name-to-commits/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/12/02/git-update-date-and-name-to-commits/</guid>
       <description>A lot of time, I had to modify the text of my commit since I&amp;rsquo;m using a versionning system. Modifying the last commit comment is something common:
 git commit --amend  However, modifying the date is not so common. You may want to do it for several reasons (stats or similar), here is how to:
 GIT_COMMITTER_DATE=&amp;quot;`date`&amp;quot; git commit --amend --date &amp;quot;`date`&amp;quot;  This will change the last commit with the current date.</description>
@@ -33,20 +33,20 @@ GIT_COMMITTER_DATE=&amp;quot;`date`&amp;quot; git commit --amend --date &amp;quo
     
     <item>
       <title>Git: speed up your merging process with mergetool</title>
-      <link>http://blog.deimos.fr/2014/10/24/git-speed-up-your-merging-process-with-mergetool/</link>
+      <link>https://deimosfr.github.io/blog/2014/10/24/git-speed-up-your-merging-process-with-mergetool/</link>
       <pubDate>Fri, 24 Oct 2014 10:00:15 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/10/24/git-speed-up-your-merging-process-with-mergetool/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/10/24/git-speed-up-your-merging-process-with-mergetool/</guid>
       <description>Merging from one branch to another branch is something common with Git. I had to do it several times and recently I had to make a big one. I&amp;rsquo;ve just never took the time to look at what exist to make faster merge and how to use it.
 After some researches, I found git mergetool which will use VIM (by default on my laptop) to have a better view on what I have to do, to merge my files.</description>
     </item>
     
     <item>
       <title>ReadTheDocs: a hosting documentation solution with GitHub</title>
-      <link>http://blog.deimos.fr/2014/09/26/readthedocs-a-hosting-documentation-solution-with-github/</link>
+      <link>https://deimosfr.github.io/blog/2014/09/26/readthedocs-a-hosting-documentation-solution-with-github/</link>
       <pubDate>Fri, 26 Sep 2014 10:00:53 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/09/26/readthedocs-a-hosting-documentation-solution-with-github/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/09/26/readthedocs-a-hosting-documentation-solution-with-github/</guid>
       <description>I recently talked about Sphinxdoc and we wanted (still for MySecureShell project) a solution to host our documentation. ReadTheDocs is a very good, free and pretty solution made for Sphinxdoc :-)
 What we liked in addition of the hosting, is the usage with GitHub. You can configure a webhook to your GitHub account to automatically ask ReadTheDocs to build a newer version each time a commit is pushed on your GitHub account.</description>
     </item>

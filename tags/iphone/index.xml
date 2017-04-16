@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Iphone on Deimosfr Blog</title>
-    <link>http://blog.deimos.fr/tags/iphone/</link>
+    <link>https://deimosfr.github.io/blog/tags/iphone/</link>
     <description>Recent content in Iphone on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 11 Nov 2014 11:00:23 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.deimos.fr/tags/iphone/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://deimosfr.github.io/blog/tags/iphone/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Tiny RSS: best reader for iOS?</title>
-      <link>http://blog.deimos.fr/2014/11/11/tiny-rss-best-reader-for-ios/</link>
+      <link>https://deimosfr.github.io/blog/2014/11/11/tiny-rss-best-reader-for-ios/</link>
       <pubDate>Tue, 11 Nov 2014 11:00:23 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/11/11/tiny-rss-best-reader-for-ios/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/11/11/tiny-rss-best-reader-for-ios/</guid>
       <description>I recently switched to iOS and there are unfortunately no really full featured application to support Tiny RSS. I tested several but didn&amp;rsquo;t find anyone that fully answer my requests.
 I remembered that there was a very good RSS reader on iOS called Reeder. Unfortunately it doesn&amp;rsquo;t support any self hosted solution instead of Fever. I already used it a few months ago. But I switched to TinyTiny RSS for several reasons and want to keep it.</description>
     </item>
     
     <item>
       <title>Finally: switching back to iOS (from Android)</title>
-      <link>http://blog.deimos.fr/2014/10/26/finally-switching-back-to-ios-from-android/</link>
+      <link>https://deimosfr.github.io/blog/2014/10/26/finally-switching-back-to-ios-from-android/</link>
       <pubDate>Sun, 26 Oct 2014 11:00:46 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/10/26/finally-switching-back-to-ios-from-android/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/10/26/finally-switching-back-to-ios-from-android/</guid>
       <description>In previous posts, I talked about why I switched from iOS to Android.
 After 1 year and a half, after 3 different Android phones (Nexus 4, Nexus 5 and Samsung Galaxy S5), I&amp;rsquo;m finally going to switch back to iOS. For several reasons in facts but the major ones are those:
  Application quality lower than on iOS Lower global stability on Samsung Touchwizz and Cyanogen  I was pretty happy with Google Stock ROM, however it&amp;rsquo;s not available on all devices and the Nexus do not have the better hardware (not talking about Nexus 6).</description>
@@ -34,10 +34,10 @@ After 1 year and a half, after 3 different Android phones (Nexus 4, Nexus 5 and 
     
     <item>
       <title>iOS 7 : oh men ! So many features already available on Android</title>
-      <link>http://blog.deimos.fr/2013/06/11/ios-7-oh-men-so-many-features-already-available-on-android/</link>
+      <link>https://deimosfr.github.io/blog/2013/06/11/ios-7-oh-men-so-many-features-already-available-on-android/</link>
       <pubDate>Tue, 11 Jun 2013 10:00:04 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2013/06/11/ios-7-oh-men-so-many-features-already-available-on-android/</guid>
+      <guid>https://deimosfr.github.io/blog/2013/06/11/ios-7-oh-men-so-many-features-already-available-on-android/</guid>
       <description>I&amp;rsquo;m so happy on Android now. That&amp;rsquo;s right that graphic quality on standard iOS applications are better finished and ergonomic is better.
 Anyway even with new interface and features on iOS 7, there are still remaining work in comparison of Android. And what about new Apple features ?&amp;hellip; Not really relevant one :-(
 I&amp;rsquo;ll test it later on my iPad but I&amp;rsquo;m still frustrated even if it&amp;rsquo;s better than the latests keynotes.</description>
@@ -45,20 +45,20 @@ I&amp;rsquo;ll test it later on my iPad but I&amp;rsquo;m still frustrated even 
     
     <item>
       <title>Google had me : switching from iOS to Android</title>
-      <link>http://blog.deimos.fr/2013/06/07/google-had-me-switching-from-ios-to-android/</link>
+      <link>https://deimosfr.github.io/blog/2013/06/07/google-had-me-switching-from-ios-to-android/</link>
       <pubDate>Fri, 07 Jun 2013 10:00:00 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2013/06/07/google-had-me-switching-from-ios-to-android/</guid>
+      <guid>https://deimosfr.github.io/blog/2013/06/07/google-had-me-switching-from-ios-to-android/</guid>
       <description>I&amp;rsquo;ve wrote several posts on this blog since 2 years while trying to switch from iOS to Android.
 The first time I tried, I was on a 2.x version of Android and a lot of missing features didn&amp;rsquo;t helped me to switch. My cell phone was a Samsung Galaxy S2 and I really can&amp;rsquo;t stand on Samsung Touchwizz layer. That why I decided to install a Mod called Cyanogen (you&amp;rsquo;ve certainly already have heard of this).</description>
     </item>
     
     <item>
       <title>Exchange sur gmail c’est fini</title>
-      <link>http://blog.deimos.fr/2013/01/04/exchange-sur-gmail-cest-fini/</link>
+      <link>https://deimosfr.github.io/blog/2013/01/04/exchange-sur-gmail-cest-fini/</link>
       <pubDate>Fri, 04 Jan 2013 11:00:06 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2013/01/04/exchange-sur-gmail-cest-fini/</guid>
+      <guid>https://deimosfr.github.io/blog/2013/01/04/exchange-sur-gmail-cest-fini/</guid>
       <description>Hello a tous,
 Pour ceux qui ne le savent pas encore, configurer Gmail comme si c&amp;rsquo;était un serveur exchange sur leurs iPhone va bientôt ne plus fonctionner. Le service ferme ses portes pour les comptes gratuits fin janvier.
 Google fait ça pour 2 raisons :
@@ -67,20 +67,20 @@ Google fait ça pour 2 raisons :
     
     <item>
       <title>iOS 5 ça y est :-)</title>
-      <link>http://blog.deimos.fr/2011/10/05/ios-5-ca-y-est/</link>
+      <link>https://deimosfr.github.io/blog/2011/10/05/ios-5-ca-y-est/</link>
       <pubDate>Wed, 05 Oct 2011 18:59:36 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2011/10/05/ios-5-ca-y-est/</guid>
+      <guid>https://deimosfr.github.io/blog/2011/10/05/ios-5-ca-y-est/</guid>
       <description>Et bah voilà. Je suis sur iOS 5. C&amp;rsquo;est plus rapide, il y a de nouvelles fonctionnalité&amp;hellip; bref c&amp;rsquo;est mieux.
 Malheureusement pas de Siri sans iPhone 4GS :-(</description>
     </item>
     
     <item>
       <title>De retour sur iPhone</title>
-      <link>http://blog.deimos.fr/2011/07/26/de-retour-sur-iphone/</link>
+      <link>https://deimosfr.github.io/blog/2011/07/26/de-retour-sur-iphone/</link>
       <pubDate>Tue, 26 Jul 2011 19:54:18 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2011/07/26/de-retour-sur-iphone/</guid>
+      <guid>https://deimosfr.github.io/blog/2011/07/26/de-retour-sur-iphone/</guid>
       <description>Back to iPhone ! Je n’en pouvait plus d’Android ! C’est pourtant bien, mais trop loin du confort de l’iOS !
 Alors oui, je vais peut être me faire jeter des tomates, oui, je vais me faire siffler ! Mais c&amp;rsquo;est comme ça ! Le côté gris de la force m&amp;rsquo;attire (noir étant Microsoft).
 Android 3 (la version tablette) est tellement plus sexy que la version téléphone. Je me demande ce que Google fait ?</description>
@@ -88,10 +88,10 @@ Android 3 (la version tablette) est tellement plus sexy que la version télépho
     
     <item>
       <title>Reretour d’expérience sur Android</title>
-      <link>http://blog.deimos.fr/2011/07/11/reretour-dexperience-sur-android/</link>
+      <link>https://deimosfr.github.io/blog/2011/07/11/reretour-dexperience-sur-android/</link>
       <pubDate>Mon, 11 Jul 2011 18:37:23 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2011/07/11/reretour-dexperience-sur-android/</guid>
+      <guid>https://deimosfr.github.io/blog/2011/07/11/reretour-dexperience-sur-android/</guid>
       <description>Je maintiens tout ce que j’ai pu dire sur mes anciens post. Je me rends de plus en plus compte qu’Android c’est top rooté. Quid d’un iOS jailbreaké ?
 Je pense au finale que ce doit etre kifkif. Je rappelle encore une fois que les grosses différences entre les 2 sont l&amp;rsquo;ergonomie et les fonctionnalités.
 Il ne se passe pas un jour ou je regrette d&amp;rsquo;avoir laissé mon iphone et il ne se passe pas un jour ou je regrette d&amp;rsquo;avoir mon Android.</description>
@@ -99,50 +99,50 @@ Il ne se passe pas un jour ou je regrette d&amp;rsquo;avoir laissé mon iphone e
     
     <item>
       <title>Geekerie…quant tu nous tiens…</title>
-      <link>http://blog.deimos.fr/2010/05/01/geekerie-quant-tu-nous-tiens/</link>
+      <link>https://deimosfr.github.io/blog/2010/05/01/geekerie-quant-tu-nous-tiens/</link>
       <pubDate>Sat, 01 May 2010 00:31:01 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2010/05/01/geekerie-quant-tu-nous-tiens/</guid>
+      <guid>https://deimosfr.github.io/blog/2010/05/01/geekerie-quant-tu-nous-tiens/</guid>
       <description>Deimos vient encore de frapper ! Cette semaine, en parlant avec des amis du taf, je me suis rappeler de l’époque ou j’avais BluePhoneElite sur Mac. C’est un soft qui me permettait d’être (entre autre car il a beaucoup plus de fonctionnalités que ça) connecté avec mon téléphone portable en bluetooth à mon mac et lorsque je m’éloignais, l’ordi se vérouillait.
 Je regrette que cette fonctionnalité là n&amp;rsquo;existe pas sur Linux.</description>
     </item>
     
     <item>
       <title>Se servir du iPhone comme clef USB</title>
-      <link>http://blog.deimos.fr/2009/11/14/se-servir-du-iphone-comme-clef-usb/</link>
+      <link>https://deimosfr.github.io/blog/2009/11/14/se-servir-du-iphone-comme-clef-usb/</link>
       <pubDate>Sat, 14 Nov 2009 08:54:01 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2009/11/14/se-servir-du-iphone-comme-clef-usb/</guid>
+      <guid>https://deimosfr.github.io/blog/2009/11/14/se-servir-du-iphone-comme-clef-usb/</guid>
       <description>Ca faisait un moment que je cherchais ça. Grace à iFuse, je peut monter mon iPhone sur mon Ubuntu, et m’en servir comme une clef USB et sans avoir besoin de le jailbreaker. Il faut pour ça installer un repository et lancer la commande magique :
 sudo add-apt-repository jonabeck sudo apt-get install ifuse  </description>
     </item>
     
     <item>
       <title>Dropbox sur iPhone !!!!!!!!</title>
-      <link>http://blog.deimos.fr/2009/09/30/dropbox-sur-iphone/</link>
+      <link>https://deimosfr.github.io/blog/2009/09/30/dropbox-sur-iphone/</link>
       <pubDate>Wed, 30 Sep 2009 06:57:30 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2009/09/30/dropbox-sur-iphone/</guid>
+      <guid>https://deimosfr.github.io/blog/2009/09/30/dropbox-sur-iphone/</guid>
       <description>Toi ! Oui toi fidèle lecteur ! Tu ne connais pas dropbox ? C’est simple, c’est une application qui tourne sous Linux/Mac/Windaube et qui te permet de mettre des fichiers (peut importe quoi) dessus et tu as 2Go disponible sur un serveur. Tu peux y accéder de n’importe ou en web, ce qui est très pratique.
 Et quand tu a gouter à ce soft, tu peux difficilement t&amp;rsquo;en séparer. Et là, ils viennent de sortir l&amp;rsquo;application sur iPhone !</description>
     </item>
     
     <item>
       <title>Google Reader c’est bien</title>
-      <link>http://blog.deimos.fr/2009/08/03/google-reader-cest-bien/</link>
+      <link>https://deimosfr.github.io/blog/2009/08/03/google-reader-cest-bien/</link>
       <pubDate>Mon, 03 Aug 2009 21:16:28 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2009/08/03/google-reader-cest-bien/</guid>
+      <guid>https://deimosfr.github.io/blog/2009/08/03/google-reader-cest-bien/</guid>
       <description>Ca fait maintenant plus d’un an que j’utilise Google Reader et pourtant je disais que c’était de la merde. J’en parlais justement avec poto de ma promo MCSE et c’est un peu grâce à lui que je fait ce post (Archer, si tu me lis…).
 Bref, Google Reader permet de centraliser ses flux RSS. Ouai et alors ça sert à quoi puisqu&amp;rsquo;on peut les foutre dans Firefox ou dans un soft pour RSS ?</description>
     </item>
     
     <item>
       <title>iPhone 3GS in da house</title>
-      <link>http://blog.deimos.fr/2009/07/12/iphone-3gs-in-da-house/</link>
+      <link>https://deimosfr.github.io/blog/2009/07/12/iphone-3gs-in-da-house/</link>
       <pubDate>Sun, 12 Jul 2009 09:08:58 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2009/07/12/iphone-3gs-in-da-house/</guid>
+      <guid>https://deimosfr.github.io/blog/2009/07/12/iphone-3gs-in-da-house/</guid>
       <description>Ca y est, j’ai l’iPhone 3GS, youpi ! Déjà jailbreaké, je kiffe et je kiffe aussi le mode modem du firmware 3.
 J&amp;rsquo;ai fais une tite doc par rapport à ce que j&amp;rsquo;avais trouvé pour faire croire à l&amp;rsquo;opérateur que c&amp;rsquo;est bien votre iphone qui emet des requêtes de type data et non un partage qui serait détecté. Au final, des économies.
 La doc est ici</description>
@@ -150,10 +150,10 @@ La doc est ici</description>
     
     <item>
       <title>Evitons la boulification</title>
-      <link>http://blog.deimos.fr/2009/02/10/evitons-la-boulification/</link>
+      <link>https://deimosfr.github.io/blog/2009/02/10/evitons-la-boulification/</link>
       <pubDate>Tue, 10 Feb 2009 12:32:00 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2009/02/10/evitons-la-boulification/</guid>
+      <guid>https://deimosfr.github.io/blog/2009/02/10/evitons-la-boulification/</guid>
       <description>Ca y est, je me remet sérieusement au régime. Après être passé de 83kg à 74kg, je me suis un chouilla laissé allé.
 Bon évidement j&amp;rsquo;ai pas repris tout ce que j&amp;rsquo;avais réussi à perdre, sans quoi je me serais déjà pendu. Cependant, je suis à 75,5kg.
 J&amp;rsquo;ai un petit soft sur mon iPhone qui s&amp;rsquo;appelle Weightbot et qui me graffe ma progression (bon pas RRDTool non plus).
@@ -162,10 +162,10 @@ De plus, j&amp;rsquo;ai une nouvelle balance qui me fait la totale : masse muscu
     
     <item>
       <title>Et voici mon blog</title>
-      <link>http://blog.deimos.fr/2008/12/15/et-voici-mon-blog/</link>
+      <link>https://deimosfr.github.io/blog/2008/12/15/et-voici-mon-blog/</link>
       <pubDate>Mon, 15 Dec 2008 19:59:38 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2008/12/15/et-voici-mon-blog/</guid>
+      <guid>https://deimosfr.github.io/blog/2008/12/15/et-voici-mon-blog/</guid>
       <description>Me voilà de retour avec un blog, qui je l’espère pourra être cette fois ci tenu à jour. J’ai eu quelques mésaventures par le passé, mais là, je suis bien bien bien décidé à le tenir à jour.
 Donc pour les curieux, il y aura ici mes docs (enfin plutôt les liens vers mon wiki) informatiques, des photos rigolotes, des photos en live de mes vacances (merci l&amp;rsquo;iPhone et les nouvelles technos) ainsi que des infos sur ma vie.</description>
     </item>

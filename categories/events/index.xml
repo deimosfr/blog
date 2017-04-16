@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Events on Deimosfr Blog</title>
-    <link>http://blog.deimos.fr/categories/events/</link>
+    <link>https://deimosfr.github.io/blog/categories/events/</link>
     <description>Recent content in Events on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 15 Sep 2015 21:56:06 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.deimos.fr/categories/events/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://deimosfr.github.io/blog/categories/events/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Ansible Meetup done! Watch again the slides</title>
-      <link>http://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/</link>
+      <link>https://deimosfr.github.io/blog/2015/09/15/ansible-meetup-done-watch-again-the-slides/</link>
       <pubDate>Tue, 15 Sep 2015 21:56:06 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/</guid>
+      <guid>https://deimosfr.github.io/blog/2015/09/15/ansible-meetup-done-watch-again-the-slides/</guid>
       <description>The Ansible meetup ended ! That was really nice for my first one.
 I had really great feedbacks and liked the questions when ended. More than that I met nice people after the meetup and could have interresting discussions :-). I&amp;rsquo;m really happy about it.
 For those who would like to review the slides, you can find them here:
@@ -28,10 +28,10 @@ or view the PDF version here:</description>
     
     <item>
       <title>Ansible Meetup with Nousmotards in Paris!!!</title>
-      <link>http://blog.deimos.fr/2015/09/11/ansible-meetup-with-nousmotards-in-paris/</link>
+      <link>https://deimosfr.github.io/blog/2015/09/11/ansible-meetup-with-nousmotards-in-paris/</link>
       <pubDate>Fri, 11 Sep 2015 20:02:01 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2015/09/11/ansible-meetup-with-nousmotards-in-paris/</guid>
+      <guid>https://deimosfr.github.io/blog/2015/09/11/ansible-meetup-with-nousmotards-in-paris/</guid>
       <description>A long long time since my last blog post ! I didn&amp;rsquo;t had the time to make one because of the time I spent on building Nousmotards infrastructure.
 If you&amp;rsquo;re interested in how I built the infrastructure, come and see us on the Ansible Meetup next Tuesday 😉 The slides and video of the Meetup will be made and available on InfoQ.
 If you&amp;rsquo;re a French biker, do not hesitate anymore!</description>
@@ -39,40 +39,40 @@ If you&amp;rsquo;re a French biker, do not hesitate anymore!</description>
     
     <item>
       <title>FOSDEM…in the road again dude!</title>
-      <link>http://blog.deimos.fr/2015/01/31/fosdem-in-the-road-again-dude/</link>
+      <link>https://deimosfr.github.io/blog/2015/01/31/fosdem-in-the-road-again-dude/</link>
       <pubDate>Sat, 31 Jan 2015 06:30:20 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2015/01/31/fosdem-in-the-road-again-dude/</guid>
+      <guid>https://deimosfr.github.io/blog/2015/01/31/fosdem-in-the-road-again-dude/</guid>
       <description>Once again I&amp;rsquo;m on the road of the FOSDEM. Thanks Red Hat for it :-)
 I hope I&amp;rsquo;ll meet all of you! For some it&amp;rsquo;s already planned :-)</description>
     </item>
     
     <item>
       <title>Hadoop meetup on monday in Paris</title>
-      <link>http://blog.deimos.fr/2014/09/20/hadoop-meetup-on-monday-in-paris/</link>
+      <link>https://deimosfr.github.io/blog/2014/09/20/hadoop-meetup-on-monday-in-paris/</link>
       <pubDate>Sat, 20 Sep 2014 10:00:00 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/09/20/hadoop-meetup-on-monday-in-paris/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/09/20/hadoop-meetup-on-monday-in-paris/</guid>
       <description>Next Monday will take place a Hadoop meetup. I already heard of it but didn&amp;rsquo;t tested it yet. This meetup can help you more on what it is and technique usages.
 If you want to know more about this meetup, please follow the link.</description>
     </item>
     
     <item>
       <title>Neo4j: a pretty graph database</title>
-      <link>http://blog.deimos.fr/2014/09/06/neo4j-a-pretty-graph-database-2/</link>
+      <link>https://deimosfr.github.io/blog/2014/09/06/neo4j-a-pretty-graph-database-2/</link>
       <pubDate>Sat, 06 Sep 2014 10:00:18 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/09/06/neo4j-a-pretty-graph-database-2/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/09/06/neo4j-a-pretty-graph-database-2/</guid>
       <description>I forgot to talk about 1 meetup I&amp;rsquo;ve been regarding Neo4j. A friend (evomusic) talked to me about it and as I&amp;rsquo;m curious, I went to this meetup in July. Neo4j is a highly scalable, robust (fully ACID) native graph database. Neo4j is used in mission-critical apps by thousands of leading startups, enterprises, and governments around the world.
 I you don&amp;rsquo;t know what is a graph database, it&amp;rsquo;s a very good introduction and will help you to understand what it is and how it works.</description>
     </item>
     
     <item>
       <title>I am now working at Red Hat :-)</title>
-      <link>http://blog.deimos.fr/2014/06/20/now-working-at-red-hat/</link>
+      <link>https://deimosfr.github.io/blog/2014/06/20/now-working-at-red-hat/</link>
       <pubDate>Fri, 20 Jun 2014 10:00:00 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/06/20/now-working-at-red-hat/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/06/20/now-working-at-red-hat/</guid>
       <description>And the thing has finally happened! In recent years, the idea of ​​one day working at Red Hat pleases me.
 As you may know, I&amp;rsquo;m working at eNovance and the news is: RedHat has acquires eNovance! So I belong now to Red Hat family :-). RedHat really wants to to have our OpenStack experience and I&amp;rsquo;m excited to work with other teams like Ceph (ex Inktank).
 I really hope it will be an excellent adventure and will enjoy it.</description>
@@ -80,10 +80,10 @@ I really hope it will be an excellent adventure and will enjoy it.</description>
     
     <item>
       <title>Openstack Meetup 9: Ceph, Swift and ZFS!</title>
-      <link>http://blog.deimos.fr/2014/06/14/openstack-meetup-9-ceph-swift-and-zfs/</link>
+      <link>https://deimosfr.github.io/blog/2014/06/14/openstack-meetup-9-ceph-swift-and-zfs/</link>
       <pubDate>Sat, 14 Jun 2014 10:00:40 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/06/14/openstack-meetup-9-ceph-swift-and-zfs/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/06/14/openstack-meetup-9-ceph-swift-and-zfs/</guid>
       <description>Do not miss OpenStack meetup event at eNovance headquarter! There will be big talks on:
  ZFS Ceph Swift  You&amp;rsquo;ve understood, it&amp;rsquo; storage related for OpenStack.
 Of course I&amp;rsquo;ll be there :-D. More informations are available here.</description>
@@ -91,10 +91,10 @@ Of course I&amp;rsquo;ll be there :-D. More informations are available here.</de
     
     <item>
       <title>dotScale: european tech conference on scalability</title>
-      <link>http://blog.deimos.fr/2014/05/19/dotscale-european-tech-conference-on-scalability/</link>
+      <link>https://deimosfr.github.io/blog/2014/05/19/dotscale-european-tech-conference-on-scalability/</link>
       <pubDate>Mon, 19 May 2014 10:00:58 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/05/19/dotscale-european-tech-conference-on-scalability/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/05/19/dotscale-european-tech-conference-on-scalability/</guid>
       <description>Today is the dotScale European conference. This is the first time I go to this event and it looks like very interesting.
 Thanks to eNovance to give me the possibility to be there.
 There is a lot of hackers here. I&amp;rsquo;ll make a short review about it in the next post&amp;hellip;keep connected :-)
@@ -103,10 +103,10 @@ To get more information on the event: http://www.dotscale.eu/</description>
     
     <item>
       <title>OpenZFS: European conference</title>
-      <link>http://blog.deimos.fr/2014/05/17/openzfs-european-conference/</link>
+      <link>https://deimosfr.github.io/blog/2014/05/17/openzfs-european-conference/</link>
       <pubDate>Sat, 17 May 2014 10:00:00 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/05/17/openzfs-european-conference/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/05/17/openzfs-european-conference/</guid>
       <description>Next Tuesday, an OpenZFS conference will take place in Paris. I would like to assist as I&amp;rsquo;m a ZFS fan, however I couldn&amp;rsquo;t so easily.
 I didn&amp;rsquo;t really follow OpenZFS and hope we could see videos when the event will be finished. If you don&amp;rsquo;t really know about ZFS and can have the chance to assist, I strongly recommend it to you.
 To get more informations on the event, follow the link.</description>
@@ -114,10 +114,10 @@ To get more informations on the event, follow the link.</description>
     
     <item>
       <title>Elasticsearch meetup next Wednesday in Paris</title>
-      <link>http://blog.deimos.fr/2014/05/11/elasticsearch-meetup-next-wednesday-in-paris/</link>
+      <link>https://deimosfr.github.io/blog/2014/05/11/elasticsearch-meetup-next-wednesday-in-paris/</link>
       <pubDate>Sun, 11 May 2014 10:00:54 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/05/11/elasticsearch-meetup-next-wednesday-in-paris/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/05/11/elasticsearch-meetup-next-wednesday-in-paris/</guid>
       <description>Next Wednesday, a meetup will take place in Paris talking about Elasticsearch. My previous post was talking about a log solution using Elasticsearch.
 During that meetup, an overview of how Elasticsearch powerful real-time capabilities enrich Hadoop development. The session will showcase how to perform real-time searches on top and within Hadoop, Hive, Pig or Cascading jobs to get better answers, fast.
 We&amp;rsquo;ll cover architectural topics such as index scalability, data locality and partitioning between the Hadoop cluster and the search index, using off and on-premise storages (HDFS, S3, local file-systems) and multi-tenancy.</description>
@@ -125,10 +125,10 @@ We&amp;rsquo;ll cover architectural topics such as index scalability, data local
     
     <item>
       <title>Big Data meetup with Twitter feedbacks</title>
-      <link>http://blog.deimos.fr/2014/05/03/big-data-meetup-with-twitter-feedbacks/</link>
+      <link>https://deimosfr.github.io/blog/2014/05/03/big-data-meetup-with-twitter-feedbacks/</link>
       <pubDate>Sat, 03 May 2014 10:00:08 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/05/03/big-data-meetup-with-twitter-feedbacks/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/05/03/big-data-meetup-with-twitter-feedbacks/</guid>
       <description>On next Monday, a meetup will take place in Paris concerning Big Data with Twitter feeback. This meetup will be live retransmitted through YouTube.
 The main talk will speak about how Twitter did to scale to millions of users:
  Twitter is one of the most heavily trafficked sites on the internet, with over 240 million active users and serving over 500 million Tweets per day. Twitter, as a company and as a service has seen remarkable growth in its eight years of existence.</description>
@@ -136,10 +136,10 @@ The main talk will speak about how Twitter did to scale to millions of users:
     
     <item>
       <title>OpenStack: 7th Meetup, network oriented</title>
-      <link>http://blog.deimos.fr/2014/03/16/openstack-7th-meetup-network-oriented/</link>
+      <link>https://deimosfr.github.io/blog/2014/03/16/openstack-7th-meetup-network-oriented/</link>
       <pubDate>Sun, 16 Mar 2014 11:00:31 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/03/16/openstack-7th-meetup-network-oriented/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/03/16/openstack-7th-meetup-network-oriented/</guid>
       <description>The next OpenStack meetup will be next Wednesday in Paris! Don&amp;rsquo;t miss it, I&amp;rsquo;ll be there too!
 Talks are about:
  Neutron SDN controller and Linux kernel OpenStack + OpenContrail Datacenter Network Virtualization French foundation  For more informations, follow the link.</description>
@@ -147,30 +147,30 @@ Talks are about:
     
     <item>
       <title>Ceph Meetup: What’s new in Firefly ?</title>
-      <link>http://blog.deimos.fr/2014/02/14/ceph-meetup-whats-new-in-firefly/</link>
+      <link>https://deimosfr.github.io/blog/2014/02/14/ceph-meetup-whats-new-in-firefly/</link>
       <pubDate>Fri, 14 Feb 2014 11:00:44 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/02/14/ceph-meetup-whats-new-in-firefly/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/02/14/ceph-meetup-whats-new-in-firefly/</guid>
       <description>Don&amp;rsquo;t miss the Ceph Meetup on Monday ! You will be aware of the new features in Firefly (like tiering or erasure coding) ! And this is the first long time support release !!!
 To get more informations: http://www.meetup.com/Ceph-in-Paris/events/158942372/</description>
     </item>
     
     <item>
       <title>OpenStack Meetup 6 on Thuesday</title>
-      <link>http://blog.deimos.fr/2014/02/08/openstack-meetup-6-on-thuesday/</link>
+      <link>https://deimosfr.github.io/blog/2014/02/08/openstack-meetup-6-on-thuesday/</link>
       <pubDate>Sat, 08 Feb 2014 11:00:09 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/02/08/openstack-meetup-6-on-thuesday/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/02/08/openstack-meetup-6-on-thuesday/</guid>
       <description>This meetup should be very interesting as it will talk about deployment for OpenStack. The speakers comes from eNovance and RedHat ! Talks will be very interesting.
 You can find more informations there: http://www.meetup.com/OpenStack-France/events/161704432/</description>
     </item>
     
     <item>
       <title>FOSDEM 2014: day 2</title>
-      <link>http://blog.deimos.fr/2014/02/06/fosdem-2014-day-2/</link>
+      <link>https://deimosfr.github.io/blog/2014/02/06/fosdem-2014-day-2/</link>
       <pubDate>Thu, 06 Feb 2014 11:00:39 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/02/06/fosdem-2014-day-2/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/02/06/fosdem-2014-day-2/</guid>
       <description>Ceph
 I liked that presentation as it has been done by one of my colleague Sebastien Han and reviewed the slides with him:
 Elasticsearch 1.0
@@ -181,10 +181,10 @@ Redis is a real fast solution for storing data in RAM. The Redis Cluster announc
     
     <item>
       <title>FOSDEM 2014: day 1</title>
-      <link>http://blog.deimos.fr/2014/02/04/fosdem-2014-day-1/</link>
+      <link>https://deimosfr.github.io/blog/2014/02/04/fosdem-2014-day-1/</link>
       <pubDate>Tue, 04 Feb 2014 11:00:05 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/02/04/fosdem-2014-day-1/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/02/04/fosdem-2014-day-1/</guid>
       <description>Once again the FOSDEM has given awesome talks ! This years I was more focused to SQL and NOSQL databases. I wanted to also see Puppet related conferences, but they were full like the last year.
 Getting started with MySQL Performance Schema
 First of all, I started with a MySQL Performance Schema presentation :

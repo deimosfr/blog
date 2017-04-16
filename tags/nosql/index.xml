@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nosql on Deimosfr Blog</title>
-    <link>http://blog.deimos.fr/tags/nosql/</link>
+    <link>https://deimosfr.github.io/blog/tags/nosql/</link>
     <description>Recent content in Nosql on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 27 Feb 2015 11:00:01 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.deimos.fr/tags/nosql/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://deimosfr.github.io/blog/tags/nosql/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Ansible: Neo4j role available on Ansible Galaxy</title>
-      <link>http://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/</link>
+      <link>https://deimosfr.github.io/blog/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/</link>
       <pubDate>Fri, 27 Feb 2015 11:00:01 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/</guid>
+      <guid>https://deimosfr.github.io/blog/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/</guid>
       <description>For a new project (will talk about it later), I needed to use Neo4J (graph database if you don&amp;rsquo;t know it yet).
 I tried to cover more features than the current existing Ansible roles available on Ansible Galaxy. More will come in the next weeks. I also tried to make it simple to install it and do not force dependencies at maximum. Here are parameters you can set:
 # Select neo4j version neo4j_package: neo4j # community version #neo4j_package: neo4j-advanced #neo4j_package: neo4j-enterprise # Neo4j spatial plugin neo4j_install_spatial: false neo4j_spatial_version: &amp;#39;0.</description>
@@ -24,10 +24,10 @@ I tried to cover more features than the current existing Ansible roles available
     
     <item>
       <title>ElasticSearch setup HA and basic usages</title>
-      <link>http://blog.deimos.fr/2014/09/10/elasticsearch-setup-ha-and-basic-usages/</link>
+      <link>https://deimosfr.github.io/blog/2014/09/10/elasticsearch-setup-ha-and-basic-usages/</link>
       <pubDate>Wed, 10 Sep 2014 10:00:00 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/09/10/elasticsearch-setup-ha-and-basic-usages/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/09/10/elasticsearch-setup-ha-and-basic-usages/</guid>
       <description>I recently played with ElasticSearch Cluster and I totally fall in love! How easy it is, everything is automatic, it works perfectly, wowwww!!!
 I made a little documentation on how to setup one, you can find it there.
 ElasticSearch is a really powerful solution and I really like working with it. If you&amp;rsquo;re searching a full text search solution, try ElasticSearch, you&amp;rsquo;ll be happy!</description>
@@ -35,20 +35,20 @@ ElasticSearch is a really powerful solution and I really like working with it. I
     
     <item>
       <title>ElasticSearch Book to read</title>
-      <link>http://blog.deimos.fr/2014/08/17/elasticsearch-book-to-read/</link>
+      <link>https://deimosfr.github.io/blog/2014/08/17/elasticsearch-book-to-read/</link>
       <pubDate>Sun, 17 Aug 2014 10:00:33 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/08/17/elasticsearch-book-to-read/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/08/17/elasticsearch-book-to-read/</guid>
       <description>I really like working on ElasticSearch, so powerful, so easy to use, so scalable and so high available. I&amp;rsquo;ve found a very interresting book I bought on it.
 It will help you to start with ElasticSearch and answer a lot of question you may have regarding the product. If you want to buy it, take a look there.</description>
     </item>
     
     <item>
       <title>Deploy a logs management infrastructure (Elasticsearch&#43;Kibana&#43;Fluentd) with Ansible</title>
-      <link>http://blog.deimos.fr/2014/08/15/deploy-a-logs-managememt-infrastructure-elasticsearchkibanfluentd-with-ansible/</link>
+      <link>https://deimosfr.github.io/blog/2014/08/15/deploy-a-logs-managememt-infrastructure-elasticsearchkibanfluentd-with-ansible/</link>
       <pubDate>Fri, 15 Aug 2014 10:00:00 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/08/15/deploy-a-logs-managememt-infrastructure-elasticsearchkibanfluentd-with-ansible/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/08/15/deploy-a-logs-managememt-infrastructure-elasticsearchkibanfluentd-with-ansible/</guid>
       <description>During the last weeks I started to play with Elasticsearch, Fluentd and Kibana. I made a documentation to help on deploying it easily.
 As you may know, I&amp;rsquo;m an Ansible fan, so I made Ansible playbooks to deploy a complete infrastructure (server and clients). They will deploy this kind of architecture:
 On the client side, Fluentd clients will get syslog and Nginx logs, to send them to the Fluentd server. On the server side, a Fluentd receiver will be there to get data from other Fluentd clients.</description>
@@ -56,10 +56,10 @@ On the client side, Fluentd clients will get syslog and Nginx logs, to send them
     
     <item>
       <title>ElasticSearch: meetup 7 in Paris next Tuesday</title>
-      <link>http://blog.deimos.fr/2014/06/08/elasticsearch-meetup-7-un-paris-next-thuesday/</link>
+      <link>https://deimosfr.github.io/blog/2014/06/08/elasticsearch-meetup-7-un-paris-next-thuesday/</link>
       <pubDate>Sun, 08 Jun 2014 10:00:00 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/06/08/elasticsearch-meetup-7-un-paris-next-thuesday/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/06/08/elasticsearch-meetup-7-un-paris-next-thuesday/</guid>
       <description>Next Tuesday, ElasticSearch will takes place. Last meetup was very interesting and technical.
 I hope this one will be as good as the last one. There will be a talk from Dailymotion and an ElasticSearch Core developer.
 To get more informations it&amp;rsquo;s here.</description>
@@ -67,10 +67,10 @@ To get more informations it&amp;rsquo;s here.</description>
     
     <item>
       <title>Meetup: discover MongoDB</title>
-      <link>http://blog.deimos.fr/2014/05/31/meetup-discover-mongodb/</link>
+      <link>https://deimosfr.github.io/blog/2014/05/31/meetup-discover-mongodb/</link>
       <pubDate>Sat, 31 May 2014 10:00:51 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/05/31/meetup-discover-mongodb/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/05/31/meetup-discover-mongodb/</guid>
       <description>A new french meetup MongoDB related will take place next Tuesday in Paris.
 This will be a practical session to learn how to integrates and manage a MongoDB through Java. From shell and MongoDB drivers to make a website integration.
 Thanks for the organization Duchess! To get more informations it&amp;rsquo;s here.</description>

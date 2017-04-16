@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nagios on Deimosfr Blog</title>
-    <link>http://blog.deimos.fr/categories/nagios/</link>
+    <link>https://deimosfr.github.io/blog/categories/nagios/</link>
     <description>Recent content in Nagios on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 02 Sep 2014 10:00:43 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.deimos.fr/categories/nagios/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://deimosfr.github.io/blog/categories/nagios/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Naemon/Nagios: LXC check resources</title>
-      <link>http://blog.deimos.fr/2014/09/02/naemonnagios-lxc-check-resources/</link>
+      <link>https://deimosfr.github.io/blog/2014/09/02/naemonnagios-lxc-check-resources/</link>
       <pubDate>Tue, 02 Sep 2014 10:00:43 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/09/02/naemonnagios-lxc-check-resources/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/09/02/naemonnagios-lxc-check-resources/</guid>
       <description>You may know that I really like LXC and the major problem when you want to use that solution in production is: how do you monitor memory and CPU?
 Regarding the CPU side, I do not have an easy answer for the moment :-(. However regarding the memory, I&amp;rsquo;ve made a Nagios/Naemon check which will check the memory (RAM) and SWAP of a container. Here is how to use it:</description>
     </item>
     
     <item>
       <title>Nagios/Naemon: Free Mobile SMS notification</title>
-      <link>http://blog.deimos.fr/2014/08/27/nagiosnaemon-free-mobile-notification/</link>
+      <link>https://deimosfr.github.io/blog/2014/08/27/nagiosnaemon-free-mobile-notification/</link>
       <pubDate>Wed, 27 Aug 2014 10:00:44 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/08/27/nagiosnaemon-free-mobile-notification/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/08/27/nagiosnaemon-free-mobile-notification/</guid>
       <description>Thanks to Free Mobile (French mobile provider) to provides an SMS API. I enabled it for my own monitoring escalation, just in case I have problem receiving emails.
 I&amp;rsquo;ve made a short documentation on how to setup SMS notification through Free Mobile for Nagios or Naemon (in french).
 Enjoy :-)</description>
@@ -34,20 +34,20 @@ Enjoy :-)</description>
     
     <item>
       <title>Monitoring: switching from Nagios to Naemon (not Shinken or Sensu)</title>
-      <link>http://blog.deimos.fr/2014/08/25/monitoring-switching-from-nagios-feedbacks/</link>
+      <link>https://deimosfr.github.io/blog/2014/08/25/monitoring-switching-from-nagios-feedbacks/</link>
       <pubDate>Mon, 25 Aug 2014 10:00:00 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2014/08/25/monitoring-switching-from-nagios-feedbacks/</guid>
+      <guid>https://deimosfr.github.io/blog/2014/08/25/monitoring-switching-from-nagios-feedbacks/</guid>
       <description>I am using Nagios for about 8 years now for personal and professional usage. What I can say is, this is a super product, old and stable but not as scalable as I would like. We&amp;rsquo;re in the age of Cloud computing and in my opinion we shouldn&amp;rsquo;t have to take care about backup and monitoring in now days, this should be automatic.
 I was searching a solution for my personal usages, that&amp;rsquo;s why I first wanted a lightweight solution but with enough maturity to auto discover my newly created LXC containers.</description>
     </item>
     
     <item>
       <title>OMG, Nagios OpenSource project is almost dead !</title>
-      <link>http://blog.deimos.fr/2013/10/31/omg-nagios-project-is-dead/</link>
+      <link>https://deimosfr.github.io/blog/2013/10/31/omg-nagios-project-is-dead/</link>
       <pubDate>Thu, 31 Oct 2013 11:00:31 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2013/10/31/omg-nagios-project-is-dead/</guid>
+      <guid>https://deimosfr.github.io/blog/2013/10/31/omg-nagios-project-is-dead/</guid>
       <description>This is not a really good news. An announcement at OSMC (Open Source Monitoring Conference) as been made by Andreas Ericsson ( Nagios 4 core dev) about the future of Nagios.
 Nagios 4 is the latest Core version of the project ! Only the enterprise version will remain (strategic choice of Ethan, the creator).
 A Nagios 4 fork will appear called Naemon and developed by Andreas Ericsson. I remind as well that the Shinken is a real good alternative and is able to work with your current Nagios configuration.</description>
@@ -55,69 +55,69 @@ A Nagios 4 fork will appear called Naemon and developed by Andreas Ericsson. I r
     
     <item>
       <title>How to install and configure a monitoring machine for a supervision screen</title>
-      <link>http://blog.deimos.fr/2013/08/20/how-to-install-and-configure-a-monitoring-machine-for-supervision/</link>
+      <link>https://deimosfr.github.io/blog/2013/08/20/how-to-install-and-configure-a-monitoring-machine-for-supervision/</link>
       <pubDate>Tue, 20 Aug 2013 10:00:00 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2013/08/20/how-to-install-and-configure-a-monitoring-machine-for-supervision/</guid>
+      <guid>https://deimosfr.github.io/blog/2013/08/20/how-to-install-and-configure-a-monitoring-machine-for-supervision/</guid>
       <description>The goal of this documentation is how to quickly setup a monitoring screen machine for Nagios/Shinken. Several times in several company I had to do that kind of thing. On Mac OS and Linux.
 I finished to create a documentation for the next times I&amp;rsquo;ll have to deploy such things. The idea is to have a machine that nobody never touch once installed. It&amp;rsquo;s always boring to plug a keyboard and a mouse when somethings goes wrong on this kind of machine that you normally never have to touch.</description>
     </item>
     
     <item>
       <title>Linux Magazine sur Shinken</title>
-      <link>http://blog.deimos.fr/2013/01/28/linux-magazine-sur-shinken/</link>
+      <link>https://deimosfr.github.io/blog/2013/01/28/linux-magazine-sur-shinken/</link>
       <pubDate>Mon, 28 Jan 2013 11:00:25 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2013/01/28/linux-magazine-sur-shinken/</guid>
+      <guid>https://deimosfr.github.io/blog/2013/01/28/linux-magazine-sur-shinken/</guid>
       <description>Je suis un fidèle lecteur de Linux Magazine et me suis récemment abonné à leurs journaux en PDF (enfin ! Marre des piles de Linux mag qui traînent chez moi).
 Même si j&amp;rsquo;aime beaucoup ce que ces magazines proposent, tout ne m&amp;rsquo;intéresse pas et je dirais que c&amp;rsquo;est normal. Cependant ils font de temps en temps des hors série sur un sujet bien particulier qui permet de découvrir de nouveaux horizons.</description>
     </item>
     
     <item>
       <title>News en vrac</title>
-      <link>http://blog.deimos.fr/2012/12/11/news-en-vrac-6/</link>
+      <link>https://deimosfr.github.io/blog/2012/12/11/news-en-vrac-6/</link>
       <pubDate>Tue, 11 Dec 2012 11:00:33 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2012/12/11/news-en-vrac-6/</guid>
+      <guid>https://deimosfr.github.io/blog/2012/12/11/news-en-vrac-6/</guid>
       <description>Voici quelques petites modifications récemment effectuées sur le wiki :
  Kernel : J&amp;rsquo;ai mis à jour la documentation pour la recompilation des kernels. Pas de gros changements, juste un petit rafraîchissement graphique. Bind) : Petits correctifs sur quelques erreurs minimes Nagios : Une petite erreur sur l&amp;rsquo;installation, j&amp;rsquo;avais oublié &amp;lsquo;install&amp;rsquo; dans apt-get (Merci Sandro) Awk : Ajout d&amp;rsquo;un exemple awk Mediawki : J&amp;rsquo;ai mis à jour la page pour quelques petits trucs qui ont changés avec la dernière mouture de Mediawiki  </description>
     </item>
     
     <item>
       <title>Reporting Nagios par mail</title>
-      <link>http://blog.deimos.fr/2012/10/08/reporting-nagios-par-mail/</link>
+      <link>https://deimosfr.github.io/blog/2012/10/08/reporting-nagios-par-mail/</link>
       <pubDate>Mon, 08 Oct 2012 10:00:47 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2012/10/08/reporting-nagios-par-mail/</guid>
+      <guid>https://deimosfr.github.io/blog/2012/10/08/reporting-nagios-par-mail/</guid>
       <description>J&amp;rsquo;ai longtemps utilisé cet outil trouvé sur le net, puis repris conjointement avec un ex collègue qui permet de recevoir un email en fonction d&amp;rsquo;alertes de Nagios. Nous l&amp;rsquo;utilisions pour recevoir, avant d&amp;rsquo;arriver au taf ces emails, pour savoir quels sont les problèmes avant d&amp;rsquo;arriver. Cela permet d&amp;rsquo;arriver soit en courant, soit serein :-)
 C&amp;rsquo;est un script qui va parser l&amp;rsquo;interface web graphique de Nagios, récupérer le minimum d&amp;rsquo;informations pour un bon affichage sur smartphone et envoyer un mail.</description>
     </item>
     
     <item>
       <title>Nagios, CheckMk et Thruk sont dans un bateau</title>
-      <link>http://blog.deimos.fr/2012/06/30/nagios-checkmk-et-thruk-sont-dans-un-bateau/</link>
+      <link>https://deimosfr.github.io/blog/2012/06/30/nagios-checkmk-et-thruk-sont-dans-un-bateau/</link>
       <pubDate>Sat, 30 Jun 2012 10:00:27 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2012/06/30/nagios-checkmk-et-thruk-sont-dans-un-bateau/</guid>
+      <guid>https://deimosfr.github.io/blog/2012/06/30/nagios-checkmk-et-thruk-sont-dans-un-bateau/</guid>
       <description>Toi aussi tu rêves d&amp;rsquo;avoir une infrastructure Nagios éclatée ? Tu en as marre d&amp;rsquo;avoir des latences qui te foutent la merde sur tes alertes alors qu&amp;rsquo;il n&amp;rsquo;y a réellement aucun soucis ou simplement une micro coupure sur ta ligne de monitoring ? Et en plus de tout ça tu dois gérer de multiples filiales pour monitorer les mêmes choses ! Ne cherches pas plus loin petit padawan ! La documentation suivante est faite pour toi !</description>
     </item>
     
     <item>
       <title>Check_mk &amp; Thruk</title>
-      <link>http://blog.deimos.fr/2012/06/06/check_mk-thruk/</link>
+      <link>https://deimosfr.github.io/blog/2012/06/06/check_mk-thruk/</link>
       <pubDate>Wed, 06 Jun 2012 10:00:40 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2012/06/06/check_mk-thruk/</guid>
+      <guid>https://deimosfr.github.io/blog/2012/06/06/check_mk-thruk/</guid>
       <description>J&amp;rsquo;ai mis à jour mes documentations avec quelques petites corrections et les dernières version des softs :
  Doc sur Check_mk Doc sur Thruk  &amp;nbsp;</description>
     </item>
     
     <item>
       <title>CGI minimal pour Nagios</title>
-      <link>http://blog.deimos.fr/2012/04/23/cgi-minimal-pour-nagios/</link>
+      <link>https://deimosfr.github.io/blog/2012/04/23/cgi-minimal-pour-nagios/</link>
       <pubDate>Mon, 23 Apr 2012 10:00:47 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2012/04/23/cgi-minimal-pour-nagios/</guid>
+      <guid>https://deimosfr.github.io/blog/2012/04/23/cgi-minimal-pour-nagios/</guid>
       <description>J&amp;rsquo;ai eu besoin de faire un bouton personnalisé pour Nagios (et Thruk surtout) afin d&amp;rsquo;exécutuer un cgi. J&amp;rsquo;ai donc fais un petite doc car j&amp;rsquo;ai perdu du temps sur des conneries et je me dis que ça peut servir à quelqu&amp;rsquo;un d&amp;rsquo;autre.
 Pour Nagios
 Thruk CGI
@@ -126,10 +126,10 @@ Bonne lecture</description>
     
     <item>
       <title>Oh qu’elle est bien foutue cette interface !</title>
-      <link>http://blog.deimos.fr/2012/04/17/oh-quelle-est-bien-foutue-cette-interface/</link>
+      <link>https://deimosfr.github.io/blog/2012/04/17/oh-quelle-est-bien-foutue-cette-interface/</link>
       <pubDate>Tue, 17 Apr 2012 10:00:32 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2012/04/17/oh-quelle-est-bien-foutue-cette-interface/</guid>
+      <guid>https://deimosfr.github.io/blog/2012/04/17/oh-quelle-est-bien-foutue-cette-interface/</guid>
       <description>Pour faire suite à l&amp;rsquo;article précédent, voici une interface évoluée pour Nagios (et Shinken) qui permet de se connecter à plusieurs Nagios en même temps et d&amp;rsquo;afficher des informations plus pertinentes par rapport à l&amp;rsquo;interface standard de Nagios.
 J&amp;rsquo;ai également fait de la modification de code pour obtenir une interface minimale afin d&amp;rsquo;être optimisée pour des écrans dédiés au monitoring.
 Suivez le guide :-)
@@ -138,48 +138,48 @@ UPDATE : Le temps que j&amp;rsquo;écrive ce ticket, mes modifications ont été
     
     <item>
       <title>Check MK : Etendre les possibilités de Nagios</title>
-      <link>http://blog.deimos.fr/2012/04/15/check-mk-etendre-les-possibilites-de-nagios/</link>
+      <link>https://deimosfr.github.io/blog/2012/04/15/check-mk-etendre-les-possibilites-de-nagios/</link>
       <pubDate>Sun, 15 Apr 2012 10:00:33 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2012/04/15/check-mk-etendre-les-possibilites-de-nagios/</guid>
+      <guid>https://deimosfr.github.io/blog/2012/04/15/check-mk-etendre-les-possibilites-de-nagios/</guid>
       <description>Nagios c&amp;rsquo;est super, ça manque juste de fonctionnalités quelque fois. Alors voici un super addon de la mort qui permet d&amp;rsquo;extraire des données rapidement et de booster les possibilités (multisites, cluster&amp;hellip;).
 Je n&amp;rsquo;aborde pas dans ce tuto toutes les facettes de ce soft tellement il y a de possibilités, je préfère laisser celà à la documentation officielle, mais plutôt un moyen de déployer rapidement cet outil et quelques exemples de prise en main rapide.</description>
     </item>
     
     <item>
       <title>Un utilitaire pour commandlinefu.com</title>
-      <link>http://blog.deimos.fr/2012/04/03/un-utilitaire-pour-commandlinefu-com/</link>
+      <link>https://deimosfr.github.io/blog/2012/04/03/un-utilitaire-pour-commandlinefu-com/</link>
       <pubDate>Tue, 03 Apr 2012 11:00:48 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2012/04/03/un-utilitaire-pour-commandlinefu-com/</guid>
+      <guid>https://deimosfr.github.io/blog/2012/04/03/un-utilitaire-pour-commandlinefu-com/</guid>
       <description>Sachez que vous pouvez faire une recherche dans ce site pour en extraire des exemples grâce à un petit script. Exemple : &amp;gt; fu -a awk 1	# List of commands you use most often history | awk &amp;#39;{a[$2]++}END{for(i in a){print a[i] &amp;quot; &amp;quot; i}}&amp;#39; | sort -rn | head&amp;lt;/p&amp;gt; 2	# Display a block of text with AWK awk &amp;#39;/start_pattern/,/stop_pattern/&amp;#39; file.txt&amp;lt;/p&amp;gt; 3	# Remove duplicate entries in a file without sorting.</description>
     </item>
     
     <item>
       <title>PNP4Nagios c’est beau</title>
-      <link>http://blog.deimos.fr/2011/08/26/pnp4nagios-cest-beau/</link>
+      <link>https://deimosfr.github.io/blog/2011/08/26/pnp4nagios-cest-beau/</link>
       <pubDate>Fri, 26 Aug 2011 15:51:57 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2011/08/26/pnp4nagios-cest-beau/</guid>
+      <guid>https://deimosfr.github.io/blog/2011/08/26/pnp4nagios-cest-beau/</guid>
       <description>Voilà une petite fonctionnalité sympas à rajouter sur Nagios, ça permet de grapher les alertes Nagios grâce aux &amp;ldquo;Performances Data&amp;rdquo;. Pour la documentation, ça se passe ici.</description>
     </item>
     
     <item>
       <title>Les dernières news</title>
-      <link>http://blog.deimos.fr/2011/06/26/les-dernieres-news/</link>
+      <link>https://deimosfr.github.io/blog/2011/06/26/les-dernieres-news/</link>
       <pubDate>Sun, 26 Jun 2011 09:49:10 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2011/06/26/les-dernieres-news/</guid>
+      <guid>https://deimosfr.github.io/blog/2011/06/26/les-dernieres-news/</guid>
       <description>Ces dernières semaines, voici quelques articles sur lesquels j’ai travaillé :
  Samba : Migrer de smbpasswd vers tdbsam RedHat : Utilisation d&amp;rsquo;un dépôt locale Ajout d&amp;rsquo;une section Android Tuning d&amp;rsquo;un Samsung Galaxy S2 Ajout d&amp;rsquo;une section pour la validation et la correction des limites sous OpenVZ Résoudre le problème de Nagios (Apache) lors de l&amp;rsquo;upgrade de Debian  </description>
     </item>
     
     <item>
       <title>Nagios : Améliorer le look des notifications</title>
-      <link>http://blog.deimos.fr/2011/03/31/nagios-ameliorer-le-look-des-notifications/</link>
+      <link>https://deimosfr.github.io/blog/2011/03/31/nagios-ameliorer-le-look-des-notifications/</link>
       <pubDate>Thu, 31 Mar 2011 12:29:31 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2011/03/31/nagios-ameliorer-le-look-des-notifications/</guid>
+      <guid>https://deimosfr.github.io/blog/2011/03/31/nagios-ameliorer-le-look-des-notifications/</guid>
       <description>Ça faisait longtemps un ptit article sur Nagios tiens !
 Aujourd&amp;rsquo;hui les enfants, nous allons voir comment faire des mails d&amp;rsquo;alerte class mais pas trop lourd non plus :
 On peut donc faire des emails en HTML avec des liens (ouaaa), on peut même mettre des images et couplé à nagios graph, on peut même les mettre dedans (ohhhh !!!). Bref, j&amp;rsquo;ai fais une petite doc pour une installation flash éclair : Nagios : Améliorer le look des notifications</description>
@@ -187,10 +187,10 @@ On peut donc faire des emails en HTML avec des liens (ouaaa), on peut même mett
     
     <item>
       <title>Nagios : Encore une documentation</title>
-      <link>http://blog.deimos.fr/2011/02/25/nagios-encore-une-documentation/</link>
+      <link>https://deimosfr.github.io/blog/2011/02/25/nagios-encore-une-documentation/</link>
       <pubDate>Fri, 25 Feb 2011 06:14:49 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2011/02/25/nagios-encore-une-documentation/</guid>
+      <guid>https://deimosfr.github.io/blog/2011/02/25/nagios-encore-une-documentation/</guid>
       <description>Bonjour à tous !
 J&amp;rsquo;ai mis à jour mon wiki avec ma configuration Nagios. Vous allez me dire : &amp;ldquo;Atta&amp;hellip; pouquoi t&amp;rsquo;fais ça, yen a plein sule net, c&amp;rsquo;est po la peine hein !&amp;rdquo;. C&amp;rsquo;est vrai qu&amp;rsquo;il y en a plein sur le net, c&amp;rsquo;est pour ça que la mienne n&amp;rsquo;est pas bourrée d&amp;rsquo;explications et surtout un peu plus particulière que la majorité qu&amp;rsquo;on trouve sur internet.
 Etant utilisateur, administrateur et développeur de plugins, ma forte expérience sur Nagios m&amp;rsquo;a permit d&amp;rsquo;apprendre à moduler, simplifier et rendre flexible ma configuration Nagios.</description>
@@ -198,20 +198,20 @@ Etant utilisateur, administrateur et développeur de plugins, ma forte expérien
     
     <item>
       <title>Check_file_content : encore un plugin Nagios</title>
-      <link>http://blog.deimos.fr/2010/05/10/check_file_content-encore-un-plugin-nagios/</link>
+      <link>https://deimosfr.github.io/blog/2010/05/10/check_file_content-encore-un-plugin-nagios/</link>
       <pubDate>Mon, 10 May 2010 19:46:46 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2010/05/10/check_file_content-encore-un-plugin-nagios/</guid>
+      <guid>https://deimosfr.github.io/blog/2010/05/10/check_file_content-encore-un-plugin-nagios/</guid>
       <description>Me voilà reparti dans mes plugins nagios. J’ai dû développer ça pour le taf à la base et je me suis dis que j’allais le rendre générique et le présenter à la communauté :-)
 Voilà donc un plugin qui permet de parser un fichier, et de garder ou non les lignes qui nous intéressent. En plus de celà on peut spécifier, s&amp;rsquo;il faut un certain nombre de lignes pour que le plugin retourne une valeur positive.</description>
     </item>
     
     <item>
       <title>Migration de mes plugins Nagios</title>
-      <link>http://blog.deimos.fr/2010/03/06/migration-de-mes-plugins-nagios/</link>
+      <link>https://deimosfr.github.io/blog/2010/03/06/migration-de-mes-plugins-nagios/</link>
       <pubDate>Sat, 06 Mar 2010 17:50:48 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2010/03/06/migration-de-mes-plugins-nagios/</guid>
+      <guid>https://deimosfr.github.io/blog/2010/03/06/migration-de-mes-plugins-nagios/</guid>
       <description>Je viens de migrer mes plugins nagios sur le site officiel….enfin…disons que je viens de voir qu’ils y étaient et j’ai fais une demande pour la gestion de ceux ci.
 Il est donc plus intéressant qu&amp;rsquo;ils apparaissent sur le site officiel, plutôt que l&amp;rsquo;historique, même si il m&amp;rsquo;a bien servit durant quelques mois.
 Vous pouvez donc maintenant les retrouver sur http://exchange.nagios.org</description>
@@ -219,10 +219,10 @@ Vous pouvez donc maintenant les retrouver sur http://exchange.nagios.org</descri
     
     <item>
       <title>Encore de nouvelles contributions pour Nagios</title>
-      <link>http://blog.deimos.fr/2009/12/22/encore-de-nouvelles-contributions-pour-nagios/</link>
+      <link>https://deimosfr.github.io/blog/2009/12/22/encore-de-nouvelles-contributions-pour-nagios/</link>
       <pubDate>Tue, 22 Dec 2009 16:25:27 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2009/12/22/encore-de-nouvelles-contributions-pour-nagios/</guid>
+      <guid>https://deimosfr.github.io/blog/2009/12/22/encore-de-nouvelles-contributions-pour-nagios/</guid>
       <description>Oyé oyé, les contributions nagios se suivent mais ne se ressemblent pas. J’ai concocté 2 nouveaux modules nagios :
  check_sun_cluster : qui permet de surveiller l&amp;rsquo;état du cluster sun check_multi_procs : permet de surveiller plusieurs process dans un seul check  Et puis j&amp;rsquo;ai pu en améliorer d&amp;rsquo;autres :
  check_backuppc_hosts : ajout d&amp;rsquo;une fonctionnalité pour monitorer qu&amp;rsquo;un seuil hôte  Voilà donc mes dernières œuvres.</description>
@@ -230,10 +230,10 @@ Vous pouvez donc maintenant les retrouver sur http://exchange.nagios.org</descri
     
     <item>
       <title>Encore 2 nouveaux plugins pour Nagios</title>
-      <link>http://blog.deimos.fr/2009/12/13/encore-2-nouveaux-plugins-pour-nagios/</link>
+      <link>https://deimosfr.github.io/blog/2009/12/13/encore-2-nouveaux-plugins-pour-nagios/</link>
       <pubDate>Sun, 13 Dec 2009 00:29:02 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2009/12/13/encore-2-nouveaux-plugins-pour-nagios/</guid>
+      <guid>https://deimosfr.github.io/blog/2009/12/13/encore-2-nouveaux-plugins-pour-nagios/</guid>
       <description>Et oui, ça continue. J’ai créer 2 nouveaux plugins pour Nagios :
  Check_ldap_request : Permet d&amp;rsquo;effectuer une requêtes LDAP pour vérifier l&amp;rsquo;existance d&amp;rsquo;un attribut
  Check_rss_mem : Vérifie la mémoire réservée de tous les processus sous Solaris
@@ -242,10 +242,10 @@ Vous pouvez donc maintenant les retrouver sur http://exchange.nagios.org</descri
     
     <item>
       <title>Centreon dans les starting blocks</title>
-      <link>http://blog.deimos.fr/2009/05/14/centreon-dans-les-starting-blocks/</link>
+      <link>https://deimosfr.github.io/blog/2009/05/14/centreon-dans-les-starting-blocks/</link>
       <pubDate>Thu, 14 May 2009 06:15:34 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2009/05/14/centreon-dans-les-starting-blocks/</guid>
+      <guid>https://deimosfr.github.io/blog/2009/05/14/centreon-dans-les-starting-blocks/</guid>
       <description>Oyé oyé !
 Depuis quelques temps, mon ami Momo (pour ceux qui le connaissent) me parle de Centreon par ci, Centreon par là, &amp;ldquo;quand est-ce que tu me le met en place etc&amp;hellip;&amp;rdquo;.
 Chaque chose en son temps ! D&amp;rsquo;abord ca a été Nagios pour lui, et maintenant on aperçoit le bout du nez de Centreon. Pour rappel, il permet de faire une conf tout en graphique de Nagios et permet d&amp;rsquo;avoir des graphs sur l&amp;rsquo;historique (pour résumer vulgairement).</description>
@@ -253,10 +253,10 @@ Chaque chose en son temps ! D&amp;rsquo;abord ca a été Nagios pour lui, et mai
     
     <item>
       <title>Ma nouvelle contribution Nagios</title>
-      <link>http://blog.deimos.fr/2009/04/17/ma-nouvelle-contribution-nagios/</link>
+      <link>https://deimosfr.github.io/blog/2009/04/17/ma-nouvelle-contribution-nagios/</link>
       <pubDate>Fri, 17 Apr 2009 12:26:15 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2009/04/17/ma-nouvelle-contribution-nagios/</guid>
+      <guid>https://deimosfr.github.io/blog/2009/04/17/ma-nouvelle-contribution-nagios/</guid>
       <description>Voici ma nouvelle contribution pour Nagios :
  Pour tester vos interfaces IPMP
  Pour tester votre multipathing (utile pour les liens Fibres sur les SAN)
@@ -265,10 +265,10 @@ Chaque chose en son temps ! D&amp;rsquo;abord ca a été Nagios pour lui, et mai
     
     <item>
       <title>Premier script Nagios pour la communautée</title>
-      <link>http://blog.deimos.fr/2009/04/03/premier-script-nagios-pour-la-communautee/</link>
+      <link>https://deimosfr.github.io/blog/2009/04/03/premier-script-nagios-pour-la-communautee/</link>
       <pubDate>Fri, 03 Apr 2009 06:23:19 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2009/04/03/premier-script-nagios-pour-la-communautee/</guid>
+      <guid>https://deimosfr.github.io/blog/2009/04/03/premier-script-nagios-pour-la-communautee/</guid>
       <description>Et voilà, je contribue. C’est rare car je n’ai pas toujours le temps de faire quelque chose de générique, mais là c’est le cas, donc j’en fais profiter tout le monde.
 J&amp;rsquo;ai développer un plugins Nagios pour checker l&amp;rsquo;état de bon fonctionnement de BackupPC. J&amp;rsquo;ai fais avec les moyens du bord et je suis sûr qu&amp;rsquo;il y a moyen de faire plus simple.
 En attendant, voici le lien : http://exchange.nagios.org/directory/Plugins/Backup-and-Recovery/BackupPC/check_backuppc_hosts/details</description>

@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Openbsd on Deimosfr Blog</title>
-    <link>http://blog.deimos.fr/tags/openbsd/</link>
+    <link>https://deimosfr.github.io/blog/tags/openbsd/</link>
     <description>Recent content in Openbsd on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 21 Jul 2013 10:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.deimos.fr/tags/openbsd/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://deimosfr.github.io/blog/tags/openbsd/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Book : Pro Git</title>
-      <link>http://blog.deimos.fr/2013/07/21/book-pro-git/</link>
+      <link>https://deimosfr.github.io/blog/2013/07/21/book-pro-git/</link>
       <pubDate>Sun, 21 Jul 2013 10:00:00 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2013/07/21/book-pro-git/</guid>
+      <guid>https://deimosfr.github.io/blog/2013/07/21/book-pro-git/</guid>
       <description>Git : have you ever tried to play with it ? For several years I&amp;rsquo;m working with that fantastic tool. Anyway the biggest problem is : if you don&amp;rsquo;t work day to day with Git, you need a memento or something similar (like my wiki 😉).
 Also, if you use it for your personal usage, you&amp;rsquo;ll be lost when you will work with complex workflows. As I&amp;rsquo;m not a developer, I use Git to manage my etc configuration, my puppet manifests, my custom scripts&amp;hellip;so many basic usage that really help me to win time as a sysadmin.</description>
     </item>
     
     <item>
       <title>Weechat : a user friendly IRC client</title>
-      <link>http://blog.deimos.fr/2013/05/24/weechat-a-user-friendly-irc-client/</link>
+      <link>https://deimosfr.github.io/blog/2013/05/24/weechat-a-user-friendly-irc-client/</link>
       <pubDate>Fri, 24 May 2013 10:00:30 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2013/05/24/weechat-a-user-friendly-irc-client/</guid>
+      <guid>https://deimosfr.github.io/blog/2013/05/24/weechat-a-user-friendly-irc-client/</guid>
       <description>WeeChat is a fast, light and extensible chat client. It runs on many platforms (including Linux, BSD and Mac OS). I&amp;rsquo;m using it over a year and really love that client.
 WeeChat is:
  modular: a lightweight core with plugins around multi-protocols: IRC and Jabber (other soon) extensible: C plugins and scripts (Perl, Python, Ruby, Lua, Tcl and Scheme) free software: released under GPLv3 license fully documented: user&amp;rsquo;s guide, API, FAQ,.</description>
@@ -34,10 +34,10 @@ WeeChat is:
     
     <item>
       <title>News en vrac…</title>
-      <link>http://blog.deimos.fr/2012/04/11/news-en-vrac-3/</link>
+      <link>https://deimosfr.github.io/blog/2012/04/11/news-en-vrac-3/</link>
       <pubDate>Wed, 11 Apr 2012 10:00:24 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2012/04/11/news-en-vrac-3/</guid>
+      <guid>https://deimosfr.github.io/blog/2012/04/11/news-en-vrac-3/</guid>
       <description>Voici quelques news en vrac :
 Astuce Perl : Savoir si un module est intégrée de base dans Perl
 Diff : quelques arguments qui font qu diff devient plus lisible
@@ -47,29 +47,29 @@ connect-proxy : j&amp;rsquo;ai rajouté la partie sur l&amp;rsquo;installation s
     
     <item>
       <title>Un utilitaire pour commandlinefu.com</title>
-      <link>http://blog.deimos.fr/2012/04/03/un-utilitaire-pour-commandlinefu-com/</link>
+      <link>https://deimosfr.github.io/blog/2012/04/03/un-utilitaire-pour-commandlinefu-com/</link>
       <pubDate>Tue, 03 Apr 2012 11:00:48 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2012/04/03/un-utilitaire-pour-commandlinefu-com/</guid>
+      <guid>https://deimosfr.github.io/blog/2012/04/03/un-utilitaire-pour-commandlinefu-com/</guid>
       <description>Sachez que vous pouvez faire une recherche dans ce site pour en extraire des exemples grâce à un petit script. Exemple : &amp;gt; fu -a awk 1	# List of commands you use most often history | awk &amp;#39;{a[$2]++}END{for(i in a){print a[i] &amp;quot; &amp;quot; i}}&amp;#39; | sort -rn | head&amp;lt;/p&amp;gt; 2	# Display a block of text with AWK awk &amp;#39;/start_pattern/,/stop_pattern/&amp;#39; file.txt&amp;lt;/p&amp;gt; 3	# Remove duplicate entries in a file without sorting.</description>
     </item>
     
     <item>
       <title>Soekris : Migration d’OpenBSD -&gt; pfSense</title>
-      <link>http://blog.deimos.fr/2012/04/01/soekris-migration-dopenbsd-pfsense/</link>
+      <link>https://deimosfr.github.io/blog/2012/04/01/soekris-migration-dopenbsd-pfsense/</link>
       <pubDate>Sun, 01 Apr 2012 11:00:19 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2012/04/01/soekris-migration-dopenbsd-pfsense/</guid>
+      <guid>https://deimosfr.github.io/blog/2012/04/01/soekris-migration-dopenbsd-pfsense/</guid>
       <description>Je m&amp;rsquo;étais fais la main sur la Soekris d&amp;rsquo;un pot il y a un peu plus d&amp;rsquo;un an maintenant et j&amp;rsquo;avais trouvé ça sexy pour l&amp;rsquo;époque. Je trouve que c&amp;rsquo;est aujourd&amp;rsquo;hui vraiment bien abouti et que les fonctionnalités ne manques pas. De plus c&amp;rsquo;est assez scalable, on peut faire a peut prêt tout ce que l&amp;rsquo;on veut dessus, donc j&amp;rsquo;en suis satisfait pour le moment.
 Me voilà donc parti sur une de ces distribs clef en main pour ce qui me sert de routeur/firewall chez moi.</description>
     </item>
     
     <item>
       <title>Samba : leurrer l’espace disponible</title>
-      <link>http://blog.deimos.fr/2012/02/26/1634/</link>
+      <link>https://deimosfr.github.io/blog/2012/02/26/1634/</link>
       <pubDate>Sun, 26 Feb 2012 11:00:57 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2012/02/26/1634/</guid>
+      <guid>https://deimosfr.github.io/blog/2012/02/26/1634/</guid>
       <description>J&amp;rsquo;ai un collègue qui s&amp;rsquo;est retrouvé dans une situation assez délicate. Je vous explique la situation :
  2 points de montages dans /mnt dont un imbriqué dans l&amp;rsquo;autre. 1 partage sur le principale  Lorsque le point de montage principale est full, ont ne peut plus rien copier, même si la 2ème imbrication a encore de l&amp;rsquo;espace de libre. Pour ceux qui n&amp;rsquo;ont toujours pas compris :
  /mnt/ : 30 Mb restant /mnt/disk1 : 10Gb restant share : /mnt/  Le share me dit qu&amp;rsquo;il ne peut pas copier plus de 30 Mb, même dans /share/disk1.</description>
@@ -77,10 +77,10 @@ Me voilà donc parti sur une de ces distribs clef en main pour ce qui me sert de
     
     <item>
       <title>Tmux Cheat Sheet</title>
-      <link>http://blog.deimos.fr/2012/02/24/tmux-cheat-sheet/</link>
+      <link>https://deimosfr.github.io/blog/2012/02/24/tmux-cheat-sheet/</link>
       <pubDate>Fri, 24 Feb 2012 11:00:40 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2012/02/24/tmux-cheat-sheet/</guid>
+      <guid>https://deimosfr.github.io/blog/2012/02/24/tmux-cheat-sheet/</guid>
       <description>Je ne me suis pas mis au LaTeX pour rien, j’avais pour idée de pondre une Cheat Sheet sur Tmux, vu que je n’en avais trouvé aucune sur le net.
 J&amp;rsquo;ai donc mis à jour la documentation Tmux avec les Cheat Sheet en anglais et français.
 Je les fournis également ici :
@@ -91,40 +91,40 @@ Je les fournis également ici :
     
     <item>
       <title>Au revoir Screen, bonjour Tmux</title>
-      <link>http://blog.deimos.fr/2012/02/16/au-revoir-screen-bonjour-tmux/</link>
+      <link>https://deimosfr.github.io/blog/2012/02/16/au-revoir-screen-bonjour-tmux/</link>
       <pubDate>Thu, 16 Feb 2012 11:00:54 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2012/02/16/au-revoir-screen-bonjour-tmux/</guid>
+      <guid>https://deimosfr.github.io/blog/2012/02/16/au-revoir-screen-bonjour-tmux/</guid>
       <description>Screen n’est plus maintenu et a apparemment un code illisible (je n’ai pas vérifier, mais on peut lire ça un peu partout). Il était temps qu’un remplaçant arrive dans mes mains et je ne suis pas déçu car il y a plein de fonctionnalité, une belle stabilité et surtout une plus grande réactivité.
 J&amp;rsquo;ai donc fait une petite documentation dessus. Je vous conseil fortement de switcher, Tmux c&amp;rsquo;est géniale !</description>
     </item>
     
     <item>
       <title>Puppet ça pête !</title>
-      <link>http://blog.deimos.fr/2010/06/24/puppet-ca-pete/</link>
+      <link>https://deimosfr.github.io/blog/2010/06/24/puppet-ca-pete/</link>
       <pubDate>Thu, 24 Jun 2010 14:50:45 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2010/06/24/puppet-ca-pete/</guid>
+      <guid>https://deimosfr.github.io/blog/2010/06/24/puppet-ca-pete/</guid>
       <description>Et bah voilà ! Ca y est je vais passer mon puppet en prod au taf. Franchement c&amp;rsquo;est vraiment bien. Très long à mettre en place mais pour après arrêter les taches répétitives sur les serveurs ! Ça vaut le coup surtout si on a une belle ferme de machines.
 J&amp;rsquo;ai donc prévu une petite doc à cet effet pour ceux que ça intéresse. J&amp;rsquo;ai été aidé de Luc (un presta qui depuis a fait quelques commentaires sur le blog) et ai enrichi un peu le tout.</description>
     </item>
     
     <item>
       <title>Mise à jour OpenBSD 4.6 -&gt; 4.7 pas sans mal</title>
-      <link>http://blog.deimos.fr/2010/05/22/mise-a-jour-openbsd-4-6-4-7-pas-sans-mal/</link>
+      <link>https://deimosfr.github.io/blog/2010/05/22/mise-a-jour-openbsd-4-6-4-7-pas-sans-mal/</link>
       <pubDate>Sat, 22 May 2010 06:35:57 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2010/05/22/mise-a-jour-openbsd-4-6-4-7-pas-sans-mal/</guid>
+      <guid>https://deimosfr.github.io/blog/2010/05/22/mise-a-jour-openbsd-4-6-4-7-pas-sans-mal/</guid>
       <description>Encore une fois, ça a été la tannée avec ce Packet Filter ! Ils changent tout le temps pas mal de trucs. Mon serveur était donc inaccessible cette nuit à cause de cette upgrade.
 J&amp;rsquo;ai déjà encore galérer pour foutre ce putain de PXE. J&amp;rsquo;ai pourtant suivit ma doc que j&amp;rsquo;avais faite précédemment, mais là, rien à faire, le PXE ne voulait pas être reconnu. J&amp;rsquo;ai donc décider d&amp;rsquo;en faire un sous OpenBSD (OpenBSD pour installer OpenBSD, quoi de plus naturelle&amp;hellip;) et vais améliorer la doc ici.</description>
     </item>
     
     <item>
       <title>Multiplexer SSH et SSL</title>
-      <link>http://blog.deimos.fr/2010/05/14/multiplexer-ssh-et-ssl/</link>
+      <link>https://deimosfr.github.io/blog/2010/05/14/multiplexer-ssh-et-ssl/</link>
       <pubDate>Fri, 14 May 2010 13:13:41 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2010/05/14/multiplexer-ssh-et-ssl/</guid>
+      <guid>https://deimosfr.github.io/blog/2010/05/14/multiplexer-ssh-et-ssl/</guid>
       <description>SSLH est comme un tour de magie. Il permet par exemple sur une adresse WAN sur le port 443 d’avoir du HTTPS et du SSH. Comment c’est possible ??? On peut mettre un même port d’écoute sur un même port !
 Effectivement ! Il faut simplement voir SSLH comme un proxy de couche 7 capable de filtrer et différencier les trames SSL des trames SSH.
 Et voici une petite documentation et un correctif pour OpenBSD.</description>
@@ -132,10 +132,10 @@ Et voici une petite documentation et un correctif pour OpenBSD.</description>
     
     <item>
       <title>Encore de nouvelles contributions pour Nagios</title>
-      <link>http://blog.deimos.fr/2009/12/22/encore-de-nouvelles-contributions-pour-nagios/</link>
+      <link>https://deimosfr.github.io/blog/2009/12/22/encore-de-nouvelles-contributions-pour-nagios/</link>
       <pubDate>Tue, 22 Dec 2009 16:25:27 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2009/12/22/encore-de-nouvelles-contributions-pour-nagios/</guid>
+      <guid>https://deimosfr.github.io/blog/2009/12/22/encore-de-nouvelles-contributions-pour-nagios/</guid>
       <description>Oyé oyé, les contributions nagios se suivent mais ne se ressemblent pas. J’ai concocté 2 nouveaux modules nagios :
  check_sun_cluster : qui permet de surveiller l&amp;rsquo;état du cluster sun check_multi_procs : permet de surveiller plusieurs process dans un seul check  Et puis j&amp;rsquo;ai pu en améliorer d&amp;rsquo;autres :
  check_backuppc_hosts : ajout d&amp;rsquo;une fonctionnalité pour monitorer qu&amp;rsquo;un seuil hôte  Voilà donc mes dernières œuvres.</description>
@@ -143,10 +143,10 @@ Et voici une petite documentation et un correctif pour OpenBSD.</description>
     
     <item>
       <title>Encore 2 nouveaux plugins pour Nagios</title>
-      <link>http://blog.deimos.fr/2009/12/13/encore-2-nouveaux-plugins-pour-nagios/</link>
+      <link>https://deimosfr.github.io/blog/2009/12/13/encore-2-nouveaux-plugins-pour-nagios/</link>
       <pubDate>Sun, 13 Dec 2009 00:29:02 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2009/12/13/encore-2-nouveaux-plugins-pour-nagios/</guid>
+      <guid>https://deimosfr.github.io/blog/2009/12/13/encore-2-nouveaux-plugins-pour-nagios/</guid>
       <description>Et oui, ça continue. J’ai créer 2 nouveaux plugins pour Nagios :
  Check_ldap_request : Permet d&amp;rsquo;effectuer une requêtes LDAP pour vérifier l&amp;rsquo;existance d&amp;rsquo;un attribut
  Check_rss_mem : Vérifie la mémoire réservée de tous les processus sous Solaris
@@ -155,10 +155,10 @@ Et voici une petite documentation et un correctif pour OpenBSD.</description>
     
     <item>
       <title>Le Gity, le Gitou à Pitou est dispo</title>
-      <link>http://blog.deimos.fr/2009/12/03/le-gity-le-gitou-a-pitou-est-dispo/</link>
+      <link>https://deimosfr.github.io/blog/2009/12/03/le-gity-le-gitou-a-pitou-est-dispo/</link>
       <pubDate>Thu, 03 Dec 2009 13:33:56 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2009/12/03/le-gity-le-gitou-a-pitou-est-dispo/</guid>
+      <guid>https://deimosfr.github.io/blog/2009/12/03/le-gity-le-gitou-a-pitou-est-dispo/</guid>
       <description>Et bah voilà, c’est fait, j’ai un beau Git mise à dispo avec un Gitweb, pour vous messieurs, pour vous mes dammes, mais surtout pour vous mes dammes….
 J&amp;rsquo;ai pas grand chose pour le moment dessus, mais on peut trouver ma configuration de VIM et de ZSH. La suite arrivera avec le temps.
 Pour consulter mon gitweb, voici l&amp;rsquo;adresse : http://www.deimos.fr/gitweb/
@@ -167,20 +167,20 @@ Vous pouvez également trouver les documentations concernant git que j&amp;rsquo
     
     <item>
       <title>MySecureShell sur Solaris</title>
-      <link>http://blog.deimos.fr/2009/11/13/mysecureshell-sur-solaris/</link>
+      <link>https://deimosfr.github.io/blog/2009/11/13/mysecureshell-sur-solaris/</link>
       <pubDate>Fri, 13 Nov 2009 21:26:30 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2009/11/13/mysecureshell-sur-solaris/</guid>
+      <guid>https://deimosfr.github.io/blog/2009/11/13/mysecureshell-sur-solaris/</guid>
       <description>Je suis en train de bosser avec Seb sur la nouvelle mouture de MySecureShell. On a fait pas mal de chemin jusqu’à présent et je dois maintenant l’utiliser pour des besoins de productions dans la société dans laquelle je travaille, mais tournant sur Solaris.
 Seb a du faire quelques ajustements rapide pour que ça tourne convenablement, mais certaines fonctionnalités ne fonctionne pas encore tout à fait bien. Bref, il travail dessus.</description>
     </item>
     
     <item>
       <title>Mise à jour OpenBSD 4.5 -&gt; 4.6 pas sans mal</title>
-      <link>http://blog.deimos.fr/2009/10/25/mise-a-jour-openbsd-4-5-4-6-pas-sans-mal/</link>
+      <link>https://deimosfr.github.io/blog/2009/10/25/mise-a-jour-openbsd-4-5-4-6-pas-sans-mal/</link>
       <pubDate>Sun, 25 Oct 2009 19:44:20 +0000</pubDate>
       
-      <guid>http://blog.deimos.fr/2009/10/25/mise-a-jour-openbsd-4-5-4-6-pas-sans-mal/</guid>
+      <guid>https://deimosfr.github.io/blog/2009/10/25/mise-a-jour-openbsd-4-5-4-6-pas-sans-mal/</guid>
       <description>Vous l’avez peut être constaté, mais mon serveur était indisponible une partie de la journée. La faute à la mise à jour de ma OpenBSD sur ma Soekris qui a foirée. J’ai voulu upgrader comme j’avais fait à l’époque de la 4.4 vers la 4.5, à savoir en mode manuel http://www.openbsd.org/faq/upgrade46.html#upgrade.
 Même si il est clairement spécifier que ce n&amp;rsquo;est pas la méthode recommandée, je n&amp;rsquo;avais pas rencontrer de problèmes la fois d&amp;rsquo;avant.</description>
     </item>
