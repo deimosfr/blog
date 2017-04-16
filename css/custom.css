@@ -1,0 +1,12 @@
+/* Align image to center */
+.post .post-content img {
+   margin: auto !important;
+}
+/* Fix thumbnail width */
+.postShorten.postShorten--thumbnailimg-left .postShorten-thumbnailimg img {
+   height: inherit !important;
+}
+/* Fix horizontal code scroll */
+pre, .highlight pre {
+   overflow: scroll;
+}

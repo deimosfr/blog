@@ -1,0 +1,1479 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web on Deimosfr Blog</title>
+    <link>http://blog.deimos.fr/tags/web/</link>
+    <description>Recent content in Web on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 29 Jan 2015 11:00:01 +0000</lastBuildDate>
+    
+	<atom:link href="http://blog.deimos.fr/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>WordPress: how I almost lost my blog and want to switch</title>
+      <link>http://blog.deimos.fr/2015/01/29/wordpress-how-i-almost-lost-my-blog-and-want-to-switch/</link>
+      <pubDate>Thu, 29 Jan 2015 11:00:01 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2015/01/29/wordpress-how-i-almost-lost-my-blog-and-want-to-switch/</guid>
+      <description>A few days ago I wanted to play with HAProxy SSL offloading. It was a good experience and alternative to Nginx SSL offloading (I already talked about in this blog). But this is not the topic here&amp;hellip;
+When I was trying to make the offload working on the blog, I modified WordPress options which switched my blog into an infinite loop mode. As it was late and I was tired (bad idea), I just wanted to rollback my changes and needed to recover a SQL backup to do it fast.</description>
+    </item>
+    
+    <item>
+      <title>News in bulk</title>
+      <link>http://blog.deimos.fr/2014/11/07/news-in-bulk-4/</link>
+      <pubDate>Fri, 07 Nov 2014 11:11:29 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/11/07/news-in-bulk-4/</guid>
+      <description>As I do not really have a good blog post for today, here are some things I wanted to talk in a summary. Some good projects have been updated like:
+ WordPress 4: no big updates at the first view but it&amp;rsquo;s nice to see how this project works and grow (videos, WYSIWYG,&amp;hellip;) HAProxy 1.5: Offlloading SSL embedded, Full HTTP Keepalive, ACL enhancement&amp;hellip; BIG update! MySecureShell 2.0: Using GnuTLS instead of OpenSSL, available in Debian upstream repositories, new doc&amp;hellip; Nginx 1.</description>
+    </item>
+    
+    <item>
+      <title>Sphinxdoc and ReadTheDocs theme tricks</title>
+      <link>http://blog.deimos.fr/2014/10/02/sphinxdoc-and-readthedocs-theme-tricks-2/</link>
+      <pubDate>Thu, 02 Oct 2014 10:00:14 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/10/02/sphinxdoc-and-readthedocs-theme-tricks-2/</guid>
+      <description>I&amp;rsquo;ll talk about things that may frustrate you with Sphinxdoc and ReadTheDocs. ReadTheDocs has a beautiful theme and you certainly want to use it with Sphinxdoc. However the size of the main text may be too small for you. Or you noticed that when you try to generate a version locally you&amp;rsquo;ll see it works like a charm but when it&amp;rsquo;s compiled on Readthedocs, it will fail.
+Here is a solution on how to make it work both locally and on Readthedocs:</description>
+    </item>
+    
+    <item>
+      <title>Nginx: enable HSTS (force SSL for users)</title>
+      <link>http://blog.deimos.fr/2014/09/18/nginx-enable-hsts-force-ssl-for-users/</link>
+      <pubDate>Thu, 18 Sep 2014 10:00:21 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/09/18/nginx-enable-hsts-force-ssl-for-users/</guid>
+      <description>I recently heard of HSTS which is a way to force users to come back to your website in SSL if they&amp;rsquo;ve already be to HTTPS once. It is simple, just add this line:
+# HSTS (force users to come in SSL if they&amp;#39;ve already been once) add_header Strict-Transport-Security &amp;quot;max-age=31536000; includeSubdomains&amp;quot;;  If you want to have an overview of a complete configuration with it, look at the my wiki.</description>
+    </item>
+    
+    <item>
+      <title>Fail2ban: limit WordPress brueforce with custom rules</title>
+      <link>http://blog.deimos.fr/2014/09/12/fail2ban-limit-wordpress-brueforce-on-with-custom-rules/</link>
+      <pubDate>Fri, 12 Sep 2014 10:00:48 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/09/12/fail2ban-limit-wordpress-brueforce-on-with-custom-rules/</guid>
+      <description>I recently worked on a client issues because of massive SQL injections. As it wasn&amp;rsquo;t easily for the client to fix on the application side and the request was urgent, I dig into writing fail2ban custom rules and it works quite well.
+I decided to adapt those rules to block bruteforce login attack for WordPress. The problem is WordPress is not returning 403 error code when a user fail to logon but return a 200 instead :-/.</description>
+    </item>
+    
+    <item>
+      <title>Mediawiki: make your search case insensitive</title>
+      <link>http://blog.deimos.fr/2014/08/31/mediawiki-make-your-search-insensitive/</link>
+      <pubDate>Sun, 31 Aug 2014 10:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/08/31/mediawiki-make-your-search-insensitive/</guid>
+      <description>For several years, I was wondering how to make Mediawiki search case insensitive. I didn&amp;rsquo;t really had time to look at it until I was really fed up. That&amp;rsquo;s why after a few seconds of search, I&amp;rsquo;ve found an extension for Mediawiki which is working perfectly called TitleKey.
+ The TitleKey extension provides a case-insensitive title prefix search. It uses a separate table for the keys, so if it works cleanly it can be deployed without an expensive rebuild of core tables, and dumped when Wikimedia gets a nicer backend through Extension:LuceneSearch (pre 1.</description>
+    </item>
+    
+    <item>
+      <title>Nagios/Naemon: Free Mobile SMS notification</title>
+      <link>http://blog.deimos.fr/2014/08/27/nagiosnaemon-free-mobile-notification/</link>
+      <pubDate>Wed, 27 Aug 2014 10:00:44 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/08/27/nagiosnaemon-free-mobile-notification/</guid>
+      <description>Thanks to Free Mobile (French mobile provider) to provides an SMS API. I enabled it for my own monitoring escalation, just in case I have problem receiving emails.
+I&amp;rsquo;ve made a short documentation on how to setup SMS notification through Free Mobile for Nagios or Naemon (in french).
+Enjoy :-)</description>
+    </item>
+    
+    <item>
+      <title>Gogs: easily install on Debian Wheezy</title>
+      <link>http://blog.deimos.fr/2014/08/21/gogs-easily-install-on-debian-wheezy/</link>
+      <pubDate>Thu, 21 Aug 2014 10:00:30 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/08/21/gogs-easily-install-on-debian-wheezy/</guid>
+      <description>I recently talked about Gogs and really like this solution. The main problem I encounter was the current stable version which may not be usable on Debian.
+Here is a quick solution to make it work. First of all, install git:
+apt-get install git  Then you can download the latest compiled version directly from gobuild.
+wget http://gobuild.io/github.com/gogits/gogs/master/linux/amd64 -O output.zip unzip output.zip ./start.sh  You can now access to port 3000.</description>
+    </item>
+    
+    <item>
+      <title>GitHub vs GitLab vs Stash vs Gogs</title>
+      <link>http://blog.deimos.fr/2014/08/19/github-vs-gitlab-vs-stash-vs-gogs/</link>
+      <pubDate>Tue, 19 Aug 2014 10:00:08 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/08/19/github-vs-gitlab-vs-stash-vs-gogs/</guid>
+      <description>I was using Gitweb for about 3 years now and wanted to have a more enhanced web version. I started to look at 3 solutions for my own needs. So my comparison is for my own usage with 2 or 3 friends at max and not for enterprise:
+ GitHub: can make free public and paid private repositories. Sounds very good, the most powerful solution of the market in my opinion.</description>
+    </item>
+    
+    <item>
+      <title>Deploy a logs management infrastructure (Elasticsearch&#43;Kibana&#43;Fluentd) with Ansible</title>
+      <link>http://blog.deimos.fr/2014/08/15/deploy-a-logs-managememt-infrastructure-elasticsearchkibanfluentd-with-ansible/</link>
+      <pubDate>Fri, 15 Aug 2014 10:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/08/15/deploy-a-logs-managememt-infrastructure-elasticsearchkibanfluentd-with-ansible/</guid>
+      <description>During the last weeks I started to play with Elasticsearch, Fluentd and Kibana. I made a documentation to help on deploying it easily.
+As you may know, I&amp;rsquo;m an Ansible fan, so I made Ansible playbooks to deploy a complete infrastructure (server and clients). They will deploy this kind of architecture:
+On the client side, Fluentd clients will get syslog and Nginx logs, to send them to the Fluentd server. On the server side, a Fluentd receiver will be there to get data from other Fluentd clients.</description>
+    </item>
+    
+    <item>
+      <title>Ansible: Fluentd playbook</title>
+      <link>http://blog.deimos.fr/2014/08/13/fluentd-ansible-playbook/</link>
+      <pubDate>Wed, 13 Aug 2014 10:00:48 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/08/13/fluentd-ansible-playbook/</guid>
+      <description>In the previous posts, I&amp;rsquo;ve introduced my Ansible playbooks for kibana and Elasticsearch.
+You may now be happy to know that I&amp;rsquo;ve made an Ansible playbook for Fluentd as well. If you still don&amp;rsquo;t see what those tree ansible playbook can do when they are combined together, you&amp;rsquo;ll see in the next post :-)</description>
+    </item>
+    
+    <item>
+      <title>Ansible: Kibana playbook</title>
+      <link>http://blog.deimos.fr/2014/08/11/ansible-kibana-playbook/</link>
+      <pubDate>Mon, 11 Aug 2014 10:00:50 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/08/11/ansible-kibana-playbook/</guid>
+      <description>In my last post you&amp;rsquo;ve seen the Ansible playbook I&amp;rsquo;ve made for ElasticSearch. I&amp;rsquo;ve made a new one, but for Kibana which is able to easily manage version upgrade and of course is easy to install and use.
+You can find my Kibana playbook on GitHub.
+The next once will of course be related to fluentd :-)</description>
+    </item>
+    
+    <item>
+      <title>Seafile: can’t use client? Use webdav standard!</title>
+      <link>http://blog.deimos.fr/2014/08/01/seafile-cant-use-client-use-websav-standard/</link>
+      <pubDate>Fri, 01 Aug 2014 10:00:05 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/08/01/seafile-cant-use-client-use-websav-standard/</guid>
+      <description>Seafile is a Google Drive replacement. If you missed m&amp;rsquo;y previous blog post on it, you can find it here.
+I really like Seafile even if a search feature is missing :-(. Seafile client is unfortunately not an available solution on all software proposing a cloud connection for sharing files.
+Hopefully an alternative exists using Webdav protocol. It is not activated by default on Seafile but can easily be enable. Here is how to do it.</description>
+    </item>
+    
+    <item>
+      <title>Wiki upgraded to MediaWiki 1.23 &#43; GoogleSearch extension</title>
+      <link>http://blog.deimos.fr/2014/06/12/wiki-updated-ro-mediawiki-1-23/</link>
+      <pubDate>Thu, 12 Jun 2014 10:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/06/12/wiki-updated-ro-mediawiki-1-23/</guid>
+      <description>I recently upgraded the wiki to version 1.23 (new LTS version). As usual Mediawiki made a very good work, no problems during migration using Git, everything is working.
+No major visual changes between the previous version 1.22 and this one. I didn&amp;rsquo;t had to touch anything on my JS, CSS or configuration! Great!
+I encountered an issue with my GoogleSearch extension and made the changes to make it work again. So a new version (0.</description>
+    </item>
+    
+    <item>
+      <title>Seafile: try a self hosted Dropbox like</title>
+      <link>http://blog.deimos.fr/2014/05/01/seafile-try-a-self-hosted-dropbox-like/</link>
+      <pubDate>Thu, 01 May 2014 10:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/05/01/seafile-try-a-self-hosted-dropbox-like/</guid>
+      <description>My last post was about existing alternatives to Dropbox. I also mentioned that I was trying Seafile.
+I&amp;rsquo;m running now Seafile since a few days now and it works without any issues. The Linux and Android clients works very well. I just hope a sync feature in the Android version will appear. Regarding the web version, there are all attending collaboration features and that&amp;rsquo;s great. Seafile supports file versioning and trash bin.</description>
+    </item>
+    
+    <item>
+      <title>My cool kitten welcome page</title>
+      <link>http://blog.deimos.fr/2014/03/30/my-welcome-page/</link>
+      <pubDate>Sun, 30 Mar 2014 10:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/03/30/my-welcome-page/</guid>
+      <description>Some of my readers asked me more clarification on where information&amp;rsquo;s could be find on my site. I wanted to make it clear and have a welcome page to make things easier.
+Some of my readers asked me more clarification on where information&amp;rsquo;s could be find on my site. I wanted to make it clear and have a welcome page to make things easier.
+So you can take a look the result:1</description>
+    </item>
+    
+    <item>
+      <title>Cool Kitten: make a parallax scrolling website easily</title>
+      <link>http://blog.deimos.fr/2014/03/24/cool-kitten-make-a-parallax-scrolling-website-easily/</link>
+      <pubDate>Mon, 24 Mar 2014 11:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/03/24/cool-kitten-make-a-parallax-scrolling-website-easily/</guid>
+      <description>If you want to easily build a static webpage with parallax effect, you can try the Cool Kitten framework. It is a young project that already have cool stuffs like grids solution, responsive design etc&amp;hellip;It uses Normalize.css, jQuery Easing Plugin and Stellar.js.
+You need nodejs to minify CSS but do not need nodejs server to run it, as it is static HTML pages.
+In a few days, I&amp;rsquo;ll show you my usage.</description>
+    </item>
+    
+    <item>
+      <title>PageSpeed disable Varnish by default ! Get both working together</title>
+      <link>http://blog.deimos.fr/2014/02/20/pagespeed-disable-varnish-by-default-get-both-working-together/</link>
+      <pubDate>Thu, 20 Feb 2014 11:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/02/20/pagespeed-disable-varnish-by-default-get-both-working-together/</guid>
+      <description>Yesterday a colleague (Dimitri) tested a tool on this blog. He informed me that Varnish was disabled and PageSpeed may be the cause as this is the last modification I&amp;rsquo;ve made on the server.
+After verification he was totally right ! By default, PageSpeed disable cache by serving HTML files with:
+Cache-Control: no-cache, max-age=0  After reading the PageSpeed documentation on that topic, it is clear: PageSpeed needs to know how to purge the cache as it rewrites a lot of elements and it has the control instead of the application.</description>
+    </item>
+    
+    <item>
+      <title>Deimos.fr is now using PageSpeed :-)…feedbacks</title>
+      <link>http://blog.deimos.fr/2014/02/16/deimos-fr-is-now-using-pagespeed-feedbacks/</link>
+      <pubDate>Sun, 16 Feb 2014 11:00:16 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/02/16/deimos-fr-is-now-using-pagespeed-feedbacks/</guid>
+      <description>Following a previous post, I&amp;rsquo;ve enabled PageSpeed on both wiki and blog deimos.fr.
+What I can say is, it&amp;rsquo;s very important to take the time to test every optimizations you want to add. I experienced for example issues on silly things like :
+# Optimize browser rendering pagespeed EnableFilters lazyload_images;  Some images weren&amp;rsquo;t shown if you didn&amp;rsquo;t refresh once again your page browser. I only had this problem on the blog and not the wiki.</description>
+    </item>
+    
+    <item>
+      <title>Page Speed: optimize on the fly your rendered code with Nginx</title>
+      <link>http://blog.deimos.fr/2014/02/12/page-speed-optimize-on-the-fly-your-rendered-code-with-nginx/</link>
+      <pubDate>Wed, 12 Feb 2014 11:00:21 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/02/12/page-speed-optimize-on-the-fly-your-rendered-code-with-nginx/</guid>
+      <description>I&amp;rsquo;ve first heard of Page Speed last year for Apache. I was really waiting a stable version for Nginx and it&amp;rsquo;s now done. A few days ago, Nicolargo made a post regarding it and that&amp;rsquo;s what motivated me to go ahead on Page Speed.
+PageSpeed speeds up your site and reduces page load time. This open-source webserver module automatically applies web performance best practices to pages and associated assets (CSS, JavaScript, images) without requiring that you modify your existing content or workflow.</description>
+    </item>
+    
+    <item>
+      <title>Dotdeb: Use up to date packages for the web</title>
+      <link>http://blog.deimos.fr/2014/02/10/detdeb-use-up-to-date-packages-for-the-web/</link>
+      <pubDate>Mon, 10 Feb 2014 11:00:01 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/02/10/detdeb-use-up-to-date-packages-for-the-web/</guid>
+      <description>I discovered Dotdeb a few months ago and decided to make a quick documentation to install the repository. But before, here is the official explaination of what is the repository made for :
+ Dotdeb is a repository containing packages to turn your Debian boxes into powerful, stable and up-to-date LAMP servers :
+ Nginx PHP 5.4 and 5.3, useful PHP extensions : APC, imagick, Pinba, xcache, Xdebug, XHprof… MySQL 5.</description>
+    </item>
+    
+    <item>
+      <title>Offloading SSL with Nginx and Varnish</title>
+      <link>http://blog.deimos.fr/2014/01/23/offloading-ssl-with-nginx-and-varnish/</link>
+      <pubDate>Thu, 23 Jan 2014 11:00:47 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/01/23/offloading-ssl-with-nginx-and-varnish/</guid>
+      <description>Varnish is a real powerful cache solution for web servers. He is unfortunately not able to do it over SSL. Anyway, there is a solution by offloading it with Nginx. Here is a schema to get a better understanding :
+Nginx decrypt SSL, pass it in clear to Varnish. If Varnish got it, replies to Nginx which crypt back data to send to user.
+I&amp;rsquo;ve made a full documentation to get it working well, follow the link.</description>
+    </item>
+    
+    <item>
+      <title>Piwik 2.0 is out ! Nice lifting !</title>
+      <link>http://blog.deimos.fr/2014/01/03/piwik-2-0/</link>
+      <pubDate>Fri, 03 Jan 2014 11:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/01/03/piwik-2-0/</guid>
+      <description>Piwik 2.0 has been released a few days ago. The upgrade of my version was done without any issues (as a rule with Piwik).
+I like the look of this new version and like the new mobile application on Android. It&amp;rsquo;s really better organized and really looks like as an application (compared with the first version).
+There are some new interesting features for professionals (not for my personal usage).
+If you don&amp;rsquo;t know it yet, it&amp;rsquo;s a good alternative to Google Analytics and you should try it.</description>
+    </item>
+    
+    <item>
+      <title>Mediawiki : DeleteHistory v0.8 is out</title>
+      <link>http://blog.deimos.fr/2013/12/28/mediawiki-deletehistory-v0-8-is-out/</link>
+      <pubDate>Sat, 28 Dec 2013 11:00:52 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/12/28/mediawiki-deletehistory-v0-8-is-out/</guid>
+      <description>I&amp;rsquo;ve updated DeleteHistory extension to :
+ Add Brazilian Portuguese language Fix minor bug on reporting array  You can easily install the new version with Git as described in the official Mediawiki webpage.
+Hope you&amp;rsquo;ll enjoy this update</description>
+    </item>
+    
+    <item>
+      <title>Nginx : set your site in maintenance easily</title>
+      <link>http://blog.deimos.fr/2013/12/26/nginx-set-your-site-in-maintenance-easily/</link>
+      <pubDate>Thu, 26 Dec 2013 11:00:42 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/12/26/nginx-set-your-site-in-maintenance-easily/</guid>
+      <description>I recently needed to set a website in maintenance and wanted to do it as quickly as possible with any restart of Nginx.
+The idea is to add a maintenance.html page at the root of your web folder and then the maintenance page is automatically taken into account.
+To do it, simply follow the link (in french).</description>
+    </item>
+    
+    <item>
+      <title>PHP-FPM : get status information page for monitoring</title>
+      <link>http://blog.deimos.fr/2013/12/22/php-fpm-get-status-information-page-for-monitoring/</link>
+      <pubDate>Sun, 22 Dec 2013 11:00:19 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/12/22/php-fpm-get-status-information-page-for-monitoring/</guid>
+      <description>To be able to monitor the PHP-FPM service with connections, queue information, process&amp;hellip; you&amp;rsquo;ll need to set the status page. This will give you something like this :
+pool: www process manager: dynamic start time: 18/Dec/2013:19:00:41 +0100 start since: 52972 accepted conn: 5268 listen queue: 0 max listen queue: 0 listen queue len: 0 idle processes: 3 active processes: 1 total processes: 4 max active processes: 4 max children reached: 0  Those informations are important to correctly tune the PHP-FPM service.</description>
+    </item>
+    
+    <item>
+      <title>Nginx : add more security to your SSL</title>
+      <link>http://blog.deimos.fr/2013/12/16/nginx-add-more-security-to-your-ssl/</link>
+      <pubDate>Mon, 16 Dec 2013 11:00:21 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/12/16/nginx-add-more-security-to-your-ssl/</guid>
+      <description>In those time, security is more and more important. Some vulnerabilities have been discovered and security on your SSL should be added. In fact you need to restrict the possibilities to your SSL server to avoid SSL breaks.
+I&amp;rsquo;ve updated my documentation to add SSL Resumption and authorized ciphers algorithms.
+Then you can check your SSL server security here : https://www.ssllabs.com/ssltest/index.html.
+I hope this will help you.</description>
+    </item>
+    
+    <item>
+      <title>Mediawiki 1.22.0 upgraded on wiki</title>
+      <link>http://blog.deimos.fr/2013/12/12/mediawiki-1-22-0-upgraded-on-wiki/</link>
+      <pubDate>Thu, 12 Dec 2013 11:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/12/12/mediawiki-1-22-0-upgraded-on-wiki/</guid>
+      <description>Once again, I&amp;rsquo;ve upgraded my wiki (wiki.deimos.fr) and it was really easy with git.
+We could see some new minor design changes like &amp;ldquo;&amp;lt;pre&amp;gt;&amp;rdquo; banners or the login page. Other interesting features are appearing like load time informations for each page edition or embedding Vector theme in the Core. A new extension manager is used called Composer and will try to look at it&amp;rsquo;s benefits shortly.
+Once again, thanks Mediawiki !</description>
+    </item>
+    
+    <item>
+      <title>Bootswatch : nice Bootstrap themes</title>
+      <link>http://blog.deimos.fr/2013/11/26/bootsatch-nice-bootstrap-themes/</link>
+      <pubDate>Tue, 26 Nov 2013 11:00:22 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/11/26/bootsatch-nice-bootstrap-themes/</guid>
+      <description>A friend recently introduced me nice Bootstrap themes. I tested some of them really simply and like the concept. I&amp;rsquo;m in fact surprised that it hasn&amp;rsquo;t been done before in a so professional way.
+To see them, look at bootswatch website : http://bootswatch.com/</description>
+    </item>
+    
+    <item>
+      <title>Which load web testing tool you recommend ?</title>
+      <link>http://blog.deimos.fr/2013/10/15/which-load-web-testing-tool-you-recommend/</link>
+      <pubDate>Tue, 15 Oct 2013 10:00:26 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/10/15/which-load-web-testing-tool-you-recommend/</guid>
+      <description>Hi all,
+This time, I&amp;rsquo;m asking help to find a good load testing tool. The one I know is Tsung but it&amp;rsquo;s not able to speak to some social API. I would like to know what kind of solution you are using and your feedback on it. I already played with Jmeter and I do not remind that it&amp;rsquo;s able to do better.
+Any help is appreciated :-)
+Thanks</description>
+    </item>
+    
+    <item>
+      <title>SlideShare is out ! Welcome to SpeakerDeck !</title>
+      <link>http://blog.deimos.fr/2013/10/05/slideshare-is-finally-out-welcome-to-speakerdeck/</link>
+      <pubDate>Sat, 05 Oct 2013 10:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/10/05/slideshare-is-finally-out-welcome-to-speakerdeck/</guid>
+      <description>Speaker Deck is the best way to share presentations online. Simply upload your slides as a PDF, and they will turn them into a beautiful online experience. View them on SpeakerDeck.com, or share them on any website with an embed code. More than that, it produces HTML 5 slides and there are no Ads :-)
+I&amp;rsquo;m fed up about slideshare which doesn&amp;rsquo;t grow as it should be. They still produce flash slides and as many people, I don&amp;rsquo;t want it anymore.</description>
+    </item>
+    
+    <item>
+      <title>Jetpack 2.5 : Google &#43; is finally there :-)</title>
+      <link>http://blog.deimos.fr/2013/09/21/jetpack-2-5-google-is-finally-there/</link>
+      <pubDate>Sat, 21 Sep 2013 10:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/09/21/jetpack-2-5-google-is-finally-there/</guid>
+      <description>WordPress and Jetpack are currently working hard to give more security and features to WordPress.
+The last version of JetPack, brings a newcomer to the social sharing solution : Google +.
+I&amp;rsquo;ve enabled it, that mean in addition of this blog and Twitter, you&amp;rsquo;ll now be able to follow me on Google + :-)</description>
+    </item>
+    
+    <item>
+      <title>Pootle : simple translation tool</title>
+      <link>http://blog.deimos.fr/2013/09/17/pootle-simple-translation-tool/</link>
+      <pubDate>Tue, 17 Sep 2013 10:00:04 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/09/17/pootle-simple-translation-tool/</guid>
+      <description>I recently needed to install a simple translation tool that helps on follow the translation activity of a project. Pootle answered my requests very well and that&amp;rsquo;s why I created a documentation to deploy it. It&amp;rsquo;s written in Python and use Django.
+Here is my Pootle tutorial.</description>
+    </item>
+    
+    <item>
+      <title>Desktop : Debian unstable vs Arch Linux</title>
+      <link>http://blog.deimos.fr/2013/09/05/desktop-debian-unstable-vs-arch-linux/</link>
+      <pubDate>Thu, 05 Sep 2013 10:00:03 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/09/05/desktop-debian-unstable-vs-arch-linux/</guid>
+      <description>What a topic ! It could sounds like a patent troll but let me explain why I posted it.
+First of all, I do not have strong skills on Arch Linux, but so many people talked to me about it and have praised me the merit of that distribution that I absolutely needed to test it. Before, I was on Debian testing and had some setbacks that encouraged me to look ahead to find a better solution.</description>
+    </item>
+    
+    <item>
+      <title>phpipam : High level network IP management solution</title>
+      <link>http://blog.deimos.fr/2013/08/14/phpipam-high-level-network-ip-management-solution/</link>
+      <pubDate>Wed, 14 Aug 2013 10:00:37 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/08/14/phpipam-high-level-network-ip-management-solution/</guid>
+      <description>Big warning about that tool ! I&amp;rsquo;ve never seen a such tool ! You can delete your old xls file or wiki pages related on IP informations. phpipam is simply awesome ! I&amp;rsquo;ve been waiting this tool so many years !
+Here are some very interesting features :
+ Import IP addresses from XLS / CSV file E-Mail notification with IP details Subnet statistics Displays free range and number of clients A reservation process A really nice look  If you want to try it, there is a demo site : demo.</description>
+    </item>
+    
+    <item>
+      <title>MediaWiki/Sphinx : setup a full text indexer</title>
+      <link>http://blog.deimos.fr/2013/08/12/mediawikisphinx-setup-a-full-text-indexer/</link>
+      <pubDate>Mon, 12 Aug 2013 10:00:20 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/08/12/mediawikisphinx-setup-a-full-text-indexer/</guid>
+      <description>You certainly know and have used the default MediaWiki search. It&amp;rsquo;s quite good but it&amp;rsquo;s not an optimal search. I wanted to have better one for my wiki that&amp;rsquo;s why I added Google search some years ago.
+I didn&amp;rsquo;t want to setup Apache Lucene or Apache Solar as both are in Java. I always heard good feedback about Sphinx, that&amp;rsquo;s why I decided to add it at work and to my wiki as well.</description>
+    </item>
+    
+    <item>
+      <title>WordPress 3.6 : videos embedded at last !</title>
+      <link>http://blog.deimos.fr/2013/08/10/wordpress-3-6-videos-embended-at-last/</link>
+      <pubDate>Sat, 10 Aug 2013 10:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/08/10/wordpress-3-6-videos-embended-at-last/</guid>
+      <description>The 3.6 version of WordPress is out and finally bring a killer feature that I was waiting for more than 3 years now.
+This feature is embedding videos without requesting additional extension and specific tags, it&amp;rsquo;s a built-in HTML5 media player. It was already possible to add videos but they weren&amp;rsquo;t playable directly on the page, it was a link.
+As I manage the blog of my daughter, this is a really good news.</description>
+    </item>
+    
+    <item>
+      <title>PuPHPet : speed up your Vagrant deployment</title>
+      <link>http://blog.deimos.fr/2013/08/06/puphpet-speed-up-your-vagrant-deployment/</link>
+      <pubDate>Tue, 06 Aug 2013 10:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/08/06/puphpet-speed-up-your-vagrant-deployment/</guid>
+      <description>Vagrant is a fast solution build on top of VirtualBox. I already talked about it in a previous post.
+The thing is, you could do really more with Vagrant by adding Puppet manifests or Chef recipes in your Vagrant configuration file. For those who don&amp;rsquo;t often use one of those 2 softwares, it quickly could transform into a nightmare when they want to deploy softwares in addition of the OS.</description>
+    </item>
+    
+    <item>
+      <title>Book : Working with MediaWiki</title>
+      <link>http://blog.deimos.fr/2013/07/19/book-working-with-mediawiki/</link>
+      <pubDate>Fri, 19 Jul 2013 10:00:46 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/07/19/book-working-with-mediawiki/</guid>
+      <description>As you may know, I&amp;rsquo;m a MediaWiki&amp;rsquo;s fan. I manage and use it since 2006 and you can see what I do with on my wiki.
+I&amp;rsquo;ve always learned by myself, how to do things on MediaWiki as my needs were classical and for a single user. Some weeks ago, I&amp;rsquo;ve made a big upgrade for the last company I&amp;rsquo;ve worked for (Linagora) and I wanted to implement interesting features for a multi users usage.</description>
+    </item>
+    
+    <item>
+      <title>Bye bye Fever, welcome TinyTiny RSS</title>
+      <link>http://blog.deimos.fr/2013/07/05/bye-bye-fever-welcome-tinytiny-rss/</link>
+      <pubDate>Fri, 05 Jul 2013 10:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/07/05/bye-bye-fever-welcome-tinytiny-rss/</guid>
+      <description>I tested some months ago TinyTiny RSS but it wasn&amp;rsquo;t exactly what I expected from an RSS reader. That&amp;rsquo;s why, when Google announced their Reader&amp;rsquo;s end, I wanted to quickly find a reader that can fit my needs and have enough time to test it.
+Fever answered most of them, instead of the mobile client. When I was on iPhone Reeder was nearly perfect, but not really Android with Meltdown.</description>
+    </item>
+    
+    <item>
+      <title>Mediawiki : install and upgrade with Git</title>
+      <link>http://blog.deimos.fr/2013/06/27/mediawiki-install-and-upgrade-with-git/</link>
+      <pubDate>Thu, 27 Jun 2013 10:00:10 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/06/27/mediawiki-install-and-upgrade-with-git/</guid>
+      <description>For several years, I manually managed my MediaWiki instance manually and always upgraded manually, getting diffs, patching files etc&amp;hellip; Now it&amp;rsquo;s over, this method is simply not adapted to my needs.
+Now, as MediaWiki use git, I decided to maintain my instance with the git repository and extensions as well. I&amp;rsquo;ve wrote a documentation on that :
+ Installation method Core + extensions Upgrade core + extensions  &amp;nbsp;
+I hope this will help some of you that still manage it by the old way.</description>
+    </item>
+    
+    <item>
+      <title>MediaWiki DeleteHistory and GoogleSearch updated !</title>
+      <link>http://blog.deimos.fr/2013/06/25/mediawiki-deletehistory-and-googlesearch-updated/</link>
+      <pubDate>Tue, 25 Jun 2013 10:00:20 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/06/25/mediawiki-deletehistory-and-googlesearch-updated/</guid>
+      <description>I saw a little bit late that MediaWiki 1.21 was out. After a quick migration I discovered errors with my plugins because of deprecated and removed functions in this new version.
+I&amp;rsquo;ve updated them to recover the compatibility on MediaWiki with the latest version. You can find updated version here :
+ DeleteHistory : http://www.mediawiki.org/wiki/Extension:DeleteHistory GoogleSearch : http://www.mediawiki.org/wiki/Extension:GoogleSearch  I hope you&amp;rsquo;ll enjoy it :-)</description>
+    </item>
+    
+    <item>
+      <title>Selfoss : An elegant RSS reader</title>
+      <link>http://blog.deimos.fr/2013/06/19/3508/</link>
+      <pubDate>Wed, 19 Jun 2013 10:00:15 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/06/19/3508/</guid>
+      <description>Selfoss is a self-hosted RSS reader solution. It could be compared to Tiny Tiny RSS or Feedly.
+I liked to test that nice solution. But I&amp;rsquo;m still staying with Fever, as there is no Android version working with Selfoss (only an old one exist, but doesn&amp;rsquo;t work) and the web interface is a little bit slow (compared to Fever). I hope this will be better in a short term as this is the most elegant Open Source version I&amp;rsquo;ve tested for now.</description>
+    </item>
+    
+    <item>
+      <title>Firefox Sync : build your own sync server</title>
+      <link>http://blog.deimos.fr/2013/06/03/firefox-sync-build-your-own-sync-server/</link>
+      <pubDate>Mon, 03 Jun 2013 10:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/06/03/firefox-sync-build-your-own-sync-server/</guid>
+      <description>I&amp;rsquo;m very happy of Mozilla Sync service and trust more in Mozilla foundation than Google for my datas. Anyway there is a thing that I don&amp;rsquo;t like : sharing my passwords into the cloud !
+That&amp;rsquo;s why I decided to create my own Sync Server. I want to thanks Mozilla for their work, it works like a charm :-). So now I don&amp;rsquo;t use Mozilla server anymore, but my own. Here is the documentation on how I did that.</description>
+    </item>
+    
+    <item>
+      <title>Nginx Substitutions Filter : change of the fly page content</title>
+      <link>http://blog.deimos.fr/2013/05/14/nginx-substitutions-filter-change-of-the-fly-page-content/</link>
+      <pubDate>Tue, 14 May 2013 10:00:35 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/05/14/nginx-substitutions-filter-change-of-the-fly-page-content/</guid>
+      <description>Nginx Substitutions Filter is a filter module able to do both regular expression and fixed string substitutions on response bodies. This module is quite different from the Nginx&amp;rsquo;s native Substitution Module. It scans the output chains buffer and matches string line by line, just like Apache&amp;rsquo;s mod_substitute.
+I&amp;rsquo;ve played with the classic substitution module but due to limitations (only one matching pattern and no regex), it wasn&amp;rsquo;t easy to do all I wanted to do.</description>
+    </item>
+    
+    <item>
+      <title>Mincss : Easily minify you CSS</title>
+      <link>http://blog.deimos.fr/2013/05/08/mincss-easily-minify-you-css/</link>
+      <pubDate>Wed, 08 May 2013 10:00:11 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/05/08/mincss-easily-minify-you-css/</guid>
+      <description>I was searching a way to minify my CSS. For those who don’t know what it is, it’s a method to win space for your CSS as it will remove all unneeded blank spaces and lines return. A lot of websites exists to minify your CSS, but if your website is not online and only running locally, you won’t be able to minimize it.
+I found a little software written in Python, that makes it easy, called mincss (thanks to Peter Bengtsson for it).</description>
+    </item>
+    
+    <item>
+      <title>MariaDB Galera Cluster : la réplication multi maitres</title>
+      <link>http://blog.deimos.fr/2013/05/02/mariadb-galera-cluster-la-replication-multi-maitres/</link>
+      <pubDate>Thu, 02 May 2013 10:00:41 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/05/02/mariadb-galera-cluster-la-replication-multi-maitres/</guid>
+      <description>Pour ceux qui ont l&amp;rsquo;habitude de faire de la réplication MySQL Master to Master, vous allez kiffer cet article ! Vous connaissez MariaDB ? Je vous en avait déjà parlé il y a quelques temps. Allez&amp;hellip;un petit refresh pour ceux qui ont oubliés : c&amp;rsquo;est un fork de MySQL, fait par l&amp;rsquo;auteur de MySQL.
+MariaDB prends aujourd&amp;rsquo;hui de plus en plus d’essor et nous propose depuis un petit moment maintenant sa solution cluster à base de Galera (qui fonctionne aussi sous MySQL).</description>
+    </item>
+    
+    <item>
+      <title>NamedManager : une interface web agréable pour administrer Bind</title>
+      <link>http://blog.deimos.fr/2013/04/26/namedmanager-une-interface-web-agreable-pour-administrer-bind/</link>
+      <pubDate>Fri, 26 Apr 2013 10:00:27 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/04/26/namedmanager-une-interface-web-agreable-pour-administrer-bind/</guid>
+      <description>Voici une interface web plutôt bien fichue qui permet de vous gérer vos serveurs Bind. Son nom est NamedManager. Elle sait aussi bien gérer des trucs classique, que des choses un peu plus poussée (la gestion automatique des PTR, le renseignement automatique un subnet, le multi serveurs&amp;hellip;) et en plus elle est élégante !
+Je vous ai fait une doc pour sa mise en place qui n&amp;rsquo;est pas aussi simple qu&amp;rsquo;on pourrait l&amp;rsquo;imaginer.</description>
+    </item>
+    
+    <item>
+      <title>LemonLDAP::NG du SSO sur mesure</title>
+      <link>http://blog.deimos.fr/2013/04/20/lemonldapng-du-sso-sur-mesure/</link>
+      <pubDate>Sat, 20 Apr 2013 10:00:27 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/04/20/lemonldapng-du-sso-sur-mesure/</guid>
+      <description>J&amp;rsquo;ai eu il y a quelques temps une petite formation par le mainteneur officiel de LemonLDAP::NG actuel (Clément Oudot). Superbe formation, surtout lorsqu&amp;rsquo;on voit ce que LdemonLDAP est capable d&amp;rsquo;apporter en terme de fonctionnalités par rapports à d&amp;rsquo;autres SSO. De plus son architecture et son mode de fonctionnement est très bien pensé.
+Bref, un des hits aujourd&amp;rsquo;hui ! Seul petit b mol pour le moment, il n&amp;rsquo;est compatible qu&amp;rsquo;avec Apache. Si vous êtes un aficionados de Lighty ou Nginx, passez votre chemin.</description>
+    </item>
+    
+    <item>
+      <title>Blog et wiki en anglais ?</title>
+      <link>http://blog.deimos.fr/2013/04/06/blog-et-wiki-en-anglais/</link>
+      <pubDate>Sat, 06 Apr 2013 11:52:40 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/04/06/blog-et-wiki-en-anglais/</guid>
+      <description>Cela fait un moment que je me pose la question de mettre le blog et mes articles du wiki en anglais. Cela permettrait de toucher un peu plus de monde, mais aussi d&amp;rsquo;en écarter malheureusement certains :-(
+Je vous rassure, je ne vais pas faire une conversion de ce que j&amp;rsquo;ai aujourd&amp;rsquo;hui, mais je souhaiterais écrire les prochains articles blog et wiki en anglais. Faire les 2 en parallèle ne serait pas faisable compte tenu du temps que cela me prendrait.</description>
+    </item>
+    
+    <item>
+      <title>Migration vers ownCloud 5 réussie :-)</title>
+      <link>http://blog.deimos.fr/2013/03/27/migration-vers-owncloud-5-reussie/</link>
+      <pubDate>Wed, 27 Mar 2013 11:00:06 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/03/27/migration-vers-owncloud-5-reussie/</guid>
+      <description>Et voilà encore une migration de faite. Elle s&amp;rsquo;est plutôt bien passée, alors que c&amp;rsquo;était mal partie. En effet, il a fallut que je change la configuration de mon Nginx pour que cette nouvelle mouture fonctionne. Ces informations n&amp;rsquo;étant pas marquées dans la documentation officielle, j&amp;rsquo;ai perdu un peu de temps en pensant que ma migration avait foirée.
+En montant une autre plateforme from scratch, j&amp;rsquo;avais le même problème. Le soucis était alors rapidement identifiable.</description>
+    </item>
+    
+    <item>
+      <title>Mediawiki / Wikipedia : Leurs gestion de parc</title>
+      <link>http://blog.deimos.fr/2013/03/25/mediawiki-wikipedia-leurs-gestion-de-parc/</link>
+      <pubDate>Mon, 25 Mar 2013 11:00:17 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/03/25/mediawiki-wikipedia-leurs-gestion-de-parc/</guid>
+      <description>J&amp;rsquo;ai récemment écrit un article sur le blog de Linagora, concernant ce que j&amp;rsquo;ai pu voir au FOSDEM. Voici mon article :
+MediaWiki est un logiciel libre orienté serveur, disponible sous Licence publique générale GNU (GNU General Public License – GPL). Il est conçu pour fonctionner dans une ferme composée d’un bon nombre de serveurs appartenant à un site web qui peut avoir plusieurs millions de clics par jour. MediaWiki est un logiciel extrêmement puissant, adaptable à souhait et permettant une implémentation de wiki aux fonctionnalités riches.</description>
+    </item>
+    
+    <item>
+      <title>Bugzilla : mise en place d’un outil de ticketing</title>
+      <link>http://blog.deimos.fr/2013/03/23/bugzilla-mise-en-place-dun-outil-de-ticketing/</link>
+      <pubDate>Sat, 23 Mar 2013 11:00:48 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/03/23/bugzilla-mise-en-place-dun-outil-de-ticketing/</guid>
+      <description>Il y a quelques temps, j&amp;rsquo;avais présenter OTRS. Dans le même esprit (mais plus orienté développement), on a l&amp;rsquo;ancien et vénérable Bugzilla qui fonctionne parfaitement et est utilisé encore aujourd&amp;rsquo;hui par de nombreuses sociétés ou pour des projets communautaires.
+Je vous ai fait une petite documentation sur la mise en place de Bugzilla car j&amp;rsquo;ai du en installer une récemment. Si vous avez envie de jouer un peu avec, c&amp;rsquo;est l&amp;rsquo;occasion :-)</description>
+    </item>
+    
+    <item>
+      <title>Fever : l’alternative Google Reader que j’ai choisi</title>
+      <link>http://blog.deimos.fr/2013/03/17/fever-lalternative-google-reader-que-jai-choisi/</link>
+      <pubDate>Sun, 17 Mar 2013 11:00:16 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/03/17/fever-lalternative-google-reader-que-jai-choisi/</guid>
+      <description>Une fois n&amp;rsquo;est pas coutume, j&amp;rsquo;ai acheté un logiciel. Certains rigoleront parce que c&amp;rsquo;est simplement pour gérer des flux RSS. Mais lorsqu&amp;rsquo;on dépasse les 300 flux utilisés, il est important d&amp;rsquo;avoir un outil performant et fonctionnel.
+Il y a quelques jours, Google annonçait la date de fermeture du service Google Reader. Je me suis mis a chercher une alternative self-hosted ! Et a part Tiny-Tiny RSS qui manque de quelques fonctions indispensable, Leed qui ne possède pas d&amp;rsquo;application pour smartphone, le choix commençait a se rétrécir.</description>
+    </item>
+    
+    <item>
+      <title>Bootstrap : mettez vos site en valeur simplement</title>
+      <link>http://blog.deimos.fr/2013/03/05/bootstrap-mettez-vos-site-en-valeur-simplement/</link>
+      <pubDate>Tue, 05 Mar 2013 11:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/03/05/bootstrap-mettez-vos-site-en-valeur-simplement/</guid>
+      <description>Toi lecteur, si comme moi tu es un looser du design et que les sites web que tu créer ressemble a ceux du début de années 2000, alors bootstrap est fait pour toi !
+Concrètement qu&amp;rsquo;est-ce que c&amp;rsquo;est ? Simplement une suite de CSS/JavaScripts/Images pour habiller ton site et en plus responsiveness. Et a mettre en place, c&amp;rsquo;est d&amp;rsquo;une facilité déconcertante.
+Mais qui est l&amp;rsquo;âme charitable a avoir développé et publie ceci me diras tu ?</description>
+    </item>
+    
+    <item>
+      <title>DevOps : Quelques outils intéressants</title>
+      <link>http://blog.deimos.fr/2013/02/23/devops-quelques-outils-interessants/</link>
+      <pubDate>Sat, 23 Feb 2013 11:00:46 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/02/23/devops-quelques-outils-interessants/</guid>
+      <description>Lorsque j’étais au FOSDEM de cette année, j’ai eu un sacré personnage qui est venu me voir au Stand Puppet, que j’ai eu à côté de moi dans diverses présentations et qui est du genre a a voir une grande g…. Bref, même s’il l’ouvre un peu beaucoup à mon goût, il ne dit pas que des bêtises.
+Je suis tombé sur un slide qu&amp;rsquo;il a fait et que je trouve assez pertinent, j&amp;rsquo;ai donc décidé de vous le faire partager :</description>
+    </item>
+    
+    <item>
+      <title>Impress.js : faites des présentations 3D impressionnantes !</title>
+      <link>http://blog.deimos.fr/2013/02/21/impress-js-faites-des-presentations-3d-impressionnantes/</link>
+      <pubDate>Thu, 21 Feb 2013 11:00:01 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/02/21/impress-js-faites-des-presentations-3d-impressionnantes/</guid>
+      <description>Vous êtes peut être sous Impress (LibreOffice) ou PowerPoint (Microsoft), rêvez en voyant les présentations Keynote (Apple) ou Prezi ? Il est possible de faire mieux, plus classe et surtout : tout OS confondus (à condition que son navigateur supporte HTML 5 sur), ça s&amp;rsquo;appelle Impress.js !
+Comment ? Regardez une démo d&amp;rsquo;Impress.js http://bartaz.github.com/impress.js/
+C&amp;rsquo;est donc en Javascript, c&amp;rsquo;est beau, simple à utiliser (quand on code un peu). Et pour les moins codeurs d&amp;rsquo;entre nous, voici un autre lien qui devrait vous plaire, c&amp;rsquo;est une interface pour Impress.</description>
+    </item>
+    
+    <item>
+      <title>ownCloud : créer son cloud personnel</title>
+      <link>http://blog.deimos.fr/2013/02/17/owncloud-creer-son-cloud-personnel/</link>
+      <pubDate>Sun, 17 Feb 2013 11:00:56 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/02/17/owncloud-creer-son-cloud-personnel/</guid>
+      <description>ownCloud est une implémentation open source de services en ligne de stockage et d&amp;rsquo;applications diverses (cloud computing).
+Cela faisait un moment que je pensais jouer avec ce produit et c&amp;rsquo;est vraiment d&amp;rsquo;une simplicité enfantine. Il existe pleins de plugins permettant de faire pleins de choses variées. C&amp;rsquo;est vraiment plaisant. Sans parler de la partie cliente lourde bien faite et multi plateformes.
+Si vous avez des retours d&amp;rsquo;expériences sur ce produit, je suis preneur.</description>
+    </item>
+    
+    <item>
+      <title>Retour de Varnish, Nginx ne suffit pas !</title>
+      <link>http://blog.deimos.fr/2013/02/07/retour-de-varnish-nginx-ne-suffit-pas/</link>
+      <pubDate>Thu, 07 Feb 2013 11:00:18 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/02/07/retour-de-varnish-nginx-ne-suffit-pas/</guid>
+      <description>Le titre de l&amp;rsquo;article en dit long. Depuis que je suis passé à Nginx, c&amp;rsquo;est vrai, c&amp;rsquo;est le jour et la nuit comparé à Apache. J&amp;rsquo;en suis extrêmement satisfait ! Cependant, malgré la gestion du cache via Nginx, les performances ne sont pas aussi bonnes qu&amp;rsquo;attendues.
+J&amp;rsquo;ai donc testé Nginx avec Varnish, histoire de me refaire une opinion et effectivement Varnish fait vraiment la différence, non seulement côté temps de réponse, mais surtout côté CPU !</description>
+    </item>
+    
+    <item>
+      <title>2ème et dernier jour au FOSDEM !</title>
+      <link>http://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/</link>
+      <pubDate>Tue, 05 Feb 2013 11:00:24 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/</guid>
+      <description>Avant d&amp;rsquo;attaquer le 2 ème jour, je vais finir sur le premier (la suite d&amp;rsquo;hier).
+Un des supers sujet était Bind 10 que j&amp;rsquo;attendais avec impatience. Il n&amp;rsquo;y a malheureusement eu d&amp;rsquo;informations sur les nouveautés aidant a la HA. Cependant il a été totalement réécrit pour supporter + de 100 cores alors qu&amp;rsquo;aujourd&amp;rsquo;hui au delà de 6, il y a des problèmes de performances. On a également (et étrangement) un serveur DHCP qui est intégré a Bind.</description>
+    </item>
+    
+    <item>
+      <title>Mediawiki : Supprimer les pages de discussion</title>
+      <link>http://blog.deimos.fr/2013/01/30/2659/</link>
+      <pubDate>Wed, 30 Jan 2013 11:00:07 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/01/30/2659/</guid>
+      <description>Si vous utilisez MediaWiki, vous n&amp;rsquo;avez pas forcément besoin de toutes les fonctionnalités. Certaines peuvent disparaître via de la configuration, d&amp;rsquo;autres via des Hook ou pire via de l&amp;rsquo;édition de code.
+Bref, voici une solution pour supprimer l&amp;rsquo;onglet &amp;ldquo;Discussion&amp;rdquo; de toutes les pages. C&amp;rsquo;est un Hook pour Mediawiki disponible ici.</description>
+    </item>
+    
+    <item>
+      <title>Jenkins : L’intégration continue</title>
+      <link>http://blog.deimos.fr/2013/01/26/jenkins-lintegration-continue/</link>
+      <pubDate>Sat, 26 Jan 2013 11:00:15 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/01/26/jenkins-lintegration-continue/</guid>
+      <description>Jenkins est un outil open source d&amp;rsquo;intégration continue, fork de l&amp;rsquo;outil Hudson après les différends entre son auteur, Kohsuke Kawaguchi, et Oracle. Écrit en Java, Jenkins fonctionne dans un conteneur de servlets tel qu’Apache Tomcat, ou en mode autonome avec son propre serveur Web embarqué.
+Dans le cadre de l&amp;rsquo;amélioration de Limesurvey comme cité dans un précédent ticket, le couplage Selenium/Jenkins est très pratique. J&amp;rsquo;ai donc fais une documentation sur la mise en place de Jenkins.</description>
+    </item>
+    
+    <item>
+      <title>Extension DeleteHistory v0.5 et v0.6</title>
+      <link>http://blog.deimos.fr/2013/01/16/extension-deletehistory-v0-5/</link>
+      <pubDate>Wed, 16 Jan 2013 11:00:59 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/01/16/extension-deletehistory-v0-5/</guid>
+      <description>Cela faisait un moment que je n&amp;rsquo;avais pas développer pour Mediawiki.
+Voici la version 0.5 de DeleteHistory avec quelques petites nouveautés lorsque l&amp;rsquo;on demande une optimisation des tables MySQL :
+ L&amp;rsquo;ajout du moteur utilisé pour chacune des tables. L&amp;rsquo;ajout de la collation utilisée pour chacune des tables. L&amp;rsquo;ajout de la traduction en Allemand  Ce n&amp;rsquo;est pas grand chose, mais ça aide grandement a voir pourquoi certaines tables ne sont pas optimisées.</description>
+    </item>
+    
+    <item>
+      <title>HTTPS est de retour sur deimos.fr</title>
+      <link>http://blog.deimos.fr/2013/01/12/https-est-de-retour-sur-deimos-fr/</link>
+      <pubDate>Sat, 12 Jan 2013 11:00:18 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/01/12/https-est-de-retour-sur-deimos-fr/</guid>
+      <description>Cela fait un moment qu&amp;rsquo;il fallait que je remette le SSL sur mes sites. C&amp;rsquo;est donc maintenant chose faite et me suis même permis de me payer chez StartSSL un certificat wildcard. J&amp;rsquo;ai mis à jour ma documentation sur Nginx également pour celui ci.
+Voici ma documentation sur StartSSL et Nginx.</description>
+    </item>
+    
+    <item>
+      <title>PHP et Suhosin dans Debian c’est fini</title>
+      <link>http://blog.deimos.fr/2013/01/10/php-suhosin-dans-debian-cest-finit/</link>
+      <pubDate>Thu, 10 Jan 2013 11:00:59 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/01/10/php-suhosin-dans-debian-cest-finit/</guid>
+      <description>C&amp;rsquo;est en migrant vers la dernière version de Debian (Wheezy) que je me suis rendu compte que php5-suhoshin avait disparu. Après quelques apt-cache et recherche sur le site de Debian, il n&amp;rsquo;y a effectivement plus de Suhoshin !
+Pourquoi ? Tout simplement parce que les gars de chez Debian estiment que Suhoshin devrait être intégré mainstream dans le code de PHP et que ça ne devrait pas être aux distribution de les packager.</description>
+    </item>
+    
+    <item>
+      <title>Ca y est, je suis passé à Nginx</title>
+      <link>http://blog.deimos.fr/2013/01/06/ca-est-je-suis-passe-a-nginx/</link>
+      <pubDate>Sun, 06 Jan 2013 11:00:43 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/01/06/ca-est-je-suis-passe-a-nginx/</guid>
+      <description>Fini le duo Apache/Varnish performant mais gourmand en ressources. Pour de gros sites, c&amp;rsquo;est certains que ce couple est très utile, mais pour mon blog, mon wiki et mes autre babioles, pas forcément !
+Alors voilà, je suis passé à Nginx et après plusieurs jours dessus, je suis globalement satisfait. Petit bémol pour le stockage des éléments statiques qui n&amp;rsquo;est visiblement pas faisable sans passer par du proxy_pass. J&amp;rsquo;ai pu observer une gestion du cache globale moins efficace avec Nginx qu&amp;rsquo;avec Varnish.</description>
+    </item>
+    
+    <item>
+      <title>MsUpload : multi upload de fichiers sur MediaWiki</title>
+      <link>http://blog.deimos.fr/2012/12/31/msupload-multi-upload-de-fichiers-sur-mediawiki/</link>
+      <pubDate>Mon, 31 Dec 2012 11:00:09 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/12/31/msupload-multi-upload-de-fichiers-sur-mediawiki/</guid>
+      <description>Ahhhhh MediaWiki ! Je ne m&amp;rsquo;en lasse pas ! C&amp;rsquo;est teeeeeeelllement bien ! Voici encore une extension qui vous permettra d&amp;rsquo;uploader en drag and drop plusieurs fichiers d&amp;rsquo;un coup. Très pratique lorsque l&amp;rsquo;on rédige des articles avec des ScreenShot !
+Bref c&amp;rsquo;est beau, ça marche, c&amp;rsquo;est en HTML5, ça vaut le détour et j&amp;rsquo;en parle ici.</description>
+    </item>
+    
+    <item>
+      <title>Enfin un éditeur WYSIWYG officiel pour Mediawiki !</title>
+      <link>http://blog.deimos.fr/2012/12/23/enfin-editeur-wysiwyg-pour-mediawiki/</link>
+      <pubDate>Sun, 23 Dec 2012 11:00:45 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/12/23/enfin-editeur-wysiwyg-pour-mediawiki/</guid>
+      <description>Comment passer à côté de ça ? Il arrive enfin un WYSIWYG supporté officiellement par Mediawiki et la fondation Wikipedia ! Vous pouvez le tester ici :
+https://www.mediawiki.org/wiki/VisualEditor:Test
+Je suis trop trop trop content ! Pas facile de faire switcher des gens sur Mediawiki ou bien de leur faire comprendre qu&amp;rsquo;un wiki c&amp;rsquo;est la vie, même si au début il faut apprendre quelques syntaxe (bien que ce ne soit pas grand chose).</description>
+    </item>
+    
+    <item>
+      <title>News en vrac</title>
+      <link>http://blog.deimos.fr/2012/12/11/news-en-vrac-6/</link>
+      <pubDate>Tue, 11 Dec 2012 11:00:33 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/12/11/news-en-vrac-6/</guid>
+      <description>Voici quelques petites modifications récemment effectuées sur le wiki :
+ Kernel : J&amp;rsquo;ai mis à jour la documentation pour la recompilation des kernels. Pas de gros changements, juste un petit rafraîchissement graphique. Bind) : Petits correctifs sur quelques erreurs minimes Nagios : Une petite erreur sur l&amp;rsquo;installation, j&amp;rsquo;avais oublié &amp;lsquo;install&amp;rsquo; dans apt-get (Merci Sandro) Awk : Ajout d&amp;rsquo;un exemple awk Mediawki : J&amp;rsquo;ai mis à jour la page pour quelques petits trucs qui ont changés avec la dernière mouture de Mediawiki  </description>
+    </item>
+    
+    <item>
+      <title>Mediawiki 1.20 et les URL courtes</title>
+      <link>http://blog.deimos.fr/2012/12/07/2548/</link>
+      <pubDate>Fri, 07 Dec 2012 11:00:50 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/12/07/2548/</guid>
+      <description>J&amp;rsquo;ai récemment passé mon Mediawiki en 1.20. J&amp;rsquo;ai eu quelques petits soucis avec l&amp;rsquo;URL rewriting et les short URL. En effet, dans cette nouvelle version, ils ont supprimé le $wgUsePathInfo qui a du coup complètement cassé mes redirections.
+J&amp;rsquo;ai finalement réussi à retrouver mon URL short mais d&amp;rsquo;une autre manière que je vous partage ici.
+Bonne lecture</description>
+    </item>
+    
+    <item>
+      <title>Clustering sous Tomcat</title>
+      <link>http://blog.deimos.fr/2012/12/05/clustering-sous-tomcat/</link>
+      <pubDate>Wed, 05 Dec 2012 11:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/12/05/clustering-sous-tomcat/</guid>
+      <description>Toujours dans mes articles sur Tomcat, en voici un qui touche au clustering. Que l&amp;rsquo;on soit bien d&amp;rsquo;accord, le clustering Tomcat, c&amp;rsquo;est pas du failover avec un cluster applicatif externe. C&amp;rsquo;est une méthode interne à Tomcat permettant de synchroniser des sessions (et pas que).
+Je vous ai fais une petite documentation pour une mise en place éclair de ce genre de solution.</description>
+    </item>
+    
+    <item>
+      <title>WordPress : Infinite Scrolling pour le theme Yoko</title>
+      <link>http://blog.deimos.fr/2012/12/03/wordpress-infinite-scrolling-pour-le-theme-yoko/</link>
+      <pubDate>Mon, 03 Dec 2012 11:00:10 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/12/03/wordpress-infinite-scrolling-pour-le-theme-yoko/</guid>
+      <description>Si certains d&amp;rsquo;entre vous n&amp;rsquo;utilisent pas encore le module Jetpack pour WordPress, je les invite très rapidement le faire. C&amp;rsquo;est un module qui comprends plusieurs sous-modules, tous très facilement activable, d&amp;rsquo;une simplicité déconcertante et pour certains très performants.
+Dans l&amp;rsquo;une des dernières updates de Jetpack, il y a l&amp;rsquo;infinite scrolling que je souhaitais activer. Malheureusement, pour le thème que j&amp;rsquo;utilise (Yoko)&amp;hellip;impossible de l&amp;rsquo;activer, il n&amp;rsquo;est pas supporté :-(. Une petite recherche sur le forum de wordpress m&amp;rsquo;a permit de voir que je n&amp;rsquo;étais pas le seul sur cette demande.</description>
+    </item>
+    
+    <item>
+      <title>Créer des sondages via Limesurvey</title>
+      <link>http://blog.deimos.fr/2012/12/01/creer-des-sondages-limesurvey/</link>
+      <pubDate>Sat, 01 Dec 2012 11:00:31 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/12/01/creer-des-sondages-limesurvey/</guid>
+      <description>Si vous ne savez pas quoi utiliser pour faire des sondages professionels, voici Limesurvey. Il est possible de faire des formulaires assez complexe de façon élégantes et assez simple une fois le logiciel prit en main.
+Je vous ai concocté une petite documentation sur sa mise en place, mais pas pour son utilisation. Je pense que l&amp;rsquo;utilisation vous n&amp;rsquo;avez pas besoin de moi :-)</description>
+    </item>
+    
+    <item>
+      <title>Tomcat : Mise en place du load balancer</title>
+      <link>http://blog.deimos.fr/2012/11/23/tomcat-mise-en-place-du-load-balancer/</link>
+      <pubDate>Fri, 23 Nov 2012 11:00:26 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/11/23/tomcat-mise-en-place-du-load-balancer/</guid>
+      <description>Toujours dans la continuité des articles sur Tomcat, on commence à rentrer dans du lourd et faire de la répartition de charge. Ça a l&amp;rsquo;avantage d&amp;rsquo;être assez facile et rapide à mettre en place. La mise en place du load balancing est faite au niveau du mod_jk comme ceci :
+Je vous laisse regarder la doc pour sa mise en place.</description>
+    </item>
+    
+    <item>
+      <title>Monitorer son Tomcat</title>
+      <link>http://blog.deimos.fr/2012/11/21/monitorer-son-tomcat/</link>
+      <pubDate>Wed, 21 Nov 2012 11:00:11 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/11/21/monitorer-son-tomcat/</guid>
+      <description>Ceci est le 2ème post sur Tomcat. Avoir un Tomcat en place c&amp;rsquo;est bien, le monitorer c&amp;rsquo;est mieux ! Il y a tellement de choses à faire attention sur Tomcat (du fait des contraintes de Java) qu&amp;rsquo;il est indispensable de le monitorer.
+Il existe pour cela 2 manières :
+ Via les URL Via la JMX (recommandé)  Je parle de ces 2 méthodes dans l&amp;rsquo;article sur Tomcat.</description>
+    </item>
+    
+    <item>
+      <title>Apache : installation du mod_jk</title>
+      <link>http://blog.deimos.fr/2012/11/19/apache-installation-du-mod_jdk/</link>
+      <pubDate>Mon, 19 Nov 2012 11:00:23 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/11/19/apache-installation-du-mod_jdk/</guid>
+      <description>J&amp;rsquo;ai récemment joué avec Tomcat suite à une formation interne. C&amp;rsquo;est incroyable tout ce que cette application est capable de faire ! Je vous prépare donc une petite série d&amp;rsquo;articles sur Tomcat qui vous plairont je l&amp;rsquo;espère.
+Le premier commence avec la mise en place de mod_jk sur Apache afin de servir du Tomcat par la suite. Pour sa mise en place, c&amp;rsquo;est ici.</description>
+    </item>
+    
+    <item>
+      <title>Authentification SSO depuis Apache sur backend AD via Kerberos</title>
+      <link>http://blog.deimos.fr/2012/10/26/authentification-sso-depuis-apache-sur-backend-ad-kerberos/</link>
+      <pubDate>Fri, 26 Oct 2012 10:00:05 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/10/26/authentification-sso-depuis-apache-sur-backend-ad-kerberos/</guid>
+      <description>J&amp;rsquo;ai récemment aider un collègue sur la mise en place d&amp;rsquo;un SSO Apache sur un AD. J&amp;rsquo;ai trouvé ça techniquement joli, donc je vous ai fais une petite documentation que j&amp;rsquo;ai grossièrement pompée sur un autre site tellement je l&amp;rsquo;ai trouvé bien faites, et j&amp;rsquo;y ai fais quelques petites retouches. J&amp;rsquo;en ai profité pour mettre très légèrement à jour la documentation sur la mise en place d&amp;rsquo;un serveur Kerberos.
+Pour la documentation sur l&amp;rsquo;Authentification SSO depuis Apache sur backend AD via Kerberos</description>
+    </item>
+    
+    <item>
+      <title>HTML : patientez svp</title>
+      <link>http://blog.deimos.fr/2012/10/20/html-patientez-svp/</link>
+      <pubDate>Sat, 20 Oct 2012 10:00:21 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/10/20/html-patientez-svp/</guid>
+      <description>J&amp;rsquo;ai cherché le moyen le plus simple de faire une faire attendre les gens lors d&amp;rsquo;un submit en PHP/HTML. Je suis tombé sur des trucs en Javascript qui n&amp;rsquo;étaient pas terrible, en Ajax compliqué à mettre en œuvre ou en jQuery avec des kilomètres de lignes. Puis je suis tombé sur cette solution, qui avec un simple div et innerHTML permettait de répondre à mon besoin.
+Ok, est moche, mais je n&amp;rsquo;ai besoin d&amp;rsquo;aucune librairie en plus et c&amp;rsquo;est extrêmement simple à mettre en place et peu coûteux en lignes de code.</description>
+    </item>
+    
+    <item>
+      <title>Mediawiki : Cacher la sidebar</title>
+      <link>http://blog.deimos.fr/2012/10/18/mediawiki-cacher-la-sidebar/</link>
+      <pubDate>Thu, 18 Oct 2012 10:00:36 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/10/18/mediawiki-cacher-la-sidebar/</guid>
+      <description>Avec l&amp;rsquo;apparition des Notebook et portables de plus en plus petits avec des résolutions assez faible, il peut être vite pénible de faire du Mediawiki sur ce genre de matériels. C&amp;rsquo;est pourquoi j&amp;rsquo;ai planché un peu sur le sujet et j&amp;rsquo;ai finalement trouver une solution pour cacher la sidebar lorsqu&amp;rsquo;un utilisateur connecté fait des modifications. On gagne du coup pas mal de place !
+J&amp;rsquo;en ai profité également pour ajouter un onglet pour ajouter un fichier plus rapidement lorsque l&amp;rsquo;on a la sidebar cachée.</description>
+    </item>
+    
+    <item>
+      <title>Nginx et php-fpm</title>
+      <link>http://blog.deimos.fr/2012/10/14/nginx-php-fpm/</link>
+      <pubDate>Sun, 14 Oct 2012 10:00:42 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/10/14/nginx-php-fpm/</guid>
+      <description>Il y a quelques temps, j&amp;rsquo;avais parlé d&amp;rsquo;optimisations du blog et wiki. Dans les commentaires, j&amp;rsquo;avais échangé oloncle et il m&amp;rsquo;a fait découvrir php-fpm. J&amp;rsquo;ai donc fais une petite documentation pour sa mise en place.
+J&amp;rsquo;ai fais quelques recherches également sur le net pour voir des benchs entre varnish et le cache nginx. Il apparait qu&amp;rsquo;il n&amp;rsquo;y a qu&amp;rsquo;environ 5% de performances de différence en faveur de Varnish, mais qu&amp;rsquo;il y a une plus grosse utilisation du CPU pour ce dernier.</description>
+    </item>
+    
+    <item>
+      <title>Les références améliorées sur Mediawiki</title>
+      <link>http://blog.deimos.fr/2012/09/02/les-references-ameliorees-sur-mediawiki/</link>
+      <pubDate>Sun, 02 Sep 2012 10:00:09 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/09/02/les-references-ameliorees-sur-mediawiki/</guid>
+      <description>Comme vous l&amp;rsquo;avez certainement déjà vu sur mon wiki, je cite toujours les références qui m&amp;rsquo;ont servit à faire des articles. Cependant, j&amp;rsquo;ai eu quelques fois des raleurs qui n&amp;rsquo;étaient pas content car la citation n&amp;rsquo;était pas faite exactement à l&amp;rsquo;endroit où je réutilisait certaines informations d&amp;rsquo;un autre site.
+Justement ces nouvelles références qui utilisent l’extension Cite, me permettent de faire quelque chose de propre et qui rendra heureuse les plaignants !</description>
+    </item>
+    
+    <item>
+      <title>Une page web flashée à 340Km/h !!!</title>
+      <link>http://blog.deimos.fr/2012/08/07/bah-elle-est-ou-la-page/</link>
+      <pubDate>Tue, 07 Aug 2012 10:00:53 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/08/07/bah-elle-est-ou-la-page/</guid>
+      <description>Google frappe encore avec un autre module pour Apache. Vous connaissez certainement Page Speed, l&amp;rsquo;extension pour Firefox qui vous dit ce qui pourrait être améliorer pour optimiser les temps de chargements de votre site. Certains points sont délicats à mettre en place, alors Google a fait un module pour Apache (mod_pagespeed) qui permet de couvrir une partie de ces optimisations. De base, beaucoup de choses sont activées et on voit la différences sur les sites non optimisés.</description>
+    </item>
+    
+    <item>
+      <title>Va donc, va donc chez Speedy…Speedy</title>
+      <link>http://blog.deimos.fr/2012/07/22/spdy-le-module-apache-qui-boost-vos-temps-de-chargements/</link>
+      <pubDate>Sun, 22 Jul 2012 10:00:20 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/07/22/spdy-le-module-apache-qui-boost-vos-temps-de-chargements/</guid>
+      <description>Cela fait un moment que j&amp;rsquo;avais entendu parler du module SPDY (prononcez Speedy), module d&amp;rsquo;Apache développé par Google qui va booster votre site web SSL. Plus qu&amp;rsquo;un grand discourt, voici une video de 6 secondes qui en dit long :
+  Pour la mise en place, c&amp;rsquo;est d&amp;rsquo;une simplicité enfantine ! Comme d&amp;rsquo;habitude, j&amp;rsquo;ai fais une petite documentation pour la mise en place de SPDY</description>
+    </item>
+    
+    <item>
+      <title>Le blog fait peau neuve / Flux RSS</title>
+      <link>http://blog.deimos.fr/2012/07/20/le-blog-fait-peau-neuve/</link>
+      <pubDate>Fri, 20 Jul 2012 10:00:18 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/07/20/le-blog-fait-peau-neuve/</guid>
+      <description>Un gros travail d&amp;rsquo;optimisation à été effectué et les pages se chargent relativement vite maintenant. On est passé de 18s à 2s dans les meilleurs cas. Je continue encore à essayer de baisser le temps de chargement, mais ça devient difficile. Je pense faire un article sous peu avec tout ce qu&amp;rsquo;il à fallu mettre en œuvre pour arriver à cela. Mais en gros on est passé d&amp;rsquo;un lighttpd à un Apache+Varnish+PHP APC+W3C Total Cache.</description>
+    </item>
+    
+    <item>
+      <title>Thunderbird sur la pente glissante :-(</title>
+      <link>http://blog.deimos.fr/2012/07/08/fin-de-thunderbird/</link>
+      <pubDate>Sun, 08 Jul 2012 10:00:14 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/07/08/fin-de-thunderbird/</guid>
+      <description>J&amp;rsquo;hallucine ! Mozilla arrête le développement de Thunderbird ! C&amp;rsquo;est tout simplement incroyable. J&amp;rsquo;adore ce client et ses plugins en font sa force !
+Ils ont visiblement décidé d&amp;rsquo;arrêter car la plus part des gens utilisent le web mail.
+Je suis vraiment déçu.
+J&amp;rsquo;espère sincèrement qu&amp;rsquo;un fork va voir le jour et que le produit va continuer à vivre.
+D&amp;rsquo;après les dernières news que l&amp;rsquo;on peut voir sur le net, il semblerait que Mozilla va se concentrer d&amp;rsquo;avantage sur la stabilité du produit que ses évolutions.</description>
+    </item>
+    
+    <item>
+      <title>Varnish performance tuning</title>
+      <link>http://blog.deimos.fr/2012/07/06/varnish-performance-tuning/</link>
+      <pubDate>Fri, 06 Jul 2012 10:00:50 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/07/06/varnish-performance-tuning/</guid>
+      <description>Je viens de mettre à jour la documentation sur Varnish pour optimiser les performances. Le moins qu&amp;rsquo;on puisse dire c&amp;rsquo;est que ça décoiffe :-)
+Je vous laisse regarder la doc&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Check_mk &amp; Thruk</title>
+      <link>http://blog.deimos.fr/2012/06/06/check_mk-thruk/</link>
+      <pubDate>Wed, 06 Jun 2012 10:00:40 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/06/06/check_mk-thruk/</guid>
+      <description>J&amp;rsquo;ai mis à jour mes documentations avec quelques petites corrections et les dernières version des softs :
+ Doc sur Check_mk Doc sur Thruk  &amp;nbsp;</description>
+    </item>
+    
+    <item>
+      <title>Retour d’expérience sur les Options binaires</title>
+      <link>http://blog.deimos.fr/2012/06/04/retour-dexperience-sur-les-options-binaires/</link>
+      <pubDate>Mon, 04 Jun 2012 10:00:44 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/06/04/retour-dexperience-sur-les-options-binaires/</guid>
+      <description>Suite aux conseils d&amp;rsquo;une personne dont je ne citerais pas le nom pour ne pas lui causer de tord, je me suis fais parrainer et mis à parier sur les options binaires via le site OptionBit. Pourquoi je m&amp;rsquo;y suis mis ? Tout simplement parce que mon parrain a gagné en 1 semaine 1500 € avec une mise de départ de 200€. 2 jours après, il est passée à 7000€ !</description>
+    </item>
+    
+    <item>
+      <title>PowerAdmin : une interface web de gestion de PowerDNS</title>
+      <link>http://blog.deimos.fr/2012/05/27/poweradmin-une-interface-web-de-gestion-de-powerdns/</link>
+      <pubDate>Sun, 27 May 2012 10:00:25 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/05/27/poweradmin-une-interface-web-de-gestion-de-powerdns/</guid>
+      <description>PowerAdmin est une interface d&amp;rsquo;administration pour PowerDNS. Elle est faite en PHP et permet de gérer bien plus que la majorité des fonctionnalités de base de PowerDNS.
+Elle est très utile si vous avez un backend MySQL qui n&amp;rsquo;est pas très pratique pour ajouter des enregistrements/zones ou toucher à la configuration de PowerDNS.
+Pour la mise en place de cette interface, c&amp;rsquo;est par ici.</description>
+    </item>
+    
+    <item>
+      <title>L’extension pour modifier les skins MediaWiki</title>
+      <link>http://blog.deimos.fr/2012/05/19/1846/</link>
+      <pubDate>Sat, 19 May 2012 10:00:22 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/05/19/1846/</guid>
+      <description>MediaWiki 1.19 est sorti il y a peu de temps et comme à chaque upgrade, c&amp;rsquo;est un bonheur, sauf lorsque vous faites des modifications de skins ou de code. Pour ma part, j&amp;rsquo;aime bien modifier les skins pour y insérer des Google Ads. Mais voilà, comme je viens de l&amp;rsquo;expliquer, a chaque update j&amp;rsquo;ai tout qui est déglingué.
+Donc pour palier à ce problème, il existe une petite extension fort sympathique, qui permet d&amp;rsquo;insérer du code à certains endroits de vos skins MediaWiki.</description>
+    </item>
+    
+    <item>
+      <title>MyTinyTodo : gestionnaire de tâches simple</title>
+      <link>http://blog.deimos.fr/2012/04/25/mytinytodo-gestionnaire-de-taches-simple/</link>
+      <pubDate>Wed, 25 Apr 2012 10:00:12 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/04/25/mytinytodo-gestionnaire-de-taches-simple/</guid>
+      <description>Cela faisait un baille que je cherchais un outil simple, que je puisse héberger moi même, qui soit en web et compatible smartphones. myTinyTodo est fait pour ça. Pour le mettre en place, c&amp;rsquo;est très facile, vous allez voir&amp;hellip;
+Suivez le guide&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>CGI minimal pour Nagios</title>
+      <link>http://blog.deimos.fr/2012/04/23/cgi-minimal-pour-nagios/</link>
+      <pubDate>Mon, 23 Apr 2012 10:00:47 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/04/23/cgi-minimal-pour-nagios/</guid>
+      <description>J&amp;rsquo;ai eu besoin de faire un bouton personnalisé pour Nagios (et Thruk surtout) afin d&amp;rsquo;exécutuer un cgi. J&amp;rsquo;ai donc fais un petite doc car j&amp;rsquo;ai perdu du temps sur des conneries et je me dis que ça peut servir à quelqu&amp;rsquo;un d&amp;rsquo;autre.
+Pour Nagios
+Thruk CGI
+Bonne lecture</description>
+    </item>
+    
+    <item>
+      <title>Oh la belle bleue !</title>
+      <link>http://blog.deimos.fr/2012/04/19/oh-la-belle-bleue/</link>
+      <pubDate>Thu, 19 Apr 2012 10:00:09 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/04/19/oh-la-belle-bleue/</guid>
+      <description>L&amp;rsquo;index directory listing d&amp;rsquo;Apache est par défaut&amp;hellip;(on peut le dire)&amp;hellip;très moche. Voici donc un thème que j&amp;rsquo;ai trouvé sur un site et que j&amp;rsquo;ai très légèrement retouché. Voici un aperçu :
+Pour la documentation, ça se passe ici.</description>
+    </item>
+    
+    <item>
+      <title>Un utilitaire pour commandlinefu.com</title>
+      <link>http://blog.deimos.fr/2012/04/03/un-utilitaire-pour-commandlinefu-com/</link>
+      <pubDate>Tue, 03 Apr 2012 11:00:48 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/04/03/un-utilitaire-pour-commandlinefu-com/</guid>
+      <description>Sachez que vous pouvez faire une recherche dans ce site pour en extraire des exemples grâce à un petit script. Exemple : &amp;gt; fu -a awk 1	# List of commands you use most often history | awk &amp;#39;{a[$2]++}END{for(i in a){print a[i] &amp;quot; &amp;quot; i}}&amp;#39; | sort -rn | head&amp;lt;/p&amp;gt; 2	# Display a block of text with AWK awk &amp;#39;/start_pattern/,/stop_pattern/&amp;#39; file.txt&amp;lt;/p&amp;gt; 3	# Remove duplicate entries in a file without sorting.</description>
+    </item>
+    
+    <item>
+      <title>Mme Irma peut surveiller tes serveurs</title>
+      <link>http://blog.deimos.fr/2012/03/28/mme-irma-peut-surveiller-tes-serveurs/</link>
+      <pubDate>Wed, 28 Mar 2012 11:00:35 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/03/28/mme-irma-peut-surveiller-tes-serveurs/</guid>
+      <description>ENNNFINNNN une belle interface pour Collectd !!! Merciiiiiiii !
+Il y en a marre des interfaces pourries pour Collectd. Voici une belle interface qui fait bien plus que ça et ça s&amp;rsquo;appelle Observium.
+Voici une petite documentation pour la mise en place avec Collectd.</description>
+    </item>
+    
+    <item>
+      <title>Varnish fait aussi le café</title>
+      <link>http://blog.deimos.fr/2012/02/12/varnish-fait-aussi-le-cafe/</link>
+      <pubDate>Sun, 12 Feb 2012 11:00:12 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/02/12/varnish-fait-aussi-le-cafe/</guid>
+      <description>Je suis tombé sur une bonne doc il y a très peu de temps et je l&amp;rsquo;ai pompée bien comme il faut pour améliorer ma doc existante sur Varnish.
+Pour ceux que ça intéressent, voici l&amp;rsquo;update qui parle de cache, compression, load balancing etc&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>CharInsert : Une extension Mediawiki très pratique</title>
+      <link>http://blog.deimos.fr/2012/02/08/charinsert-une-extension-mediawiki-tres-pratique/</link>
+      <pubDate>Wed, 08 Feb 2012 11:00:32 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/02/08/charinsert-une-extension-mediawiki-tres-pratique/</guid>
+      <description>Ca fait un moment que je vois les bares d’édition sur des Mediawiki remplies de boutons qui ne me servent quasiment pas. Mon wiki quant a lui devient un peu compliqué pour avoir de beaux effets CSS3 kikoolol de la mort et ça devient pénible d’écrire 30 fois les mêmes trucs à rallonge.
+Je suis donc tombé sur THE extension qui me simplifie la vie : CharInsert !
+Comme à mon habitude, pour les plus curieux, voici la documentation.</description>
+    </item>
+    
+    <item>
+      <title>Monitoring temps réel d’Apache</title>
+      <link>http://blog.deimos.fr/2012/01/22/monitoring-temps-reel-dapache/</link>
+      <pubDate>Sun, 22 Jan 2012 11:00:54 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/01/22/monitoring-temps-reel-dapache/</guid>
+      <description>Il est parfois utile de monitorer un serveur Apache, surtout lorsqu’il y a une charge anormale.
+J&amp;rsquo;ai donc fait une petite documentation sur Mod Status et Apachetop.</description>
+    </item>
+    
+    <item>
+      <title>Bloc notes informatique disponible hors ligne</title>
+      <link>http://blog.deimos.fr/2012/01/18/bloc-notes-informatique-disponible-hors-ligne/</link>
+      <pubDate>Wed, 18 Jan 2012 11:00:05 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/01/18/bloc-notes-informatique-disponible-hors-ligne/</guid>
+      <description>Avec les derniers évènements en Angleterre (loi type LOPSI/HADOPI) qui rend fou de rage Wikipédia, ils ont décidés de couper pendant 24h leur site anglais. Du coup des article fleurissent pour obtenir Wikipédia offline via des outils open source dans un format open source (OpenZim).
+Personnellement, je trouve ça sexy, mais c&amp;rsquo;est une usine à gaz aujourd&amp;rsquo;hui pour faire ce genre de chose (à tel point qu&amp;rsquo;ils proposent une VM préconfigurée pour éviter la mise en place manuelle).</description>
+    </item>
+    
+    <item>
+      <title>Varnish : accélérez vos serveurs web</title>
+      <link>http://blog.deimos.fr/2012/01/14/varnish-accelerez-vos-serveurs-web/</link>
+      <pubDate>Sat, 14 Jan 2012 11:00:53 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/01/14/varnish-accelerez-vos-serveurs-web/</guid>
+      <description>Varnish est un serveur de cache très connu et utilisé pour accélérer les serveurs web. Je l&amp;rsquo;ai mis en place pour le blog et le wiki alors n&amp;rsquo;hésitez pas à me dire si vous trouvez que c&amp;rsquo;est plus rapide.
+C&amp;rsquo;est rapide à mettre en place et j&amp;rsquo;ai fais une petite documentation comme à mon habitude.</description>
+    </item>
+    
+    <item>
+      <title>Deimos Blog maintenant sur Tweeter</title>
+      <link>http://blog.deimos.fr/2012/01/10/deimos-blog-maintenant-sur-tweeter/</link>
+      <pubDate>Tue, 10 Jan 2012 05:41:04 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/01/10/deimos-blog-maintenant-sur-tweeter/</guid>
+      <description>Le blog est maintenant synchronisé avec Twitter. N&amp;rsquo;hésitez donc pas à me tweeter :-) http://twitter.com/#!/deimosfr</description>
+    </item>
+    
+    <item>
+      <title>Hook pour cacher les SpecialPages sur MediaWiki</title>
+      <link>http://blog.deimos.fr/2012/01/05/hook-pour-cacher-les-specialpages-sur-mediawiki/</link>
+      <pubDate>Thu, 05 Jan 2012 11:00:06 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/01/05/hook-pour-cacher-les-specialpages-sur-mediawiki/</guid>
+      <description>Hook : rien a voir avec Peter Pan ;-). Voici une petite astuce qui permet de cacher la page Version à tous les utilisateurs non authentifiés.
+Voici la documentation pour ce Hook</description>
+    </item>
+    
+    <item>
+      <title>Lifting de fin d’année</title>
+      <link>http://blog.deimos.fr/2011/12/29/lifting-de-fin-dannee/</link>
+      <pubDate>Thu, 29 Dec 2011 13:05:36 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/12/29/lifting-de-fin-dannee/</guid>
+      <description>En cette fin d’année avec l’arrivée de tout un tas d’articles pour la fin d’année/début d’année prochaine, je me suis dit que le wiki devait subir un petit lifting en css3.
+Je vous laisse donc parcourir quelque documentations pour vous en rendre compte. Les retours sont les bien venus :-)</description>
+    </item>
+    
+    <item>
+      <title>MRTG : la méthode old school de graph</title>
+      <link>http://blog.deimos.fr/2011/12/26/mrtg-la-methode-old-school-de-graph/</link>
+      <pubDate>Mon, 26 Dec 2011 11:00:07 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/12/26/mrtg-la-methode-old-school-de-graph/</guid>
+      <description>MRTG c&amp;rsquo;est l&amp;rsquo;ancêtre de Cacti. Mais il reste néanmoins utilisé et rapide à mettre en place.
+J&amp;rsquo;avais déjà une documentation, mais j&amp;rsquo;en ai profité pour la réactualiser. Ça se passe ici.</description>
+    </item>
+    
+    <item>
+      <title>Squid : Vérifier ses règles</title>
+      <link>http://blog.deimos.fr/2011/10/31/squid-verifier-ses-regles/</link>
+      <pubDate>Mon, 31 Oct 2011 11:00:05 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/10/31/squid-verifier-ses-regles/</guid>
+      <description>J&amp;rsquo;ai rajouté sur ma doc de Squid comment vérifier que les règles appliquées fonctionnent bien.
+Voici la documentation.</description>
+    </item>
+    
+    <item>
+      <title>Tiny Tiny RSS</title>
+      <link>http://blog.deimos.fr/2011/08/19/tiny-tiny-rss/</link>
+      <pubDate>Fri, 19 Aug 2011 21:00:50 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/08/19/tiny-tiny-rss/</guid>
+      <description>Voilà des années que j&amp;rsquo;utilise Google Reader avec joie. Mais de plus en plus je lis sur mes flux RSS des personnes qui pleurent d&amp;rsquo;avoir leurs données perdues par Google. Même en mode enterprise, il n&amp;rsquo;est aujourd&amp;rsquo;hui pas possible de sauvegarder simplement et de manière automatisées ses données.
+J&amp;rsquo;ai donc choisis de ne pas laisser mes données à Google et de m&amp;rsquo;en occuper. J&amp;rsquo;ai donc choisis Tiny Tiny RSS qui se veut être une très bonne alternative à Google Reader.</description>
+    </item>
+    
+    <item>
+      <title>Piwik mon ami</title>
+      <link>http://blog.deimos.fr/2011/08/01/piwik-mon-ami/</link>
+      <pubDate>Mon, 01 Aug 2011 05:33:32 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/08/01/piwik-mon-ami/</guid>
+      <description>Pour ceux qui connaissent Google Analytics mais pas encore Piwik, je vous invite à regarder ma doc.
+Je l&amp;rsquo;utilise depuis des années déjà et me voilà donc avec une petite doc qui explique comment ça fonctionne.</description>
+    </item>
+    
+    <item>
+      <title>Google &#43;1 sur le blog et Wiki</title>
+      <link>http://blog.deimos.fr/2011/07/04/google-1-sur-le-blog-et-wiki/</link>
+      <pubDate>Mon, 04 Jul 2011 22:39:39 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/07/04/google-1-sur-le-blog-et-wiki/</guid>
+      <description>Vous l’aurez certainement remarqué, mais le wiki et le blog ont subit de léger rafraichissement graphique avec l’ajout notamment de Google +1, Facebook ou encore Twitter.</description>
+    </item>
+    
+    <item>
+      <title>Puppet Dashboard in Da House</title>
+      <link>http://blog.deimos.fr/2011/05/26/puppet-dashboard-in-da-house/</link>
+      <pubDate>Thu, 26 May 2011 18:08:28 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/05/26/puppet-dashboard-in-da-house/</guid>
+      <description>Et bah voilà, ça fait un moment que ça me trottait dans la tête de mettre en place un Puppet Dashboard, même si pour certaines personnes ça ne sert pas à grand chose. Ca permet au moins d&amp;rsquo;avoir une idée de comment se passe les synchronisations pour les fonctionnalités les plus basiques.
+Une autre interface que je n&amp;rsquo;ai pas testé existe, appelée The Forman.
+Je testerais peut être plus tard cette interface, mais pour l&amp;rsquo;heure, voici la documentation pour Puppet Dashboard.</description>
+    </item>
+    
+    <item>
+      <title>Visage pour Collectd</title>
+      <link>http://blog.deimos.fr/2011/04/23/visage-pour-collectd/</link>
+      <pubDate>Sat, 23 Apr 2011 17:55:15 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/04/23/visage-pour-collectd/</guid>
+      <description>Collectd c’est le bien. Mais les interfaces web manquent cruellement de maturité comparé à Munin. Un petit pointe le bout de son nez de plus en plus et se démarque des autres (à mon goût), c’est Visage.
+Il manque encore quelques fonctionnalités, mais celles pour comparer ou visualiser un host fonctionnent à merveille. Comme à mon habitude, voici une documentation.</description>
+    </item>
+    
+    <item>
+      <title>Augmentation du spam dans les commentaires du blog</title>
+      <link>http://blog.deimos.fr/2011/04/22/augmentation-du-spam-dans-les-commentaires-du-blog/</link>
+      <pubDate>Fri, 22 Apr 2011 19:51:27 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/04/22/augmentation-du-spam-dans-les-commentaires-du-blog/</guid>
+      <description>J&amp;rsquo;ai un afflue impressionnant de spam depuis quelques jours (screenshot ci dessus). J&amp;rsquo;ai donc activer un captcha car aujourd&amp;rsquo;hui c&amp;rsquo;est vraiment abusé. Désolé pour le dérangement pour les non spammeurs.</description>
+    </item>
+    
+    <item>
+      <title>Ajaxterm : le terminal web</title>
+      <link>http://blog.deimos.fr/2011/04/22/ajaxterm-le-terminal-web/</link>
+      <pubDate>Fri, 22 Apr 2011 13:32:04 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/04/22/ajaxterm-le-terminal-web/</guid>
+      <description>Pour jouer un peu, j’ai installé un outil présenté dans le linux mag de ce mois ci qui permet d’avoir un terminal dans une interface web. Au début je ne voyais pas trop trop l’intérêt, puis après quelques réflexions, je me suis dis que ça pouvait pas être mal dans les endroits qui sont bien bloqués.
+Alors voilà j&amp;rsquo;ai fais une petite doc comme d&amp;rsquo;habitude.</description>
+    </item>
+    
+    <item>
+      <title>Deimos.fr de nouveau en SSL</title>
+      <link>http://blog.deimos.fr/2011/04/18/deimos-fr-de-nouveau-en-ssl/</link>
+      <pubDate>Mon, 18 Apr 2011 21:03:43 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/04/18/deimos-fr-de-nouveau-en-ssl/</guid>
+      <description>Et ouala SSL is back ! J’ai aussi modifié un peu la documentation et l’ai enrichie.</description>
+    </item>
+    
+    <item>
+      <title>Réécriture d’URL Apache en cachant le port</title>
+      <link>http://blog.deimos.fr/2011/04/12/reecriture-durl-apache-en-cachant-le-port/</link>
+      <pubDate>Tue, 12 Apr 2011 13:02:30 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/04/12/reecriture-durl-apache-en-cachant-le-port/</guid>
+      <description>Youhou quel titre ! Il y a quelques années, un de mes collègues avait cherché le moyen de faire de la réécriture d&amp;rsquo;URL (ce qui fonctionnait plutôt bien), mais sans cacher le numéro du port.
+Pour toi public, voici donc la solution. Il faut tout simplement utiliser le module proxy d&amp;rsquo;Apache pour faire une réécriture d&amp;rsquo;URL. La documentation est ici.</description>
+    </item>
+    
+    <item>
+      <title>DeleteHistory v0.2 is out !</title>
+      <link>http://blog.deimos.fr/2011/04/08/deletehistory-v0-2-is-out/</link>
+      <pubDate>Fri, 08 Apr 2011 12:52:31 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/04/08/deletehistory-v0-2-is-out/</guid>
+      <description>Je viens de commiter la version 0.2 de DeleteHistory qui est compatible avec MediaWiki 1.16.
+Ça fait des mois que je suis en test chez moi, ça fonctionne plutôt bien. La semaine dernière j&amp;rsquo;ai reçu un mail d&amp;rsquo;un certain David qui me demandait une version qui fonctionnait sur MediaWiki 1.16.
+Il l&amp;rsquo;a donc mis à jour avec succès et ça fonctionne très bien :-)
+Pour ceux que ça intéresse, la dernière version est donc disponible sur mon git.</description>
+    </item>
+    
+    <item>
+      <title>Activer la compression ouaibe</title>
+      <link>http://blog.deimos.fr/2011/04/06/activer-la-compression-ouaibe/</link>
+      <pubDate>Wed, 06 Apr 2011 09:03:01 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/04/06/activer-la-compression-ouaibe/</guid>
+      <description>Si vous souhaitez gagner de précieuses secondes sur le chargements de vos pages web, il est fortement recommander d’utiliser la compression. Il faut également choisir les éléments que vous voulez compresser.
+Bref, j&amp;rsquo;ai encore fait un petit article flash éclair pour Lighty et PHP5 :
+ Compression pour PHP5/Apache
+ Compression pour Lighttpd
+  </description>
+    </item>
+    
+    <item>
+      <title>Vérifier la sécurité de votre serveur</title>
+      <link>http://blog.deimos.fr/2011/04/05/verifier-la-securite-de-votre-serveur/</link>
+      <pubDate>Tue, 05 Apr 2011 21:12:17 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/04/05/verifier-la-securite-de-votre-serveur/</guid>
+      <description>Je ne le répèterais jamais assez, vérifiez votre installation et configuration et testez là ensuite !
+Je suis confronté actuellement à un serveur qui passe son temps à se faire hacker. J&amp;rsquo;ai du auditer la sécurité de celui ci et je me rends compte que beaucoup de personne néglige les aspects de la sécurité. Pourquoi tant d&amp;rsquo;acharnement ? Faut dire aussi :
+ Pas de Firewall
+ Pas de modules de sécurité</description>
+    </item>
+    
+    <item>
+      <title>Projet : Rancid Search</title>
+      <link>http://blog.deimos.fr/2011/03/02/projet-rancid-search/</link>
+      <pubDate>Wed, 02 Mar 2011 06:30:47 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/03/02/projet-rancid-search/</guid>
+      <description>Revoilà encore un nouveau projet. Il s&amp;rsquo;agit de Rancid Search.
+Vous connaissez déjà peut être Rancid qui permet de faire des backups de vos chers équipements Cisco et de les stocker dans un VCS. Au taf, mon équipe réseaux se plaignait de ne pas pouvoir faire de recherche dans tous les équipements cisco d&amp;rsquo;un coup. Imaginez plusieurs équipements avec pour certain plus de 25000 lignes d&amp;rsquo;ACL et autre configuration VPN.</description>
+    </item>
+    
+    <item>
+      <title>Soft de gestion de todo collaborative</title>
+      <link>http://blog.deimos.fr/2010/11/09/soft-de-gestion-de-todo-collaborative/</link>
+      <pubDate>Tue, 09 Nov 2010 21:02:30 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/11/09/soft-de-gestion-de-todo-collaborative/</guid>
+      <description>La solution s&amp;rsquo;appelle Afilefant qui tourne avec Tomcat. Ça m&amp;rsquo;a donc fait un beau paquet de révision sur Tomcat que j&amp;rsquo;ai documenté évidemment.
+Si certains d&amp;rsquo;entre vous ont des retours sur ce soft ou d&amp;rsquo;autres dont les retours sont très positifs, je suis preneur.</description>
+    </item>
+    
+    <item>
+      <title>Encore des interfaces pour Collectd</title>
+      <link>http://blog.deimos.fr/2010/07/28/encore-des-interfaces-pour-collectd/</link>
+      <pubDate>Wed, 28 Jul 2010 15:28:10 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/07/28/encore-des-interfaces-pour-collectd/</guid>
+      <description>Je commence vraiment à utiliser collectd et il faut absolument une belle interface qui fait pas mal de trucs. Seulement voilà, le problème c’est que malgré qu’il y ai une 10 d’interfaces, elles sont toutes assez moche et peu fonctionnelle. Bref, il faut en utiliser plusieurs pour avoir un truc sympas.
+Voici celles qui m&amp;rsquo;ont semblées intéressantes :
+ Collection3  Interface simpliste, mais utile. C&amp;rsquo;est celle de base qui est plus ou moins recommandé par Collectd.</description>
+    </item>
+    
+    <item>
+      <title>Mise à jour du wiki</title>
+      <link>http://blog.deimos.fr/2010/07/28/mise-a-jour-du-wiki/</link>
+      <pubDate>Wed, 28 Jul 2010 13:34:42 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/07/28/mise-a-jour-du-wiki/</guid>
+      <description>Et voilà, le wiki a bibi est à jour, dans la dernière version de Mediawiki avec tous les trucs kéké bling bling de partout.
+Il manque encore quelques petites modifs pour remettre les google ads et autres addons, mais c&amp;rsquo;est moulte fonctionnel et beau pour le moment.
+Pour ceux qui veulent gagner du temps sur la pose de néons et spoilers pour Mediawiki, voici mon lien qui vous ravira.</description>
+    </item>
+    
+    <item>
+      <title>DeleteHistory : Mon extension pour MediaWiki</title>
+      <link>http://blog.deimos.fr/2010/04/20/deletehistory-mon-extension-pour-mediawiki/</link>
+      <pubDate>Tue, 20 Apr 2010 15:58:24 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/04/20/deletehistory-mon-extension-pour-mediawiki/</guid>
+      <description>Et bien me voilà encore en pleine créativité, on ne m’arrête plus !!!! Pour la petite histoire, il y a maintenant peut être 2 ans, je cherchais une extension pour MediaWiki me permettant de supprimer mon historique. J’avais trouvé l’extension parfaite SpecialDeleteOldRevisions, mais lors d’une upgrade, impossible de la faire fonctionner correctement. Toujours pas d’update de cette extension 1 an après. Je m’étais dis que j’en ferais une un de ces 4.</description>
+    </item>
+    
+    <item>
+      <title>HTML5 : on met tout le monde d’accord</title>
+      <link>http://blog.deimos.fr/2010/04/15/html5-on-met-tout-le-monde-daccord/</link>
+      <pubDate>Thu, 15 Apr 2010 05:36:47 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/04/15/html5-on-met-tout-le-monde-daccord/</guid>
+      <description>Je viens ce matin de tomber sur ce magnifique post qui permet de faire et de l’OGV et du h264 en attendant que tout le monde se mette d’accord :
+http://geekfault.org/2010/04/12/les-autres-nouveautes-de-html-5/</description>
+    </item>
+    
+    <item>
+      <title>HTML5 : OGV ou H264 ?</title>
+      <link>http://blog.deimos.fr/2010/04/12/html5-ogv-ou-h264/</link>
+      <pubDate>Mon, 12 Apr 2010 18:02:06 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/04/12/html5-ogv-ou-h264/</guid>
+      <description>Bon clairement, j’ai récemment fait des videos pour le blog de ma fille en FLV (flash) sous Linux. Je vous passe les détails cauchemardesques pour faire des rotations de video, sans parler de la conversion dans ce format à la con, mais qui est aujourd’hui massivement utilisé.
+Puis je me suis souvenu que le HTML 5 arrivait à grand pas et qu&amp;rsquo;il y avait un support video. Je me suis donc penché un peu plus sur la question et voilà ce que je trouver : 2 formats existent pour le moment OGV (Libre et gratuit) et H264 (Payant à l&amp;rsquo;utilisation, mais vu que je suis un particulier etc&amp;hellip; personne ira vérifier, surtout pour des videos perso).</description>
+    </item>
+    
+    <item>
+      <title>Awstat est de retour sur mon serveur</title>
+      <link>http://blog.deimos.fr/2010/04/11/awstat-est-de-retour-sur-mon-serveur/</link>
+      <pubDate>Sun, 11 Apr 2010 15:52:58 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/04/11/awstat-est-de-retour-sur-mon-serveur/</guid>
+      <description>Un petit retour d’Awstat que je n’avais pas réinstallé depuis un bail. Il permet d’avoir des stats de ses sites, ses visites etc…
+Comme dab, ceux qui veulent une docounette, suivez le lien.</description>
+    </item>
+    
+    <item>
+      <title>GeSHi : Quelques modifs sur mon wiki</title>
+      <link>http://blog.deimos.fr/2010/04/11/geshi-quelques-modifs-sur-mon-wiki/</link>
+      <pubDate>Sun, 11 Apr 2010 00:38:04 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/04/11/geshi-quelques-modifs-sur-mon-wiki/</guid>
+      <description>J’en ai eu marre de taper toujours et encore du code pour avoir de la numérotation de ligne commençant par 0 sur ma colorisation syntaxique de code avec GeSHi. En l’absence de documentation sur l’extension SyntaxHighlight_GeSHi j’ai du me farcir le code à la mainet trouver comment setter des valeurs par défaut. J’ai donc maintenant “line=1 start=0” à tous mes codes sur mon wiki sans me prendre la tête à l’écrire à chaque fois.</description>
+    </item>
+    
+    <item>
+      <title>Ils sont fort chez Orange !</title>
+      <link>http://blog.deimos.fr/2010/03/08/ils-sont-fort-chez-orange/</link>
+      <pubDate>Mon, 08 Mar 2010 16:48:31 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/03/08/ils-sont-fort-chez-orange/</guid>
+      <description>Alors là, moi je dis Monsieur ! Chapeau bas l’artiste ! Orange, vous qui représentez la France… bah merde.. lol. Nan sérieux, c’est acceptable ça en pleine journée ?
+En plus c&amp;rsquo;est arrivé à mon taf quoi&amp;hellip; Et on a pas toucher à la Livebox, d&amp;rsquo;elle même elle prends les décisions.
+Edit : et quelques secondes plus tard (la cerise sur le Mac Do), on reçoit ça par mail. Moi je dis respect, faut oser quand même :</description>
+    </item>
+    
+    <item>
+      <title>Google Chrome VS Firefox</title>
+      <link>http://blog.deimos.fr/2010/03/02/google-chrome-vs-firefox/</link>
+      <pubDate>Tue, 02 Mar 2010 18:19:27 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/03/02/google-chrome-vs-firefox/</guid>
+      <description>Ca fait des semaines que Steeves me parles de Google Chrome, qu’il me dit qu’il faut que j’y passe etc… Perso, je suis très content de mon firefox. Si il pouvait être un peut plus rapide, j’aimerais bien aussi.
+Donc voilà Chrome est sensé faire tout ce que fait Firefox, mais en mieux. Un peu septique, j&amp;rsquo;ai tout de même voulu tenter l&amp;rsquo;aventure.
+Mon bilan est dressé au bout d&amp;rsquo;une heure d&amp;rsquo;utilisation.</description>
+    </item>
+    
+    <item>
+      <title>media2conflu : encore un nouveau projet</title>
+      <link>http://blog.deimos.fr/2010/02/10/media2conflu-encore-un-nouveau-projet/</link>
+      <pubDate>Wed, 10 Feb 2010 21:05:57 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/02/10/media2conflu-encore-un-nouveau-projet/</guid>
+      <description>Décidément, je n’arrête pas ces temps ci ! Là c’est un petit projet par rapport aux autres, mais c’est peut être pour le moment un de ceux que je vais utiliser le plus souvent car très utile pour mon boulot.
+Un peu d&amp;rsquo;explication ne fait pas de mal. J&amp;rsquo;utilise depuis des années MediaWiki et en suis pleinement satisfait ! Au boulot, il y a quelques années aussi, je n&amp;rsquo;ai pas réussi à faire appliquer MediaWiki car il ne prenait pas en charge le WIZIWIG et une gestion des ACLs simple.</description>
+    </item>
+    
+    <item>
+      <title>RRDtool : Oh qu’ils sont beaux les graphs</title>
+      <link>http://blog.deimos.fr/2010/01/21/rrdtool-oh-quils-sont-beaux-les-graphs/</link>
+      <pubDate>Thu, 21 Jan 2010 12:54:27 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/01/21/rrdtool-oh-quils-sont-beaux-les-graphs/</guid>
+      <description>Depuis quelques temps je me suis mis à faire toute sorte de graphs. Vous l’avez vu dans un de mes précédents posts avec OpenChart et maintenant RRDtool. Je ne vous cacherais pas que c’est un peu complexe a prendre en main, mais une fois fait, on peut vraiment tout faire et on comprends aisément pourquoi il est utilisé partout.
+Le mécanisme de base de donnée est extrêment bien pensé et surtout autonome, ce qui le rends très pratique et facile anticiper les éventuels problèmes de place liés à de multiples bases de données RRD (puisque maitrisée).</description>
+    </item>
+    
+    <item>
+      <title>phpCV sur SourceForge</title>
+      <link>http://blog.deimos.fr/2010/01/19/phpcv-sur-sourceforge/</link>
+      <pubDate>Tue, 19 Jan 2010 13:03:51 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/01/19/phpcv-sur-sourceforge/</guid>
+      <description>phpCV a son logo et son site web hébergé chez SourceForge : http://phpcv.sourceforge.net
+Le site web principale est hébergé sur Mediawiki, le code sur Git, je ne devrais donc pas être trop dépaysé. Dites moi ce que vous en pensez</description>
+    </item>
+    
+    <item>
+      <title>Coeur de lion</title>
+      <link>http://blog.deimos.fr/2009/12/29/coeur-de-lion/</link>
+      <pubDate>Tue, 29 Dec 2009 13:54:47 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/12/29/coeur-de-lion/</guid>
+      <description>J’ai parlé il y a quelques temps d’Open Flash Chart qui permet de faire de beaux graphs animés en flash. Je l’ai donc utilisé pour mes besoins personnels et ai fait une petite doc qui va bien pour faire un camebert (d’ou le titre).
+J&amp;rsquo;avais besoin de montrer l&amp;rsquo;occupation disque par utilisateurs dans un dossier donné. Ce qui donne quelque chose comme ça :</description>
+    </item>
+    
+    <item>
+      <title>Le Gity, le Gitou à Pitou est dispo</title>
+      <link>http://blog.deimos.fr/2009/12/03/le-gity-le-gitou-a-pitou-est-dispo/</link>
+      <pubDate>Thu, 03 Dec 2009 13:33:56 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/12/03/le-gity-le-gitou-a-pitou-est-dispo/</guid>
+      <description>Et bah voilà, c’est fait, j’ai un beau Git mise à dispo avec un Gitweb, pour vous messieurs, pour vous mes dammes, mais surtout pour vous mes dammes….
+J&amp;rsquo;ai pas grand chose pour le moment dessus, mais on peut trouver ma configuration de VIM et de ZSH. La suite arrivera avec le temps.
+Pour consulter mon gitweb, voici l&amp;rsquo;adresse : http://www.deimos.fr/gitweb/
+Vous pouvez également trouver les documentations concernant git que j&amp;rsquo;ai un peu étoffées :</description>
+    </item>
+    
+    <item>
+      <title>Magic link pour les boulets de google</title>
+      <link>http://blog.deimos.fr/2009/11/19/magic-link-pour-les-boulets-de-google/</link>
+      <pubDate>Thu, 19 Nov 2009 14:39:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/11/19/magic-link-pour-les-boulets-de-google/</guid>
+      <description>Quel lien magnifique. Ce liens permet aux personnes qui ne se savent pas se servir de google de leur apprendre et de se foutre par la même occasion de leur gueule :
+http://www.lmgtfy.com/</description>
+    </item>
+    
+    <item>
+      <title>Passage du blog sur Memcached</title>
+      <link>http://blog.deimos.fr/2009/09/08/passage-du-blog-sur-memcache/</link>
+      <pubDate>Tue, 08 Sep 2009 21:34:28 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/09/08/passage-du-blog-sur-memcache/</guid>
+      <description>Vous devriez voir une nette différence avec mon blog sous memcached. Le wiki y est depuis déjà quelques années, mais le blog non car il n’y avait pas vraiment de possibilités durant l’installation ou avec les extensions actuelle.
+J&amp;rsquo;ai réussi à mettre la main sur cet arcticle qui me permet de pondre une documentation assez complète sur la mise en place de memcached sur WordPress.
+Alors, trouvez vous le blog plus rapide ?</description>
+    </item>
+    
+    <item>
+      <title>Ou est ton git jeune vagabond ?</title>
+      <link>http://blog.deimos.fr/2009/09/06/ou-est-ton-git-jeune-vagabon/</link>
+      <pubDate>Sun, 06 Sep 2009 14:51:32 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/09/06/ou-est-ton-git-jeune-vagabon/</guid>
+      <description>Je viens de compléter ma documentation sur git grace à l’excellent (encore) Linux Magzine de ce mois si qui nous offre encore et toujours des articles d’exeption. Bref, je vous laisse regarder :
+http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Client</description>
+    </item>
+    
+    <item>
+      <title>Beaux graphiques en flash</title>
+      <link>http://blog.deimos.fr/2009/08/06/beaux-graphiques-en-flash/</link>
+      <pubDate>Thu, 06 Aug 2009 18:02:02 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/08/06/beaux-graphiques-en-flash/</guid>
+      <description>Vous vous êtes peut être à la cherche d’une fonctionnalité pour faire de baux graphs hein ? Comme par exemple sous Centreon.
+J&amp;rsquo;ai le truc qu&amp;rsquo;il vous faut, c&amp;rsquo;est en flash, ça génère des graphs trop classe, bref le kiffe. Ca s&amp;rsquo;appelle Open Flash Chart. Le nom est pas très originale certe, mais au moins ça a le mérite d&amp;rsquo;être beau et efficace.
+Voici le lien sur le site officiel pour la version 1 et ici pour la version 2.</description>
+    </item>
+    
+    <item>
+      <title>Geshi : Syntax Highlight</title>
+      <link>http://blog.deimos.fr/2009/08/02/geshi-syntax-highlight/</link>
+      <pubDate>Sun, 02 Aug 2009 10:52:32 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/08/02/geshi-syntax-highlight/</guid>
+      <description>J’ai mis a jour mon MediaWiki et en ai profité pour faire de même avec les plugins. Et notamment Geshi.
+Pour ceux qui ne connaissent pas ça fait de la colorisation syntaxique sur pas mal de différents codes. Et les dernières version apportent quelquechose que j&amp;rsquo;attendais depuis lonnnnngtemps, c&amp;rsquo;est les bordures façons &amp;ldquo;pre&amp;rdquo; dans MediaWiki. Pour ceux qui veulent plus d&amp;rsquo;explications :
+http://wiki.deimos.fr/Les_extentions_pratiques_de_Mediawiki#Syntax_Highlight_GeSHi</description>
+    </item>
+    
+    <item>
+      <title>Prends tes médocs Janine !</title>
+      <link>http://blog.deimos.fr/2009/04/14/prends-tes-medocs-janine/</link>
+      <pubDate>Tue, 14 Apr 2009 21:41:14 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/04/14/prends-tes-medocs-janine/</guid>
+      <description>Chose promise, voici mes docs pour vous aider si vous aussi vous voulez tatouiller KVM et Lighttpd :
+ Documentation KVM
+ Documentation Lighttpd
+  Pour ce qui est de Lighttpd, je rajouterais au fur et à mesure mes ajouts. Mais qu&amp;rsquo;est-ce que c&amp;rsquo;est kiffant putain ! La conf à la perl, les correspondances, les regex, la simplicité ouaaa trop bien !</description>
+    </item>
+    
+    <item>
+      <title>Serveur refait !!! Enfin…j’en pouvais plus de Solaris et VirtualBox</title>
+      <link>http://blog.deimos.fr/2009/04/13/serveur-refait-enfinjen-pouvais-plus-de-solaris-et-virtualbox/</link>
+      <pubDate>Mon, 13 Apr 2009 21:30:54 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/04/13/serveur-refait-enfinjen-pouvais-plus-de-solaris-et-virtualbox/</guid>
+      <description>Bon… allez, je vais vous expliquer déjà pourquoi j’ai refais mon serveur.
+Dans mes précédents posts datant du mois de décembre, vous avez pu lire que j&amp;rsquo;étais passé de mon serveur Debian 32 bits etch (stable de l&amp;rsquo;époque) vers Solaris et adoptant la virtualisation avec VirtualBox le temps de patienter pour xVM Server.
+Aujourd&amp;rsquo;hui, xVM Server n&amp;rsquo;est toujours pas sorti, VirtualBox n&amp;rsquo;est vraiment, vraiment pas fait pour de la pseudo prod (donc imaginez la prod), contrairement à ce qui est dit sur le site officiel de Sun.</description>
+    </item>
+    
+    <item>
+      <title>Oh oui, c’est une belle journée, je vais me coucher…</title>
+      <link>http://blog.deimos.fr/2008/12/18/oh-oui-cest-une-belle-journee-je-vais-me-coucher/</link>
+      <pubDate>Wed, 17 Dec 2008 23:33:30 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2008/12/18/oh-oui-cest-une-belle-journee-je-vais-me-coucher/</guid>
+      <description>ENFINNNNN, depuis le temps que je me prends la tête avec cette connerie. Mon wiki était super lent sous Firefox et seulement sous Linux. J’avais trouvé la cause qui était le thème Monobook de Mediawiki. Mais pourquoi moi et pas les autres sites ?
+C&amp;rsquo;est en fait à cause du CSS mis en place pour Monobook. J&amp;rsquo;ai donc changer ceci :
+`/* Changer la couleur de fond des articles */&amp;lt;br /&amp;gt; .</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1351 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Private Life on Deimosfr Blog</title>
+    <link>http://blog.deimos.fr/tags/private-life/</link>
+    <description>Recent content in Private Life on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 Mar 2015 12:00:49 +0000</lastBuildDate>
+    
+	<atom:link href="http://blog.deimos.fr/tags/private-life/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>New job, new adventure at Criteo</title>
+      <link>http://blog.deimos.fr/2015/03/16/new-job-new-adventure-to-criteo/</link>
+      <pubDate>Mon, 16 Mar 2015 12:00:49 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2015/03/16/new-job-new-adventure-to-criteo/</guid>
+      <description>I spent nearly 2 years at eNovance/RedHat, it was a great adventure, now I&amp;rsquo;m glad to start a new job at Criteo today!
+I&amp;rsquo;ll be in charge of storage technologies around big data. My future blog posts will of course evolve to this kind of technologies too. However as I&amp;rsquo;ve side projects, there still will have several kind of subjects.
+Really happy to start this new job :-)</description>
+    </item>
+    
+    <item>
+      <title>Nousmotards: mon nouveau projet pour les motards</title>
+      <link>http://blog.deimos.fr/2015/03/13/nousmotards-mon-nouveau-projet-pour-les-motards/</link>
+      <pubDate>Fri, 13 Mar 2015 13:14:50 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2015/03/13/nousmotards-mon-nouveau-projet-pour-les-motards/</guid>
+      <description>Un blog post en français cette fois ci, car ça ne concerne que les Français (pour l&amp;rsquo;instant) pour vous expliquer le nouveau projet que j’entreprends avec 2 amis. L&amp;rsquo;idée est simple, vous êtes motards, vous aimez les balades à moto&amp;hellip;l&amp;rsquo;application est faites pour vous !
+Aucune application n&amp;rsquo;est à l&amp;rsquo;heure actuelle disponible sur Smartphone qui fait ce que nous proposons. Il s&amp;rsquo;agit d&amp;rsquo;une application à la Facebook like, ou vous pouvez inviter des amis, créer des clubs de moto, proposer et planifier des itinéraires, partager vos parcours effectués et beaucoup d&amp;rsquo;autres choses.</description>
+    </item>
+    
+    <item>
+      <title>WordPress: how I almost lost my blog and want to switch</title>
+      <link>http://blog.deimos.fr/2015/01/29/wordpress-how-i-almost-lost-my-blog-and-want-to-switch/</link>
+      <pubDate>Thu, 29 Jan 2015 11:00:01 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2015/01/29/wordpress-how-i-almost-lost-my-blog-and-want-to-switch/</guid>
+      <description>A few days ago I wanted to play with HAProxy SSL offloading. It was a good experience and alternative to Nginx SSL offloading (I already talked about in this blog). But this is not the topic here&amp;hellip;
+When I was trying to make the offload working on the blog, I modified WordPress options which switched my blog into an infinite loop mode. As it was late and I was tired (bad idea), I just wanted to rollback my changes and needed to recover a SQL backup to do it fast.</description>
+    </item>
+    
+    <item>
+      <title>uSmashMe: my new project to find love</title>
+      <link>http://blog.deimos.fr/2015/01/06/usmashme-my-new-project-to-find-love/</link>
+      <pubDate>Tue, 06 Jan 2015 11:00:18 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2015/01/06/usmashme-my-new-project-to-find-love/</guid>
+      <description>About 2 months ago, I&amp;rsquo;ve been contacted to join an a team of 5 persons, on making (once again) a solution to find love. So many solutions already exists today, but this one is a little bit different in my opinion, that&amp;rsquo;s why I accepted to take part of the adventure.
+This solution is interesting because you&amp;rsquo;re anonymous. This can help you a lot if you&amp;rsquo;re shy. This kind of Phone application would help me a lot in the past if it was existing !</description>
+    </item>
+    
+    <item>
+      <title>Happy new year !</title>
+      <link>http://blog.deimos.fr/2015/01/05/happy-new-year/</link>
+      <pubDate>Mon, 05 Jan 2015 12:51:04 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2015/01/05/happy-new-year/</guid>
+      <description>I wish to my reader a very good year ! This should be a great year, with good posts and news :-).
+Stay tuned 😉</description>
+    </item>
+    
+    <item>
+      <title>Poll results about posting quality vs frequency</title>
+      <link>http://blog.deimos.fr/2014/11/23/poll-results-about-posting-quality-vs-frequency/</link>
+      <pubDate>Sun, 23 Nov 2014 06:01:51 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/11/23/poll-results-about-posting-quality-vs-frequency/</guid>
+      <description>Thanks for all voters. I expected more participants (compared to the number of followers) but it gives me here a good indication on what you want me to focus on.
+You may already seen that this week I made less blog posts as I didn&amp;rsquo;t have any quite big subjects to talk about or time to prepare.
+Thanks to follow me, I&amp;rsquo;ll try to make better posts new but a little bit less.</description>
+    </item>
+    
+    <item>
+      <title>UP24: my first connected strap</title>
+      <link>http://blog.deimos.fr/2014/10/18/up24-my-first-connected-strap/</link>
+      <pubDate>Sat, 18 Oct 2014 10:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/10/18/up24-my-first-connected-strap/</guid>
+      <description>I recently had a gift, this is a connected strap, the Jawbone UP24 model. It doesn&amp;rsquo;t do a lot of things, but what it does works well.
+I wanted one with a good autonomy. And a recent firmware update grew from 7 days to 14 the number of days the battery autonomy. I also wanted a strap able to give me information on night I&amp;rsquo;ve spent, doesn&amp;rsquo;t let me sleep all the afternoon during a siesta.</description>
+    </item>
+    
+    <item>
+      <title>Coursera: freely learn new stuff from High School</title>
+      <link>http://blog.deimos.fr/2014/10/10/coursera-freely-learn-new-stuff-from-high-school/</link>
+      <pubDate>Fri, 10 Oct 2014 10:00:29 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/10/10/coursera-freely-learn-new-stuff-from-high-school/</guid>
+      <description>One of my ex-boss talked to me about Coursera a year ago. It&amp;rsquo;s a website where you can freely learn several things from high graduated school. Most ofter, it&amp;rsquo;s technology related and I wanted to test it to learn Java.
+I subscribed to 2 sessions. One for the java basics and the other one for the object oriented aspect (in french). I&amp;rsquo;ve started it a few weeks ago the first part and what I can say is, it&amp;rsquo;s very good.</description>
+    </item>
+    
+    <item>
+      <title>Synology: testing Photo Station &#43; AWS Glacier backup</title>
+      <link>http://blog.deimos.fr/2014/09/14/synology-testing-photo-station-aws-glacier-backup/</link>
+      <pubDate>Sun, 14 Sep 2014 10:00:20 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/09/14/synology-testing-photo-station-aws-glacier-backup/</guid>
+      <description>I recently tested Photo Station on Synology because I was searching a solution to store my photos and accessible through internet with a web interface. I tested Photo Station and was not convinced by the solution as there are several bugs
+ Does not retain some default preferences Forget to make some thumbnails when importing a lot of photos in several albums etc&amp;hellip;  I tested AWS backups and even if the price is correct, it&amp;rsquo;s too slow for restoring in my opinion.</description>
+    </item>
+    
+    <item>
+      <title>Teaching for 1 week to ENSTA</title>
+      <link>http://blog.deimos.fr/2014/09/08/ensta/</link>
+      <pubDate>Mon, 08 Sep 2014 10:00:27 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/09/08/ensta/</guid>
+      <description>Next week I&amp;rsquo;m going to teach basics computer science to future Engineers on Linux/HTML/CSS at ENSTA (Ecole Nationale des Techniques Avancées).
+This is the first time I will teach to students so I hope it will as interesting as for professionals (or more) :-).
+I will teach during 1 week so blog posts may slow down a little bit. Now I&amp;rsquo;m crossing fingers for this week :-p
+Thanks Marc fort this experience :-)</description>
+    </item>
+    
+    <item>
+      <title>Blog posts slowdown for some weeks</title>
+      <link>http://blog.deimos.fr/2014/06/22/blog-posts-slowdown-for-some-weeks/</link>
+      <pubDate>Sun, 22 Jun 2014 10:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/06/22/blog-posts-slowdown-for-some-weeks/</guid>
+      <description>Hello readers!
+The numbers of readers keeps growing and I really appreciate it :-). Thanks to all followers!
+You may know that I&amp;rsquo;m currently writing a book on MariaDB performances/high availability. I&amp;rsquo;m almost finish and this is the last run before the publication in September.
+To give the maximum in this book , in the very short delay I have to, I need more time. The current blog post flow is: one blog post every 2 days.</description>
+    </item>
+    
+    <item>
+      <title>My cool kitten welcome page</title>
+      <link>http://blog.deimos.fr/2014/03/30/my-welcome-page/</link>
+      <pubDate>Sun, 30 Mar 2014 10:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/03/30/my-welcome-page/</guid>
+      <description>Some of my readers asked me more clarification on where information&amp;rsquo;s could be find on my site. I wanted to make it clear and have a welcome page to make things easier.
+Some of my readers asked me more clarification on where information&amp;rsquo;s could be find on my site. I wanted to make it clear and have a welcome page to make things easier.
+So you can take a look the result:1</description>
+    </item>
+    
+    <item>
+      <title>OMG, new eNovance headquarter !</title>
+      <link>http://blog.deimos.fr/2014/03/08/omg-new-enovance-headquarter/</link>
+      <pubDate>Sat, 08 Mar 2014 11:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/03/08/omg-new-enovance-headquarter/</guid>
+      <description>We had a wall decoration session, here is the result :-)
+Thanks to eNovance to work in those conditions.</description>
+    </item>
+    
+    <item>
+      <title>Back from holidays</title>
+      <link>http://blog.deimos.fr/2014/02/02/back-from-holidays-2/</link>
+      <pubDate>Sun, 02 Feb 2014 16:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/02/02/back-from-holidays-2/</guid>
+      <description>Now I&amp;rsquo;m in jet lags and at the FOSDEM. The trip is continuing. Next posts should be related to FOSDEM.</description>
+    </item>
+    
+    <item>
+      <title>MariaDB: Writing my first book</title>
+      <link>http://blog.deimos.fr/2014/01/31/writing-my-first-book-on-mariadb/</link>
+      <pubDate>Fri, 31 Jan 2014 11:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/01/31/writing-my-first-book-on-mariadb/</guid>
+      <description>Some of you may already know that I&amp;rsquo;ve been contacted by Packt Publishing to write a book.
+As every aware persons asked me why I was contacted, here is the story :
+When I was working for Linagora, I gave a training on advanced usage on MySQL/MariaDB. Unfortunately there weren&amp;rsquo;t slides on that subject at this moment and I had to make them all. That&amp;rsquo;s what I did and made an unbranded version for me as well.</description>
+    </item>
+    
+    <item>
+      <title>Reminder : FOSDEM 2014</title>
+      <link>http://blog.deimos.fr/2014/01/19/reminder-fosdem-2014/</link>
+      <pubDate>Sun, 19 Jan 2014 11:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/01/19/reminder-fosdem-2014/</guid>
+      <description>Be ready once again for FOSDEM 2014 ! I&amp;rsquo;m so exited to go there once again.
+Last year I missed some of you. If you want to meet me directly there, do not hesitate to contact me by mail.
+Thanks and see you there :-)</description>
+    </item>
+    
+    <item>
+      <title>4G chez Free : c’est gratuit :-)</title>
+      <link>http://blog.deimos.fr/2013/12/04/4g-chez-free-cest-gratuit/</link>
+      <pubDate>Wed, 04 Dec 2013 11:00:29 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/12/04/4g-chez-free-cest-gratuit/</guid>
+      <description>Un petit post en français car ça ne concerne que les français :-). Free vient d&amp;rsquo;activer la 4G, la levée des 3G à 20G de data et c&amp;rsquo;est gratuit ! Connectez vous à votre compte, allez dans les options et activez là&amp;hellip;facile.
+Merci encore une fois Free ! Il reste encore la qualité du réseau global a améliorer et ça sera parfait :-)</description>
+    </item>
+    
+    <item>
+      <title>Turning 31</title>
+      <link>http://blog.deimos.fr/2013/10/23/turning-31/</link>
+      <pubDate>Wed, 23 Oct 2013 10:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/10/23/turning-31/</guid>
+      <description>Yesterday was my 31th birthday :-)
+Thanks to all that didn&amp;rsquo;t forget (or configured agenda notification ;-))</description>
+    </item>
+    
+    <item>
+      <title>Selling my bike : Z1000/2010</title>
+      <link>http://blog.deimos.fr/2013/10/03/selling-my-bike-z10002010/</link>
+      <pubDate>Thu, 03 Oct 2013 10:00:12 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/10/03/selling-my-bike-z10002010/</guid>
+      <description>I finally sell my Z1000 ! Here are the specs : http://www.moto85.com/moto-occasion-KAWASAKI-Z-1000-ABS-1000_14509734.html
+Do not hesitate to talk about it around you :-). Thanks</description>
+    </item>
+    
+    <item>
+      <title>Back from holidays</title>
+      <link>http://blog.deimos.fr/2013/08/26/back-from-holidays/----1.2302191</link>
+      <pubDate>Mon, 26 Aug 2013 10:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/08/26/back-from-holidays/----1.2302191</guid>
+      <description>That was once again not an easy task to maintain each 2 days a post on the Blog as I was on holidays for 2 weeks. I spent my holidays in country and Ré Island :
+I enjoyed my holidays and had the time to geek on LXC :-)
+You&amp;rsquo;ll shortly have news on it :-)</description>
+    </item>
+    
+    <item>
+      <title>Do you want to try my desktop configuration ?</title>
+      <link>http://blog.deimos.fr/2013/08/04/do-you-want-to-try-my-dektop-configuration/</link>
+      <pubDate>Sun, 04 Aug 2013 10:00:37 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/08/04/do-you-want-to-try-my-dektop-configuration/</guid>
+      <description>Some of you already told me how complicated the setup of my software configurations could be. Depending on which configuration you&amp;rsquo;re talking about, it may be more or less complicated to install in the good folders, launching the good commands etc&amp;hellip;
+In addition, sometimes I need to set up a quick desktop environment with my preferences and deploy all I need may take a while. That&amp;rsquo;s why I&amp;rsquo;ve written some scripts (in Python and shell script) to help on deploying all my configuration and all the packages I wish.</description>
+    </item>
+    
+    <item>
+      <title>Shoei GT Air : my new helmet…exit HJC</title>
+      <link>http://blog.deimos.fr/2013/07/31/shoei-gt-air-my-new-helmet-exit-hjc/</link>
+      <pubDate>Wed, 31 Jul 2013 10:00:52 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/07/31/shoei-gt-air-my-new-helmet-exit-hjc/</guid>
+      <description>2 years ago, I bought the best helmet from HJC to replace my old XR-1000 Shoei. I really enjoyed the XR-1000 but after 5 years of usages, I really needed to change.
+I bought HJC Ben Spies replica because vendor convinced me that HJC was a really good outsider. The first 2 months, I was happy of my new helmet. Then I got problem with the helmet strap which broke and the visor&amp;rsquo;s rubber (rain bypassed it).</description>
+    </item>
+    
+    <item>
+      <title>My first Lenovo T430. I a word : awesome</title>
+      <link>http://blog.deimos.fr/2013/07/15/my-first-lenovo-t340-i-a-word-awesome/</link>
+      <pubDate>Mon, 15 Jul 2013 10:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/07/15/my-first-lenovo-t340-i-a-word-awesome/</guid>
+      <description>For more than 10 years, I&amp;rsquo;ve seen IBM/Lenovo laptops and I really wanted one to try. Every users I met with this kind of laptop always told me that they are very happy with, are robust and got Linux supported drivers.
+As I always wanted to get Mac instead of PC for my personnel usages, I never bought one. And as most of time, enterprises prefer cheap Dell than any other expensive robust laptop, I hadn&amp;rsquo;t the chance to have a Lenovo till today.</description>
+    </item>
+    
+    <item>
+      <title>I’m now working at eNovance</title>
+      <link>http://blog.deimos.fr/2013/07/03/im-now-working-at-enovance/</link>
+      <pubDate>Wed, 03 Jul 2013 10:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/07/03/im-now-working-at-enovance/</guid>
+      <description>I&amp;rsquo;m glad and proud to start working at eNovance. Today is my first day and I&amp;rsquo;ve been hired as a technical leader.
+I know there are some people here with a high technical level. I hope I&amp;rsquo;ll learn high level stuff and help eNovance to grow up with all my years of experience.
+I think that most of my future topics will be related to my favorites subjects as this is what I was searching for : automation, high availability, devops and bests practices in production.</description>
+    </item>
+    
+    <item>
+      <title>Today, I’m skydiving for the first time !!!</title>
+      <link>http://blog.deimos.fr/2013/06/15/today-im-skydiving-for-the-first-time/</link>
+      <pubDate>Sat, 15 Jun 2013 10:00:06 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/06/15/today-im-skydiving-for-the-first-time/</guid>
+      <description>Today is my first skydiving :-). As this post has been written yesterday evening, I should now be in a plane to jump or falling like a stone. I’ll try to add a picture once finished ! Keep updated :-)
+Update : are are some pictures, it was amazing</description>
+    </item>
+    
+    <item>
+      <title>Linagora : my last month</title>
+      <link>http://blog.deimos.fr/2013/06/13/linagora-my-last-month/</link>
+      <pubDate>Thu, 13 Jun 2013 10:00:33 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/06/13/linagora-my-last-month/</guid>
+      <description>This is my last month in Linagora. I enjoyed working with people as skilled as this, as friendly and I&amp;rsquo;ll miss them. I There I discovered events like Meetups or FOSDEM and understood a lot of things regarding open sources communities.
+Well, now my new job will start on 3rd of July. I&amp;rsquo;ll keep you up to date when I&amp;rsquo;ll start it and tell you where I&amp;rsquo;m going to work :-)</description>
+    </item>
+    
+    <item>
+      <title>Real Racing 3 sur smartphone</title>
+      <link>http://blog.deimos.fr/2013/03/15/real-racing-3-sur-smartphone/</link>
+      <pubDate>Fri, 15 Mar 2013 11:00:15 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/03/15/real-racing-3-sur-smartphone/</guid>
+      <description>On ne peut pas dire que je suis un hardcore gamer, même si durant mon adolescence j&amp;rsquo;ai plutôt doser Battlefield 2, CounterStrike ou encore la série des Need For Speed.
+Vous l&amp;rsquo;aurez compris, ce post n&amp;rsquo;est pas un technique habituel, mais je vais parler d&amp;rsquo;un de mes loisirs du moment qui est Real Racing 3. Les 2 précédents opus étaient beau, jouable et déjà réputé simulation sur smartphone (peut être que iPhone, je ne me rappelle plus).</description>
+    </item>
+    
+    <item>
+      <title>J’ai reçu mon Raspberry</title>
+      <link>http://blog.deimos.fr/2013/02/09/jai-recu-mon-raspberry/</link>
+      <pubDate>Sat, 09 Feb 2013 11:00:22 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/02/09/jai-recu-mon-raspberry/</guid>
+      <description>J&amp;rsquo;ai commandé et reçu en moins d&amp;rsquo;une semaine un Raspberry Pi B (512Mb de RAM).
+C&amp;rsquo;est vraiment un beau jouet et le rapport qualité prix est vraiment très bon !
+Le petit point négatif que j&amp;rsquo;aurais a dire est l&amp;rsquo;absence de bouton power. Du fait que le courant soit délivré par USB, ce matériel fonctionne comme n&amp;rsquo;importe quel périphérique USB, c&amp;rsquo;est a dire allumé lorsqu&amp;rsquo;il est branché et éteint, débranché. Certains diront qu&amp;rsquo;il faut le laisser en permanence branché vu sa faible consommation (~3-3,5W), mais je ne suis pas de cet avis.</description>
+    </item>
+    
+    <item>
+      <title>2ème et dernier jour au FOSDEM !</title>
+      <link>http://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/</link>
+      <pubDate>Tue, 05 Feb 2013 11:00:24 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/</guid>
+      <description>Avant d&amp;rsquo;attaquer le 2 ème jour, je vais finir sur le premier (la suite d&amp;rsquo;hier).
+Un des supers sujet était Bind 10 que j&amp;rsquo;attendais avec impatience. Il n&amp;rsquo;y a malheureusement eu d&amp;rsquo;informations sur les nouveautés aidant a la HA. Cependant il a été totalement réécrit pour supporter + de 100 cores alors qu&amp;rsquo;aujourd&amp;rsquo;hui au delà de 6, il y a des problèmes de performances. On a également (et étrangement) un serveur DHCP qui est intégré a Bind.</description>
+    </item>
+    
+    <item>
+      <title>Mon premier jour au FOSDEM (2013)</title>
+      <link>http://blog.deimos.fr/2013/02/03/en-direct-du-fosdem-2013/</link>
+      <pubDate>Sun, 03 Feb 2013 11:00:18 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/02/03/en-direct-du-fosdem-2013/</guid>
+      <description>Et me voilà parti grâce à Linagora au FOSDEM 2013 :-). C&amp;rsquo;est donc mon premier jour et premier FOSDEM.
+Au menu une petite intro Ubuntu sur Juju et MASS mais piètre qualité du représentant de Canonical. Quelque chose a retenir cependant, il faut vraiment tester Ceph :
+Heureusement qu&amp;rsquo;il y a eu une magnifique représentation MediaWiki avec du Jenkins, PhantomJS (incroyable) et d&amp;rsquo;autres produits dont Cucumber (qui est très impressionnant). Le mec de Wikipedia/MediaWiki avait vraiment l&amp;rsquo;air de bien connaître son sujet c&amp;rsquo;était top :</description>
+    </item>
+    
+    <item>
+      <title>Bonne Année !!!</title>
+      <link>http://blog.deimos.fr/2013/01/02/bonne-annee/</link>
+      <pubDate>Wed, 02 Jan 2013 11:00:48 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/01/02/bonne-annee/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Télécharger de beaux fonds d’écran</title>
+      <link>http://blog.deimos.fr/2012/12/13/telecharger-de-beaux-fonds-decran/</link>
+      <pubDate>Thu, 13 Dec 2012 11:00:26 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/12/13/telecharger-de-beaux-fonds-decran/</guid>
+      <description>Vous connaissez peut être Interface Lift ! Si vous ne connaissez pas encore, vous allez sûrement apprécier !
+J&amp;rsquo;ai fini par trouver un petit script en Python qui permet de télécharger facilement tous les fonds d&amp;rsquo;écran dans la résolution souhaitée ! Voici le script.
+Bons fonds d&amp;rsquo;écran :-)</description>
+    </item>
+    
+    <item>
+      <title>Xubuntu en desktop</title>
+      <link>http://blog.deimos.fr/2012/11/11/xubuntu-en-desktop/</link>
+      <pubDate>Sun, 11 Nov 2012 11:00:50 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/11/11/xubuntu-en-desktop/</guid>
+      <description>Je viens d&amp;rsquo;abandonner ma Debian en tant que desktop pour m&amp;rsquo;essayer à Xubuntu.
+Pourquoi ce choix ?
+ Et bien dans un premier temps, je n&amp;rsquo;ai pas envie de perdre de temps sur chaque installe que je fais à devoir spécifier les drivers si ils sont de type non free. Puis le mode user friendly avec les associations sur les fichiers, les logiciels preinstallés à la ubuntu sont quand même vachement pratique, même s&amp;rsquo;il y en a un peu trop à mon goût ou pas les toujours ceux que je souhaiterais par défaut.</description>
+    </item>
+    
+    <item>
+      <title>Du sport méchanique pour changer</title>
+      <link>http://blog.deimos.fr/2012/11/05/du-sport-mechanique-pour-changer/</link>
+      <pubDate>Mon, 05 Nov 2012 11:00:40 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/11/05/du-sport-mechanique-pour-changer/</guid>
+      <description>J’ai récemment été voir le Salon des sports Mécanique à Montoire sur le Loire.
+Dans les trucs rigolo, il y avait une simulation de wheeling ! Assez sympas pour ceux qui veulent s&amp;rsquo;y mettre, bien qu&amp;rsquo;en voyant les personnes dessus, j&amp;rsquo;avais une impression de trop facile. Il devait y avoir une belle prépa dans tous les cas. En tous cas l&amp;rsquo;idée est chouette, jugez vous même :
+  Et puis il y avait également des buggy avec moteurs d&amp;rsquo;Hornet :</description>
+    </item>
+    
+    <item>
+      <title>Merci pour cette soirée !</title>
+      <link>http://blog.deimos.fr/2012/10/28/merci-pour-cette-soiree/</link>
+      <pubDate>Sun, 28 Oct 2012 11:00:31 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/10/28/merci-pour-cette-soiree/</guid>
+      <description>J’ai passé une excellente soirée hier, pour mes 30 ans ! Merci a tous d’être venu, vous avez assuré pour la surprise :-)
+Je suis déjà nostalgique de cette soirée. Un petit souvenir de celle ci, mon gâteau d&amp;rsquo;anniversaire Kawazaki Z1000 :</description>
+    </item>
+    
+    <item>
+      <title>30 ans aujourd’hui</title>
+      <link>http://blog.deimos.fr/2012/10/22/30-ans-aujourdhui/</link>
+      <pubDate>Mon, 22 Oct 2012 10:00:47 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/10/22/30-ans-aujourdhui/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Freebox 6 : piloter à distance via API sa Freebox</title>
+      <link>http://blog.deimos.fr/2012/10/12/freebox-6-piloter-a-distance-api-sa-freebox/</link>
+      <pubDate>Fri, 12 Oct 2012 10:00:33 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/10/12/freebox-6-piloter-a-distance-api-sa-freebox/</guid>
+      <description>La dernière Freebox est pilotable par API. Pour quoi faire me direz vous ? Pour ma part, je l&amp;rsquo;utilise pour déconnecter un disque USB branché sur la Freebox server. En effet, pas moyen de le déconnecter sans se connecter à l&amp;rsquo;interface ou jouer pas mal avec la zapette. Bref, pas cool quant on est pressé.
+Du coup, je me suis dis que j&amp;rsquo;allais regarder ce qui se faisait comme API et je suis tombé sur celle ci.</description>
+    </item>
+    
+    <item>
+      <title>Ils sont fort chez Cobra et Magma !</title>
+      <link>http://blog.deimos.fr/2012/10/10/ils-sont-fort-chez-cobra/</link>
+      <pubDate>Wed, 10 Oct 2012 10:00:12 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/10/10/ils-sont-fort-chez-cobra/</guid>
+      <description>Toi fidèle lecteur, je ne connais pas ton niveau de connaissance en matériel HiFi. Cependant sache que j&amp;rsquo;ai récemment changé de télé pour cette 165cm Sony. Le prix à la FNAC est certe quelque peu rebutant. Néanmoins, je vais te donner une astuce pour avoir des tarifs super avantageux et la possibilité de parler à des vendeurs qui savent de quoi ils parlent.
+Il existe 2 magasins dans Paris qui sortent du lot sur tout le reste.</description>
+    </item>
+    
+    <item>
+      <title>Mon nouveau taf commence aujourd’hui</title>
+      <link>http://blog.deimos.fr/2012/10/02/mon-nouveau-taf-commence-aujourdhui/</link>
+      <pubDate>Tue, 02 Oct 2012 10:00:02 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/10/02/mon-nouveau-taf-commence-aujourdhui/</guid>
+      <description>Et voilà, c&amp;rsquo;est officiel, me voilà chez Linagora. J&amp;rsquo;espère que ça se passera bien, qu&amp;rsquo;il y aura des projets intéressants, que l&amp;rsquo;ambiance sera bonne et que j&amp;rsquo;aurais des collègues au top. Ce dernier point est important pour moi, car j&amp;rsquo;ai perdu, en changeant de taf des collègues géniaux à qui je passe le bonjour par l&amp;rsquo;intermédiaire de cette brève.
+Allez au boulot maintenant :-)</description>
+    </item>
+    
+    <item>
+      <title>Pas facile d’être un Hero</title>
+      <link>http://blog.deimos.fr/2012/09/30/pas-facile-detre-hero/</link>
+      <pubDate>Sun, 30 Sep 2012 10:00:11 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/09/30/pas-facile-detre-hero/</guid>
+      <description>Un ami m&amp;rsquo;a récemment prêté sa GoPro pour faire joujou. Je l&amp;rsquo;ai utilisée un peu violemment (c&amp;rsquo;est à dire que la vitesse avec les accoups violent c&amp;rsquo;est pas son truc à première vue) et la video faite ne s&amp;rsquo;est pas terminée correctement (illisible via VLC pour vous donner le niveau).
+Après quelques recherches sur le net, j&amp;rsquo;ai fini par tomber sur des posts intéressant pour réparer des videos en MP4. La solution que j&amp;rsquo;ai trouvée fonctionne mais sans le son, qui à l&amp;rsquo;air plus compliqué à récupérer que la vidéo.</description>
+    </item>
+    
+    <item>
+      <title>MUUUUUUUSE !!!!</title>
+      <link>http://blog.deimos.fr/2012/09/28/muuuuuuuse/</link>
+      <pubDate>Fri, 28 Sep 2012 10:00:34 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/09/28/muuuuuuuse/</guid>
+      <description>Ouiiiiiiii ! C&amp;rsquo;est aujourd&amp;rsquo;hui !!!!! En ce moment&amp;hellip;que de nouveautés ! Ça fait du bien. Ennnnnnfinnnnn un nouvel album ! Bon, ça commence vraiment à trop s&amp;rsquo;éloigner des superbes premiers albums, mais ça reste bien. Un peu plus pêchu ça serait cool :-)</description>
+    </item>
+    
+    <item>
+      <title>Je tire ma révérence</title>
+      <link>http://blog.deimos.fr/2012/09/14/bye-bye-ullink/</link>
+      <pubDate>Fri, 14 Sep 2012 10:00:38 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/09/14/bye-bye-ullink/</guid>
+      <description>Et voilà, aujourd&amp;rsquo;hui c&amp;rsquo;est mon dernier jour à Ullink après plus de 6 ans de bons et loyaux services. J&amp;rsquo;ai adoré cette boite, il y a vraiment des gens sympas et le boulot est intéressant côté IT. Une nouvelle page se tourne donc, je vous ferais part de la prochaine société dans laquelle je vais rentrer d&amp;rsquo;ici une quinzaine de jours.
+En attendant, ce soir c&amp;rsquo;est beuverie pour fêter mon pot de départ chez Youssef :-)</description>
+    </item>
+    
+    <item>
+      <title>Pour 1 feu acheté, un feu offert !</title>
+      <link>http://blog.deimos.fr/2012/09/12/pour-1-feu-achete-un-feu-offert/</link>
+      <pubDate>Wed, 12 Sep 2012 09:55:40 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/09/12/pour-1-feu-achete-un-feu-offert/</guid>
+      <description>Paris et sa circulation facile ! La semaine dernière j’ai pu voir que la mairie avait foutu 4 feux en 400m sur les quais ! Du coup ça créer encore plus de bouchons et ça favorise la pollution ! Que d’intelligence ! Tout ça a cause d’un égoïsme dans lequel la ville de Paris souhaite qu’il n’y ai quasiment plus de circulation. Surtout que les quais il n’y a jamais personne hormis l’été lors de Paris plage.</description>
+    </item>
+    
+    <item>
+      <title>Freebox : le NAS à 0€</title>
+      <link>http://blog.deimos.fr/2012/08/23/freebox-le-nas-a-0e/</link>
+      <pubDate>Thu, 23 Aug 2012 10:00:35 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/08/23/freebox-le-nas-a-0e/</guid>
+      <description>La semaine dernière, j&amp;rsquo;ai commencé à en avoir marre de mon FreeNAS. Non pas que ça ne fonctionne pas bien, mais devoir avoir une machine dédiée, allumée, pour lire les films de famille :-p et stocker mes photos etc&amp;hellip; bref, pénible !
+Je me suis dis : &amp;ldquo;Bon un Nas, ça serait pas mal quand même, mais ça fait cher pour l&amp;rsquo;utilité que je souhaites !&amp;rdquo;. Surtout que je ne souhaites pas des fonctionnalités de fou, je veux un truc en du RAID 1, qui lit tout les formats video et qui ne consomme pas beaucoup lorsque je n&amp;rsquo;utilise pas !</description>
+    </item>
+    
+    <item>
+      <title>Android…nan toujours pas !</title>
+      <link>http://blog.deimos.fr/2012/08/17/android-nan-toujours-pas/</link>
+      <pubDate>Fri, 17 Aug 2012 10:00:45 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/08/17/android-nan-toujours-pas/</guid>
+      <description>Avec la sortie de la cyanogen 9 stable, j&amp;rsquo;ai mis à jour mon Samsung Galaxy S2 et ai voulu squeezer temporairement mon iPhone. C&amp;rsquo;est stable, je n&amp;rsquo;ai pas encore vu de bugs. De grosses améliorations ont été apportées par rapport à la version précédente. C&amp;rsquo;est bourré de gadget plus Geek les uns que les autres, mais tout comme la dernière fois, je regrette qu&amp;rsquo;il n&amp;rsquo;y ai pas nativement :
+ Des pastilles sur les applications pour savoir combien de mails non lu, SMS, etc&amp;hellip; (se corrige avec Go Notifier) La lisibilité des mails est pitoyable sur le client de base et aucun autre ne m&amp;rsquo;a vraiment convaincu.</description>
+    </item>
+    
+    <item>
+      <title>En vacances</title>
+      <link>http://blog.deimos.fr/2012/07/18/en-vacances/</link>
+      <pubDate>Wed, 18 Jul 2012 10:00:01 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/07/18/en-vacances/</guid>
+      <description>Cela fait quelques jours que je suis EN VACANCES !!!!! Je vous ai tout de même préparé des articles avant mon départ, mais il est possible qu&amp;rsquo;il y ai un creux. Car je ne sais pas si vous avez remarqué, mais depuis le début de l&amp;rsquo;année, il y a un post tous les 2 jours, ce qui n&amp;rsquo;est pas facile à tenir.
+Donc je souhaites à tous mes lecteurs de bonnes vacances d&amp;rsquo;été :-)</description>
+    </item>
+    
+    <item>
+      <title>Serveur migré :-)</title>
+      <link>http://blog.deimos.fr/2012/06/24/serveur-migre/</link>
+      <pubDate>Sun, 24 Jun 2012 10:00:20 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/06/24/serveur-migre/</guid>
+      <description>Vous le constatez peut être déjà mais la réactivité du blog ou du wiki s&amp;rsquo;est améliorée depuis que je suis passé sur une machine dédiée plus puissante. Il me reste encore quelques petites optimisations à faire pour que les sites tracent encore un peu plus, ça devrait arriver sous peu :-)
+En attendant&amp;hellip;enjoy !</description>
+    </item>
+    
+    <item>
+      <title>Au revoir président !</title>
+      <link>http://blog.deimos.fr/2012/06/16/au-revoir-president/</link>
+      <pubDate>Sat, 16 Jun 2012 10:00:55 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/06/16/au-revoir-president/</guid>
+      <description>Vous vous rappelez de cette pub ? Non je n&amp;rsquo;ai pas gagné au loto, mais je quitte mon travail actuel pour aller vers de nouvelles contrées. Après de 6 ans de bons et loyaux services, je pars dans une autre boite (dont je ne citerais pas le nom pour le moment) qui je l&amp;rsquo;espère m&amp;rsquo;apportera plus de satisfactions et surtout plus de projets techniques de haut niveau.
+Je pars donc en septembre et devrais reprendre en septembre :-) Vous aurez le nom de cette boite à ce moment là :-)</description>
+    </item>
+    
+    <item>
+      <title>Retour d’expérience sur les Options binaires</title>
+      <link>http://blog.deimos.fr/2012/06/04/retour-dexperience-sur-les-options-binaires/</link>
+      <pubDate>Mon, 04 Jun 2012 10:00:44 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/06/04/retour-dexperience-sur-les-options-binaires/</guid>
+      <description>Suite aux conseils d&amp;rsquo;une personne dont je ne citerais pas le nom pour ne pas lui causer de tord, je me suis fais parrainer et mis à parier sur les options binaires via le site OptionBit. Pourquoi je m&amp;rsquo;y suis mis ? Tout simplement parce que mon parrain a gagné en 1 semaine 1500 € avec une mise de départ de 200€. 2 jours après, il est passée à 7000€ !</description>
+    </item>
+    
+    <item>
+      <title>Crémaillère night fever !</title>
+      <link>http://blog.deimos.fr/2012/05/05/cremaillere-saturday-night-fever/</link>
+      <pubDate>Sat, 05 May 2012 17:00:33 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/05/05/cremaillere-saturday-night-fever/</guid>
+      <description>Ce soir c&amp;rsquo;est la crémaillère à bibi youhouuuuuu !!!! Allez les coupaings, c&amp;rsquo;est ouvert !</description>
+    </item>
+    
+    <item>
+      <title>Putain de Vélo de merde !</title>
+      <link>http://blog.deimos.fr/2012/05/03/putain-de-velo-de-merde/</link>
+      <pubDate>Thu, 03 May 2012 18:31:01 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/05/03/putain-de-velo-de-merde/</guid>
+      <description>J&amp;rsquo;ai taper un vélo. Le genre qui a des écouteurs et qui regarde pas avant de traverser 2 voies. Un connard de car lui dit d&amp;rsquo;y aller, il est tout à droite et d&amp;rsquo;un coup traverse jusque tout à gauche pour se retrouver en face de moi. Et moi je ne le voyais pas car il y avait le car.
+Allez en route pour le garage&amp;hellip;génial ! J&amp;rsquo;en ai marre de ces scooter, car et vélo qu&amp;rsquo;on rien a faire dans Paris !</description>
+    </item>
+    
+    <item>
+      <title>Poignées chauffantes…2ème</title>
+      <link>http://blog.deimos.fr/2012/04/21/poignees-chauffantes-2eme/</link>
+      <pubDate>Sat, 21 Apr 2012 10:00:13 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/04/21/poignees-chauffantes-2eme/</guid>
+      <description>Petit retour sur les poignées chauffantes…c’est top, mais un truc super chaud m’est arrivée, j’ai le fil qui conduit la chaleur qui s’est entortillé autour de la poignée des gazs et sur autoroute, quand il faut s’arrêter rapidement et que la poignée reste coincée, on fait pas le malin.
+Du coup retour au concessionnaire hier&amp;hellip;ils ont mit une tonne de colle pour que le caoutchouc réadère a la poignée et voilà, c&amp;rsquo;est tout revenu comme avant maintenant :-)</description>
+    </item>
+    
+    <item>
+      <title>PayPal sur le blog et le wiki</title>
+      <link>http://blog.deimos.fr/2012/04/07/paypal-sur-le-blog-et-le-wiki/</link>
+      <pubDate>Sat, 07 Apr 2012 10:00:24 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/04/07/paypal-sur-le-blog-et-le-wiki/</guid>
+      <description>Je reçois assez fréquemment des mails de remerciements pour mes articles :-). Ca me fait très plaisir puisque le but c&amp;rsquo;est que ça serve à d&amp;rsquo;autres personnes. Un collègue (Evox/Roro) m&amp;rsquo;a suggérer de mettre PayPal, puisque dans certains cas mes docs peuvent sauver la vie.
+Ni une, ni deux, j&amp;rsquo;ai mis ça en place sur le wiki et le blog. Donc si vous avez par hasard une subite envie de me faire un petit cadeau, n&amp;rsquo;hésitez pas :-p</description>
+    </item>
+    
+    <item>
+      <title>Soekris : Migration d’OpenBSD -&gt; pfSense</title>
+      <link>http://blog.deimos.fr/2012/04/01/soekris-migration-dopenbsd-pfsense/</link>
+      <pubDate>Sun, 01 Apr 2012 11:00:19 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/04/01/soekris-migration-dopenbsd-pfsense/</guid>
+      <description>Je m&amp;rsquo;étais fais la main sur la Soekris d&amp;rsquo;un pot il y a un peu plus d&amp;rsquo;un an maintenant et j&amp;rsquo;avais trouvé ça sexy pour l&amp;rsquo;époque. Je trouve que c&amp;rsquo;est aujourd&amp;rsquo;hui vraiment bien abouti et que les fonctionnalités ne manques pas. De plus c&amp;rsquo;est assez scalable, on peut faire a peut prêt tout ce que l&amp;rsquo;on veut dessus, donc j&amp;rsquo;en suis satisfait pour le moment.
+Me voilà donc parti sur une de ces distribs clef en main pour ce qui me sert de routeur/firewall chez moi.</description>
+    </item>
+    
+    <item>
+      <title>Rebooter sa Freebox Server 6 en ligne de commande</title>
+      <link>http://blog.deimos.fr/2012/03/30/rebooter-sa-freebox-server-6-en-ligne-de-commande/</link>
+      <pubDate>Fri, 30 Mar 2012 11:00:38 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/03/30/rebooter-sa-freebox-server-6-en-ligne-de-commande/</guid>
+      <description>Depuis la version 6 de la Freebox, il y a une interface web (http://mafreebox.freebox.fr) qui permet de controler plusieurs options de celle ci et notamment de la redémarrer.
+Pour ceux que ça intéresse, j&amp;rsquo;ai fais une documentation.</description>
+    </item>
+    
+    <item>
+      <title>Qui a tout compri ici ? Merci Free</title>
+      <link>http://blog.deimos.fr/2012/03/26/qui-a-tout-comprit-ici-merci-free/</link>
+      <pubDate>Mon, 26 Mar 2012 11:00:18 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/03/26/qui-a-tout-comprit-ici-merci-free/</guid>
+      <description>Voici un petit mail pour dire merci à Free car grace à eux :
+ J&amp;rsquo;ai du AirPlay à la maison sans payer une AppleTV, ce qui me permet de balancer le son de mon iPhone directement sur mon ampli via la Freebox. J&amp;rsquo;ai un lecteur Blue-Ray de base sur la Freebox player Je ne suis pas obliger de vendre un de mes organe pour pouvoir me payer un forfait téléphonique J&amp;rsquo;ai une très bonne qualité TV grâce au HD (oui car ma superbe TV Sony Full HD n&amp;rsquo;a pas de Tuner TNT HD (trop intelligent Sony)) Je n&amp;rsquo;ai pas besoin d&amp;rsquo;avoir un de mes téléphones DECT branché sur la Freebox Server et donc empêche (dans ma configuration) ma fille de prendre le téléphone et jouer avec Je peux visionner la télé depuis n&amp;rsquo;importe quel ordinateur Je peux Streamer des films sur la télé directement &amp;hellip;  Je regrête que Free ne fasse pas :</description>
+    </item>
+    
+    <item>
+      <title>Dongle pour Freebox Player et télécommande universelle</title>
+      <link>http://blog.deimos.fr/2012/03/24/dongle-pour-freebox-player-et-telecommande-universelle/</link>
+      <pubDate>Sat, 24 Mar 2012 11:00:36 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/03/24/dongle-pour-freebox-player-et-telecommande-universelle/</guid>
+      <description>Si toi aussi tu possède une télécommande universelle (Logitech Harmony One pour ma part), que tu veux pouvoir gérer ta Freebox Player comme un périphérique normal (par Infra Rouge) et que tu te demande pourquoi il n&amp;rsquo;existe toujours pas de télécommande abordable qui fasse la techno sans fil qui t&amp;rsquo;embête également avec la Playstation, sache qu&amp;rsquo;il existe un moyen de contourner ceci.
+Déjà, il faut savoir que même si t&amp;rsquo;es péter de tune, t&amp;rsquo;as beau t&amp;rsquo;acheter la Logitech la plus cher, elle ne fonctionnera pas avec la Playstation 3 ou bien la Freebox, pourquoi ?</description>
+    </item>
+    
+    <item>
+      <title>Déménagement en cours, veuillez patienter</title>
+      <link>http://blog.deimos.fr/2012/03/10/demenagement-en-cours-veuillez-patienter/</link>
+      <pubDate>Sat, 10 Mar 2012 08:05:10 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/03/10/demenagement-en-cours-veuillez-patienter/</guid>
+      <description>Merci a tous les amis qui viennent me donner un coup demain aujourd’hui pour ce déménagement :-)</description>
+    </item>
+    
+    <item>
+      <title>J’ai Internet !!!!!!!!!!</title>
+      <link>http://blog.deimos.fr/2012/03/08/jai-internet/</link>
+      <pubDate>Thu, 08 Mar 2012 19:27:34 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/03/08/jai-internet/</guid>
+      <description>Je suis trop content ! 6 mois sans internet chez sois c’est la mort !</description>
+    </item>
+    
+    <item>
+      <title>Ayé lé coupain, j’ai mon nouvel appart !!! :-)</title>
+      <link>http://blog.deimos.fr/2012/03/07/aye-le-coupain-jai-mon-nouvel-appart/</link>
+      <pubDate>Wed, 07 Mar 2012 17:00:44 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/03/07/aye-le-coupain-jai-mon-nouvel-appart/</guid>
+      <description>Bon bah&amp;hellip;préparez vous les copains, samedi ça va être sportif pour ceux qui seront là :-)</description>
+    </item>
+    
+    <item>
+      <title>Hornet 600 sans pot</title>
+      <link>http://blog.deimos.fr/2012/03/05/hornet-600-sans-pot/</link>
+      <pubDate>Mon, 05 Mar 2012 11:00:23 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/03/05/hornet-600-sans-pot/</guid>
+      <description>J’ai retrouvé une vieille vidéo, de l’époque ou j’avais ma magnifique Honda Hornet 600 (modèle 2004)…je suis super nostalgique, j’aurais vraiment dû la garder cette moto !
+Bref, c&amp;rsquo;était à un moment ou j&amp;rsquo;avais changé de pot d&amp;rsquo;échappement et pendant ce changement justement, je m&amp;rsquo;étais amusé à la démarrée sans pot. La qualité de la vidéo est certe très médiocre, mais à l&amp;rsquo;époque&amp;hellip;j&amp;rsquo;avais pas mieux :
+  Ce navigateur ne sait pas lire les videos, utilises plutot Firefox</description>
+    </item>
+    
+    <item>
+      <title>Flics vs dépaneuse</title>
+      <link>http://blog.deimos.fr/2012/02/06/flics-vs-depaneuse/</link>
+      <pubDate>Mon, 06 Feb 2012 09:33:19 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/02/06/flics-vs-depaneuse/</guid>
+      <description>C’est pas beau ça ?</description>
+    </item>
+    
+    <item>
+      <title>Je suis enfin chez Free :-)</title>
+      <link>http://blog.deimos.fr/2012/02/05/je-suis-enfin-chez-free/</link>
+      <pubDate>Sun, 05 Feb 2012 11:00:42 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/02/05/je-suis-enfin-chez-free/</guid>
+      <description>Ça y est ! Me voilà chez Free. Pour les proches, amis et collègues, vous devez avoir reçu mon nouveau numéro.
+Pour l&amp;rsquo;instant je suis très satisfait de la couverture réseaux ( en même temps c&amp;rsquo;est Orange et je viens de chez Bouygues ).</description>
+    </item>
+    
+    <item>
+      <title>Poignées chauffantes !!!</title>
+      <link>http://blog.deimos.fr/2012/02/03/poignees-chauffantes/</link>
+      <pubDate>Fri, 03 Feb 2012 11:00:49 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/02/03/poignees-chauffantes/</guid>
+      <description>Et bah voilà ! Papi a posé les poignées chauffantes sur la z1000. Et bah franchement par -4/-8C, même si j’ai le bout des doigts gelés, ça tiens super chaud et c’est trop agréable !
+J&amp;rsquo;étais septique car mon pote Bigboss, lui ça chauffe en 15 min, alors que les miennes en seulement 2min c&amp;rsquo;est déjà bien chaud. Bref le kif&amp;hellip;mais en mode papi</description>
+    </item>
+    
+    <item>
+      <title>Et me voilà parti chez Free mobile</title>
+      <link>http://blog.deimos.fr/2012/01/12/et-me-voila-parti-chez-free-mobile/</link>
+      <pubDate>Thu, 12 Jan 2012 08:31:36 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/01/12/et-me-voila-parti-chez-free-mobile/</guid>
+      <description>Adieu Bouygues et Orange (je ne parle pas d&amp;rsquo;SFR, c&amp;rsquo;est tellement des escrocs++ que ça fait 10 ans que je n&amp;rsquo;y ai pas remis les pieds), je pars chez Free : une totale liberté de pensée cosmique vers un nouvel âge réminissant (les inconnus).
+Je pensais attendre un peu plus longtemps, mais l&amp;rsquo;envie de passer chez Free est trop grande, merci Free.</description>
+    </item>
+    
+    <item>
+      <title>Bonne année à tous !</title>
+      <link>http://blog.deimos.fr/2012/01/01/bonne-annee-a-tous-2/</link>
+      <pubDate>Sat, 31 Dec 2011 23:00:02 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/01/01/bonne-annee-a-tous-2/</guid>
+      <description>Je souhaites à tous mes lecteurs une très bonne année pleine de joie et de geekeries !</description>
+    </item>
+    
+    <item>
+      <title>RHCE done :-)</title>
+      <link>http://blog.deimos.fr/2011/12/18/rhce-done/</link>
+      <pubDate>Sun, 18 Dec 2011 14:19:20 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/12/18/rhce-done/</guid>
+      <description>J&amp;rsquo;ai repassé l&amp;rsquo;examen RHCE et l&amp;rsquo;ai eu cette fois ci. Pour rappel il faut 210 points, j&amp;rsquo;avais fais 208&amp;frasl;300 la dernière fois, et cette fois ci 286&amp;frasl;300.
+J&amp;rsquo;aimerais bien dire : &amp;ldquo;En route vers RHCA maintenant !&amp;rdquo;, mais je dois avouer que la route va être longue, cher et parsemée d’embuches. Il va me falloir 5 autres certifs pour atteindre ce titre. Il y en a 2 que je pense avoir sans trop de difficultés (Cluter + Statellite) tandis que la RH442 (celle dont j&amp;rsquo;ai eu la formation cette semaine) me semble bien complexe.</description>
+    </item>
+    
+    <item>
+      <title>Formation RH442 RedHat</title>
+      <link>http://blog.deimos.fr/2011/12/16/formation-rh442-redhat/</link>
+      <pubDate>Fri, 16 Dec 2011 19:53:58 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/12/16/formation-rh442-redhat/</guid>
+      <description>Une fois n&amp;rsquo;est pas coutume, je vais faire un peu de pub pour RedHat. Cette semaine j&amp;rsquo;ai été en formation RH442 (Performance Tuning) et c&amp;rsquo;était très instructif.
+Comme à mon habitude je ferais donc quelques petits articles sur certaines choses qui m&amp;rsquo;ont paru très intéressantes. Quoi qu&amp;rsquo;il en soit, je vous recommande fortement cette formation techniquement pointue.</description>
+    </item>
+    
+    <item>
+      <title>Adieu Paolo</title>
+      <link>http://blog.deimos.fr/2011/12/06/adieu-paolo/</link>
+      <pubDate>Tue, 06 Dec 2011 13:26:51 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/12/06/adieu-paolo/</guid>
+      <description>C&amp;rsquo;est avec tristesse que j&amp;rsquo;ai appris hier le décès de Paulo Pinto (Paolo/CrashFR). Il était un des pionnier Français de la sécurité informatique. Un hommage lui est rendu sur le site de sa société avec un lien vers un livre d&amp;rsquo;or et quelques explications sur son historique sont dispo sur clubic.
+Même si je n&amp;rsquo;ai pas très bien connu Paolo, il m&amp;rsquo;a marqué. Je l&amp;rsquo;ai rencontré pour la première fois il y a plus de 5 ans, lorsque j&amp;rsquo;ai fais une formation chez Sysdream.</description>
+    </item>
+    
+    <item>
+      <title>RHCSA done :-)</title>
+      <link>http://blog.deimos.fr/2011/10/09/rhcsa-done/</link>
+      <pubDate>Sun, 09 Oct 2011 07:19:52 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/10/09/rhcsa-done/</guid>
+      <description>Ça y est, après une petite semaine de formation me voilà RHCSA :-). J&amp;rsquo;ai fais 100% de bonnes réponses.
+Dans la foulée j&amp;rsquo;ai passé le RHCE, mais la malheureusement c&amp;rsquo;est pas passé :-(. Je n&amp;rsquo;ai fais que 208 points sur 300 et il faut 210 point pour l&amp;rsquo;avoir. C&amp;rsquo;est rageant, surtout qu&amp;rsquo;on ne sait pas la ou on a merder, il n&amp;rsquo;y a pas de corrigé d&amp;rsquo;examen.
+Je vais donc tenter de le repasser très prochainement.</description>
+    </item>
+    
+    <item>
+      <title>Toujours l’histoire du mec qu’a pas de bol</title>
+      <link>http://blog.deimos.fr/2011/10/02/toujours-lhistoire-du-mec-qua-pas-de-bol/</link>
+      <pubDate>Sun, 02 Oct 2011 18:07:02 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/10/02/toujours-lhistoire-du-mec-qua-pas-de-bol/</guid>
+      <description>Je fais un petit post car ça faisait un moment qu&amp;rsquo;il n&amp;rsquo;y avait pas eu de news.
+Pour le coup c&amp;rsquo;est une news perso. Il y a 1 mois j&amp;rsquo;ai encore eu un cambriolage (le 3 eme). Heureusement le connard voleur a été appréhender, passé en justice et a pris que des peines avec surcit car il n&amp;rsquo;avait que 18 ans.
+Je tiens a remercier tous mes amis qui nous ont aidé pour déménager en 1 après midi car grâce a eux ont ne stress plus d&amp;rsquo;être chez nous.</description>
+    </item>
+    
+    <item>
+      <title>C’est l’histoire d’un mec qui se fait cambrioler…</title>
+      <link>http://blog.deimos.fr/2011/05/04/cest-lhistoire-dun-mec-qui-se-fait-cambrioler/</link>
+      <pubDate>Wed, 04 May 2011 18:09:26 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/05/04/cest-lhistoire-dun-mec-qui-se-fait-cambrioler/</guid>
+      <description>C’est l’histoire d’un mec qui se fait cambrioler 2 fois en moins d’un an de 2 manières différentes. C’est possible ? non que dans les films !
+Et bah si ! Je me suis fait ENCORE cambriolé ! L&amp;rsquo;alarme s&amp;rsquo;est déclenchée, j&amp;rsquo;ai été prévenu mais ils ont eu le temps de partir. Je suis ravi Thérèse !</description>
+    </item>
+    
+    <item>
+      <title>Z1000 en full power</title>
+      <link>http://blog.deimos.fr/2011/04/10/z1000-en-full-power/</link>
+      <pubDate>Sun, 10 Apr 2011 19:54:26 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/04/10/z1000-en-full-power/</guid>
+      <description>J’ai fais un petit essai ce week end de ma Z1000 en full power. J’ai pu obtenir les infos en fouillant un peu sur le net.
+Alors les impressions : un peu déçu. Effectivement, je pensais que ça allait envoyer beaucoup plus fort. C&amp;rsquo;est mieux c&amp;rsquo;est sur, mais en prenant 40cv de plus, je m&amp;rsquo;attendais à bien mieux.
+Donc au final, la poignée de gaz n&amp;rsquo;est plus limitée (le plus gros bridage est ici), et une cosse a retirée qui permet d&amp;rsquo;améliorer l&amp;rsquo;air dans le moteur (c&amp;rsquo;est ce que j&amp;rsquo;ai lu sur le net, j&amp;rsquo;en suis pas sur à 100%).</description>
+    </item>
+    
+    <item>
+      <title>ZFS sur Linux</title>
+      <link>http://blog.deimos.fr/2011/03/24/zfs-sur-linux/</link>
+      <pubDate>Thu, 24 Mar 2011 11:16:29 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/03/24/zfs-sur-linux/</guid>
+      <description>Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur lequel je souhaites la double parité et surtout un OS Linux car c&amp;rsquo;est ce que je connais de mieux pour la partie multimédia.
+Aujourd&amp;rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&amp;rsquo;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.</description>
+    </item>
+    
+    <item>
+      <title>Recherche des Ingénieurs</title>
+      <link>http://blog.deimos.fr/2011/03/02/recherche-des-ingenieurs/</link>
+      <pubDate>Wed, 02 Mar 2011 17:38:14 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/03/02/recherche-des-ingenieurs/</guid>
+      <description>Je me permet un petit post sur mon blog car j&amp;rsquo;ai du mal a trouver des bons profils. Je suis actuellement a la recherche de ces postes sur Paris :
+ Ingénieur Réseaux Junior
+ Ingénieur Système Junior
+ Ingénieur Système Linux Senior
+ Ingénieur Sécurité / Audit
+  Si vous connaissez du monde ou êtes vous même intéressés, n&amp;rsquo;hésitez pas a m&amp;rsquo;envoyer vos CV.</description>
+    </item>
+    
+    <item>
+      <title>Simba est de retour :-)</title>
+      <link>http://blog.deimos.fr/2011/02/09/simba-est-de-retour/</link>
+      <pubDate>Wed, 09 Feb 2011 07:28:19 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/02/09/simba-est-de-retour/</guid>
+      <description>Le pauvre a du se faire enfermer quelque part ou je ne sais quoi et a été libérer. Bref, il est enfin de retour et nous sommes enfin soulagés :-)</description>
+    </item>
+    
+    <item>
+      <title>LPI 202 Validée :-)</title>
+      <link>http://blog.deimos.fr/2011/01/21/lpi-202-validee/</link>
+      <pubDate>Fri, 21 Jan 2011 06:02:05 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/01/21/lpi-202-validee/</guid>
+      <description>Vendredi j&amp;rsquo;ai passé la certification 202 chez Linagora. J&amp;rsquo;ai reçu une réponse dans la nuit et j&amp;rsquo;ai donc eu ma certification. Je devais la passer car je risquais de perdre les autres que j&amp;rsquo;avais valider en 2006.
+C&amp;rsquo;est maintenant chose faite :-)</description>
+    </item>
+    
+    <item>
+      <title>Pierre qui roule n’amasse pas mousse</title>
+      <link>http://blog.deimos.fr/2010/10/29/pierre-qui-roule-namasse-pas-mousse/</link>
+      <pubDate>Fri, 29 Oct 2010 12:03:45 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/10/29/pierre-qui-roule-namasse-pas-mousse/</guid>
+      <description>Une kawa cette fois ci. Toute fraiche de ce midi après des mois d&amp;rsquo;attente, me voilà sur une Z1000.</description>
+    </item>
+    
+    <item>
+      <title>Dans la serie merde au cul…</title>
+      <link>http://blog.deimos.fr/2010/09/09/dans-la-serie-merde-au-cul/</link>
+      <pubDate>Thu, 09 Sep 2010 04:36:40 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/09/09/dans-la-serie-merde-au-cul/</guid>
+      <description>Me voila encore avec un nouveau problème (quelle année). Hier j’ai eu un accident de moto (ma première chute…champeyne). Une voiture a piler devant moi, j’ai freiné, ma roue avant a glissée et je suis tombé. Rien de grave, mais j’ai quand même mal a la cheville (j’me suis prit le sélecteur) et au coude (le poid de la moto a été retenu avec).
+Bref ce matin ça fait mal, et vais peut être aller voir le médecin quand même.</description>
+    </item>
+    
+    <item>
+      <title>Au voleur ! Rendez moi ma couleur :&#39;(</title>
+      <link>http://blog.deimos.fr/2010/08/17/au-voleur-rendez-moi-ma-couleur/</link>
+      <pubDate>Tue, 17 Aug 2010 18:31:57 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/08/17/au-voleur-rendez-moi-ma-couleur/</guid>
+      <description>Une petite blagounette en ce jour maussade :-(. Je viens de rentrer de vacances et me suis fait cambriolé le lendemain de mon départ. Le tableau est assez moche, gros chantier de fringues, matelas retourné, Playstation, portable et bijoux volés.
+Bref, je contemple les dégâts et vais prendre les mesure qui s&amp;rsquo;impose pour ne plus que ça arrive.
+Dur journée :-(</description>
+    </item>
+    
+    <item>
+      <title>Nouveau logement mais petite connexion :-(</title>
+      <link>http://blog.deimos.fr/2010/07/23/nouveau-logement-mais-petite-connexion/</link>
+      <pubDate>Fri, 23 Jul 2010 17:02:49 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/07/23/nouveau-logement-mais-petite-connexion/</guid>
+      <description>Et ouala, j’ai déménagé et bien emménagé. Tout s’est globalement bien passé.
+Cependant, le problème majeure est la connexion internet :-(. Je n&amp;rsquo;ai que 4,8Mb/s au lieu de 20Mb/s. Ca calme :-(. J&amp;rsquo;ai beau bidouiller tous me cables téléphonique, mais rien n&amp;rsquo;y fait, pas moyen de faire mieux snif.
+A part ça, j&amp;rsquo;ai de la place pour faire pleins de trucs, c&amp;rsquo;est cool. Ma femme est contente. Le chat est ravit :-)</description>
+    </item>
+    
+    <item>
+      <title>Mastic, Enduit, peintures &amp; co</title>
+      <link>http://blog.deimos.fr/2010/07/06/mastic-enduit-peintures-co/</link>
+      <pubDate>Tue, 06 Jul 2010 11:40:41 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/07/06/mastic-enduit-peintures-co/</guid>
+      <description>Je suis dans les travaux en ce moment et le fait aider par pas mal d’entre vous. Pas trop trop le temps de poster des trucs pour le moment, mais ça reviendra vite :-)</description>
+    </item>
+    
+    <item>
+      <title>Vous connaisser loserman ?</title>
+      <link>http://blog.deimos.fr/2010/06/28/vous-connaisser-losserman/</link>
+      <pubDate>Mon, 28 Jun 2010 06:00:54 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/06/28/vous-connaisser-losserman/</guid>
+      <description>Moi je connais un mec qui ce week end a fait un petit reboot (pour simplifier la situation) de son serveur qu’il a chez lui. En faisant le reboot 2 disques de sont raid 5 sont endommagés (1 qui fait clic clic et l’autre visiblement le problème de firmware Seagate….il avait pourtant flashé à l’époque pour ne pas que ça arrive).
+Il essaye donc d&amp;rsquo;en faire repartir 1 et par miracle il y arrive.</description>
+    </item>
+    
+    <item>
+      <title>Muse c’est reparti</title>
+      <link>http://blog.deimos.fr/2010/06/11/muse-cest-reparti/</link>
+      <pubDate>Fri, 11 Jun 2010 20:20:11 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/06/11/muse-cest-reparti/</guid>
+      <description>C&amp;rsquo;était grandiose !</description>
+    </item>
+    
+    <item>
+      <title>JE COLLECTIONNE DES CANARD…</title>
+      <link>http://blog.deimos.fr/2010/05/28/je-collectionne-des-canard/</link>
+      <pubDate>Fri, 28 May 2010 17:10:26 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/05/28/je-collectionne-des-canard/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Ma moto tmp</title>
+      <link>http://blog.deimos.fr/2010/04/09/ma-moto-tmp/</link>
+      <pubDate>Fri, 09 Apr 2010 19:05:31 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/04/09/ma-moto-tmp/</guid>
+      <description>Voici ma moto temporaire. Elle va me permettre de rouler en attendant que je déménage et que l’assurance me rembourse. C’est pas la moto de mes rêves, mais elle est très sympa quand même :</description>
+    </item>
+    
+    <item>
+      <title>Ma princesse est arrivée !</title>
+      <link>http://blog.deimos.fr/2010/03/26/ma-princesse-est-arrivee/</link>
+      <pubDate>Fri, 26 Mar 2010 11:48:52 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/03/26/ma-princesse-est-arrivee/</guid>
+      <description>Ca y est, ma fille est née ce matin à 2h44 et elle s’appelle Clélie.
+Je n&amp;rsquo;ai pas beaucoup de temps à consacrer à ce ticket mais tout va bien pour la mère et la fille :-)</description>
+    </item>
+    
+    <item>
+      <title>Woo Babayyy ! Nerver can say good bye..</title>
+      <link>http://blog.deimos.fr/2010/03/22/woo-babayyy-nerver-can-say-good-bye/</link>
+      <pubDate>Mon, 22 Mar 2010 08:17:12 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/03/22/woo-babayyy-nerver-can-say-good-bye/</guid>
+      <description>Ce matin, bibi passe prendre sa petite motocyclette pour aller travailler comme tous les jours de la semaine et op … Disparition…. Gérard Majax.
+Du coup allez op au comico pour porter pleintes chez les keufs etc&amp;hellip; Je suis ravis Thérèse.
+Et la journée ne fait que commencer. Avec le bol que j&amp;rsquo;ai l&amp;rsquo;assurance va me rembourser des cacahuettes, je le sens gros comme une maison.
+Et puis sérieux les mecs qu&amp;rsquo;on voler ma moto ils sont pas futfut quand même.</description>
+    </item>
+    
+    <item>
+      <title>Google Chrome VS Firefox</title>
+      <link>http://blog.deimos.fr/2010/03/02/google-chrome-vs-firefox/</link>
+      <pubDate>Tue, 02 Mar 2010 18:19:27 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/03/02/google-chrome-vs-firefox/</guid>
+      <description>Ca fait des semaines que Steeves me parles de Google Chrome, qu’il me dit qu’il faut que j’y passe etc… Perso, je suis très content de mon firefox. Si il pouvait être un peut plus rapide, j’aimerais bien aussi.
+Donc voilà Chrome est sensé faire tout ce que fait Firefox, mais en mieux. Un peu septique, j&amp;rsquo;ai tout de même voulu tenter l&amp;rsquo;aventure.
+Mon bilan est dressé au bout d&amp;rsquo;une heure d&amp;rsquo;utilisation.</description>
+    </item>
+    
+    <item>
+      <title>Double arc en ciel a Paris</title>
+      <link>http://blog.deimos.fr/2010/02/18/double-arc-en-ciel-a-paris/</link>
+      <pubDate>Thu, 18 Feb 2010 15:40:10 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/02/18/double-arc-en-ciel-a-paris/</guid>
+      <description>Je crois n’avoir jamais vu 2 arcs en ciel en meme temps. En plus à Paris, c’est encore plus rare :</description>
+    </item>
+    
+    <item>
+      <title>Du multimedia sur votre PS3</title>
+      <link>http://blog.deimos.fr/2010/01/01/du-multimedia-sur-votre-ps3/</link>
+      <pubDate>Fri, 01 Jan 2010 21:07:48 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/01/01/du-multimedia-sur-votre-ps3/</guid>
+      <description>Après avoir tenter plusieurs serveurs uPNP (MediaTomb et PS3 Media Server) pour la Playstation 3, j’ai eu besoin de tester la lecture d’éléments multimedia à partir d’une clef USB.
+Je copie donc mon contenu à l&amp;rsquo;arrache en me disant que la PS3 va automatiquement détecter en fonction des extensions des fichiers si c&amp;rsquo;est des photos, musiques ou films&amp;hellip;et bah non ! Quedal ! Ca marche pas vraiment comme ça. Réencoder les films ?</description>
+    </item>
+    
+    <item>
+      <title>Bonne année 2010 !</title>
+      <link>http://blog.deimos.fr/2010/01/01/bonne-annee-2010/</link>
+      <pubDate>Fri, 01 Jan 2010 09:51:51 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/01/01/bonne-annee-2010/</guid>
+      <description>Je vous souhaites pleins de bonheur et de geekeries !</description>
+    </item>
+    
+    <item>
+      <title>Raid du serveur endommagé</title>
+      <link>http://blog.deimos.fr/2009/12/28/raid-du-serveur-endommage/</link>
+      <pubDate>Mon, 28 Dec 2009 20:31:09 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/12/28/raid-du-serveur-endommage/</guid>
+      <description>Le serveur a subit le fameux problème de la série des Seagate défectueux (tout comme Pepere a eu il y a quelques temps déjà).
+Bref heureusement j&amp;rsquo;ai un raid 5 sur 4 disques et je n&amp;rsquo;ai qu&amp;rsquo;1 disque qui est tombé en panne. C&amp;rsquo;est donc arrivé samedi et j&amp;rsquo;ai donc racheté un disque Seagate (pas que j&amp;rsquo;aime me faire du mal, mais la série de disques défectueux est passée et en plus je trouve que les Seagate sont très très bon pour tourner 24/24h.</description>
+    </item>
+    
+    <item>
+      <title>J’ai remis la main sur les clefs du frelon</title>
+      <link>http://blog.deimos.fr/2009/12/23/jai-remis-la-main-sur-les-clefs-du-frelon/</link>
+      <pubDate>Tue, 22 Dec 2009 23:37:04 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/12/23/jai-remis-la-main-sur-les-clefs-du-frelon/</guid>
+      <description>En faisant du rangement, je suis tombé sur les clefs de ma Hornet. Les boules….1 an et demie après</description>
+    </item>
+    
+    <item>
+      <title>Michael Gregorio au Bataclan : top !</title>
+      <link>http://blog.deimos.fr/2009/12/20/michael-gregorio-au-bataclan-top/</link>
+      <pubDate>Sun, 20 Dec 2009 09:12:52 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/12/20/michael-gregorio-au-bataclan-top/</guid>
+      <description>Je suis allé voir vendredi soir Michael Gregorio au Bataclan, sont spectacle était vraiment top, je vous le recommande. Parmis les trucs qui m’ont fait rire ou qui m’on impressionnés :
+ L&amp;rsquo;opéra rap
+ Johnny
+ Mylène farmer
+ Edith Piaf
+ Le foutage de gueule de Christophe Mahé
+ La guitare électrique
+  &amp;hellip;
+Franchement il y a des voix qu&amp;rsquo;il maitrise vraiment bien et c&amp;rsquo;est très impressionnant.</description>
+    </item>
+    
+    <item>
+      <title>Le Gity, le Gitou à Pitou est dispo</title>
+      <link>http://blog.deimos.fr/2009/12/03/le-gity-le-gitou-a-pitou-est-dispo/</link>
+      <pubDate>Thu, 03 Dec 2009 13:33:56 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/12/03/le-gity-le-gitou-a-pitou-est-dispo/</guid>
+      <description>Et bah voilà, c’est fait, j’ai un beau Git mise à dispo avec un Gitweb, pour vous messieurs, pour vous mes dammes, mais surtout pour vous mes dammes….
+J&amp;rsquo;ai pas grand chose pour le moment dessus, mais on peut trouver ma configuration de VIM et de ZSH. La suite arrivera avec le temps.
+Pour consulter mon gitweb, voici l&amp;rsquo;adresse : http://www.deimos.fr/gitweb/
+Vous pouvez également trouver les documentations concernant git que j&amp;rsquo;ai un peu étoffées :</description>
+    </item>
+    
+    <item>
+      <title>Je vais être papa et c’est une fille</title>
+      <link>http://blog.deimos.fr/2009/11/19/je-vais-etre-papa-et-cest-une-fille/</link>
+      <pubDate>Thu, 19 Nov 2009 11:08:49 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/11/19/je-vais-etre-papa-et-cest-une-fille/</guid>
+      <description>Tout est dans le titre j’ai envie de dire. Donc voilà, ça fait 3 mois et demie. Je vais donc être papa et c’est prévu pour la fin mars.</description>
+    </item>
+    
+    <item>
+      <title>Au concert de Muse</title>
+      <link>http://blog.deimos.fr/2009/11/17/au-concert-de-muse/</link>
+      <pubDate>Tue, 17 Nov 2009 17:27:34 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/11/17/au-concert-de-muse/</guid>
+      <description>Enfin… J’attendais un nouveau concert depuis si longtemps…</description>
+    </item>
+    
+    <item>
+      <title>MySecureShell sur Solaris ça roxxxxx :-)</title>
+      <link>http://blog.deimos.fr/2009/11/16/mysecureshell-sur-solaris-ca-roxxxxx/</link>
+      <pubDate>Mon, 16 Nov 2009 14:06:15 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/11/16/mysecureshell-sur-solaris-ca-roxxxxx/</guid>
+      <description>Et voilà, j’me suis fais chier, mais ça rox, je suis content. Il y a un beau petit package qui va voir le jour lors de la prochaine version de MySecureShell.
+Je vais essayer de voir maintenant comment soumettre tout ça à Blastwave ou SUN Freeware.</description>
+    </item>
+    
+    <item>
+      <title>MySecureShell sur Solaris</title>
+      <link>http://blog.deimos.fr/2009/11/13/mysecureshell-sur-solaris/</link>
+      <pubDate>Fri, 13 Nov 2009 21:26:30 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/11/13/mysecureshell-sur-solaris/</guid>
+      <description>Je suis en train de bosser avec Seb sur la nouvelle mouture de MySecureShell. On a fait pas mal de chemin jusqu’à présent et je dois maintenant l’utiliser pour des besoins de productions dans la société dans laquelle je travaille, mais tournant sur Solaris.
+Seb a du faire quelques ajustements rapide pour que ça tourne convenablement, mais certaines fonctionnalités ne fonctionne pas encore tout à fait bien. Bref, il travail dessus.</description>
+    </item>
+    
+    <item>
+      <title>Adieu Titou, mon chat :&#39;(</title>
+      <link>http://blog.deimos.fr/2009/11/03/adieu-titou-mon-chat/</link>
+      <pubDate>Tue, 03 Nov 2009 11:30:55 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/11/03/adieu-titou-mon-chat/</guid>
+      <description>Titou était mon premier chat et je l&amp;rsquo;aimais vraiment beaucoup. Je souhaite qu&amp;rsquo;il repose maintenant en paix.</description>
+    </item>
+    
+    <item>
+      <title>Entretien d’embauche</title>
+      <link>http://blog.deimos.fr/2009/10/23/entretien-dembauche/</link>
+      <pubDate>Fri, 23 Oct 2009 04:58:01 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/10/23/entretien-dembauche/</guid>
+      <description>C’est à peine croyable, mais pourtant vrai, un candidat a passé un entretien dans la société dans laquelle je travaille il y a 2 jours, et hier soir la DRH reçoit ce mail :
+ Bonjour,
+J&amp;rsquo;ai passé les tests d&amp;rsquo;embauche hier et j&amp;rsquo;ai trouvé la présentation de la société particulièrement brillante, c&amp;rsquo;est pourquoi je tenais à preciser que cela renforce mon sentiment comme quoi le poste de developpeur JAVA auquel je postule est une excellente opportunité et me donnera une carrière extraordinaire, pour moi c&amp;rsquo;est enorme, c&amp;rsquo;est un miracle.</description>
+    </item>
+    
+    <item>
+      <title>C’est mon anniversaire :-)</title>
+      <link>http://blog.deimos.fr/2009/10/22/cest-mon-anniversaire/</link>
+      <pubDate>Thu, 22 Oct 2009 08:11:47 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/10/22/cest-mon-anniversaire/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Concert de Despite Behavior au top</title>
+      <link>http://blog.deimos.fr/2009/09/27/concert-de-despite-behavior-au-top/</link>
+      <pubDate>Sun, 27 Sep 2009 22:48:58 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/09/27/concert-de-despite-behavior-au-top/</guid>
+      <description>Vendredi soir, je suis allé au concert du groupe de Steeves. C’était plutôt pas mal du tout pour une première. Ils étaient donc au Fallen Fest et j’espère qu’ils gagneront le prochain live jusqu’a l’album
+C&amp;rsquo;est assez bourrin comme musique, mais c&amp;rsquo;est pas QUE du bruit, donc c&amp;rsquo;est très sympas. Le plus beau c&amp;rsquo;est qu&amp;rsquo;ils passent pour le second tour à la boule noir !!!
+A quand l&amp;rsquo;album ?</description>
+    </item>
+    
+    <item>
+      <title>Motard à Paris c’est pas facile tous les jours</title>
+      <link>http://blog.deimos.fr/2009/09/18/motard-a-paris-cest-pas-facile-tous-les-jours/</link>
+      <pubDate>Fri, 18 Sep 2009 20:10:37 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/09/18/motard-a-paris-cest-pas-facile-tous-les-jours/</guid>
+      <description>Je rentrais de mon boulot, comme tous les jours en moto. Crevé et avec tous les flics qu’il y a dans Paris, je roulais vraiment tranquillement. J’arrive près de république et les 4 voies se rétrécissent seulement sur 2 voies avec un virage à gauche. Un car est à ma gauche, un scooter à droite et une voiture en face qui est bloquée par le car en train de tourner en prenant toute la place.</description>
+    </item>
+    
+    <item>
+      <title>La fine équipe du 12</title>
+      <link>http://blog.deimos.fr/2009/09/17/la-fine-equipe-du-12/</link>
+      <pubDate>Thu, 17 Sep 2009 10:50:04 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/09/17/la-fine-equipe-du-12/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Flusten Paradise (Bora Bora)</title>
+      <link>http://blog.deimos.fr/2009/06/28/flusten-paradise-bora-bora/</link>
+      <pubDate>Sun, 28 Jun 2009 01:51:54 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/06/28/flusten-paradise-bora-bora/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Huaine</title>
+      <link>http://blog.deimos.fr/2009/06/28/huaine/</link>
+      <pubDate>Sun, 28 Jun 2009 01:51:35 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/06/28/huaine/</guid>
+      <description>Trop beau et sauvage</description>
+    </item>
+    
+    <item>
+      <title>Dernier jour a Moorea</title>
+      <link>http://blog.deimos.fr/2009/06/23/dernier-jour-a-moorea/</link>
+      <pubDate>Tue, 23 Jun 2009 19:50:23 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/06/23/dernier-jour-a-moorea/</guid>
+      <description>Voilà que nous approchons de notre fin de séjour a Moorea. Très très beau !
+On a nagé avec des dophins&amp;hellip;exeptionnel ! On dirait des chiens d&amp;rsquo;eau tellement ils sont bien dressés. Bref nos réels impressions de vive voix.
+Demain on part pour Huahine et Internet risque de ne pas être de la fête (should be not to the party).
+Chloë et moi sommes malade (chacun sa maladie) mais somme en voie de guérison sous antibio.</description>
+    </item>
+    
+    <item>
+      <title>Arrivé à Moorea</title>
+      <link>http://blog.deimos.fr/2009/06/21/arrive-a-moorea/</link>
+      <pubDate>Sun, 21 Jun 2009 02:24:29 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/06/21/arrive-a-moorea/</guid>
+      <description>Nous voilà arrivé à Moorea dans un superbe Hotel avec Wifi (d’où) la présence de ce post.
+On a volé dans un tout petit avion dont le temps de vol était inférieur à 10 min. J&amp;rsquo;ai bien aimé et pense troquer ma moto contre un avion pour aller travailler :-p</description>
+    </item>
+    
+    <item>
+      <title>1er jour et malade</title>
+      <link>http://blog.deimos.fr/2009/06/20/1er-jour-et-malade/</link>
+      <pubDate>Sat, 20 Jun 2009 19:15:13 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/06/20/1er-jour-et-malade/</guid>
+      <description>Bah oui c’est moche ! Une double indigestion alimentaire. Un couscous le midi et un macflurry le soir :-(.
+A part ça il fait beau, chaud et les gens extrêmement gentil !
+Les billets et les pièces font 2 fois la taille des nôtres. Le portefeuille d&amp;rsquo;ici ressemble a un sac a dos (je blague biensur).</description>
+    </item>
+    
+    <item>
+      <title>Enfin arrivé !!!</title>
+      <link>http://blog.deimos.fr/2009/06/19/enfin-arrive/</link>
+      <pubDate>Fri, 19 Jun 2009 08:35:53 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/06/19/enfin-arrive/</guid>
+      <description>Nous voilà arrivés. Le voyage fut long…
+Je met des photos de l&amp;rsquo;avion pour le moment. On peut voir la banquise de l&amp;rsquo;artique.
+Sur la 2ème photo, c&amp;rsquo;est Los Angeles.
+Et sur la dernière vous aurez reconnu avec les cernes qui vont bien.</description>
+    </item>
+    
+    <item>
+      <title>Tahiti me voilà !</title>
+      <link>http://blog.deimos.fr/2009/06/17/tahiti-me-voila/</link>
+      <pubDate>Wed, 17 Jun 2009 20:04:33 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/06/17/tahiti-me-voila/</guid>
+      <description>Et oui, c’est demain que je décolle pour Tahiti ! Après m’être marié, il fallait bien que je partes en voyage de noce :-).
+J&amp;rsquo;essayerais de mettre des photos ici et vous tenir au courant de comment ça se passe en fonction de l&amp;rsquo;accès internet disponible.</description>
+    </item>
+    
+    <item>
+      <title>Video Full HD sur mac avec iLife</title>
+      <link>http://blog.deimos.fr/2009/06/13/video-full-hd-sur-mac-avec-ilife/</link>
+      <pubDate>Sat, 13 Jun 2009 13:40:37 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/06/13/video-full-hd-sur-mac-avec-ilife/</guid>
+      <description>Et bah voilà, je m’essaye a la vidéo en Full HD avec iMovie et iDVD.
+Je dois dire que c&amp;rsquo;est assez séduisant a première vue. En tout cas iMovie est bluffant. Je n&amp;rsquo;avais pas essayé depuis la version 6 et les changements sont énormes (dans le bon sens).
+Je travaille sur ma journée d&amp;rsquo;enterrement de vie de garçon avec iMovie et m&amp;rsquo;eclate avec les effets.
+Il me reste iDVD a tester et j&amp;rsquo;avoue avoir quelques appréhensions avec le Full HD.</description>
+    </item>
+    
+    <item>
+      <title>Marié et bien rentré</title>
+      <link>http://blog.deimos.fr/2009/06/08/marie-et-bien-rentre/</link>
+      <pubDate>Mon, 08 Jun 2009 21:04:51 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/06/08/marie-et-bien-rentre/</guid>
+      <description>Full weeding ended ! Mes 2 mariages sont maintenant passés, c’était encore une fois génial ce week end ! La vie continue et le voyage de noce est pour bientôt :-)</description>
+    </item>
+    
+    <item>
+      <title>Mariage mais mauvais temps</title>
+      <link>http://blog.deimos.fr/2009/06/06/mariage-mais-mauvais-temps/</link>
+      <pubDate>Sat, 06 Jun 2009 09:47:36 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/06/06/mariage-mais-mauvais-temps/</guid>
+      <description>Alors bon, on dit mariage pluvieux, mariage heureux, je crois qu’il n’y a pas grand chose d’autre à dire dans ces cas là.
+Bref, mon mariage à l&amp;rsquo;église, vous l&amp;rsquo;avez compris, c&amp;rsquo;est aujourd&amp;rsquo;hui ! Espérons qu&amp;rsquo;il sera aussi bien réussi que celui de la mairie.</description>
+    </item>
+    
+    <item>
+      <title>Je suis marié :-) (Enfin civilement pour le moment)</title>
+      <link>http://blog.deimos.fr/2009/05/24/je-suis-marie-enfin-civilement-pour-le-moment/</link>
+      <pubDate>Sun, 24 May 2009 13:32:16 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/05/24/je-suis-marie-enfin-civilement-pour-le-moment/</guid>
+      <description>C&amp;rsquo;était génial ! Trop trop bien ! Merci à tous d&amp;rsquo;avoir été là, nous avons passé une excellente journée (trop courte) !</description>
+    </item>
+    
+    <item>
+      <title>Je me marie aujourd’hui !!!!</title>
+      <link>http://blog.deimos.fr/2009/05/23/je-me-marie-aujourdhui/</link>
+      <pubDate>Sat, 23 May 2009 09:03:29 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/05/23/je-me-marie-aujourdhui/</guid>
+      <description>Et bah voilà !
+Ca y est, le grand jour est arrivé ! Je me marie aujourd&amp;rsquo;hui !
+Bon c&amp;rsquo;est la mairie, donc le QCM va être facile, d&amp;rsquo;autant plus que ça fait des mois que je révise tous les jours. Il paraît que la réponse est toujours la même (oui), donc pourvu qu&amp;rsquo;ils ne changent pas la question :-p
+Bon, si vous me lisez, il y a de fortes chances que je vous retrouves tout à l&amp;rsquo;heure !</description>
+    </item>
+    
+    <item>
+      <title>Aujourd’hui c’est mon enterrement de vie de garçon</title>
+      <link>http://blog.deimos.fr/2009/05/16/aujourdhui-cest-mon-enterrement-de-vie-de-garcon/</link>
+      <pubDate>Sat, 16 May 2009 08:35:51 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/05/16/aujourdhui-cest-mon-enterrement-de-vie-de-garcon/</guid>
+      <description>Bah voilà, ça y est. Mes amis viennent me chercher tout à l’heure pour faire je ne sais quoi, je ne sais ou, je ne sais combien de temps.
+Le bizutage commence quoi.
+Les impressions dès mon retours.</description>
+    </item>
+    
+    <item>
+      <title>Oh la belle motocyclette !</title>
+      <link>http://blog.deimos.fr/2009/04/26/oh-la-belle-motocyclette/</link>
+      <pubDate>Sun, 26 Apr 2009 17:32:19 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/04/26/oh-la-belle-motocyclette/</guid>
+      <description>Je crois n’avoir jamais mis de photos sur mon blog de ma belle CB1000R.
+D&amp;rsquo;autant plus qu&amp;rsquo;aujourd&amp;rsquo;hui je l&amp;rsquo;ai nettoyée et mis les bandes rouges que futur beau papa m&amp;rsquo;a généreusement ramener du Mans. L&amp;rsquo;effet est de toute beauuuuuuté (dis a la Marcus de chez GameOne)</description>
+    </item>
+    
+    <item>
+      <title>Dieudo trop trop bien, mais…</title>
+      <link>http://blog.deimos.fr/2009/03/26/dieudo-trop-trop-bien-mais/</link>
+      <pubDate>Thu, 26 Mar 2009 22:20:29 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/03/26/dieudo-trop-trop-bien-mais/</guid>
+      <description>Je reviens du spectacle de Dieudonné et franchement c’était géniale, je vous conseil d’aller le voir :
+En plus son théatre est vraiment bien foutu, peut importe ou on se trouve, on voit. C&amp;rsquo;est assez petit, donc très très sympas. Je trouve ça mieux qu&amp;rsquo;un stade de France quoi.
+Petit b mol à la France qui se dit pays des libertés. Depuis quelques années ces libertés disparaissent petit à petit. Déjà que pour Dieudo, à part jouer dans son propre théatre, il ne peut plus se produire, mais c&amp;rsquo;est maintenant au tour de ses DVD qu&amp;rsquo;il n&amp;rsquo;a plus le droit de vendre dans le commerce.</description>
+    </item>
+    
+    <item>
+      <title>La martiniiiiiiique… oui la martiniiique, tu sais sera la clef…</title>
+      <link>http://blog.deimos.fr/2009/03/07/la-martiniiiiiiique-oui-la-martiniiique-tu-sais-sera-la-clef/</link>
+      <pubDate>Sat, 07 Mar 2009 21:58:22 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/03/07/la-martiniiiiiiique-oui-la-martiniiique-tu-sais-sera-la-clef/</guid>
+      <description>Et bien nous voilà arrivé, quelques petites photos pour donner une idée du décors :
+Sinon à part tout ça :
+ La bouffe c&amp;rsquo;est galère à trouver. Heureusement que les restos sont approvisionnés
+ Les infos rassurent pas vraiment sur la situation, mais nous on a de la chance, on est pas dedans.
+ Et tout le reste c&amp;rsquo;est génial :-)
+  </description>
+    </item>
+    
+    <item>
+      <title>Enterrement de vie de garçon</title>
+      <link>http://blog.deimos.fr/2009/02/10/enterrement-de-vie-de-garcon/</link>
+      <pubDate>Tue, 10 Feb 2009 12:35:56 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/02/10/enterrement-de-vie-de-garcon/</guid>
+      <description>Bon, c’est parti, Vince lance les hostilitées !
+Mon enterrement de vie de garçon va être dirigé par Vince. Il va vous contacter certainement très très prochainement. A vous de lui donner des idées.
+J&amp;rsquo;ai peur maman de ce qu&amp;rsquo;ils vont me faire heuuuuuuuuuuuuuuuuuuuu</description>
+    </item>
+    
+    <item>
+      <title>Evitons la boulification</title>
+      <link>http://blog.deimos.fr/2009/02/10/evitons-la-boulification/</link>
+      <pubDate>Tue, 10 Feb 2009 12:32:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/02/10/evitons-la-boulification/</guid>
+      <description>Ca y est, je me remet sérieusement au régime. Après être passé de 83kg à 74kg, je me suis un chouilla laissé allé.
+Bon évidement j&amp;rsquo;ai pas repris tout ce que j&amp;rsquo;avais réussi à perdre, sans quoi je me serais déjà pendu. Cependant, je suis à 75,5kg.
+J&amp;rsquo;ai un petit soft sur mon iPhone qui s&amp;rsquo;appelle Weightbot et qui me graffe ma progression (bon pas RRDTool non plus).
+De plus, j&amp;rsquo;ai une nouvelle balance qui me fait la totale : masse musculaire, osseuse, graisseuse etc&amp;hellip; je kiffe.</description>
+    </item>
+    
+    <item>
+      <title>N’est pas danseur qui veut…</title>
+      <link>http://blog.deimos.fr/2009/01/24/nest-pas-danseur-qui-veut/</link>
+      <pubDate>Sat, 24 Jan 2009 11:26:26 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/01/24/nest-pas-danseur-qui-veut/</guid>
+      <description>Merci Kitkat cocotte pour ces perles. Pour ceux qui n’ont pas pu venir, voici ce qu’ils ont loupés…les danseurs professionels étaient là.
+Vous me reconnaitrez donc sur cette première video sur la dernière chanson à la mode : Tata yoyo :
+  Sur la seconde video, on reconnait bien mon poto et le talentueux danseur Antoine (alias Toinou) :
+  </description>
+    </item>
+    
+    <item>
+      <title>Heureusement que la honte ne tue pas !</title>
+      <link>http://blog.deimos.fr/2009/01/19/heureusement-que-la-honte-ne-tue-pas/</link>
+      <pubDate>Mon, 19 Jan 2009 12:28:58 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/01/19/heureusement-que-la-honte-ne-tue-pas/</guid>
+      <description>Ca se passe de commentaires
+![micromoi-150x150](/images/micromoi-150x150.jpg)   ![micromoi2-150x150](/images/micromoi2-150x150.jpg)    </description>
+    </item>
+    
+    <item>
+      <title>Momo le beau gosse</title>
+      <link>http://blog.deimos.fr/2009/01/12/momo-le-beau-gosse/</link>
+      <pubDate>Mon, 12 Jan 2009 07:48:33 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/01/12/momo-le-beau-gosse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C’est la chenille qui redémarre</title>
+      <link>http://blog.deimos.fr/2009/01/12/cest-la-chenille-qui-redemarre/</link>
+      <pubDate>Mon, 12 Jan 2009 07:47:19 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2009/01/12/cest-la-chenille-qui-redemarre/</guid>
+      <description>Qui aurait dit qu’à la paroisse pour la préparation de notre mariage il y aurait eu une chenille ?</description>
+    </item>
+    
+    <item>
+      <title>Bonne Année à tous !</title>
+      <link>http://blog.deimos.fr/2008/12/29/bonne-annee-a-tous/</link>
+      <pubDate>Mon, 29 Dec 2008 09:33:28 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2008/12/29/bonne-annee-a-tous/</guid>
+      <description>Bonne année à tous ! Je vous souhaites tout ce qu’il y a de mieux pour vous !
+Cette année risque d&amp;rsquo;être riche en rebondissements, autant sur le plan technique que dans ma vie personnelle (mon mariage :-)).</description>
+    </item>
+    
+    <item>
+      <title>Vas y Franky c’est bon…</title>
+      <link>http://blog.deimos.fr/2008/12/24/55/</link>
+      <pubDate>Wed, 24 Dec 2008 16:59:47 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2008/12/24/55/</guid>
+      <description>En ce 25 décembre, je vous souhaites un joyeux noël à tous.
+Ma future petite femme m&amp;rsquo;a offert un spectacle ce soir de noël, celui de Franky, c&amp;rsquo;était très marrant, je le conseil :</description>
+    </item>
+    
+    <item>
+      <title>Mon chat qui dors…je vais faire pareil…</title>
+      <link>http://blog.deimos.fr/2008/12/18/mon-chat-qui-dorsje-vais-faire-pareil/</link>
+      <pubDate>Thu, 18 Dec 2008 00:22:52 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2008/12/18/mon-chat-qui-dorsje-vais-faire-pareil/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Netflix on Deimosfr Blog</title>
+    <link>http://blog.deimos.fr/tags/netflix/</link>
+    <description>Recent content in Netflix on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 28 Sep 2014 10:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://blog.deimos.fr/tags/netflix/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Netflix: testing it and feedbacks</title>
+      <link>http://blog.deimos.fr/2014/09/28/netflix/</link>
+      <pubDate>Sun, 28 Sep 2014 10:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/09/28/netflix/</guid>
+      <description>Like me you may heard of Netflix for the first time a few months ago because of the announcement in Europe. However it&amp;rsquo;s a massively used solution in the US since several years.
+Today Netflix is out and you can freely have a month to discover Netflix. For the moment there are not a lot of films and series, but enough in my opinion to be an interesting solution. Of course because of the French laws, films are more than 3 years old and I hope this will change or I&amp;rsquo;m not sure it will be competitive enough.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wifi on Deimosfr Blog</title>
+    <link>http://blog.deimos.fr/tags/wifi/</link>
+    <description>Recent content in Wifi on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 12 Mar 2010 06:30:02 +0000</lastBuildDate>
+    
+	<atom:link href="http://blog.deimos.fr/tags/wifi/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Wifi nalement, je connais une loi qui va poser problème</title>
+      <link>http://blog.deimos.fr/2010/03/12/wifi-nalement-je-connais-une-loi-qui-va-poser-probleme/</link>
+      <pubDate>Fri, 12 Mar 2010 06:30:02 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/03/12/wifi-nalement-je-connais-une-loi-qui-va-poser-probleme/</guid>
+      <description>Hé oh, les voisins, qui c’est qui risque de s’en prendre plein la gueule pour pas un round avec Hadopi si vous devenez pas des amateurs de la sécurité informatique très rapidement ?
+Sans déconner, ça deviens de plus en plus facile de péter le réseau wifi de ses voisins. Pour ma part, je vis dans un immeuble parisien et j&amp;rsquo;ai a peu prêt 30 wifi captable. Sur le lot, il y a encore du wep et du wpa1.</description>
+    </item>
+    
+  </channel>
+</rss>

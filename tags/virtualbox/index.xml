@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Virtualbox on Deimosfr Blog</title>
+    <link>http://blog.deimos.fr/tags/virtualbox/</link>
+    <description>Recent content in Virtualbox on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 16 Jan 2015 11:00:52 +0000</lastBuildDate>
+    
+	<atom:link href="http://blog.deimos.fr/tags/virtualbox/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Packer: build multiple images easily</title>
+      <link>http://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/</link>
+      <pubDate>Fri, 16 Jan 2015 11:00:52 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/</guid>
+      <description>Packer is one of the tools I&amp;rsquo;ve used in the past to build VirtualBox boxes. You can find what I&amp;rsquo;ve done on my GitHub account.
+For Smash project, I wanted to make a packer configuration to manage Docker and VirtualBox. I also wanted to call Ansible to build specific images for each needs. The goal is to be able to build cloud image ready to start, without any special dependencies. This because I need different usages:</description>
+    </item>
+    
+    <item>
+      <title>Vagrant: provision vms and containers with Ansible</title>
+      <link>http://blog.deimos.fr/2015/01/13/vagrant-provision-vms-and-containers-with-ansible/</link>
+      <pubDate>Tue, 13 Jan 2015 11:00:15 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2015/01/13/vagrant-provision-vms-and-containers-with-ansible/</guid>
+      <description>In the last post, I talked about how to manage Docker and VirtualBox with Vagrant. This post follows the last one, with the integration of Ansible as a provisioner. Once again, I&amp;rsquo;m using it for the Smash project.
+With Ansible, I made several &amp;ldquo;group_vars&amp;rdquo; files containing custom and common information related to the used environment (dev, uat, staging&amp;hellip;). This helps to setup different kind of environment easily. Vagrant will help to build images with Ansible deployed inside.</description>
+    </item>
+    
+    <item>
+      <title>Vagrant: manage Docker &#43; VirtualBox easily</title>
+      <link>http://blog.deimos.fr/2015/01/08/vagrant-manage-docker-virtualbox-easily/</link>
+      <pubDate>Thu, 08 Jan 2015 11:00:02 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2015/01/08/vagrant-manage-docker-virtualbox-easily/</guid>
+      <description>As you may know, I&amp;rsquo;m using Vagrant for more than a year now with VirtualBox. Docker is a faster alternative that needs to be taken into consideration. Having the possibility to manage both of them with the same tool can be very interesting. For information, I mainly use it with VirtualBox because it&amp;rsquo;s any platform compatible and Docker because it&amp;rsquo;s perfect for a CI like Jenkins.
+I recently talked about my implication into the Smash project.</description>
+    </item>
+    
+  </channel>
+</rss>

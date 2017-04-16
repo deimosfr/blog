@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Postfix on Deimosfr Blog</title>
+    <link>http://blog.deimos.fr/tags/postfix/</link>
+    <description>Recent content in Postfix on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 20 Mar 2014 11:00:54 +0000</lastBuildDate>
+    
+	<atom:link href="http://blog.deimos.fr/tags/postfix/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Postfix: hold outgoing mail transport</title>
+      <link>http://blog.deimos.fr/2014/03/20/postfix-hold-outgoing-mail-transport/</link>
+      <pubDate>Thu, 20 Mar 2014 11:00:54 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/03/20/postfix-hold-outgoing-mail-transport/</guid>
+      <description>When you manage Postfix and have a trouble with your mail infrastructure, you may want to set in maintenance your Postfix without loosing any mails. Here is a way to hold the queue, giving the time to analyze the problem and then release the queue.
+I&amp;rsquo;ve wrote some tips on it. I hope it will help you.</description>
+    </item>
+    
+    <item>
+      <title>Postfix: limit outgoing mail throttling</title>
+      <link>http://blog.deimos.fr/2014/03/14/postfix-limit-outgoing-mail-throttling/</link>
+      <pubDate>Fri, 14 Mar 2014 11:00:08 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/03/14/postfix-limit-outgoing-mail-throttling/</guid>
+      <description>When you have a huge amount of mail to deliver, you can&amp;rsquo;t release the queue at once and let the server maximize the outgoing mail throughput ! The result will be: you&amp;rsquo;ll get blacklisted from a lot of MX servers.
+That&amp;rsquo;s why you should take care of it and do traffic shaping. I&amp;rsquo;ve wrote a little tips on it.</description>
+    </item>
+    
+  </channel>
+</rss>

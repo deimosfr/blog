@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Security on Deimosfr Blog</title>
+    <link>http://blog.deimos.fr/tags/security/</link>
+    <description>Recent content in Security on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Sep 2014 10:00:21 +0000</lastBuildDate>
+    
+	<atom:link href="http://blog.deimos.fr/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nginx: enable HSTS (force SSL for users)</title>
+      <link>http://blog.deimos.fr/2014/09/18/nginx-enable-hsts-force-ssl-for-users/</link>
+      <pubDate>Thu, 18 Sep 2014 10:00:21 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/09/18/nginx-enable-hsts-force-ssl-for-users/</guid>
+      <description>I recently heard of HSTS which is a way to force users to come back to your website in SSL if they&amp;rsquo;ve already be to HTTPS once. It is simple, just add this line:
+# HSTS (force users to come in SSL if they&amp;#39;ve already been once) add_header Strict-Transport-Security &amp;quot;max-age=31536000; includeSubdomains&amp;quot;;  If you want to have an overview of a complete configuration with it, look at the my wiki.</description>
+    </item>
+    
+    <item>
+      <title>NAXSI: Add security to your Nginx</title>
+      <link>http://blog.deimos.fr/2014/04/15/naxsi/</link>
+      <pubDate>Tue, 15 Apr 2014 10:00:07 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/04/15/naxsi/</guid>
+      <description>NAXSI means Nginx Anti Xss &amp;amp; Sql Injection. Technically, it is a third party nginx module, available as a package for many UNIX-like platforms. This module, by default, reads a small subset of simple rules (naxsi_core.rules) containing 99% of known patterns involved in websites vulnerabilities. For example, &amp;lsquo;&amp;lt; &amp;lsquo;, &amp;lsquo;|&amp;rsquo; or &amp;lsquo;drop&amp;rsquo; are not supposed to be part of a URI.
+It&amp;rsquo;s been a while that I wanted to test NAXSI and it seams working not so bad.</description>
+    </item>
+    
+    <item>
+      <title>OpenSSL: diagnose and correct the heartbleed issue</title>
+      <link>http://blog.deimos.fr/2014/04/08/openssl-diagnose-and-correct-the-heartbleed-issue/</link>
+      <pubDate>Tue, 08 Apr 2014 10:00:08 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/04/08/openssl-diagnose-and-correct-the-heartbleed-issue/</guid>
+      <description>A big and major issue on OpenSSL has been discovered and everybody is talking about it. To get more informations, there&amp;rsquo;s a website.
+How to check the vulnerability, download this file:
+chmod 755 ssltest.py  Now launch it:
+./ssltest.py blog.deimos.fr Connecting... Sending Client Hello... Waiting for Server Hello... ... received message: type = 22, ver = 0302, length = 66 ... received message: type = 22, ver = 0302, length = 5559 .</description>
+    </item>
+    
+    <item>
+      <title>Nftables : now available on 3.13 kernel !</title>
+      <link>http://blog.deimos.fr/2014/01/27/nftables-now-available-on-3-13-kernel/</link>
+      <pubDate>Mon, 27 Jan 2014 16:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/01/27/nftables-now-available-on-3-13-kernel/</guid>
+      <description>I already talked about nftables and it has now been implemented in the 3.13 kernel !
+For those who never heard of that, it&amp;rsquo;s a kernel built in replacement of iptables. All features are not there yet but should be implemented in 3.15.
+If you like Packet Filter, you&amp;rsquo;ll be happy. If you&amp;rsquo;re not sure of the advantages of it, simply read that short comparison and you&amp;rsquo;ll be convinced : https://home.</description>
+    </item>
+    
+    <item>
+      <title>Iptables is going to be replaced by NFtables</title>
+      <link>http://blog.deimos.fr/2013/11/24/iptables-is-going-to-be-replaced-by-nftables/</link>
+      <pubDate>Sun, 24 Nov 2013 11:00:38 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/11/24/iptables-is-going-to-be-replaced-by-nftables/</guid>
+      <description>If you’re not aware that the next kernel version will replace iptables by nftables, it’s time to learn on how it works, what are the features, why the change and how to use it.
+If like me, you love PF, you&amp;rsquo;ll be pleased to find a similar syntax on NFtables ! To have a good introduction on it, look at those slides :
+  Kernel Recipes 2013 - Nftables, what motivations and what solutions  from Anne Nicolas</description>
+    </item>
+    
+    <item>
+      <title>Yubikey : protect your desktop authentication using pam and yubikey library</title>
+      <link>http://blog.deimos.fr/2013/07/09/yubikey-protect-your-desktop-authentication-using-pam-and-yubikey-library/</link>
+      <pubDate>Tue, 09 Jul 2013 10:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/07/09/yubikey-protect-your-desktop-authentication-using-pam-and-yubikey-library/</guid>
+      <description>I&amp;rsquo;ve bought 2 Yubikeys several months ago and didn&amp;rsquo;t really took the time to play with them.
+A ex-colleague took that time and configured it on his desktop under ArchLinux. I decided to play with it, see how could it works and with his help, put it in place in a very short time.
+I configured it to work in parallel of my password. With that configuration, I do not need anymore typing my password, but only need to plug in my Yubikey.</description>
+    </item>
+    
+    <item>
+      <title>2ème et dernier jour au FOSDEM !</title>
+      <link>http://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/</link>
+      <pubDate>Tue, 05 Feb 2013 11:00:24 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/</guid>
+      <description>Avant d&amp;rsquo;attaquer le 2 ème jour, je vais finir sur le premier (la suite d&amp;rsquo;hier).
+Un des supers sujet était Bind 10 que j&amp;rsquo;attendais avec impatience. Il n&amp;rsquo;y a malheureusement eu d&amp;rsquo;informations sur les nouveautés aidant a la HA. Cependant il a été totalement réécrit pour supporter + de 100 cores alors qu&amp;rsquo;aujourd&amp;rsquo;hui au delà de 6, il y a des problèmes de performances. On a également (et étrangement) un serveur DHCP qui est intégré a Bind.</description>
+    </item>
+    
+    <item>
+      <title>Authentification SSO depuis Apache sur backend AD via Kerberos</title>
+      <link>http://blog.deimos.fr/2012/10/26/authentification-sso-depuis-apache-sur-backend-ad-kerberos/</link>
+      <pubDate>Fri, 26 Oct 2012 10:00:05 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2012/10/26/authentification-sso-depuis-apache-sur-backend-ad-kerberos/</guid>
+      <description>J&amp;rsquo;ai récemment aider un collègue sur la mise en place d&amp;rsquo;un SSO Apache sur un AD. J&amp;rsquo;ai trouvé ça techniquement joli, donc je vous ai fais une petite documentation que j&amp;rsquo;ai grossièrement pompée sur un autre site tellement je l&amp;rsquo;ai trouvé bien faites, et j&amp;rsquo;y ai fais quelques petites retouches. J&amp;rsquo;en ai profité pour mettre très légèrement à jour la documentation sur la mise en place d&amp;rsquo;un serveur Kerberos.
+Pour la documentation sur l&amp;rsquo;Authentification SSO depuis Apache sur backend AD via Kerberos</description>
+    </item>
+    
+    <item>
+      <title>Sécuriser la sortie de Squid</title>
+      <link>http://blog.deimos.fr/2011/11/07/securiser-la-sortie-de-squid/</link>
+      <pubDate>Mon, 07 Nov 2011 11:00:49 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/11/07/securiser-la-sortie-de-squid/</guid>
+      <description>C&amp;rsquo;est un truc con, mais par défaut, Squid donne un peu trop d&amp;rsquo;informations lorsque quelqu&amp;rsquo;un le traverse pour accéder à un site.
+J&amp;rsquo;ai donc modifier la documentation sur Squid pour y ajouter ces 3 petites lignes : # Be more anonymous # That’s three pieces of information you may not want to give away: # - The host name of your proxy server # - The version of Squid it’s running # - The IP address of the system that’s making the request via the proxy forwarded_for off visible_hostname proxy.</description>
+    </item>
+    
+    <item>
+      <title>You SOCKS</title>
+      <link>http://blog.deimos.fr/2011/10/25/you-socks/</link>
+      <pubDate>Tue, 25 Oct 2011 11:00:36 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/10/25/you-socks/</guid>
+      <description>Voici un petit tuto qui permet de créer un proxy SOCKS avec OpenSSH qui vous permettra de sortir très facilement vers l’extérieur (internet) lorsque vous vous trouvez en zone restreinte (taf).
+Pour la documentation, ça se passe ici : OpenSSH Créer un proxy SOCKS</description>
+    </item>
+    
+    <item>
+      <title>Chiffrer ses disques dur</title>
+      <link>http://blog.deimos.fr/2011/10/10/crypter-ses-disques-dur/</link>
+      <pubDate>Mon, 10 Oct 2011 19:10:35 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/10/10/crypter-ses-disques-dur/</guid>
+      <description>Cela fait longtemps que je crypte mes données avec ENCFS et j’en suis très satisfait, même si les performances ne sont pas au rendez vous (fuse). Il existe Luks (celui qui a dit skywalker sort) qui est intégré au noyau et qui est bien plus performant. Je pense qu’il est tout aussi fiable (pas testé sur du long terme, mais natif à Red Hat).
+Pour ceux que ça intéresse, j&amp;rsquo;ai donc concocté comme à mon habitude une petite documentation sur Luks.</description>
+    </item>
+    
+    <item>
+      <title>Vérifier la sécurité de votre serveur</title>
+      <link>http://blog.deimos.fr/2011/04/05/verifier-la-securite-de-votre-serveur/</link>
+      <pubDate>Tue, 05 Apr 2011 21:12:17 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/04/05/verifier-la-securite-de-votre-serveur/</guid>
+      <description>Je ne le répèterais jamais assez, vérifiez votre installation et configuration et testez là ensuite !
+Je suis confronté actuellement à un serveur qui passe son temps à se faire hacker. J&amp;rsquo;ai du auditer la sécurité de celui ci et je me rends compte que beaucoup de personne néglige les aspects de la sécurité. Pourquoi tant d&amp;rsquo;acharnement ? Faut dire aussi :
+ Pas de Firewall
+ Pas de modules de sécurité</description>
+    </item>
+    
+    <item>
+      <title>Projet : Rancid Search</title>
+      <link>http://blog.deimos.fr/2011/03/02/projet-rancid-search/</link>
+      <pubDate>Wed, 02 Mar 2011 06:30:47 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2011/03/02/projet-rancid-search/</guid>
+      <description>Revoilà encore un nouveau projet. Il s&amp;rsquo;agit de Rancid Search.
+Vous connaissez déjà peut être Rancid qui permet de faire des backups de vos chers équipements Cisco et de les stocker dans un VCS. Au taf, mon équipe réseaux se plaignait de ne pas pouvoir faire de recherche dans tous les équipements cisco d&amp;rsquo;un coup. Imaginez plusieurs équipements avec pour certain plus de 25000 lignes d&amp;rsquo;ACL et autre configuration VPN.</description>
+    </item>
+    
+    <item>
+      <title>Multiplexer SSH et SSL</title>
+      <link>http://blog.deimos.fr/2010/05/14/multiplexer-ssh-et-ssl/</link>
+      <pubDate>Fri, 14 May 2010 13:13:41 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/05/14/multiplexer-ssh-et-ssl/</guid>
+      <description>SSLH est comme un tour de magie. Il permet par exemple sur une adresse WAN sur le port 443 d’avoir du HTTPS et du SSH. Comment c’est possible ??? On peut mettre un même port d’écoute sur un même port !
+Effectivement ! Il faut simplement voir SSLH comme un proxy de couche 7 capable de filtrer et différencier les trames SSL des trames SSH.
+Et voici une petite documentation et un correctif pour OpenBSD.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ha on Deimosfr Blog</title>
+    <link>http://blog.deimos.fr/categories/ha/</link>
+    <description>Recent content in Ha on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Jan 2016 13:00:16 +0000</lastBuildDate>
+    
+	<atom:link href="http://blog.deimos.fr/categories/ha/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Zero downtime upgrade with Ansible and HAProxy</title>
+      <link>http://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/</link>
+      <pubDate>Thu, 21 Jan 2016 13:00:16 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/</guid>
+      <description>Some of you may not be familiar with the terms &amp;ldquo;Rolling upgrade&amp;rdquo; or &amp;ldquo;Rolling restart&amp;rdquo;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&amp;rsquo;re managing and the number of active nodes in your cluster.
+At Nousmotards we have several Java Spring Boot applications running. Restarting one application can take up to 1 min.</description>
+    </item>
+    
+    <item>
+      <title>Ansible Meetup done! Watch again the slides</title>
+      <link>http://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/</link>
+      <pubDate>Tue, 15 Sep 2015 21:56:06 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/</guid>
+      <description>The Ansible meetup ended ! That was really nice for my first one.
+I had really great feedbacks and liked the questions when ended. More than that I met nice people after the meetup and could have interresting discussions :-). I&amp;rsquo;m really happy about it.
+For those who would like to review the slides, you can find them here:
+http://nousmotards.github.io/ansible-meetup-0915/
+If you want to watch the video:
+http://www.infoq.com/fr/presentations/reseau-social-motard
+or view the PDF version here:</description>
+    </item>
+    
+    <item>
+      <title>Offload SSL with HAProxy</title>
+      <link>http://blog.deimos.fr/2015/01/27/offload-ssl-with-haproxy/</link>
+      <pubDate>Tue, 27 Jan 2015 11:00:18 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2015/01/27/offload-ssl-with-haproxy/</guid>
+      <description>A few months ago, I already talked about offloading SSL with Nginx. I also wanted to try it with HAProxy which can be more interesting in some cases.
+The good On HAProxy, the good thing is the simplicity to do it. First of all you need to have at least the version 1.5 of HAProxy so to get SSL support. Then you only need those lines to offload SSL:</description>
+    </item>
+    
+    <item>
+      <title>News in bulk</title>
+      <link>http://blog.deimos.fr/2014/11/07/news-in-bulk-4/</link>
+      <pubDate>Fri, 07 Nov 2014 11:11:29 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/11/07/news-in-bulk-4/</guid>
+      <description>As I do not really have a good blog post for today, here are some things I wanted to talk in a summary. Some good projects have been updated like:
+ WordPress 4: no big updates at the first view but it&amp;rsquo;s nice to see how this project works and grow (videos, WYSIWYG,&amp;hellip;) HAProxy 1.5: Offlloading SSL embedded, Full HTTP Keepalive, ACL enhancement&amp;hellip; BIG update! MySecureShell 2.0: Using GnuTLS instead of OpenSSL, available in Debian upstream repositories, new doc&amp;hellip; Nginx 1.</description>
+    </item>
+    
+    <item>
+      <title>PRM: automatic MySQL/MariaDB replication managment</title>
+      <link>http://blog.deimos.fr/2014/04/25/prm-automatic-mysqlmariadb-replication-managment/</link>
+      <pubDate>Fri, 25 Apr 2014 10:00:38 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/04/25/prm-automatic-mysqlmariadb-replication-managment/</guid>
+      <description>The Percona replication manager (PRM) is a framework using the Linux HA resource agent Pacemaker that manages replication and provides automatic failover. This covers the installation of the framework on a set of servers. The PRM framework is made of 4 components: Corosync, Pacemaker, the mysql resource agent and MySQL itself.
+It&amp;rsquo;s easy to setup, better if you already know how to use Pacemaker and it works like a charm. In fact it setup a master and x slaves.</description>
+    </item>
+    
+    <item>
+      <title>HAProxy: a powerful load balancer</title>
+      <link>http://blog.deimos.fr/2014/03/10/haproxy-a-powerful-load-balancer/</link>
+      <pubDate>Mon, 10 Mar 2014 11:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2014/03/10/haproxy-a-powerful-load-balancer/</guid>
+      <description>I recently played with HAProxy and discovered that I&amp;rsquo;ve never made a documentation regarding this fantastic software. So if you don&amp;rsquo;t know what HAProxy is, it&amp;rsquo;s a load balancer working on layer 7 and specialized for http protocol.
+It is able to handle sticky sessions which is really powerful. More than that, it has a small footprint and can work under a high load traffic.
+Here is my documentation.</description>
+    </item>
+    
+    <item>
+      <title>Galera : How to perform Zero Downtime Schema Changes</title>
+      <link>http://blog.deimos.fr/2013/12/10/galera-how-to-perform-zero-downtime-schema-changes/</link>
+      <pubDate>Tue, 10 Dec 2013 11:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/12/10/galera-how-to-perform-zero-downtime-schema-changes/</guid>
+      <description>Last week, I had a webinar regarding Galera Cluster given by Severalnines. As I found it very interesting, I’m sharing it with you :
+  Zero Downtime Schema Changes - Galera Cluster - Best Practices  from Severalnines</description>
+    </item>
+    
+    <item>
+      <title>DRBD : how to recover failed synchronisation</title>
+      <link>http://blog.deimos.fr/2013/07/13/drbd-how-to-recover-failed-synchronisation/</link>
+      <pubDate>Sat, 13 Jul 2013 10:00:00 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/07/13/drbd-how-to-recover-failed-synchronisation/</guid>
+      <description>DRBD is an old stable solution to create block disk replications over the network. However in some case, we need to deal with failures for several reasons (hardware, network issues&amp;hellip;).
+I&amp;rsquo;ve updated my current documentation on this point and hope this will help some of you. You can find the update here.</description>
+    </item>
+    
+    <item>
+      <title>2ème et dernier jour au FOSDEM !</title>
+      <link>http://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/</link>
+      <pubDate>Tue, 05 Feb 2013 11:00:24 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/</guid>
+      <description>Avant d&amp;rsquo;attaquer le 2 ème jour, je vais finir sur le premier (la suite d&amp;rsquo;hier).
+Un des supers sujet était Bind 10 que j&amp;rsquo;attendais avec impatience. Il n&amp;rsquo;y a malheureusement eu d&amp;rsquo;informations sur les nouveautés aidant a la HA. Cependant il a été totalement réécrit pour supporter + de 100 cores alors qu&amp;rsquo;aujourd&amp;rsquo;hui au delà de 6, il y a des problèmes de performances. On a également (et étrangement) un serveur DHCP qui est intégré a Bind.</description>
+    </item>
+    
+    <item>
+      <title>GlusterFS vs DRBD&#43;OCFS2</title>
+      <link>http://blog.deimos.fr/2010/12/29/glusterfs-vs-drbdocfs2-2/</link>
+      <pubDate>Wed, 29 Dec 2010 13:18:02 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2010/12/29/glusterfs-vs-drbdocfs2-2/</guid>
+      <description>Ca fait un moment que je me dit qu’il va falloir étudier le cas de la réplication de fichiers temps réel entre mon serveur perso et ma dedibox. J’en avais un peu marre de mon rsync crontabé (oui le verbe existe).
+J&amp;rsquo;ai donc écris une petite documentation sur GlusterFS sur comment répliquer le /var/www. Dans la pratique c&amp;rsquo;est plutôt bien :
+ Rapide à mettre en place
+ Simple
+ Extensible</description>
+    </item>
+    
+  </channel>
+</rss>

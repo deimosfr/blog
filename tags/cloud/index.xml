@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cloud on Deimosfr Blog</title>
+    <link>http://blog.deimos.fr/tags/cloud/</link>
+    <description>Recent content in Cloud on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 27 Nov 2015 21:34:03 +0000</lastBuildDate>
+    
+	<atom:link href="http://blog.deimos.fr/tags/cloud/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Upgrading Ansible Consul Template role</title>
+      <link>http://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/</link>
+      <pubDate>Fri, 27 Nov 2015 21:34:03 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/</guid>
+      <description>As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:
+consul_template_version: &amp;#39;0.11.0&amp;#39; consul_template_arch: &amp;#39;linux_amd64&amp;#39; consul_template_http_src: &amp;quot;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&amp;quot;  You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/detail#/role/3451
+I hope you&amp;rsquo;ll enjoy this new version :-)</description>
+    </item>
+    
+    <item>
+      <title>Offload SSL with HAProxy</title>
+      <link>http://blog.deimos.fr/2015/01/27/offload-ssl-with-haproxy/</link>
+      <pubDate>Tue, 27 Jan 2015 11:00:18 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2015/01/27/offload-ssl-with-haproxy/</guid>
+      <description>A few months ago, I already talked about offloading SSL with Nginx. I also wanted to try it with HAProxy which can be more interesting in some cases.
+The good On HAProxy, the good thing is the simplicity to do it. First of all you need to have at least the version 1.5 of HAProxy so to get SSL support. Then you only need those lines to offload SSL:</description>
+    </item>
+    
+    <item>
+      <title>Packer role available on Ansible Galaxy</title>
+      <link>http://blog.deimos.fr/2015/01/22/packer-role-available-on-ansible-galaxy/</link>
+      <pubDate>Thu, 22 Jan 2015 11:00:56 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2015/01/22/packer-role-available-on-ansible-galaxy/</guid>
+      <description>Packer is a really great solution to make an image in several formats (VirtualBox, Docker&amp;hellip;). I recently wanted to deploy it on a Jenkins server to automatically perform image build with the help of Packer.
+That&amp;rsquo;s why I&amp;rsquo;ve wrote a Packer role for Ansible really easy to use. You simply have to set (or let them by defaults) vars:
+# Packer version to install packer_version: &amp;#39;0.7.5&amp;#39; # Packer destination folder packer_destination: &amp;#39;/usr/bin&amp;#39;  It will install the desired version :-)</description>
+    </item>
+    
+    <item>
+      <title>Simple EC2 snapshot released !</title>
+      <link>http://blog.deimos.fr/2015/01/20/simple-ec2-snapshot-released/</link>
+      <pubDate>Tue, 20 Jan 2015 11:00:12 +0000</pubDate>
+      
+      <guid>http://blog.deimos.fr/2015/01/20/simple-ec2-snapshot-released/</guid>
+      <description>For my company, I recently had to find a good solution to make Snapshots from Instance IDs or from tags on AWS. I made several searches but unfortunately didn&amp;rsquo;t find what I was searching for.
+That&amp;rsquo;s why I started to make a tool to do this kind of job. It&amp;rsquo;s written in Python and requires the Boto library. Here is what you can do with Simple EC2 snapshots:
+ Hot snapshots (by default) and Cold snapshots   Multiple instances snapshot in one line   Detection of doubles   Filters by tags (allowing wildcards) or by instance IDs   Credentials file multiple with profiles   Limit the number of snapshots   Restrict snapshots to data disks only   The tool is open source and can be downloaded on GitHub :-).</description>
+    </item>
+    
+  </channel>
+</rss>
