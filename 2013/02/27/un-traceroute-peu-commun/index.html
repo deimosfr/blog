@@ -1,0 +1,903 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.20.1">
+    <meta name="theme" content="Tranquilpeak 0.3.1-BETA">
+    <title>Un traceroute peu commun</title>
+    <meta name="author" content="Pierre Mavro / Deimosfr">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="http://blog.deimos.fr/favicon.png">
+    
+
+    
+    <meta name="description" content="**➤ traceroute 216.81.59.173** traceroute to 216.81.59.173 (216.81.59.173), 64 hops max, 52 byte packets 1 zg020254 (222.2.20.254) 3.647 ms 1.915 ms 0.758 ms 2 192.168.254.138 (192.168.254.138) 1.273 ms 1.675 ms 0.930 ms 3 82.237.237.254 (82.237.237.254) 25.655 ms 39.368 ms 34.648 ms 4 stmaurice-6k-1-a5.routers.proxad.net (213.228.14.254) 36.447 ms 36.056 ms 38.463 ms 5 th2-crs16-1-be1008.intf.routers.proxad.net (212.27.50.29) 37.610 ms 46.074 ms 41.177 ms 6 strasbourg-crs16-1-be2000.intf.routers.proxad.net (212.27.50.10) 48.422 ms 55.351 ms 52.748 ms 7 francfort-6k-1-po100.intf.routers.proxad.net (212.27.56.30) 50.">
+    <meta property="og:description" content="**➤ traceroute 216.81.59.173** traceroute to 216.81.59.173 (216.81.59.173), 64 hops max, 52 byte packets 1 zg020254 (222.2.20.254) 3.647 ms 1.915 ms 0.758 ms 2 192.168.254.138 (192.168.254.138) 1.273 ms 1.675 ms 0.930 ms 3 82.237.237.254 (82.237.237.254) 25.655 ms 39.368 ms 34.648 ms 4 stmaurice-6k-1-a5.routers.proxad.net (213.228.14.254) 36.447 ms 36.056 ms 38.463 ms 5 th2-crs16-1-be1008.intf.routers.proxad.net (212.27.50.29) 37.610 ms 46.074 ms 41.177 ms 6 strasbourg-crs16-1-be2000.intf.routers.proxad.net (212.27.50.10) 48.422 ms 55.351 ms 52.748 ms 7 francfort-6k-1-po100.intf.routers.proxad.net (212.27.56.30) 50.">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Un traceroute peu commun">
+    <meta property="og:url" content="/2013/02/27/un-traceroute-peu-commun/">
+    <meta property="og:site_name" content="Deimosfr Blog">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Deimosfr Blog">
+    <meta name="twitter:description" content="**➤ traceroute 216.81.59.173** traceroute to 216.81.59.173 (216.81.59.173), 64 hops max, 52 byte packets 1 zg020254 (222.2.20.254) 3.647 ms 1.915 ms 0.758 ms 2 192.168.254.138 (192.168.254.138) 1.273 ms 1.675 ms 0.930 ms 3 82.237.237.254 (82.237.237.254) 25.655 ms 39.368 ms 34.648 ms 4 stmaurice-6k-1-a5.routers.proxad.net (213.228.14.254) 36.447 ms 36.056 ms 38.463 ms 5 th2-crs16-1-be1008.intf.routers.proxad.net (212.27.50.29) 37.610 ms 46.074 ms 41.177 ms 6 strasbourg-crs16-1-be2000.intf.routers.proxad.net (212.27.50.10) 48.422 ms 55.351 ms 52.748 ms 7 francfort-6k-1-po100.intf.routers.proxad.net (212.27.56.30) 50.">
+    
+      <meta name="twitter:creator" content="@deimosfr">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" />
+    
+    
+    <link rel="stylesheet" href="http://blog.deimos.fr/css/style-u6mk0ojoywresbx8iepslrmmhl4stuhrsxuwhkpwrkrx7mryjcaimasnk4pi.min.css" />
+    
+    
+      <link rel="stylesheet" href="http://blog.deimos.frcss/custom.css">
+    
+
+    
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-63927289-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="2">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="http://blog.deimos.fr/">Deimosfr Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="http://blog.deimos.fr/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="2">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="http://blog.deimos.fr/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://blog.deimos.fr/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://blog.deimos.fr/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://blog.deimos.fr/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://blog.deimos.fr/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://blog.deimos.fr/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/deimosfr" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://fr.linkedin.com/in/pmavro" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-linkedin-square"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
+      
+      <span class="sidebar-button-desc">Wiki</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://blog.deimos.fr/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="2"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Un traceroute peu commun
+    </h1>
+  
+  <div class="postShorten-meta post-meta">
+  
+    <time itemprop="datePublished" datetime="2013-02-27T11:00:19Z">
+      
+  
+  
+  
+  
+    27 February 2013
+  
+
+    </time>
+  
+  
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/funny">Funny</a>, 
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>
+    
+  
+
+
+</div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>**➤ traceroute <span style="color: #ae81ff">216</span>.81.59.173**
+  
+traceroute to <span style="color: #ae81ff">216</span>.81.59.173 <span style="color: #f92672">(</span><span style="color: #ae81ff">216</span>.81.59.173<span style="color: #f92672">)</span>, <span style="color: #ae81ff">64</span> hops max, <span style="color: #ae81ff">52</span> byte packets
+  
+<span style="color: #ae81ff">1</span> zg020254 <span style="color: #f92672">(</span><span style="color: #ae81ff">222</span>.2.20.254<span style="color: #f92672">)</span> <span style="color: #ae81ff">3</span>.647 ms <span style="color: #ae81ff">1</span>.915 ms <span style="color: #ae81ff">0</span>.758 ms
+  
+<span style="color: #ae81ff">2</span> <span style="color: #ae81ff">192</span>.168.254.138 <span style="color: #f92672">(</span><span style="color: #ae81ff">192</span>.168.254.138<span style="color: #f92672">)</span> <span style="color: #ae81ff">1</span>.273 ms <span style="color: #ae81ff">1</span>.675 ms <span style="color: #ae81ff">0</span>.930 ms
+  
+<span style="color: #ae81ff">3</span> <span style="color: #ae81ff">82</span>.237.237.254 <span style="color: #f92672">(</span><span style="color: #ae81ff">82</span>.237.237.254<span style="color: #f92672">)</span> <span style="color: #ae81ff">25</span>.655 ms <span style="color: #ae81ff">39</span>.368 ms <span style="color: #ae81ff">34</span>.648 ms
+  
+<span style="color: #ae81ff">4</span> stmaurice-6k-1-a5.routers.proxad.net <span style="color: #f92672">(</span><span style="color: #ae81ff">213</span>.228.14.254<span style="color: #f92672">)</span> <span style="color: #ae81ff">36</span>.447 ms <span style="color: #ae81ff">36</span>.056 ms <span style="color: #ae81ff">38</span>.463 ms
+  
+<span style="color: #ae81ff">5</span> th2-crs16-1-be1008.intf.routers.proxad.net <span style="color: #f92672">(</span><span style="color: #ae81ff">212</span>.27.50.29<span style="color: #f92672">)</span> <span style="color: #ae81ff">37</span>.610 ms <span style="color: #ae81ff">46</span>.074 ms <span style="color: #ae81ff">41</span>.177 ms
+  
+<span style="color: #ae81ff">6</span> strasbourg-crs16-1-be2000.intf.routers.proxad.net <span style="color: #f92672">(</span><span style="color: #ae81ff">212</span>.27.50.10<span style="color: #f92672">)</span> <span style="color: #ae81ff">48</span>.422 ms <span style="color: #ae81ff">55</span>.351 ms <span style="color: #ae81ff">52</span>.748 ms
+  
+<span style="color: #ae81ff">7</span> francfort-6k-1-po100.intf.routers.proxad.net <span style="color: #f92672">(</span><span style="color: #ae81ff">212</span>.27.56.30<span style="color: #f92672">)</span> <span style="color: #ae81ff">50</span>.431 ms <span style="color: #ae81ff">40</span>.861 ms <span style="color: #ae81ff">41</span>.228 ms
+  
+<span style="color: #ae81ff">8</span> 30gigabitethernet4-3.core1.fra1.he.net <span style="color: #f92672">(</span><span style="color: #ae81ff">80</span>.81.192.172<span style="color: #f92672">)</span> <span style="color: #ae81ff">35</span>.001 ms <span style="color: #ae81ff">44</span>.241 ms <span style="color: #ae81ff">40</span>.275 ms
+  
+<span style="color: #ae81ff">9</span> 10gigabitethernet2-2.core1.par2.he.net <span style="color: #f92672">(</span><span style="color: #ae81ff">72</span>.52.92.26<span style="color: #f92672">)</span> <span style="color: #ae81ff">51</span>.975 ms <span style="color: #ae81ff">46</span>.432 ms <span style="color: #ae81ff">46</span>.987 ms
+  
+<span style="color: #ae81ff">10</span> 10gigabitethernet7-1.core1.ash1.he.net <span style="color: #f92672">(</span><span style="color: #ae81ff">184</span>.105.213.93<span style="color: #f92672">)</span> <span style="color: #ae81ff">163</span>.795 ms <span style="color: #ae81ff">148</span>.891 ms <span style="color: #ae81ff">149</span>.824 ms
+  
+<span style="color: #ae81ff">11</span> 10gigabitethernet1-2.core1.atl1.he.net <span style="color: #f92672">(</span><span style="color: #ae81ff">184</span>.105.213.110<span style="color: #f92672">)</span> <span style="color: #ae81ff">153</span>.286 ms <span style="color: #ae81ff">153</span>.382 ms <span style="color: #ae81ff">146</span>.318 ms
+  
+<span style="color: #ae81ff">12</span> <span style="color: #ae81ff">216</span>.66.0.26 <span style="color: #f92672">(</span><span style="color: #ae81ff">216</span>.66.0.26<span style="color: #f92672">)</span> <span style="color: #ae81ff">142</span>.213 ms <span style="color: #ae81ff">140</span>.998 ms <span style="color: #ae81ff">151</span>.274 ms
+  
+<span style="color: #ae81ff">13</span> <span style="color: #ae81ff">10</span>.26.26.102 <span style="color: #f92672">(</span><span style="color: #ae81ff">10</span>.26.26.102<span style="color: #f92672">)</span> <span style="color: #ae81ff">179</span>.080 ms <span style="color: #ae81ff">186</span>.328 ms <span style="color: #ae81ff">198</span>.273 ms
+  
+<span style="color: #ae81ff">14</span> episode.iv <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.1<span style="color: #f92672">)</span> <span style="color: #ae81ff">197</span>.231 ms <span style="color: #ae81ff">193</span>.282 ms <span style="color: #ae81ff">191</span>.508 ms
+  
+<span style="color: #ae81ff">15</span> a.new.hope <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.6<span style="color: #f92672">)</span> <span style="color: #ae81ff">193</span>.910 ms <span style="color: #ae81ff">194</span>.601 ms <span style="color: #ae81ff">221</span>.146 ms
+  
+<span style="color: #ae81ff">16</span> it.is.a.period.of.civil.war <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.9<span style="color: #f92672">)</span> <span style="color: #ae81ff">194</span>.850 ms <span style="color: #ae81ff">209</span>.303 ms <span style="color: #ae81ff">184</span>.205 ms
+  
+<span style="color: #ae81ff">17</span> rebel.spaceships <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.14<span style="color: #f92672">)</span> <span style="color: #ae81ff">212</span>.035 ms <span style="color: #ae81ff">202</span>.787 ms <span style="color: #ae81ff">224</span>.529 ms
+  
+<span style="color: #ae81ff">18</span> striking.from.a.hidden.base <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.17<span style="color: #f92672">)</span> <span style="color: #ae81ff">218</span>.814 ms <span style="color: #ae81ff">190</span>.621 ms <span style="color: #ae81ff">189</span>.177 ms
+  
+<span style="color: #ae81ff">19</span> have.won.their.first.victory <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.22<span style="color: #f92672">)</span> <span style="color: #ae81ff">191</span>.289 ms <span style="color: #ae81ff">189</span>.423 ms <span style="color: #ae81ff">192</span>.935 ms
+  
+<span style="color: #ae81ff">20</span> against.the.evil.galactic.empire <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.25<span style="color: #f92672">)</span> <span style="color: #ae81ff">202</span>.463 ms <span style="color: #ae81ff">196</span>.797 ms <span style="color: #ae81ff">197</span>.794 ms
+  
+<span style="color: #ae81ff">21</span> during.the.battle <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.30<span style="color: #f92672">)</span> <span style="color: #ae81ff">191</span>.584 ms <span style="color: #ae81ff">193</span>.339 ms <span style="color: #ae81ff">194</span>.456 ms
+  
+<span style="color: #ae81ff">22</span> rebel.spies.managed <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.33<span style="color: #f92672">)</span> <span style="color: #ae81ff">186</span>.735 ms <span style="color: #ae81ff">191</span>.163 ms <span style="color: #ae81ff">187</span>.005 ms
+  
+<span style="color: #ae81ff">23</span> to.steal.secret.plans <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.38<span style="color: #f92672">)</span> <span style="color: #ae81ff">192</span>.866 ms <span style="color: #ae81ff">187</span>.829 ms <span style="color: #ae81ff">195</span>.160 ms
+  
+<span style="color: #ae81ff">24</span> to.the.empires.ultimate.weapon <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.41<span style="color: #f92672">)</span> <span style="color: #ae81ff">185</span>.458 ms <span style="color: #ae81ff">194</span>.660 ms <span style="color: #ae81ff">181</span>.751 ms
+  
+<span style="color: #ae81ff">25</span> the.death.star <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.46<span style="color: #f92672">)</span> <span style="color: #ae81ff">182</span>.533 ms <span style="color: #ae81ff">187</span>.246 ms <span style="color: #ae81ff">194</span>.495 ms
+  
+<span style="color: #ae81ff">26</span> an.armored.space.station <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.49<span style="color: #f92672">)</span> <span style="color: #ae81ff">194</span>.207 ms <span style="color: #ae81ff">178</span>.738 ms <span style="color: #ae81ff">191</span>.860 ms
+  
+<span style="color: #ae81ff">27</span> with.enough.power.to <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.54<span style="color: #f92672">)</span> <span style="color: #ae81ff">189</span>.692 ms <span style="color: #ae81ff">179</span>.749 ms <span style="color: #ae81ff">200</span>.046 ms
+  
+<span style="color: #ae81ff">28</span> destroy.an.entire.planet <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.57<span style="color: #f92672">)</span> <span style="color: #ae81ff">186</span>.436 ms <span style="color: #ae81ff">196</span>.943 ms <span style="color: #ae81ff">188</span>.068 ms
+  
+<span style="color: #ae81ff">29</span> pursued.by.the.empires <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.62<span style="color: #f92672">)</span> <span style="color: #ae81ff">207</span>.034 ms <span style="color: #ae81ff">190</span>.938 ms <span style="color: #ae81ff">182</span>.926 ms
+  
+<span style="color: #ae81ff">30</span> sinister.agents <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.65<span style="color: #f92672">)</span> <span style="color: #ae81ff">194</span>.793 ms <span style="color: #ae81ff">183</span>.916 ms <span style="color: #ae81ff">182</span>.477 ms
+  
+<span style="color: #ae81ff">31</span> princess.leia.races.home <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.70<span style="color: #f92672">)</span> <span style="color: #ae81ff">192</span>.261 ms <span style="color: #ae81ff">182</span>.584 ms <span style="color: #ae81ff">184</span>.429 ms
+  
+<span style="color: #ae81ff">32</span> aboard.her.starship <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.73<span style="color: #f92672">)</span> <span style="color: #ae81ff">185</span>.124 ms <span style="color: #ae81ff">183</span>.174 ms <span style="color: #ae81ff">185</span>.070 ms
+  
+<span style="color: #ae81ff">33</span> custodian.of.the.stolen.plans <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.78<span style="color: #f92672">)</span> <span style="color: #ae81ff">196</span>.531 ms <span style="color: #ae81ff">193</span>.025 ms <span style="color: #ae81ff">179</span>.177 ms
+  
+<span style="color: #ae81ff">34</span> that.can.save.her <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.81<span style="color: #f92672">)</span> <span style="color: #ae81ff">182</span>.353 ms <span style="color: #ae81ff">179</span>.757 ms <span style="color: #ae81ff">183</span>.413 ms
+  
+<span style="color: #ae81ff">35</span> people.and.restore <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.86<span style="color: #f92672">)</span> <span style="color: #ae81ff">204</span>.160 ms <span style="color: #ae81ff">192</span>.964 ms <span style="color: #ae81ff">198</span>.751 ms
+  
+<span style="color: #ae81ff">36</span> freedom.to.the.galaxy <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.89<span style="color: #f92672">)</span> <span style="color: #ae81ff">185</span>.870 ms <span style="color: #ae81ff">187</span>.539 ms <span style="color: #ae81ff">182</span>.990 ms
+  
+<span style="color: #ae81ff">37</span> <span style="color: #ae81ff">0</span>-------0 <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.94<span style="color: #f92672">)</span> <span style="color: #ae81ff">192</span>.951 ms <span style="color: #ae81ff">197</span>.803 ms <span style="color: #ae81ff">184</span>.440 ms
+  
+<span style="color: #ae81ff">38</span> <span style="color: #ae81ff">0</span>------0 <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.97<span style="color: #f92672">)</span> <span style="color: #ae81ff">190</span>.747 ms <span style="color: #ae81ff">183</span>.405 ms <span style="color: #ae81ff">194</span>.475 ms
+  
+<span style="color: #ae81ff">39</span> <span style="color: #ae81ff">0</span>-----*0 <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.102<span style="color: #f92672">)</span> <span style="color: #ae81ff">189</span>.917 ms <span style="color: #ae81ff">190</span>.735 ms <span style="color: #ae81ff">203</span>.726 ms
+  
+<span style="color: #ae81ff">40</span> <span style="color: #ae81ff">0</span>------0 <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.105<span style="color: #f92672">)</span> <span style="color: #ae81ff">197</span>.195 ms <span style="color: #ae81ff">188</span>.073 ms <span style="color: #ae81ff">190</span>.606 ms
+  
+<span style="color: #ae81ff">41</span> <span style="color: #ae81ff">0</span>-----0 <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.110<span style="color: #f92672">)</span> <span style="color: #ae81ff">191</span>.364 ms <span style="color: #ae81ff">188</span>.017 ms <span style="color: #ae81ff">199</span>.582 ms
+  
+<span style="color: #ae81ff">42</span> <span style="color: #ae81ff">0</span>----*0 <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.113<span style="color: #f92672">)</span> <span style="color: #ae81ff">204</span>.706 ms <span style="color: #ae81ff">192</span>.087 ms <span style="color: #ae81ff">186</span>.112 ms
+  
+<span style="color: #ae81ff">43</span> <span style="color: #ae81ff">0</span>-----0 <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.118<span style="color: #f92672">)</span> <span style="color: #ae81ff">184</span>.891 ms <span style="color: #ae81ff">191</span>.782 ms <span style="color: #ae81ff">183</span>.580 ms
+  
+<span style="color: #ae81ff">44</span> <span style="color: #ae81ff">0</span>----0 <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.121<span style="color: #f92672">)</span> <span style="color: #ae81ff">196</span>.112 ms <span style="color: #ae81ff">187</span>.698 ms <span style="color: #ae81ff">188</span>.226 ms
+  
+<span style="color: #ae81ff">45</span> <span style="color: #ae81ff">0</span>---*0 <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.126<span style="color: #f92672">)</span> <span style="color: #ae81ff">183</span>.943 ms <span style="color: #ae81ff">188</span>.188 ms <span style="color: #ae81ff">187</span>.393 ms
+  
+<span style="color: #ae81ff">46</span> <span style="color: #ae81ff">0</span>----0 <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.129<span style="color: #f92672">)</span> <span style="color: #ae81ff">188</span>.554 ms <span style="color: #ae81ff">185</span>.586 ms <span style="color: #ae81ff">186</span>.079 ms
+  
+<span style="color: #ae81ff">47</span> <span style="color: #ae81ff">0</span>---0 <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.134<span style="color: #f92672">)</span> <span style="color: #ae81ff">189</span>.318 ms <span style="color: #ae81ff">187</span>.417 ms <span style="color: #ae81ff">184</span>.657 ms
+  
+<span style="color: #ae81ff">48</span> <span style="color: #ae81ff">0</span>--*0 <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.137<span style="color: #f92672">)</span> <span style="color: #ae81ff">187</span>.814 ms <span style="color: #ae81ff">194</span>.758 ms <span style="color: #ae81ff">187</span>.969 ms
+  
+<span style="color: #ae81ff">49</span> <span style="color: #ae81ff">0</span>---0 <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.142<span style="color: #f92672">)</span> <span style="color: #ae81ff">184</span>.303 ms <span style="color: #ae81ff">184</span>.190 ms <span style="color: #ae81ff">190</span>.599 ms
+  
+<span style="color: #ae81ff">50</span> <span style="color: #ae81ff">0</span>--0 <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.145<span style="color: #f92672">)</span> <span style="color: #ae81ff">187</span>.253 ms <span style="color: #ae81ff">184</span>.304 ms <span style="color: #ae81ff">183</span>.073 ms
+  
+<span style="color: #ae81ff">51</span> <span style="color: #ae81ff">0</span>-*0 <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.150<span style="color: #f92672">)</span> <span style="color: #ae81ff">187</span>.473 ms <span style="color: #ae81ff">180</span>.335 ms <span style="color: #ae81ff">185</span>.738 ms
+  
+<span style="color: #ae81ff">52</span> <span style="color: #ae81ff">0</span>--0 <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.153<span style="color: #f92672">)</span> <span style="color: #ae81ff">191</span>.749 ms <span style="color: #ae81ff">199</span>.539 ms <span style="color: #ae81ff">186</span>.032 ms
+  
+<span style="color: #ae81ff">53</span> <span style="color: #ae81ff">0</span>-0 <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.158<span style="color: #f92672">)</span> <span style="color: #ae81ff">182</span>.021 ms <span style="color: #ae81ff">195</span>.326 ms <span style="color: #ae81ff">183</span>.971 ms
+  
+<span style="color: #ae81ff">54</span> <span style="color: #ae81ff">0</span>*0 <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.161<span style="color: #f92672">)</span> <span style="color: #ae81ff">187</span>.451 ms <span style="color: #ae81ff">559</span>.448 ms <span style="color: #ae81ff">188</span>.168 ms
+  
+<span style="color: #ae81ff">55</span> <span style="color: #ae81ff">0</span>-0 <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.166<span style="color: #f92672">)</span> <span style="color: #ae81ff">194</span>.845 ms <span style="color: #ae81ff">190</span>.809 ms <span style="color: #ae81ff">183</span>.038 ms
+  
+<span style="color: #ae81ff">56</span> <span style="color: #ae81ff">00</span> <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.169<span style="color: #f92672">)</span> <span style="color: #ae81ff">179</span>.784 ms <span style="color: #ae81ff">183</span>.617 ms <span style="color: #ae81ff">198</span>.597 ms
+  
+<span style="color: #ae81ff">57</span> i <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.174<span style="color: #f92672">)</span> <span style="color: #ae81ff">183</span>.878 ms <span style="color: #ae81ff">184</span>.733 ms <span style="color: #ae81ff">185</span>.424 ms
+  
+<span style="color: #ae81ff">58</span> by.ryan.werber <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.177<span style="color: #f92672">)</span> <span style="color: #ae81ff">181</span>.418 ms <span style="color: #ae81ff">199</span>.723 ms <span style="color: #ae81ff">186</span>.952 ms
+  
+<span style="color: #ae81ff">59</span> when.ccies.get.bored <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.182<span style="color: #f92672">)</span> <span style="color: #ae81ff">202</span>.628 ms <span style="color: #ae81ff">185</span>.311 ms <span style="color: #ae81ff">184</span>.267 ms
+  
+<span style="color: #ae81ff">60</span> read.more.at.beaglenetworks.net <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.185<span style="color: #f92672">)</span> <span style="color: #ae81ff">184</span>.768 ms <span style="color: #ae81ff">188</span>.555 ms <span style="color: #ae81ff">190</span>.815 ms
+  
+<span style="color: #ae81ff">61</span> fin <span style="color: #f92672">(</span><span style="color: #ae81ff">206</span>.214.251.190<span style="color: #f92672">)</span> <span style="color: #ae81ff">187</span>.203 ms * <span style="color: #ae81ff">189</span>.219 ms
+</pre></div>
+
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="http://blog.deimos.fr/tags/funny/">Funny</a>
+
+  <a class="tag tag--primary tag--small" href="http://blog.deimos.fr/tags/hi-tech/">Hi-Tech</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="http://blog.deimos.fr/2013/03/01/vmware-vs-openstack/" data-tooltip="Vmware VS OpenStack">
+          
+            <i class="fa fa-angle-left"></i>
+            <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+          </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="http://blog.deimos.fr/2013/02/25/videos-du-fosdem-2013/" data-tooltip="Vidéos du FOSDEM">
+          
+            <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+          <i class="fa fa-share-alt"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fblog.deimos.fr%2f2013%2f02%2f27%2fun-traceroute-peu-commun%2f">
+          <i class="fa fa-google-plus"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fblog.deimos.fr%2f2013%2f02%2f27%2fun-traceroute-peu-commun%2f">
+          <i class="fa fa-facebook-official"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fblog.deimos.fr%2f2013%2f02%2f27%2fun-traceroute-peu-commun%2f">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </li>
+    
+    
+      <li class="post-action">
+        <a class="post-action-btn btn btn--default" href="#disqus_thread">
+          <i class="fa fa-comment-o"></i>
+        </a>
+      </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2017 Pierre Mavro / Deimosfr. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="2">
+        <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="http://blog.deimos.fr/2013/03/01/vmware-vs-openstack/" data-tooltip="Vmware VS OpenStack">
+          
+            <i class="fa fa-angle-left"></i>
+            <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+          </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="http://blog.deimos.fr/2013/02/25/videos-du-fosdem-2013/" data-tooltip="Vidéos du FOSDEM">
+          
+            <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+          <i class="fa fa-share-alt"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fblog.deimos.fr%2f2013%2f02%2f27%2fun-traceroute-peu-commun%2f">
+          <i class="fa fa-google-plus"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fblog.deimos.fr%2f2013%2f02%2f27%2fun-traceroute-peu-commun%2f">
+          <i class="fa fa-facebook-official"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fblog.deimos.fr%2f2013%2f02%2f27%2fun-traceroute-peu-commun%2f">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </li>
+    
+    
+      <li class="post-action">
+        <a class="post-action-btn btn btn--default" href="#disqus_thread">
+          <i class="fa fa-comment-o"></i>
+        </a>
+      </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="2">
+  <ul class="share-options">
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http%3a%2f%2fblog.deimos.fr%2f2013%2f02%2f27%2fun-traceroute-peu-commun%2f">
+        <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fblog.deimos.fr%2f2013%2f02%2f27%2fun-traceroute-peu-commun%2f">
+        <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fblog.deimos.fr%2f2013%2f02%2f27%2fun-traceroute-peu-commun%2f">
+        <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        SRE Lead DevOps at Criteo
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Paris - France
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/">
+                <h3 class="media-heading">Deploy CoreOS with Ansible</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">&nbsp;
+CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications.&nbsp;I&rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
+As I&rsquo;m still an Ansible lover, I&rsquo;ve made 2 roles:
+ CoreOS Ansible:&nbsp;Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  The first one is&nbsp;for installing pypy to run Ansible and the other one to bootstrap CoreOS with Cloudinit or/and Igninition.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/">
+                <h3 class="media-heading">Do not waste time with grep anymore, use tag</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jun 6, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Long time since my last post. This one is not very technical post, but it&rsquo;s a nice to have solution if you use grep usually. Are not you fed up to type vim  and search the line after a grep command ? If yes, this post is for you.
+First of all, you may know that an alternative more user friendly to grep exist, called ag (perf comparison). I really like ag and grep, but something make me loose my time since several years and I&rsquo;m pretty sure it&rsquo;s your case too.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/">
+                <h3 class="media-heading">Zero downtime upgrade with Ansible and HAProxy</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Some of you may not be familiar with the terms &ldquo;Rolling upgrade&rdquo; or &ldquo;Rolling restart&rdquo;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&rsquo;re managing and the number of active nodes in your cluster.
+At Nousmotards we have several Java Spring Boot applications running. Restarting one application can take up to 1 min.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://blog.deimos.fr/2016/01/20/how-we-speed-up-news-feed-and-user-wall-display-using-elasticsearch/">
+                <h3 class="media-heading">Elasticsearch: How we speed up news feeds and user walls display</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">&nbsp;
+In my previous post, I talked about how to speed up reads and writes coupling Redis with Neo4J. Now I want to share with you how it&rsquo;s possible to unload your server and use Elasticsearch to speed up news feed and user wall.
+1/ Show me your news feed A news feed is the main page of traditional social networks. Its main goal is to show you all recents updates from your friends and your interests.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://blog.deimos.fr/2016/01/15/how-we-use-neo4j-on-our-social-network-and-workaround-performance-issues/">
+                <h3 class="media-heading">How we use Neo4J on our social network and workaround performance issues</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Neo4J is the most popular graph database in the NoSQL databases family. We&rsquo;re using it in the Nousmotards project to store all social data through nodes and relationships.
+Today I am going to talk about our experience after having using it for 2 years now (take a look at directed graph if you are not really familiar with Graph Database).
+1/ Our use case Nousmotards is a social network for bikers, we aim to provide valuable tools to ride, meet and share nice time with people who like motorcycling.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://blog.deimos.fr/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/">
+                <h3 class="media-heading">Docker: why you should use Monit instead of supervisord</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting Nousmotards infrastructure, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.
+Introduction Docker is made to run a process in a confined area.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://blog.deimos.fr/2016/01/08/graphite-events-on-debian-jessie/">
+                <h3 class="media-heading">Graphite events on Debian jessie</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">I&rsquo;m using Graphite at work and for my Nousmotards project. For Nousmotards, I&rsquo;m using the Graphite version available in the default Debian Jessie repositories. This to avoid mismatch django dependencies etc&hellip;
+A few days ago, I wanted to try Graphite events to get something pretty cool in Grafana :
+This to be able to know when a new app version is deployed and make it easier to understand when an issue occurs.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://blog.deimos.fr/2016/01/07/ansible-color-and-buffer-fix-on-jenkins/">
+                <h3 class="media-heading">Ansible color and buffer fix on Jenkins</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Hi all ! Long time since last blog post ! I&rsquo;m using Jenkins with Ansible on my Nousmotards project for building docker containers or deploying into production.
+You may noticed that you&rsquo;ve no Ansible color when running it into Jenkins! The simple way to correct it is to export an environment variable in your Jenkins job:
+export ANSIBLE_FORCE_COLOR=true  Now that&rsquo;s pretty cool! However, you may also noticed that there&rsquo;s some kind of lags on the console when you want to see a real time console log on Jenkins.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/">
+                <h3 class="media-heading">Upgrading Ansible Consul Template role</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:
+consul_template_version: &#39;0.11.0&#39; consul_template_arch: &#39;linux_amd64&#39; consul_template_http_src: &quot;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&quot;  You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/detail#/role/3451
+I hope you&rsquo;ll enjoy this new version :-)</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/">
+                <h3 class="media-heading">Ansible Meetup done! Watch again the slides</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">The Ansible meetup ended ! That was really nice for my first one.
+I had really great feedbacks and liked the questions when ended. More than that I met nice people after the meetup and could have interresting discussions :-). I&rsquo;m really happy about it.
+For those who would like to review the slides, you can find them here:
+http://nousmotards.github.io/ansible-meetup-0915/
+If you want to watch the video:
+http://www.infoq.com/fr/presentations/reseau-social-motard
+or view the PDF version here:</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         833 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('http://blog.deimos.fr/images/fish_background.jpg');"></div>
+  
+
+
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js"></script>
+
+
+<script src="http://blog.deimos.fr/js/script-wl33z0n6ocaypepiqrazthtivfrliqijej4rq8ek8gvrv1awftmgjuv8k4zc.min.js"></script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight').each(function(i, block) {
+    var code = "";
+    hljs.highlightAuto(block.innerText).value.split(/\r\n|\r|\n/).forEach(function(line) {
+      code += "<span class=\"line\">" + line + "</span><br>";
+    });
+    if (code.length > 0) {
+      block.innerHTML = code;  
+    }
+  });
+  $('pre > code').each(function(i, block) {
+    $(this).addClass('codeblock');
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'http:\/\/blog.deimos.fr\/2013\/02\/27\/un-traceroute-peu-commun\/';
+          
+            this.page.identifier = '\/2013\/02\/27\/un-traceroute-peu-commun\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'blog-deimosfr';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,1033 @@
+
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.20.1">
+    <meta name="theme" content="Tranquilpeak 0.3.1-BETA">
+    <title>Debian</title>
+    <meta name="author" content="Pierre Mavro / Deimosfr">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="http://blog.deimos.fr/favicon.png">
+    
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.deimos.fr/tags/debian/index.xml">
+    
+
+    
+    <meta name="description" content="Hugo tranquilpeak theme demo">
+    <meta property="og:description" content="Hugo tranquilpeak theme demo">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Debian">
+    <meta property="og:url" content="/tags/debian/">
+    <meta property="og:site_name" content="Deimosfr Blog">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Deimosfr Blog">
+    <meta name="twitter:description" content="Hugo tranquilpeak theme demo">
+    
+      <meta name="twitter:creator" content="@deimosfr">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" />
+    
+    
+    <link rel="stylesheet" href="http://blog.deimos.fr/css/style-u6mk0ojoywresbx8iepslrmmhl4stuhrsxuwhkpwrkrx7mryjcaimasnk4pi.min.css" />
+    
+    
+      <link rel="stylesheet" href="http://blog.deimos.frcss/custom.css">
+    
+
+    
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-63927289-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="2">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="http://blog.deimos.fr/">Deimosfr Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="http://blog.deimos.fr/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="2">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="http://blog.deimos.fr/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://blog.deimos.fr/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://blog.deimos.fr/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://blog.deimos.fr/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://blog.deimos.fr/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://blog.deimos.fr/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/deimosfr" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://fr.linkedin.com/in/pmavro" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-linkedin-square"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
+      
+      <span class="sidebar-button-desc">Wiki</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://blog.deimos.fr/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+    </ul>
+  </div>
+</nav>
+
+      
+        
+
+      
+      <div id="main" data-behavior="2"
+        class="
+               hasCoverMetaIn
+               ">
+        
+          <section class="postShorten-group main-content-wrap">
+            
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="http://blog.deimos.fr/2012/06/30/nagios-checkmk-et-thruk-sont-dans-un-bateau/">
+          Nagios, CheckMk et Thruk sont dans un bateau
+        </a>
+      </h1>
+      <div class="postShorten-meta post-meta">
+  
+    <time itemprop="datePublished" datetime="2012-06-30T10:00:27Z">
+      
+  
+  
+  
+  
+    30 June 2012
+  
+
+    </time>
+  
+  
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/nagios">Nagios</a>
+    
+  
+
+
+</div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      <p>
+        Toi aussi tu rêves d&rsquo;avoir une infrastructure Nagios éclatée ? Tu en as marre d&rsquo;avoir des latences qui te foutent la merde sur tes alertes alors qu&rsquo;il n&rsquo;y a réellement aucun soucis ou simplement une micro coupure sur ta ligne de monitoring ? Et en plus de tout ça tu dois gérer de multiples filiales pour monitorer les mêmes choses ! Ne cherches pas plus loin petit padawan ! La documentation suivante est faite pour toi !
+        <br>
+        <a href="http://blog.deimos.fr/2012/06/30/nagios-checkmk-et-thruk-sont-dans-un-bateau/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="http://blog.deimos.fr/2012/06/30/nagios-checkmk-et-thruk-sont-dans-un-bateau/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="http://blog.deimos.fr/thumbnails/logo_nagios.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="http://blog.deimos.fr/2012/06/28/news-en-vrac-5/">
+          News en vrac
+        </a>
+      </h1>
+      <div class="postShorten-meta post-meta">
+  
+    <time itemprop="datePublished" datetime="2012-06-28T10:00:59Z">
+      
+  
+  
+  
+  
+    28 June 2012
+  
+
+    </time>
+  
+  
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/puppet">Puppet</a>
+    
+  
+
+
+</div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      <p>
+        Voici quelques petites modifications récemment effectuées sur le wiki :
+ La doc sur puppet a été mise à jour avec une gestion des certificats un peu plus évoluée et divers utilisations plus poussées. Dans quelques temps il va y avoir une grosse mise à jour de cette documentation avec des optimisations, des fonctions, des facts&hellip; tout pour vous aider à faire un beau puppet quoi :-) Ajout de &ldquo;comment se sortir de la merde après une maj mediawiki&rdquo;.
+        <br>
+        <a href="http://blog.deimos.fr/2012/06/28/news-en-vrac-5/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="http://blog.deimos.fr/2012/06/22/utilisation-avancee-de-kvm/">
+          Utilisation avancée de KVM
+        </a>
+      </h1>
+      <div class="postShorten-meta post-meta">
+  
+    <time itemprop="datePublished" datetime="2012-06-22T10:00:31Z">
+      
+  
+  
+  
+  
+    22 June 2012
+  
+
+    </time>
+  
+  
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+
+</div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      <p>
+        Vous allez voir dans quelques temps que le blog, ainsi que le wiki vont tracer ! Avec mon pote Evoxmusic, on vient de se prendre une dedibox de la mort. Nous en profitons donc pour utiliser KVM et avons recours à des fonctionnalités un peu plus avancées que start and stop. Par exemple :
+ Utilisation des VMs en NAT Une configuration iptables pour passer le NAT Ajouter des disques à chaud Dédier des CPU à une VM  J&rsquo;ai donc mis à jour la documentation sur KVM avec les fonctionnalités citées ci dessus.
+        <br>
+        <a href="http://blog.deimos.fr/2012/06/22/utilisation-avancee-de-kvm/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="http://blog.deimos.fr/2012/06/22/utilisation-avancee-de-kvm/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="http://blog.deimos.fr/thumbnails/logo_kvm.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="http://blog.deimos.fr/2012/06/08/postfix-sasl/">
+          Postfix SASL
+        </a>
+      </h1>
+      <div class="postShorten-meta post-meta">
+  
+    <time itemprop="datePublished" datetime="2012-06-08T10:00:39Z">
+      
+  
+  
+  
+  
+    8 June 2012
+  
+
+    </time>
+  
+  
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+
+</div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      <p>
+        Toujours dans les mises à jour de documentation, j&rsquo;ai mis à jour celle sur Postfix et le SASL, avec notamment une belle bourde sur la génération du certificat SSL (merci Rod).
+Voici la doc.
+        <br>
+        <a href="http://blog.deimos.fr/2012/06/08/postfix-sasl/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="http://blog.deimos.fr/2012/05/29/powerdns-un-beau-serveur-de-cache/">
+          PowerDNS : Un beau serveur de cache
+        </a>
+      </h1>
+      <div class="postShorten-meta post-meta">
+  
+    <time itemprop="datePublished" datetime="2012-05-29T10:00:32Z">
+      
+  
+  
+  
+  
+    29 May 2012
+  
+
+    </time>
+  
+  
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+
+</div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      <p>
+        J&rsquo;ai récemment fait un article sur la mise en place d&rsquo;un serveur PowerDNS maitre. En voici un sur le cache. C&rsquo;est très rapide à mettre en place :-)
+Voici la documentation.
+        <br>
+        <a href="http://blog.deimos.fr/2012/05/29/powerdns-un-beau-serveur-de-cache/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="http://blog.deimos.fr/2012/05/29/powerdns-un-beau-serveur-de-cache/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="http://blog.deimos.fr/thumbnails/logo_powerdns.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="http://blog.deimos.fr/2012/05/27/poweradmin-une-interface-web-de-gestion-de-powerdns/">
+          PowerAdmin : une interface web de gestion de PowerDNS
+        </a>
+      </h1>
+      <div class="postShorten-meta post-meta">
+  
+    <time itemprop="datePublished" datetime="2012-05-27T10:00:25Z">
+      
+  
+  
+  
+  
+    27 May 2012
+  
+
+    </time>
+  
+  
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/web">Web</a>
+    
+  
+
+
+</div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      <p>
+        PowerAdmin est une interface d&rsquo;administration pour PowerDNS. Elle est faite en PHP et permet de gérer bien plus que la majorité des fonctionnalités de base de PowerDNS.
+Elle est très utile si vous avez un backend MySQL qui n&rsquo;est pas très pratique pour ajouter des enregistrements/zones ou toucher à la configuration de PowerDNS.
+Pour la mise en place de cette interface, c&rsquo;est par ici.
+        <br>
+        <a href="http://blog.deimos.fr/2012/05/27/poweradmin-une-interface-web-de-gestion-de-powerdns/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="http://blog.deimos.fr/2012/05/27/poweradmin-une-interface-web-de-gestion-de-powerdns/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="http://blog.deimos.fr/thumbnails/logo_poweradmin.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="http://blog.deimos.fr/2012/05/25/powerdns-un-concurrent-de-bind/">
+          PowerDNS : un concurrent de Bind
+        </a>
+      </h1>
+      <div class="postShorten-meta post-meta">
+  
+    <time itemprop="datePublished" datetime="2012-05-25T10:00:18Z">
+      
+  
+  
+  
+  
+    25 May 2012
+  
+
+    </time>
+  
+  
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="http://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+
+</div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      <p>
+        PowerDNS est (comme son nom l&rsquo;indique) un serveur DNS. C&rsquo;est un concurrent direct à Bind. Il se veut moins gourmand en RAM et offre une utilisation de configuration plus souple que Bind.
+PowerDNS est découpé en plusieurs rôles :
+ Maitre Cache  J&rsquo;ai donc fais une petite documentation sur la partie Maitre. Suivez le guide.
+        <br>
+        <a href="http://blog.deimos.fr/2012/05/25/powerdns-un-concurrent-de-bind/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="http://blog.deimos.fr/2012/05/25/powerdns-un-concurrent-de-bind/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="http://blog.deimos.fr/thumbnails/logo_powerdns.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+            
+  <div class="pagination-bar">
+    <ul class="pagination">
+      
+        <li class="pagination-prev">
+          <a class="btn btn--default btn--small" href="http://blog.deimos.fr/tags/debian/page/26/">
+            <i class="fa fa-angle-left text-base icon-mr"></i>
+            <span>NEWER POSTS</span>
+          </a>
+        </li>
+      
+      
+        <li class="pagination-next">
+          <a class="btn btn--default btn--small" href="http://blog.deimos.fr/tags/debian/page/28/">
+            <span>OLDER POSTS</span>
+            <i class="fa fa-angle-right text-base icon-ml"></i>
+          </a>
+        </li>
+      
+      <li class="pagination-number">page 27 of 30</li>
+    </ul>
+  </div>
+
+
+          </section>
+        
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2017 Pierre Mavro / Deimosfr. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        SRE Lead DevOps at Criteo
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Paris - France
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/">
+                <h3 class="media-heading">Deploy CoreOS with Ansible</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">&nbsp;
+CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications.&nbsp;I&rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
+As I&rsquo;m still an Ansible lover, I&rsquo;ve made 2 roles:
+ CoreOS Ansible:&nbsp;Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  The first one is&nbsp;for installing pypy to run Ansible and the other one to bootstrap CoreOS with Cloudinit or/and Igninition.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/">
+                <h3 class="media-heading">Do not waste time with grep anymore, use tag</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jun 6, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Long time since my last post. This one is not very technical post, but it&rsquo;s a nice to have solution if you use grep usually. Are not you fed up to type vim  and search the line after a grep command ? If yes, this post is for you.
+First of all, you may know that an alternative more user friendly to grep exist, called ag (perf comparison). I really like ag and grep, but something make me loose my time since several years and I&rsquo;m pretty sure it&rsquo;s your case too.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/">
+                <h3 class="media-heading">Zero downtime upgrade with Ansible and HAProxy</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Some of you may not be familiar with the terms &ldquo;Rolling upgrade&rdquo; or &ldquo;Rolling restart&rdquo;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&rsquo;re managing and the number of active nodes in your cluster.
+At Nousmotards we have several Java Spring Boot applications running. Restarting one application can take up to 1 min.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://blog.deimos.fr/2016/01/20/how-we-speed-up-news-feed-and-user-wall-display-using-elasticsearch/">
+                <h3 class="media-heading">Elasticsearch: How we speed up news feeds and user walls display</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">&nbsp;
+In my previous post, I talked about how to speed up reads and writes coupling Redis with Neo4J. Now I want to share with you how it&rsquo;s possible to unload your server and use Elasticsearch to speed up news feed and user wall.
+1/ Show me your news feed A news feed is the main page of traditional social networks. Its main goal is to show you all recents updates from your friends and your interests.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://blog.deimos.fr/2016/01/15/how-we-use-neo4j-on-our-social-network-and-workaround-performance-issues/">
+                <h3 class="media-heading">How we use Neo4J on our social network and workaround performance issues</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Neo4J is the most popular graph database in the NoSQL databases family. We&rsquo;re using it in the Nousmotards project to store all social data through nodes and relationships.
+Today I am going to talk about our experience after having using it for 2 years now (take a look at directed graph if you are not really familiar with Graph Database).
+1/ Our use case Nousmotards is a social network for bikers, we aim to provide valuable tools to ride, meet and share nice time with people who like motorcycling.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://blog.deimos.fr/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/">
+                <h3 class="media-heading">Docker: why you should use Monit instead of supervisord</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting Nousmotards infrastructure, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.
+Introduction Docker is made to run a process in a confined area.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://blog.deimos.fr/2016/01/08/graphite-events-on-debian-jessie/">
+                <h3 class="media-heading">Graphite events on Debian jessie</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">I&rsquo;m using Graphite at work and for my Nousmotards project. For Nousmotards, I&rsquo;m using the Graphite version available in the default Debian Jessie repositories. This to avoid mismatch django dependencies etc&hellip;
+A few days ago, I wanted to try Graphite events to get something pretty cool in Grafana :
+This to be able to know when a new app version is deployed and make it easier to understand when an issue occurs.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://blog.deimos.fr/2016/01/07/ansible-color-and-buffer-fix-on-jenkins/">
+                <h3 class="media-heading">Ansible color and buffer fix on Jenkins</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Hi all ! Long time since last blog post ! I&rsquo;m using Jenkins with Ansible on my Nousmotards project for building docker containers or deploying into production.
+You may noticed that you&rsquo;ve no Ansible color when running it into Jenkins! The simple way to correct it is to export an environment variable in your Jenkins job:
+export ANSIBLE_FORCE_COLOR=true  Now that&rsquo;s pretty cool! However, you may also noticed that there&rsquo;s some kind of lags on the console when you want to see a real time console log on Jenkins.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/">
+                <h3 class="media-heading">Upgrading Ansible Consul Template role</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:
+consul_template_version: &#39;0.11.0&#39; consul_template_arch: &#39;linux_amd64&#39; consul_template_http_src: &quot;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&quot;  You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/detail#/role/3451
+I hope you&rsquo;ll enjoy this new version :-)</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="http://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/">
+                <h3 class="media-heading">Ansible Meetup done! Watch again the slides</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">The Ansible meetup ended ! That was really nice for my first one.
+I had really great feedbacks and liked the questions when ended. More than that I met nice people after the meetup and could have interresting discussions :-). I&rsquo;m really happy about it.
+For those who would like to review the slides, you can find them here:
+http://nousmotards.github.io/ansible-meetup-0915/
+If you want to watch the video:
+http://www.infoq.com/fr/presentations/reseau-social-motard
+or view the PDF version here:</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         833 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('http://blog.deimos.fr/images/fish_background.jpg');"></div>
+  
+
+
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js"></script>
+
+
+<script src="http://blog.deimos.fr/js/script-wl33z0n6ocaypepiqrazthtivfrliqijej4rq8ek8gvrv1awftmgjuv8k4zc.min.js"></script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight').each(function(i, block) {
+    var code = "";
+    hljs.highlightAuto(block.innerText).value.split(/\r\n|\r|\n/).forEach(function(line) {
+      code += "<span class=\"line\">" + line + "</span><br>";
+    });
+    if (code.length > 0) {
+      block.innerHTML = code;  
+    }
+  });
+  $('pre > code').each(function(i, block) {
+    $(this).addClass('codeblock');
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+
+    
+  </body>
+</html>
+
