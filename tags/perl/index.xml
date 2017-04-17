@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Perl on Deimosfr Blog</title>
-    <link>https://deimosfr.github.io/blog/tags/perl/</link>
+    <link>https://blog.deimos.fr/tags/perl/</link>
     <description>Recent content in Perl on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 10 Jun 2010 06:58:41 +0000</lastBuildDate>
     
-	<atom:link href="https://deimosfr.github.io/blog/tags/perl/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.deimos.fr/tags/perl/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Perl vs X</title>
-      <link>https://deimosfr.github.io/blog/2010/06/10/perl-vs-x/</link>
+      <link>https://blog.deimos.fr/2010/06/10/perl-vs-x/</link>
       <pubDate>Thu, 10 Jun 2010 06:58:41 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2010/06/10/perl-vs-x/</guid>
+      <guid>https://blog.deimos.fr/2010/06/10/perl-vs-x/</guid>
       <description>Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C++ étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j’ai la réponse à ma question :
   Program   Language   time (ms)   Slowdown     add   C++   23       add   Perl   1464   64 x     add   Python   3242   141 x     mult   C++   99       mult   Perl   2686   27 x     mult   Python   5285   53 x     func   C++   43       func   Perl   5143   120 x     func   Python   6413   149 x    Ou encore :</description>
     </item>

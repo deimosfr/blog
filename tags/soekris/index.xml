@@ -2,51 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Soekris on Deimosfr Blog</title>
-    <link>https://deimosfr.github.io/blog/tags/soekris/</link>
+    <link>https://blog.deimos.fr/tags/soekris/</link>
     <description>Recent content in Soekris on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 30 Apr 2013 10:00:37 +0000</lastBuildDate>
     
-	<atom:link href="https://deimosfr.github.io/blog/tags/soekris/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.deimos.fr/tags/soekris/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Soekris 6501 : mon nouveau joujou</title>
-      <link>https://deimosfr.github.io/blog/2013/04/30/soekris-6505-mon-nouveau-joujou/</link>
+      <link>https://blog.deimos.fr/2013/04/30/soekris-6505-mon-nouveau-joujou/</link>
       <pubDate>Tue, 30 Apr 2013 10:00:37 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2013/04/30/soekris-6505-mon-nouveau-joujou/</guid>
+      <guid>https://blog.deimos.fr/2013/04/30/soekris-6505-mon-nouveau-joujou/</guid>
       <description>Je me suis récemment commandé une Soekris car la mienne commence a avoir des problèmes d&amp;rsquo;alimentation au niveau de la carte mère (s&amp;rsquo;allume 1 fois sur 10).
 Depuis le temps que j&amp;rsquo;ai l&amp;rsquo;ancienne et vu qu&amp;rsquo;elle tourne en permanence, je trouve que c&amp;rsquo;est vraiment du bon matos ! Du coup pour remplacer celle ci, je me suis prit la 6501-70 avec Atom 1,6Ghz, 2 Go de RAM et SSD Intel 30G.</description>
     </item>
     
     <item>
       <title>pfSense sur Soekris</title>
-      <link>https://deimosfr.github.io/blog/2010/12/04/pfsense-sur-soekris/</link>
+      <link>https://blog.deimos.fr/2010/12/04/pfsense-sur-soekris/</link>
       <pubDate>Fri, 03 Dec 2010 23:54:12 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2010/12/04/pfsense-sur-soekris/</guid>
+      <guid>https://blog.deimos.fr/2010/12/04/pfsense-sur-soekris/</guid>
       <description>Un ami m&amp;rsquo;a demandé un routeur de bonne qualité pour chez lui et assez simple d&amp;rsquo;utilisation. Au début j&amp;rsquo;ai pensé à des produits commerciaux que l&amp;rsquo;on peut trouver dans n&amp;rsquo;importe quelle grande surface un peu spécialisée. Je connais bien les problématiques, ce n&amp;rsquo;est pas toujours stable, c&amp;rsquo;est pauvre en options&amp;hellip;
 Je possède une Soekris et j&amp;rsquo;en suis très content. Mais le fait d&amp;rsquo;avoir choisis OpenBSD est un choix personnel qui ne correspond pas vraiment à celui de mon ami car pas très user friendly.</description>
     </item>
     
     <item>
       <title>Mise à jour OpenBSD 4.6 -&gt; 4.7 pas sans mal</title>
-      <link>https://deimosfr.github.io/blog/2010/05/22/mise-a-jour-openbsd-4-6-4-7-pas-sans-mal/</link>
+      <link>https://blog.deimos.fr/2010/05/22/mise-a-jour-openbsd-4-6-4-7-pas-sans-mal/</link>
       <pubDate>Sat, 22 May 2010 06:35:57 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2010/05/22/mise-a-jour-openbsd-4-6-4-7-pas-sans-mal/</guid>
+      <guid>https://blog.deimos.fr/2010/05/22/mise-a-jour-openbsd-4-6-4-7-pas-sans-mal/</guid>
       <description>Encore une fois, ça a été la tannée avec ce Packet Filter ! Ils changent tout le temps pas mal de trucs. Mon serveur était donc inaccessible cette nuit à cause de cette upgrade.
 J&amp;rsquo;ai déjà encore galérer pour foutre ce putain de PXE. J&amp;rsquo;ai pourtant suivit ma doc que j&amp;rsquo;avais faite précédemment, mais là, rien à faire, le PXE ne voulait pas être reconnu. J&amp;rsquo;ai donc décider d&amp;rsquo;en faire un sous OpenBSD (OpenBSD pour installer OpenBSD, quoi de plus naturelle&amp;hellip;) et vais améliorer la doc ici.</description>
     </item>
     
     <item>
       <title>Le Gity, le Gitou à Pitou est dispo</title>
-      <link>https://deimosfr.github.io/blog/2009/12/03/le-gity-le-gitou-a-pitou-est-dispo/</link>
+      <link>https://blog.deimos.fr/2009/12/03/le-gity-le-gitou-a-pitou-est-dispo/</link>
       <pubDate>Thu, 03 Dec 2009 13:33:56 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2009/12/03/le-gity-le-gitou-a-pitou-est-dispo/</guid>
+      <guid>https://blog.deimos.fr/2009/12/03/le-gity-le-gitou-a-pitou-est-dispo/</guid>
       <description>Et bah voilà, c’est fait, j’ai un beau Git mise à dispo avec un Gitweb, pour vous messieurs, pour vous mes dammes, mais surtout pour vous mes dammes….
 J&amp;rsquo;ai pas grand chose pour le moment dessus, mais on peut trouver ma configuration de VIM et de ZSH. La suite arrivera avec le temps.
 Pour consulter mon gitweb, voici l&amp;rsquo;adresse : http://www.deimos.fr/gitweb/
@@ -55,40 +55,40 @@ Vous pouvez également trouver les documentations concernant git que j&amp;rsquo
     
     <item>
       <title>MySecureShell sur Solaris</title>
-      <link>https://deimosfr.github.io/blog/2009/11/13/mysecureshell-sur-solaris/</link>
+      <link>https://blog.deimos.fr/2009/11/13/mysecureshell-sur-solaris/</link>
       <pubDate>Fri, 13 Nov 2009 21:26:30 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2009/11/13/mysecureshell-sur-solaris/</guid>
+      <guid>https://blog.deimos.fr/2009/11/13/mysecureshell-sur-solaris/</guid>
       <description>Je suis en train de bosser avec Seb sur la nouvelle mouture de MySecureShell. On a fait pas mal de chemin jusqu’à présent et je dois maintenant l’utiliser pour des besoins de productions dans la société dans laquelle je travaille, mais tournant sur Solaris.
 Seb a du faire quelques ajustements rapide pour que ça tourne convenablement, mais certaines fonctionnalités ne fonctionne pas encore tout à fait bien. Bref, il travail dessus.</description>
     </item>
     
     <item>
       <title>Mise à jour OpenBSD 4.5 -&gt; 4.6 pas sans mal</title>
-      <link>https://deimosfr.github.io/blog/2009/10/25/mise-a-jour-openbsd-4-5-4-6-pas-sans-mal/</link>
+      <link>https://blog.deimos.fr/2009/10/25/mise-a-jour-openbsd-4-5-4-6-pas-sans-mal/</link>
       <pubDate>Sun, 25 Oct 2009 19:44:20 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2009/10/25/mise-a-jour-openbsd-4-5-4-6-pas-sans-mal/</guid>
+      <guid>https://blog.deimos.fr/2009/10/25/mise-a-jour-openbsd-4-5-4-6-pas-sans-mal/</guid>
       <description>Vous l’avez peut être constaté, mais mon serveur était indisponible une partie de la journée. La faute à la mise à jour de ma OpenBSD sur ma Soekris qui a foirée. J’ai voulu upgrader comme j’avais fait à l’époque de la 4.4 vers la 4.5, à savoir en mode manuel http://www.openbsd.org/faq/upgrade46.html#upgrade.
 Même si il est clairement spécifier que ce n&amp;rsquo;est pas la méthode recommandée, je n&amp;rsquo;avais pas rencontrer de problèmes la fois d&amp;rsquo;avant.</description>
     </item>
     
     <item>
       <title>PF sur Soekris</title>
-      <link>https://deimosfr.github.io/blog/2009/01/08/pf-sur-soekris/</link>
+      <link>https://blog.deimos.fr/2009/01/08/pf-sur-soekris/</link>
       <pubDate>Thu, 08 Jan 2009 01:07:43 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2009/01/08/pf-sur-soekris/</guid>
+      <guid>https://blog.deimos.fr/2009/01/08/pf-sur-soekris/</guid>
       <description>Hé bé voilà, ç y est. Chez moi la Soekris est en place et tout fonctionne presque. Il reste encore un peu de boulot côté PF, mais dans l’ensemble c’est bien.
 Bon, je vais pouvoir allez dormir car demain boulot à 8h00 :-(</description>
     </item>
     
     <item>
       <title>Soekris…c’est parti !</title>
-      <link>https://deimosfr.github.io/blog/2008/12/29/soekriscest-parti/</link>
+      <link>https://blog.deimos.fr/2008/12/29/soekriscest-parti/</link>
       <pubDate>Mon, 29 Dec 2008 09:38:58 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2008/12/29/soekriscest-parti/</guid>
+      <guid>https://blog.deimos.fr/2008/12/29/soekriscest-parti/</guid>
       <description>J’ai reçu ma bébete mercredi ainsi que ma carte Compact Flash.
 J&amp;rsquo;ai donc tout installé dans la boiboite et après une soirée de beuverie pour le nouvel an et 5h de sommeil, je me suis dis qu&amp;rsquo;il était temps d&amp;rsquo;installer le monstre. Sur les conseils de David qui m&amp;rsquo;a fournit les &amp;ldquo;soit disant bons&amp;rdquo; cables pour connecter la Soekris à mon PC, il aurait été normal que je le remercie, mais là nan !</description>
     </item>

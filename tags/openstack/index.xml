@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Openstack on Deimosfr Blog</title>
-    <link>https://deimosfr.github.io/blog/tags/openstack/</link>
+    <link>https://blog.deimos.fr/tags/openstack/</link>
     <description>Recent content in Openstack on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 01 Nov 2014 11:00:56 +0000</lastBuildDate>
     
-	<atom:link href="https://deimosfr.github.io/blog/tags/openstack/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.deimos.fr/tags/openstack/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>OpenStack Summit in Paris on Monday!</title>
-      <link>https://deimosfr.github.io/blog/2014/11/01/openstack-summit-in-paris-on-monday/</link>
+      <link>https://blog.deimos.fr/2014/11/01/openstack-summit-in-paris-on-monday/</link>
       <pubDate>Sat, 01 Nov 2014 11:00:56 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2014/11/01/openstack-summit-in-paris-on-monday/</guid>
+      <guid>https://blog.deimos.fr/2014/11/01/openstack-summit-in-paris-on-monday/</guid>
       <description>OpenStack Summit will take place in Paris in 2 days! I&amp;rsquo;m excited to be able to participate. Big thanks to eNovance/RedHat for it!
 To know more about the event, please follow the link.</description>
     </item>
     
     <item>
       <title>Openstack Meetup 9: Ceph, Swift and ZFS!</title>
-      <link>https://deimosfr.github.io/blog/2014/06/14/openstack-meetup-9-ceph-swift-and-zfs/</link>
+      <link>https://blog.deimos.fr/2014/06/14/openstack-meetup-9-ceph-swift-and-zfs/</link>
       <pubDate>Sat, 14 Jun 2014 10:00:40 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2014/06/14/openstack-meetup-9-ceph-swift-and-zfs/</guid>
+      <guid>https://blog.deimos.fr/2014/06/14/openstack-meetup-9-ceph-swift-and-zfs/</guid>
       <description>Do not miss OpenStack meetup event at eNovance headquarter! There will be big talks on:
  ZFS Ceph Swift  You&amp;rsquo;ve understood, it&amp;rsquo; storage related for OpenStack.
 Of course I&amp;rsquo;ll be there :-D. More informations are available here.</description>
@@ -34,10 +34,10 @@ Of course I&amp;rsquo;ll be there :-D. More informations are available here.</de
     
     <item>
       <title>OpenStack: 7th Meetup, network oriented</title>
-      <link>https://deimosfr.github.io/blog/2014/03/16/openstack-7th-meetup-network-oriented/</link>
+      <link>https://blog.deimos.fr/2014/03/16/openstack-7th-meetup-network-oriented/</link>
       <pubDate>Sun, 16 Mar 2014 11:00:31 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2014/03/16/openstack-7th-meetup-network-oriented/</guid>
+      <guid>https://blog.deimos.fr/2014/03/16/openstack-7th-meetup-network-oriented/</guid>
       <description>The next OpenStack meetup will be next Wednesday in Paris! Don&amp;rsquo;t miss it, I&amp;rsquo;ll be there too!
 Talks are about:
  Neutron SDN controller and Linux kernel OpenStack + OpenContrail Datacenter Network Virtualization French foundation  For more informations, follow the link.</description>
@@ -45,20 +45,20 @@ Talks are about:
     
     <item>
       <title>OpenStack Meetup 6 on Thuesday</title>
-      <link>https://deimosfr.github.io/blog/2014/02/08/openstack-meetup-6-on-thuesday/</link>
+      <link>https://blog.deimos.fr/2014/02/08/openstack-meetup-6-on-thuesday/</link>
       <pubDate>Sat, 08 Feb 2014 11:00:09 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2014/02/08/openstack-meetup-6-on-thuesday/</guid>
+      <guid>https://blog.deimos.fr/2014/02/08/openstack-meetup-6-on-thuesday/</guid>
       <description>This meetup should be very interesting as it will talk about deployment for OpenStack. The speakers comes from eNovance and RedHat ! Talks will be very interesting.
 You can find more informations there: http://www.meetup.com/OpenStack-France/events/161704432/</description>
     </item>
     
     <item>
       <title>OpenStack in  action 4 ! I’ll be there :-)</title>
-      <link>https://deimosfr.github.io/blog/2013/11/20/openstack-in-action-4-ill-be-there/</link>
+      <link>https://blog.deimos.fr/2013/11/20/openstack-in-action-4-ill-be-there/</link>
       <pubDate>Wed, 20 Nov 2013 11:00:00 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2013/11/20/openstack-in-action-4-ill-be-there/</guid>
+      <guid>https://blog.deimos.fr/2013/11/20/openstack-in-action-4-ill-be-there/</guid>
       <description>As you may know, I&amp;rsquo;m working at eNovance and am happy to participate to an OpenStack in action session. This this the 4th edition and will be based in Paris.
 I&amp;rsquo;m currently working on Ceph and OpenStack for clients and this kind of events are important to be up to date on OpenStack.
 You can register here : https://www.eventbrite.com/e/openstack-in-action-4-tickets-7645801799</description>
@@ -66,20 +66,20 @@ You can register here : https://www.eventbrite.com/e/openstack-in-action-4-ticke
     
     <item>
       <title>PackStack : quickly deploy OpenStack for production</title>
-      <link>https://deimosfr.github.io/blog/2013/08/08/packstack-quickly-deploy-openstack-for-production/</link>
+      <link>https://blog.deimos.fr/2013/08/08/packstack-quickly-deploy-openstack-for-production/</link>
       <pubDate>Thu, 08 Aug 2013 10:00:04 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2013/08/08/packstack-quickly-deploy-openstack-for-production/</guid>
+      <guid>https://blog.deimos.fr/2013/08/08/packstack-quickly-deploy-openstack-for-production/</guid>
       <description>Last week, I&amp;rsquo;ve assisted to a webinar organized by Puppet Labs. The talk was about PackStack which is a solution to deploy OpenStack in a production environment.
 How does PackStack works ? Some of you may tell me that DevStack do the same thing. But I warn once again about DevStack which is absolutely not build for production usages ! PackStack is a bundle of current modules for OpenStack available on Puppet Forge.</description>
     </item>
     
     <item>
       <title>OpenStack : rejoignez le chan IRC !</title>
-      <link>https://deimosfr.github.io/blog/2013/03/07/openstack-rejoignez-le-chan-irc/</link>
+      <link>https://blog.deimos.fr/2013/03/07/openstack-rejoignez-le-chan-irc/</link>
       <pubDate>Thu, 07 Mar 2013 11:00:43 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2013/03/07/openstack-rejoignez-le-chan-irc/</guid>
+      <guid>https://blog.deimos.fr/2013/03/07/openstack-rejoignez-le-chan-irc/</guid>
       <description>Petite annonce pour vous dire que le channel IRC #openstack-fr sur freenode est ouvert et que si vous suivez OpenStack de prêt ou de loin, venez vous connecter !
 Vous l&amp;rsquo;aurez compris, à la différence des autres, celui ci est en français.</description>
     </item>

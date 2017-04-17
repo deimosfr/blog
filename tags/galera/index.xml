@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Galera on Deimosfr Blog</title>
-    <link>https://deimosfr.github.io/blog/tags/galera/</link>
+    <link>https://blog.deimos.fr/tags/galera/</link>
     <description>Recent content in Galera on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 30 Sep 2014 10:00:13 +0000</lastBuildDate>
     
-	<atom:link href="https://deimosfr.github.io/blog/tags/galera/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.deimos.fr/tags/galera/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Galera Innoptimizer: optimize tables without stress</title>
-      <link>https://deimosfr.github.io/blog/2014/09/30/galera-innoptimizer-optimize-tables-without-stress/</link>
+      <link>https://blog.deimos.fr/2014/09/30/galera-innoptimizer-optimize-tables-without-stress/</link>
       <pubDate>Tue, 30 Sep 2014 10:00:13 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2014/09/30/galera-innoptimizer-optimize-tables-without-stress/</guid>
+      <guid>https://blog.deimos.fr/2014/09/30/galera-innoptimizer-optimize-tables-without-stress/</guid>
       <description>I recently been faced on a classical problem on InnoDB which is the fragmentation, but on Galera. InnoDB engine doesn&amp;rsquo;t defragment on the fly and requires optimize maintenance sometimes to free disk space. But on Galera, which is a fault tolerance and high availability solution, it&amp;rsquo;s a problem having tables locked by an optimize procedure. Until Galera doesn&amp;rsquo;t support TokuDB and only fully support InnoDB, we had (with a colleague (Kevin aka Vinek)) to find a solution.</description>
     </item>
     

@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Virtualization on Deimosfr Blog</title>
-    <link>https://deimosfr.github.io/blog/tags/virtualization/</link>
+    <link>https://blog.deimos.fr/tags/virtualization/</link>
     <description>Recent content in Virtualization on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 01 Nov 2014 11:00:56 +0000</lastBuildDate>
     
-	<atom:link href="https://deimosfr.github.io/blog/tags/virtualization/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.deimos.fr/tags/virtualization/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>OpenStack Summit in Paris on Monday!</title>
-      <link>https://deimosfr.github.io/blog/2014/11/01/openstack-summit-in-paris-on-monday/</link>
+      <link>https://blog.deimos.fr/2014/11/01/openstack-summit-in-paris-on-monday/</link>
       <pubDate>Sat, 01 Nov 2014 11:00:56 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2014/11/01/openstack-summit-in-paris-on-monday/</guid>
+      <guid>https://blog.deimos.fr/2014/11/01/openstack-summit-in-paris-on-monday/</guid>
       <description>OpenStack Summit will take place in Paris in 2 days! I&amp;rsquo;m excited to be able to participate. Big thanks to eNovance/RedHat for it!
 To know more about the event, please follow the link.</description>
     </item>
     
     <item>
       <title>Migrating from KVM to LXC…feedbacks</title>
-      <link>https://deimosfr.github.io/blog/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/</link>
+      <link>https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/</link>
       <pubDate>Tue, 10 Jun 2014 10:00:00 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/</guid>
+      <guid>https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/</guid>
       <description>I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&amp;hellip;Thanks Online.
 I&amp;rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&amp;rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to migrate my VM from KVM. All my KVM VM are on Debian Wheezy so that was pretty easy.</description>
     </item>
     
     <item>
       <title>Vagrant and Ansible are out in version 1.6</title>
-      <link>https://deimosfr.github.io/blog/2014/05/07/vagrant-and-ansible-are-out-in-version-1-6/</link>
+      <link>https://blog.deimos.fr/2014/05/07/vagrant-and-ansible-are-out-in-version-1-6/</link>
       <pubDate>Wed, 07 May 2014 10:00:25 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2014/05/07/vagrant-and-ansible-are-out-in-version-1-6/</guid>
+      <guid>https://blog.deimos.fr/2014/05/07/vagrant-and-ansible-are-out-in-version-1-6/</guid>
       <description>Vagrant and Ansible are out in version 1.6! They are both bringing new super features.
 For Vagrant, each major versions are bringing incredible features, this time they are:
  Global Status and Control: Global Status shows you the status of all created Vagrant environments on your machine. Global Control lets you control any of these created environments from anywhere on your machine. You unfortunately need to have VM created under 1.</description>
@@ -44,20 +44,20 @@ For Vagrant, each major versions are bringing incredible features, this time the
     
     <item>
       <title>Packer: win time by easily testing your app on multiple platforms</title>
-      <link>https://deimosfr.github.io/blog/2014/03/18/packer-win-time-by-easily-testing-your-app-on-multiple-platforms/</link>
+      <link>https://blog.deimos.fr/2014/03/18/packer-win-time-by-easily-testing-your-app-on-multiple-platforms/</link>
       <pubDate>Tue, 18 Mar 2014 11:00:40 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2014/03/18/packer-win-time-by-easily-testing-your-app-on-multiple-platforms/</guid>
+      <guid>https://blog.deimos.fr/2014/03/18/packer-win-time-by-easily-testing-your-app-on-multiple-platforms/</guid>
       <description>Packer is a tool for creating identical machine images for multiple platforms from a single source configuration. You can win a lot of time by testing your application on multiple environments (AWS, OpenStack, VirtualBox, Vmware&amp;hellip;).
 Let&amp;rsquo;s say you&amp;rsquo;ve got a LAMP environment to deploy in production on OpenStack. However, you can&amp;rsquo;t perform your development/integration on it as you don&amp;rsquo;t have access yet. You can&amp;rsquo;t loose time and wait for it to test.</description>
     </item>
     
     <item>
       <title>Vagrant: 2 super cool new features in V1.5</title>
-      <link>https://deimosfr.github.io/blog/2014/03/12/vagrant-v1-5-use-boxes-on-vagrantcloud/</link>
+      <link>https://blog.deimos.fr/2014/03/12/vagrant-v1-5-use-boxes-on-vagrantcloud/</link>
       <pubDate>Wed, 12 Mar 2014 11:00:48 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2014/03/12/vagrant-v1-5-use-boxes-on-vagrantcloud/</guid>
+      <guid>https://blog.deimos.fr/2014/03/12/vagrant-v1-5-use-boxes-on-vagrantcloud/</guid>
       <description>The 1.5 version of Vagrant has been released and that&amp;rsquo;s awesome ! They finally did a Cloud where all Vagrant boxes could (https://vagrantcloud.com/) be inventoried and easily deployed through command line !
 You can find my boxes here. If you want to add one, it&amp;rsquo;s really simple:
 vagrant box add deimosfr/debian-wheezy  And the second awesome feature is&amp;hellip;the sharing! You can for example have access to a distant and nated Vagrant instance through SSH!</description>
@@ -65,30 +65,30 @@ vagrant box add deimosfr/debian-wheezy  And the second awesome feature is&amp;he
     
     <item>
       <title>Vagrant: do not manage VBox Guest Additions manually anymore</title>
-      <link>https://deimosfr.github.io/blog/2014/02/28/vagrant-do-not-manage-vbox-guest-additions-manually-anymore/</link>
+      <link>https://blog.deimos.fr/2014/02/28/vagrant-do-not-manage-vbox-guest-additions-manually-anymore/</link>
       <pubDate>Fri, 28 Feb 2014 11:00:52 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2014/02/28/vagrant-do-not-manage-vbox-guest-additions-manually-anymore/</guid>
+      <guid>https://blog.deimos.fr/2014/02/28/vagrant-do-not-manage-vbox-guest-additions-manually-anymore/</guid>
       <description>I recently discovered a Vagrant plugin that manage the VirtualBox Guest Additions automatically. I mean, when you launch a virtual machine, it automatically checks if the Guest Additions are installed. If it&amp;rsquo;s not the case or if they are not up to date, installation of the latest version is made automatically !
 Here is how to install it.</description>
     </item>
     
     <item>
       <title>My first Vagrant box is Debian Wheezy</title>
-      <link>https://deimosfr.github.io/blog/2013/12/20/my-first-vagrant-box-is-debian-wheezy/</link>
+      <link>https://blog.deimos.fr/2013/12/20/my-first-vagrant-box-is-debian-wheezy/</link>
       <pubDate>Fri, 20 Dec 2013 11:00:37 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2013/12/20/my-first-vagrant-box-is-debian-wheezy/</guid>
+      <guid>https://blog.deimos.fr/2013/12/20/my-first-vagrant-box-is-debian-wheezy/</guid>
       <description>If you follow me, you should be aware that I use Vagrant every day. I wanted to get a Wheezy version with fr keyboard, up to date, correct locales and configured source.list file. I&amp;rsquo;ve also added Puppet and Chef on it.
 So I&amp;rsquo;ve learned on how to build a box and it&amp;rsquo;s really easy by following the documentations on the website. Here is my Debian Wheezy box based on VirtualBox provider available on DropBox or Mega.</description>
     </item>
     
     <item>
       <title>Vagrant : one file generate several machines</title>
-      <link>https://deimosfr.github.io/blog/2013/12/14/vagrant-one-file-generate-several-machines/</link>
+      <link>https://blog.deimos.fr/2013/12/14/vagrant-one-file-generate-several-machines/</link>
       <pubDate>Sat, 14 Dec 2013 11:00:13 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2013/12/14/vagrant-one-file-generate-several-machines/</guid>
+      <guid>https://blog.deimos.fr/2013/12/14/vagrant-one-file-generate-several-machines/</guid>
       <description>I&amp;rsquo;m currently playing with Ceph and wanted to generate multiple machines (6) on my laptop to perform several tests. I needed :
  1 public network 1 private network Debian wheezy OS Automatically install Ceph Add disk for specific machines (OSD)  It wasn&amp;rsquo;t easy to make it work quickly as the documentation doesn&amp;rsquo;t give a lot of examples. But what a powerful solution when it works !
 If you want to try multiple VM managment, please follow the link.</description>
@@ -96,70 +96,70 @@ If you want to try multiple VM managment, please follow the link.</description>
     
     <item>
       <title>PuPHPet : speed up your Vagrant deployment</title>
-      <link>https://deimosfr.github.io/blog/2013/08/06/puphpet-speed-up-your-vagrant-deployment/</link>
+      <link>https://blog.deimos.fr/2013/08/06/puphpet-speed-up-your-vagrant-deployment/</link>
       <pubDate>Tue, 06 Aug 2013 10:00:00 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2013/08/06/puphpet-speed-up-your-vagrant-deployment/</guid>
+      <guid>https://blog.deimos.fr/2013/08/06/puphpet-speed-up-your-vagrant-deployment/</guid>
       <description>Vagrant is a fast solution build on top of VirtualBox. I already talked about it in a previous post.
 The thing is, you could do really more with Vagrant by adding Puppet manifests or Chef recipes in your Vagrant configuration file. For those who don&amp;rsquo;t often use one of those 2 softwares, it quickly could transform into a nightmare when they want to deploy softwares in addition of the OS.</description>
     </item>
     
     <item>
       <title>Vagrant : I finally dropped KVM for VirtualBox</title>
-      <link>https://deimosfr.github.io/blog/2013/07/11/vagrant-i-finally-dropped-kvm-for-virtualbox/</link>
+      <link>https://blog.deimos.fr/2013/07/11/vagrant-i-finally-dropped-kvm-for-virtualbox/</link>
       <pubDate>Thu, 11 Jul 2013 10:00:05 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2013/07/11/vagrant-i-finally-dropped-kvm-for-virtualbox/</guid>
+      <guid>https://blog.deimos.fr/2013/07/11/vagrant-i-finally-dropped-kvm-for-virtualbox/</guid>
       <description>A few months ago, I wanted to install as fast as possible new VMs headless. In addition, I wanted to give the possibility for my ex colleagues to be able to easily create remote VMs on my desktop as most of them got slow machines. KVM did the job perfectly. I also needed to quickly deploy Debian, so I made a pressed file.
 Here at eNovance, I can be selfish :-p as everybody got a fast machine (Thanks eNovance).</description>
     </item>
     
     <item>
       <title>DevStack : testez facilement et rapidement OpenStack</title>
-      <link>https://deimosfr.github.io/blog/2013/03/31/devstack-testez-facilement-et-rapidement-openstack/</link>
+      <link>https://blog.deimos.fr/2013/03/31/devstack-testez-facilement-et-rapidement-openstack/</link>
       <pubDate>Sun, 31 Mar 2013 10:00:57 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2013/03/31/devstack-testez-facilement-et-rapidement-openstack/</guid>
+      <guid>https://blog.deimos.fr/2013/03/31/devstack-testez-facilement-et-rapidement-openstack/</guid>
       <description>Si vous voulez tester OpenStack sans vous fatiguer, il existe un projet baptisé DevStack. C&amp;rsquo;est un simple script shell qui va vous construire une machine avec tous les composants nécessaire pour pouvoir tester et développer sur un environnement OpenStack.
 Et ce qui est bien, c&amp;rsquo;est de pouvoir faire du Qemu dans du KVM. Bon attention aux performances et aux bugs quand même, je vous rappelle que c&amp;rsquo;est du test et que ça s&amp;rsquo;appuie sur la version actuelle du repository.</description>
     </item>
     
     <item>
       <title>Upgrader la RAM de vos Mac, plus que possible</title>
-      <link>https://deimosfr.github.io/blog/2013/03/29/upgrader-la-ram-de-vos-mac-plus-que-possible/</link>
+      <link>https://blog.deimos.fr/2013/03/29/upgrader-la-ram-de-vos-mac-plus-que-possible/</link>
       <pubDate>Fri, 29 Mar 2013 11:00:51 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2013/03/29/upgrader-la-ram-de-vos-mac-plus-que-possible/</guid>
+      <guid>https://blog.deimos.fr/2013/03/29/upgrader-la-ram-de-vos-mac-plus-que-possible/</guid>
       <description>Il y a quelques années, j&amp;rsquo;avais déjà fait un upgrade de mon Mac Mini qui me sert aujourd&amp;rsquo;hui de serveur.
 Maintenant, je commence a avoir de nouveaux besoins, nécessitant de plus en plus de ressources. J&amp;rsquo;avais déjà quelques problèmes d&amp;rsquo;I/O, ce qui m&amp;rsquo;a pousser à prendre un SSD et un besoin de plus des 4 Gb de mémoire installés. En parcourant la documentation de mon Mac mini, la taille maximale annoncée est de 4Gb.</description>
     </item>
     
     <item>
       <title>KVM : Suspendre ses guests à l’arrêt du host</title>
-      <link>https://deimosfr.github.io/blog/2013/03/21/kvm-suspendre-ses-guests-a-larret-du-host/</link>
+      <link>https://blog.deimos.fr/2013/03/21/kvm-suspendre-ses-guests-a-larret-du-host/</link>
       <pubDate>Thu, 21 Mar 2013 11:00:33 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2013/03/21/kvm-suspendre-ses-guests-a-larret-du-host/</guid>
+      <guid>https://blog.deimos.fr/2013/03/21/kvm-suspendre-ses-guests-a-larret-du-host/</guid>
       <description>Pour faire suite à mon article précédent sur KVM en desktop, j&amp;rsquo;avais cherché comment suspendre les guests lorsque j’éteins ma machine, au lieu qu&amp;rsquo;ils soient arrêtés.
 J&amp;rsquo;ai donc fais un petit article dessus :-)</description>
     </item>
     
     <item>
       <title>Remplacer VirtualBox par KVM sur son desktop</title>
-      <link>https://deimosfr.github.io/blog/2013/03/19/remplacer-virtualbox-par-kvm-sur-son-desktop/</link>
+      <link>https://blog.deimos.fr/2013/03/19/remplacer-virtualbox-par-kvm-sur-son-desktop/</link>
       <pubDate>Tue, 19 Mar 2013 11:00:33 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2013/03/19/remplacer-virtualbox-par-kvm-sur-son-desktop/</guid>
+      <guid>https://blog.deimos.fr/2013/03/19/remplacer-virtualbox-par-kvm-sur-son-desktop/</guid>
       <description>KVM, quel merveilleux hyperviseur ! Je l&amp;rsquo;utilise depuis plusieurs années sur mes serveurs et je commence a l&amp;rsquo;utiliser sur ma workstation pour plusieurs raisons. Je vais comparer KVM a l&amp;rsquo;outil de virtualisation gratuit, a la mode : VirtualBox. Voici les raisons qui me poussent a passer a KVM :
  La licence : VirtualBox c&amp;rsquo;est bien, mais si je peux éviter toute dépendance avec Oracle, c&amp;rsquo;est mieux ! Je n&amp;rsquo;ai pas envie de connaître a fond une techno propriétaire qui peut d&amp;rsquo;un jour a l&amp;rsquo;autre basculer de gratuite à payante (faut pas oublier que c&amp;rsquo;est Oracle hein !</description>
     </item>
     
     <item>
       <title>Vmware VS OpenStack</title>
-      <link>https://deimosfr.github.io/blog/2013/03/01/vmware-vs-openstack/</link>
+      <link>https://blog.deimos.fr/2013/03/01/vmware-vs-openstack/</link>
       <pubDate>Fri, 01 Mar 2013 11:00:27 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2013/03/01/vmware-vs-openstack/</guid>
+      <guid>https://blog.deimos.fr/2013/03/01/vmware-vs-openstack/</guid>
       <description>Titre provocateur ? Oui, c&amp;rsquo;est vrai ! En même temps, Vmware se repose un peu sur ses lauriers et OpenStack prend de l’ampleur. Il fallait bien en match pour les départager.
 Je suis récemment tombé sur ce match intéressant entre Vmware et OpenStack.
 Mon avis personnel sur ce match est qu&amp;rsquo;il est très difficile de vraiment les départager. Tout dépends du besoin et de l&amp;rsquo;évolution de celui ci. Néanmoins, cet article est très intéressant car il cite les fonctionnalités majeures de chacun et les compares.</description>
@@ -167,30 +167,30 @@ Mon avis personnel sur ce match est qu&amp;rsquo;il est très difficile de vraim
     
     <item>
       <title>2ème et dernier jour au FOSDEM !</title>
-      <link>https://deimosfr.github.io/blog/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/</link>
+      <link>https://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/</link>
       <pubDate>Tue, 05 Feb 2013 11:00:24 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/</guid>
+      <guid>https://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/</guid>
       <description>Avant d&amp;rsquo;attaquer le 2 ème jour, je vais finir sur le premier (la suite d&amp;rsquo;hier).
 Un des supers sujet était Bind 10 que j&amp;rsquo;attendais avec impatience. Il n&amp;rsquo;y a malheureusement eu d&amp;rsquo;informations sur les nouveautés aidant a la HA. Cependant il a été totalement réécrit pour supporter + de 100 cores alors qu&amp;rsquo;aujourd&amp;rsquo;hui au delà de 6, il y a des problèmes de performances. On a également (et étrangement) un serveur DHCP qui est intégré a Bind.</description>
     </item>
     
     <item>
       <title>KVM : migrer ses VMs sous LVM</title>
-      <link>https://deimosfr.github.io/blog/2013/01/08/kvm-migrer-ses-vms-sous-lvm/</link>
+      <link>https://blog.deimos.fr/2013/01/08/kvm-migrer-ses-vms-sous-lvm/</link>
       <pubDate>Tue, 08 Jan 2013 11:00:30 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2013/01/08/kvm-migrer-ses-vms-sous-lvm/</guid>
+      <guid>https://blog.deimos.fr/2013/01/08/kvm-migrer-ses-vms-sous-lvm/</guid>
       <description>Pour migrer une VM avec des disques de type qcow2, c&amp;rsquo;est très simple, il suffit de les copier les fichiers tel quel. Mais lorsqu&amp;rsquo;on utilise du LVM, la migration peut sembler forcément un peu plus complexe, bien qu&amp;rsquo;elle ne le soit pas vraiment.
 J&amp;rsquo;ai donc fait une petite section sur mon article KVM qui parle de migration de VM sous LVM.</description>
     </item>
     
     <item>
       <title>La virtu chez Google</title>
-      <link>https://deimosfr.github.io/blog/2012/07/24/larchi-chez-google/</link>
+      <link>https://blog.deimos.fr/2012/07/24/larchi-chez-google/</link>
       <pubDate>Tue, 24 Jul 2012 10:00:31 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2012/07/24/larchi-chez-google/</guid>
+      <guid>https://blog.deimos.fr/2012/07/24/larchi-chez-google/</guid>
       <description>Pour ceux qui se posent encore des questions sur certains outils de virtualisation, de management de serveurs ou autre, voici le résumé lors du meeting aux &amp;ldquo;rencontres mondiales du logiciel libre&amp;rdquo; sur le sujet du cloud made by Google.
 Ça se passe ici. Et pour ceux qui ne veulent pas s&amp;rsquo;encombrer avec les détails, voici le PDF.
 Bonne lecture :-)</description>
@@ -198,10 +198,10 @@ Bonne lecture :-)</description>
     
     <item>
       <title>DJ Port Série, à l’ancienne…Tonight we are…</title>
-      <link>https://deimosfr.github.io/blog/2012/05/23/dj-port-serie-a-lancienne-tonight-we-are/</link>
+      <link>https://blog.deimos.fr/2012/05/23/dj-port-serie-a-lancienne-tonight-we-are/</link>
       <pubDate>Wed, 23 May 2012 10:00:06 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2012/05/23/dj-port-serie-a-lancienne-tonight-we-are/</guid>
+      <guid>https://blog.deimos.fr/2012/05/23/dj-port-serie-a-lancienne-tonight-we-are/</guid>
       <description>Derrière ce titre pompeux se cache en fait la méthode pour activer le port série au démarrage d&amp;rsquo;une machine. Cette solution s&amp;rsquo;avère vite pratique lorsque l&amp;rsquo;on souhaites accéder à certaines machines qui ne répondent plus, ou bien via des solutions de virtualisation.
 C&amp;rsquo;est pourquoi je vous ai concocté :
  Une petite doc sur le port série sous Linux Une petite doc sur le port série sous FreeBSD Une mise à jour de la doc de KVM pour pouvoir y accéder cash (oui comme tabata)  &amp;nbsp;</description>
@@ -209,20 +209,20 @@ C&amp;rsquo;est pourquoi je vous ai concocté :
     
     <item>
       <title>Interfaces VLAN Bridgées sur KVM</title>
-      <link>https://deimosfr.github.io/blog/2012/05/17/interfaces-vlan-bridgees-sur-kvm/</link>
+      <link>https://blog.deimos.fr/2012/05/17/interfaces-vlan-bridgees-sur-kvm/</link>
       <pubDate>Thu, 17 May 2012 10:00:21 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2012/05/17/interfaces-vlan-bridgees-sur-kvm/</guid>
+      <guid>https://blog.deimos.fr/2012/05/17/interfaces-vlan-bridgees-sur-kvm/</guid>
       <description>Quant on commence à vouloir faire beaucoup de réseaux au niveau de KVM, la configuration devient vite casse tête. C&amp;rsquo;est pourquoi je vais en aider certains qui comme moi pensaient qu&amp;rsquo;une configuration VLAN standard suffirait pour faire fonctionner du VLAN bridgé sur KVM.
 Si vous voulez gagner du temps, c&amp;rsquo;est ici.</description>
     </item>
     
     <item>
       <title>KayVillaiMme Paiourfourmanncizes</title>
-      <link>https://deimosfr.github.io/blog/2012/05/09/kayvillaimme-paiourfourmanncizes/</link>
+      <link>https://blog.deimos.fr/2012/05/09/kayvillaimme-paiourfourmanncizes/</link>
       <pubDate>Wed, 09 May 2012 10:00:42 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/2012/05/09/kayvillaimme-paiourfourmanncizes/</guid>
+      <guid>https://blog.deimos.fr/2012/05/09/kayvillaimme-paiourfourmanncizes/</guid>
       <description>Je suis actuellement en train de refaire un de mes petits serveurs sous KVM et je me suis penché du côté des performances. Il y en a quelques unes indispensable si on veut avoir de bons résultats.
 J&amp;rsquo;ai donc retaper ma documentation sur KVM avec des ajouts de perfs, config réseaux avec VLAN et 2&amp;frasl;3 autres babioles. Je vous laisse regarder.</description>
     </item>

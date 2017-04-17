@@ -2,705 +2,705 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Deimosfr Blog</title>
-    <link>https://deimosfr.github.io/blog/tags/</link>
+    <link>https://blog.deimos.fr/tags/</link>
     <description>Recent content in Tags on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 26 Oct 2014 11:00:46 +0000</lastBuildDate>
     
-	<atom:link href="https://deimosfr.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.deimos.fr/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Android</title>
-      <link>https://deimosfr.github.io/blog/tags/android/</link>
+      <link>https://blog.deimos.fr/tags/android/</link>
       <pubDate>Sun, 26 Oct 2014 11:00:46 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/android/</guid>
+      <guid>https://blog.deimos.fr/tags/android/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ansible</title>
-      <link>https://deimosfr.github.io/blog/tags/ansible/</link>
+      <link>https://blog.deimos.fr/tags/ansible/</link>
       <pubDate>Thu, 21 Jan 2016 13:00:16 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/ansible/</guid>
+      <guid>https://blog.deimos.fr/tags/ansible/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Book</title>
-      <link>https://deimosfr.github.io/blog/tags/book/</link>
+      <link>https://blog.deimos.fr/tags/book/</link>
       <pubDate>Wed, 24 Sep 2014 10:00:00 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/book/</guid>
+      <guid>https://blog.deimos.fr/tags/book/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Books</title>
-      <link>https://deimosfr.github.io/blog/tags/books/</link>
+      <link>https://blog.deimos.fr/tags/books/</link>
       <pubDate>Sat, 23 Aug 2014 10:00:51 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/books/</guid>
+      <guid>https://blog.deimos.fr/tags/books/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ceph</title>
-      <link>https://deimosfr.github.io/blog/tags/ceph/</link>
+      <link>https://blog.deimos.fr/tags/ceph/</link>
       <pubDate>Mon, 06 Oct 2014 10:00:30 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/ceph/</guid>
+      <guid>https://blog.deimos.fr/tags/ceph/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cinema</title>
-      <link>https://deimosfr.github.io/blog/tags/cinema/</link>
+      <link>https://blog.deimos.fr/tags/cinema/</link>
       <pubDate>Thu, 06 Sep 2012 10:00:57 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/cinema/</guid>
+      <guid>https://blog.deimos.fr/tags/cinema/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cloud</title>
-      <link>https://deimosfr.github.io/blog/tags/cloud/</link>
+      <link>https://blog.deimos.fr/tags/cloud/</link>
       <pubDate>Fri, 27 Nov 2015 21:34:03 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/cloud/</guid>
+      <guid>https://blog.deimos.fr/tags/cloud/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Collectd</title>
-      <link>https://deimosfr.github.io/blog/tags/collectd/</link>
+      <link>https://blog.deimos.fr/tags/collectd/</link>
       <pubDate>Wed, 09 Jun 2010 22:09:28 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/collectd/</guid>
+      <guid>https://blog.deimos.fr/tags/collectd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Coreos Docker</title>
-      <link>https://deimosfr.github.io/blog/tags/coreos-docker/</link>
+      <link>https://blog.deimos.fr/tags/coreos-docker/</link>
       <pubDate>Thu, 29 May 2014 10:00:00 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/coreos-docker/</guid>
+      <guid>https://blog.deimos.fr/tags/coreos-docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cv</title>
-      <link>https://deimosfr.github.io/blog/tags/cv/</link>
+      <link>https://blog.deimos.fr/tags/cv/</link>
       <pubDate>Sun, 17 Jan 2010 22:54:03 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/cv/</guid>
+      <guid>https://blog.deimos.fr/tags/cv/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Databases</title>
-      <link>https://deimosfr.github.io/blog/tags/databases/</link>
+      <link>https://blog.deimos.fr/tags/databases/</link>
       <pubDate>Fri, 27 Feb 2015 11:00:01 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/databases/</guid>
+      <guid>https://blog.deimos.fr/tags/databases/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Debian</title>
-      <link>https://deimosfr.github.io/blog/tags/debian/</link>
+      <link>https://blog.deimos.fr/tags/debian/</link>
       <pubDate>Sat, 18 Jun 2016 07:44:11 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/debian/</guid>
+      <guid>https://blog.deimos.fr/tags/debian/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Dev</title>
-      <link>https://deimosfr.github.io/blog/tags/dev/</link>
+      <link>https://blog.deimos.fr/tags/dev/</link>
       <pubDate>Tue, 20 Apr 2010 15:58:24 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/dev/</guid>
+      <guid>https://blog.deimos.fr/tags/dev/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Developement</title>
-      <link>https://deimosfr.github.io/blog/tags/developement/</link>
+      <link>https://blog.deimos.fr/tags/developement/</link>
       <pubDate>Wed, 11 Feb 2015 11:00:22 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/developement/</guid>
+      <guid>https://blog.deimos.fr/tags/developement/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Docker</title>
-      <link>https://deimosfr.github.io/blog/tags/docker/</link>
+      <link>https://blog.deimos.fr/tags/docker/</link>
       <pubDate>Thu, 21 Jan 2016 13:00:16 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/docker/</guid>
+      <guid>https://blog.deimos.fr/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Dotdeb</title>
-      <link>https://deimosfr.github.io/blog/tags/dotdeb/</link>
+      <link>https://blog.deimos.fr/tags/dotdeb/</link>
       <pubDate>Fri, 26 Dec 2014 11:00:07 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/dotdeb/</guid>
+      <guid>https://blog.deimos.fr/tags/dotdeb/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Environnement</title>
-      <link>https://deimosfr.github.io/blog/tags/environnement/</link>
+      <link>https://blog.deimos.fr/tags/environnement/</link>
       <pubDate>Wed, 17 Jun 2009 19:57:31 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/environnement/</guid>
+      <guid>https://blog.deimos.fr/tags/environnement/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Events</title>
-      <link>https://deimosfr.github.io/blog/tags/events/</link>
+      <link>https://blog.deimos.fr/tags/events/</link>
       <pubDate>Sat, 20 Sep 2014 10:00:00 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/events/</guid>
+      <guid>https://blog.deimos.fr/tags/events/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Fosdem</title>
-      <link>https://deimosfr.github.io/blog/tags/fosdem/</link>
+      <link>https://blog.deimos.fr/tags/fosdem/</link>
       <pubDate>Sat, 31 Jan 2015 06:30:20 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/fosdem/</guid>
+      <guid>https://blog.deimos.fr/tags/fosdem/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Freebsd</title>
-      <link>https://deimosfr.github.io/blog/tags/freebsd/</link>
+      <link>https://blog.deimos.fr/tags/freebsd/</link>
       <pubDate>Sun, 03 Aug 2014 10:00:25 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/freebsd/</guid>
+      <guid>https://blog.deimos.fr/tags/freebsd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Funny</title>
-      <link>https://deimosfr.github.io/blog/tags/funny/</link>
+      <link>https://blog.deimos.fr/tags/funny/</link>
       <pubDate>Sun, 27 Apr 2014 10:00:20 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/funny/</guid>
+      <guid>https://blog.deimos.fr/tags/funny/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Galera</title>
-      <link>https://deimosfr.github.io/blog/tags/galera/</link>
+      <link>https://blog.deimos.fr/tags/galera/</link>
       <pubDate>Tue, 30 Sep 2014 10:00:13 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/galera/</guid>
+      <guid>https://blog.deimos.fr/tags/galera/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Git</title>
-      <link>https://deimosfr.github.io/blog/tags/git/</link>
+      <link>https://blog.deimos.fr/tags/git/</link>
       <pubDate>Wed, 11 Feb 2015 11:00:22 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/git/</guid>
+      <guid>https://blog.deimos.fr/tags/git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Github</title>
-      <link>https://deimosfr.github.io/blog/tags/github/</link>
+      <link>https://blog.deimos.fr/tags/github/</link>
       <pubDate>Fri, 26 Sep 2014 10:00:53 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/github/</guid>
+      <guid>https://blog.deimos.fr/tags/github/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ha</title>
-      <link>https://deimosfr.github.io/blog/tags/ha/</link>
+      <link>https://blog.deimos.fr/tags/ha/</link>
       <pubDate>Thu, 21 Jan 2016 13:00:16 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/ha/</guid>
+      <guid>https://blog.deimos.fr/tags/ha/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hashicorp</title>
-      <link>https://deimosfr.github.io/blog/tags/hashicorp/</link>
+      <link>https://blog.deimos.fr/tags/hashicorp/</link>
       <pubDate>Tue, 16 Dec 2014 07:32:00 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/hashicorp/</guid>
+      <guid>https://blog.deimos.fr/tags/hashicorp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hi Tech</title>
-      <link>https://deimosfr.github.io/blog/tags/hi-tech/</link>
+      <link>https://blog.deimos.fr/tags/hi-tech/</link>
       <pubDate>Sat, 18 Jun 2016 07:44:11 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/hi-tech/</guid>
+      <guid>https://blog.deimos.fr/tags/hi-tech/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Iphone</title>
-      <link>https://deimosfr.github.io/blog/tags/iphone/</link>
+      <link>https://blog.deimos.fr/tags/iphone/</link>
       <pubDate>Tue, 11 Nov 2014 11:00:23 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/iphone/</guid>
+      <guid>https://blog.deimos.fr/tags/iphone/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Linux</title>
-      <link>https://deimosfr.github.io/blog/tags/linux/</link>
+      <link>https://blog.deimos.fr/tags/linux/</link>
       <pubDate>Sat, 18 Jun 2016 07:44:11 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/linux/</guid>
+      <guid>https://blog.deimos.fr/tags/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Lxc</title>
-      <link>https://deimosfr.github.io/blog/tags/lxc/</link>
+      <link>https://blog.deimos.fr/tags/lxc/</link>
       <pubDate>Tue, 02 Sep 2014 10:00:43 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/lxc/</guid>
+      <guid>https://blog.deimos.fr/tags/lxc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mac</title>
-      <link>https://deimosfr.github.io/blog/tags/mac/</link>
+      <link>https://blog.deimos.fr/tags/mac/</link>
       <pubDate>Tue, 28 Apr 2015 10:00:45 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/mac/</guid>
+      <guid>https://blog.deimos.fr/tags/mac/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mariadb</title>
-      <link>https://deimosfr.github.io/blog/tags/mariadb/</link>
+      <link>https://blog.deimos.fr/tags/mariadb/</link>
       <pubDate>Tue, 30 Sep 2014 10:00:13 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/mariadb/</guid>
+      <guid>https://blog.deimos.fr/tags/mariadb/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Monitoring</title>
-      <link>https://deimosfr.github.io/blog/tags/monitoring/</link>
+      <link>https://blog.deimos.fr/tags/monitoring/</link>
       <pubDate>Wed, 09 Jun 2010 22:09:28 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/monitoring/</guid>
+      <guid>https://blog.deimos.fr/tags/monitoring/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mysecureshell</title>
-      <link>https://deimosfr.github.io/blog/tags/mysecureshell/</link>
+      <link>https://blog.deimos.fr/tags/mysecureshell/</link>
       <pubDate>Fri, 26 Sep 2014 10:00:53 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/mysecureshell/</guid>
+      <guid>https://blog.deimos.fr/tags/mysecureshell/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mysql</title>
-      <link>https://deimosfr.github.io/blog/tags/mysql/</link>
+      <link>https://blog.deimos.fr/tags/mysql/</link>
       <pubDate>Fri, 26 Dec 2014 11:00:07 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/mysql/</guid>
+      <guid>https://blog.deimos.fr/tags/mysql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Nagios</title>
-      <link>https://deimosfr.github.io/blog/tags/nagios/</link>
+      <link>https://blog.deimos.fr/tags/nagios/</link>
       <pubDate>Tue, 02 Sep 2014 10:00:43 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/nagios/</guid>
+      <guid>https://blog.deimos.fr/tags/nagios/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Netflix</title>
-      <link>https://deimosfr.github.io/blog/tags/netflix/</link>
+      <link>https://blog.deimos.fr/tags/netflix/</link>
       <pubDate>Sun, 28 Sep 2014 10:00:00 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/netflix/</guid>
+      <guid>https://blog.deimos.fr/tags/netflix/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Nginx</title>
-      <link>https://deimosfr.github.io/blog/tags/nginx/</link>
+      <link>https://blog.deimos.fr/tags/nginx/</link>
       <pubDate>Wed, 21 May 2014 10:00:00 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/nginx/</guid>
+      <guid>https://blog.deimos.fr/tags/nginx/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Nosql</title>
-      <link>https://deimosfr.github.io/blog/tags/nosql/</link>
+      <link>https://blog.deimos.fr/tags/nosql/</link>
       <pubDate>Fri, 27 Feb 2015 11:00:01 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/nosql/</guid>
+      <guid>https://blog.deimos.fr/tags/nosql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Nousmotards</title>
-      <link>https://deimosfr.github.io/blog/tags/nousmotards/</link>
+      <link>https://blog.deimos.fr/tags/nousmotards/</link>
       <pubDate>Fri, 30 Sep 2016 21:35:17 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/nousmotards/</guid>
+      <guid>https://blog.deimos.fr/tags/nousmotards/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Openbsd</title>
-      <link>https://deimosfr.github.io/blog/tags/openbsd/</link>
+      <link>https://blog.deimos.fr/tags/openbsd/</link>
       <pubDate>Sun, 21 Jul 2013 10:00:00 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/openbsd/</guid>
+      <guid>https://blog.deimos.fr/tags/openbsd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Openstack</title>
-      <link>https://deimosfr.github.io/blog/tags/openstack/</link>
+      <link>https://blog.deimos.fr/tags/openstack/</link>
       <pubDate>Sat, 01 Nov 2014 11:00:56 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/openstack/</guid>
+      <guid>https://blog.deimos.fr/tags/openstack/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Others</title>
-      <link>https://deimosfr.github.io/blog/tags/others/</link>
+      <link>https://blog.deimos.fr/tags/others/</link>
       <pubDate>Mon, 16 Mar 2015 12:00:49 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/others/</guid>
+      <guid>https://blog.deimos.fr/tags/others/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Packer</title>
-      <link>https://deimosfr.github.io/blog/tags/packer/</link>
+      <link>https://blog.deimos.fr/tags/packer/</link>
       <pubDate>Fri, 16 Jan 2015 11:00:52 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/packer/</guid>
+      <guid>https://blog.deimos.fr/tags/packer/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Pam</title>
-      <link>https://deimosfr.github.io/blog/tags/pam/</link>
+      <link>https://blog.deimos.fr/tags/pam/</link>
       <pubDate>Sun, 14 Mar 2010 10:37:14 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/pam/</guid>
+      <guid>https://blog.deimos.fr/tags/pam/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Pdf</title>
-      <link>https://deimosfr.github.io/blog/tags/pdf/</link>
+      <link>https://blog.deimos.fr/tags/pdf/</link>
       <pubDate>Wed, 13 Jan 2010 06:42:49 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/pdf/</guid>
+      <guid>https://blog.deimos.fr/tags/pdf/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Perl</title>
-      <link>https://deimosfr.github.io/blog/tags/perl/</link>
+      <link>https://blog.deimos.fr/tags/perl/</link>
       <pubDate>Thu, 10 Jun 2010 06:58:41 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/perl/</guid>
+      <guid>https://blog.deimos.fr/tags/perl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Php</title>
-      <link>https://deimosfr.github.io/blog/tags/php/</link>
+      <link>https://blog.deimos.fr/tags/php/</link>
       <pubDate>Tue, 20 Apr 2010 15:58:24 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/php/</guid>
+      <guid>https://blog.deimos.fr/tags/php/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Phpcv</title>
-      <link>https://deimosfr.github.io/blog/tags/phpcv/</link>
+      <link>https://blog.deimos.fr/tags/phpcv/</link>
       <pubDate>Wed, 13 Jan 2010 06:42:49 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/phpcv/</guid>
+      <guid>https://blog.deimos.fr/tags/phpcv/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Postfix</title>
-      <link>https://deimosfr.github.io/blog/tags/postfix/</link>
+      <link>https://blog.deimos.fr/tags/postfix/</link>
       <pubDate>Thu, 20 Mar 2014 11:00:54 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/postfix/</guid>
+      <guid>https://blog.deimos.fr/tags/postfix/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Private Life</title>
-      <link>https://deimosfr.github.io/blog/tags/private-life/</link>
+      <link>https://blog.deimos.fr/tags/private-life/</link>
       <pubDate>Mon, 16 Mar 2015 12:00:49 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/private-life/</guid>
+      <guid>https://blog.deimos.fr/tags/private-life/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ps3</title>
-      <link>https://deimosfr.github.io/blog/tags/ps3/</link>
+      <link>https://blog.deimos.fr/tags/ps3/</link>
       <pubDate>Fri, 01 Jan 2010 21:07:48 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/ps3/</guid>
+      <guid>https://blog.deimos.fr/tags/ps3/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Puppet</title>
-      <link>https://deimosfr.github.io/blog/tags/puppet/</link>
+      <link>https://blog.deimos.fr/tags/puppet/</link>
       <pubDate>Mon, 17 Nov 2014 11:00:20 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/puppet/</guid>
+      <guid>https://blog.deimos.fr/tags/puppet/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
-      <link>https://deimosfr.github.io/blog/tags/python/</link>
+      <link>https://blog.deimos.fr/tags/python/</link>
       <pubDate>Mon, 20 Oct 2014 10:00:53 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/python/</guid>
+      <guid>https://blog.deimos.fr/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Readthedocs</title>
-      <link>https://deimosfr.github.io/blog/tags/readthedocs/</link>
+      <link>https://blog.deimos.fr/tags/readthedocs/</link>
       <pubDate>Fri, 26 Sep 2014 10:00:53 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/readthedocs/</guid>
+      <guid>https://blog.deimos.fr/tags/readthedocs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Red Hat</title>
-      <link>https://deimosfr.github.io/blog/tags/red-hat/</link>
+      <link>https://blog.deimos.fr/tags/red-hat/</link>
       <pubDate>Sat, 18 Jun 2016 07:44:11 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/red-hat/</guid>
+      <guid>https://blog.deimos.fr/tags/red-hat/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Redhat</title>
-      <link>https://deimosfr.github.io/blog/tags/redhat/</link>
+      <link>https://blog.deimos.fr/tags/redhat/</link>
       <pubDate>Fri, 20 Jun 2014 10:00:00 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/redhat/</guid>
+      <guid>https://blog.deimos.fr/tags/redhat/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Security</title>
-      <link>https://deimosfr.github.io/blog/tags/security/</link>
+      <link>https://blog.deimos.fr/tags/security/</link>
       <pubDate>Thu, 18 Sep 2014 10:00:21 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/security/</guid>
+      <guid>https://blog.deimos.fr/tags/security/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Shell</title>
-      <link>https://deimosfr.github.io/blog/tags/shell/</link>
+      <link>https://blog.deimos.fr/tags/shell/</link>
       <pubDate>Sat, 16 Jan 2010 11:36:50 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/shell/</guid>
+      <guid>https://blog.deimos.fr/tags/shell/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Simba</title>
-      <link>https://deimosfr.github.io/blog/tags/simba/</link>
+      <link>https://blog.deimos.fr/tags/simba/</link>
       <pubDate>Sun, 07 Mar 2010 15:23:37 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/simba/</guid>
+      <guid>https://blog.deimos.fr/tags/simba/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Soekris</title>
-      <link>https://deimosfr.github.io/blog/tags/soekris/</link>
+      <link>https://blog.deimos.fr/tags/soekris/</link>
       <pubDate>Tue, 30 Apr 2013 10:00:37 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/soekris/</guid>
+      <guid>https://blog.deimos.fr/tags/soekris/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Solaris</title>
-      <link>https://deimosfr.github.io/blog/tags/solaris/</link>
+      <link>https://blog.deimos.fr/tags/solaris/</link>
       <pubDate>Fri, 24 May 2013 10:00:30 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/solaris/</guid>
+      <guid>https://blog.deimos.fr/tags/solaris/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Sphinxdoc</title>
-      <link>https://deimosfr.github.io/blog/tags/sphinxdoc/</link>
+      <link>https://blog.deimos.fr/tags/sphinxdoc/</link>
       <pubDate>Fri, 26 Sep 2014 10:00:53 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/sphinxdoc/</guid>
+      <guid>https://blog.deimos.fr/tags/sphinxdoc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Sql</title>
-      <link>https://deimosfr.github.io/blog/tags/sql/</link>
+      <link>https://blog.deimos.fr/tags/sql/</link>
       <pubDate>Fri, 27 Feb 2015 11:00:01 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/sql/</guid>
+      <guid>https://blog.deimos.fr/tags/sql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ssh</title>
-      <link>https://deimosfr.github.io/blog/tags/ssh/</link>
+      <link>https://blog.deimos.fr/tags/ssh/</link>
       <pubDate>Sat, 16 Jan 2010 11:36:50 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/ssh/</guid>
+      <guid>https://blog.deimos.fr/tags/ssh/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ubuntu</title>
-      <link>https://deimosfr.github.io/blog/tags/ubuntu/</link>
+      <link>https://blog.deimos.fr/tags/ubuntu/</link>
       <pubDate>Fri, 04 Jun 2010 08:04:47 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/ubuntu/</guid>
+      <guid>https://blog.deimos.fr/tags/ubuntu/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Vagrant</title>
-      <link>https://deimosfr.github.io/blog/tags/vagrant/</link>
+      <link>https://blog.deimos.fr/tags/vagrant/</link>
       <pubDate>Tue, 13 Jan 2015 11:00:15 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/vagrant/</guid>
+      <guid>https://blog.deimos.fr/tags/vagrant/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Vim</title>
-      <link>https://deimosfr.github.io/blog/tags/vim/</link>
+      <link>https://blog.deimos.fr/tags/vim/</link>
       <pubDate>Mon, 20 Oct 2014 10:00:53 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/vim/</guid>
+      <guid>https://blog.deimos.fr/tags/vim/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Virtualbox</title>
-      <link>https://deimosfr.github.io/blog/tags/virtualbox/</link>
+      <link>https://blog.deimos.fr/tags/virtualbox/</link>
       <pubDate>Fri, 16 Jan 2015 11:00:52 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/virtualbox/</guid>
+      <guid>https://blog.deimos.fr/tags/virtualbox/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Virtualisation</title>
-      <link>https://deimosfr.github.io/blog/tags/virtualisation/</link>
+      <link>https://blog.deimos.fr/tags/virtualisation/</link>
       <pubDate>Fri, 05 Mar 2010 06:41:25 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/virtualisation/</guid>
+      <guid>https://blog.deimos.fr/tags/virtualisation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Virtualization</title>
-      <link>https://deimosfr.github.io/blog/tags/virtualization/</link>
+      <link>https://blog.deimos.fr/tags/virtualization/</link>
       <pubDate>Sat, 01 Nov 2014 11:00:56 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/virtualization/</guid>
+      <guid>https://blog.deimos.fr/tags/virtualization/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Web</title>
-      <link>https://deimosfr.github.io/blog/tags/web/</link>
+      <link>https://blog.deimos.fr/tags/web/</link>
       <pubDate>Thu, 29 Jan 2015 11:00:01 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/web/</guid>
+      <guid>https://blog.deimos.fr/tags/web/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Wifi</title>
-      <link>https://deimosfr.github.io/blog/tags/wifi/</link>
+      <link>https://blog.deimos.fr/tags/wifi/</link>
       <pubDate>Fri, 12 Mar 2010 06:30:02 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/wifi/</guid>
+      <guid>https://blog.deimos.fr/tags/wifi/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Wiki</title>
-      <link>https://deimosfr.github.io/blog/tags/wiki/</link>
+      <link>https://blog.deimos.fr/tags/wiki/</link>
       <pubDate>Tue, 20 Apr 2010 15:58:24 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/wiki/</guid>
+      <guid>https://blog.deimos.fr/tags/wiki/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Windows</title>
-      <link>https://deimosfr.github.io/blog/tags/windows/</link>
+      <link>https://blog.deimos.fr/tags/windows/</link>
       <pubDate>Tue, 18 Feb 2014 11:00:38 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/windows/</guid>
+      <guid>https://blog.deimos.fr/tags/windows/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Wkhtmltopdf</title>
-      <link>https://deimosfr.github.io/blog/tags/wkhtmltopdf/</link>
+      <link>https://blog.deimos.fr/tags/wkhtmltopdf/</link>
       <pubDate>Wed, 13 Jan 2010 06:42:49 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/wkhtmltopdf/</guid>
+      <guid>https://blog.deimos.fr/tags/wkhtmltopdf/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Zfs</title>
-      <link>https://deimosfr.github.io/blog/tags/zfs/</link>
+      <link>https://blog.deimos.fr/tags/zfs/</link>
       <pubDate>Sat, 17 May 2014 10:00:00 +0000</pubDate>
       
-      <guid>https://deimosfr.github.io/blog/tags/zfs/</guid>
+      <guid>https://blog.deimos.fr/tags/zfs/</guid>
       <description></description>
     </item>
     
