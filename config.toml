@@ -57,36 +57,24 @@ pygmentsstyle = "monokai"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-archive\"></i>"
   url = "/archives"
 [[menu.main]]
-  weight = 2
-  identifier = "about"
-  name = "About"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-question\"></i>"
-  url = "/#about"
-[[menu.links]]
-  weight = 0
-  identifier = "github"
-  name = "GitHub"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-github\"></i>"
-  url = "https://github.com/deimosfr"
-[[menu.links]]
-  weight = 0
-  identifier = "linkedin"
-  name = "LinedIn"
-  pre = "<i class=\"sidebar-button-icon fa fa-linkedin-square\"></i>"
-  url = "https://fr.linkedin.com/in/pmavro"
+  weight = 4 
+  identifier = "rss"
+  name = "RSS"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-rss\"></i>"
+  url = "/index.xml"
 
 [[menu.misc]]
-  weight = 1
+  weight = 0
   identifier = "wiki"
   name = "Wiki"
   pre = "<i class=\"sidebar-button-icon fa fa-wikipedia-w\"></i>"
   url = "https://wiki.deimos.fr"
 [[menu.misc]]
-  weight = 0
-  identifier = "rss"
-  name = "RSS"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-rss\"></i>"
-  url = "/index.xml"
+  weight = 1
+  identifier = "about"
+  name = "About"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-user\"></i>"
+  url = "https://www.deimos.fr"
 
 [params]
   # Customize date format use to render blog post date, categories and other
