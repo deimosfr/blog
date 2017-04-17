@@ -4,6 +4,8 @@ author: Romaric Philogene
 type: post
 date: 2016-01-20T10:00:41+00:00
 url: /2016/01/20/how-we-speed-up-news-feed-and-user-wall-display-using-elasticsearch/
+thumbnailImage: /thumbnails/logo_elasticsearch.png
+thumbnailImagePosition: left
 rating:
   - 5
 votes:

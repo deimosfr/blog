@@ -14,6 +14,8 @@ tags:
   - Hi-Tech
   - Linux
   - Red Hat
+thumbnailImage: /thumbnails/Poweredbylinux.jpg
+thumbnailImagePosition: left
 
 ---
 ![tag](https://github.com/aykamko/tag/raw/master/tag.gif)

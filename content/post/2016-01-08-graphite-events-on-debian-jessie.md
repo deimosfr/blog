@@ -4,6 +4,8 @@ author: Deimos
 type: post
 date: 2016-01-08T11:00:28+00:00
 url: /2016/01/08/graphite-events-on-debian-jessie/
+thumbnailImage: /thumbnails/logo_graphite.png
+thumbnailImagePosition: left
 categories:
   - graphite
   - Hi-Tech
