@@ -1,6 +1,11 @@
 #/bin/sh
 
+if [ ! -d .git ] ; then
+	test -d ../.git && cd ..
+	test -d ../../.git && cd ../..
+fi
+
 echo "Resizing logos"
-./_scripts/resize_logos.sh
+./scripts/resize_logos.sh
 echo "Generating thumbnails"
-./_scripts/generate_thumbnails.sh
+./scripts/generate_thumbnails.sh
