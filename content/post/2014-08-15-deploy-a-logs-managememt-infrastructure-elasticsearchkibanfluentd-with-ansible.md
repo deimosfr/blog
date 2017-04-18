@@ -30,7 +30,7 @@ As you may know, I'm an Ansible fan, so I made Ansible playbooks to deploy a com
 
 On the client side, Fluentd clients will get syslog and Nginx logs, to send them to the Fluentd server. On the server side, a Fluentd receiver will be there to get data from other Fluentd clients. It will then push it to the Elasticsearch server. The Elasticsearch server is located on the same server than the Fluentd receiver to make it simpler. An autopurge can be configured directly from the playbook using [curator](https://github.com/elasticsearch/curator) tool. To finish, Kibana is installed on the server to make it simpler as well.
 
-You can find [those playbooks on my GitHub](https://github.com/deimosfr) or on [Ansible Galaxy](https://galaxy.ansible.com/list#/users/3601).
+You can find [those playbooks on my GitHub](https://github.com/deimosfr) or on [Ansible Galaxy](https://galaxy.ansible.com/deimosfr/fluentd/).
 
 Is it complex to configure Ansible playbooks it? I made my best to make it as quick as possible and as customizable as possible (for the context and my needs). What you need to do is first getting playbooks like this (site.yml):
 

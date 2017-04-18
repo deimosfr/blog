@@ -32,6 +32,6 @@ consul_template_arch: 'linux_amd64'
 consul_template_http_src: "https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip"
 {{< /highlight >}}
 
-You can of course find the role to Ansible Galaxy: [https://galaxy.ansible.com/detail#/role/3451](https://galaxy.ansible.com/detail#/role/3451)
+You can of course find the role to Ansible Galaxy: [https://galaxy.ansible.com/deimosfr/consul-template/](https://galaxy.ansible.com/deimosfr/consul-template/)
 
 I hope you'll enjoy this new version :-)

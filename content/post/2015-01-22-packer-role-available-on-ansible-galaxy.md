@@ -29,4 +29,4 @@ packer_destination: '/usr/bin'{{< /highlight >}}
 
 It will install the desired version :-)
 
-You [can find it on the Ansible Galaxy here](https://galaxy.ansible.com/list#/roles/2587).
+You [can find it on the Ansible Galaxy here](https://galaxy.ansible.com/deimosfr/packer/).

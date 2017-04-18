@@ -24,6 +24,6 @@ Since several weeks, I'm playing a lot with Debian Jessie as a server. I discove
 
 So I decided to upgrade my 2 personal servers to Jessie. But that wasn't so easy with Systemd. I still encounter non critical issues and going to prepare report bugs for Debian (cgroups issues with systemd).
   
-The new version of LXC inside Debian is better integrated than the previous was (which was really younger), so [I updated the ANsible LXC role](https://galaxy.ansible.com/list#/roles/880) for Jessie.
+The new version of LXC inside Debian is better integrated than the previous was (which was really younger), so [I updated the ANsible LXC role](https://galaxy.ansible.com/deimosfr/lxc/) for Jessie.
 
 Hope you'll enjoy.

@@ -24,7 +24,7 @@ I started to play with Ansible a little bit more than a week ago and I really en
 
 I started to rewrite my Puppet manifests to Ansible playbooks and what I can say is it's really fast and easy. The first playbook I made is for [LXC](https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers) as not one existed in the [Ansible Galaxy](https://galaxy.ansible.com).
 
-You can find my [LXC playbook here](https://galaxy.ansible.com/list#/roles/880), and install it like that:
+You can find my [LXC playbook here](https://galaxy.ansible.com/deimosfr/lxc/), and install it like that:
 
 {{< highlight bash >}}ansible-galaxy install deimosfr.lxc
 {{< /highlight >}}

@@ -32,7 +32,7 @@ I recently migrated this server to a new one. New hardware, better performance, 
 
 I'm already using LXC on my home server and see the benefits for 8 months ago. That's why I decided to migrate this server to LXC as well. The difference here is that I wanted to **migrate my VM from KVM**. All my [KVM](https://wiki.deimos.fr/KVM_:_Mise_en_place_de_KVM) VM are on Debian Wheezy so that was pretty easy.
 
-First of all I used [Preseed to quickly deploy Debian](https://wiki.deimos.fr/Automatiser_une_installation_de_Debian) on the host...as minimal as possible. Then I've made an [LXC Ansible playbook (available on Ansible Galaxy)](https://galaxy.ansible.com/list#/roles/880) to be able to quickly deploy the server. I encountered several little issues and [pushed the fixes to my repository on GitHub](https://github.com/deimosfr/ansible-lxc) (linked to my Ansible Galaxy account).
+First of all I used [Preseed to quickly deploy Debian](https://wiki.deimos.fr/Automatiser_une_installation_de_Debian) on the host...as minimal as possible. Then I've made an [LXC Ansible playbook (available on Ansible Galaxy)](https://galaxy.ansible.com/deimosfr/lxc/) to be able to quickly deploy the server. I encountered several little issues and [pushed the fixes to my repository on GitHub](https://github.com/deimosfr/ansible-lxc) (linked to my Ansible Galaxy account).
 
 I had to make the iptables configuration to forward incoming connections to my NATed containers. This is not managed by the LXC playbook as it doesn't have to in my opinion. [But you could find examples on my documentation if you need](https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Network).
 

@@ -15,8 +15,8 @@ tags:
 
 ---
 
-In my last post you've seen the [Ansible playbook I've made for ElasticSearch](http://blog.deimos.fr/2014/08/09/ansible-elasticsearch-playbook/). I've made a new one, but for Kibana which is able to easily manage version upgrade and of course is easy to install and use.
+In my last post you've seen the [Ansible playbook I've made for ElasticSearch](https://galaxy.ansible.com/deimosfr/elasticsearch/). I've made a new one, but for Kibana which is able to easily manage version upgrade and of course is easy to install and use.
 
-You can find [my Kibana playbook on GitHub](https://galaxy.ansible.com/list#/roles/1196).
+You can find [my Kibana playbook on GitHub](https://galaxy.ansible.com/deimosfr/kibana/).
 
 The next once will of course be related to fluentd :-)

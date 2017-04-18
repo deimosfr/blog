@@ -26,6 +26,10 @@ As I'm still an Ansible lover, I've made 2 roles:
   * [CoreOS Ansible][3]:&nbsp;Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites
   * [CoreOS][4]: Ansible CoreOS role to deploy CoreOS on bare metal servers
 
+If you want to quickly look at the result:
+
+<script type="text/javascript" src="https://asciinema.org/a/97137.js" id="asciicast-97137" async></script>
+
 The first one is&nbsp;for installing pypy to run Ansible and the other one to bootstrap CoreOS with Cloudinit or/and Igninition. Those role will bootstrap a complete cluster with etcd, flannel, fleet etc...ready to run a [Kubernetes][5] cluster on it! It will generate configs for each hosts and deploy them automatically. It will permit to add vars, generate the configs and you can keep history with git for example. Here are the options of the role:
 
 {{< highlight yaml >}}
@@ -241,6 +245,6 @@ Do not hesitate to give feedback and participate to enhance them :-)
 
  [1]: https://coreos.com
  [2]: https://www.nousmotards.com
- [3]: https://galaxy.ansible.com/deimosfr/ansible-coreos-ansible/
- [4]: https://galaxy.ansible.com/deimosfr/ansible-coreos/
+ [3]: https://galaxy.ansible.com/deimosfr/coreos-container-linux/
+ [4]: https://galaxy.ansible.com/deimosfr/coreos-ansible/
  [5]: http://kubernetes.io/

@@ -23,6 +23,6 @@ For my personal usages, I wanted do use DotDeb and MySQL playbooks. I first look
 
 I first wanted to try to contribute to an existing one. But I needed to have them quickly and unfortunately didn't have the time to do it.
 
-That's why I made 2 new Ansible roles and added them to Ansible Galaxy. I tried to add as maximum options as I could do in the time I had. You can find them [here for DotDeb](https://galaxy.ansible.com/list#/roles/2424) and [here for MySQL](https://galaxy.ansible.com/list#/roles/2423).
+That's why I made 2 new Ansible roles and added them to Ansible Galaxy. I tried to add as maximum options as I could do in the time I had. You can find them [here for DotDeb](https://galaxy.ansible.com/deimosfr/dotdeb/) and [here for MySQL](https://galaxy.ansible.com/deimosfr/mysql/).
 
 Hope this will help

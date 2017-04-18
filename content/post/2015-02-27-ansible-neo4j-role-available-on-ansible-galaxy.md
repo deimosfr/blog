@@ -82,6 +82,6 @@ neo4j_server_http_log_config: conf/neo4j-http-logging.xml
 neo4j_keep_logical_logs: true
 {{< /highlight >}}
 
-You can find [the Ansible role for Neo4j here](https://galaxy.ansible.com/list#/roles/2946), it manages all versions (community, enterprise...) and you can install Spatial plugin as well easilly.
+You can find [the Ansible role for Neo4j here](https://galaxy.ansible.com/deimosfr/neo4j/), it manages all versions (community, enterprise...) and you can install Spatial plugin as well easilly.
 
 Hope it will help

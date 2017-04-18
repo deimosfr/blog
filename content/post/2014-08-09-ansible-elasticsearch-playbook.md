@@ -20,6 +20,6 @@ tags:
 
 ---
 ![ansible_logo](/images/logo_ansible.png)
-As I'm an Ansible fan, I've created a playbook for it available on [GitHub](https://github.com/deimosfr/ansible-elasticsearch) and on the [Ansible Galaxy](https://galaxy.ansible.com/list#/roles/1197). You'll be able to add additional plugins like Head, Curator, Mavel...
+As I'm an Ansible fan, I've created a playbook for it available on [GitHub](https://github.com/deimosfr/ansible-elasticsearch) and on the [Ansible Galaxy](https://galaxy.ansible.com/deimosfr/elasticsearch/). You'll be able to add additional plugins like Head, Curator, Mavel...
 
 I hope you'll enjoy it.

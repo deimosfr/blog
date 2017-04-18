@@ -20,7 +20,7 @@ tags:
 
 ---
 ![ansible_logo](/images/logo_ansible.png)
-I've recently updated my [LXC role for ansible](https://galaxy.ansible.com/list#/roles/880). You can get it like that:
+I've recently updated my [LXC role for ansible](https://galaxy.ansible.com/deimosfr/lxc/). You can get it like that:
 
 {{< highlight bash >}}ansible-galaxy install deimosfr.lxc
 {{< /highlight >}}
