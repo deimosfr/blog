@@ -12,3 +12,8 @@ cd .git/hooks
 ln -s ../../_scripts/pre_ci_hook.sh ./pre-commit
 ```
 
+# Create a new post
+
+```
+hugo create post/yyyy-mm-dd-my-title.md
+```

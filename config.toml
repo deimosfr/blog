@@ -9,6 +9,7 @@ paginate = 7
 canonifyurls = true
 enableEmoji = true
 pygmentsstyle = "monokai"
+MetaDataFormat = "yaml"
 
 [permalinks]
   post = "/:year/:month/:slug/"
