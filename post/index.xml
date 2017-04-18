@@ -6,10 +6,31 @@
     <description>Recent content in Posts on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 30 Sep 2016 21:35:17 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 18 Apr 2017 20:18:07 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.deimos.fr/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Deploy Kubernetes with Ansible</title>
+      <link>https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/</link>
+      <pubDate>Tue, 18 Apr 2017 20:18:07 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/</guid>
+      <description>Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications. I&amp;rsquo;m using it for Nousmotards and decided to build an Ansible role for it to make it simpler to deploy.
+Why did I built it as other projects like Kargo already exists? I just wanted a simple and maintainable role based on CoreOS official documentation. That&amp;rsquo;s what I did:
+ This role bootstrap a Kubernetes cluster based on CoreOS Container Linux for production usages.</description>
+    </item>
+    
+    <item>
+      <title>Blog migrated to Hugo on Github</title>
+      <link>https://blog.deimos.fr/2017/04/18/blog-migrated-to-hugo-on-github/</link>
+      <pubDate>Mon, 17 Apr 2017 21:28:52 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/2017/04/18/blog-migrated-to-hugo-on-github/</guid>
+      <description>As you certainly seen, the blog has been migrated :-). Visualy there is a big change and technically it&amp;rsquo;s the same.
+I was fed up about maintaining Wordpress with its stack (Nginx / php-fpm / MariaDB) for a mostly static blog. I was thinking about migrating from Wordpress to something in markdown since several years but didn&amp;rsquo;t know exactly which solution I wanted to choose. I really enjoyed using Wordpress but wanted to keep hands on my blog and didn&amp;rsquo;t want to switch to full hosted Wordpress because of its limitations (image size etc&amp;hellip;).</description>
+    </item>
     
     <item>
       <title>Deploy CoreOS with Ansible</title>
@@ -20,7 +41,7 @@
       <description>&amp;nbsp;
 CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications.&amp;nbsp;I&amp;rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
 As I&amp;rsquo;m still an Ansible lover, I&amp;rsquo;ve made 2 roles:
- CoreOS Ansible:&amp;nbsp;Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  The first one is&amp;nbsp;for installing pypy to run Ansible and the other one to bootstrap CoreOS with Cloudinit or/and Igninition.</description>
+ CoreOS Ansible:&amp;nbsp;Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  If you want to quickly look at the result:</description>
     </item>
     
     <item>
@@ -104,7 +125,7 @@ export ANSIBLE_FORCE_COLOR=true  Now that&amp;rsquo;s pretty cool! However, you 
       
       <guid>https://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/</guid>
       <description>As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:
-consul_template_version: &amp;#39;0.11.0&amp;#39; consul_template_arch: &amp;#39;linux_amd64&amp;#39; consul_template_http_src: &amp;quot;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&amp;quot;  You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/detail#/role/3451
+consul_template_version: &amp;#39;0.11.0&amp;#39; consul_template_arch: &amp;#39;linux_amd64&amp;#39; consul_template_http_src: &amp;quot;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&amp;quot;  You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
 I hope you&amp;rsquo;ll enjoy this new version :-)</description>
     </item>
     

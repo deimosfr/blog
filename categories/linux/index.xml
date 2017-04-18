@@ -20,7 +20,7 @@
       <description>&amp;nbsp;
 CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications.&amp;nbsp;I&amp;rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
 As I&amp;rsquo;m still an Ansible lover, I&amp;rsquo;ve made 2 roles:
- CoreOS Ansible:&amp;nbsp;Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  The first one is&amp;nbsp;for installing pypy to run Ansible and the other one to bootstrap CoreOS with Cloudinit or/and Igninition.</description>
+ CoreOS Ansible:&amp;nbsp;Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  If you want to quickly look at the result:</description>
     </item>
     
     <item>
@@ -50,7 +50,7 @@ At Nousmotards we have several Java Spring Boot applications running. Restarti
       
       <guid>https://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/</guid>
       <description>As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:
-consul_template_version: &amp;#39;0.11.0&amp;#39; consul_template_arch: &amp;#39;linux_amd64&amp;#39; consul_template_http_src: &amp;quot;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&amp;quot;  You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/detail#/role/3451
+consul_template_version: &amp;#39;0.11.0&amp;#39; consul_template_arch: &amp;#39;linux_amd64&amp;#39; consul_template_http_src: &amp;quot;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&amp;quot;  You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
 I hope you&amp;rsquo;ll enjoy this new version :-)</description>
     </item>
     

@@ -6,10 +6,21 @@
     <description>Recent content in Ansible on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 21 Jan 2016 13:00:16 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 18 Apr 2017 20:18:07 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.deimos.fr/tags/ansible/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Deploy Kubernetes with Ansible</title>
+      <link>https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/</link>
+      <pubDate>Tue, 18 Apr 2017 20:18:07 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/</guid>
+      <description>Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications. I&amp;rsquo;m using it for Nousmotards and decided to build an Ansible role for it to make it simpler to deploy.
+Why did I built it as other projects like Kargo already exists? I just wanted a simple and maintainable role based on CoreOS official documentation. That&amp;rsquo;s what I did:
+ This role bootstrap a Kubernetes cluster based on CoreOS Container Linux for production usages.</description>
+    </item>
     
     <item>
       <title>Zero downtime upgrade with Ansible and HAProxy</title>
@@ -28,7 +39,7 @@ At Nousmotards we have several Java Spring Boot applications running. Restarti
       
       <guid>https://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/</guid>
       <description>As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:
-consul_template_version: &amp;#39;0.11.0&amp;#39; consul_template_arch: &amp;#39;linux_amd64&amp;#39; consul_template_http_src: &amp;quot;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&amp;quot;  You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/detail#/role/3451
+consul_template_version: &amp;#39;0.11.0&amp;#39; consul_template_arch: &amp;#39;linux_amd64&amp;#39; consul_template_http_src: &amp;quot;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&amp;quot;  You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
 I hope you&amp;rsquo;ll enjoy this new version :-)</description>
     </item>
     

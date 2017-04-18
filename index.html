@@ -17,7 +17,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.20.1">
+    <meta name="generator" content="Hugo 0.20.2">
     <meta name="theme" content="Tranquilpeak 0.3.1-BETA">
     <title>Deimosfr Blog</title>
     <meta name="author" content="Pierre Mavro / Deimosfr">
@@ -221,6 +221,139 @@ ga('send', 'pageview');
     
     <div class="postShorten-header">
       <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/">
+          Deploy Kubernetes with Ansible
+        </a>
+      </h1>
+      <div class="postShorten-meta post-meta">
+  
+    <time itemprop="datePublished" datetime="2017-04-18T20:18:07&#43;02:00">
+      
+  
+  
+  
+  
+    18 April 2017
+  
+
+    </time>
+  
+  
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/ansible">Ansible</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/cloud">Cloud</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/kubernetes">Kubernetes</a>
+    
+  
+
+
+</div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      <p>
+        Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications. I&rsquo;m using it for Nousmotards and decided to build an Ansible role for it to make it simpler to deploy.
+Why did I built it as other projects like Kargo already exists? I just wanted a simple and maintainable role based on CoreOS official documentation. That&rsquo;s what I did:
+ This role bootstrap a Kubernetes cluster based on CoreOS Container Linux for production usages.
+        <br>
+        <a href="https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_kubernetes.png"/>
+      </div>
+    </a>
+  
+</article>
+
+          
+            
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2017/04/18/blog-migrated-to-hugo-on-github/">
+          Blog migrated to Hugo on Github
+        </a>
+      </h1>
+      <div class="postShorten-meta post-meta">
+  
+    <time itemprop="datePublished" datetime="2017-04-17T21:28:52&#43;02:00">
+      
+  
+  
+  
+  
+    17 April 2017
+  
+
+    </time>
+  
+  
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hugo">Hugo</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/github">GitHub</a>
+    
+  
+
+
+</div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      <p>
+        As you certainly seen, the blog has been migrated :-). Visualy there is a big change and technically it&rsquo;s the same.
+I was fed up about maintaining Wordpress with its stack (Nginx / php-fpm / MariaDB) for a mostly static blog. I was thinking about migrating from Wordpress to something in markdown since several years but didn&rsquo;t know exactly which solution I wanted to choose. I really enjoyed using Wordpress but wanted to keep hands on my blog and didn&rsquo;t want to switch to full hosted Wordpress because of its limitations (image size etc&hellip;).
+        <br>
+        <a href="https://blog.deimos.fr/2017/04/18/blog-migrated-to-hugo-on-github/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2017/04/18/blog-migrated-to-hugo-on-github/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_hugo.png"/>
+      </div>
+    </a>
+  
+</article>
+
+          
+            
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
         <a class="link-unstyled" href="https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/">
           Deploy CoreOS with Ansible
         </a>
@@ -262,7 +395,7 @@ ga('send', 'pageview');
         &nbsp;
 CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications.&nbsp;I&rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
 As I&rsquo;m still an Ansible lover, I&rsquo;ve made 2 roles:
- CoreOS Ansible:&nbsp;Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  The first one is&nbsp;for installing pypy to run Ansible and the other one to bootstrap CoreOS with Cloudinit or/and Igninition.
+ CoreOS Ansible:&nbsp;Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  If you want to quickly look at the result:
         <br>
         <a href="https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -557,141 +690,6 @@ Today I am going to talk about our experience after having using it for 2 years 
 </article>
 
           
-            
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/">
-          Docker: why you should use Monit instead of supervisord
-        </a>
-      </h1>
-      <div class="postShorten-meta post-meta">
-  
-    <time itemprop="datePublished" datetime="2016-01-13T11:00:04Z">
-      
-  
-  
-  
-  
-    13 January 2016
-  
-
-    </time>
-  
-  
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/docker">Docker</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/nousmotards">Nousmotards</a>
-    
-  
-
-
-</div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>
-        This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting Nousmotards infrastructure, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.
-Introduction Docker is made to run a process in a confined area.
-        <br>
-        <a href="https://blog.deimos.fr/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://blog.deimos.fr/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_docker.png"/>
-      </div>
-    </a>
-  
-</article>
-
-          
-            
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/08/graphite-events-on-debian-jessie/">
-          Graphite events on Debian jessie
-        </a>
-      </h1>
-      <div class="postShorten-meta post-meta">
-  
-    <time itemprop="datePublished" datetime="2016-01-08T11:00:28Z">
-      
-  
-  
-  
-  
-    8 January 2016
-  
-
-    </time>
-  
-  
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/graphite">graphite</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/nousmotards">Nousmotards</a>
-    
-  
-
-
-</div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>
-        I&rsquo;m using Graphite at work and for my Nousmotards project. For Nousmotards, I&rsquo;m using the Graphite version available in the default Debian Jessie repositories. This to avoid mismatch django dependencies etc&hellip;
-A few days ago, I wanted to try Graphite events to get something pretty cool in Grafana :
-This to be able to know when a new app version is deployed and make it easier to understand when an issue occurs.
-        <br>
-        <a href="https://blog.deimos.fr/2016/01/08/graphite-events-on-debian-jessie/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://blog.deimos.fr/2016/01/08/graphite-events-on-debian-jessie/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_graphite.png"/>
-      </div>
-    </a>
-  
-</article>
-
-          
           
   <div class="pagination-bar">
     <ul class="pagination">
@@ -704,7 +702,7 @@ This to be able to know when a new app version is deployed and make it easier to
           </a>
         </li>
       
-      <li class="pagination-number">page 1 of 119</li>
+      <li class="pagination-number">page 1 of 120</li>
     </ul>
   </div>
 
@@ -768,6 +766,43 @@ This to be able to know when a new app version is deployed and make it easier to
           <div class="media">
             
             <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/">
+                <h3 class="media-heading">Deploy Kubernetes with Ansible</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications. I&rsquo;m using it for Nousmotards and decided to build an Ansible role for it to make it simpler to deploy.
+Why did I built it as other projects like Kargo already exists? I just wanted a simple and maintainable role based on CoreOS official documentation. That&rsquo;s what I did:
+ This role bootstrap a Kubernetes cluster based on CoreOS Container Linux for production usages.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2017/04/18/blog-migrated-to-hugo-on-github/">
+                <h3 class="media-heading">Blog migrated to Hugo on Github</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">As you certainly seen, the blog has been migrated :-). Visualy there is a big change and technically it&rsquo;s the same.
+I was fed up about maintaining Wordpress with its stack (Nginx / php-fpm / MariaDB) for a mostly static blog. I was thinking about migrating from Wordpress to something in markdown since several years but didn&rsquo;t know exactly which solution I wanted to choose. I really enjoyed using Wordpress but wanted to keep hands on my blog and didn&rsquo;t want to switch to full hosted Wordpress because of its limitations (image size etc&hellip;).</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
               <a class="link-unstyled" href="https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/">
                 <h3 class="media-heading">Deploy CoreOS with Ansible</h3>
               </a>
@@ -779,7 +814,7 @@ This to be able to know when a new app version is deployed and make it easier to
               <div class="media-content hide-xs font-merryweather">&nbsp;
 CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications.&nbsp;I&rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
 As I&rsquo;m still an Ansible lover, I&rsquo;ve made 2 roles:
- CoreOS Ansible:&nbsp;Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  The first one is&nbsp;for installing pypy to run Ansible and the other one to bootstrap CoreOS with Cloudinit or/and Igninition.</div>
+ CoreOS Ansible:&nbsp;Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  If you want to quickly look at the result:</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -915,48 +950,6 @@ export ANSIBLE_FORCE_COLOR=true  Now that&rsquo;s pretty cool! However, you may 
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/">
-                <h3 class="media-heading">Upgrading Ansible Consul Template role</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Nov 11, 2015
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:
-consul_template_version: &#39;0.11.0&#39; consul_template_arch: &#39;linux_amd64&#39; consul_template_http_src: &quot;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&quot;  You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/detail#/role/3451
-I hope you&rsquo;ll enjoy this new version :-)</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/">
-                <h3 class="media-heading">Ansible Meetup done! Watch again the slides</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Sep 9, 2015
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">The Ansible meetup ended ! That was really nice for my first one.
-I had really great feedbacks and liked the questions when ended. More than that I met nice people after the meetup and could have interresting discussions :-). I&rsquo;m really happy about it.
-For those who would like to review the slides, you can find them here:
-http://nousmotards.github.io/ansible-meetup-0915/
-If you want to watch the video:
-http://www.infoq.com/fr/presentations/reseau-social-motard
-or view the PDF version here:</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -964,7 +957,7 @@ or view the PDF version here:</div>
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         833 posts found
+         835 posts found
       </p>
     </div>
   </div>

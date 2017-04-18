@@ -20,7 +20,7 @@
       <description>&amp;nbsp;
 CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications.&amp;nbsp;I&amp;rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
 As I&amp;rsquo;m still an Ansible lover, I&amp;rsquo;ve made 2 roles:
- CoreOS Ansible:&amp;nbsp;Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  The first one is&amp;nbsp;for installing pypy to run Ansible and the other one to bootstrap CoreOS with Cloudinit or/and Igninition.</description>
+ CoreOS Ansible:&amp;nbsp;Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  If you want to quickly look at the result:</description>
     </item>
     
     <item>
