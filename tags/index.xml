@@ -84,6 +84,15 @@
     </item>
     
     <item>
+      <title>Consul</title>
+      <link>https://blog.deimos.fr/tags/consul/</link>
+      <pubDate>Sun, 20 Aug 2017 14:58:07 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/tags/consul/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Coreos Docker</title>
       <link>https://blog.deimos.fr/tags/coreos-docker/</link>
       <pubDate>Thu, 29 May 2014 10:00:00 +0000</pubDate>
@@ -275,9 +284,18 @@
     <item>
       <title>Kubernetes</title>
       <link>https://blog.deimos.fr/tags/kubernetes/</link>
-      <pubDate>Tue, 18 Apr 2017 20:18:07 +0200</pubDate>
+      <pubDate>Sun, 20 Aug 2017 14:58:07 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lets Encrypt</title>
+      <link>https://blog.deimos.fr/tags/lets-encrypt/</link>
+      <pubDate>Sun, 20 Aug 2017 14:58:07 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/tags/lets-encrypt/</guid>
       <description></description>
     </item>
     
@@ -611,6 +629,24 @@
       <pubDate>Sat, 16 Jan 2010 11:36:50 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/tags/ssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ssl</title>
+      <link>https://blog.deimos.fr/tags/ssl/</link>
+      <pubDate>Sun, 20 Aug 2017 14:58:07 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/tags/ssl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Traefik</title>
+      <link>https://blog.deimos.fr/tags/traefik/</link>
+      <pubDate>Sun, 20 Aug 2017 14:58:07 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/tags/traefik/</guid>
       <description></description>
     </item>
     
