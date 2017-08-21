@@ -280,7 +280,7 @@ Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its con
 Traefik should be get less performance, but the features it provides really match Kubernetes integration.</p>
 
 <p>First of all, I wanted to use Etcd as the backend to store SSL certificates and configuration.
-However, there&rsquo;s [an issue in progress] on the Go libkv and etcd v3.
+However, there&rsquo;s <a href="https://github.com/containous/traefik/issues/926" target="_blank">an issue in progress</a> on the Go libkv and etcd v3.
 As I&rsquo;m using Kubernetes 1.7 and etcd v3, I had to find another backend. The one I know well is consul and I decided to
 switch to it while waiting the fix.</p>
 
