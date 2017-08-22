@@ -284,7 +284,7 @@ However, there&rsquo;s <a href="https://github.com/containous/traefik/issues/926
 As I&rsquo;m using Kubernetes 1.7 and etcd v3, I had to find another backend. The one I know well is consul and I decided to
 switch to it while waiting the fix.</p>
 
-<p>I&rsquo;ll show in that post how I did to make it work. If you&rsquo;re following me, you&rsquo;ll remind that I&rsquo;m not using a cloud but
+<p>I&rsquo;ll show in that post how I did, to make it works. If you&rsquo;re following me, you&rsquo;ll remind that I&rsquo;m not using a cloud but
 a bare metal installation of Kubernetes. As I&rsquo;m not using a shared storage for the moment, I&rsquo;m storing data locally on a
 specific servers labeled:
 <div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>kubectl label nodes srv1 srv2 srv3 <span style="color: #f8f8f2">consul</span><span style="color: #f92672">=</span>server
@@ -438,8 +438,8 @@ This is needed to be able to access with the help of DNS to the wished instance 
 
 <p>After a few seconds (look at the logs), your cluster should be ready.</p>
 
-<p>It&rsquo;s time to prepare your Traefik configuration which we will push into Consul (Traefik is unfortunately able to read
-Kubernetes configmaps for the moment).</p>
+<p>It&rsquo;s time to prepare your Traefik configuration which we will push into Consul (Traefik is unfortunately not able to
+read Kubernetes configmaps for the moment).</p>
 
 <p>My Traefik configmap looks like this:
 <div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #ae81ff">apiVersion</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">v1</span>
