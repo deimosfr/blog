@@ -25,7 +25,17 @@ Since we launched [Nousmotards][1], several persons asked us: "You've made an am
 
 However since last year, we worked on providing a such solution. Now it's time to announce my new project: [MySocialApp][2].
 
-**If you want your own social network, with your colors, your logo, with your own iOS and Android applications very quickly and published on the stores, don't search anymore !!! Start to use MySocialApp**
+![MSA screenshots](/images/msa_screenshots.png)
+
+Here are the key features:
+
+* Get **your own iOS and Android application with your name and colors in 5 min**
+* Send **push notifications** (geo-located or not) with your customers on mobile
+* Customers usage statistics and real time content viewing
+* Communicate with all your customers
+* **Data belongs to you** (GDPR adn e-Privacy ready)
+* Easy **integration with your current tools** (CRM, ERP, Marketing automation, SMS etc...)
+* No coding skills required, turnkey solution
 
 Feel free to look at [MySocialApp website][2] and [our Indiehackers interview][3] for more explaination.
 
