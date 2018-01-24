@@ -33,7 +33,7 @@ Here are the key features:
 * Send **push notifications** (geo-located or not) with your customers on mobile
 * Customers usage statistics and real time content viewing
 * Communicate with all your customers
-* **Data belongs to you** (GDPR adn e-Privacy ready)
+* **Data belongs to you** (GDPR and e-Privacy ready)
 * Easy **integration with your current tools** (CRM, ERP, Marketing automation, SMS etc...)
 * No coding skills required, turnkey solution
 
