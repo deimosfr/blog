@@ -72,7 +72,7 @@ This to be able to know when a new app version is deployed and make it easier to
       <guid>https://blog.deimos.fr/2016/01/07/ansible-color-and-buffer-fix-on-jenkins/</guid>
       <description>Hi all ! Long time since last blog post ! I&amp;rsquo;m using Jenkins with Ansible on my Nousmotards project for building docker containers or deploying into production.
 You may noticed that you&amp;rsquo;ve no Ansible color when running it into Jenkins! The simple way to correct it is to export an environment variable in your Jenkins job:
-export ANSIBLE_FORCE_COLOR=true  Now that&amp;rsquo;s pretty cool! However, you may also noticed that there&amp;rsquo;s some kind of lags on the console when you want to see a real time console log on Jenkins.</description>
+export ANSIBLE_FORCE_COLOR=true Now that&amp;rsquo;s pretty cool! However, you may also noticed that there&amp;rsquo;s some kind of lags on the console when you want to see a real time console log on Jenkins.</description>
     </item>
     
     <item>
@@ -82,7 +82,7 @@ export ANSIBLE_FORCE_COLOR=true  Now that&amp;rsquo;s pretty cool! However, you 
       
       <guid>https://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/</guid>
       <description>As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:
-consul_template_version: &amp;#39;0.11.0&amp;#39; consul_template_arch: &amp;#39;linux_amd64&amp;#39; consul_template_http_src: &amp;quot;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&amp;quot;  You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
+consul_template_version: &amp;#39;0.11.0&amp;#39; consul_template_arch: &amp;#39;linux_amd64&amp;#39; consul_template_http_src: &amp;#34;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&amp;#34; You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
 I hope you&amp;rsquo;ll enjoy this new version :-)</description>
     </item>
     
@@ -161,7 +161,7 @@ Aucune application n&amp;rsquo;est à l&amp;rsquo;heure actuelle disponible sur 
       <guid>https://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/</guid>
       <description>For a new project (will talk about it later), I needed to use Neo4J (graph database if you don&amp;rsquo;t know it yet).
 I tried to cover more features than the current existing Ansible roles available on Ansible Galaxy. More will come in the next weeks. I also tried to make it simple to install it and do not force dependencies at maximum. Here are parameters you can set:
-# Select neo4j version neo4j_package: neo4j # community version #neo4j_package: neo4j-advanced #neo4j_package: neo4j-enterprise # Neo4j spatial plugin neo4j_install_spatial: false neo4j_spatial_version: &amp;#39;0.</description>
+# Select neo4j version neo4j_package: neo4j # community version #neo4j_package: neo4j-advanced #neo4j_package: neo4j-enterprise  # Neo4j spatial plugin neo4j_install_spatial: false neo4j_spatial_version: &amp;#39;0.</description>
     </item>
     
     <item>
@@ -221,7 +221,7 @@ The good On HAProxy, the good thing is the simplicity to do it. First of all you
       <guid>https://blog.deimos.fr/2015/01/22/packer-role-available-on-ansible-galaxy/</guid>
       <description>Packer is a really great solution to make an image in several formats (VirtualBox, Docker&amp;hellip;). I recently wanted to deploy it on a Jenkins server to automatically perform image build with the help of Packer.
 That&amp;rsquo;s why I&amp;rsquo;ve wrote a Packer role for Ansible really easy to use. You simply have to set (or let them by defaults) vars:
-# Packer version to install packer_version: &amp;#39;0.7.5&amp;#39; # Packer destination folder packer_destination: &amp;#39;/usr/bin&amp;#39;  It will install the desired version :-)</description>
+# Packer version to install packer_version: &amp;#39;0.7.5&amp;#39; # Packer destination folder packer_destination: &amp;#39;/usr/bin&amp;#39; It will install the desired version :-)</description>
     </item>
     
     <item>
@@ -325,8 +325,8 @@ On its side, Fluentd has the major release 2.0 out and I updated Ansible playboo
       
       <guid>https://blog.deimos.fr/2014/12/02/git-update-date-and-name-to-commits/</guid>
       <description>A lot of time, I had to modify the text of my commit since I&amp;rsquo;m using a versionning system. Modifying the last commit comment is something common:
-git commit --amend  However, modifying the date is not so common. You may want to do it for several reasons (stats or similar), here is how to:
-GIT_COMMITTER_DATE=&amp;quot;`date`&amp;quot; git commit --amend --date &amp;quot;`date`&amp;quot;  This will change the last commit with the current date.</description>
+git commit --amend However, modifying the date is not so common. You may want to do it for several reasons (stats or similar), here is how to:
+GIT_COMMITTER_DATE=&amp;#34;`date`&amp;#34; git commit --amend --date &amp;#34;`date`&amp;#34; This will change the last commit with the current date.</description>
     </item>
     
     <item>
@@ -494,7 +494,7 @@ That&amp;rsquo;s because Apple made changes and Refind is not yet ready for it. 
       <guid>https://blog.deimos.fr/2014/10/20/vim-help-coding-in-python-with-plugins/</guid>
       <description>In the last blog posts, I talked about Galera Innoptimizer tool I&amp;rsquo;ve made in Python. As a VIM lover, I&amp;rsquo;ve wrote it with that editor and installed additional them with Vundle.
 Here are the one I&amp;rsquo;m using (to my .vimrc file):
-&amp;quot; Python completion Plugin &amp;#39;klen/python-mode&amp;#39; &amp;quot; Tabular Plugin &amp;#39;godlygeek/tabular&amp;#39; &amp;quot; Git Gutter Plugin &amp;#39;airblade/vim-gitgutter&amp;#39;  Python completion helps to autocomplete some Python functions automatically. Tabular helps on correctly aligning multiple lines and gitguuter helps you with git to see a live gitdiff !</description>
+&amp;#34; Python completionPlugin &amp;#39;klen/python-mode&amp;#39;&amp;#34; TabularPlugin &amp;#39;godlygeek/tabular&amp;#39;&amp;#34; Git GutterPlugin &amp;#39;airblade/vim-gitgutter&amp;#39; Python completion helps to autocomplete some Python functions automatically. Tabular helps on correctly aligning multiple lines and gitguuter helps you with git to see a live gitdiff !</description>
     </item>
     
     <item>
@@ -567,7 +567,7 @@ Note: I still got issues on MariaDB 10 with such thing, I&amp;rsquo;m working on
       
       <guid>https://blog.deimos.fr/2014/10/06/fio-bench-io-disks/</guid>
       <description>The first thing you generally want to do when you have any new Storage system like SSD, Disk arrays or a Cluster Ceph, is benching. You will want to know how can read and write throughput. FIO is able to do that for you, here is an example:
-[global] ioengine=libaio invalidate=1 ramp_time=5 direct=1 size=5G runtime=300 time_based directory=/home [seq-read] rw=read bs=64K stonewall [rand-read] rw=randread bs=4K stonewall [seq-write] rw=write bs=64K stonewall [rand-write] rw=randwrite bs=4K stonewall  You then will have a good output of everything you need to know.</description>
+[global] ioengine=libaio invalidate=1 ramp_time=5 direct=1 size=5G runtime=300 time_based directory=/home [seq-read] rw=read bs=64K stonewall [rand-read] rw=randread bs=4K stonewall [seq-write] rw=write bs=64K stonewall [rand-write] rw=randwrite bs=4K stonewall You then will have a good output of everything you need to know.</description>
     </item>
     
     <item>
@@ -655,7 +655,7 @@ If you want to know more about this meetup, please follow the link.</description
       
       <guid>https://blog.deimos.fr/2014/09/18/nginx-enable-hsts-force-ssl-for-users/</guid>
       <description>I recently heard of HSTS which is a way to force users to come back to your website in SSL if they&amp;rsquo;ve already be to HTTPS once. It is simple, just add this line:
-# HSTS (force users to come in SSL if they&amp;#39;ve already been once) add_header Strict-Transport-Security &amp;quot;max-age=31536000; includeSubdomains&amp;quot;;  If you want to have an overview of a complete configuration with it, look at the my wiki.</description>
+# HSTS (force users to come in SSL if they&amp;#39;ve already been once) add_header Strict-Transport-Security &amp;#34;max-age=31536000; includeSubdomains&amp;#34;; If you want to have an overview of a complete configuration with it, look at the my wiki.</description>
     </item>
     
     <item>
@@ -801,8 +801,8 @@ Before beginning with this book, we expect you to be well–practised with MySQL
       <guid>https://blog.deimos.fr/2014/08/21/gogs-easily-install-on-debian-wheezy/</guid>
       <description>I recently talked about Gogs and really like this solution. The main problem I encounter was the current stable version which may not be usable on Debian.
 Here is a quick solution to make it work. First of all, install git:
-apt-get install git  Then you can download the latest compiled version directly from gobuild.
-wget http://gobuild.io/github.com/gogits/gogs/master/linux/amd64 -O output.zip unzip output.zip ./start.sh  You can now access to port 3000.</description>
+apt-get install git Then you can download the latest compiled version directly from gobuild.
+wget http://gobuild.io/github.com/gogits/gogs/master/linux/amd64 -O output.zip unzip output.zip ./start.sh You can now access to port 3000. If you want to use it through a web server, here is my configuration with Nginx.</description>
     </item>
     
     <item>
@@ -916,7 +916,7 @@ Hopefully an alternative exists using Webdav protocol. It is not activated by de
       
       <guid>https://blog.deimos.fr/2014/07/28/systemd-how-to-debug-a-failed-boot/</guid>
       <description>I recently switched my laptop from InitV to Systemd. And things didn&amp;rsquo;t happened as expected. That&amp;rsquo;s why I need to deep dive into Systemd issues and understand why it wasn&amp;rsquo;t working. I got problems like this:
-Failed to get D-Bus connection: No connection to service manager.  And hopefully I found very good documentations on Internet (and especially on Arch wiki). I&amp;rsquo;ve made a summary on my wiki if you want to know how to diagnose a Systemd issue.</description>
+Failed to get D-Bus connection: No connection to service manager. And hopefully I found very good documentations on Internet (and especially on Arch wiki). I&amp;rsquo;ve made a summary on my wiki if you want to know how to diagnose a Systemd issue.</description>
     </item>
     
     <item>
@@ -1046,8 +1046,8 @@ Calamari is composed in 2 elements:
       
       <guid>https://blog.deimos.fr/2014/06/02/ansible-lxc-role-v1-1/</guid>
       <description>I&amp;rsquo;ve recently updated my LXC role for ansible. You can get it like that:
-ansible-galaxy install deimosfr.lxc  Here is the change log:
-+ Adding new parameters for dnsmasq and interfaces + Adding new prequesite to avoid unwanted modules to load in the latest kernel versions = Corrected networking configuration issue = Templates do not create @LOCALSTATEDIR@ folder anymore  It works perfectly on my new Dedibox :-)</description>
+ansible-galaxy install deimosfr.lxc Here is the change log:
++ Adding new parameters for dnsmasq and interfaces + Adding new prequesite to avoid unwanted modules to load in the latest kernel versions = Corrected networking configuration issue = Templates do not create @LOCALSTATEDIR@ folder anymore It works perfectly on my new Dedibox :-)</description>
     </item>
     
     <item>
@@ -1317,7 +1317,7 @@ Ceph is quite the same as Free but for storage systems. Since many years, disks 
       <guid>https://blog.deimos.fr/2014/04/08/openssl-diagnose-and-correct-the-heartbleed-issue/</guid>
       <description>A big and major issue on OpenSSL has been discovered and everybody is talking about it. To get more informations, there&amp;rsquo;s a website.
 How to check the vulnerability, download this file:
-chmod 755 ssltest.py  Now launch it:
+chmod 755 ssltest.py Now launch it:
 ./ssltest.py blog.deimos.fr Connecting... Sending Client Hello... Waiting for Server Hello... ... received message: type = 22, ver = 0302, length = 66 ... received message: type = 22, ver = 0302, length = 5559 .</description>
     </item>
     
@@ -1379,7 +1379,7 @@ So you can take a look the result:1</description>
       
       <guid>https://blog.deimos.fr/2014/03/28/eccza-easily-colorize-your-logs-output/</guid>
       <description>Some of you will tell me that most utility is doing it as well. And that&amp;rsquo;s right, but with ccze you will be able to colorize everything with a pipe. For example when you play with a verbose service like Pacemaker, you need to get colorization if you want to win time. Here is an example:
-tail -f /var/log/syslog | ccze -A  </description>
+tail -f /var/log/syslog | ccze -A </description>
     </item>
     
     <item>
@@ -1464,7 +1464,7 @@ That&amp;rsquo;s why you should take care of it and do traffic shaping. I&amp;rs
       <guid>https://blog.deimos.fr/2014/03/12/vagrant-v1-5-use-boxes-on-vagrantcloud/</guid>
       <description>The 1.5 version of Vagrant has been released and that&amp;rsquo;s awesome ! They finally did a Cloud where all Vagrant boxes could (https://vagrantcloud.com/) be inventoried and easily deployed through command line !
 You can find my boxes here. If you want to add one, it&amp;rsquo;s really simple:
-vagrant box add deimosfr/debian-wheezy  And the second awesome feature is&amp;hellip;the sharing! You can for example have access to a distant and nated Vagrant instance through SSH!</description>
+vagrant box add deimosfr/debian-wheezy And the second awesome feature is&amp;hellip;the sharing! You can for example have access to a distant and nated Vagrant instance through SSH!</description>
     </item>
     
     <item>
@@ -1568,7 +1568,7 @@ Thanks for eNovance to send me there, I&amp;rsquo;m really happy !</description>
       <guid>https://blog.deimos.fr/2014/02/20/pagespeed-disable-varnish-by-default-get-both-working-together/</guid>
       <description>Yesterday a colleague (Dimitri) tested a tool on this blog. He informed me that Varnish was disabled and PageSpeed may be the cause as this is the last modification I&amp;rsquo;ve made on the server.
 After verification he was totally right ! By default, PageSpeed disable cache by serving HTML files with:
-Cache-Control: no-cache, max-age=0  After reading the PageSpeed documentation on that topic, it is clear: PageSpeed needs to know how to purge the cache as it rewrites a lot of elements and it has the control instead of the application.</description>
+Cache-Control: no-cache, max-age=0 After reading the PageSpeed documentation on that topic, it is clear: PageSpeed needs to know how to purge the cache as it rewrites a lot of elements and it has the control instead of the application.</description>
     </item>
     
     <item>
@@ -1589,7 +1589,7 @@ Once again, I hope it could help some of you</description>
       <guid>https://blog.deimos.fr/2014/02/16/deimos-fr-is-now-using-pagespeed-feedbacks/</guid>
       <description>Following a previous post, I&amp;rsquo;ve enabled PageSpeed on both wiki and blog deimos.fr.
 What I can say is, it&amp;rsquo;s very important to take the time to test every optimizations you want to add. I experienced for example issues on silly things like :
-# Optimize browser rendering pagespeed EnableFilters lazyload_images;  Some images weren&amp;rsquo;t shown if you didn&amp;rsquo;t refresh once again your page browser. I only had this problem on the blog and not the wiki.</description>
+# Optimize browser rendering pagespeed EnableFilters lazyload_images; Some images weren&amp;rsquo;t shown if you didn&amp;rsquo;t refresh once again your page browser. I only had this problem on the blog and not the wiki.</description>
     </item>
     
     <item>
@@ -1846,7 +1846,7 @@ To do it, simply follow the link (in french).</description>
       
       <guid>https://blog.deimos.fr/2013/12/22/php-fpm-get-status-information-page-for-monitoring/</guid>
       <description>To be able to monitor the PHP-FPM service with connections, queue information, process&amp;hellip; you&amp;rsquo;ll need to set the status page. This will give you something like this :
-pool: www process manager: dynamic start time: 18/Dec/2013:19:00:41 +0100 start since: 52972 accepted conn: 5268 listen queue: 0 max listen queue: 0 listen queue len: 0 idle processes: 3 active processes: 1 total processes: 4 max active processes: 4 max children reached: 0  Those informations are important to correctly tune the PHP-FPM service.</description>
+pool: www process manager: dynamic start time: 18/Dec/2013:19:00:41 +0100 start since: 52972 accepted conn: 5268 listen queue: 0 max listen queue: 0 listen queue len: 0 idle processes: 3 active processes: 1 total processes: 4 max active processes: 4 max children reached: 0 Those informations are important to correctly tune the PHP-FPM service.</description>
     </item>
     
     <item>
@@ -2011,7 +2011,7 @@ You can register here : https://www.eventbrite.com/e/openstack-in-action-4-ticke
       
       <guid>https://blog.deimos.fr/2013/11/18/mariadb-restore-on-database-from-a-single-full-dbs-backup/</guid>
       <description>I recently discovered how to restore only one database from a huge sql dump containing more than 1 database and wanted to share it with you :
-mysql -u&amp;lt;user&amp;gt; -p&amp;lt;password&amp;gt; --one-database &amp;lt;database_name&amp;gt; &amp;lt; backup-`date +%y%m%d`.sql  I&amp;rsquo;ve added it to my wiki as well.
+mysql -u&amp;lt;user&amp;gt; -p&amp;lt;password&amp;gt; --one-database &amp;lt;database_name&amp;gt; &amp;lt; backup-`date +%y%m%d`.sql I&amp;rsquo;ve added it to my wiki as well.
 Source : System Linux</description>
     </item>
     
@@ -2247,7 +2247,7 @@ I did it in Perl. As described in the last post as I needed to have the interpre
       <guid>https://blog.deimos.fr/2013/09/25/create-exe-with-perl-on-windows/</guid>
       <description>In the past, I already made an article on how to make exe from a Perl script on Windows. I was using Strawberry or Activesync but have a preference for Strawberry as it&amp;rsquo;s totally free :-).
 This time, I tried to reproduce the tips but encountered several issues. The first one was that error :
-The locale codeset (cp1252) isn&amp;#39;t one that perl can decode, stopped at Encode/Locale.pm line 94.  It could simply be resolved by addressing &amp;lsquo;-x&amp;rsquo; parameter to the &amp;lsquo;pp&amp;rsquo; command line.</description>
+The locale codeset (cp1252) isn&amp;#39;t one that perl can decode, stopped at Encode/Locale.pm line 94. It could simply be resolved by addressing &amp;lsquo;-x&amp;rsquo; parameter to the &amp;lsquo;pp&amp;rsquo; command line.</description>
     </item>
     
     <item>
@@ -3604,7 +3604,7 @@ Bons fonds d&amp;rsquo;écran :-)</description>
       
       <guid>https://blog.deimos.fr/2012/12/09/bye-bye-varwww/</guid>
       <description>C&amp;rsquo;est avec tristesse que je vous annonce la fin de /var/www. Ca faisait des années que je m&amp;rsquo;étais bien habitué à celà. C&amp;rsquo;est en installant Nginx sur Debian 7 que je me suis rendu compte que /var/www n&amp;rsquo;existait pas. J&amp;rsquo;ai donc regardé la conf et que vois je&amp;hellip;
-root /usr/share/nginx/www;  J&amp;rsquo;ai donc regardé le README.Debian qui me renvoie sur l&amp;rsquo;explication : http://lintian.debian.org/tags/dir-or-file-in-var-www.html
+root /usr/share/nginx/www; J&amp;rsquo;ai donc regardé le README.Debian qui me renvoie sur l&amp;rsquo;explication : http://lintian.debian.org/tags/dir-or-file-in-var-www.html
 Debian a tout simplement remis les choses propres en suivant la FHS.</description>
     </item>
     
@@ -4678,7 +4678,7 @@ Si j&amp;rsquo;ai le temps et le courage, je la poursuivrais pour rentrer un peu
       <pubDate>Tue, 03 Apr 2012 11:00:48 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2012/04/03/un-utilitaire-pour-commandlinefu-com/</guid>
-      <description>Sachez que vous pouvez faire une recherche dans ce site pour en extraire des exemples grâce à un petit script. Exemple : &amp;gt; fu -a awk 1	# List of commands you use most often history | awk &amp;#39;{a[$2]++}END{for(i in a){print a[i] &amp;quot; &amp;quot; i}}&amp;#39; | sort -rn | head&amp;lt;/p&amp;gt; 2	# Display a block of text with AWK awk &amp;#39;/start_pattern/,/stop_pattern/&amp;#39; file.txt&amp;lt;/p&amp;gt; 3	# Remove duplicate entries in a file without sorting.</description>
+      <description>Sachez que vous pouvez faire une recherche dans ce site pour en extraire des exemples grâce à un petit script. Exemple : &amp;gt; fu -a awk 1	# List of commands you use most often 	history | awk &amp;#39;{a[$2]++}END{for(i in a){print a[i] &amp;#34; &amp;#34; i}}&amp;#39; | sort -rn | head&amp;lt;/p&amp;gt; 2	# Display a block of text with AWK 	awk &amp;#39;/start_pattern/,/stop_pattern/&amp;#39; file.txt&amp;lt;/p&amp;gt; 3	# Remove duplicate entries in a file without sorting.</description>
     </item>
     
     <item>
@@ -6039,7 +6039,7 @@ J&amp;rsquo;ai pour l&amp;rsquo;instant fait une petite doc (qui est plus que tr
       
       <guid>https://blog.deimos.fr/2010/06/04/sun-java-sur-ubuntu/</guid>
       <description>Bref, voilà ce qu&amp;rsquo;il faut faire pour avoir les packages sun java à dispo :
-add-apt-repository &amp;quot;deb http://archive.canonical.com/ lucid partner&amp;quot;  </description>
+add-apt-repository &amp;#34;deb http://archive.canonical.com/ lucid partner&amp;#34; </description>
     </item>
     
     <item>
@@ -6514,7 +6514,7 @@ Je vais essayer de voir maintenant comment soumettre tout ça à Blastwave ou SU
       
       <guid>https://blog.deimos.fr/2009/11/14/se-servir-du-iphone-comme-clef-usb/</guid>
       <description>Ca faisait un moment que je cherchais ça. Grace à iFuse, je peut monter mon iPhone sur mon Ubuntu, et m’en servir comme une clef USB et sans avoir besoin de le jailbreaker. Il faut pour ça installer un repository et lancer la commande magique :
-sudo add-apt-repository jonabeck sudo apt-get install ifuse  </description>
+sudo add-apt-repository jonabeck sudo apt-get install ifuse </description>
     </item>
     
     <item>
@@ -6923,7 +6923,7 @@ Il y a une autre solution vieillissante aparement aussi (j&amp;rsquo;ai pas test
       
       <guid>https://blog.deimos.fr/2009/05/08/une-belle-optimisation-de-sa-ubuntu/</guid>
       <description>Je viens seulement de tomber dessus, mais au vue des perfs, ça valait le coup d’essayer et en effet, on sent vraiment le gain…ouf !
-sudo aptitude install preload  </description>
+sudo aptitude install preload </description>
     </item>
     
     <item>

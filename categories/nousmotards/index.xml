@@ -72,7 +72,7 @@ This to be able to know when a new app version is deployed and make it easier to
       <guid>https://blog.deimos.fr/2016/01/07/ansible-color-and-buffer-fix-on-jenkins/</guid>
       <description>Hi all ! Long time since last blog post ! I&amp;rsquo;m using Jenkins with Ansible on my Nousmotards project for building docker containers or deploying into production.
 You may noticed that you&amp;rsquo;ve no Ansible color when running it into Jenkins! The simple way to correct it is to export an environment variable in your Jenkins job:
-export ANSIBLE_FORCE_COLOR=true  Now that&amp;rsquo;s pretty cool! However, you may also noticed that there&amp;rsquo;s some kind of lags on the console when you want to see a real time console log on Jenkins.</description>
+export ANSIBLE_FORCE_COLOR=true Now that&amp;rsquo;s pretty cool! However, you may also noticed that there&amp;rsquo;s some kind of lags on the console when you want to see a real time console log on Jenkins.</description>
     </item>
     
     <item>

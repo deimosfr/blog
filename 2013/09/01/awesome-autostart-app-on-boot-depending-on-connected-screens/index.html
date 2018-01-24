@@ -21,7 +21,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.26 with theme Tranquilpeak 0.4.0-BETA">
+    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
     <title>Awesome : autostart app on boot depending on connected screens</title>
     <meta name="author" content="Pierre Mavro / Deimosfr">
     <meta name="keywords" content="">
@@ -65,7 +65,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-fpbzgxsy0kgmdvyrj5ykkg6ratccrk3gocmaqn4xpcjywmv5dteilzucro4f.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
     
     
       
@@ -251,7 +251,6 @@ ga('send', 'pageview');
     
   
 
-
   </div>
 
 </div>
@@ -269,44 +268,42 @@ ga('send', 'pageview');
 
 <p>That&rsquo;s why I&rsquo;ve configured Awesome to take care of that 2 kinds of configuration. To did it, I&rsquo;ve added those lines in my rc.lua configuration :</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">screen.count()</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">3</span> <span style="color: #66d9ef">then</span>
-    <span style="color: #75715e">-- Desktop/tags organization</span>
-    <span style="color: #75715e">-- {{{ Rules</span>
-    <span style="color: #f8f8f2">awful.rules.rules</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span> 
-        <span style="color: #75715e">-- All clients will match this rule.</span>
-        <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">rule</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">},</span>
-          <span style="color: #f8f8f2">properties</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">border_width</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">beautiful.border_width,</span>
-                         <span style="color: #f8f8f2">border_color</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">beautiful.border_normal,</span>
-                         <span style="color: #f8f8f2">focus</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">,</span>
-                         <span style="color: #f8f8f2">keys</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">clientkeys,</span>
-                         <span style="color: #f8f8f2">buttons</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">clientbuttons</span> <span style="color: #f8f8f2">}</span> <span style="color: #f8f8f2">},</span>
-        <span style="color: #75715e">-- Set Firefox to always map on tags number 2 of screen 1.</span>
-        <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">rule</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">class</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;Firefox&quot;</span> <span style="color: #f8f8f2">},</span>  <span style="color: #f8f8f2">properties</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">tag</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">tags[</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">][</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f8f8f2">}</span> <span style="color: #f8f8f2">},</span>
-        <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">rule</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">class</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;Thunderbird&quot;</span> <span style="color: #f8f8f2">},</span>  <span style="color: #f8f8f2">properties</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">tag</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">tags[</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">][</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f8f8f2">}</span> <span style="color: #f8f8f2">},</span>
-        <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">rule</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">class</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;Pidgin&quot;</span> <span style="color: #f8f8f2">},</span>  <span style="color: #f8f8f2">properties</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">tag</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">tags[</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">],</span> <span style="color: #f8f8f2">switchtotag</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">true</span> <span style="color: #f8f8f2">}</span> <span style="color: #f8f8f2">},</span>
-    <span style="color: #f8f8f2">}</span>   
-    <span style="color: #75715e">-- Launch those commands on startup</span>
-    <span style="color: #f8f8f2">run_once(</span><span style="color: #e6db74">&quot;thunderbird&quot;</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #f8f8f2">run_once(</span><span style="color: #e6db74">&quot;firefox&quot;</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #f8f8f2">run_once(</span><span style="color: #e6db74">&quot;pidgin&quot;</span><span style="color: #f8f8f2">)</span>
-<span style="color: #75715e">-- 1 screen, I&#39;m nomad</span>
-<span style="color: #66d9ef">elseif</span> <span style="color: #f8f8f2">screen.count()</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">1</span> <span style="color: #66d9ef">then</span>
-    <span style="color: #f8f8f2">awful.util.spawn_with_shell(</span><span style="color: #e6db74">&quot;xrandr --output DP3 --off --output DP2 --off --output DP1 --off --output HDMI3 --off --output HDMI2 --off --output HDMI1 --off --output LVDS1 --mode 1600x900 --pos 0x0 --rotate normal --output VGA1 --off&quot;</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #75715e">-- Desktop/tags organization</span>
-    <span style="color: #75715e">-- {{{ Rules</span>
-    <span style="color: #f8f8f2">awful.rules.rules</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span> 
-        <span style="color: #75715e">-- All clients will match this rule.</span>
-        <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">rule</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">},</span>
-          <span style="color: #f8f8f2">properties</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">border_width</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">beautiful.border_width,</span>
-                         <span style="color: #f8f8f2">border_color</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">beautiful.border_normal,</span>
-                         <span style="color: #f8f8f2">focus</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">,</span>
-                         <span style="color: #f8f8f2">keys</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">clientkeys,</span>
-                         <span style="color: #f8f8f2">buttons</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">clientbuttons</span> <span style="color: #f8f8f2">}</span> <span style="color: #f8f8f2">},</span>
-    <span style="color: #f8f8f2">}</span>   
-    <span style="color: #75715e">-- }}}</span>
-<span style="color: #66d9ef">end</span>
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#66d9ef">if</span> screen.count() <span style="color:#f92672">==</span> <span style="color:#ae81ff">3</span> <span style="color:#66d9ef">then</span>
+    <span style="color:#75715e">-- Desktop/tags organization</span>
+    <span style="color:#75715e">-- {{{ Rules</span>
+    awful.rules.rules <span style="color:#f92672">=</span> { 
+        <span style="color:#75715e">-- All clients will match this rule.</span>
+        { rule <span style="color:#f92672">=</span> { },
+          properties <span style="color:#f92672">=</span> { border_width <span style="color:#f92672">=</span> beautiful.border_width,
+                         border_color <span style="color:#f92672">=</span> beautiful.border_normal,
+                         focus <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>,
+                         keys <span style="color:#f92672">=</span> clientkeys,
+                         buttons <span style="color:#f92672">=</span> clientbuttons } },
+        <span style="color:#75715e">-- Set Firefox to always map on tags number 2 of screen 1.</span>
+        { rule <span style="color:#f92672">=</span> { class <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Firefox&#34;</span> },  properties <span style="color:#f92672">=</span> { tag <span style="color:#f92672">=</span> tags[<span style="color:#ae81ff">2</span>][<span style="color:#ae81ff">1</span>] } },
+        { rule <span style="color:#f92672">=</span> { class <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Thunderbird&#34;</span> },  properties <span style="color:#f92672">=</span> { tag <span style="color:#f92672">=</span> tags[<span style="color:#ae81ff">3</span>][<span style="color:#ae81ff">1</span>] } },
+        { rule <span style="color:#f92672">=</span> { class <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Pidgin&#34;</span> },  properties <span style="color:#f92672">=</span> { tag <span style="color:#f92672">=</span> tags[<span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">4</span>], switchtotag <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span> } },
+    }   
+    <span style="color:#75715e">-- Launch those commands on startup</span>
+    run_once(<span style="color:#e6db74">&#34;thunderbird&#34;</span>)
+    run_once(<span style="color:#e6db74">&#34;firefox&#34;</span>)
+    run_once(<span style="color:#e6db74">&#34;pidgin&#34;</span>)
+<span style="color:#75715e">-- 1 screen, I&#39;m nomad</span>
+<span style="color:#66d9ef">elseif</span> screen.count() <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">then</span>
+    awful.util.spawn_with_shell(<span style="color:#e6db74">&#34;xrandr --output DP3 --off --output DP2 --off --output DP1 --off --output HDMI3 --off --output HDMI2 --off --output HDMI1 --off --output LVDS1 --mode 1600x900 --pos 0x0 --rotate normal --output VGA1 --off&#34;</span>)
+    <span style="color:#75715e">-- Desktop/tags organization</span>
+    <span style="color:#75715e">-- {{{ Rules</span>
+    awful.rules.rules <span style="color:#f92672">=</span> { 
+        <span style="color:#75715e">-- All clients will match this rule.</span>
+        { rule <span style="color:#f92672">=</span> { },
+          properties <span style="color:#f92672">=</span> { border_width <span style="color:#f92672">=</span> beautiful.border_width,
+                         border_color <span style="color:#f92672">=</span> beautiful.border_normal,
+                         focus <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>,
+                         keys <span style="color:#f92672">=</span> clientkeys,
+                         buttons <span style="color:#f92672">=</span> clientbuttons } },
+    }   
+    <span style="color:#75715e">-- }}}</span>
+<span style="color:#66d9ef">end</span></code></pre></div>
 
 <p>I&rsquo;ve added comments to get a better understanding on what each lines does, but the most important are :</p>
 
@@ -346,22 +343,24 @@ ga('send', 'pageview');
   <div class="post-actions-wrap">
       <nav >
         <ul class="post-actions post-action-nav">
+          
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2013/09/03/puppet-write-modulemanifests-faster/" data-tooltip="Puppet : write module/manifests faster">
               
-                <i class="fa fa-angle-left"></i>
-                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-              </a>
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2013/08/30/puppet-start-to-write-your-own-module/" data-tooltip="Puppet: start to write your own module">
               
-                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                <i class="fa fa-angle-right"></i>
-              </a>
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
             </li>
+          
         </ul>
       </nav>
     <ul class="post-actions post-action-share" >
@@ -371,6 +370,24 @@ ga('send', 'pageview');
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2013/09/01/awesome-autostart-app-on-boot-depending-on-connected-screens/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2013/09/01/awesome-autostart-app-on-boot-depending-on-connected-screens/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2013/09/01/awesome-autostart-app-on-boot-depending-on-connected-screens/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
         
       
       
@@ -402,7 +419,7 @@ ga('send', 'pageview');
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2017 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2018 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 
@@ -412,22 +429,24 @@ ga('send', 'pageview');
   <div class="post-actions-wrap">
       <nav >
         <ul class="post-actions post-action-nav">
+          
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2013/09/03/puppet-write-modulemanifests-faster/" data-tooltip="Puppet : write module/manifests faster">
               
-                <i class="fa fa-angle-left"></i>
-                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-              </a>
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2013/08/30/puppet-start-to-write-your-own-module/" data-tooltip="Puppet: start to write your own module">
               
-                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                <i class="fa fa-angle-right"></i>
-              </a>
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
             </li>
+          
         </ul>
       </nav>
     <ul class="post-actions post-action-share" >
@@ -437,6 +456,24 @@ ga('send', 'pageview');
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2013/09/01/awesome-autostart-app-on-boot-depending-on-connected-screens/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2013/09/01/awesome-autostart-app-on-boot-depending-on-connected-screens/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2013/09/01/awesome-autostart-app-on-boot-depending-on-connected-screens/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
         
       
       
@@ -462,6 +499,24 @@ ga('send', 'pageview');
   <i id="btn-close-shareoptions" class="fa fa-close"></i>
   <ul class="share-options">
     
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2013%2F09%2F01%2Fawesome-autostart-app-on-boot-depending-on-connected-screens%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2013%2F09%2F01%2Fawesome-autostart-app-on-boot-depending-on-connected-screens%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fblog.deimos.fr%2F2013%2F09%2F01%2Fawesome-autostart-app-on-boot-depending-on-connected-screens%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
   </ul>
 </div>
 <div id="share-options-mask" class="share-options-mask"></div>
@@ -481,7 +536,7 @@ ga('send', 'pageview');
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; Nousmotards Co-Founder
+        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
       </div>
     
     
@@ -512,6 +567,42 @@ ga('send', 'pageview');
       <div class="no-result text-color-light text-center">no post found</div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/">
+                <h3 class="media-heading">Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/">
+                <h3 class="media-heading">MySocialApp Create your own social network</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">If you follow me, you may know that I launched with friends Nousmotards social application a few years ago. The solution continue to grow in France with more than 70k bikers and that&rsquo;s a good point for all those riders :)
+Since we launched Nousmotards, several persons asked us: &ldquo;You&rsquo;ve made an amazing job for bikers, do you provide your social solution to any other communities or for enterprises?&rdquo;. The answer was: No we didn&rsquo;t.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -663,43 +754,6 @@ Today I am going to talk about our experience after having using it for 2 years 
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/">
-                <h3 class="media-heading">Docker: why you should use Monit instead of supervisord</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting Nousmotards infrastructure, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.
-Introduction Docker is made to run a process in a confined area.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/08/graphite-events-on-debian-jessie/">
-                <h3 class="media-heading">Graphite events on Debian jessie</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">I&rsquo;m using Graphite at work and for my Nousmotards project. For Nousmotards, I&rsquo;m using the Graphite version available in the default Debian Jessie repositories. This to avoid mismatch django dependencies etc&hellip;
-A few days ago, I wanted to try Graphite events to get something pretty cool in Grafana :
-This to be able to know when a new app version is deployed and make it easier to understand when an issue occurs.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -707,7 +761,7 @@ This to be able to know when a new app version is deployed and make it easier to
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         836 posts found
+         837 posts found
       </p>
     </div>
   </div>
@@ -720,26 +774,15 @@ This to be able to know when a new app version is deployed and make it easier to
 
 
     
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-IFHWFEbU2/+wNycDECKgjIRSirRNIDp2acEB5fvdVRU=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js" integrity="sha256-+mpyNVJsNt4rVXCw0F+pAOiB3YxmHgrbJsx4ecPuUaI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js" integrity="sha256-vMxgR/7FtLovVA+IPrR7+xTgIgARH7y9VZQnmmi0HDI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js" integrity="sha256-N0qFUh7/9vLvia87dDndewmsgsyYoNkdA212tPc+2NI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
 <script src="https://blog.deimos.fr/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
 
 
-<script>
-$(document).ready(function() {
-  hljs.configure({ classPrefix: '', useBR: false });
-  $('pre.code-highlight, pre > code').each(function(i, block) {
-    if (!$(this).hasClass('codeblock')) {
-      $(this).addClass('codeblock');
-    }
-    hljs.highlightBlock(block);
-  });
-});
-</script>
+
 
   
     

@@ -21,7 +21,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.26 with theme Tranquilpeak 0.4.0-BETA">
+    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
     <title>Deploy Kubernetes with Ansible</title>
     <meta name="author" content="Pierre Mavro / Deimosfr">
     <meta name="keywords" content="">
@@ -71,7 +71,7 @@ Why did I built it as other projects like Kargo already exists? I just wanted a 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-fpbzgxsy0kgmdvyrj5ykkg6ratccrk3gocmaqn4xpcjywmv5dteilzucro4f.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
     
     
       
@@ -255,7 +255,6 @@ ga('send', 'pageview');
     
   
 
-
   </div>
 
 </div>
@@ -283,484 +282,482 @@ ga('send', 'pageview');
 <p>If you want to know more on CoreOS installation with ansible, you can <a href="https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/" target="_blank">look at the previous post</a>.</p>
 
 <p>If you look at the configuration, it could looks like big, but in fact it&rsquo;s not so complicated if you&rsquo;re a little bit familiar with Kubernetes:
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #ae81ff">k8s_version</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;v1.5.1_coreos.0&#39;</span>
-<span style="color: #ae81ff">k8s_dashboard_version</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;1.5.0&#39;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">k8s_version: <span style="color:#e6db74">&#39;v1.5.1_coreos.0&#39;</span>
+k8s_dashboard_version: <span style="color:#e6db74">&#39;1.5.0&#39;</span>
 
-<span style="color: #75715e"># Master host will ideally be a network load balancer that sits in front of</span>
-<span style="color: #75715e"># them. Alternatively, a DNS name can be configured which will resolve to</span>
-<span style="color: #75715e"># the master IPs</span>
-<span style="color: #ae81ff">k8s_master_host</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;kub-master-host.myfqdn.com&#39;</span>
-<span style="color: #ae81ff">k8s_etcd_endpoints</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;http://{{</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">groups[&#39;k8s-masters&#39;]</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">|</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">map(&#39;extract&#39;,</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">hostvars,</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">[&#39;priv_ip&#39;])</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">|</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">join(&#39;:2379,http://&#39;)</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">}}:2379&quot;</span>
-<span style="color: #ae81ff">k8s_flanneld_subnet</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;10.1.0.0/16&quot;</span>
-<span style="color: #ae81ff">k8s_pod_network</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;10.2.0.0/16&#39;</span>
-<span style="color: #ae81ff">k8s_service_ip_range</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;10.3.0.0/24&#39;</span>
-<span style="color: #ae81ff">k8s_service_ip</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;10.3.0.1&#39;</span>
-<span style="color: #ae81ff">k8s_dns_service_ip</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;10.3.0.10&#39;</span>
-<span style="color: #ae81ff">k8s_cluster_domain</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;cluster.local&#39;</span>
-<span style="color: #ae81ff">k8s_kubectl_cluster_name</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;default-cluster&#39;</span>
+<span style="color:#75715e"># Master host will ideally be a network load balancer that sits in front of</span>
+<span style="color:#75715e"># them. Alternatively, a DNS name can be configured which will resolve to</span>
+<span style="color:#75715e"># the master IPs</span>
+k8s_master_host: <span style="color:#e6db74">&#39;kub-master-host.myfqdn.com&#39;</span>
+k8s_etcd_endpoints: <span style="color:#e6db74">&#34;http://{{ groups[&#39;k8s-masters&#39;] | map(&#39;extract&#39;, hostvars, [&#39;priv_ip&#39;]) | join(&#39;:2379,http://&#39;) }}:2379&#34;</span>
+k8s_flanneld_subnet: <span style="color:#e6db74">&#34;10.1.0.0/16&#34;</span>
+k8s_pod_network: <span style="color:#e6db74">&#39;10.2.0.0/16&#39;</span>
+k8s_service_ip_range: <span style="color:#e6db74">&#39;10.3.0.0/24&#39;</span>
+k8s_service_ip: <span style="color:#e6db74">&#39;10.3.0.1&#39;</span>
+k8s_dns_service_ip: <span style="color:#e6db74">&#39;10.3.0.10&#39;</span>
+k8s_cluster_domain: <span style="color:#e6db74">&#39;cluster.local&#39;</span>
+k8s_kubectl_cluster_name: <span style="color:#e6db74">&#39;default-cluster&#39;</span>
 
-<span style="color: #ae81ff">k8s_adverstise_ip</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{ansible_enp0s8.ipv4.address}}&quot;</span>
-<span style="color: #75715e"># Leave it blank if you&#39;re using flannel, otherwize use cni for Calico</span>
-<span style="color: #ae81ff">k8s_kublet_network_plugin</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;&#39;</span>
-<span style="color: #75715e"># Set to false by default because kubelet-wrapper will handle it</span>
-<span style="color: #ae81ff">k8s_restart_kubelet</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">false</span>
+k8s_adverstise_ip: <span style="color:#e6db74">&#34;{{ansible_enp0s8.ipv4.address}}&#34;</span>
+<span style="color:#75715e"># Leave it blank if you&#39;re using flannel, otherwize use cni for Calico</span>
+k8s_kublet_network_plugin: <span style="color:#e6db74">&#39;&#39;</span>
+<span style="color:#75715e"># Set to false by default because kubelet-wrapper will handle it</span>
+k8s_restart_kubelet: <span style="color:#66d9ef">false</span>
 
-<span style="color: #75715e"># SSL</span>
+<span style="color:#75715e"># SSL</span>
 
-<span style="color: #ae81ff">k8s_role_path</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;roles/deimosfr.coreos-kubernetes&quot;</span>
-<span style="color: #ae81ff">k8s_template_dir</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{k8s_role_path}}/templates&quot;</span>
-<span style="color: #ae81ff">k8s_ssl_local_path</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{k8s_role_path}}/files/ssl/{{k8s_kubectl_cluster_name}}&quot;</span>
-<span style="color: #ae81ff">k8s_ssl_api_server_path</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{k8s_ssl_local_path}}/api_servers&quot;</span>
-<span style="color: #ae81ff">k8s_ssl_workers_path</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{k8s_ssl_local_path}}/workers&quot;</span>
-<span style="color: #ae81ff">k8s_ssl_admin_path</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{k8s_ssl_local_path}}/admins&quot;</span>
+k8s_role_path: <span style="color:#e6db74">&#34;roles/deimosfr.coreos-kubernetes&#34;</span>
+k8s_template_dir: <span style="color:#e6db74">&#34;{{k8s_role_path}}/templates&#34;</span>
+k8s_ssl_local_path: <span style="color:#e6db74">&#34;{{k8s_role_path}}/files/ssl/{{k8s_kubectl_cluster_name}}&#34;</span>
+k8s_ssl_api_server_path: <span style="color:#e6db74">&#34;{{k8s_ssl_local_path}}/api_servers&#34;</span>
+k8s_ssl_workers_path: <span style="color:#e6db74">&#34;{{k8s_ssl_local_path}}/workers&#34;</span>
+k8s_ssl_admin_path: <span style="color:#e6db74">&#34;{{k8s_ssl_local_path}}/admins&#34;</span>
 
-<span style="color: #ae81ff">k8s_ssl_bytes_encrypt</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">2048</span>
-<span style="color: #ae81ff">k8s_ssl_ca_name</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;ca-key.pem&#39;</span>
-<span style="color: #ae81ff">k8s_ssl_ca_pem_key_name</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;ca.pem&#39;</span>
-<span style="color: #ae81ff">k8s_ssl_valid_days</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">10000</span>
-<span style="color: #ae81ff">k8s_ssl_ca_pem_subj</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;/CN=kube-ca&#39;</span>
+k8s_ssl_bytes_encrypt: <span style="color:#ae81ff">2048</span>
+k8s_ssl_ca_name: <span style="color:#e6db74">&#39;ca-key.pem&#39;</span>
+k8s_ssl_ca_pem_key_name: <span style="color:#e6db74">&#39;ca.pem&#39;</span>
+k8s_ssl_valid_days: <span style="color:#ae81ff">10000</span>
+k8s_ssl_ca_pem_subj: <span style="color:#e6db74">&#39;/CN=kube-ca&#39;</span>
 
-<span style="color: #ae81ff">k8s_ssl_apiserver_key_pem_name</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;apiserver-key.pem&#39;</span>
-<span style="color: #ae81ff">k8s_ssl_apiserver_csr_name</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;apiserver.csr&#39;</span>
-<span style="color: #ae81ff">k8s_ssl_apiserver_subj</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;/CN=kube-apiserver&#39;</span>
-<span style="color: #ae81ff">k8s_ssl_apiserver_pem_name</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;apiserver.pem&#39;</span>
-<span style="color: #ae81ff">k8s_ssl_apiserver_days</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">10000</span>
+k8s_ssl_apiserver_key_pem_name: <span style="color:#e6db74">&#39;apiserver-key.pem&#39;</span>
+k8s_ssl_apiserver_csr_name: <span style="color:#e6db74">&#39;apiserver.csr&#39;</span>
+k8s_ssl_apiserver_subj: <span style="color:#e6db74">&#39;/CN=kube-apiserver&#39;</span>
+k8s_ssl_apiserver_pem_name: <span style="color:#e6db74">&#39;apiserver.pem&#39;</span>
+k8s_ssl_apiserver_days: <span style="color:#ae81ff">10000</span>
 
-<span style="color: #ae81ff">k8s_openssl_config</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">req</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">req_extensions</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;v3_req&#39;</span>
-    <span style="color: #ae81ff">distinguished_name</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;req_distinguished_name&#39;</span>
-  <span style="color: #ae81ff">req_distinguished_name</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">v3_req</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">basicConstraints</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;CA:FALSE&#39;</span>
-    <span style="color: #ae81ff">keyUsage</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;nonRepudiation,</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">digitalSignature,</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">keyEncipherment&#39;</span>
-    <span style="color: #ae81ff">subjectAltName</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;@alt_names&#39;</span>
-  <span style="color: #ae81ff">alt_names</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">DNS</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">kubernetes</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">kubernetes.default</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">kubernetes.default.svc</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;kubernetes.default.svc.{{k8s_cluster_domain}}&quot;</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;*.myfqdn.com&quot;</span>
-    <span style="color: #75715e"># Do not fulfil IP of master nodes, they&#39;ll be automatically generated</span>
-    <span style="color: #75715e"># from k8s-masters group</span>
-    <span style="color: #ae81ff">IP</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;{{k8s_service_ip}}&quot;</span>
+k8s_openssl_config:
+  req:
+    req_extensions: <span style="color:#e6db74">&#39;v3_req&#39;</span>
+    distinguished_name: <span style="color:#e6db74">&#39;req_distinguished_name&#39;</span>
+  req_distinguished_name:
+  v3_req:
+    basicConstraints: <span style="color:#e6db74">&#39;CA:FALSE&#39;</span>
+    keyUsage: <span style="color:#e6db74">&#39;nonRepudiation, digitalSignature, keyEncipherment&#39;</span>
+    subjectAltName: <span style="color:#e6db74">&#39;@alt_names&#39;</span>
+  alt_names:
+    DNS:
+      - kubernetes
+      - kubernetes.default
+      - kubernetes.default.svc
+      - <span style="color:#e6db74">&#34;kubernetes.default.svc.{{k8s_cluster_domain}}&#34;</span>
+      - <span style="color:#e6db74">&#34;*.myfqdn.com&#34;</span>
+    <span style="color:#75715e"># Do not fulfil IP of master nodes, they&#39;ll be automatically generated</span>
+    <span style="color:#75715e"># from k8s-masters group</span>
+    IP:
+      - <span style="color:#e6db74">&#34;{{k8s_service_ip}}&#34;</span>
 
-<span style="color: #ae81ff">k8s_workers_openssl_config</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">req</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">req_extensions</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;v3_req&#39;</span>
-    <span style="color: #ae81ff">distinguished_name</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;req_distinguished_name&#39;</span>
-  <span style="color: #ae81ff">req_distinguished_name</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">v3_req</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">basicConstraints</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;CA:FALSE&#39;</span>
-    <span style="color: #ae81ff">keyUsage</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;nonRepudiation,</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">digitalSignature,</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">keyEncipherment&#39;</span>
-    <span style="color: #ae81ff">subjectAltName</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;@alt_names&#39;</span>
-  <span style="color: #75715e"># Do not fulfil alt_names, it will automatically be generated</span>
-  <span style="color: #ae81ff">alt_names</span><span style="color: #f8f8f2">:</span>
+k8s_workers_openssl_config:
+  req:
+    req_extensions: <span style="color:#e6db74">&#39;v3_req&#39;</span>
+    distinguished_name: <span style="color:#e6db74">&#39;req_distinguished_name&#39;</span>
+  req_distinguished_name:
+  v3_req:
+    basicConstraints: <span style="color:#e6db74">&#39;CA:FALSE&#39;</span>
+    keyUsage: <span style="color:#e6db74">&#39;nonRepudiation, digitalSignature, keyEncipherment&#39;</span>
+    subjectAltName: <span style="color:#e6db74">&#39;@alt_names&#39;</span>
+  <span style="color:#75715e"># Do not fulfil alt_names, it will automatically be generated</span>
+  alt_names:
 
-<span style="color: #ae81ff">k8s_kube_apiserver</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">apiVersion</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">v1</span>
-  <span style="color: #ae81ff">kind</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">Pod</span>
-  <span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-apiserver</span>
-    <span style="color: #ae81ff">namespace</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-system</span>
-  <span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">hostNetwork</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-    <span style="color: #ae81ff">containers</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-apiserver</span>
-      <span style="color: #ae81ff">image</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;quay.io/coreos/hyperkube:{{k8s_version}}&quot;</span>
-      <span style="color: #ae81ff">command</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">/hyperkube</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">apiserver</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--bind-address=0.0.0.0</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--etcd-servers={{k8s_etcd_endpoints}}</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--allow-privileged=true</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--service-cluster-ip-range={{k8s_service_ip_range}}</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--secure-port=443</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--advertise-address={{k8s_adverstise_ip}}</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--admission-control=NamespaceLifecycle,LimitRanger,ServiceAccount,DefaultStorageClass,ResourceQuota</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--tls-cert-file=/etc/kubernetes/ssl/{{k8s_ssl_apiserver_pem_name}}</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--tls-private-key-file=/etc/kubernetes/ssl/{{k8s_ssl_apiserver_key_pem_name}}</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--client-ca-file=/etc/kubernetes/ssl/{{k8s_ssl_ca_pem_key_name}}</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--service-account-key-file=/etc/kubernetes/ssl/{{k8s_ssl_apiserver_key_pem_name}}</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--runtime-config=extensions/v1beta1=true,extensions/v1beta1/networkpolicies=true</span>
-      <span style="color: #ae81ff">livenessProbe</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">httpGet</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #ae81ff">host</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">127.0.0.1</span>
-          <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8080</span>
-          <span style="color: #ae81ff">path</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/healthz</span>
-        <span style="color: #ae81ff">initialDelaySeconds</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">15</span>
-        <span style="color: #ae81ff">timeoutSeconds</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">15</span>
-      <span style="color: #ae81ff">ports</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">containerPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">443</span>
-        <span style="color: #ae81ff">hostPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">443</span>
-        <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">https</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">containerPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8080</span>
-        <span style="color: #ae81ff">hostPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8080</span>
-        <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">local</span>
-      <span style="color: #ae81ff">volumeMounts</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">mountPath</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/etc/kubernetes/ssl</span>
-        <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">ssl-certs-kubernetes</span>
-        <span style="color: #ae81ff">readOnly</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">mountPath</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/etc/ssl/certs</span>
-        <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">ssl-certs-host</span>
-        <span style="color: #ae81ff">readOnly</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-    <span style="color: #ae81ff">volumes</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">hostPath</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">path</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/etc/kubernetes/ssl</span>
-      <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">ssl-certs-kubernetes</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">hostPath</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">path</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/usr/share/ca-certificates</span>
-      <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">ssl-certs-host</span>
+k8s_kube_apiserver:
+  apiVersion: v<span style="color:#ae81ff">1</span>
+  kind: Pod
+  metadata:
+    name: kube-apiserver
+    namespace: kube-system
+  spec:
+    hostNetwork: <span style="color:#66d9ef">true</span>
+    containers:
+    - name: kube-apiserver
+      image: <span style="color:#e6db74">&#34;quay.io/coreos/hyperkube:{{k8s_version}}&#34;</span>
+      command:
+      - /hyperkube
+      - apiserver
+      - --bind-address=<span style="color:#ae81ff">0.0</span>.<span style="color:#ae81ff">0.0</span>
+      - --etcd-servers={{k8s_etcd_endpoints}}
+      - --allow-privileged=<span style="color:#66d9ef">true</span>
+      - --service-cluster-ip-range={{k8s_service_ip_range}}
+      - --secure-port=<span style="color:#ae81ff">443</span>
+      - --advertise-address={{k8s_adverstise_ip}}
+      - --admission-control=NamespaceLifecycle,LimitRanger,ServiceAccount,DefaultStorageClass,ResourceQuota
+      - --tls-cert-file=/etc/kubernetes/ssl/{{k8s_ssl_apiserver_pem_name}}
+      - --tls-private-key-file=/etc/kubernetes/ssl/{{k8s_ssl_apiserver_key_pem_name}}
+      - --client-ca-file=/etc/kubernetes/ssl/{{k8s_ssl_ca_pem_key_name}}
+      - --service-account-key-file=/etc/kubernetes/ssl/{{k8s_ssl_apiserver_key_pem_name}}
+      - --runtime-config=extensions/v1beta<span style="color:#ae81ff">1</span>=<span style="color:#66d9ef">true</span>,extensions/v1beta<span style="color:#ae81ff">1</span>/networkpolicies=<span style="color:#66d9ef">true</span>
+      livenessProbe:
+        httpGet:
+          host: <span style="color:#ae81ff">127.0</span>.<span style="color:#ae81ff">0.1</span>
+          port: <span style="color:#ae81ff">8080</span>
+          path: /healthz
+        initialDelaySeconds: <span style="color:#ae81ff">15</span>
+        timeoutSeconds: <span style="color:#ae81ff">15</span>
+      ports:
+      - containerPort: <span style="color:#ae81ff">443</span>
+        hostPort: <span style="color:#ae81ff">443</span>
+        name: https
+      - containerPort: <span style="color:#ae81ff">8080</span>
+        hostPort: <span style="color:#ae81ff">8080</span>
+        name: local
+      volumeMounts:
+      - mountPath: /etc/kubernetes/ssl
+        name: ssl-certs-kubernetes
+        readOnly: <span style="color:#66d9ef">true</span>
+      - mountPath: /etc/ssl/certs
+        name: ssl-certs-host
+        readOnly: <span style="color:#66d9ef">true</span>
+    volumes:
+    - hostPath:
+        path: /etc/kubernetes/ssl
+      name: ssl-certs-kubernetes
+    - hostPath:
+        path: /usr/share/ca-certificates
+      name: ssl-certs-host
 
-<span style="color: #ae81ff">k8s_kube_proxy_masters</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">apiVersion</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">v1</span>
-  <span style="color: #ae81ff">kind</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">Pod</span>
-  <span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-proxy</span>
-    <span style="color: #ae81ff">namespace</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-system</span>
-  <span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">hostNetwork</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-    <span style="color: #ae81ff">containers</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-proxy</span>
-      <span style="color: #ae81ff">image</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;quay.io/coreos/hyperkube:{{k8s_version}}&quot;</span>
-      <span style="color: #ae81ff">command</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">/hyperkube</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">proxy</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--master=http://127.0.0.1:8080</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--proxy-mode=iptables</span>
-      <span style="color: #ae81ff">securityContext</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">privileged</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-      <span style="color: #ae81ff">volumeMounts</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">mountPath</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/etc/ssl/certs</span>
-        <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">ssl-certs-host</span>
-        <span style="color: #ae81ff">readOnly</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-    <span style="color: #ae81ff">volumes</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">hostPath</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">path</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/usr/share/ca-certificates</span>
-      <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">ssl-certs-host</span>
+k8s_kube_proxy_masters:
+  apiVersion: v<span style="color:#ae81ff">1</span>
+  kind: Pod
+  metadata:
+    name: kube-proxy
+    namespace: kube-system
+  spec:
+    hostNetwork: <span style="color:#66d9ef">true</span>
+    containers:
+    - name: kube-proxy
+      image: <span style="color:#e6db74">&#34;quay.io/coreos/hyperkube:{{k8s_version}}&#34;</span>
+      command:
+      - /hyperkube
+      - proxy
+      - --master=http://<span style="color:#ae81ff">127.0</span>.<span style="color:#ae81ff">0.1</span>:<span style="color:#ae81ff">8080</span>
+      - --proxy-mode=iptables
+      securityContext:
+        privileged: <span style="color:#66d9ef">true</span>
+      volumeMounts:
+      - mountPath: /etc/ssl/certs
+        name: ssl-certs-host
+        readOnly: <span style="color:#66d9ef">true</span>
+    volumes:
+    - hostPath:
+        path: /usr/share/ca-certificates
+      name: ssl-certs-host
 
-<span style="color: #ae81ff">k8s_kube_proxy_workers</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">apiVersion</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">v1</span>
-  <span style="color: #ae81ff">kind</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">Pod</span>
-  <span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-proxy</span>
-    <span style="color: #ae81ff">namespace</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-system</span>
-  <span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">hostNetwork</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-    <span style="color: #ae81ff">containers</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-proxy</span>
-      <span style="color: #ae81ff">image</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;quay.io/coreos/hyperkube:{{k8s_version}}&quot;</span>
-      <span style="color: #ae81ff">command</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">/hyperkube</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">proxy</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--master=https://{{k8s_master_host}}</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--kubeconfig=/etc/kubernetes/worker-kubeconfig.yaml</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--proxy-mode=iptables</span>
-      <span style="color: #ae81ff">securityContext</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">privileged</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-      <span style="color: #ae81ff">volumeMounts</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">mountPath</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/etc/ssl/certs</span>
-          <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;ssl-certs&quot;</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">mountPath</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/etc/kubernetes/worker-kubeconfig.yaml</span>
-          <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;kubeconfig&quot;</span>
-          <span style="color: #ae81ff">readOnly</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">mountPath</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/etc/kubernetes/ssl</span>
-          <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;etc-kube-ssl&quot;</span>
-          <span style="color: #ae81ff">readOnly</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-    <span style="color: #ae81ff">volumes</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;ssl-certs&quot;</span>
-        <span style="color: #ae81ff">hostPath</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #ae81ff">path</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;/usr/share/ca-certificates&quot;</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;kubeconfig&quot;</span>
-        <span style="color: #ae81ff">hostPath</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #ae81ff">path</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;/etc/kubernetes/worker-kubeconfig.yaml&quot;</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;etc-kube-ssl&quot;</span>
-        <span style="color: #ae81ff">hostPath</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #ae81ff">path</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;/etc/kubernetes/ssl&quot;</span>
+k8s_kube_proxy_workers:
+  apiVersion: v<span style="color:#ae81ff">1</span>
+  kind: Pod
+  metadata:
+    name: kube-proxy
+    namespace: kube-system
+  spec:
+    hostNetwork: <span style="color:#66d9ef">true</span>
+    containers:
+    - name: kube-proxy
+      image: <span style="color:#e6db74">&#34;quay.io/coreos/hyperkube:{{k8s_version}}&#34;</span>
+      command:
+      - /hyperkube
+      - proxy
+      - --master=https://{{k8s_master_host}}
+      - --kubeconfig=/etc/kubernetes/worker-kubeconfig.yaml
+      - --proxy-mode=iptables
+      securityContext:
+        privileged: <span style="color:#66d9ef">true</span>
+      volumeMounts:
+        - mountPath: /etc/ssl/certs
+          name: <span style="color:#e6db74">&#34;ssl-certs&#34;</span>
+        - mountPath: /etc/kubernetes/worker-kubeconfig.yaml
+          name: <span style="color:#e6db74">&#34;kubeconfig&#34;</span>
+          readOnly: <span style="color:#66d9ef">true</span>
+        - mountPath: /etc/kubernetes/ssl
+          name: <span style="color:#e6db74">&#34;etc-kube-ssl&#34;</span>
+          readOnly: <span style="color:#66d9ef">true</span>
+    volumes:
+      - name: <span style="color:#e6db74">&#34;ssl-certs&#34;</span>
+        hostPath:
+          path: <span style="color:#e6db74">&#34;/usr/share/ca-certificates&#34;</span>
+      - name: <span style="color:#e6db74">&#34;kubeconfig&#34;</span>
+        hostPath:
+          path: <span style="color:#e6db74">&#34;/etc/kubernetes/worker-kubeconfig.yaml&#34;</span>
+      - name: <span style="color:#e6db74">&#34;etc-kube-ssl&#34;</span>
+        hostPath:
+          path: <span style="color:#e6db74">&#34;/etc/kubernetes/ssl&#34;</span>
 
-<span style="color: #ae81ff">k8s_kube_controller_manager</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">apiVersion</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">v1</span>
-  <span style="color: #ae81ff">kind</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">Pod</span>
-  <span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-controller-manager</span>
-    <span style="color: #ae81ff">namespace</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-system</span>
-  <span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">hostNetwork</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-    <span style="color: #ae81ff">containers</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-controller-manager</span>
-      <span style="color: #ae81ff">image</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;quay.io/coreos/hyperkube:{{k8s_version}}&quot;</span>
-      <span style="color: #ae81ff">command</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">/hyperkube</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">controller-manager</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--master=http://127.0.0.1:8080</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--leader-elect=true</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--service-account-private-key-file=/etc/kubernetes/ssl/{{k8s_ssl_apiserver_key_pem_name}}</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--root-ca-file=/etc/kubernetes/ssl/{{k8s_ssl_ca_pem_key_name}}</span>
-      <span style="color: #ae81ff">livenessProbe</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">httpGet</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #ae81ff">host</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">127.0.0.1</span>
-          <span style="color: #ae81ff">path</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/healthz</span>
-          <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">10252</span>
-        <span style="color: #ae81ff">initialDelaySeconds</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">15</span>
-        <span style="color: #ae81ff">timeoutSeconds</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1</span>
-      <span style="color: #ae81ff">volumeMounts</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">mountPath</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/etc/kubernetes/ssl</span>
-        <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">ssl-certs-kubernetes</span>
-        <span style="color: #ae81ff">readOnly</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">mountPath</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/etc/ssl/certs</span>
-        <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">ssl-certs-host</span>
-        <span style="color: #ae81ff">readOnly</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-    <span style="color: #ae81ff">volumes</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">hostPath</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">path</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/etc/kubernetes/ssl</span>
-      <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">ssl-certs-kubernetes</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">hostPath</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">path</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/usr/share/ca-certificates</span>
-      <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">ssl-certs-host</span>
+k8s_kube_controller_manager:
+  apiVersion: v<span style="color:#ae81ff">1</span>
+  kind: Pod
+  metadata:
+    name: kube-controller-manager
+    namespace: kube-system
+  spec:
+    hostNetwork: <span style="color:#66d9ef">true</span>
+    containers:
+    - name: kube-controller-manager
+      image: <span style="color:#e6db74">&#34;quay.io/coreos/hyperkube:{{k8s_version}}&#34;</span>
+      command:
+      - /hyperkube
+      - controller-manager
+      - --master=http://<span style="color:#ae81ff">127.0</span>.<span style="color:#ae81ff">0.1</span>:<span style="color:#ae81ff">8080</span>
+      - --leader-elect=<span style="color:#66d9ef">true</span>
+      - --service-account-private-key-file=/etc/kubernetes/ssl/{{k8s_ssl_apiserver_key_pem_name}}
+      - --root-ca-file=/etc/kubernetes/ssl/{{k8s_ssl_ca_pem_key_name}}
+      livenessProbe:
+        httpGet:
+          host: <span style="color:#ae81ff">127.0</span>.<span style="color:#ae81ff">0.1</span>
+          path: /healthz
+          port: <span style="color:#ae81ff">10252</span>
+        initialDelaySeconds: <span style="color:#ae81ff">15</span>
+        timeoutSeconds: <span style="color:#ae81ff">1</span>
+      volumeMounts:
+      - mountPath: /etc/kubernetes/ssl
+        name: ssl-certs-kubernetes
+        readOnly: <span style="color:#66d9ef">true</span>
+      - mountPath: /etc/ssl/certs
+        name: ssl-certs-host
+        readOnly: <span style="color:#66d9ef">true</span>
+    volumes:
+    - hostPath:
+        path: /etc/kubernetes/ssl
+      name: ssl-certs-kubernetes
+    - hostPath:
+        path: /usr/share/ca-certificates
+      name: ssl-certs-host
 
-<span style="color: #ae81ff">k8s_kube_scheduler</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">apiVersion</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">v1</span>
-  <span style="color: #ae81ff">kind</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">Pod</span>
-  <span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-scheduler</span>
-    <span style="color: #ae81ff">namespace</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-system</span>
-  <span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">hostNetwork</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-    <span style="color: #ae81ff">containers</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-scheduler</span>
-      <span style="color: #ae81ff">image</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;quay.io/coreos/hyperkube:{{k8s_version}}&quot;</span>
-      <span style="color: #ae81ff">command</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">/hyperkube</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">scheduler</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--master=http://127.0.0.1:8080</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--leader-elect=true</span>
-      <span style="color: #ae81ff">livenessProbe</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">httpGet</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #ae81ff">host</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">127.0.0.1</span>
-          <span style="color: #ae81ff">path</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/healthz</span>
-          <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">10251</span>
-        <span style="color: #ae81ff">initialDelaySeconds</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">15</span>
-        <span style="color: #ae81ff">timeoutSeconds</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1</span>
+k8s_kube_scheduler:
+  apiVersion: v<span style="color:#ae81ff">1</span>
+  kind: Pod
+  metadata:
+    name: kube-scheduler
+    namespace: kube-system
+  spec:
+    hostNetwork: <span style="color:#66d9ef">true</span>
+    containers:
+    - name: kube-scheduler
+      image: <span style="color:#e6db74">&#34;quay.io/coreos/hyperkube:{{k8s_version}}&#34;</span>
+      command:
+      - /hyperkube
+      - scheduler
+      - --master=http://<span style="color:#ae81ff">127.0</span>.<span style="color:#ae81ff">0.1</span>:<span style="color:#ae81ff">8080</span>
+      - --leader-elect=<span style="color:#66d9ef">true</span>
+      livenessProbe:
+        httpGet:
+          host: <span style="color:#ae81ff">127.0</span>.<span style="color:#ae81ff">0.1</span>
+          path: /healthz
+          port: <span style="color:#ae81ff">10251</span>
+        initialDelaySeconds: <span style="color:#ae81ff">15</span>
+        timeoutSeconds: <span style="color:#ae81ff">1</span>
 
-<span style="color: #ae81ff">k8s_worker_kubeconfig</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">apiVersion</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">v1</span>
-  <span style="color: #ae81ff">kind</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">Config</span>
-  <span style="color: #ae81ff">clusters</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">local</span>
-    <span style="color: #ae81ff">cluster</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">certificate-authority</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/etc/kubernetes/ssl/ca.pem</span>
-      <span style="color: #ae81ff">server</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;https://{{k8s_master_host}}:443&quot;</span>
-  <span style="color: #ae81ff">users</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kubelet</span>
-    <span style="color: #ae81ff">user</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">client-certificate</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/etc/kubernetes/ssl/worker.pem</span>
-      <span style="color: #ae81ff">client-key</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/etc/kubernetes/ssl/worker-key.pem</span>
-  <span style="color: #ae81ff">contexts</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">context</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">cluster</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">local</span>
-      <span style="color: #ae81ff">user</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kubelet</span>
-    <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kubelet-context</span>
-  <span style="color: #ae81ff">current-context</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kubelet-context</span>
+k8s_worker_kubeconfig:
+  apiVersion: v<span style="color:#ae81ff">1</span>
+  kind: Config
+  clusters:
+  - name: local
+    cluster:
+      certificate-authority: /etc/kubernetes/ssl/ca.pem
+      server: <span style="color:#e6db74">&#34;https://{{k8s_master_host}}:443&#34;</span>
+  users:
+  - name: kubelet
+    user:
+      client-certificate: /etc/kubernetes/ssl/worker.pem
+      client-key: /etc/kubernetes/ssl/worker-key.pem
+  contexts:
+  - context:
+      cluster: local
+      user: kubelet
+    name: kubelet-context
+  current-context: kubelet-context
 
-<span style="color: #75715e"># 3rd party apps</span>
+<span style="color:#75715e"># 3rd party apps</span>
 
-<span style="color: #ae81ff">k8s_dns_service</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">apiVersion</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">v1</span>
-  <span style="color: #ae81ff">kind</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">Service</span>
-  <span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-dns</span>
-    <span style="color: #ae81ff">namespace</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-system</span>
-    <span style="color: #ae81ff">labels</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">k8s-app</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-dns</span>
-      <span style="color: #ae81ff">kubernetes.io/cluster-service</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;true&quot;</span>
-      <span style="color: #ae81ff">kubernetes.io/name</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;KubeDNS&quot;</span>
-  <span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">selector</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">k8s-app</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-dns</span>
-    <span style="color: #ae81ff">clusterIP</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{k8s_dns_service_ip}}&quot;</span>
-    <span style="color: #ae81ff">ports</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">dns</span>
-      <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">53</span>
-      <span style="color: #ae81ff">protocol</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">UDP</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">dns-tcp</span>
-      <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">53</span>
-      <span style="color: #ae81ff">protocol</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">TCP</span>
+k8s_dns_service:
+  apiVersion: v<span style="color:#ae81ff">1</span>
+  kind: Service
+  metadata:
+    name: kube-dns
+    namespace: kube-system
+    labels:
+      k8s-app: kube-dns
+      kubernetes.io/cluster-service: <span style="color:#e6db74">&#34;true&#34;</span>
+      kubernetes.io/name: <span style="color:#e6db74">&#34;KubeDNS&#34;</span>
+  spec:
+    selector:
+      k8s-app: kube-dns
+    clusterIP: <span style="color:#e6db74">&#34;{{k8s_dns_service_ip}}&#34;</span>
+    ports:
+    - name: dns
+      port: <span style="color:#ae81ff">53</span>
+      protocol: UDP
+    - name: dns-tcp
+      port: <span style="color:#ae81ff">53</span>
+      protocol: TCP
 
-<span style="color: #ae81ff">k8s_dns_replication_controller</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">apiVersion</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">v1</span>
-  <span style="color: #ae81ff">kind</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">ReplicationController</span>
-  <span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-dns-v20</span>
-    <span style="color: #ae81ff">namespace</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-system</span>
-    <span style="color: #ae81ff">labels</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">k8s-app</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-dns</span>
-      <span style="color: #ae81ff">version</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">v20</span>
-      <span style="color: #ae81ff">kubernetes.io/cluster-service</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;true&quot;</span>
-  <span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">replicas</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1</span>
-    <span style="color: #ae81ff">selector</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">k8s-app</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-dns</span>
-      <span style="color: #ae81ff">version</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">v20</span>
-    <span style="color: #ae81ff">template</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">labels</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #ae81ff">k8s-app</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-dns</span>
-          <span style="color: #ae81ff">version</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">v20</span>
-        <span style="color: #ae81ff">annotations</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #ae81ff">scheduler.alpha.kubernetes.io/critical-pod</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;&#39;</span>
-          <span style="color: #ae81ff">scheduler.alpha.kubernetes.io/tolerations</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;[{&quot;key&quot;:&quot;CriticalAddonsOnly&quot;,</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">&quot;operator&quot;:&quot;Exists&quot;}]&#39;</span>
-      <span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">containers</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kubedns</span>
-          <span style="color: #ae81ff">image</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">gcr.io/google_containers/kubedns-amd64:1.9</span>
-          <span style="color: #ae81ff">resources</span><span style="color: #f8f8f2">:</span>
-            <span style="color: #ae81ff">limits</span><span style="color: #f8f8f2">:</span>
-              <span style="color: #ae81ff">memory</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">170Mi</span>
-            <span style="color: #ae81ff">requests</span><span style="color: #f8f8f2">:</span>
-              <span style="color: #ae81ff">cpu</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">100m</span>
-              <span style="color: #ae81ff">memory</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">70Mi</span>
-          <span style="color: #ae81ff">livenessProbe</span><span style="color: #f8f8f2">:</span>
-            <span style="color: #ae81ff">httpGet</span><span style="color: #f8f8f2">:</span>
-              <span style="color: #ae81ff">path</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/healthz-kubedns</span>
-              <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8080</span>
-              <span style="color: #ae81ff">scheme</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">HTTP</span>
-            <span style="color: #ae81ff">initialDelaySeconds</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">60</span>
-            <span style="color: #ae81ff">timeoutSeconds</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">5</span>
-            <span style="color: #ae81ff">successThreshold</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1</span>
-            <span style="color: #ae81ff">failureThreshold</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">5</span>
-          <span style="color: #ae81ff">readinessProbe</span><span style="color: #f8f8f2">:</span>
-            <span style="color: #ae81ff">httpGet</span><span style="color: #f8f8f2">:</span>
-              <span style="color: #ae81ff">path</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/readiness</span>
-              <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8081</span>
-              <span style="color: #ae81ff">scheme</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">HTTP</span>
-            <span style="color: #ae81ff">initialDelaySeconds</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">3</span>
-            <span style="color: #ae81ff">timeoutSeconds</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">5</span>
-          <span style="color: #ae81ff">args</span><span style="color: #f8f8f2">:</span>
-            <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;--domain={{k8s_cluster_domain}}.&quot;</span>
-            <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--dns-port=10053</span>
-          <span style="color: #ae81ff">ports</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">containerPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">10053</span>
-            <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">dns-local</span>
-            <span style="color: #ae81ff">protocol</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">UDP</span>
-          <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">containerPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">10053</span>
-            <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">dns-tcp-local</span>
-            <span style="color: #ae81ff">protocol</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">TCP</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">dnsmasq</span>
-          <span style="color: #ae81ff">image</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">gcr.io/google_containers/kube-dnsmasq-amd64:1.4</span>
-          <span style="color: #ae81ff">livenessProbe</span><span style="color: #f8f8f2">:</span>
-            <span style="color: #ae81ff">httpGet</span><span style="color: #f8f8f2">:</span>
-              <span style="color: #ae81ff">path</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/healthz-dnsmasq</span>
-              <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8080</span>
-              <span style="color: #ae81ff">scheme</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">HTTP</span>
-            <span style="color: #ae81ff">initialDelaySeconds</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">60</span>
-            <span style="color: #ae81ff">timeoutSeconds</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">5</span>
-            <span style="color: #ae81ff">successThreshold</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1</span>
-            <span style="color: #ae81ff">failureThreshold</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">5</span>
-          <span style="color: #ae81ff">args</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--cache-size=1000</span>
-          <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--no-resolv</span>
-          <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--server=127.0.0.1#10053</span>
-          <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--log-facility=-</span>
-          <span style="color: #ae81ff">ports</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">containerPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">53</span>
-            <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">dns</span>
-            <span style="color: #ae81ff">protocol</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">UDP</span>
-          <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">containerPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">53</span>
-            <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">dns-tcp</span>
-            <span style="color: #ae81ff">protocol</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">TCP</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">healthz</span>
-          <span style="color: #ae81ff">image</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">gcr.io/google_containers/exechealthz-amd64:1.2</span>
-          <span style="color: #ae81ff">resources</span><span style="color: #f8f8f2">:</span>
-            <span style="color: #ae81ff">limits</span><span style="color: #f8f8f2">:</span>
-              <span style="color: #ae81ff">memory</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">50Mi</span>
-            <span style="color: #ae81ff">requests</span><span style="color: #f8f8f2">:</span>
-              <span style="color: #ae81ff">cpu</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">10m</span>
-              <span style="color: #ae81ff">memory</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">50Mi</span>
-          <span style="color: #ae81ff">args</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;--cmd=nslookup</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">kubernetes.default.svc.{{k8s_cluster_domain}}</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">127.0.0.1</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">&gt;/dev/null&quot;</span>
-          <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--url=/healthz-dnsmasq</span>
-          <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;--cmd=nslookup</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">kubernetes.default.svc.{{k8s_cluster_domain}}</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">127.0.0.1:10053</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">&gt;/dev/null&quot;</span>
-          <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--url=/healthz-kubedns</span>
-          <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--port=8080</span>
-          <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--quiet</span>
-          <span style="color: #ae81ff">ports</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">containerPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8080</span>
-            <span style="color: #ae81ff">protocol</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">TCP</span>
-        <span style="color: #ae81ff">dnsPolicy</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">Default</span>
+k8s_dns_replication_controller:
+  apiVersion: v<span style="color:#ae81ff">1</span>
+  kind: ReplicationController
+  metadata:
+    name: kube-dns-v<span style="color:#ae81ff">20</span>
+    namespace: kube-system
+    labels:
+      k8s-app: kube-dns
+      version: v<span style="color:#ae81ff">20</span>
+      kubernetes.io/cluster-service: <span style="color:#e6db74">&#34;true&#34;</span>
+  spec:
+    replicas: <span style="color:#ae81ff">1</span>
+    selector:
+      k8s-app: kube-dns
+      version: v<span style="color:#ae81ff">20</span>
+    template:
+      metadata:
+        labels:
+          k8s-app: kube-dns
+          version: v<span style="color:#ae81ff">20</span>
+        annotations:
+          scheduler.alpha.kubernetes.io/critical-pod: <span style="color:#e6db74">&#39;&#39;</span>
+          scheduler.alpha.kubernetes.io/tolerations: <span style="color:#e6db74">&#39;[{&#34;key&#34;:&#34;CriticalAddonsOnly&#34;, &#34;operator&#34;:&#34;Exists&#34;}]&#39;</span>
+      spec:
+        containers:
+        - name: kubedns
+          image: gcr.io/google_containers/kubedns-amd<span style="color:#ae81ff">64</span>:<span style="color:#ae81ff">1.9</span>
+          resources:
+            limits:
+              memory: 170Mi
+            requests:
+              cpu: 100m
+              memory: 70Mi
+          livenessProbe:
+            httpGet:
+              path: /healthz-kubedns
+              port: <span style="color:#ae81ff">8080</span>
+              scheme: HTTP
+            initialDelaySeconds: <span style="color:#ae81ff">60</span>
+            timeoutSeconds: <span style="color:#ae81ff">5</span>
+            successThreshold: <span style="color:#ae81ff">1</span>
+            failureThreshold: <span style="color:#ae81ff">5</span>
+          readinessProbe:
+            httpGet:
+              path: /readiness
+              port: <span style="color:#ae81ff">8081</span>
+              scheme: HTTP
+            initialDelaySeconds: <span style="color:#ae81ff">3</span>
+            timeoutSeconds: <span style="color:#ae81ff">5</span>
+          args:
+            - <span style="color:#e6db74">&#34;--domain={{k8s_cluster_domain}}.&#34;</span>
+            - --dns-port=<span style="color:#ae81ff">10053</span>
+          ports:
+          - containerPort: <span style="color:#ae81ff">10053</span>
+            name: dns-local
+            protocol: UDP
+          - containerPort: <span style="color:#ae81ff">10053</span>
+            name: dns-tcp-local
+            protocol: TCP
+        - name: dnsmasq
+          image: gcr.io/google_containers/kube-dnsmasq-amd<span style="color:#ae81ff">64</span>:<span style="color:#ae81ff">1.4</span>
+          livenessProbe:
+            httpGet:
+              path: /healthz-dnsmasq
+              port: <span style="color:#ae81ff">8080</span>
+              scheme: HTTP
+            initialDelaySeconds: <span style="color:#ae81ff">60</span>
+            timeoutSeconds: <span style="color:#ae81ff">5</span>
+            successThreshold: <span style="color:#ae81ff">1</span>
+            failureThreshold: <span style="color:#ae81ff">5</span>
+          args:
+          - --cache-size=<span style="color:#ae81ff">1000</span>
+          - --no-resolv
+          - --server=<span style="color:#ae81ff">127.0</span>.<span style="color:#ae81ff">0.1</span><span style="color:#75715e">#10053</span>
+          - --log-facility=-
+          ports:
+          - containerPort: <span style="color:#ae81ff">53</span>
+            name: dns
+            protocol: UDP
+          - containerPort: <span style="color:#ae81ff">53</span>
+            name: dns-tcp
+            protocol: TCP
+        - name: healthz
+          image: gcr.io/google_containers/exechealthz-amd<span style="color:#ae81ff">64</span>:<span style="color:#ae81ff">1.2</span>
+          resources:
+            limits:
+              memory: 50Mi
+            requests:
+              cpu: 10m
+              memory: 50Mi
+          args:
+          - <span style="color:#e6db74">&#34;--cmd=nslookup kubernetes.default.svc.{{k8s_cluster_domain}} 127.0.0.1 &gt;/dev/null&#34;</span>
+          - --url=/healthz-dnsmasq
+          - <span style="color:#e6db74">&#34;--cmd=nslookup kubernetes.default.svc.{{k8s_cluster_domain}} 127.0.0.1:10053 &gt;/dev/null&#34;</span>
+          - --url=/healthz-kubedns
+          - --port=<span style="color:#ae81ff">8080</span>
+          - --quiet
+          ports:
+          - containerPort: <span style="color:#ae81ff">8080</span>
+            protocol: TCP
+        dnsPolicy: Default
 
-<span style="color: #ae81ff">k8s_dashboard_deployment</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">kind</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">Deployment</span>
-  <span style="color: #ae81ff">apiVersion</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">extensions/v1beta1</span>
-  <span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">labels</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">app</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kubernetes-dashboard</span>
-    <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kubernetes-dashboard</span>
-    <span style="color: #ae81ff">namespace</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-system</span>
-  <span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">replicas</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1</span>
-    <span style="color: #ae81ff">selector</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">matchLabels</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">app</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kubernetes-dashboard</span>
-    <span style="color: #ae81ff">template</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">labels</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #ae81ff">app</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kubernetes-dashboard</span>
-        <span style="color: #ae81ff">annotations</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #ae81ff">scheduler.alpha.kubernetes.io/tolerations</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">|</span>
-            <span style="color: #66d9ef">[</span>
-              <span style="color: #66d9ef">{</span>
-                <span style="color: #66d9ef">&quot;key&quot;: &quot;dedicated&quot;,</span>
-                <span style="color: #66d9ef">&quot;operator&quot;: &quot;Equal&quot;,</span>
-                <span style="color: #66d9ef">&quot;value&quot;: &quot;master&quot;,</span>
-                <span style="color: #66d9ef">&quot;effect&quot;: &quot;NoSchedule&quot;</span>
-              <span style="color: #66d9ef">}</span>
-            <span style="color: #66d9ef">]</span>
-      <span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">containers</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kubernetes-dashboard</span>
-          <span style="color: #ae81ff">image</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;gcr.io/google_containers/kubernetes-dashboard-amd64:v{{k8s_dashboard_version}}&quot;</span>
-          <span style="color: #ae81ff">imagePullPolicy</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">Always</span>
-          <span style="color: #ae81ff">resources</span><span style="color: #f8f8f2">:</span>
-            <span style="color: #ae81ff">limits</span><span style="color: #f8f8f2">:</span>
-              <span style="color: #ae81ff">cpu</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">100m</span>
-              <span style="color: #ae81ff">memory</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">50Mi</span>
-            <span style="color: #ae81ff">requests</span><span style="color: #f8f8f2">:</span>
-              <span style="color: #ae81ff">cpu</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">100m</span>
-              <span style="color: #ae81ff">memory</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">50Mi</span>
-          <span style="color: #ae81ff">ports</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">containerPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">9090</span>
-            <span style="color: #ae81ff">protocol</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">TCP</span>
-          <span style="color: #ae81ff">args</span><span style="color: #f8f8f2">:</span>
-            <span style="color: #75715e"># Uncomment the following line to manually specify Kubernetes API server Host</span>
-            <span style="color: #75715e"># If not specified, Dashboard will attempt to auto discover the API server and connect</span>
-            <span style="color: #75715e"># to it. Uncomment only if the default does not work.</span>
-            <span style="color: #75715e"># - --apiserver-host=http://my-address:port</span>
-          <span style="color: #ae81ff">livenessProbe</span><span style="color: #f8f8f2">:</span>
-            <span style="color: #ae81ff">httpGet</span><span style="color: #f8f8f2">:</span>
-              <span style="color: #ae81ff">path</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/</span>
-              <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">9090</span>
-            <span style="color: #ae81ff">initialDelaySeconds</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">30</span>
-            <span style="color: #ae81ff">timeoutSeconds</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">30</span>
+k8s_dashboard_deployment:
+  kind: Deployment
+  apiVersion: extensions/v1beta<span style="color:#ae81ff">1</span>
+  metadata:
+    labels:
+      app: kubernetes-dashboard
+    name: kubernetes-dashboard
+    namespace: kube-system
+  spec:
+    replicas: <span style="color:#ae81ff">1</span>
+    selector:
+      matchLabels:
+        app: kubernetes-dashboard
+    template:
+      metadata:
+        labels:
+          app: kubernetes-dashboard
+        annotations:
+          scheduler.alpha.kubernetes.io/tolerations: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">            [
+</span><span style="color:#e6db74">              {
+</span><span style="color:#e6db74">                &#34;key&#34;: &#34;dedicated&#34;,
+</span><span style="color:#e6db74">                &#34;operator&#34;: &#34;Equal&#34;,
+</span><span style="color:#e6db74">                &#34;value&#34;: &#34;master&#34;,
+</span><span style="color:#e6db74">                &#34;effect&#34;: &#34;NoSchedule&#34;
+</span><span style="color:#e6db74">              }
+</span><span style="color:#e6db74">            ]</span>
+      spec:
+        containers:
+        - name: kubernetes-dashboard
+          image: <span style="color:#e6db74">&#34;gcr.io/google_containers/kubernetes-dashboard-amd64:v{{k8s_dashboard_version}}&#34;</span>
+          imagePullPolicy: Always
+          resources:
+            limits:
+              cpu: 100m
+              memory: 50Mi
+            requests:
+              cpu: 100m
+              memory: 50Mi
+          ports:
+          - containerPort: <span style="color:#ae81ff">9090</span>
+            protocol: TCP
+          args:
+            <span style="color:#75715e"># Uncomment the following line to manually specify Kubernetes API server Host</span>
+            <span style="color:#75715e"># If not specified, Dashboard will attempt to auto discover the API server and connect</span>
+            <span style="color:#75715e"># to it. Uncomment only if the default does not work.</span>
+            <span style="color:#75715e"># - --apiserver-host=http://my-address:port</span>
+          livenessProbe:
+            httpGet:
+              path: /
+              port: <span style="color:#ae81ff">9090</span>
+            initialDelaySeconds: <span style="color:#ae81ff">30</span>
+            timeoutSeconds: <span style="color:#ae81ff">30</span>
 
-<span style="color: #ae81ff">k8s_dashboard_service</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">apiVersion</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">v1</span>
-  <span style="color: #ae81ff">kind</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">Service</span>
-  <span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kubernetes-dashboard</span>
-    <span style="color: #ae81ff">namespace</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-system</span>
-    <span style="color: #ae81ff">labels</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">k8s-app</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kubernetes-dashboard</span>
-      <span style="color: #ae81ff">kubernetes.io/cluster-service</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;true&quot;</span>
-  <span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">selector</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">k8s-app</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kubernetes-dashboard</span>
-    <span style="color: #ae81ff">ports</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">80</span>
-      <span style="color: #ae81ff">targetPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">9090</span>
-</pre></div>
-</p>
+k8s_dashboard_service:
+  apiVersion: v<span style="color:#ae81ff">1</span>
+  kind: Service
+  metadata:
+    name: kubernetes-dashboard
+    namespace: kube-system
+    labels:
+      k8s-app: kubernetes-dashboard
+      kubernetes.io/cluster-service: <span style="color:#e6db74">&#34;true&#34;</span>
+  spec:
+    selector:
+      k8s-app: kubernetes-dashboard
+    ports:
+    - port: <span style="color:#ae81ff">80</span>
+      targetPort: <span style="color:#ae81ff">9090</span></code></pre></div></p>
 
 <p>If you need more information with a Vagrant test, you can take a look at the repository and <a href="https://galaxy.ansible.com/deimosfr/coreos-kubernetes/" target="_blank">Ansible galaxy</a>.</p>
 
@@ -789,22 +786,24 @@ ga('send', 'pageview');
   <div class="post-actions-wrap">
       <nav >
         <ul class="post-actions post-action-nav">
+          
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/" data-tooltip="Kubernetes with Traefik and Let&#39;s Encrypt">
               
-                <i class="fa fa-angle-left"></i>
-                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-              </a>
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2017/04/18/blog-migrated-to-hugo-on-github/" data-tooltip="Blog migrated to Hugo on Github">
               
-                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                <i class="fa fa-angle-right"></i>
-              </a>
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
             </li>
+          
         </ul>
       </nav>
     <ul class="post-actions post-action-share" >
@@ -814,6 +813,24 @@ ga('send', 'pageview');
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
         
       
       
@@ -845,7 +862,7 @@ ga('send', 'pageview');
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2017 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2018 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 
@@ -855,22 +872,24 @@ ga('send', 'pageview');
   <div class="post-actions-wrap">
       <nav >
         <ul class="post-actions post-action-nav">
+          
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/" data-tooltip="Kubernetes with Traefik and Let&#39;s Encrypt">
               
-                <i class="fa fa-angle-left"></i>
-                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-              </a>
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2017/04/18/blog-migrated-to-hugo-on-github/" data-tooltip="Blog migrated to Hugo on Github">
               
-                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                <i class="fa fa-angle-right"></i>
-              </a>
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
             </li>
+          
         </ul>
       </nav>
     <ul class="post-actions post-action-share" >
@@ -880,6 +899,24 @@ ga('send', 'pageview');
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
         
       
       
@@ -905,6 +942,24 @@ ga('send', 'pageview');
   <i id="btn-close-shareoptions" class="fa fa-close"></i>
   <ul class="share-options">
     
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2017%2F04%2F18%2Fdeploy-kubernetes-with-ansible%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2017%2F04%2F18%2Fdeploy-kubernetes-with-ansible%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fblog.deimos.fr%2F2017%2F04%2F18%2Fdeploy-kubernetes-with-ansible%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
   </ul>
 </div>
 <div id="share-options-mask" class="share-options-mask"></div>
@@ -924,7 +979,7 @@ ga('send', 'pageview');
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; Nousmotards Co-Founder
+        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
       </div>
     
     
@@ -955,6 +1010,42 @@ ga('send', 'pageview');
       <div class="no-result text-color-light text-center">no post found</div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/">
+                <h3 class="media-heading">Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/">
+                <h3 class="media-heading">MySocialApp Create your own social network</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">If you follow me, you may know that I launched with friends Nousmotards social application a few years ago. The solution continue to grow in France with more than 70k bikers and that&rsquo;s a good point for all those riders :)
+Since we launched Nousmotards, several persons asked us: &ldquo;You&rsquo;ve made an amazing job for bikers, do you provide your social solution to any other communities or for enterprises?&rdquo;. The answer was: No we didn&rsquo;t.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -1106,43 +1197,6 @@ Today I am going to talk about our experience after having using it for 2 years 
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/">
-                <h3 class="media-heading">Docker: why you should use Monit instead of supervisord</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting Nousmotards infrastructure, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.
-Introduction Docker is made to run a process in a confined area.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/08/graphite-events-on-debian-jessie/">
-                <h3 class="media-heading">Graphite events on Debian jessie</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">I&rsquo;m using Graphite at work and for my Nousmotards project. For Nousmotards, I&rsquo;m using the Graphite version available in the default Debian Jessie repositories. This to avoid mismatch django dependencies etc&hellip;
-A few days ago, I wanted to try Graphite events to get something pretty cool in Grafana :
-This to be able to know when a new app version is deployed and make it easier to understand when an issue occurs.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -1150,7 +1204,7 @@ This to be able to know when a new app version is deployed and make it easier to
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         836 posts found
+         837 posts found
       </p>
     </div>
   </div>
@@ -1163,26 +1217,15 @@ This to be able to know when a new app version is deployed and make it easier to
 
 
     
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-IFHWFEbU2/+wNycDECKgjIRSirRNIDp2acEB5fvdVRU=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js" integrity="sha256-+mpyNVJsNt4rVXCw0F+pAOiB3YxmHgrbJsx4ecPuUaI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js" integrity="sha256-vMxgR/7FtLovVA+IPrR7+xTgIgARH7y9VZQnmmi0HDI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js" integrity="sha256-N0qFUh7/9vLvia87dDndewmsgsyYoNkdA212tPc+2NI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
 <script src="https://blog.deimos.fr/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
 
 
-<script>
-$(document).ready(function() {
-  hljs.configure({ classPrefix: '', useBR: false });
-  $('pre.code-highlight, pre > code').each(function(i, block) {
-    if (!$(this).hasClass('codeblock')) {
-      $(this).addClass('codeblock');
-    }
-    hljs.highlightBlock(block);
-  });
-});
-</script>
+
 
   
     

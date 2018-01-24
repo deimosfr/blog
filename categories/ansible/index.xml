@@ -52,7 +52,7 @@ At Nousmotards we have several Java Spring Boot applications running. Restarti
       <guid>https://blog.deimos.fr/2016/01/07/ansible-color-and-buffer-fix-on-jenkins/</guid>
       <description>Hi all ! Long time since last blog post ! I&amp;rsquo;m using Jenkins with Ansible on my Nousmotards project for building docker containers or deploying into production.
 You may noticed that you&amp;rsquo;ve no Ansible color when running it into Jenkins! The simple way to correct it is to export an environment variable in your Jenkins job:
-export ANSIBLE_FORCE_COLOR=true  Now that&amp;rsquo;s pretty cool! However, you may also noticed that there&amp;rsquo;s some kind of lags on the console when you want to see a real time console log on Jenkins.</description>
+export ANSIBLE_FORCE_COLOR=true Now that&amp;rsquo;s pretty cool! However, you may also noticed that there&amp;rsquo;s some kind of lags on the console when you want to see a real time console log on Jenkins.</description>
     </item>
     
     <item>
@@ -62,7 +62,7 @@ export ANSIBLE_FORCE_COLOR=true  Now that&amp;rsquo;s pretty cool! However, you 
       
       <guid>https://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/</guid>
       <description>As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:
-consul_template_version: &amp;#39;0.11.0&amp;#39; consul_template_arch: &amp;#39;linux_amd64&amp;#39; consul_template_http_src: &amp;quot;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&amp;quot;  You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
+consul_template_version: &amp;#39;0.11.0&amp;#39; consul_template_arch: &amp;#39;linux_amd64&amp;#39; consul_template_http_src: &amp;#34;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&amp;#34; You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
 I hope you&amp;rsquo;ll enjoy this new version :-)</description>
     </item>
     
@@ -100,7 +100,7 @@ If you&amp;rsquo;re a French biker, do not hesitate anymore!</description>
       <guid>https://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/</guid>
       <description>For a new project (will talk about it later), I needed to use Neo4J (graph database if you don&amp;rsquo;t know it yet).
 I tried to cover more features than the current existing Ansible roles available on Ansible Galaxy. More will come in the next weeks. I also tried to make it simple to install it and do not force dependencies at maximum. Here are parameters you can set:
-# Select neo4j version neo4j_package: neo4j # community version #neo4j_package: neo4j-advanced #neo4j_package: neo4j-enterprise # Neo4j spatial plugin neo4j_install_spatial: false neo4j_spatial_version: &amp;#39;0.</description>
+# Select neo4j version neo4j_package: neo4j # community version #neo4j_package: neo4j-advanced #neo4j_package: neo4j-enterprise  # Neo4j spatial plugin neo4j_install_spatial: false neo4j_spatial_version: &amp;#39;0.</description>
     </item>
     
     <item>
@@ -121,7 +121,7 @@ So I decided to upgrade my 2 personal servers to Jessie. But that wasn&amp;rsquo
       <guid>https://blog.deimos.fr/2015/01/22/packer-role-available-on-ansible-galaxy/</guid>
       <description>Packer is a really great solution to make an image in several formats (VirtualBox, Docker&amp;hellip;). I recently wanted to deploy it on a Jenkins server to automatically perform image build with the help of Packer.
 That&amp;rsquo;s why I&amp;rsquo;ve wrote a Packer role for Ansible really easy to use. You simply have to set (or let them by defaults) vars:
-# Packer version to install packer_version: &amp;#39;0.7.5&amp;#39; # Packer destination folder packer_destination: &amp;#39;/usr/bin&amp;#39;  It will install the desired version :-)</description>
+# Packer version to install packer_version: &amp;#39;0.7.5&amp;#39; # Packer destination folder packer_destination: &amp;#39;/usr/bin&amp;#39; It will install the desired version :-)</description>
     </item>
     
     <item>
@@ -245,8 +245,8 @@ I&amp;rsquo;m already using LXC on my home server and see the benefits for 8 mon
       
       <guid>https://blog.deimos.fr/2014/06/02/ansible-lxc-role-v1-1/</guid>
       <description>I&amp;rsquo;ve recently updated my LXC role for ansible. You can get it like that:
-ansible-galaxy install deimosfr.lxc  Here is the change log:
-+ Adding new parameters for dnsmasq and interfaces + Adding new prequesite to avoid unwanted modules to load in the latest kernel versions = Corrected networking configuration issue = Templates do not create @LOCALSTATEDIR@ folder anymore  It works perfectly on my new Dedibox :-)</description>
+ansible-galaxy install deimosfr.lxc Here is the change log:
++ Adding new parameters for dnsmasq and interfaces + Adding new prequesite to avoid unwanted modules to load in the latest kernel versions = Corrected networking configuration issue = Templates do not create @LOCALSTATEDIR@ folder anymore It works perfectly on my new Dedibox :-)</description>
     </item>
     
     <item>

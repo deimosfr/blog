@@ -17,7 +17,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.26 with theme Tranquilpeak 0.4.0-BETA">
+    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
     <title>Posts</title>
     <meta name="author" content="Pierre Mavro / Deimosfr">
     <meta name="keywords" content="">
@@ -28,15 +28,15 @@
     
 
     
-    <meta name="description" content="Hugo tranquilpeak theme demo">
-    <meta property="og:description" content="Hugo tranquilpeak theme demo">
+    <meta name="description" content="Deimos Blog">
+    <meta property="og:description" content="Deimos Blog">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="Posts">
     <meta property="og:url" content="/post/">
     <meta property="og:site_name" content="Deimosfr Blog">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Hugo tranquilpeak theme demo">
+    <meta name="twitter:description" content="Deimos Blog">
     
       <meta name="twitter:creator" content="@deimosfr">
     
@@ -61,7 +61,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-fpbzgxsy0kgmdvyrj5ykkg6ratccrk3gocmaqn4xpcjywmv5dteilzucro4f.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
     
     
       
@@ -225,6 +225,147 @@ ga('send', 'pageview');
     
     <div class="postShorten-header">
       <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/">
+          Zero downtime upgrade with Ansible and HAProxy
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2016-01-21T13:00:16Z">
+        
+  
+  
+  
+  
+    21 January 2016
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/ansible">Ansible</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/docker">Docker</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/ha">HA</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/nousmotards">Nousmotards</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      Some of you may not be familiar with the terms &ldquo;Rolling upgrade&rdquo; or &ldquo;Rolling restart&rdquo;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&rsquo;re managing and the number of active nodes in your cluster.
+At Nousmotards we have several Java Spring Boot applications running. Restarting one application can take up to 1 min.
+      <p>
+        <a href="https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_ansible.png"/>
+      </div>
+    </a>
+  
+</article>
+
+          
+            
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/20/how-we-speed-up-news-feed-and-user-wall-display-using-elasticsearch/">
+          Elasticsearch: How we speed up news feeds and user walls display
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2016-01-20T10:00:41Z">
+        
+  
+  
+  
+  
+    20 January 2016
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/developement">Developement</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/nousmotards">Nousmotards</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      &nbsp;
+In my previous post, I talked about how to speed up reads and writes coupling Redis with Neo4J. Now I want to share with you how it&rsquo;s possible to unload your server and use Elasticsearch to speed up news feed and user wall.
+1/ Show me your news feed A news feed is the main page of traditional social networks. Its main goal is to show you all recents updates from your friends and your interests.
+      <p>
+        <a href="https://blog.deimos.fr/2016/01/20/how-we-speed-up-news-feed-and-user-wall-display-using-elasticsearch/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2016/01/20/how-we-speed-up-news-feed-and-user-wall-display-using-elasticsearch/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_elasticsearch.png"/>
+      </div>
+    </a>
+  
+</article>
+
+          
+            
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
         <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/15/how-we-use-neo4j-on-our-social-network-and-workaround-performance-issues/">
           How we use Neo4J on our social network and workaround performance issues
         </a>
@@ -253,7 +394,6 @@ ga('send', 'pageview');
       <a class="category-link" href="https://blog.deimos.fr/categories/nousmotards">Nousmotards</a>
     
   
-
 
   </div>
 
@@ -322,7 +462,6 @@ Today I am going to talk about our experience after having using it for 2 years 
     
   
 
-
   </div>
 
     </div>
@@ -388,7 +527,6 @@ Introduction Docker is made to run a process in a confined area.
       <a class="category-link" href="https://blog.deimos.fr/categories/nousmotards">Nousmotards</a>
     
   
-
 
   </div>
 
@@ -459,14 +597,13 @@ This to be able to know when a new app version is deployed and make it easier to
     
   
 
-
   </div>
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
       Hi all ! Long time since last blog post ! I&rsquo;m using Jenkins with Ansible on my Nousmotards project for building docker containers or deploying into production.
 You may noticed that you&rsquo;ve no Ansible color when running it into Jenkins! The simple way to correct it is to export an environment variable in your Jenkins job:
-export ANSIBLE_FORCE_COLOR=true  Now that&rsquo;s pretty cool! However, you may also noticed that there&rsquo;s some kind of lags on the console when you want to see a real time console log on Jenkins.
+export ANSIBLE_FORCE_COLOR=true Now that&rsquo;s pretty cool! However, you may also noticed that there&rsquo;s some kind of lags on the console when you want to see a real time console log on Jenkins.
       <p>
         <a href="https://blog.deimos.fr/2016/01/07/ansible-color-and-buffer-fix-on-jenkins/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -533,13 +670,12 @@ export ANSIBLE_FORCE_COLOR=true  Now that&rsquo;s pretty cool! However, you may 
     
   
 
-
   </div>
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
       As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:
-consul_template_version: &#39;0.11.0&#39; consul_template_arch: &#39;linux_amd64&#39; consul_template_http_src: &quot;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&quot;  You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
+consul_template_version: &#39;0.11.0&#39; consul_template_arch: &#39;linux_amd64&#39; consul_template_http_src: &#34;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&#34; You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
 I hope you&rsquo;ll enjoy this new version :-)
       <p>
         <a href="https://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/" class="postShorten-excerpt_link link">Continue reading</a>
@@ -557,196 +693,26 @@ I hope you&rsquo;ll enjoy this new version :-)
 </article>
 
           
-            
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/">
-          Ansible Meetup done! Watch again the slides
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2015-09-15T21:56:06Z">
-        
-  
-  
-  
-  
-    15 September 2015
-  
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/ansible">Ansible</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/cloud">Cloud</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/databases">Databases</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/docker">Docker</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/events">Events</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/git">Git</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/ha">HA</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/lxc">LXC</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/nosql">NoSQL</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/nousmotards">Nousmotards</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/others">Others</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/private-life">Private life</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/sql">SQL</a>
-    
-  
-
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      The Ansible meetup ended ! That was really nice for my first one.
-I had really great feedbacks and liked the questions when ended. More than that I met nice people after the meetup and could have interresting discussions :-). I&rsquo;m really happy about it.
-For those who would like to review the slides, you can find them here:
-http://nousmotards.github.io/ansible-meetup-0915/
-If you want to watch the video:
-http://www.infoq.com/fr/presentations/reseau-social-motard
-or view the PDF version here:
-      <p>
-        <a href="https://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_meetup.png"/>
-      </div>
-    </a>
-  
-</article>
-
-          
-            
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://blog.deimos.fr/2015/09/11/ansible-meetup-with-nousmotards-in-paris/">
-          Ansible Meetup with Nousmotards in Paris!!!
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2015-09-11T20:02:01Z">
-        
-  
-  
-  
-  
-    11 September 2015
-  
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/ansible">Ansible</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/events">Events</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/nousmotards">Nousmotards</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/others">Others</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/private-life">Private life</a>
-    
-  
-
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      A long long time since my last blog post ! I didn&rsquo;t had the time to make one because of the time I spent on building Nousmotards infrastructure.
-If you&rsquo;re interested in how I built the infrastructure, come and see us on the Ansible Meetup next Tuesday 😉 The slides and video of the Meetup will be made and available on InfoQ.
-If you&rsquo;re a French biker, do not hesitate anymore!
-      <p>
-        <a href="https://blog.deimos.fr/2015/09/11/ansible-meetup-with-nousmotards-in-paris/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://blog.deimos.fr/2015/09/11/ansible-meetup-with-nousmotards-in-paris/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_nm.png"/>
-      </div>
-    </a>
-  
-</article>
-
-          
           
   <div class="pagination-bar">
     <ul class="pagination">
       
-        <li class="pagination-prev">
-          <a class="btn btn--default btn--small" href="https://blog.deimos.fr/post/">
-            <i class="fa fa-angle-left text-base icon-mr"></i>
-            <span>NEWER POSTS</span>
-          </a>
-        </li>
-      
-      
-        <li class="pagination-next">
-          <a class="btn btn--default btn--small" href="https://blog.deimos.fr/post/page/3/">
-            <span>OLDER POSTS</span>
-            <i class="fa fa-angle-right text-base icon-ml"></i>
-          </a>
-        </li>
+        
+          <li class="pagination-prev">
+            <a class="btn btn--default btn--small" href="https://blog.deimos.fr/post/">
+              <i class="fa fa-angle-left text-base icon-mr"></i>
+              <span>NEWER POSTS</span>
+            </a>
+          </li>
+        
+        
+          <li class="pagination-next">
+            <a class="btn btn--default btn--small" href="https://blog.deimos.fr/post/page/3/">
+              <span>OLDER POSTS</span>
+              <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+          </li>
+        
       
       <li class="pagination-number">page 2 of 120</li>
     </ul>
@@ -756,7 +722,7 @@ If you&rsquo;re a French biker, do not hesitate anymore!
         </section>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2017 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2018 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 
@@ -777,7 +743,7 @@ If you&rsquo;re a French biker, do not hesitate anymore!
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; Nousmotards Co-Founder
+        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
       </div>
     
     
@@ -808,6 +774,42 @@ If you&rsquo;re a French biker, do not hesitate anymore!
       <div class="no-result text-color-light text-center">no post found</div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/">
+                <h3 class="media-heading">Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/">
+                <h3 class="media-heading">MySocialApp Create your own social network</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">If you follow me, you may know that I launched with friends Nousmotards social application a few years ago. The solution continue to grow in France with more than 70k bikers and that&rsquo;s a good point for all those riders :)
+Since we launched Nousmotards, several persons asked us: &ldquo;You&rsquo;ve made an amazing job for bikers, do you provide your social solution to any other communities or for enterprises?&rdquo;. The answer was: No we didn&rsquo;t.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -959,43 +961,6 @@ Today I am going to talk about our experience after having using it for 2 years 
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/">
-                <h3 class="media-heading">Docker: why you should use Monit instead of supervisord</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting Nousmotards infrastructure, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.
-Introduction Docker is made to run a process in a confined area.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/08/graphite-events-on-debian-jessie/">
-                <h3 class="media-heading">Graphite events on Debian jessie</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">I&rsquo;m using Graphite at work and for my Nousmotards project. For Nousmotards, I&rsquo;m using the Graphite version available in the default Debian Jessie repositories. This to avoid mismatch django dependencies etc&hellip;
-A few days ago, I wanted to try Graphite events to get something pretty cool in Grafana :
-This to be able to know when a new app version is deployed and make it easier to understand when an issue occurs.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -1003,7 +968,7 @@ This to be able to know when a new app version is deployed and make it easier to
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         836 posts found
+         837 posts found
       </p>
     </div>
   </div>
@@ -1016,26 +981,15 @@ This to be able to know when a new app version is deployed and make it easier to
 
 
     
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-IFHWFEbU2/+wNycDECKgjIRSirRNIDp2acEB5fvdVRU=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js" integrity="sha256-+mpyNVJsNt4rVXCw0F+pAOiB3YxmHgrbJsx4ecPuUaI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js" integrity="sha256-vMxgR/7FtLovVA+IPrR7+xTgIgARH7y9VZQnmmi0HDI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js" integrity="sha256-N0qFUh7/9vLvia87dDndewmsgsyYoNkdA212tPc+2NI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
 <script src="https://blog.deimos.fr/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
 
 
-<script>
-$(document).ready(function() {
-  hljs.configure({ classPrefix: '', useBR: false });
-  $('pre.code-highlight, pre > code').each(function(i, block) {
-    if (!$(this).hasClass('codeblock')) {
-      $(this).addClass('codeblock');
-    }
-    hljs.highlightBlock(block);
-  });
-});
-</script>
+
 
 
 

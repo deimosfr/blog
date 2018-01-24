@@ -21,7 +21,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.26 with theme Tranquilpeak 0.4.0-BETA">
+    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
     <title>Generate changelog from git commits and integrate with Sphinxdoc</title>
     <meta name="author" content="Pierre Mavro / Deimosfr">
     <meta name="keywords" content="">
@@ -65,7 +65,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-fpbzgxsy0kgmdvyrj5ykkg6ratccrk3gocmaqn4xpcjywmv5dteilzucro4f.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
     
     
       
@@ -255,7 +255,6 @@ ga('send', 'pageview');
     
   
 
-
   </div>
 
 </div>
@@ -275,65 +274,63 @@ For another personal project (that I can&rsquo;t talk about for the moment ;-)),
 
 <p>A few weeks ago, I watched <a href="http://www.infoq.com/fr/presentations/git-niveau-superieur-gestion-version" target="_blank">a video on a Meetup about how to level up with git</a> (one of the best practices and why). After adopting and adapting a bit this, I decided to have commits comments format like that:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e">##</span>
-<span style="color: #75715e">## Format</span>
-<span style="color: #75715e">##</span>
-<span style="color: #75715e">##   ACTION(TOPIC): COMMIT_MSG #TICKET_NUM [!TAG ...]</span>
-<span style="color: #75715e">##</span>
-<span style="color: #75715e">## Description</span>
-<span style="color: #75715e">##</span>
-<span style="color: #75715e">##   ACTION is one of &#39;feat&#39;, &#39;fix&#39;, &#39;refactor&#39;, &#39;chore&#39;, &#39;test&#39;, &#39;style&#39;, &#39;docs&#39;</span>
-<span style="color: #75715e">##</span>
-<span style="color: #75715e">##       Is WHAT the change is about.</span>
-<span style="color: #75715e">##</span>
-<span style="color: #75715e">##       &#39;feat&#39; is for new features, big improvement</span>
-<span style="color: #75715e">##       &#39;fix&#39; is for bug fixes</span>
-<span style="color: #75715e">##       &#39;refactor&#39; is for code refactoring, without any visual user change</span>
-<span style="color: #75715e">##       &#39;chore&#39; is for any else but the app</span>
-<span style="color: #75715e">##       &#39;test&#39; is for any kind of tests (functionnal, unitary...)</span>
-<span style="color: #75715e">##       &#39;style&#39; is for cosmetic changes (spaces vs tab...)</span>
-<span style="color: #75715e">##       &#39;docs&#39; is for documentation</span>
-<span style="color: #75715e">##</span>
-<span style="color: #75715e">##   TOPIC is optional and to specify the part on the app you&#39;re working on</span>
-<span style="color: #75715e">##</span>
-<span style="color: #75715e">##       Is WHO is concerned by the change.</span>
-<span style="color: #75715e">##</span>
-<span style="color: #75715e">##       &#39;dev&#39;  is for developpers (API changes, refactors...)</span>
-<span style="color: #75715e">##       &#39;usr&#39;  is for final users (UI changes)</span>
-<span style="color: #75715e">##       &#39;pkg&#39;  is for packagers   (packaging changes)</span>
-<span style="color: #75715e">##       &#39;test&#39; is for testers     (test only related changes)</span>
-<span style="color: #75715e">##</span>
-<span style="color: #75715e">##   COMMIT_MSG is ... well ... the commit message itself.</span>
-<span style="color: #75715e">##</span>
-<span style="color: #75715e">##   #TICKET_NUM is the ticket number associated</span>
-<span style="color: #75715e">##</span>
-<span style="color: #75715e">##      If you don&#39;t want to specify a ticket number, use:</span>
-<span style="color: #75715e">##</span>
-<span style="color: #75715e">##      &#39;#noticket&#39; or</span>
-<span style="color: #75715e">##      &#39;#nt&#39;</span>
-<span style="color: #75715e">##</span>
-<span style="color: #75715e">##   TAGs are additionnal adjective as &#39;refactor&#39; &#39;minor&#39; &#39;cosmetic&#39;</span>
-<span style="color: #75715e">##</span>
-<span style="color: #75715e">##       They are preceded with a &#39;!&#39; or a &#39;@&#39; (prefer the former, as the</span>
-<span style="color: #75715e">##       latter is wrongly interpreted in github.) Commonly used tags are:</span>
-<span style="color: #75715e">##</span>
-<span style="color: #75715e">##       &#39;refactor&#39; is obviously for refactoring code only</span>
-<span style="color: #75715e">##       &#39;minor&#39; is for a very meaningless change (a typo, adding a comment)</span>
-<span style="color: #75715e">##       &#39;cosmetic&#39; is for cosmetic driven change (re-indentation, 80-col...)</span>
-<span style="color: #75715e">##       &#39;wip&#39; is for partial functionality but complete subfunctionality.</span>
-<span style="color: #75715e">##</span>
-<span style="color: #75715e">## Example:</span>
-<span style="color: #75715e">##</span>
-<span style="color: #75715e">##   feat(ansible): adding configuration with common roles #INF-4</span>
-<span style="color: #75715e">##   fix(docker): disabling systemd and installing sysvinit #noticket</span>
-<span style="color: #75715e">##   docs(): removing unwanted files on the doc #noticket</span>
-<span style="color: #75715e">##</span>
-<span style="color: #75715e">##   Please note that multi-line commit message are supported, and only the</span>
-<span style="color: #75715e">##   first line will be considered as the &quot;summary&quot; of the commit message. So</span>
-<span style="color: #75715e">##   tags, and other rules only applies to the summary.  The body of the commit</span>
-<span style="color: #75715e">##   message will be displayed in the changelog without reformatting.</span>
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">##
+</span><span style="color:#75715e">## Format
+</span><span style="color:#75715e">##
+</span><span style="color:#75715e">##   ACTION(TOPIC): COMMIT_MSG #TICKET_NUM [!TAG ...]
+</span><span style="color:#75715e">##
+</span><span style="color:#75715e">## Description
+</span><span style="color:#75715e">##
+</span><span style="color:#75715e">##   ACTION is one of &#39;feat&#39;, &#39;fix&#39;, &#39;refactor&#39;, &#39;chore&#39;, &#39;test&#39;, &#39;style&#39;, &#39;docs&#39;
+</span><span style="color:#75715e">##
+</span><span style="color:#75715e">##       Is WHAT the change is about.
+</span><span style="color:#75715e">##
+</span><span style="color:#75715e">##       &#39;feat&#39; is for new features, big improvement
+</span><span style="color:#75715e">##       &#39;fix&#39; is for bug fixes
+</span><span style="color:#75715e">##       &#39;refactor&#39; is for code refactoring, without any visual user change
+</span><span style="color:#75715e">##       &#39;chore&#39; is for any else but the app
+</span><span style="color:#75715e">##       &#39;test&#39; is for any kind of tests (functionnal, unitary...)
+</span><span style="color:#75715e">##       &#39;style&#39; is for cosmetic changes (spaces vs tab...)
+</span><span style="color:#75715e">##       &#39;docs&#39; is for documentation
+</span><span style="color:#75715e">##
+</span><span style="color:#75715e">##   TOPIC is optional and to specify the part on the app you&#39;re working on
+</span><span style="color:#75715e">##
+</span><span style="color:#75715e">##       Is WHO is concerned by the change.
+</span><span style="color:#75715e">##
+</span><span style="color:#75715e">##       &#39;dev&#39;  is for developpers (API changes, refactors...)
+</span><span style="color:#75715e">##       &#39;usr&#39;  is for final users (UI changes)
+</span><span style="color:#75715e">##       &#39;pkg&#39;  is for packagers   (packaging changes)
+</span><span style="color:#75715e">##       &#39;test&#39; is for testers     (test only related changes)
+</span><span style="color:#75715e">##
+</span><span style="color:#75715e">##   COMMIT_MSG is ... well ... the commit message itself.
+</span><span style="color:#75715e">##
+</span><span style="color:#75715e">##   #TICKET_NUM is the ticket number associated
+</span><span style="color:#75715e">##
+</span><span style="color:#75715e">##      If you don&#39;t want to specify a ticket number, use:
+</span><span style="color:#75715e">##
+</span><span style="color:#75715e">##      &#39;#noticket&#39; or
+</span><span style="color:#75715e">##      &#39;#nt&#39;
+</span><span style="color:#75715e">##
+</span><span style="color:#75715e">##   TAGs are additionnal adjective as &#39;refactor&#39; &#39;minor&#39; &#39;cosmetic&#39;
+</span><span style="color:#75715e">##
+</span><span style="color:#75715e">##       They are preceded with a &#39;!&#39; or a &#39;@&#39; (prefer the former, as the
+</span><span style="color:#75715e">##       latter is wrongly interpreted in github.) Commonly used tags are:
+</span><span style="color:#75715e">##
+</span><span style="color:#75715e">##       &#39;refactor&#39; is obviously for refactoring code only
+</span><span style="color:#75715e">##       &#39;minor&#39; is for a very meaningless change (a typo, adding a comment)
+</span><span style="color:#75715e">##       &#39;cosmetic&#39; is for cosmetic driven change (re-indentation, 80-col...)
+</span><span style="color:#75715e">##       &#39;wip&#39; is for partial functionality but complete subfunctionality.
+</span><span style="color:#75715e">##
+</span><span style="color:#75715e">## Example:
+</span><span style="color:#75715e">##
+</span><span style="color:#75715e">##   feat(ansible): adding configuration with common roles #INF-4
+</span><span style="color:#75715e">##   fix(docker): disabling systemd and installing sysvinit #noticket
+</span><span style="color:#75715e">##   docs(): removing unwanted files on the doc #noticket
+</span><span style="color:#75715e">##
+</span><span style="color:#75715e">##   Please note that multi-line commit message are supported, and only the
+</span><span style="color:#75715e">##   first line will be considered as the &#34;summary&#34; of the commit message. So
+</span><span style="color:#75715e">##   tags, and other rules only applies to the summary.  The body of the commit
+</span><span style="color:#75715e"></span>##   message will be displayed in the changelog without reformatting.</code></pre></div>
 
 <p>With this kind of comments, I was able to generate something to help me to build the Changelog. In the same video, they were talking about a custom Ruby script which cloud do the job. However a big part of my tools and infrastructure are written in Python and wanted to have a maintained tool in Python to do it.</p>
 
@@ -343,50 +340,48 @@ For another personal project (that I can&rsquo;t talk about for the moment ;-)),
 
 <p>So I adapted the configuration (.gitchangelog.rc) to make it work with the wished log format. The configuration looks like this:</p>
 
-<p><div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e"># Ignore comments</span>
-<span style="color: #f8f8f2">ignore_regexps</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[</span>
-        <span style="color: #e6db74">r&#39;@minor&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">r&#39;!minor&#39;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">r&#39;@cosmetic&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">r&#39;!cosmetic&#39;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">r&#39;@refactor&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">r&#39;!refactor&#39;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">r&#39;@wip&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">r&#39;!wip&#39;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">r&#39;^(.{3,3}\s*:)?\s*[fF]irst commit.?\s*$&#39;</span><span style="color: #f8f8f2">,</span>
-  <span style="color: #f8f8f2">]</span>
-<span style="color: #75715e"># Detect sections</span>
-<span style="color: #f8f8f2">section_regexps</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[</span>
-    <span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;New features&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">[</span>
-    <span style="color: #e6db74">r&#39;^[fF]eat(\(.*\)?):.+([^\n]*)$&#39;</span><span style="color: #f8f8f2">,</span>
-     <span style="color: #f8f8f2">]),</span>
-    <span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;Fix&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">[</span>
-    <span style="color: #e6db74">r&#39;^[Ff]ix(\(\w*\)?):.+([^\n]*)$&#39;</span><span style="color: #f8f8f2">,</span>
-     <span style="color: #f8f8f2">]),</span>
-    <span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;Refactor&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">[</span>
-    <span style="color: #e6db74">r&#39;^[Rr]efactor(\(\w*\)?):.+([^\n]*)$&#39;</span><span style="color: #f8f8f2">,</span>
-     <span style="color: #f8f8f2">]),</span>
-    <span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;Documentation&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">[</span>
-    <span style="color: #e6db74">r&#39;^[Dd]ocs?(\(\w*\)?):.+([^\n]*)$&#39;</span><span style="color: #f8f8f2">,</span>
-     <span style="color: #f8f8f2">]),</span>
-    <span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;Other&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">None</span> <span style="color: #75715e">## Match all lines</span>
-     <span style="color: #f8f8f2">),</span>
-<span style="color: #f8f8f2">]</span>
-<span style="color: #75715e"># Rewrite body</span>
-<span style="color: #f8f8f2">body_process</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(ReSub(</span><span style="color: #e6db74">r&#39;.*&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">|</span>
-                <span style="color: #f8f8f2">ReSub(</span><span style="color: #e6db74">r&#39;^(\n|\r)$&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;&#39;</span><span style="color: #f8f8f2">))</span>
-<span style="color: #75715e"># Rewrite subject</span>
-<span style="color: #f8f8f2">subject_process</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(strip</span> <span style="color: #f92672">|</span>
-    <span style="color: #f8f8f2">ReSub(</span><span style="color: #e6db74">r&#39;^(\w+)(\((.*)\):\s?([^\n@]*))(@[a-z]+\s+)*$&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">r&#39;*\3*: \4&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">|</span>
-    <span style="color: #f8f8f2">ReSub(</span><span style="color: #e6db74">r&#39;^\*\*: &#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">|</span>
-    <span style="color: #f8f8f2">ReSub(</span><span style="color: #e6db74">r&#39;#INF-(\d+)&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">r&#39;(`#INF-\1 &lt;https://ticketingserver/INF-\1&gt;`_)&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">|</span>
-    <span style="color: #f8f8f2">ReSub(</span><span style="color: #e6db74">r&#39;\) \(&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39; &#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">|</span>
-    <span style="color: #f8f8f2">ReSub(</span><span style="color: #e6db74">r&#39; (#noticket|#nt)&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">|</span>
-    <span style="color: #f8f8f2">strip</span> <span style="color: #f92672">|</span> <span style="color: #f8f8f2">ucfirst</span> <span style="color: #f92672">|</span> <span style="color: #f8f8f2">final_dot)</span>
-<span style="color: #75715e"># Detect tags</span>
-<span style="color: #f8f8f2">tag_filter_regexp</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">r&#39;^v[0-9]+\.[0-9]+(\.[0-9]+)?$&#39;</span>
-<span style="color: #f8f8f2">unreleased_version_label</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;Next version (unreleased yet)&quot;</span>
-<span style="color: #75715e"># Generate markdown</span>
-<span style="color: #f8f8f2">output_engine</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">rest_py</span>
-<span style="color: #f8f8f2">include_merges</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">True</span>
-</pre></div>
-</p>
+<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Ignore comments</span>
+ignore_regexps <span style="color:#f92672">=</span> [
+        <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;@minor&#39;</span>, <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;!minor&#39;</span>,
+        <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;@cosmetic&#39;</span>, <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;!cosmetic&#39;</span>,
+        <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;@refactor&#39;</span>, <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;!refactor&#39;</span>,
+        <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;@wip&#39;</span>, <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;!wip&#39;</span>,
+        <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;^(.{3,3}\s*:)?\s*[fF]irst commit.?\s*$&#39;</span>,
+  ]
+<span style="color:#75715e"># Detect sections</span>
+section_regexps <span style="color:#f92672">=</span> [
+    (<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;New features&#39;</span>, [
+    <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;^[fF]eat(\(.*\)?):.+([^\n]*)$&#39;</span>,
+     ]),
+    (<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;Fix&#39;</span>, [
+    <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;^[Ff]ix(\(\w*\)?):.+([^\n]*)$&#39;</span>,
+     ]),
+    (<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;Refactor&#39;</span>, [
+    <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;^[Rr]efactor(\(\w*\)?):.+([^\n]*)$&#39;</span>,
+     ]),
+    (<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;Documentation&#39;</span>, [
+    <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;^[Dd]ocs?(\(\w*\)?):.+([^\n]*)$&#39;</span>,
+     ]),
+    (<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;Other&#39;</span>, None <span style="color:#75715e">## Match all lines</span>
+     ),
+]
+<span style="color:#75715e"># Rewrite body</span>
+body_process <span style="color:#f92672">=</span> (ReSub(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;.*&#39;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;&#39;</span>) <span style="color:#f92672">|</span>
+                ReSub(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;^(\n|\r)$&#39;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;&#39;</span>))
+<span style="color:#75715e"># Rewrite subject</span>
+subject_process <span style="color:#f92672">=</span> (strip <span style="color:#f92672">|</span>
+    ReSub(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;^(\w+)(\((.*)\):\s?([^\n@]*))(@[a-z]+\s+)*$&#39;</span>, <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;*\3*: \4&#39;</span>) <span style="color:#f92672">|</span>
+    ReSub(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;^\*\*: &#39;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;&#39;</span>) <span style="color:#f92672">|</span>
+    ReSub(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;#INF-(\d+)&#39;</span>, <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;(`#INF-\1 &lt;https://ticketingserver/INF-\1&gt;`_)&#39;</span>) <span style="color:#f92672">|</span>
+    ReSub(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;\) \(&#39;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39; &#39;</span>) <span style="color:#f92672">|</span>
+    ReSub(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39; (#noticket|#nt)&#39;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;&#39;</span>) <span style="color:#f92672">|</span>
+    strip <span style="color:#f92672">|</span> ucfirst <span style="color:#f92672">|</span> final_dot)
+<span style="color:#75715e"># Detect tags</span>
+tag_filter_regexp <span style="color:#f92672">=</span> <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;^v[0-9]+\.[0-9]+(\.[0-9]+)?$&#39;</span>
+unreleased_version_label <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;Next version (unreleased yet)&#34;</span>
+<span style="color:#75715e"># Generate markdown</span>
+output_engine <span style="color:#f92672">=</span> rest_py
+include_merges <span style="color:#f92672">=</span> True</code></pre></div></p>
 
 <p>As you can see, it&rsquo;s only regex. You can read the full commented lines in the configuration file (shrinked here) for a better understanding of what you can do. Subject is separated from the body, they both have their own regex and a link to the ticketing system is automatically generated with &lsquo;#INF-&rsquo; prefix. I do not wanted the body information appearing in the Changelog, so I substituted the content with nothing.</p>
 
@@ -396,16 +391,14 @@ For another personal project (that I can&rsquo;t talk about for the moment ;-)),
 
 <p>To make it better, I wanted to have an integration with Sphinxdoc as I&rsquo;m using it for the project. I updated so the Makefile to generate the changelog before making the documentation like that:</p>
 
-<p><div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e"># CHANGELOGFILE = changelog.rst</span>
-<span style="color: #f8f8f2">GENCHANGELOG</span>  <span style="color: #f92672">=</span> <span style="color: #960050; background-color: #1e0010">$</span><span style="color: #f8f8f2">(GITCHLOGBIN)</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">source</span><span style="color: #f92672">/</span><span style="color: #960050; background-color: #1e0010">$</span><span style="color: #f8f8f2">(CHANGELOGFILE)</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">exit</span> <span style="color: #ae81ff">1</span>
-<span style="color: #f92672">...</span>
-<span style="color: #f8f8f2">html:</span>
-    <span style="color: #960050; background-color: #1e0010">$</span><span style="color: #f8f8f2">(GENCHANGELOG)</span>
-    <span style="color: #960050; background-color: #1e0010">$</span><span style="color: #f8f8f2">(SPHINXBUILD)</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">b</span> <span style="color: #f8f8f2">html</span> <span style="color: #960050; background-color: #1e0010">$</span><span style="color: #f8f8f2">(ALLSPHINXOPTS)</span> <span style="color: #960050; background-color: #1e0010">$</span><span style="color: #f8f8f2">(BUILDDIR)</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">html</span>
-    <span style="color: #a6e22e">@echo</span>
-    <span style="color: #a6e22e">@echo</span> <span style="color: #e6db74">&quot;Build finished. The HTML pages are in $(BUILDDIR)/html.&quot;</span>
-</pre></div>
-</p>
+<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># CHANGELOGFILE = changelog.rst</span>
+GENCHANGELOG  <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">$</span>(GITCHLOGBIN) <span style="color:#f92672">&gt;</span> source<span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">$</span>(CHANGELOGFILE) <span style="color:#f92672">||</span> exit <span style="color:#ae81ff">1</span>
+<span style="color:#f92672">...</span>
+html:
+    <span style="color:#960050;background-color:#1e0010">$</span>(GENCHANGELOG)
+    <span style="color:#960050;background-color:#1e0010">$</span>(SPHINXBUILD) <span style="color:#f92672">-</span>b html <span style="color:#960050;background-color:#1e0010">$</span>(ALLSPHINXOPTS) <span style="color:#960050;background-color:#1e0010">$</span>(BUILDDIR)<span style="color:#f92672">/</span>html
+    <span style="color:#a6e22e">@echo</span>
+    <span style="color:#a6e22e">@echo</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;Build finished. The HTML pages are in $(BUILDDIR)/html.&#34;</span></code></pre></div></p>
 
 <h2 id="the-result">The result</h2>
 
@@ -419,9 +412,7 @@ For another personal project (that I can&rsquo;t talk about for the moment ;-)),
 
 <p>To get a good Changelog without issues, I also needed to have a hook on the server side to check and validate the subject. The git server I&rsquo;m using for the project is Stash and I&rsquo;m using an already existing hook to do the job. This is not perfect but it works with this regex:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">(feat</span><span style="color: #f92672">|</span><span style="color: #f8f8f2">fix</span><span style="color: #f92672">|</span><span style="color: #f8f8f2">refactor</span><span style="color: #f92672">|</span><span style="color: #f8f8f2">chore</span><span style="color: #f92672">|</span><span style="color: #f8f8f2">test</span><span style="color: #f92672">|</span><span style="color: #f8f8f2">style</span><span style="color: #f92672">|</span><span style="color: #f8f8f2">docs)</span><span style="color: #f92672">\</span><span style="color: #f8f8f2">(</span><span style="color: #f92672">.*\</span><span style="color: #f8f8f2">):</span><span style="color: #f92672">.*</span><span style="color: #75715e">#(INF-\d+|noticket|nt)</span>
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl">(feat<span style="color:#f92672">|</span>fix<span style="color:#f92672">|</span>refactor<span style="color:#f92672">|</span>chore<span style="color:#f92672">|</span>test<span style="color:#f92672">|</span>style<span style="color:#f92672">|</span>docs)<span style="color:#f92672">\</span>(<span style="color:#f92672">.*\</span>):<span style="color:#f92672">.*</span><span style="color:#75715e">#(INF-\d+|noticket|nt)</span></code></pre></div>
 
 <p>You may need to develop a custom hook on other git server.</p>
 
@@ -458,22 +449,24 @@ For another personal project (that I can&rsquo;t talk about for the moment ;-)),
   <div class="post-actions-wrap">
       <nav >
         <ul class="post-actions post-action-nav">
+          
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/02/25/ansible-lxc-role-updated-for-jessie/" data-tooltip="Ansible: LXC role updated for Jessie">
               
-                <i class="fa fa-angle-left"></i>
-                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-              </a>
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/01/31/fosdem-in-the-road-again-dude/" data-tooltip="FOSDEM…in the road again dude!">
               
-                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                <i class="fa fa-angle-right"></i>
-              </a>
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
             </li>
+          
         </ul>
       </nav>
     <ul class="post-actions post-action-share" >
@@ -483,6 +476,24 @@ For another personal project (that I can&rsquo;t talk about for the moment ;-)),
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
         
       
       
@@ -514,7 +525,7 @@ For another personal project (that I can&rsquo;t talk about for the moment ;-)),
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2017 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2018 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 
@@ -524,22 +535,24 @@ For another personal project (that I can&rsquo;t talk about for the moment ;-)),
   <div class="post-actions-wrap">
       <nav >
         <ul class="post-actions post-action-nav">
+          
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/02/25/ansible-lxc-role-updated-for-jessie/" data-tooltip="Ansible: LXC role updated for Jessie">
               
-                <i class="fa fa-angle-left"></i>
-                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-              </a>
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/01/31/fosdem-in-the-road-again-dude/" data-tooltip="FOSDEM…in the road again dude!">
               
-                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                <i class="fa fa-angle-right"></i>
-              </a>
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
             </li>
+          
         </ul>
       </nav>
     <ul class="post-actions post-action-share" >
@@ -549,6 +562,24 @@ For another personal project (that I can&rsquo;t talk about for the moment ;-)),
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
         
       
       
@@ -574,6 +605,24 @@ For another personal project (that I can&rsquo;t talk about for the moment ;-)),
   <i id="btn-close-shareoptions" class="fa fa-close"></i>
   <ul class="share-options">
     
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2015%2F02%2F11%2Fgenerate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2015%2F02%2F11%2Fgenerate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fblog.deimos.fr%2F2015%2F02%2F11%2Fgenerate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
   </ul>
 </div>
 <div id="share-options-mask" class="share-options-mask"></div>
@@ -593,7 +642,7 @@ For another personal project (that I can&rsquo;t talk about for the moment ;-)),
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; Nousmotards Co-Founder
+        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
       </div>
     
     
@@ -624,6 +673,42 @@ For another personal project (that I can&rsquo;t talk about for the moment ;-)),
       <div class="no-result text-color-light text-center">no post found</div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/">
+                <h3 class="media-heading">Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/">
+                <h3 class="media-heading">MySocialApp Create your own social network</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">If you follow me, you may know that I launched with friends Nousmotards social application a few years ago. The solution continue to grow in France with more than 70k bikers and that&rsquo;s a good point for all those riders :)
+Since we launched Nousmotards, several persons asked us: &ldquo;You&rsquo;ve made an amazing job for bikers, do you provide your social solution to any other communities or for enterprises?&rdquo;. The answer was: No we didn&rsquo;t.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -775,43 +860,6 @@ Today I am going to talk about our experience after having using it for 2 years 
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/">
-                <h3 class="media-heading">Docker: why you should use Monit instead of supervisord</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting Nousmotards infrastructure, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.
-Introduction Docker is made to run a process in a confined area.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/08/graphite-events-on-debian-jessie/">
-                <h3 class="media-heading">Graphite events on Debian jessie</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">I&rsquo;m using Graphite at work and for my Nousmotards project. For Nousmotards, I&rsquo;m using the Graphite version available in the default Debian Jessie repositories. This to avoid mismatch django dependencies etc&hellip;
-A few days ago, I wanted to try Graphite events to get something pretty cool in Grafana :
-This to be able to know when a new app version is deployed and make it easier to understand when an issue occurs.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -819,7 +867,7 @@ This to be able to know when a new app version is deployed and make it easier to
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         836 posts found
+         837 posts found
       </p>
     </div>
   </div>
@@ -832,26 +880,15 @@ This to be able to know when a new app version is deployed and make it easier to
 
 
     
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-IFHWFEbU2/+wNycDECKgjIRSirRNIDp2acEB5fvdVRU=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js" integrity="sha256-+mpyNVJsNt4rVXCw0F+pAOiB3YxmHgrbJsx4ecPuUaI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js" integrity="sha256-vMxgR/7FtLovVA+IPrR7+xTgIgARH7y9VZQnmmi0HDI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js" integrity="sha256-N0qFUh7/9vLvia87dDndewmsgsyYoNkdA212tPc+2NI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
 <script src="https://blog.deimos.fr/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
 
 
-<script>
-$(document).ready(function() {
-  hljs.configure({ classPrefix: '', useBR: false });
-  $('pre.code-highlight, pre > code').each(function(i, block) {
-    if (!$(this).hasClass('codeblock')) {
-      $(this).addClass('codeblock');
-    }
-    hljs.highlightBlock(block);
-  });
-});
-</script>
+
 
   
     

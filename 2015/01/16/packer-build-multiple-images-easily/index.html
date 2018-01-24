@@ -21,7 +21,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.26 with theme Tranquilpeak 0.4.0-BETA">
+    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
     <title>Packer: build multiple images easily</title>
     <meta name="author" content="Pierre Mavro / Deimosfr">
     <meta name="keywords" content="">
@@ -68,7 +68,7 @@ For Smash project, I wanted to make a packer configuration to manage Docker and 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-fpbzgxsy0kgmdvyrj5ykkg6ratccrk3gocmaqn4xpcjywmv5dteilzucro4f.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
     
     
       
@@ -260,7 +260,6 @@ ga('send', 'pageview');
     
   
 
-
   </div>
 
 </div>
@@ -280,129 +279,119 @@ Packer is one of the tools <a href="http://blog.deimos.fr/2014/03/18/packer-win-
 
 <p>I did not started to manage the cloud provider for the moment as I&rsquo;m not sure which one I&rsquo;ll be using. Anyway it won&rsquo;t be complicated as the biggest part has been done here. First of all, I declared the default vars in the Packer file:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">{</span>
-    <span style="color: #e6db74">&quot;variables&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #e6db74">&quot;debian_version&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;7.7.0&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;iso_checksum&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;5cb6e4fea55fbb5173f90c3a545b843c6c193e29c3aa32b3306c9bbdfb1ad6a6a36ae8be50e91af9d03d5f21c472bd05d04d3508172e0b519e76714333c7c74b&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;ansible_inventory_file&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;ansible_inventory_file&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;ansible_environment&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;dev&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;soft_version&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;noversion&quot;</span>
-    <span style="color: #f8f8f2">},</span>
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+    <span style="color:#e6db74">&#34;variables&#34;</span><span style="color:#f92672">:</span> {
+        <span style="color:#e6db74">&#34;debian_version&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;7.7.0&#34;</span>,
+        <span style="color:#e6db74">&#34;iso_checksum&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;5cb6e4fea55fbb5173f90c3a545b843c6c193e29c3aa32b3306c9bbdfb1ad6a6a36ae8be50e91af9d03d5f21c472bd05d04d3508172e0b519e76714333c7c74b&#34;</span>,
+        <span style="color:#e6db74">&#34;ansible_inventory_file&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ansible_inventory_file&#34;</span>,
+        <span style="color:#e6db74">&#34;ansible_environment&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;dev&#34;</span>,
+        <span style="color:#e6db74">&#34;soft_version&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;noversion&#34;</span>
+    },</code></pre></div>
 
 <p>Here I specified the Debian version which will be automatically downloaded by Packer (for VirtualBox). Then the Ansible inventory file which is containing the group of hosts where the generated image will belong to. Example:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">[web]</span>
-<span style="color: #a6e22e">127.0.0.1</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[web]</span>
+<span style="color:#a6e22e">127.0.0.1</span>
 
-<span style="color: #66d9ef">[webapp]</span>
+<span style="color:#66d9ef">[webapp]</span>
 
-<span style="color: #75715e">#[sql]</span>
-<span style="color: #75715e">#127.0.0.1</span>
-</pre></div>
-
+<span style="color:#75715e">#[sql]</span>
+<span style="color:#75715e">#127.0.0.1</span></code></pre></div>
 
 <p>Then we are declaring the 2 builders. The first one for VirtualBox and the second for Docker:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #e6db74">&quot;builders&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span>
-    <span style="color: #f8f8f2">{</span>
-      <span style="color: #e6db74">&quot;type&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;virtualbox-iso&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;boot_command&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span>
-        <span style="color: #e6db74">&quot;&lt;esc&gt;&lt;wait&gt;&quot;</span><span style="color: #f8f8f2">,</span>
-<span style="color: #f8f8f2">...</span>
-      <span style="color: #e6db74">&quot;vboxmanage&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span>
-        <span style="color: #f8f8f2">[</span> <span style="color: #e6db74">&quot;modifyvm&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;{{.Name}}&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;--memory&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;512&quot;</span> <span style="color: #f8f8f2">],</span>
-        <span style="color: #f8f8f2">[</span> <span style="color: #e6db74">&quot;modifyvm&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;{{.Name}}&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;--cpus&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;1&quot;</span> <span style="color: #f8f8f2">]</span>
-      <span style="color: #f8f8f2">]</span>
-    <span style="color: #f8f8f2">},</span>
-    <span style="color: #f8f8f2">{</span>
-      <span style="color: #e6db74">&quot;type&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;docker&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;image&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;debian:wheezy&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;export_path&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;debian.tar&quot;</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">],</span>
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#e6db74">&#34;builders&#34;</span><span style="color:#f92672">:</span> [
+    {
+      <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;virtualbox-iso&#34;</span>,
+      <span style="color:#e6db74">&#34;boot_command&#34;</span><span style="color:#f92672">:</span> [
+        <span style="color:#e6db74">&#34;&lt;esc&gt;&lt;wait&gt;&#34;</span>,
+...
+      <span style="color:#e6db74">&#34;vboxmanage&#34;</span><span style="color:#f92672">:</span> [
+        [ <span style="color:#e6db74">&#34;modifyvm&#34;</span>, <span style="color:#e6db74">&#34;{{.Name}}&#34;</span>, <span style="color:#e6db74">&#34;--memory&#34;</span>, <span style="color:#e6db74">&#34;512&#34;</span> ],
+        [ <span style="color:#e6db74">&#34;modifyvm&#34;</span>, <span style="color:#e6db74">&#34;{{.Name}}&#34;</span>, <span style="color:#e6db74">&#34;--cpus&#34;</span>, <span style="color:#e6db74">&#34;1&#34;</span> ]
+      ]
+    },
+    {
+      <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;docker&#34;</span>,
+      <span style="color:#e6db74">&#34;image&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;debian:wheezy&#34;</span>,
+      <span style="color:#e6db74">&#34;export_path&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;debian.tar&#34;</span>
+    }
+  ],</code></pre></div>
 
 <p>We&rsquo;re calling here the desired version of Debian image in the variables. The automated installation of VirtualBox is ensured by Debian <a href="https://github.com/deimosfr/packer-wheezy/blob/master/http/preseed.cfg" target="_blank">preseed.</a> VirtualBox will also pass required args to Debian grub boot for preseed. Regarding Docker, it&rsquo;s simpler as it will automatically pull from the official Docker repository the required distribution.</p>
 
 <p>Then you need to use post processor to request the output format from Packer. Here for VirtualBox, I require an export in a .box format with a maximum compression level. And for Docker, I add the image locally to my  list of images:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #e6db74">&quot;post-processors&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span>
-    <span style="color: #f8f8f2">{</span>
-      <span style="color: #e6db74">&quot;type&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;vagrant&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;compression_level&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;9&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;output&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;wheezy_{{user `debian_version`}}-{{user `soft_version`}}.box&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;only&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;virtualbox-iso&quot;</span><span style="color: #f8f8f2">]</span>
-    <span style="color: #f8f8f2">},</span>
-    <span style="color: #f8f8f2">{</span>
-      <span style="color: #e6db74">&quot;type&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;docker-import&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;repository&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;smash&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;tag&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;wheezy_{{user `debian_version`}}-{{user `soft_version`}}&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;only&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;docker&quot;</span><span style="color: #f8f8f2">]</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">],</span>
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#e6db74">&#34;post-processors&#34;</span><span style="color:#f92672">:</span> [
+    {
+      <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;vagrant&#34;</span>,
+      <span style="color:#e6db74">&#34;compression_level&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;9&#34;</span>,
+      <span style="color:#e6db74">&#34;output&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;wheezy_{{user `debian_version`}}-{{user `soft_version`}}.box&#34;</span>,
+      <span style="color:#e6db74">&#34;only&#34;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;virtualbox-iso&#34;</span>]
+    },
+    {
+      <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;docker-import&#34;</span>,
+      <span style="color:#e6db74">&#34;repository&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smash&#34;</span>,
+      <span style="color:#e6db74">&#34;tag&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;wheezy_{{user `debian_version`}}-{{user `soft_version`}}&#34;</span>,
+      <span style="color:#e6db74">&#34;only&#34;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;docker&#34;</span>]
+    }
+  ],</code></pre></div>
 
 <p>Regarding the provisioner part, the way to call VirtualBox scripts and Docker are different. VirtualBox uses sudo command while Docker doesn&rsquo;t need it. As you can see, I&rsquo;m executing several scripts (some are the same and others are specific):</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #e6db74">&quot;provisioners&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span>
-    <span style="color: #f8f8f2">{</span>
-      <span style="color: #e6db74">&quot;type&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;shell&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;execute_command&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;echo &#39;vagrant&#39; | {{.Vars}} sudo -E -S bash &#39;{{.Path}}&#39;&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;scripts&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span>
-        <span style="color: #e6db74">&quot;scripts/update.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/sshd.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/networking.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/ansible_prequesites.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/sudoers.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/vagrant.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/vbaddguest.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/ansible_bin.sh&quot;</span>
-      <span style="color: #f8f8f2">],</span>
-      <span style="color: #e6db74">&quot;only&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;virtualbox-iso&quot;</span><span style="color: #f8f8f2">]</span>
-    <span style="color: #f8f8f2">},</span>
-    <span style="color: #f8f8f2">{</span>
-      <span style="color: #e6db74">&quot;type&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;shell&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;scripts&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span>
-        <span style="color: #e6db74">&quot;scripts/update.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/sshd.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/networking.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/ansible_prequesites.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/sudoers.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/vagrant.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/ansible_bin.sh&quot;</span>
-      <span style="color: #f8f8f2">],</span>
-      <span style="color: #e6db74">&quot;only&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;docker&quot;</span><span style="color: #f8f8f2">]</span>
-    <span style="color: #f8f8f2">},</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #e6db74">&quot;type&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;ansible-local&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;playbook_dir&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;..&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;playbook_file&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;../site.yml&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;inventory_file&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;{{user `ansible_inventory_file`}}&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;extra_arguments&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;-e&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;set_env={{user `ansible_environment`}}&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;-v&quot;</span><span style="color: #f8f8f2">]</span>
-    <span style="color: #f8f8f2">},</span>
-    <span style="color: #f8f8f2">{</span>
-      <span style="color: #e6db74">&quot;type&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;shell&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;execute_command&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;echo &#39;vagrant&#39; | {{.Vars}} sudo -E -S bash &#39;{{.Path}}&#39;&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;scripts&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span>
-        <span style="color: #e6db74">&quot;scripts/cleanup.sh&quot;</span>
-      <span style="color: #f8f8f2">],</span>
-      <span style="color: #e6db74">&quot;only&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;virtualbox-iso&quot;</span><span style="color: #f8f8f2">]</span>
-    <span style="color: #f8f8f2">},</span>
-    <span style="color: #f8f8f2">{</span>
-      <span style="color: #e6db74">&quot;type&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;shell&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;scripts&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span>
-        <span style="color: #e6db74">&quot;scripts/cleanup.sh&quot;</span>
-      <span style="color: #f8f8f2">],</span>
-      <span style="color: #e6db74">&quot;only&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;docker&quot;</span><span style="color: #f8f8f2">]</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">]</span>
-<span style="color: #f8f8f2">}</span>
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#e6db74">&#34;provisioners&#34;</span><span style="color:#f92672">:</span> [
+    {
+      <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;shell&#34;</span>,
+      <span style="color:#e6db74">&#34;execute_command&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;echo &#39;vagrant&#39; | {{.Vars}} sudo -E -S bash &#39;{{.Path}}&#39;&#34;</span>,
+      <span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#f92672">:</span> [
+        <span style="color:#e6db74">&#34;scripts/update.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/sshd.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/networking.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/ansible_prequesites.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/sudoers.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/vagrant.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/vbaddguest.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/ansible_bin.sh&#34;</span>
+      ],
+      <span style="color:#e6db74">&#34;only&#34;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;virtualbox-iso&#34;</span>]
+    },
+    {
+      <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;shell&#34;</span>,
+      <span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#f92672">:</span> [
+        <span style="color:#e6db74">&#34;scripts/update.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/sshd.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/networking.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/ansible_prequesites.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/sudoers.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/vagrant.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/ansible_bin.sh&#34;</span>
+      ],
+      <span style="color:#e6db74">&#34;only&#34;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;docker&#34;</span>]
+    },
+    {
+        <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ansible-local&#34;</span>,
+        <span style="color:#e6db74">&#34;playbook_dir&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;..&#34;</span>,
+        <span style="color:#e6db74">&#34;playbook_file&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;../site.yml&#34;</span>,
+        <span style="color:#e6db74">&#34;inventory_file&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;{{user `ansible_inventory_file`}}&#34;</span>,
+        <span style="color:#e6db74">&#34;extra_arguments&#34;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;-e&#34;</span>, <span style="color:#e6db74">&#34;set_env={{user `ansible_environment`}}&#34;</span>, <span style="color:#e6db74">&#34;-v&#34;</span>]
+    },
+    {
+      <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;shell&#34;</span>,
+      <span style="color:#e6db74">&#34;execute_command&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;echo &#39;vagrant&#39; | {{.Vars}} sudo -E -S bash &#39;{{.Path}}&#39;&#34;</span>,
+      <span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#f92672">:</span> [
+        <span style="color:#e6db74">&#34;scripts/cleanup.sh&#34;</span>
+      ],
+      <span style="color:#e6db74">&#34;only&#34;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;virtualbox-iso&#34;</span>]
+    },
+    {
+      <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;shell&#34;</span>,
+      <span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#f92672">:</span> [
+        <span style="color:#e6db74">&#34;scripts/cleanup.sh&#34;</span>
+      ],
+      <span style="color:#e6db74">&#34;only&#34;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;docker&#34;</span>]
+    }
+  ]
+}</code></pre></div>
 
 <p>Ansible is also executed to create a complete image (and specific vars can be added). Of course this is a little bit boring to create a new image on every release (but can be automated), however when your goal is to auto-scale your images in a cloud environment, it&rsquo;s relevant to be not dependent of tier party applications (GitHub, Apt/Yum repo etc&hellip;). That&rsquo;s why this solution is better in my opinion.</p>
 
@@ -412,105 +401,91 @@ Packer is one of the tools <a href="http://blog.deimos.fr/2014/03/18/packer-win-
 <li>&ldquo;scripts/update.sh&rdquo;: install curl</li>
 </ul>
 
-<p><div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e">#!/bin/bash</span>
-apt-get update
-<span style="color: #75715e"># install curl to fix broken wget while retrieving content from secured sites</span>
-apt-get -y install curl
-</pre></div>
-</p>
+<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>apt-get update
+<span style="color:#75715e"># install curl to fix broken wget while retrieving content from secured sites
+</span><span style="color:#75715e"></span>apt-get -y install curl</code></pre></div></p>
 
 <ul>
 <li>&ldquo;scripts/sshd.sh&rdquo;: install SSH and set 2 options</li>
 </ul>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e">#!/bin/bash</span>
-apt-get -y install openssh-server
-<span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;UseDNS no&quot;</span> &gt;&gt; /etc/ssh/sshd_config
-<span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;GSSAPIAuthentication no&quot;</span> &gt;&gt; /etc/ssh/sshd_config
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>apt-get -y install openssh-server
+echo <span style="color:#e6db74">&#34;UseDNS no&#34;</span> &gt;&gt; /etc/ssh/sshd_config
+echo <span style="color:#e6db74">&#34;GSSAPIAuthentication no&#34;</span> &gt;&gt; /etc/ssh/sshd_config</code></pre></div>
 
 <ul>
 <li>&ldquo;scripts/networking.sh&rdquo;: reset network device interface name</li>
 </ul>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e">#!/bin/bash</span>
-rm /etc/udev/rules.d/70-persistent-net.rules
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>rm /etc/udev/rules.d/70-persistent-net.rules
 mkdir /etc/udev/rules.d/70-persistent-net.rules
 rm /lib/udev/rules.d/75-persistent-net-generator.rules
 rm -rf /dev/.udev/ /var/lib/dhcp/*
-<span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;pre-up sleep 2&quot;</span> &gt;&gt; /etc/network/interfaces
-</pre></div>
-
+echo <span style="color:#e6db74">&#34;pre-up sleep 2&#34;</span> &gt;&gt; /etc/network/interfaces</code></pre></div>
 
 <ul>
 <li>&ldquo;scripts/ansible_prequesites.sh&rdquo;: install prerequisite for any Ansible client</li>
 </ul>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e"># Ansible prequesites</span>
-apt-get -y install python ruby ruby-json facter ohai
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Ansible prequesites
+</span><span style="color:#75715e"></span>apt-get -y install python ruby ruby-json facter ohai</code></pre></div>
 
 <ul>
 <li>&ldquo;scripts/sudoers.sh&rdquo;: install sudo and give to vagrant user all privileges</li>
 </ul>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e">#!/bin/bash</span>
-apt-get -y install sudo
-<span style="color: #75715e"># Set up password-less sudo for user vagrant</span>
-<span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&#39;vagrant ALL=(ALL) NOPASSWD:ALL&#39;</span> &gt; /etc/sudoers.d/vagrant
-chmod <span style="color: #ae81ff">440</span> /etc/sudoers.d/vagrant
-<span style="color: #75715e"># no tty</span>
-<span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;Defaults !requiretty&quot;</span> &gt;&gt; /etc/sudoers
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>apt-get -y install sudo
+<span style="color:#75715e"># Set up password-less sudo for user vagrant
+</span><span style="color:#75715e"></span>echo <span style="color:#e6db74">&#39;vagrant ALL=(ALL) NOPASSWD:ALL&#39;</span> &gt; /etc/sudoers.d/vagrant
+chmod <span style="color:#ae81ff">440</span> /etc/sudoers.d/vagrant
+<span style="color:#75715e"># no tty
+</span><span style="color:#75715e"></span>echo <span style="color:#e6db74">&#34;Defaults !requiretty&#34;</span> &gt;&gt; /etc/sudoers</code></pre></div>
 
 <ul>
 <li>&ldquo;scripts/vagrant.sh&rdquo;: create vagrant user and add vagrant public key to vagrant user (for VirtualBox) and to root user (for Docker)</li>
 </ul>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e">#!/bin/bash</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">### WARNING: DO NOT FORGET TO REMOVE IT IF ACCESSIBLE FROM OUTSIDE !!!
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">function</span> add_vagrant_key <span style="color:#f92672">{</span>
+    homedir<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>su - $1 -c <span style="color:#e6db74">&#39;echo $HOME&#39;</span><span style="color:#66d9ef">)</span>
+    mkdir -p $homedir/.ssh
+    curl -L <span style="color:#e6db74">&#39;https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub&#39;</span> -o $homedir/.ssh/authorized_keys2
+    chown -Rf $1. $homedir/.ssh
+    chmod <span style="color:#ae81ff">700</span> $homedir/.ssh
+    chmod <span style="color:#ae81ff">600</span> $homedir/.ssh/authorized_keys2
+<span style="color:#f92672">}</span>
 
-<span style="color: #75715e">### WARNING: DO NOT FORGET TO REMOVE IT IF ACCESSIBLE FROM OUTSIDE !!!</span>
-
-<span style="color: #66d9ef">function</span> add_vagrant_key <span style="color: #f92672">{</span>
-    <span style="color: #f8f8f2">homedir</span><span style="color: #f92672">=</span><span style="color: #66d9ef">$(</span>su - <span style="color: #f8f8f2">$1</span> -c <span style="color: #e6db74">&#39;echo $HOME&#39;</span><span style="color: #66d9ef">)</span>
-    mkdir -p <span style="color: #f8f8f2">$homedir</span>/.ssh
-    curl -L <span style="color: #e6db74">&#39;https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub&#39;</span> -o <span style="color: #f8f8f2">$homedir</span>/.ssh/authorized_keys2
-    chown -Rf <span style="color: #f8f8f2">$1</span>. <span style="color: #f8f8f2">$homedir</span>/.ssh
-    chmod <span style="color: #ae81ff">700</span> <span style="color: #f8f8f2">$homedir</span>/.ssh
-    chmod <span style="color: #ae81ff">600</span> <span style="color: #f8f8f2">$homedir</span>/.ssh/authorized_keys2
-<span style="color: #f92672">}</span>
-
-<span style="color: #66d9ef">if</span> <span style="color: #f92672">[</span> <span style="color: #66d9ef">$(</span>grep -c vagrant /etc/passwd<span style="color: #66d9ef">)</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">]</span> <span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#66d9ef">$(</span>grep -c vagrant /etc/passwd<span style="color:#66d9ef">)</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">then</span>
     useradd vagrant -m
-<span style="color: #66d9ef">fi</span>
+<span style="color:#66d9ef">fi</span>
 
-<span style="color: #75715e"># Add public key to vagrant user</span>
-add_vagrant_key vagrant
-<span style="color: #75715e"># Needed for vagrant provider using docker</span>
-add_vagrant_key root
-</pre></div>
-
+<span style="color:#75715e"># Add public key to vagrant user
+</span><span style="color:#75715e"></span>add_vagrant_key vagrant
+<span style="color:#75715e"># Needed for vagrant provider using docker
+</span><span style="color:#75715e"></span>add_vagrant_key root</code></pre></div>
 
 <ul>
 <li>&ldquo;scripts/ansible_bin.sh&rdquo;: install Ansible to be able to run playbooks locally</li>
 </ul>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e">#!/bin/bash</span>
-
-<span style="color: #75715e"># Install backports for wheezy</span>
-<span style="color: #66d9ef">if</span> <span style="color: #f92672">[</span> <span style="color: #66d9ef">$(</span>grep -c <span style="color: #e6db74">&quot;^7\.&quot;</span> /etc/debian_version<span style="color: #66d9ef">)</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">]</span> <span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>
-    <span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;deb http://http.debian.net/debian wheezy-backports main&quot;</span> &gt; /etc/apt/sources.list.d/backports.list
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e"># Install backports for wheezy
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#66d9ef">$(</span>grep -c <span style="color:#e6db74">&#34;^7\.&#34;</span> /etc/debian_version<span style="color:#66d9ef">)</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;deb http://http.debian.net/debian wheezy-backports main&#34;</span> &gt; /etc/apt/sources.list.d/backports.list
     apt-get update
-<span style="color: #66d9ef">fi</span>
-<span style="color: #75715e"># Install Ansible</span>
-apt-get -y install ansible
+<span style="color:#66d9ef">fi</span>
+<span style="color:#75715e"># Install Ansible
+</span><span style="color:#75715e"></span>apt-get -y install ansible
 touch /var/log/ansible.log
-chown vagrant. /var/log/ansible.log
-</pre></div>
-
+chown vagrant. /var/log/ansible.log</code></pre></div>
 
 <ul>
 <li>&ldquo;<a href="https://github.com/deimosfr/packer-wheezy/blob/master/scripts/vbaddguest.sh" target="_blank">scripts/vbaddguest.sh</a>&ldquo;: install virtualbox guests additions</li>
@@ -519,156 +494,148 @@ chown vagrant. /var/log/ansible.log
 
 <p>Now we&rsquo;re ready to play ! You can have a variables file that will override the default set vars in your Packer file. Example:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">{</span>
-    <span style="color: #e6db74">&quot;debian_version&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;7.7.0&quot;</span><span style="color: #f8f8f2">,</span>
-    <span style="color: #e6db74">&quot;iso_checksum&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;5cb6e4fea55fbb5173f90c3a545b843c6c193e29c3aa32b3306c9bbdfb1ad6a6a36ae8be50e91af9d03d5f21c472bd05d04d3508172e0b519e76714333c7c74b&quot;</span><span style="color: #f8f8f2">,</span>
-    <span style="color: #e6db74">&quot;ansible_inventory_file&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;ansible_inventory_file&quot;</span><span style="color: #f8f8f2">,</span>
-    <span style="color: #e6db74">&quot;ansible_environment&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;prod&quot;</span><span style="color: #f8f8f2">,</span>
-    <span style="color: #e6db74">&quot;soft_version&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;0.1&quot;</span>
-<span style="color: #f8f8f2">}</span>
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+    <span style="color:#e6db74">&#34;debian_version&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;7.7.0&#34;</span>,
+    <span style="color:#e6db74">&#34;iso_checksum&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;5cb6e4fea55fbb5173f90c3a545b843c6c193e29c3aa32b3306c9bbdfb1ad6a6a36ae8be50e91af9d03d5f21c472bd05d04d3508172e0b519e76714333c7c74b&#34;</span>,
+    <span style="color:#e6db74">&#34;ansible_inventory_file&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ansible_inventory_file&#34;</span>,
+    <span style="color:#e6db74">&#34;ansible_environment&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;prod&#34;</span>,
+    <span style="color:#e6db74">&#34;soft_version&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;0.1&#34;</span>
+}</code></pre></div>
 
 <p>Now if I want to create an exported VirtualBox .box with default vars, I only have to run:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>packer build -only<span style="color: #f92672">=</span>virtualbox-iso packerfile
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">packer build -only<span style="color:#f92672">=</span>virtualbox-iso packerfile</code></pre></div>
 
 <p>And if I want a Docker container added to your images with my custom vars:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>packer build -only<span style="color: #f92672">=</span>docker -var-file<span style="color: #f92672">=</span>packer_vars packerfile
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">packer build -only<span style="color:#f92672">=</span>docker -var-file<span style="color:#f92672">=</span>packer_vars packerfile</code></pre></div>
 
 <p>If you do not specify an output format, it will build both in parallel :-)</p>
 
 <p>Here is the complete packerfile:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">{</span>
-    <span style="color: #e6db74">&quot;variables&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #e6db74">&quot;debian_version&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;7.7.0&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;iso_checksum&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;5cb6e4fea55fbb5173f90c3a545b843c6c193e29c3aa32b3306c9bbdfb1ad6a6a36ae8be50e91af9d03d5f21c472bd05d04d3508172e0b519e76714333c7c74b&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;ansible_inventory_file&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;ansible_inventory_file&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;ansible_environment&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;dev&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;soft_version&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;noversion&quot;</span>
-    <span style="color: #f8f8f2">},</span>
-  <span style="color: #e6db74">&quot;builders&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span>
-    <span style="color: #f8f8f2">{</span>
-      <span style="color: #e6db74">&quot;type&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;virtualbox-iso&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;boot_command&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span>
-        <span style="color: #e6db74">&quot;&lt;esc&gt;&lt;wait&gt;&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;install &lt;wait&gt;&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg &lt;wait&gt;&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;debian-installer=en_US &lt;wait&gt;&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;auto &lt;wait&gt;&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;locale=en_US &lt;wait&gt;&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;kbd-chooser/method=us &lt;wait&gt;&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;keyboard-configuration/xkb-keymap=us &lt;wait&gt;&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;netcfg/get_hostname={{ .Name }} &lt;wait&gt;&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;netcfg/get_domain=vagrantup.com &lt;wait&gt;&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;fb=false &lt;wait&gt;&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;debconf/frontend=noninteractive &lt;wait&gt;&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;console-setup/ask_detect=false &lt;wait&gt;&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;console-keymaps-at/keymap=us &lt;wait&gt;&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;&lt;enter&gt;&lt;wait&gt;&quot;</span>
-      <span style="color: #f8f8f2">],</span>
-      <span style="color: #e6db74">&quot;boot_wait&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;10s&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;disk_size&quot;</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">32768</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;guest_os_type&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;Debian_64&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;headless&quot;</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;http_directory&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;http&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;iso_checksum&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;{{user `iso_checksum`}}&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;iso_checksum_type&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;sha512&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;iso_url&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;http://cdimage.debian.org/cdimage/release/{{user `debian_version`}}/amd64/iso-cd/debian-{{user `debian_version`}}-amd64-netinst.iso&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;ssh_username&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;vagrant&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;ssh_password&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;vagrant&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;ssh_port&quot;</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">22</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;ssh_wait_timeout&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;10000s&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;shutdown_command&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;echo &#39;vagrant&#39;|sudo -S /sbin/shutdown -hP now&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;guest_additions_path&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;VBoxGuestAdditions_{{.Version}}.iso&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;virtualbox_version_file&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;.vbox_version&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;vm_name&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;debian-{{user `debian_version`}}-amd64&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;vboxmanage&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span>
-        <span style="color: #f8f8f2">[</span> <span style="color: #e6db74">&quot;modifyvm&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;{{.Name}}&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;--memory&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;512&quot;</span> <span style="color: #f8f8f2">],</span>
-        <span style="color: #f8f8f2">[</span> <span style="color: #e6db74">&quot;modifyvm&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;{{.Name}}&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;--cpus&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;1&quot;</span> <span style="color: #f8f8f2">]</span>
-      <span style="color: #f8f8f2">]</span>
-    <span style="color: #f8f8f2">},</span>
-    <span style="color: #f8f8f2">{</span>
-      <span style="color: #e6db74">&quot;type&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;docker&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;image&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;debian:wheezy&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;export_path&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;debian.tar&quot;</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">],</span>
-  <span style="color: #e6db74">&quot;post-processors&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span>
-    <span style="color: #f8f8f2">{</span>
-      <span style="color: #e6db74">&quot;type&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;vagrant&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;compression_level&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;9&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;output&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;wheezy_{{user `debian_version`}}-{{user `soft_version`}}.box&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;only&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;virtualbox-iso&quot;</span><span style="color: #f8f8f2">]</span>
-    <span style="color: #f8f8f2">},</span>
-    <span style="color: #f8f8f2">{</span>
-      <span style="color: #e6db74">&quot;type&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;docker-import&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;repository&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;smash&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;tag&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;wheezy_{{user `debian_version`}}-{{user `soft_version`}}&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;only&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;docker&quot;</span><span style="color: #f8f8f2">]</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">],</span>
-  <span style="color: #e6db74">&quot;provisioners&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span>
-    <span style="color: #f8f8f2">{</span>
-      <span style="color: #e6db74">&quot;type&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;shell&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;execute_command&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;echo &#39;vagrant&#39; | {{.Vars}} sudo -E -S bash &#39;{{.Path}}&#39;&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;scripts&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span>
-        <span style="color: #e6db74">&quot;scripts/update.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/sshd.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/networking.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/ansible_prequesites.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/sudoers.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/vagrant.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/vbaddguest.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/ansible_bin.sh&quot;</span>
-      <span style="color: #f8f8f2">],</span>
-      <span style="color: #e6db74">&quot;only&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;virtualbox-iso&quot;</span><span style="color: #f8f8f2">]</span>
-    <span style="color: #f8f8f2">},</span>
-    <span style="color: #f8f8f2">{</span>
-      <span style="color: #e6db74">&quot;type&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;shell&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;scripts&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span>
-        <span style="color: #e6db74">&quot;scripts/update.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/sshd.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/networking.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/ansible_prequesites.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/sudoers.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/vagrant.sh&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;scripts/ansible_bin.sh&quot;</span>
-      <span style="color: #f8f8f2">],</span>
-      <span style="color: #e6db74">&quot;only&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;docker&quot;</span><span style="color: #f8f8f2">]</span>
-    <span style="color: #f8f8f2">},</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #e6db74">&quot;type&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;ansible-local&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;playbook_dir&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;..&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;playbook_file&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;../site.yml&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;inventory_file&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;{{user `ansible_inventory_file`}}&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;extra_arguments&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;-e&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;set_env={{user `ansible_environment`}}&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;-v&quot;</span><span style="color: #f8f8f2">]</span>
-    <span style="color: #f8f8f2">},</span>
-    <span style="color: #f8f8f2">{</span>
-      <span style="color: #e6db74">&quot;type&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;shell&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;execute_command&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;echo &#39;vagrant&#39; | {{.Vars}} sudo -E -S bash &#39;{{.Path}}&#39;&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;scripts&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span>
-        <span style="color: #e6db74">&quot;scripts/cleanup.sh&quot;</span>
-      <span style="color: #f8f8f2">],</span>
-      <span style="color: #e6db74">&quot;only&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;virtualbox-iso&quot;</span><span style="color: #f8f8f2">]</span>
-    <span style="color: #f8f8f2">},</span>
-    <span style="color: #f8f8f2">{</span>
-      <span style="color: #e6db74">&quot;type&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;shell&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #e6db74">&quot;scripts&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span>
-        <span style="color: #e6db74">&quot;scripts/cleanup.sh&quot;</span>
-      <span style="color: #f8f8f2">],</span>
-      <span style="color: #e6db74">&quot;only&quot;</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;docker&quot;</span><span style="color: #f8f8f2">]</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">]</span>
-<span style="color: #f8f8f2">}</span>
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+    <span style="color:#e6db74">&#34;variables&#34;</span><span style="color:#f92672">:</span> {
+        <span style="color:#e6db74">&#34;debian_version&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;7.7.0&#34;</span>,
+        <span style="color:#e6db74">&#34;iso_checksum&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;5cb6e4fea55fbb5173f90c3a545b843c6c193e29c3aa32b3306c9bbdfb1ad6a6a36ae8be50e91af9d03d5f21c472bd05d04d3508172e0b519e76714333c7c74b&#34;</span>,
+        <span style="color:#e6db74">&#34;ansible_inventory_file&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ansible_inventory_file&#34;</span>,
+        <span style="color:#e6db74">&#34;ansible_environment&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;dev&#34;</span>,
+        <span style="color:#e6db74">&#34;soft_version&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;noversion&#34;</span>
+    },
+  <span style="color:#e6db74">&#34;builders&#34;</span><span style="color:#f92672">:</span> [
+    {
+      <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;virtualbox-iso&#34;</span>,
+      <span style="color:#e6db74">&#34;boot_command&#34;</span><span style="color:#f92672">:</span> [
+        <span style="color:#e6db74">&#34;&lt;esc&gt;&lt;wait&gt;&#34;</span>,
+        <span style="color:#e6db74">&#34;install &lt;wait&gt;&#34;</span>,
+        <span style="color:#e6db74">&#34;preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg &lt;wait&gt;&#34;</span>,
+        <span style="color:#e6db74">&#34;debian-installer=en_US &lt;wait&gt;&#34;</span>,
+        <span style="color:#e6db74">&#34;auto &lt;wait&gt;&#34;</span>,
+        <span style="color:#e6db74">&#34;locale=en_US &lt;wait&gt;&#34;</span>,
+        <span style="color:#e6db74">&#34;kbd-chooser/method=us &lt;wait&gt;&#34;</span>,
+        <span style="color:#e6db74">&#34;keyboard-configuration/xkb-keymap=us &lt;wait&gt;&#34;</span>,
+        <span style="color:#e6db74">&#34;netcfg/get_hostname={{ .Name }} &lt;wait&gt;&#34;</span>,
+        <span style="color:#e6db74">&#34;netcfg/get_domain=vagrantup.com &lt;wait&gt;&#34;</span>,
+        <span style="color:#e6db74">&#34;fb=false &lt;wait&gt;&#34;</span>,
+        <span style="color:#e6db74">&#34;debconf/frontend=noninteractive &lt;wait&gt;&#34;</span>,
+        <span style="color:#e6db74">&#34;console-setup/ask_detect=false &lt;wait&gt;&#34;</span>,
+        <span style="color:#e6db74">&#34;console-keymaps-at/keymap=us &lt;wait&gt;&#34;</span>,
+        <span style="color:#e6db74">&#34;&lt;enter&gt;&lt;wait&gt;&#34;</span>
+      ],
+      <span style="color:#e6db74">&#34;boot_wait&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;10s&#34;</span>,
+      <span style="color:#e6db74">&#34;disk_size&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">32768</span>,
+      <span style="color:#e6db74">&#34;guest_os_type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Debian_64&#34;</span>,
+      <span style="color:#e6db74">&#34;headless&#34;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+      <span style="color:#e6db74">&#34;http_directory&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;http&#34;</span>,
+      <span style="color:#e6db74">&#34;iso_checksum&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;{{user `iso_checksum`}}&#34;</span>,
+      <span style="color:#e6db74">&#34;iso_checksum_type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;sha512&#34;</span>,
+      <span style="color:#e6db74">&#34;iso_url&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;http://cdimage.debian.org/cdimage/release/{{user `debian_version`}}/amd64/iso-cd/debian-{{user `debian_version`}}-amd64-netinst.iso&#34;</span>,
+      <span style="color:#e6db74">&#34;ssh_username&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;vagrant&#34;</span>,
+      <span style="color:#e6db74">&#34;ssh_password&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;vagrant&#34;</span>,
+      <span style="color:#e6db74">&#34;ssh_port&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">22</span>,
+      <span style="color:#e6db74">&#34;ssh_wait_timeout&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;10000s&#34;</span>,
+      <span style="color:#e6db74">&#34;shutdown_command&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;echo &#39;vagrant&#39;|sudo -S /sbin/shutdown -hP now&#34;</span>,
+      <span style="color:#e6db74">&#34;guest_additions_path&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;VBoxGuestAdditions_{{.Version}}.iso&#34;</span>,
+      <span style="color:#e6db74">&#34;virtualbox_version_file&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;.vbox_version&#34;</span>,
+      <span style="color:#e6db74">&#34;vm_name&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;debian-{{user `debian_version`}}-amd64&#34;</span>,
+      <span style="color:#e6db74">&#34;vboxmanage&#34;</span><span style="color:#f92672">:</span> [
+        [ <span style="color:#e6db74">&#34;modifyvm&#34;</span>, <span style="color:#e6db74">&#34;{{.Name}}&#34;</span>, <span style="color:#e6db74">&#34;--memory&#34;</span>, <span style="color:#e6db74">&#34;512&#34;</span> ],
+        [ <span style="color:#e6db74">&#34;modifyvm&#34;</span>, <span style="color:#e6db74">&#34;{{.Name}}&#34;</span>, <span style="color:#e6db74">&#34;--cpus&#34;</span>, <span style="color:#e6db74">&#34;1&#34;</span> ]
+      ]
+    },
+    {
+      <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;docker&#34;</span>,
+      <span style="color:#e6db74">&#34;image&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;debian:wheezy&#34;</span>,
+      <span style="color:#e6db74">&#34;export_path&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;debian.tar&#34;</span>
+    }
+  ],
+  <span style="color:#e6db74">&#34;post-processors&#34;</span><span style="color:#f92672">:</span> [
+    {
+      <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;vagrant&#34;</span>,
+      <span style="color:#e6db74">&#34;compression_level&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;9&#34;</span>,
+      <span style="color:#e6db74">&#34;output&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;wheezy_{{user `debian_version`}}-{{user `soft_version`}}.box&#34;</span>,
+      <span style="color:#e6db74">&#34;only&#34;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;virtualbox-iso&#34;</span>]
+    },
+    {
+      <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;docker-import&#34;</span>,
+      <span style="color:#e6db74">&#34;repository&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smash&#34;</span>,
+      <span style="color:#e6db74">&#34;tag&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;wheezy_{{user `debian_version`}}-{{user `soft_version`}}&#34;</span>,
+      <span style="color:#e6db74">&#34;only&#34;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;docker&#34;</span>]
+    }
+  ],
+  <span style="color:#e6db74">&#34;provisioners&#34;</span><span style="color:#f92672">:</span> [
+    {
+      <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;shell&#34;</span>,
+      <span style="color:#e6db74">&#34;execute_command&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;echo &#39;vagrant&#39; | {{.Vars}} sudo -E -S bash &#39;{{.Path}}&#39;&#34;</span>,
+      <span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#f92672">:</span> [
+        <span style="color:#e6db74">&#34;scripts/update.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/sshd.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/networking.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/ansible_prequesites.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/sudoers.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/vagrant.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/vbaddguest.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/ansible_bin.sh&#34;</span>
+      ],
+      <span style="color:#e6db74">&#34;only&#34;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;virtualbox-iso&#34;</span>]
+    },
+    {
+      <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;shell&#34;</span>,
+      <span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#f92672">:</span> [
+        <span style="color:#e6db74">&#34;scripts/update.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/sshd.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/networking.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/ansible_prequesites.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/sudoers.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/vagrant.sh&#34;</span>,
+        <span style="color:#e6db74">&#34;scripts/ansible_bin.sh&#34;</span>
+      ],
+      <span style="color:#e6db74">&#34;only&#34;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;docker&#34;</span>]
+    },
+    {
+        <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ansible-local&#34;</span>,
+        <span style="color:#e6db74">&#34;playbook_dir&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;..&#34;</span>,
+        <span style="color:#e6db74">&#34;playbook_file&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;../site.yml&#34;</span>,
+        <span style="color:#e6db74">&#34;inventory_file&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;{{user `ansible_inventory_file`}}&#34;</span>,
+        <span style="color:#e6db74">&#34;extra_arguments&#34;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;-e&#34;</span>, <span style="color:#e6db74">&#34;set_env={{user `ansible_environment`}}&#34;</span>, <span style="color:#e6db74">&#34;-v&#34;</span>]
+    },
+    {
+      <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;shell&#34;</span>,
+      <span style="color:#e6db74">&#34;execute_command&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;echo &#39;vagrant&#39; | {{.Vars}} sudo -E -S bash &#39;{{.Path}}&#39;&#34;</span>,
+      <span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#f92672">:</span> [
+        <span style="color:#e6db74">&#34;scripts/cleanup.sh&#34;</span>
+      ],
+      <span style="color:#e6db74">&#34;only&#34;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;virtualbox-iso&#34;</span>]
+    },
+    {
+      <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;shell&#34;</span>,
+      <span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#f92672">:</span> [
+        <span style="color:#e6db74">&#34;scripts/cleanup.sh&#34;</span>
+      ],
+      <span style="color:#e6db74">&#34;only&#34;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;docker&#34;</span>]
+    }
+  ]
+}</code></pre></div>
 
 <p>Thanks again to Hashicorp and hope you enjoyed explanations !</p>
 
@@ -701,22 +668,24 @@ chown vagrant. /var/log/ansible.log
   <div class="post-actions-wrap">
       <nav >
         <ul class="post-actions post-action-nav">
+          
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/01/20/simple-ec2-snapshot-released/" data-tooltip="Simple EC2 snapshot released !">
               
-                <i class="fa fa-angle-left"></i>
-                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-              </a>
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/01/13/vagrant-provision-vms-and-containers-with-ansible/" data-tooltip="Vagrant: provision vms and containers with Ansible">
               
-                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                <i class="fa fa-angle-right"></i>
-              </a>
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
             </li>
+          
         </ul>
       </nav>
     <ul class="post-actions post-action-share" >
@@ -726,6 +695,24 @@ chown vagrant. /var/log/ansible.log
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
         
       
       
@@ -757,7 +744,7 @@ chown vagrant. /var/log/ansible.log
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2017 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2018 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 
@@ -767,22 +754,24 @@ chown vagrant. /var/log/ansible.log
   <div class="post-actions-wrap">
       <nav >
         <ul class="post-actions post-action-nav">
+          
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/01/20/simple-ec2-snapshot-released/" data-tooltip="Simple EC2 snapshot released !">
               
-                <i class="fa fa-angle-left"></i>
-                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-              </a>
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/01/13/vagrant-provision-vms-and-containers-with-ansible/" data-tooltip="Vagrant: provision vms and containers with Ansible">
               
-                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                <i class="fa fa-angle-right"></i>
-              </a>
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
             </li>
+          
         </ul>
       </nav>
     <ul class="post-actions post-action-share" >
@@ -792,6 +781,24 @@ chown vagrant. /var/log/ansible.log
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
         
       
       
@@ -817,6 +824,24 @@ chown vagrant. /var/log/ansible.log
   <i id="btn-close-shareoptions" class="fa fa-close"></i>
   <ul class="share-options">
     
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2015%2F01%2F16%2Fpacker-build-multiple-images-easily%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2015%2F01%2F16%2Fpacker-build-multiple-images-easily%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fblog.deimos.fr%2F2015%2F01%2F16%2Fpacker-build-multiple-images-easily%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
   </ul>
 </div>
 <div id="share-options-mask" class="share-options-mask"></div>
@@ -836,7 +861,7 @@ chown vagrant. /var/log/ansible.log
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; Nousmotards Co-Founder
+        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
       </div>
     
     
@@ -867,6 +892,42 @@ chown vagrant. /var/log/ansible.log
       <div class="no-result text-color-light text-center">no post found</div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/">
+                <h3 class="media-heading">Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/">
+                <h3 class="media-heading">MySocialApp Create your own social network</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">If you follow me, you may know that I launched with friends Nousmotards social application a few years ago. The solution continue to grow in France with more than 70k bikers and that&rsquo;s a good point for all those riders :)
+Since we launched Nousmotards, several persons asked us: &ldquo;You&rsquo;ve made an amazing job for bikers, do you provide your social solution to any other communities or for enterprises?&rdquo;. The answer was: No we didn&rsquo;t.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -1018,43 +1079,6 @@ Today I am going to talk about our experience after having using it for 2 years 
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/">
-                <h3 class="media-heading">Docker: why you should use Monit instead of supervisord</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting Nousmotards infrastructure, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.
-Introduction Docker is made to run a process in a confined area.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/08/graphite-events-on-debian-jessie/">
-                <h3 class="media-heading">Graphite events on Debian jessie</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">I&rsquo;m using Graphite at work and for my Nousmotards project. For Nousmotards, I&rsquo;m using the Graphite version available in the default Debian Jessie repositories. This to avoid mismatch django dependencies etc&hellip;
-A few days ago, I wanted to try Graphite events to get something pretty cool in Grafana :
-This to be able to know when a new app version is deployed and make it easier to understand when an issue occurs.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -1062,7 +1086,7 @@ This to be able to know when a new app version is deployed and make it easier to
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         836 posts found
+         837 posts found
       </p>
     </div>
   </div>
@@ -1075,26 +1099,15 @@ This to be able to know when a new app version is deployed and make it easier to
 
 
     
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-IFHWFEbU2/+wNycDECKgjIRSirRNIDp2acEB5fvdVRU=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js" integrity="sha256-+mpyNVJsNt4rVXCw0F+pAOiB3YxmHgrbJsx4ecPuUaI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js" integrity="sha256-vMxgR/7FtLovVA+IPrR7+xTgIgARH7y9VZQnmmi0HDI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js" integrity="sha256-N0qFUh7/9vLvia87dDndewmsgsyYoNkdA212tPc+2NI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
 <script src="https://blog.deimos.fr/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
 
 
-<script>
-$(document).ready(function() {
-  hljs.configure({ classPrefix: '', useBR: false });
-  $('pre.code-highlight, pre > code').each(function(i, block) {
-    if (!$(this).hasClass('codeblock')) {
-      $(this).addClass('codeblock');
-    }
-    hljs.highlightBlock(block);
-  });
-});
-</script>
+
 
   
     

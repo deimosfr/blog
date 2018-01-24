@@ -60,7 +60,7 @@ Let&amp;rsquo;s say you&amp;rsquo;ve got a LAMP environment to deploy in product
       <guid>https://blog.deimos.fr/2014/03/12/vagrant-v1-5-use-boxes-on-vagrantcloud/</guid>
       <description>The 1.5 version of Vagrant has been released and that&amp;rsquo;s awesome ! They finally did a Cloud where all Vagrant boxes could (https://vagrantcloud.com/) be inventoried and easily deployed through command line !
 You can find my boxes here. If you want to add one, it&amp;rsquo;s really simple:
-vagrant box add deimosfr/debian-wheezy  And the second awesome feature is&amp;hellip;the sharing! You can for example have access to a distant and nated Vagrant instance through SSH!</description>
+vagrant box add deimosfr/debian-wheezy And the second awesome feature is&amp;hellip;the sharing! You can for example have access to a distant and nated Vagrant instance through SSH!</description>
     </item>
     
     <item>

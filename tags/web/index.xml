@@ -48,7 +48,7 @@ Here is a solution on how to make it work both locally and on Readthedocs:</desc
       
       <guid>https://blog.deimos.fr/2014/09/18/nginx-enable-hsts-force-ssl-for-users/</guid>
       <description>I recently heard of HSTS which is a way to force users to come back to your website in SSL if they&amp;rsquo;ve already be to HTTPS once. It is simple, just add this line:
-# HSTS (force users to come in SSL if they&amp;#39;ve already been once) add_header Strict-Transport-Security &amp;quot;max-age=31536000; includeSubdomains&amp;quot;;  If you want to have an overview of a complete configuration with it, look at the my wiki.</description>
+# HSTS (force users to come in SSL if they&amp;#39;ve already been once) add_header Strict-Transport-Security &amp;#34;max-age=31536000; includeSubdomains&amp;#34;; If you want to have an overview of a complete configuration with it, look at the my wiki.</description>
     </item>
     
     <item>
@@ -90,8 +90,8 @@ Enjoy :-)</description>
       <guid>https://blog.deimos.fr/2014/08/21/gogs-easily-install-on-debian-wheezy/</guid>
       <description>I recently talked about Gogs and really like this solution. The main problem I encounter was the current stable version which may not be usable on Debian.
 Here is a quick solution to make it work. First of all, install git:
-apt-get install git  Then you can download the latest compiled version directly from gobuild.
-wget http://gobuild.io/github.com/gogits/gogs/master/linux/amd64 -O output.zip unzip output.zip ./start.sh  You can now access to port 3000.</description>
+apt-get install git Then you can download the latest compiled version directly from gobuild.
+wget http://gobuild.io/github.com/gogits/gogs/master/linux/amd64 -O output.zip unzip output.zip ./start.sh You can now access to port 3000. If you want to use it through a web server, here is my configuration with Nginx.</description>
     </item>
     
     <item>
@@ -198,7 +198,7 @@ In a few days, I&amp;rsquo;ll show you my usage.</description>
       <guid>https://blog.deimos.fr/2014/02/20/pagespeed-disable-varnish-by-default-get-both-working-together/</guid>
       <description>Yesterday a colleague (Dimitri) tested a tool on this blog. He informed me that Varnish was disabled and PageSpeed may be the cause as this is the last modification I&amp;rsquo;ve made on the server.
 After verification he was totally right ! By default, PageSpeed disable cache by serving HTML files with:
-Cache-Control: no-cache, max-age=0  After reading the PageSpeed documentation on that topic, it is clear: PageSpeed needs to know how to purge the cache as it rewrites a lot of elements and it has the control instead of the application.</description>
+Cache-Control: no-cache, max-age=0 After reading the PageSpeed documentation on that topic, it is clear: PageSpeed needs to know how to purge the cache as it rewrites a lot of elements and it has the control instead of the application.</description>
     </item>
     
     <item>
@@ -209,7 +209,7 @@ Cache-Control: no-cache, max-age=0  After reading the PageSpeed documentation on
       <guid>https://blog.deimos.fr/2014/02/16/deimos-fr-is-now-using-pagespeed-feedbacks/</guid>
       <description>Following a previous post, I&amp;rsquo;ve enabled PageSpeed on both wiki and blog deimos.fr.
 What I can say is, it&amp;rsquo;s very important to take the time to test every optimizations you want to add. I experienced for example issues on silly things like :
-# Optimize browser rendering pagespeed EnableFilters lazyload_images;  Some images weren&amp;rsquo;t shown if you didn&amp;rsquo;t refresh once again your page browser. I only had this problem on the blog and not the wiki.</description>
+# Optimize browser rendering pagespeed EnableFilters lazyload_images; Some images weren&amp;rsquo;t shown if you didn&amp;rsquo;t refresh once again your page browser. I only had this problem on the blog and not the wiki.</description>
     </item>
     
     <item>
@@ -285,7 +285,7 @@ To do it, simply follow the link (in french).</description>
       
       <guid>https://blog.deimos.fr/2013/12/22/php-fpm-get-status-information-page-for-monitoring/</guid>
       <description>To be able to monitor the PHP-FPM service with connections, queue information, process&amp;hellip; you&amp;rsquo;ll need to set the status page. This will give you something like this :
-pool: www process manager: dynamic start time: 18/Dec/2013:19:00:41 +0100 start since: 52972 accepted conn: 5268 listen queue: 0 max listen queue: 0 listen queue len: 0 idle processes: 3 active processes: 1 total processes: 4 max active processes: 4 max children reached: 0  Those informations are important to correctly tune the PHP-FPM service.</description>
+pool: www process manager: dynamic start time: 18/Dec/2013:19:00:41 +0100 start since: 52972 accepted conn: 5268 listen queue: 0 max listen queue: 0 listen queue len: 0 idle processes: 3 active processes: 1 total processes: 4 max active processes: 4 max children reached: 0 Those informations are important to correctly tune the PHP-FPM service.</description>
     </item>
     
     <item>
@@ -985,7 +985,7 @@ Pour la documentation, ça se passe ici.</description>
       <pubDate>Tue, 03 Apr 2012 11:00:48 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2012/04/03/un-utilitaire-pour-commandlinefu-com/</guid>
-      <description>Sachez que vous pouvez faire une recherche dans ce site pour en extraire des exemples grâce à un petit script. Exemple : &amp;gt; fu -a awk 1	# List of commands you use most often history | awk &amp;#39;{a[$2]++}END{for(i in a){print a[i] &amp;quot; &amp;quot; i}}&amp;#39; | sort -rn | head&amp;lt;/p&amp;gt; 2	# Display a block of text with AWK awk &amp;#39;/start_pattern/,/stop_pattern/&amp;#39; file.txt&amp;lt;/p&amp;gt; 3	# Remove duplicate entries in a file without sorting.</description>
+      <description>Sachez que vous pouvez faire une recherche dans ce site pour en extraire des exemples grâce à un petit script. Exemple : &amp;gt; fu -a awk 1	# List of commands you use most often 	history | awk &amp;#39;{a[$2]++}END{for(i in a){print a[i] &amp;#34; &amp;#34; i}}&amp;#39; | sort -rn | head&amp;lt;/p&amp;gt; 2	# Display a block of text with AWK 	awk &amp;#39;/start_pattern/,/stop_pattern/&amp;#39; file.txt&amp;lt;/p&amp;gt; 3	# Remove duplicate entries in a file without sorting.</description>
     </item>
     
     <item>

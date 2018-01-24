@@ -38,7 +38,7 @@ At Nousmotards we have several Java Spring Boot applications running. Restarti
       
       <guid>https://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/</guid>
       <description>As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:
-consul_template_version: &amp;#39;0.11.0&amp;#39; consul_template_arch: &amp;#39;linux_amd64&amp;#39; consul_template_http_src: &amp;quot;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&amp;quot;  You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
+consul_template_version: &amp;#39;0.11.0&amp;#39; consul_template_arch: &amp;#39;linux_amd64&amp;#39; consul_template_http_src: &amp;#34;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&amp;#34; You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
 I hope you&amp;rsquo;ll enjoy this new version :-)</description>
     </item>
     
@@ -160,7 +160,7 @@ For example, let&amp;rsquo;s say you want to test a new product version of a sof
       
       <guid>https://blog.deimos.fr/2014/10/06/fio-bench-io-disks/</guid>
       <description>The first thing you generally want to do when you have any new Storage system like SSD, Disk arrays or a Cluster Ceph, is benching. You will want to know how can read and write throughput. FIO is able to do that for you, here is an example:
-[global] ioengine=libaio invalidate=1 ramp_time=5 direct=1 size=5G runtime=300 time_based directory=/home [seq-read] rw=read bs=64K stonewall [rand-read] rw=randread bs=4K stonewall [seq-write] rw=write bs=64K stonewall [rand-write] rw=randwrite bs=4K stonewall  You then will have a good output of everything you need to know.</description>
+[global] ioengine=libaio invalidate=1 ramp_time=5 direct=1 size=5G runtime=300 time_based directory=/home [seq-read] rw=read bs=64K stonewall [rand-read] rw=randread bs=4K stonewall [seq-write] rw=write bs=64K stonewall [rand-write] rw=randwrite bs=4K stonewall You then will have a good output of everything you need to know.</description>
     </item>
     
     <item>
@@ -179,7 +179,7 @@ For example, let&amp;rsquo;s say you want to test a new product version of a sof
       
       <guid>https://blog.deimos.fr/2014/09/18/nginx-enable-hsts-force-ssl-for-users/</guid>
       <description>I recently heard of HSTS which is a way to force users to come back to your website in SSL if they&amp;rsquo;ve already be to HTTPS once. It is simple, just add this line:
-# HSTS (force users to come in SSL if they&amp;#39;ve already been once) add_header Strict-Transport-Security &amp;quot;max-age=31536000; includeSubdomains&amp;quot;;  If you want to have an overview of a complete configuration with it, look at the my wiki.</description>
+# HSTS (force users to come in SSL if they&amp;#39;ve already been once) add_header Strict-Transport-Security &amp;#34;max-age=31536000; includeSubdomains&amp;#34;; If you want to have an overview of a complete configuration with it, look at the my wiki.</description>
     </item>
     
     <item>
@@ -230,7 +230,7 @@ It&amp;rsquo;s easy to setup, better if you already know how to use Pacemaker an
       
       <guid>https://blog.deimos.fr/2014/03/28/eccza-easily-colorize-your-logs-output/</guid>
       <description>Some of you will tell me that most utility is doing it as well. And that&amp;rsquo;s right, but with ccze you will be able to colorize everything with a pipe. For example when you play with a verbose service like Pacemaker, you need to get colorization if you want to win time. Here is an example:
-tail -f /var/log/syslog | ccze -A  </description>
+tail -f /var/log/syslog | ccze -A </description>
     </item>
     
     <item>

@@ -21,7 +21,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.26 with theme Tranquilpeak 0.4.0-BETA">
+    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
     <title>Ansible: Neo4j role available on Ansible Galaxy</title>
     <meta name="author" content="Pierre Mavro / Deimosfr">
     <meta name="keywords" content="">
@@ -32,10 +32,10 @@
     
     <meta name="description" content="For a new project (will talk about it later), I needed to use Neo4J (graph database if you don&rsquo;t know it yet).
 I tried to cover more features than the current existing Ansible roles available on Ansible Galaxy. More will come in the next weeks. I also tried to make it simple to install it and do not force dependencies at maximum. Here are parameters you can set:
-# Select neo4j version neo4j_package: neo4j # community version #neo4j_package: neo4j-advanced #neo4j_package: neo4j-enterprise # Neo4j spatial plugin neo4j_install_spatial: false neo4j_spatial_version: &#39;0.">
+# Select neo4j version neo4j_package: neo4j # community version #neo4j_package: neo4j-advanced #neo4j_package: neo4j-enterprise  # Neo4j spatial plugin neo4j_install_spatial: false neo4j_spatial_version: &#39;0.">
     <meta property="og:description" content="For a new project (will talk about it later), I needed to use Neo4J (graph database if you don&rsquo;t know it yet).
 I tried to cover more features than the current existing Ansible roles available on Ansible Galaxy. More will come in the next weeks. I also tried to make it simple to install it and do not force dependencies at maximum. Here are parameters you can set:
-# Select neo4j version neo4j_package: neo4j # community version #neo4j_package: neo4j-advanced #neo4j_package: neo4j-enterprise # Neo4j spatial plugin neo4j_install_spatial: false neo4j_spatial_version: &#39;0.">
+# Select neo4j version neo4j_package: neo4j # community version #neo4j_package: neo4j-advanced #neo4j_package: neo4j-enterprise  # Neo4j spatial plugin neo4j_install_spatial: false neo4j_spatial_version: &#39;0.">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="Ansible: Neo4j role available on Ansible Galaxy">
     <meta property="og:url" content="/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/">
@@ -44,7 +44,7 @@ I tried to cover more features than the current existing Ansible roles available
     <meta name="twitter:title" content="Deimosfr Blog">
     <meta name="twitter:description" content="For a new project (will talk about it later), I needed to use Neo4J (graph database if you don&rsquo;t know it yet).
 I tried to cover more features than the current existing Ansible roles available on Ansible Galaxy. More will come in the next weeks. I also tried to make it simple to install it and do not force dependencies at maximum. Here are parameters you can set:
-# Select neo4j version neo4j_package: neo4j # community version #neo4j_package: neo4j-advanced #neo4j_package: neo4j-enterprise # Neo4j spatial plugin neo4j_install_spatial: false neo4j_spatial_version: &#39;0.">
+# Select neo4j version neo4j_package: neo4j # community version #neo4j_package: neo4j-advanced #neo4j_package: neo4j-enterprise  # Neo4j spatial plugin neo4j_install_spatial: false neo4j_spatial_version: &#39;0.">
     
       <meta name="twitter:creator" content="@deimosfr">
     
@@ -71,7 +71,7 @@ I tried to cover more features than the current existing Ansible roles available
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-fpbzgxsy0kgmdvyrj5ykkg6ratccrk3gocmaqn4xpcjywmv5dteilzucro4f.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
     
     
       
@@ -263,7 +263,6 @@ ga('send', 'pageview');
     
   
 
-
   </div>
 
 </div>
@@ -275,26 +274,26 @@ For a new project (will talk about it later), I needed to use Neo4J (graph datab
 
 <p>I tried to cover more features than the current existing Ansible roles available on Ansible Galaxy. More will come in the next weeks. I also tried to make it simple to install it and do not force dependencies at maximum. Here are parameters you can set:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e"># Select neo4j version</span>
-neo4j_package: neo4j <span style="color: #75715e"># community version</span>
-<span style="color: #75715e">#neo4j_package: neo4j-advanced</span>
-<span style="color: #75715e">#neo4j_package: neo4j-enterprise</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Select neo4j version
+</span><span style="color:#75715e"></span>neo4j_package: neo4j <span style="color:#75715e"># community version
+</span><span style="color:#75715e">#neo4j_package: neo4j-advanced
+</span><span style="color:#75715e">#neo4j_package: neo4j-enterprise
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e"># Neo4j spatial plugin
+</span><span style="color:#75715e"></span>neo4j_install_spatial: false
+neo4j_spatial_version: <span style="color:#e6db74">&#39;0.13-neo4j-2.1.2&#39;</span>
+neo4j_plugins_directory: <span style="color:#e6db74">&#39;/usr/share/neo4j/plugins&#39;</span>
 
-<span style="color: #75715e"># Neo4j spatial plugin</span>
-neo4j_install_spatial: <span style="color: #f8f8f2">false</span>
-neo4j_spatial_version: <span style="color: #e6db74">&#39;0.13-neo4j-2.1.2&#39;</span>
-neo4j_plugins_directory: <span style="color: #e6db74">&#39;/usr/share/neo4j/plugins&#39;</span>
-
-<span style="color: #75715e"># java prerequisite</span>
-neo4j_install_java: <span style="color: #f8f8f2">false</span>
+<span style="color:#75715e"># java prerequisite
+</span><span style="color:#75715e"></span>neo4j_install_java: false
 neo4j_java_package_name: openjdk-7-jdk
 
-<span style="color: #75715e"># limits.conf</span>
-neo4j_update_limits: <span style="color: #f8f8f2">true</span>
-neo4j_nofile_value: <span style="color: #ae81ff">40000</span>
+<span style="color:#75715e"># limits.conf
+</span><span style="color:#75715e"></span>neo4j_update_limits: true
+neo4j_nofile_value: <span style="color:#ae81ff">40000</span>
 
-<span style="color: #75715e"># neo4j neostore mapped memory</span>
-neo4j_mm_nodestore: 25M
+<span style="color:#75715e"># neo4j neostore mapped memory
+</span><span style="color:#75715e"></span>neo4j_mm_nodestore: 25M
 neo4j_mm_relationshipstore: 50M
 neo4j_mm_propertystore: 90M
 neo4j_mm_propertystore_strings: 130M
@@ -303,30 +302,28 @@ neo4j_mm_index: 5M
 neo4j_nm_index_keys: 5M
 neo4j_cache_type: none
 
-<span style="color: #75715e"># server</span>
-neo4j_server_database_location: data/graph.db
-neo4j_server_webserver_address: <span style="color: #ae81ff">127</span>.0.0.1
-neo4j_server_webserver_port: <span style="color: #ae81ff">7474</span>
-neo4j_server_webserver_https_enabled: <span style="color: #f8f8f2">false</span>
-neo4j_server_webserver_https_port: <span style="color: #ae81ff">7473</span>
+<span style="color:#75715e"># server
+</span><span style="color:#75715e"></span>neo4j_server_database_location: data/graph.db
+neo4j_server_webserver_address: <span style="color:#ae81ff">127</span>.0.0.1
+neo4j_server_webserver_port: <span style="color:#ae81ff">7474</span>
+neo4j_server_webserver_https_enabled: false
+neo4j_server_webserver_https_port: <span style="color:#ae81ff">7473</span>
 neo4j_server_webserver_https_cert_location: conf/ssl/snakeoil.cert
 neo4j_server_webserver_https_key_location: conf/ssl/snakeoil.key
 neo4j_server_webserver_https_keystore_location: data/keystore
 
-<span style="color: #75715e"># webadmin</span>
-neo4j_server_webadmin_rrdb_location: data/rrd
+<span style="color:#75715e"># webadmin
+</span><span style="color:#75715e"></span>neo4j_server_webadmin_rrdb_location: data/rrd
 neo4j_server_webadmin_data_uri: /db/data/
 neo4j_server_webadmin_management_uri: /db/manage/
 neo4j_server_db_tuning_properties: conf/neo4j.properties
 neo4j_server_manage_console_engines: shell
 neo4j_server_database_mode: SINGLE
 
-<span style="color: #75715e"># logging</span>
-neo4j_server_http_log_enabled: <span style="color: #f8f8f2">false</span>
+<span style="color:#75715e"># logging
+</span><span style="color:#75715e"></span>neo4j_server_http_log_enabled: false
 neo4j_server_http_log_config: conf/neo4j-http-logging.xml
-neo4j_keep_logical_logs: <span style="color: #f8f8f2">true</span>
-</pre></div>
-
+neo4j_keep_logical_logs: true</code></pre></div>
 
 <p>You can find <a href="https://galaxy.ansible.com/deimosfr/neo4j/" target="_blank">the Ansible role for Neo4j here</a>, it manages all versions (community, enterprise&hellip;) and you can install Spatial plugin as well easilly.</p>
 
@@ -365,22 +362,24 @@ neo4j_keep_logical_logs: <span style="color: #f8f8f2">true</span>
   <div class="post-actions-wrap">
       <nav >
         <ul class="post-actions post-action-nav">
+          
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/03/13/nousmotards-mon-nouveau-projet-pour-les-motards/" data-tooltip="Nousmotards: mon nouveau projet pour les motards">
               
-                <i class="fa fa-angle-left"></i>
-                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-              </a>
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/02/25/ansible-lxc-role-updated-for-jessie/" data-tooltip="Ansible: LXC role updated for Jessie">
               
-                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                <i class="fa fa-angle-right"></i>
-              </a>
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
             </li>
+          
         </ul>
       </nav>
     <ul class="post-actions post-action-share" >
@@ -390,6 +389,24 @@ neo4j_keep_logical_logs: <span style="color: #f8f8f2">true</span>
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
         
       
       
@@ -421,7 +438,7 @@ neo4j_keep_logical_logs: <span style="color: #f8f8f2">true</span>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2017 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2018 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 
@@ -431,22 +448,24 @@ neo4j_keep_logical_logs: <span style="color: #f8f8f2">true</span>
   <div class="post-actions-wrap">
       <nav >
         <ul class="post-actions post-action-nav">
+          
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/03/13/nousmotards-mon-nouveau-projet-pour-les-motards/" data-tooltip="Nousmotards: mon nouveau projet pour les motards">
               
-                <i class="fa fa-angle-left"></i>
-                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-              </a>
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/02/25/ansible-lxc-role-updated-for-jessie/" data-tooltip="Ansible: LXC role updated for Jessie">
               
-                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                <i class="fa fa-angle-right"></i>
-              </a>
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
             </li>
+          
         </ul>
       </nav>
     <ul class="post-actions post-action-share" >
@@ -456,6 +475,24 @@ neo4j_keep_logical_logs: <span style="color: #f8f8f2">true</span>
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
         
       
       
@@ -481,6 +518,24 @@ neo4j_keep_logical_logs: <span style="color: #f8f8f2">true</span>
   <i id="btn-close-shareoptions" class="fa fa-close"></i>
   <ul class="share-options">
     
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2015%2F02%2F27%2Fansible-neo4j-role-available-on-ansible-galaxy%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2015%2F02%2F27%2Fansible-neo4j-role-available-on-ansible-galaxy%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fblog.deimos.fr%2F2015%2F02%2F27%2Fansible-neo4j-role-available-on-ansible-galaxy%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
   </ul>
 </div>
 <div id="share-options-mask" class="share-options-mask"></div>
@@ -500,7 +555,7 @@ neo4j_keep_logical_logs: <span style="color: #f8f8f2">true</span>
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; Nousmotards Co-Founder
+        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
       </div>
     
     
@@ -531,6 +586,42 @@ neo4j_keep_logical_logs: <span style="color: #f8f8f2">true</span>
       <div class="no-result text-color-light text-center">no post found</div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/">
+                <h3 class="media-heading">Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/">
+                <h3 class="media-heading">MySocialApp Create your own social network</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">If you follow me, you may know that I launched with friends Nousmotards social application a few years ago. The solution continue to grow in France with more than 70k bikers and that&rsquo;s a good point for all those riders :)
+Since we launched Nousmotards, several persons asked us: &ldquo;You&rsquo;ve made an amazing job for bikers, do you provide your social solution to any other communities or for enterprises?&rdquo;. The answer was: No we didn&rsquo;t.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -682,43 +773,6 @@ Today I am going to talk about our experience after having using it for 2 years 
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/">
-                <h3 class="media-heading">Docker: why you should use Monit instead of supervisord</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting Nousmotards infrastructure, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.
-Introduction Docker is made to run a process in a confined area.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/08/graphite-events-on-debian-jessie/">
-                <h3 class="media-heading">Graphite events on Debian jessie</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">I&rsquo;m using Graphite at work and for my Nousmotards project. For Nousmotards, I&rsquo;m using the Graphite version available in the default Debian Jessie repositories. This to avoid mismatch django dependencies etc&hellip;
-A few days ago, I wanted to try Graphite events to get something pretty cool in Grafana :
-This to be able to know when a new app version is deployed and make it easier to understand when an issue occurs.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -726,7 +780,7 @@ This to be able to know when a new app version is deployed and make it easier to
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         836 posts found
+         837 posts found
       </p>
     </div>
   </div>
@@ -739,26 +793,15 @@ This to be able to know when a new app version is deployed and make it easier to
 
 
     
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-IFHWFEbU2/+wNycDECKgjIRSirRNIDp2acEB5fvdVRU=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js" integrity="sha256-+mpyNVJsNt4rVXCw0F+pAOiB3YxmHgrbJsx4ecPuUaI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js" integrity="sha256-vMxgR/7FtLovVA+IPrR7+xTgIgARH7y9VZQnmmi0HDI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js" integrity="sha256-N0qFUh7/9vLvia87dDndewmsgsyYoNkdA212tPc+2NI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
 <script src="https://blog.deimos.fr/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
 
 
-<script>
-$(document).ready(function() {
-  hljs.configure({ classPrefix: '', useBR: false });
-  $('pre.code-highlight, pre > code').each(function(i, block) {
-    if (!$(this).hasClass('codeblock')) {
-      $(this).addClass('codeblock');
-    }
-    hljs.highlightBlock(block);
-  });
-});
-</script>
+
 
   
     

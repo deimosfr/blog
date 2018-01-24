@@ -40,7 +40,7 @@ I did it in Perl. As described in the last post as I needed to have the interpre
       <guid>https://blog.deimos.fr/2013/09/25/create-exe-with-perl-on-windows/</guid>
       <description>In the past, I already made an article on how to make exe from a Perl script on Windows. I was using Strawberry or Activesync but have a preference for Strawberry as it&amp;rsquo;s totally free :-).
 This time, I tried to reproduce the tips but encountered several issues. The first one was that error :
-The locale codeset (cp1252) isn&amp;#39;t one that perl can decode, stopped at Encode/Locale.pm line 94.  It could simply be resolved by addressing &amp;lsquo;-x&amp;rsquo; parameter to the &amp;lsquo;pp&amp;rsquo; command line.</description>
+The locale codeset (cp1252) isn&amp;#39;t one that perl can decode, stopped at Encode/Locale.pm line 94. It could simply be resolved by addressing &amp;lsquo;-x&amp;rsquo; parameter to the &amp;lsquo;pp&amp;rsquo; command line.</description>
     </item>
     
     <item>

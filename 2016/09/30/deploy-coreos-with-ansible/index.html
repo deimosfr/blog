@@ -21,7 +21,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.26 with theme Tranquilpeak 0.4.0-BETA">
+    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
     <title>Deploy CoreOS with Ansible</title>
     <meta name="author" content="Pierre Mavro / Deimosfr">
     <meta name="keywords" content="">
@@ -74,7 +74,7 @@ As I&rsquo;m still an Ansible lover, I&rsquo;ve made 2 roles:
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-fpbzgxsy0kgmdvyrj5ykkg6ratccrk3gocmaqn4xpcjywmv5dteilzucro4f.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
     
     
       
@@ -260,7 +260,6 @@ ga('send', 'pageview');
     
   
 
-
   </div>
 
 </div>
@@ -285,212 +284,208 @@ ga('send', 'pageview');
 
 <p>The first one is&nbsp;for installing pypy to run Ansible and the other one to bootstrap CoreOS with Cloudinit or/and Igninition. Those role will bootstrap a complete cluster with etcd, flannel, fleet etc&hellip;ready to run a <a href="http://kubernetes.io/" target="_blank">Kubernetes</a> cluster on it! It will generate configs for each hosts and deploy them automatically. It will permit to add vars, generate the configs and you can keep history with git for example. Here are the options of the role:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e"># Choose CoreOS channel between stable, beta or alpha channels</span>
-<span style="color: #ae81ff">coreos_channel</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;stable&quot;</span>
-<span style="color: #75715e"># Generate a token: https://discovery.etcd.io/new?size=3</span>
-<span style="color: #ae81ff">coreos_token</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;81b89915ae4edd9a65ad9d0301381c52&quot;</span>
-<span style="color: #75715e"># Choose reboot strategy between: etcd-lock, reboot and off</span>
-<span style="color: #ae81ff">coreos_reboot_strategy</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;etcd-lock&quot;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># Choose CoreOS channel between stable, beta or alpha channels</span>
+coreos_channel: <span style="color:#e6db74">&#34;stable&#34;</span>
+<span style="color:#75715e"># Generate a token: https://discovery.etcd.io/new?size=3</span>
+coreos_token: <span style="color:#e6db74">&#34;81b89915ae4edd9a65ad9d0301381c52&#34;</span>
+<span style="color:#75715e"># Choose reboot strategy between: etcd-lock, reboot and off</span>
+coreos_reboot_strategy: <span style="color:#e6db74">&#34;etcd-lock&#34;</span>
 
-<span style="color: #75715e"># Define your public interface and IP</span>
-<span style="color: #ae81ff">coreos_public_ip</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{ansible_default_ipv4.address}}&quot;</span>
-<span style="color: #ae81ff">coreos_public_if</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{ansible_default_ipv4.interface}}&quot;</span>
-<span style="color: #75715e"># Define your private interface and IP</span>
-<span style="color: #ae81ff">coreos_private_ip</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{priv_ip}}&quot;</span>
-<span style="color: #ae81ff">coreos_private_if</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{priv_if}}&quot;</span>
+<span style="color:#75715e"># Define your public interface and IP</span>
+coreos_public_ip: <span style="color:#e6db74">&#34;{{ansible_default_ipv4.address}}&#34;</span>
+coreos_public_if: <span style="color:#e6db74">&#34;{{ansible_default_ipv4.interface}}&#34;</span>
+<span style="color:#75715e"># Define your private interface and IP</span>
+coreos_private_ip: <span style="color:#e6db74">&#34;{{priv_ip}}&#34;</span>
+coreos_private_if: <span style="color:#e6db74">&#34;{{priv_if}}&#34;</span>
 
-<span style="color: #75715e"># Define dedicated subnet for containers communication</span>
-<span style="color: #ae81ff">coreos_flanneld_subnet</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;10.1.0.0/16&quot;</span>
+<span style="color:#75715e"># Define dedicated subnet for containers communication</span>
+coreos_flanneld_subnet: <span style="color:#e6db74">&#34;10.1.0.0/16&#34;</span>
 
-<span style="color: #75715e"># Add fleet metadata</span>
-<span style="color: #ae81ff">coreos_fleet_metadata</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;cluster=dev&quot;</span>
+<span style="color:#75715e"># Add fleet metadata</span>
+coreos_fleet_metadata: <span style="color:#e6db74">&#34;cluster=dev&#34;</span>
 
-<span style="color: #75715e"># If true, will bootstrap the server (data may be lost),</span>
-<span style="color: #75715e"># else config files will be generated</span>
-<span style="color: #ae81ff">coreos_launch_bootstrap</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-<span style="color: #ae81ff">coreos_device_install</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;/dev/sda&quot;</span>
-<span style="color: #ae81ff">coreos_install_additional_options</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;&quot;</span>
-<span style="color: #ae81ff">coreos_eject_cd_before_reboot</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-<span style="color: #ae81ff">coreos_reboot_after_bootstrap</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
+<span style="color:#75715e"># If true, will bootstrap the server (data may be lost),</span>
+<span style="color:#75715e"># else config files will be generated</span>
+coreos_launch_bootstrap: <span style="color:#66d9ef">true</span>
+coreos_device_install: <span style="color:#e6db74">&#34;/dev/sda&#34;</span>
+coreos_install_additional_options: <span style="color:#e6db74">&#34;&#34;</span>
+coreos_eject_cd_before_reboot: <span style="color:#66d9ef">true</span>
+coreos_reboot_after_bootstrap: <span style="color:#66d9ef">true</span>
 
-<span style="color: #75715e"># Dump generated Ingition and Cloudinit configs</span>
-<span style="color: #ae81ff">coreos_dump_ignition_cloudinit_config</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-<span style="color: #ae81ff">coreos_dump_ignition_cloudinit_dest</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{role_path}}/files/generated_configs&quot;</span>
+<span style="color:#75715e"># Dump generated Ingition and Cloudinit configs</span>
+coreos_dump_ignition_cloudinit_config: <span style="color:#66d9ef">true</span>
+coreos_dump_ignition_cloudinit_dest: <span style="color:#e6db74">&#34;{{role_path}}/files/generated_configs&#34;</span>
 
-<span style="color: #75715e"># Select Timezone</span>
-<span style="color: #ae81ff">coreos_timezone</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;UTC&quot;</span>
+<span style="color:#75715e"># Select Timezone</span>
+coreos_timezone: <span style="color:#e6db74">&#34;UTC&#34;</span>
 
-<span style="color: #75715e"># CoreOS toolbox image type</span>
-<span style="color: #ae81ff">coreos_toolbox_docker_image</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;debian&quot;</span>
-<span style="color: #ae81ff">coreos_toolbox_docker_tag</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;stable&quot;</span>
+<span style="color:#75715e"># CoreOS toolbox image type</span>
+coreos_toolbox_docker_image: <span style="color:#e6db74">&#34;debian&#34;</span>
+coreos_toolbox_docker_tag: <span style="color:#e6db74">&#34;stable&#34;</span>
 
-<span style="color: #75715e"># Ignition</span>
-<span style="color: #ae81ff">coreos_bootstrap_ignition</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">false</span>
-<span style="color: #ae81ff">coreos_ignition</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">ignition</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">version</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;2.0.0&quot;</span>
-  <span style="color: #ae81ff">storage</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">disks</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">device</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;/dev/sdb&quot;</span>
-        <span style="color: #ae81ff">wipeTable</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-        <span style="color: #ae81ff">partitions</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">label</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;data.0&quot;</span>
-            <span style="color: #ae81ff">number</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1</span>
-            <span style="color: #ae81ff">size</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">0</span>
-            <span style="color: #ae81ff">start</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">0</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">device</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;/dev/sdc&quot;</span>
-        <span style="color: #ae81ff">wipeTable</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-        <span style="color: #ae81ff">partitions</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">label</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;data.1&quot;</span>
-            <span style="color: #ae81ff">number</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1</span>
-            <span style="color: #ae81ff">size</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">0</span>
-            <span style="color: #ae81ff">start</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">0</span>
+<span style="color:#75715e"># Ignition</span>
+coreos_bootstrap_ignition: <span style="color:#66d9ef">false</span>
+coreos_ignition:
+  ignition:
+    version: <span style="color:#e6db74">&#34;2.0.0&#34;</span>
+  storage:
+    disks:
+      - device: <span style="color:#e6db74">&#34;/dev/sdb&#34;</span>
+        wipeTable: <span style="color:#66d9ef">true</span>
+        partitions:
+          - label: <span style="color:#e6db74">&#34;data.0&#34;</span>
+            number: <span style="color:#ae81ff">1</span>
+            size: <span style="color:#ae81ff">0</span>
+            start: <span style="color:#ae81ff">0</span>
+      - device: <span style="color:#e6db74">&#34;/dev/sdc&#34;</span>
+        wipeTable: <span style="color:#66d9ef">true</span>
+        partitions:
+          - label: <span style="color:#e6db74">&#34;data.1&#34;</span>
+            number: <span style="color:#ae81ff">1</span>
+            size: <span style="color:#ae81ff">0</span>
+            start: <span style="color:#ae81ff">0</span>
 
-<span style="color: #75715e"># Cloudinit</span>
-<span style="color: #ae81ff">coreos_bootstrap_cloudinit</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-<span style="color: #ae81ff">coreos_cloudinit</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">hostname</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{inventory_hostname}}&quot;</span>
-  <span style="color: #ae81ff">coreos</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">etcd2</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">discovery</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;https://discovery.etcd.io/{{coreos_token}}&quot;</span>
-      <span style="color: #75715e">#name: &#39;cluster01&#39;</span>
-      <span style="color: #ae81ff">advertise-client-urls</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;http://{{coreos_public_ip}}:2379&quot;</span>
-      <span style="color: #75715e">#initial-cluster-token: &#39;cluster-prod&#39;</span>
-      <span style="color: #75715e">#initial-cluster-state: &quot;{{coreos_cluster_state}}&quot;</span>
-      <span style="color: #75715e">#initial-cluster: &quot;core01=http://172.17.8.101:2380, core02=http://172.17.8.102:2380, core03=http://172.17.8.103:2380,&quot;</span>
-      <span style="color: #ae81ff">initial-advertise-peer-urls</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;http://{{coreos_private_ip}}:2380&quot;</span>
-      <span style="color: #ae81ff">listen-peer-urls</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;http://{{coreos_private_ip}}:2380,http://{{coreos_private_ip}}:7001&quot;</span>
-      <span style="color: #ae81ff">listen-client-urls</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;http://0.0.0.0:2379,http://0.0.0.0:4001&quot;</span>
-    <span style="color: #ae81ff">update</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">group</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{coreos_channel}}&quot;</span>
-      <span style="color: #ae81ff">reboot-strategy</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{coreos_reboot_strategy}}&quot;</span>
-    <span style="color: #ae81ff">fleet</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">public-ip</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{coreos_public_ip}}&quot;</span>
-      <span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{coreos_fleet_metadata}}&quot;</span>
-    <span style="color: #ae81ff">flannel</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">interface</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{coreos_public_ip}}&quot;</span>
-    <span style="color: #ae81ff">units</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;00-{{coreos_public_if}}.network&quot;</span>
-      <span style="color: #ae81ff">runtime</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-      <span style="color: #ae81ff">content</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">|</span>
-        <span style="color: #66d9ef">[Match]</span>
-        <span style="color: #66d9ef">Name={{coreos_public_if}}</span>
-        <span style="color: #66d9ef">[Network]</span>
-        <span style="color: #66d9ef">DHCP=true</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;00-{{coreos_private_if}}.network&quot;</span>
-      <span style="color: #ae81ff">runtime</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-      <span style="color: #ae81ff">content</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">|</span>
-        <span style="color: #66d9ef">[Match]</span>
-        <span style="color: #66d9ef">Name={{coreos_private_if}}</span>
-        <span style="color: #66d9ef">[Network]</span>
-        <span style="color: #66d9ef">Address={{coreos_private_ip}}/24</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">iptables-restore.service</span>
-      <span style="color: #ae81ff">enable</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-      <span style="color: #ae81ff">command</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">start</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">settimezone.service</span>
-      <span style="color: #ae81ff">command</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">start</span>
-      <span style="color: #ae81ff">content</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">|</span>
-        <span style="color: #66d9ef">[Unit]</span>
-        <span style="color: #66d9ef">Description=Set the time zone</span>
-        <span style="color: #66d9ef">[Service]</span>
-        <span style="color: #66d9ef">ExecStart=/usr/bin/timedatectl set-timezone {{coreos_timezone}}</span>
-        <span style="color: #66d9ef">RemainAfterExit=yes</span>
-        <span style="color: #66d9ef">Type=oneshot</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">systemd-modules-load.service</span>
-      <span style="color: #ae81ff">command</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">restart</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">systemd-sysctl.service</span>
-      <span style="color: #ae81ff">command</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">restart</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">systemd-timesyncd.service</span>
-      <span style="color: #ae81ff">command</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">start</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">etcd2.service</span>
-      <span style="color: #ae81ff">command</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">start</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">fleet.service</span>
-      <span style="color: #ae81ff">command</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">start</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">docker.service</span>
-      <span style="color: #ae81ff">command</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">start</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">flanneld.service</span>
-      <span style="color: #ae81ff">drop-ins</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">50-network-config.conf</span>
-        <span style="color: #ae81ff">content</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">|</span>
-          <span style="color: #66d9ef">[Service]</span>
-          <span style="color: #66d9ef">ExecStartPre=/usr/bin/etcdctl set /coreos.com/network/config &#39;{ &quot;Network&quot;: &quot;{{coreos_flanneld_subnet}}&quot; }&#39;</span>
-      <span style="color: #ae81ff">command</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">start</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">docker-tcp.socket</span>
-      <span style="color: #ae81ff">command</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">start</span>
-      <span style="color: #ae81ff">enable</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-      <span style="color: #ae81ff">content</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">|</span>
-        <span style="color: #66d9ef">[Unit]</span>
-        <span style="color: #66d9ef">Description=Docker Socket for the API</span>
-        <span style="color: #66d9ef">After=mnt-data.mount</span>
-        <span style="color: #66d9ef">Requires=mnt-data.mount</span>
-        <span style="color: #66d9ef">[Socket]</span>
-        <span style="color: #66d9ef">ListenStream=2375</span>
-        <span style="color: #66d9ef">Service=docker.service</span>
-        <span style="color: #66d9ef">BindIPv6Only=both</span>
-        <span style="color: #66d9ef">[Install]</span>
-        <span style="color: #66d9ef">WantedBy=sockets.target</span>
-  <span style="color: #ae81ff">write_files</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">path</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;/home/core/.toolboxrc&quot;</span>
-    <span style="color: #ae81ff">owner</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">core</span>
-    <span style="color: #ae81ff">content</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">|</span>
-      <span style="color: #66d9ef">TOOLBOX_DOCKER_IMAGE={{coreos_toolbox_docker_image}}</span>
-      <span style="color: #66d9ef">TOOLBOX_DOCKER_TAG={{coreos_toolbox_docker_tag}}</span>
-  <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">path</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/var/lib/iptables/rules-save</span>
-    <span style="color: #ae81ff">permissions</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">0644</span>
-    <span style="color: #ae81ff">owner</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">root:root</span>
-    <span style="color: #ae81ff">content</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">|</span>
-      <span style="color: #66d9ef">*filter</span>
-      <span style="color: #66d9ef">:INPUT DROP [0:0]</span>
-      <span style="color: #66d9ef">:FORWARD DROP [0:0]</span>
-      <span style="color: #66d9ef">:OUTPUT ACCEPT [0:0]</span>
-      <span style="color: #66d9ef">-A INPUT -i lo -j ACCEPT</span>
-      <span style="color: #66d9ef">-A INPUT -i {{coreos_private_if}} -j ACCEPT</span>
-      <span style="color: #66d9ef">-A INPUT -i tap0 -p all -j ACCEPT</span>
-      <span style="color: #66d9ef">-A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT</span>
-      <span style="color: #66d9ef">-A INPUT -p tcp -m tcp --dport 22 -j ACCEPT</span>
-      <span style="color: #66d9ef">-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT</span>
-      <span style="color: #66d9ef">-A INPUT -p tcp -m tcp --dport 443 -j ACCEPT</span>
-      <span style="color: #66d9ef">-A INPUT -p icmp -m icmp --icmp-type 0 -j ACCEPT</span>
-      <span style="color: #66d9ef">-A INPUT -p icmp -m icmp --icmp-type 3 -j ACCEPT</span>
-      <span style="color: #66d9ef">-A INPUT -p icmp -m icmp --icmp-type 11 -j ACCEPT</span>
-      <span style="color: #66d9ef">COMMIT</span>
-  <span style="color: #ae81ff">users</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;core&#39;</span>
-      <span style="color: #ae81ff">ssh-authorized-keys</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;your</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">ssh</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">key</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">here&quot;</span>
+<span style="color:#75715e"># Cloudinit</span>
+coreos_bootstrap_cloudinit: <span style="color:#66d9ef">true</span>
+coreos_cloudinit:
+  hostname: <span style="color:#e6db74">&#34;{{inventory_hostname}}&#34;</span>
+  coreos:
+    etcd<span style="color:#ae81ff">2</span>:
+      discovery: <span style="color:#e6db74">&#34;https://discovery.etcd.io/{{coreos_token}}&#34;</span>
+      <span style="color:#75715e">#name: &#39;cluster01&#39;</span>
+      advertise-client-urls: <span style="color:#e6db74">&#34;http://{{coreos_public_ip}}:2379&#34;</span>
+      <span style="color:#75715e">#initial-cluster-token: &#39;cluster-prod&#39;</span>
+      <span style="color:#75715e">#initial-cluster-state: &#34;{{coreos_cluster_state}}&#34;</span>
+      <span style="color:#75715e">#initial-cluster: &#34;core01=http://172.17.8.101:2380, core02=http://172.17.8.102:2380, core03=http://172.17.8.103:2380,&#34;</span>
+      initial-advertise-peer-urls: <span style="color:#e6db74">&#34;http://{{coreos_private_ip}}:2380&#34;</span>
+      listen-peer-urls: <span style="color:#e6db74">&#34;http://{{coreos_private_ip}}:2380,http://{{coreos_private_ip}}:7001&#34;</span>
+      listen-client-urls: <span style="color:#e6db74">&#34;http://0.0.0.0:2379,http://0.0.0.0:4001&#34;</span>
+    update:
+      group: <span style="color:#e6db74">&#34;{{coreos_channel}}&#34;</span>
+      reboot-strategy: <span style="color:#e6db74">&#34;{{coreos_reboot_strategy}}&#34;</span>
+    fleet:
+      public-ip: <span style="color:#e6db74">&#34;{{coreos_public_ip}}&#34;</span>
+      metadata: <span style="color:#e6db74">&#34;{{coreos_fleet_metadata}}&#34;</span>
+    flannel:
+      interface: <span style="color:#e6db74">&#34;{{coreos_public_ip}}&#34;</span>
+    units:
+    - name: <span style="color:#e6db74">&#34;00-{{coreos_public_if}}.network&#34;</span>
+      runtime: <span style="color:#66d9ef">true</span>
+      content: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">        [Match]
+</span><span style="color:#e6db74">        Name={{coreos_public_if}}
+</span><span style="color:#e6db74">        [Network]
+</span><span style="color:#e6db74">        DHCP=true</span>
+    - name: <span style="color:#e6db74">&#34;00-{{coreos_private_if}}.network&#34;</span>
+      runtime: <span style="color:#66d9ef">true</span>
+      content: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">        [Match]
+</span><span style="color:#e6db74">        Name={{coreos_private_if}}
+</span><span style="color:#e6db74">        [Network]
+</span><span style="color:#e6db74">        Address={{coreos_private_ip}}/24</span>
+    - name: iptables-restore.service
+      enable: <span style="color:#66d9ef">true</span>
+      command: start
+    - name: settimezone.service
+      command: start
+      content: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">        [Unit]
+</span><span style="color:#e6db74">        Description=Set the time zone
+</span><span style="color:#e6db74">        [Service]
+</span><span style="color:#e6db74">        ExecStart=/usr/bin/timedatectl set-timezone {{coreos_timezone}}
+</span><span style="color:#e6db74">        RemainAfterExit=yes
+</span><span style="color:#e6db74">        Type=oneshot</span>
+    - name: systemd-modules-load.service
+      command: restart
+    - name: systemd-sysctl.service
+      command: restart
+    - name: systemd-timesyncd.service
+      command: start
+    - name: etcd<span style="color:#ae81ff">2.</span>service
+      command: start
+    - name: fleet.service
+      command: start
+    - name: docker.service
+      command: start
+    - name: flanneld.service
+      drop-ins:
+      - name: <span style="color:#ae81ff">50</span>-network-config.conf
+        content: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">          [Service]
+</span><span style="color:#e6db74">          ExecStartPre=/usr/bin/etcdctl set /coreos.com/network/config &#39;{ &#34;Network&#34;: &#34;{{coreos_flanneld_subnet}}&#34; }&#39;</span>
+      command: start
+    - name: docker-tcp.socket
+      command: start
+      enable: <span style="color:#66d9ef">true</span>
+      content: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">        [Unit]
+</span><span style="color:#e6db74">        Description=Docker Socket for the API
+</span><span style="color:#e6db74">        After=mnt-data.mount
+</span><span style="color:#e6db74">        Requires=mnt-data.mount
+</span><span style="color:#e6db74">        [Socket]
+</span><span style="color:#e6db74">        ListenStream=2375
+</span><span style="color:#e6db74">        Service=docker.service
+</span><span style="color:#e6db74">        BindIPv6Only=both
+</span><span style="color:#e6db74">        [Install]
+</span><span style="color:#e6db74">        WantedBy=sockets.target</span>
+  write_files:
+  - path: <span style="color:#e6db74">&#34;/home/core/.toolboxrc&#34;</span>
+    owner: core
+    content: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">      TOOLBOX_DOCKER_IMAGE={{coreos_toolbox_docker_image}}
+</span><span style="color:#e6db74">      TOOLBOX_DOCKER_TAG={{coreos_toolbox_docker_tag}}</span>
+  - path: /var/lib/iptables/rules-save
+    permissions: <span style="color:#ae81ff">0644</span>
+    owner: root:root
+    content: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">      *filter
+</span><span style="color:#e6db74">      :INPUT DROP [0:0]
+</span><span style="color:#e6db74">      :FORWARD DROP [0:0]
+</span><span style="color:#e6db74">      :OUTPUT ACCEPT [0:0]
+</span><span style="color:#e6db74">      -A INPUT -i lo -j ACCEPT
+</span><span style="color:#e6db74">      -A INPUT -i {{coreos_private_if}} -j ACCEPT
+</span><span style="color:#e6db74">      -A INPUT -i tap0 -p all -j ACCEPT
+</span><span style="color:#e6db74">      -A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+</span><span style="color:#e6db74">      -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
+</span><span style="color:#e6db74">      -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+</span><span style="color:#e6db74">      -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT
+</span><span style="color:#e6db74">      -A INPUT -p icmp -m icmp --icmp-type 0 -j ACCEPT
+</span><span style="color:#e6db74">      -A INPUT -p icmp -m icmp --icmp-type 3 -j ACCEPT
+</span><span style="color:#e6db74">      -A INPUT -p icmp -m icmp --icmp-type 11 -j ACCEPT
+</span><span style="color:#e6db74">      COMMIT</span>
+  users:
+    - name: <span style="color:#e6db74">&#39;core&#39;</span>
+      ssh-authorized-keys:
+      - <span style="color:#e6db74">&#34;your ssh key here&#34;</span>
 
-<span style="color: #ae81ff">ansible_ssh_user</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">core</span>
-<span style="color: #ae81ff">ansible_python_interpreter</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;/opt/python/bin/python&quot;</span>
-</pre></div>
-
+ansible_ssh_user: core
+ansible_python_interpreter: <span style="color:#e6db74">&#34;/opt/python/bin/python&#34;</span></code></pre></div>
 
 <p>Finally call it that way:</p>
 
-<p><div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">coreos-ansible</span>
-  <span style="color: #ae81ff">hosts</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">coreos</span>
-  <span style="color: #ae81ff">user</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">core</span>
-  <span style="color: #ae81ff">become</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">yes</span>
-  <span style="color: #ae81ff">gather_facts</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">False</span>
-    <span style="color: #ae81ff">serial</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1</span>
-  <span style="color: #ae81ff">roles</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">deimosfr.coreos-ansible</span>
-  <span style="color: #ae81ff">vars</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">ansible_ssh_user</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">core</span>
-    <span style="color: #ae81ff">ansible_python_interpreter</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;/opt/python/bin/python&quot;</span>
+<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- name: coreos-ansible
+  hosts: coreos
+  user: core
+  become: yes
+  gather_facts: False
+    serial: <span style="color:#ae81ff">1</span>
+  roles:
+    - deimosfr.coreos-ansible
+  vars:
+    ansible_ssh_user: core
+    ansible_python_interpreter: <span style="color:#e6db74">&#34;/opt/python/bin/python&#34;</span>
 
-<span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">coreos-bootstrap</span>
-  <span style="color: #ae81ff">hosts</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">coreos</span>
-  <span style="color: #ae81ff">user</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">core</span>
-  <span style="color: #ae81ff">become</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">yes</span>
-  <span style="color: #75715e">#become_method: su</span>
-  <span style="color: #75715e">#gather_facts: False</span>
-  <span style="color: #ae81ff">roles</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">deimosfr.coreos</span>
-  <span style="color: #ae81ff">vars</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">ansible_ssh_user</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">core</span>
-    <span style="color: #ae81ff">ansible_python_interpreter</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;/opt/python/bin/python&quot;</span>
-</pre></div>
-</p>
+- name: coreos-bootstrap
+  hosts: coreos
+  user: core
+  become: yes
+  <span style="color:#75715e">#become_method: su</span>
+  <span style="color:#75715e">#gather_facts: False</span>
+  roles:
+    - deimosfr.coreos
+  vars:
+    ansible_ssh_user: core
+    ansible_python_interpreter: <span style="color:#e6db74">&#34;/opt/python/bin/python&#34;</span></code></pre></div></p>
 
 <p>Inside this role you&rsquo;ll also find a Vagrantfile to deploy a test cluster easily!</p>
 
@@ -517,22 +512,24 @@ ga('send', 'pageview');
   <div class="post-actions-wrap">
       <nav >
         <ul class="post-actions post-action-nav">
+          
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2017/04/18/blog-migrated-to-hugo-on-github/" data-tooltip="Blog migrated to Hugo on Github">
               
-                <i class="fa fa-angle-left"></i>
-                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-              </a>
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/" data-tooltip="Do not waste time with grep anymore, use tag">
               
-                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                <i class="fa fa-angle-right"></i>
-              </a>
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
             </li>
+          
         </ul>
       </nav>
     <ul class="post-actions post-action-share" >
@@ -542,6 +539,24 @@ ga('send', 'pageview');
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
         
       
       
@@ -573,7 +588,7 @@ ga('send', 'pageview');
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2017 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2018 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 
@@ -583,22 +598,24 @@ ga('send', 'pageview');
   <div class="post-actions-wrap">
       <nav >
         <ul class="post-actions post-action-nav">
+          
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2017/04/18/blog-migrated-to-hugo-on-github/" data-tooltip="Blog migrated to Hugo on Github">
               
-                <i class="fa fa-angle-left"></i>
-                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-              </a>
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/" data-tooltip="Do not waste time with grep anymore, use tag">
               
-                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                <i class="fa fa-angle-right"></i>
-              </a>
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
             </li>
+          
         </ul>
       </nav>
     <ul class="post-actions post-action-share" >
@@ -608,6 +625,24 @@ ga('send', 'pageview');
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
         
       
       
@@ -633,6 +668,24 @@ ga('send', 'pageview');
   <i id="btn-close-shareoptions" class="fa fa-close"></i>
   <ul class="share-options">
     
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2016%2F09%2F30%2Fdeploy-coreos-with-ansible%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2016%2F09%2F30%2Fdeploy-coreos-with-ansible%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fblog.deimos.fr%2F2016%2F09%2F30%2Fdeploy-coreos-with-ansible%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
   </ul>
 </div>
 <div id="share-options-mask" class="share-options-mask"></div>
@@ -652,7 +705,7 @@ ga('send', 'pageview');
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; Nousmotards Co-Founder
+        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
       </div>
     
     
@@ -683,6 +736,42 @@ ga('send', 'pageview');
       <div class="no-result text-color-light text-center">no post found</div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/">
+                <h3 class="media-heading">Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/">
+                <h3 class="media-heading">MySocialApp Create your own social network</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">If you follow me, you may know that I launched with friends Nousmotards social application a few years ago. The solution continue to grow in France with more than 70k bikers and that&rsquo;s a good point for all those riders :)
+Since we launched Nousmotards, several persons asked us: &ldquo;You&rsquo;ve made an amazing job for bikers, do you provide your social solution to any other communities or for enterprises?&rdquo;. The answer was: No we didn&rsquo;t.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -834,43 +923,6 @@ Today I am going to talk about our experience after having using it for 2 years 
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/">
-                <h3 class="media-heading">Docker: why you should use Monit instead of supervisord</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting Nousmotards infrastructure, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.
-Introduction Docker is made to run a process in a confined area.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/08/graphite-events-on-debian-jessie/">
-                <h3 class="media-heading">Graphite events on Debian jessie</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">I&rsquo;m using Graphite at work and for my Nousmotards project. For Nousmotards, I&rsquo;m using the Graphite version available in the default Debian Jessie repositories. This to avoid mismatch django dependencies etc&hellip;
-A few days ago, I wanted to try Graphite events to get something pretty cool in Grafana :
-This to be able to know when a new app version is deployed and make it easier to understand when an issue occurs.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -878,7 +930,7 @@ This to be able to know when a new app version is deployed and make it easier to
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         836 posts found
+         837 posts found
       </p>
     </div>
   </div>
@@ -891,26 +943,15 @@ This to be able to know when a new app version is deployed and make it easier to
 
 
     
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-IFHWFEbU2/+wNycDECKgjIRSirRNIDp2acEB5fvdVRU=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js" integrity="sha256-+mpyNVJsNt4rVXCw0F+pAOiB3YxmHgrbJsx4ecPuUaI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js" integrity="sha256-vMxgR/7FtLovVA+IPrR7+xTgIgARH7y9VZQnmmi0HDI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js" integrity="sha256-N0qFUh7/9vLvia87dDndewmsgsyYoNkdA212tPc+2NI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
 <script src="https://blog.deimos.fr/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
 
 
-<script>
-$(document).ready(function() {
-  hljs.configure({ classPrefix: '', useBR: false });
-  $('pre.code-highlight, pre > code').each(function(i, block) {
-    if (!$(this).hasClass('codeblock')) {
-      $(this).addClass('codeblock');
-    }
-    hljs.highlightBlock(block);
-  });
-});
-</script>
+
 
   
     

@@ -252,7 +252,7 @@ Je vous conseil d&amp;rsquo;aller faire un tour sur le site officiel et celui de
       <pubDate>Tue, 03 Apr 2012 11:00:48 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2012/04/03/un-utilitaire-pour-commandlinefu-com/</guid>
-      <description>Sachez que vous pouvez faire une recherche dans ce site pour en extraire des exemples grâce à un petit script. Exemple : &amp;gt; fu -a awk 1	# List of commands you use most often history | awk &amp;#39;{a[$2]++}END{for(i in a){print a[i] &amp;quot; &amp;quot; i}}&amp;#39; | sort -rn | head&amp;lt;/p&amp;gt; 2	# Display a block of text with AWK awk &amp;#39;/start_pattern/,/stop_pattern/&amp;#39; file.txt&amp;lt;/p&amp;gt; 3	# Remove duplicate entries in a file without sorting.</description>
+      <description>Sachez que vous pouvez faire une recherche dans ce site pour en extraire des exemples grâce à un petit script. Exemple : &amp;gt; fu -a awk 1	# List of commands you use most often 	history | awk &amp;#39;{a[$2]++}END{for(i in a){print a[i] &amp;#34; &amp;#34; i}}&amp;#39; | sort -rn | head&amp;lt;/p&amp;gt; 2	# Display a block of text with AWK 	awk &amp;#39;/start_pattern/,/stop_pattern/&amp;#39; file.txt&amp;lt;/p&amp;gt; 3	# Remove duplicate entries in a file without sorting.</description>
     </item>
     
     <item>

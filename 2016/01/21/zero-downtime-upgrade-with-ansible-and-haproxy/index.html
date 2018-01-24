@@ -21,7 +21,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.26 with theme Tranquilpeak 0.4.0-BETA">
+    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
     <title>Zero downtime upgrade with Ansible and HAProxy</title>
     <meta name="author" content="Pierre Mavro / Deimosfr">
     <meta name="keywords" content="">
@@ -68,7 +68,7 @@ At Nousmotards we have several Java Spring Boot applications running. Restarti
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-fpbzgxsy0kgmdvyrj5ykkg6ratccrk3gocmaqn4xpcjywmv5dteilzucro4f.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
     
     
       
@@ -262,7 +262,6 @@ ga('send', 'pageview');
     
   
 
-
   </div>
 
 </div>
@@ -278,14 +277,12 @@ Some of you may not be familiar with the terms &ldquo;<strong>Rolling upgrade</
 
 <p><img src="https://blog.deimos.fr/images/nm_haproxy_all.png" alt="nm_haproxy_all" /></p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">---</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">---
 
-<span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">hosts</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{nm_app}}&quot;</span>
-  <span style="color: #ae81ff">user</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">root</span>
-  <span style="color: #ae81ff">serial</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1</span>
-  <span style="color: #ae81ff">any_errors_fatal</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">True</span>
-</pre></div>
-
+- hosts: <span style="color:#e6db74">&#34;{{nm_app}}&#34;</span>
+  user: root
+  serial: <span style="color:#ae81ff">1</span>
+  any_errors_fatal: True</code></pre></div>
 
 <p>Here you can see the <em>hosts</em> parameter as a variable (nm_app is the name of the application and the container dns name as well) because I don&rsquo;t want something specific but applicable to any kind of application. This variable is in fact a group of machines pulled out from Consul (it can be from a flat file).</p>
 
@@ -293,15 +290,13 @@ Some of you may not be familiar with the terms &ldquo;<strong>Rolling upgrade</
 
 <p>The <em>any_errors_fatal</em> parameter <strong>ensures me that it will stop if an issue occur</strong>. I personally prefer to manually repair the issue in case of a failure rather than putting the service down and perform a full restart. It&rsquo;s a security option.</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #ae81ff">pre_tasks</span><span style="color: #f8f8f2">:</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">pre_tasks:
 
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">read haproxy config to catch if nm app is available</span>
-      <span style="color: #ae81ff">shell</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;echo</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">&quot;show</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">stat&quot;</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">|</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">socat</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">{{haproxy_socks}}</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">stdio</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">|</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">grep</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">-c</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">&quot;^{{nm_app}}&quot;&#39;</span>
-      <span style="color: #ae81ff">delegate_to</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">srv_role_location[nm_app]</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">}}&quot;</span>
-      <span style="color: #ae81ff">ignore_errors</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-      <span style="color: #ae81ff">register</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">app_in_haproxy</span>
-</pre></div>
-
+    - name: read haproxy config to catch if nm app is available
+      shell: <span style="color:#e6db74">&#39;echo &#34;show stat&#34; | socat {{haproxy_socks}} stdio | grep -c &#34;^{{nm_app}}&#34;&#39;</span>
+      delegate_to: <span style="color:#e6db74">&#34;{{ srv_role_location[nm_app] }}&#34;</span>
+      ignore_errors: <span style="color:#66d9ef">true</span>
+      register: app_in_haproxy</code></pre></div>
 
 <p>Here I&rsquo;m running _pre<em>tasks</em> to get out the application from Haproxy (meaning setting it in maintenance mode, so no new connections will be established on this application). For this first task, I just want to be sure that the application I&rsquo;m requesting is registered in Haproxy to avoid playbook failure during next steps.</p>
 
@@ -311,84 +306,74 @@ Some of you may not be familiar with the terms &ldquo;<strong>Rolling upgrade</
 
 <p><img src="https://blog.deimos.fr/images/nm_haproxy_right.png" alt="nm_haproxy_right" /></p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">disabling application on the load balancer</span>
-      <span style="color: #ae81ff">haproxy</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">host</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">ansible_nodename</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">}}&quot;</span>
-        <span style="color: #ae81ff">socket</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">haproxy_socks</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">}}&quot;</span>
-        <span style="color: #ae81ff">state</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">disabled</span>
-      <span style="color: #ae81ff">delegate_to</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">srv_role_location[nm_app]</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">}}&quot;</span>
-      <span style="color: #ae81ff">when</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">app_in_haproxy.stdout != &#39;0&#39;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- name: disabling application on the load balancer
+      haproxy:
+        host: <span style="color:#e6db74">&#34;{{ ansible_nodename }}&#34;</span>
+        socket: <span style="color:#e6db74">&#34;{{ haproxy_socks }}&#34;</span>
+        state: disabled
+      delegate_to: <span style="color:#e6db74">&#34;{{ srv_role_location[nm_app] }}&#34;</span>
+      when: app_in_haproxy.stdout <span style="color:#75715e">!=</span> <span style="color:#e6db74">&#39;0&#39;</span>
 
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">disabling application on monit</span>
-      <span style="color: #ae81ff">command</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;monit</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">stop</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">{{nm_app}}&quot;</span>
-      <span style="color: #ae81ff">register</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">monit_stop_result</span>
-      <span style="color: #ae81ff">until</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">monit_stop_result.rc == 0</span>
-      <span style="color: #ae81ff">retries</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">120</span>
-      <span style="color: #ae81ff">delay</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">10</span>
-</pre></div>
-
+    - name: disabling application on monit
+      command: <span style="color:#e6db74">&#34;monit stop {{nm_app}}&#34;</span>
+      register: monit_stop_result
+      until: monit_stop_result.rc == <span style="color:#ae81ff">0</span>
+      retries: <span style="color:#ae81ff">120</span>
+      delay: <span style="color:#ae81ff">10</span></code></pre></div>
 
 <p>I&rsquo;m using <a href="https://blog.deimos.fr/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/" target="_blank">Monit to manage the services inside Docker</a>. That&rsquo;s why I stop the service managed by Monit (Note that I&rsquo;m not using the <em>monit</em> module in Ansible because it&rsquo;s buggy). Then I&rsquo;m waiting for the port application to be closed. That way, I&rsquo;m sure it will be gracefully stopped and no clients will be connected anymore:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">Waiting application to be stopped</span>
-      <span style="color: #ae81ff">wait_for</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">host</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;127.0.0.1&#39;</span>
-        <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{nm_java_apps_params[nm_app][&#39;port&#39;]}}&quot;</span>
-        <span style="color: #ae81ff">state</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">stopped</span>
-        <span style="color: #ae81ff">delay</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1</span>
-        <span style="color: #ae81ff">timeout</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1200</span>
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- name: Waiting application to be stopped
+      wait_for:
+        host: <span style="color:#e6db74">&#39;127.0.0.1&#39;</span>
+        port: <span style="color:#e6db74">&#34;{{nm_java_apps_params[nm_app][&#39;port&#39;]}}&#34;</span>
+        state: stopped
+        delay: <span style="color:#ae81ff">1</span>
+        timeout: <span style="color:#ae81ff">1200</span></code></pre></div>
 
 <p>Now I&rsquo;m calling a role that will ensure my application is installed with the good version. If it&rsquo;s not the case, it will perform the upgrade:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #ae81ff">roles</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">role</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">java-application</span>
-      <span style="color: #ae81ff">app_name</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{nm_app}}&quot;</span>
-      <span style="color: #ae81ff">enable_monit_restart</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">false</span>
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">roles:
+    - role: java-application
+      app_name: <span style="color:#e6db74">&#34;{{nm_app}}&#34;</span>
+      enable_monit_restart: <span style="color:#66d9ef">false</span></code></pre></div>
 
 <p>When finished, the new application is deployed. We can now <strong>start everything in reverse order</strong>:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #ae81ff">post_tasks</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">enabling application on monit</span>
-      <span style="color: #ae81ff">command</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;monit</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">start</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">{{nm_app}}&quot;</span>
-      <span style="color: #ae81ff">register</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">monit_start_result</span>
-      <span style="color: #ae81ff">until</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">monit_start_result.rc == 0</span>
-      <span style="color: #ae81ff">retries</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">120</span>
-      <span style="color: #ae81ff">delay</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">10</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">post_tasks:
+    - name: enabling application on monit
+      command: <span style="color:#e6db74">&#34;monit start {{nm_app}}&#34;</span>
+      register: monit_start_result
+      until: monit_start_result.rc == <span style="color:#ae81ff">0</span>
+      retries: <span style="color:#ae81ff">120</span>
+      delay: <span style="color:#ae81ff">10</span>
 
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">Waiting application to be up</span>
-      <span style="color: #ae81ff">wait_for</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">host</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;127.0.0.1&#39;</span>
-        <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{nm_java_apps_params[nm_app][&#39;port&#39;]}}&quot;</span>
-        <span style="color: #ae81ff">state</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">started</span>
-        <span style="color: #ae81ff">delay</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1</span>
-        <span style="color: #ae81ff">timeout</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1200</span>
+    - name: Waiting application to be up
+      wait_for:
+        host: <span style="color:#e6db74">&#39;127.0.0.1&#39;</span>
+        port: <span style="color:#e6db74">&#34;{{nm_java_apps_params[nm_app][&#39;port&#39;]}}&#34;</span>
+        state: started
+        delay: <span style="color:#ae81ff">1</span>
+        timeout: <span style="color:#ae81ff">1200</span>
 
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">enabling application on the load balancer</span>
-      <span style="color: #ae81ff">haproxy</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">host</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">ansible_nodename</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">}}&quot;</span>
-        <span style="color: #ae81ff">socket</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">haproxy_socks</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">}}&quot;</span>
-        <span style="color: #ae81ff">state</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">enabled</span>
-      <span style="color: #ae81ff">delegate_to</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{srv_role_location.nm_app}}&quot;</span>
-      <span style="color: #ae81ff">when</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">app_in_haproxy.stdout != &#39;0&#39;</span>
-</pre></div>
-
+    - name: enabling application on the load balancer
+      haproxy:
+        host: <span style="color:#e6db74">&#34;{{ ansible_nodename }}&#34;</span>
+        socket: <span style="color:#e6db74">&#34;{{ haproxy_socks }}&#34;</span>
+        state: enabled
+      delegate_to: <span style="color:#e6db74">&#34;{{srv_role_location.nm_app}}&#34;</span>
+      when: app_in_haproxy.stdout <span style="color:#75715e">!=</span> <span style="color:#e6db74">&#39;0&#39;</span></code></pre></div>
 
 <p>To be sure Haproxy had enough time to switch to the green state, I&rsquo;m triggering the state for 20s and only continue when green. This is normally <strong>not necessary but a useful guaranty tip</strong>:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">waiting haproxy to be green</span>
-      <span style="color: #ae81ff">shell</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&#39;echo</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">&quot;show</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">stat&quot;</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">|</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">socat</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">{{haproxy_socks}}</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">stdio</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">|</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">grep</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">{{ansible_hostname}}</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">|</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">grep</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">-c</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">UP&#39;</span>
-      <span style="color: #ae81ff">register</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">haproxy_green</span>
-      <span style="color: #ae81ff">until</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">haproxy_green.stdout != 1</span>
-      <span style="color: #ae81ff">retries</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">20</span>
-      <span style="color: #ae81ff">delay</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;1&quot;</span>
-      <span style="color: #ae81ff">delegate_to</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;{{</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">srv_role_location[nm_app]</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">}}&quot;</span>
-      <span style="color: #ae81ff">when</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">app_in_haproxy.stdout != &#39;0&#39;</span>
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- name: waiting haproxy to be green
+      shell: <span style="color:#e6db74">&#39;echo &#34;show stat&#34; | socat {{haproxy_socks}} stdio | grep {{ansible_hostname}} | grep -c UP&#39;</span>
+      register: haproxy_green
+      until: haproxy_green.stdout <span style="color:#75715e">!=</span> <span style="color:#ae81ff">1</span>
+      retries: <span style="color:#ae81ff">20</span>
+      delay: <span style="color:#e6db74">&#34;1&#34;</span>
+      delegate_to: <span style="color:#e6db74">&#34;{{ srv_role_location[nm_app] }}&#34;</span>
+      when: app_in_haproxy.stdout <span style="color:#75715e">!=</span> <span style="color:#e6db74">&#39;0&#39;</span></code></pre></div>
 
 <p>This host is now delivering the latest version of the application, <strong>Ansible will now continue with the others hosts one by one</strong>:</p>
 
@@ -433,22 +418,24 @@ Some of you may not be familiar with the terms &ldquo;<strong>Rolling upgrade</
   <div class="post-actions-wrap">
       <nav >
         <ul class="post-actions post-action-nav">
+          
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/" data-tooltip="Do not waste time with grep anymore, use tag">
               
-                <i class="fa fa-angle-left"></i>
-                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-              </a>
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2016/01/20/how-we-speed-up-news-feed-and-user-wall-display-using-elasticsearch/" data-tooltip="Elasticsearch: How we speed up news feeds and user walls display">
               
-                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                <i class="fa fa-angle-right"></i>
-              </a>
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
             </li>
+          
         </ul>
       </nav>
     <ul class="post-actions post-action-share" >
@@ -458,6 +445,24 @@ Some of you may not be familiar with the terms &ldquo;<strong>Rolling upgrade</
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
         
       
       
@@ -489,7 +494,7 @@ Some of you may not be familiar with the terms &ldquo;<strong>Rolling upgrade</
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2017 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2018 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 
@@ -499,22 +504,24 @@ Some of you may not be familiar with the terms &ldquo;<strong>Rolling upgrade</
   <div class="post-actions-wrap">
       <nav >
         <ul class="post-actions post-action-nav">
+          
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/" data-tooltip="Do not waste time with grep anymore, use tag">
               
-                <i class="fa fa-angle-left"></i>
-                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-              </a>
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2016/01/20/how-we-speed-up-news-feed-and-user-wall-display-using-elasticsearch/" data-tooltip="Elasticsearch: How we speed up news feeds and user walls display">
               
-                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                <i class="fa fa-angle-right"></i>
-              </a>
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
             </li>
+          
         </ul>
       </nav>
     <ul class="post-actions post-action-share" >
@@ -524,6 +531,24 @@ Some of you may not be familiar with the terms &ldquo;<strong>Rolling upgrade</
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
         
       
       
@@ -549,6 +574,24 @@ Some of you may not be familiar with the terms &ldquo;<strong>Rolling upgrade</
   <i id="btn-close-shareoptions" class="fa fa-close"></i>
   <ul class="share-options">
     
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2016%2F01%2F21%2Fzero-downtime-upgrade-with-ansible-and-haproxy%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2016%2F01%2F21%2Fzero-downtime-upgrade-with-ansible-and-haproxy%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fblog.deimos.fr%2F2016%2F01%2F21%2Fzero-downtime-upgrade-with-ansible-and-haproxy%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
   </ul>
 </div>
 <div id="share-options-mask" class="share-options-mask"></div>
@@ -568,7 +611,7 @@ Some of you may not be familiar with the terms &ldquo;<strong>Rolling upgrade</
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; Nousmotards Co-Founder
+        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
       </div>
     
     
@@ -599,6 +642,42 @@ Some of you may not be familiar with the terms &ldquo;<strong>Rolling upgrade</
       <div class="no-result text-color-light text-center">no post found</div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/">
+                <h3 class="media-heading">Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/">
+                <h3 class="media-heading">MySocialApp Create your own social network</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">If you follow me, you may know that I launched with friends Nousmotards social application a few years ago. The solution continue to grow in France with more than 70k bikers and that&rsquo;s a good point for all those riders :)
+Since we launched Nousmotards, several persons asked us: &ldquo;You&rsquo;ve made an amazing job for bikers, do you provide your social solution to any other communities or for enterprises?&rdquo;. The answer was: No we didn&rsquo;t.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -750,43 +829,6 @@ Today I am going to talk about our experience after having using it for 2 years 
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/">
-                <h3 class="media-heading">Docker: why you should use Monit instead of supervisord</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting Nousmotards infrastructure, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.
-Introduction Docker is made to run a process in a confined area.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/08/graphite-events-on-debian-jessie/">
-                <h3 class="media-heading">Graphite events on Debian jessie</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">I&rsquo;m using Graphite at work and for my Nousmotards project. For Nousmotards, I&rsquo;m using the Graphite version available in the default Debian Jessie repositories. This to avoid mismatch django dependencies etc&hellip;
-A few days ago, I wanted to try Graphite events to get something pretty cool in Grafana :
-This to be able to know when a new app version is deployed and make it easier to understand when an issue occurs.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -794,7 +836,7 @@ This to be able to know when a new app version is deployed and make it easier to
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         836 posts found
+         837 posts found
       </p>
     </div>
   </div>
@@ -807,26 +849,15 @@ This to be able to know when a new app version is deployed and make it easier to
 
 
     
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-IFHWFEbU2/+wNycDECKgjIRSirRNIDp2acEB5fvdVRU=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js" integrity="sha256-+mpyNVJsNt4rVXCw0F+pAOiB3YxmHgrbJsx4ecPuUaI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js" integrity="sha256-vMxgR/7FtLovVA+IPrR7+xTgIgARH7y9VZQnmmi0HDI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js" integrity="sha256-N0qFUh7/9vLvia87dDndewmsgsyYoNkdA212tPc+2NI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
 <script src="https://blog.deimos.fr/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
 
 
-<script>
-$(document).ready(function() {
-  hljs.configure({ classPrefix: '', useBR: false });
-  $('pre.code-highlight, pre > code').each(function(i, block) {
-    if (!$(this).hasClass('codeblock')) {
-      $(this).addClass('codeblock');
-    }
-    hljs.highlightBlock(block);
-  });
-});
-</script>
+
 
   
     

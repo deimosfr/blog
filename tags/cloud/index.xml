@@ -29,7 +29,7 @@ Why did I built it as other projects like Kargo already exists? I just wanted a 
       
       <guid>https://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/</guid>
       <description>As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:
-consul_template_version: &amp;#39;0.11.0&amp;#39; consul_template_arch: &amp;#39;linux_amd64&amp;#39; consul_template_http_src: &amp;quot;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&amp;quot;  You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
+consul_template_version: &amp;#39;0.11.0&amp;#39; consul_template_arch: &amp;#39;linux_amd64&amp;#39; consul_template_http_src: &amp;#34;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&amp;#34; You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
 I hope you&amp;rsquo;ll enjoy this new version :-)</description>
     </item>
     
@@ -51,7 +51,7 @@ The good On HAProxy, the good thing is the simplicity to do it. First of all you
       <guid>https://blog.deimos.fr/2015/01/22/packer-role-available-on-ansible-galaxy/</guid>
       <description>Packer is a really great solution to make an image in several formats (VirtualBox, Docker&amp;hellip;). I recently wanted to deploy it on a Jenkins server to automatically perform image build with the help of Packer.
 That&amp;rsquo;s why I&amp;rsquo;ve wrote a Packer role for Ansible really easy to use. You simply have to set (or let them by defaults) vars:
-# Packer version to install packer_version: &amp;#39;0.7.5&amp;#39; # Packer destination folder packer_destination: &amp;#39;/usr/bin&amp;#39;  It will install the desired version :-)</description>
+# Packer version to install packer_version: &amp;#39;0.7.5&amp;#39; # Packer destination folder packer_destination: &amp;#39;/usr/bin&amp;#39; It will install the desired version :-)</description>
     </item>
     
     <item>

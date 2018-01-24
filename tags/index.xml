@@ -86,7 +86,7 @@
     <item>
       <title>Consul</title>
       <link>https://blog.deimos.fr/tags/consul/</link>
-      <pubDate>Sun, 20 Aug 2017 14:58:07 +0200</pubDate>
+      <pubDate>Tue, 23 Jan 2018 18:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/tags/consul/</guid>
       <description></description>
@@ -255,11 +255,29 @@
     </item>
     
     <item>
+      <title>Helm</title>
+      <link>https://blog.deimos.fr/tags/helm/</link>
+      <pubDate>Tue, 23 Jan 2018 18:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/tags/helm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Hi Tech</title>
       <link>https://blog.deimos.fr/tags/hi-tech/</link>
       <pubDate>Sat, 18 Jun 2016 07:44:11 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/tags/hi-tech/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>High Tech</title>
+      <link>https://blog.deimos.fr/tags/high-tech/</link>
+      <pubDate>Thu, 18 Jan 2018 18:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/tags/high-tech/</guid>
       <description></description>
     </item>
     
@@ -284,7 +302,7 @@
     <item>
       <title>Kubernetes</title>
       <link>https://blog.deimos.fr/tags/kubernetes/</link>
-      <pubDate>Sun, 20 Aug 2017 14:58:07 +0200</pubDate>
+      <pubDate>Tue, 23 Jan 2018 18:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/tags/kubernetes/</guid>
       <description></description>
@@ -293,7 +311,7 @@
     <item>
       <title>Lets Encrypt</title>
       <link>https://blog.deimos.fr/tags/lets-encrypt/</link>
-      <pubDate>Sun, 20 Aug 2017 14:58:07 +0200</pubDate>
+      <pubDate>Tue, 23 Jan 2018 18:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/tags/lets-encrypt/</guid>
       <description></description>
@@ -471,6 +489,15 @@
     </item>
     
     <item>
+      <title>Perso</title>
+      <link>https://blog.deimos.fr/tags/perso/</link>
+      <pubDate>Thu, 18 Jan 2018 18:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/tags/perso/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Php</title>
       <link>https://blog.deimos.fr/tags/php/</link>
       <pubDate>Tue, 20 Apr 2010 15:58:24 +0000</pubDate>
@@ -635,7 +662,7 @@
     <item>
       <title>Ssl</title>
       <link>https://blog.deimos.fr/tags/ssl/</link>
-      <pubDate>Sun, 20 Aug 2017 14:58:07 +0200</pubDate>
+      <pubDate>Tue, 23 Jan 2018 18:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/tags/ssl/</guid>
       <description></description>
@@ -644,7 +671,7 @@
     <item>
       <title>Traefik</title>
       <link>https://blog.deimos.fr/tags/traefik/</link>
-      <pubDate>Sun, 20 Aug 2017 14:58:07 +0200</pubDate>
+      <pubDate>Tue, 23 Jan 2018 18:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/tags/traefik/</guid>
       <description></description>

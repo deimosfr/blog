@@ -57,8 +57,8 @@ I&amp;rsquo;m already using LXC on my home server and see the benefits for 8 mon
       
       <guid>https://blog.deimos.fr/2014/06/02/ansible-lxc-role-v1-1/</guid>
       <description>I&amp;rsquo;ve recently updated my LXC role for ansible. You can get it like that:
-ansible-galaxy install deimosfr.lxc  Here is the change log:
-+ Adding new parameters for dnsmasq and interfaces + Adding new prequesite to avoid unwanted modules to load in the latest kernel versions = Corrected networking configuration issue = Templates do not create @LOCALSTATEDIR@ folder anymore  It works perfectly on my new Dedibox :-)</description>
+ansible-galaxy install deimosfr.lxc Here is the change log:
++ Adding new parameters for dnsmasq and interfaces + Adding new prequesite to avoid unwanted modules to load in the latest kernel versions = Corrected networking configuration issue = Templates do not create @LOCALSTATEDIR@ folder anymore It works perfectly on my new Dedibox :-)</description>
     </item>
     
     <item>

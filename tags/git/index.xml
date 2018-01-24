@@ -27,8 +27,8 @@
       
       <guid>https://blog.deimos.fr/2014/12/02/git-update-date-and-name-to-commits/</guid>
       <description>A lot of time, I had to modify the text of my commit since I&amp;rsquo;m using a versionning system. Modifying the last commit comment is something common:
-git commit --amend  However, modifying the date is not so common. You may want to do it for several reasons (stats or similar), here is how to:
-GIT_COMMITTER_DATE=&amp;quot;`date`&amp;quot; git commit --amend --date &amp;quot;`date`&amp;quot;  This will change the last commit with the current date.</description>
+git commit --amend However, modifying the date is not so common. You may want to do it for several reasons (stats or similar), here is how to:
+GIT_COMMITTER_DATE=&amp;#34;`date`&amp;#34; git commit --amend --date &amp;#34;`date`&amp;#34; This will change the last commit with the current date.</description>
     </item>
     
     <item>

@@ -18,7 +18,7 @@
       
       <guid>https://blog.deimos.fr/2014/09/18/nginx-enable-hsts-force-ssl-for-users/</guid>
       <description>I recently heard of HSTS which is a way to force users to come back to your website in SSL if they&amp;rsquo;ve already be to HTTPS once. It is simple, just add this line:
-# HSTS (force users to come in SSL if they&amp;#39;ve already been once) add_header Strict-Transport-Security &amp;quot;max-age=31536000; includeSubdomains&amp;quot;;  If you want to have an overview of a complete configuration with it, look at the my wiki.</description>
+# HSTS (force users to come in SSL if they&amp;#39;ve already been once) add_header Strict-Transport-Security &amp;#34;max-age=31536000; includeSubdomains&amp;#34;; If you want to have an overview of a complete configuration with it, look at the my wiki.</description>
     </item>
     
     <item>
@@ -60,7 +60,7 @@ It&amp;rsquo;s been a while that I wanted to test NAXSI and it seams working not
       <guid>https://blog.deimos.fr/2014/04/08/openssl-diagnose-and-correct-the-heartbleed-issue/</guid>
       <description>A big and major issue on OpenSSL has been discovered and everybody is talking about it. To get more informations, there&amp;rsquo;s a website.
 How to check the vulnerability, download this file:
-chmod 755 ssltest.py  Now launch it:
+chmod 755 ssltest.py Now launch it:
 ./ssltest.py blog.deimos.fr Connecting... Sending Client Hello... Waiting for Server Hello... ... received message: type = 22, ver = 0302, length = 66 ... received message: type = 22, ver = 0302, length = 5559 .</description>
     </item>
     

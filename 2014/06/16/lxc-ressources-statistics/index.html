@@ -21,7 +21,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.26 with theme Tranquilpeak 0.4.0-BETA">
+    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
     <title>LXC: ressources statistics</title>
     <meta name="author" content="Pierre Mavro / Deimosfr">
     <meta name="keywords" content="">
@@ -68,7 +68,7 @@ We&rsquo;re in fact waiting on a lot of work on the kernel side or systemd side.
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-fpbzgxsy0kgmdvyrj5ykkg6ratccrk3gocmaqn4xpcjywmv5dteilzucro4f.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
     
     
       
@@ -254,7 +254,6 @@ ga('send', 'pageview');
     
   
 
-
   </div>
 
 </div>
@@ -268,41 +267,37 @@ I wanted to find a way to properly view resources (memory/CPU/IO) usages or conf
 
 <p>In waiting a real solution, I wrote all little script that give information&rsquo;s regarding the container resources. It&rsquo;s quick and dirty but make the job:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f92672">=====</span> <span style="color: #f8f8f2">mycontainer</span> <span style="color: #f92672">=====</span>
-CPU, cap:                <span style="color: #ae81ff">3</span>-4,6-7
-CPU, shares:             <span style="color: #ae81ff">1024</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">=====</span> mycontainer <span style="color:#f92672">=====</span>
+CPU, cap:                <span style="color:#ae81ff">3</span>-4,6-7
+CPU, shares:             <span style="color:#ae81ff">1024</span>
 RAM, limit usage:        2048M
 RAM+SWAP, limit usage:   3072M
-RAM, current usage:      <span style="color: #ae81ff">1577</span>.33M
-RAM+SWAP, current usage: <span style="color: #ae81ff">1582</span>.79M
+RAM, current usage:      <span style="color:#ae81ff">1577</span>.33M
+RAM+SWAP, current usage: <span style="color:#ae81ff">1582</span>.79M
 RAM, max usage:          2048M
-RAM+SWAP, max usage:     <span style="color: #ae81ff">2060</span>.5M
-DISK I/O weight:         <span style="color: #ae81ff">500</span>
-</pre></div>
-
+RAM+SWAP, max usage:     <span style="color:#ae81ff">2060</span>.5M
+DISK I/O weight:         <span style="color:#ae81ff">500</span></code></pre></div>
 
 <p>Regarding the code, here it is&hellip;simply read the cgroups information:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e">#!/bin/bash</span>
-
-<span style="color: #f8f8f2">cd</span> /sys/fs/cgroup/lxc/
-<span style="color: #66d9ef">for</span> i in * <span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">do</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f92672">[</span> -d <span style="color: #f8f8f2">$i</span> <span style="color: #f92672">]</span> <span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>
-        <span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;===== </span><span style="color: #f8f8f2">$i</span><span style="color: #e6db74"> =====&quot;</span>
-        <span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;CPU, cap:               &quot;</span> <span style="color: #66d9ef">$(</span>cat /sys/fs/cgroup/lxc/<span style="color: #f8f8f2">$i</span>/cpuset.cpus<span style="color: #66d9ef">)</span>
-        <span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;CPU, shares:            &quot;</span> <span style="color: #66d9ef">$(</span>cat /sys/fs/cgroup/lxc/<span style="color: #f8f8f2">$i</span>/cpu.shares<span style="color: #66d9ef">)</span>
-        awk <span style="color: #e6db74">&#39;{ printf &quot;RAM, limit usage:        %sM\n&quot;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/<span style="color: #f8f8f2">$i</span>/memory.limit_in_bytes
-        awk <span style="color: #e6db74">&#39;{ printf &quot;RAM+SWAP, limit usage:   %sM\n&quot;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/<span style="color: #f8f8f2">$i</span>/memory.memsw.limit_in_bytes
-        awk <span style="color: #e6db74">&#39;{ printf &quot;RAM, current usage:      %sM\n&quot;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/<span style="color: #f8f8f2">$i</span>/memory.usage_in_bytes
-        awk <span style="color: #e6db74">&#39;{ printf &quot;RAM+SWAP, current usage: %sM\n&quot;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/<span style="color: #f8f8f2">$i</span>/memory.memsw.usage_in_bytes
-        awk <span style="color: #e6db74">&#39;{ printf &quot;RAM, max usage:          %sM\n&quot;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/<span style="color: #f8f8f2">$i</span>/memory.max_usage_in_bytes
-        awk <span style="color: #e6db74">&#39;{ printf &quot;RAM+SWAP, max usage:     %sM\n&quot;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/<span style="color: #f8f8f2">$i</span>/memory.memsw.max_usage_in_bytes
-        <span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;DISK I/O weight:        &quot;</span> <span style="color: #66d9ef">$(</span>cat /sys/fs/cgroup/lxc/<span style="color: #f8f8f2">$i</span>/blkio.weight<span style="color: #66d9ef">)</span>
-        <span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;&quot;</span>
-    <span style="color: #66d9ef">fi</span>  
-<span style="color: #66d9ef">done</span>
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+cd /sys/fs/cgroup/lxc/
+<span style="color:#66d9ef">for</span> i in * ; <span style="color:#66d9ef">do</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -d $i <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">then</span>
+        echo <span style="color:#e6db74">&#34;===== </span>$i<span style="color:#e6db74"> =====&#34;</span>
+        echo <span style="color:#e6db74">&#34;CPU, cap:               &#34;</span> <span style="color:#66d9ef">$(</span>cat /sys/fs/cgroup/lxc/$i/cpuset.cpus<span style="color:#66d9ef">)</span>
+        echo <span style="color:#e6db74">&#34;CPU, shares:            &#34;</span> <span style="color:#66d9ef">$(</span>cat /sys/fs/cgroup/lxc/$i/cpu.shares<span style="color:#66d9ef">)</span>
+        awk <span style="color:#e6db74">&#39;{ printf &#34;RAM, limit usage:        %sM\n&#34;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/$i/memory.limit_in_bytes
+        awk <span style="color:#e6db74">&#39;{ printf &#34;RAM+SWAP, limit usage:   %sM\n&#34;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/$i/memory.memsw.limit_in_bytes
+        awk <span style="color:#e6db74">&#39;{ printf &#34;RAM, current usage:      %sM\n&#34;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/$i/memory.usage_in_bytes
+        awk <span style="color:#e6db74">&#39;{ printf &#34;RAM+SWAP, current usage: %sM\n&#34;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/$i/memory.memsw.usage_in_bytes
+        awk <span style="color:#e6db74">&#39;{ printf &#34;RAM, max usage:          %sM\n&#34;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/$i/memory.max_usage_in_bytes
+        awk <span style="color:#e6db74">&#39;{ printf &#34;RAM+SWAP, max usage:     %sM\n&#34;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/$i/memory.memsw.max_usage_in_bytes
+        echo <span style="color:#e6db74">&#34;DISK I/O weight:        &#34;</span> <span style="color:#66d9ef">$(</span>cat /sys/fs/cgroup/lxc/$i/blkio.weight<span style="color:#66d9ef">)</span>
+        echo <span style="color:#e6db74">&#34;&#34;</span>
+    <span style="color:#66d9ef">fi</span>  
+<span style="color:#66d9ef">done</span></code></pre></div>
 
 <p>Hope this help some of you who didn&rsquo;t know where to look at.</p>
 
@@ -333,22 +328,24 @@ DISK I/O weight:         <span style="color: #ae81ff">500</span>
   <div class="post-actions-wrap">
       <nav >
         <ul class="post-actions post-action-nav">
+          
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2014/06/18/too-many-new-software-versions/" data-tooltip="Docker 1.0 &amp; RedHat 7">
               
-                <i class="fa fa-angle-left"></i>
-                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-              </a>
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2014/06/14/openstack-meetup-9-ceph-swift-and-zfs/" data-tooltip="Openstack Meetup 9: Ceph, Swift and ZFS!">
               
-                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                <i class="fa fa-angle-right"></i>
-              </a>
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
             </li>
+          
         </ul>
       </nav>
     <ul class="post-actions post-action-share" >
@@ -358,6 +355,24 @@ DISK I/O weight:         <span style="color: #ae81ff">500</span>
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2014/06/16/lxc-ressources-statistics/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2014/06/16/lxc-ressources-statistics/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2014/06/16/lxc-ressources-statistics/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
         
       
       
@@ -389,7 +404,7 @@ DISK I/O weight:         <span style="color: #ae81ff">500</span>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2017 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2018 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 
@@ -399,22 +414,24 @@ DISK I/O weight:         <span style="color: #ae81ff">500</span>
   <div class="post-actions-wrap">
       <nav >
         <ul class="post-actions post-action-nav">
+          
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2014/06/18/too-many-new-software-versions/" data-tooltip="Docker 1.0 &amp; RedHat 7">
               
-                <i class="fa fa-angle-left"></i>
-                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-              </a>
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2014/06/14/openstack-meetup-9-ceph-swift-and-zfs/" data-tooltip="Openstack Meetup 9: Ceph, Swift and ZFS!">
               
-                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                <i class="fa fa-angle-right"></i>
-              </a>
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
             </li>
+          
         </ul>
       </nav>
     <ul class="post-actions post-action-share" >
@@ -424,6 +441,24 @@ DISK I/O weight:         <span style="color: #ae81ff">500</span>
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2014/06/16/lxc-ressources-statistics/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2014/06/16/lxc-ressources-statistics/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2014/06/16/lxc-ressources-statistics/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
         
       
       
@@ -449,6 +484,24 @@ DISK I/O weight:         <span style="color: #ae81ff">500</span>
   <i id="btn-close-shareoptions" class="fa fa-close"></i>
   <ul class="share-options">
     
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2014%2F06%2F16%2Flxc-ressources-statistics%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2014%2F06%2F16%2Flxc-ressources-statistics%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fblog.deimos.fr%2F2014%2F06%2F16%2Flxc-ressources-statistics%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
   </ul>
 </div>
 <div id="share-options-mask" class="share-options-mask"></div>
@@ -468,7 +521,7 @@ DISK I/O weight:         <span style="color: #ae81ff">500</span>
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; Nousmotards Co-Founder
+        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
       </div>
     
     
@@ -499,6 +552,42 @@ DISK I/O weight:         <span style="color: #ae81ff">500</span>
       <div class="no-result text-color-light text-center">no post found</div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/">
+                <h3 class="media-heading">Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/">
+                <h3 class="media-heading">MySocialApp Create your own social network</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">If you follow me, you may know that I launched with friends Nousmotards social application a few years ago. The solution continue to grow in France with more than 70k bikers and that&rsquo;s a good point for all those riders :)
+Since we launched Nousmotards, several persons asked us: &ldquo;You&rsquo;ve made an amazing job for bikers, do you provide your social solution to any other communities or for enterprises?&rdquo;. The answer was: No we didn&rsquo;t.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -650,43 +739,6 @@ Today I am going to talk about our experience after having using it for 2 years 
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/">
-                <h3 class="media-heading">Docker: why you should use Monit instead of supervisord</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting Nousmotards infrastructure, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.
-Introduction Docker is made to run a process in a confined area.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/08/graphite-events-on-debian-jessie/">
-                <h3 class="media-heading">Graphite events on Debian jessie</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">I&rsquo;m using Graphite at work and for my Nousmotards project. For Nousmotards, I&rsquo;m using the Graphite version available in the default Debian Jessie repositories. This to avoid mismatch django dependencies etc&hellip;
-A few days ago, I wanted to try Graphite events to get something pretty cool in Grafana :
-This to be able to know when a new app version is deployed and make it easier to understand when an issue occurs.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -694,7 +746,7 @@ This to be able to know when a new app version is deployed and make it easier to
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         836 posts found
+         837 posts found
       </p>
     </div>
   </div>
@@ -707,26 +759,15 @@ This to be able to know when a new app version is deployed and make it easier to
 
 
     
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-IFHWFEbU2/+wNycDECKgjIRSirRNIDp2acEB5fvdVRU=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js" integrity="sha256-+mpyNVJsNt4rVXCw0F+pAOiB3YxmHgrbJsx4ecPuUaI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js" integrity="sha256-vMxgR/7FtLovVA+IPrR7+xTgIgARH7y9VZQnmmi0HDI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js" integrity="sha256-N0qFUh7/9vLvia87dDndewmsgsyYoNkdA212tPc+2NI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
 <script src="https://blog.deimos.fr/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
 
 
-<script>
-$(document).ready(function() {
-  hljs.configure({ classPrefix: '', useBR: false });
-  $('pre.code-highlight, pre > code').each(function(i, block) {
-    if (!$(this).hasClass('codeblock')) {
-      $(this).addClass('codeblock');
-    }
-    hljs.highlightBlock(block);
-  });
-});
-</script>
+
 
   
     

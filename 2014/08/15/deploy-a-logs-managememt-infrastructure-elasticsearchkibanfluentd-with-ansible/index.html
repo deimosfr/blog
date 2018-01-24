@@ -21,7 +21,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.26 with theme Tranquilpeak 0.4.0-BETA">
+    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
     <title>Deploy a logs management infrastructure (Elasticsearch&#43;Kibana&#43;Fluentd) with Ansible</title>
     <meta name="author" content="Pierre Mavro / Deimosfr">
     <meta name="keywords" content="">
@@ -71,7 +71,7 @@ On the client side, Fluentd clients will get syslog and Nginx logs, to send them
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-fpbzgxsy0kgmdvyrj5ykkg6ratccrk3gocmaqn4xpcjywmv5dteilzucro4f.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
     
     
       
@@ -259,7 +259,6 @@ ga('send', 'pageview');
     
   
 
-
   </div>
 
 </div>
@@ -280,17 +279,17 @@ During the last weeks I started to play with <a href="http://blog.deimos.fr/2014
 <p>Is it complex to configure Ansible playbooks it? I made my best to make it as quick as possible and as customizable as possible (for the context and my needs). What you need to do is first getting playbooks like this (site.yml):</p>
 
 <p>site.yml:
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e"># All machines</span>
-- name: fluent-clients
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># All machines
+</span><span style="color:#75715e"></span>- name: fluent-clients
   hosts: all
   user: root
   roles:
     - fluentd
   vars_files:
-    - <span style="color: #e6db74">&quot;group_vars/fluentd_client.yml&quot;</span>
+    - <span style="color:#e6db74">&#34;group_vars/fluentd_client.yml&#34;</span>
 
-<span style="color: #75715e"># Log</span>
-- name: log servers
+<span style="color:#75715e"># Log
+</span><span style="color:#75715e"></span>- name: log servers
   hosts: logs
   user: root
   roles:
@@ -300,69 +299,61 @@ During the last weeks I started to play with <a href="http://blog.deimos.fr/2014
         - server:
            file_name: kibana.domain.com
            server_name: kibana.domain.com
-           listen: <span style="color: #ae81ff">80</span>
+           listen: <span style="color:#ae81ff">80</span>
            root: /usr/share/nginx/www/kibana/src
-           location1: <span style="color: #f92672">{</span>name: /, try_files: <span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">$uri</span><span style="color: #e6db74"> </span><span style="color: #f8f8f2">$uri</span><span style="color: #e6db74">/ /index.html&quot;</span><span style="color: #f92672">}</span>
+           location1: <span style="color:#f92672">{</span>name: /, try_files: <span style="color:#e6db74">&#34;</span>$uri<span style="color:#e6db74"> </span>$uri<span style="color:#e6db74">/ /index.html&#34;</span><span style="color:#f92672">}</span>
     - kibana
     - fluentd
   vars_files:
-    - <span style="color: #e6db74">&quot;host_vars/kibana.yml&quot;</span>
-</pre></div>
-</p>
+    - <span style="color:#e6db74">&#34;host_vars/kibana.yml&#34;</span></code></pre></div></p>
 
 <p>Then you have to configure/adapt the mandatory options to your needs for fluentd_clients (fluentd_client.yml):</p>
 
 <p>fluentd_client.yml:
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e">## Fluentd client</span>
-<span style="color: #75715e"># fluentd fqdn used by forwarders to fluentd</span>
-fluentd_server_fqdn: kibana.domain.com
-<span style="color: #75715e"># Address of elasticsearch used by fluentd</span>
-es_fqdn: localhost
-es_port: <span style="color: #ae81ff">9200</span>
-<span style="color: #75715e"># Syslog plugin</span>
-fluentd_plugin_syslog_ip: <span style="color: #ae81ff">127</span>.0.0.1
-fluentd_plugin_syslog_port: <span style="color: #ae81ff">5140</span>
-</pre></div>
-</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">## Fluentd client
+</span><span style="color:#75715e"># fluentd fqdn used by forwarders to fluentd
+</span><span style="color:#75715e"></span>fluentd_server_fqdn: kibana.domain.com
+<span style="color:#75715e"># Address of elasticsearch used by fluentd
+</span><span style="color:#75715e"></span>es_fqdn: localhost
+es_port: <span style="color:#ae81ff">9200</span>
+<span style="color:#75715e"># Syslog plugin
+</span><span style="color:#75715e"></span>fluentd_plugin_syslog_ip: <span style="color:#ae81ff">127</span>.0.0.1
+fluentd_plugin_syslog_port: <span style="color:#ae81ff">5140</span></code></pre></div></p>
 
 <p>And like this for the log server (kibana.yml):</p>
 
 <p>kibana.yml:
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e">## Fluentd server</span>
-<span style="color: #75715e"># Address of elasticsearch used by fluentd</span>
-es_fqdn: localhost
-es_port: <span style="color: #ae81ff">9200</span>
-<span style="color: #75715e"># If this machine should forward to Elasticsearch</span>
-forward_to_es: True
-<span style="color: #75715e"># Curator tool</span>
-install_curator: True
-curator_max_keep_days: <span style="color: #ae81ff">90</span>
-<span style="color: #75715e"># Head plugin</span>
-install_head: True
-<span style="color: #75715e"># ElasticHQ plugin</span>
-install_eshq: False
-<span style="color: #75715e"># Marvel plugin</span>
-install_marvel: True
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">## Fluentd server
+</span><span style="color:#75715e"># Address of elasticsearch used by fluentd
+</span><span style="color:#75715e"></span>es_fqdn: localhost
+es_port: <span style="color:#ae81ff">9200</span>
+<span style="color:#75715e"># If this machine should forward to Elasticsearch
+</span><span style="color:#75715e"></span>forward_to_es: True
+<span style="color:#75715e"># Curator tool
+</span><span style="color:#75715e"></span>install_curator: True
+curator_max_keep_days: <span style="color:#ae81ff">90</span>
+<span style="color:#75715e"># Head plugin
+</span><span style="color:#75715e"></span>install_head: True
+<span style="color:#75715e"># ElasticHQ plugin
+</span><span style="color:#75715e"></span>install_eshq: False
+<span style="color:#75715e"># Marvel plugin
+</span><span style="color:#75715e"></span>install_marvel: True
 
-<span style="color: #75715e">## Kibana</span>
-<span style="color: #75715e"># URL address to reach kibana</span>
-dns_url_kibana: kibana.domain.com
-<span style="color: #75715e"># Folder to store Kibana</span>
-kibana_path: /usr/share/nginx/www/kibana
-<span style="color: #75715e"># Kibana version from GitHub tag</span>
-kibana_tag_version: v3.1.0
+<span style="color:#75715e">## Kibana
+</span><span style="color:#75715e"># URL address to reach kibana
+</span><span style="color:#75715e"></span>dns_url_kibana: kibana.domain.com
+<span style="color:#75715e"># Folder to store Kibana
+</span><span style="color:#75715e"></span>kibana_path: /usr/share/nginx/www/kibana
+<span style="color:#75715e"># Kibana version from GitHub tag
+</span><span style="color:#75715e"></span>kibana_tag_version: v3.1.0
 
-<span style="color: #75715e">## Elasticsearch</span>
-<span style="color: #75715e"># Elasticsearch version from debian repository</span>
-es_version: <span style="color: #ae81ff">1</span>.3
-</pre></div>
-</p>
+<span style="color:#75715e">## Elasticsearch
+</span><span style="color:#75715e"># Elasticsearch version from debian repository
+</span><span style="color:#75715e"></span>es_version: <span style="color:#ae81ff">1</span>.3</code></pre></div></p>
 
 <p>Then launch the Ansible playbook, it will install everything by itself:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ ansible-playbook site.yml
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ansible-playbook site.yml</code></pre></div>
 
 <p>At the end, the web interface of kibana will be ready and all your fluentd clients will redirect their syslog and default nginx configuration to ElasticSearch.</p>
 
@@ -397,22 +388,24 @@ es_version: <span style="color: #ae81ff">1</span>.3
   <div class="post-actions-wrap">
       <nav >
         <ul class="post-actions post-action-nav">
+          
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2014/08/17/elasticsearch-book-to-read/" data-tooltip="ElasticSearch Book to read">
               
-                <i class="fa fa-angle-left"></i>
-                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-              </a>
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2014/08/13/fluentd-ansible-playbook/" data-tooltip="Ansible: Fluentd playbook">
               
-                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                <i class="fa fa-angle-right"></i>
-              </a>
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
             </li>
+          
         </ul>
       </nav>
     <ul class="post-actions post-action-share" >
@@ -422,6 +415,24 @@ es_version: <span style="color: #ae81ff">1</span>.3
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2014/08/15/deploy-a-logs-managememt-infrastructure-elasticsearchkibanfluentd-with-ansible/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2014/08/15/deploy-a-logs-managememt-infrastructure-elasticsearchkibanfluentd-with-ansible/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2014/08/15/deploy-a-logs-managememt-infrastructure-elasticsearchkibanfluentd-with-ansible/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
         
       
       
@@ -453,7 +464,7 @@ es_version: <span style="color: #ae81ff">1</span>.3
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2017 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2018 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 
@@ -463,22 +474,24 @@ es_version: <span style="color: #ae81ff">1</span>.3
   <div class="post-actions-wrap">
       <nav >
         <ul class="post-actions post-action-nav">
+          
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2014/08/17/elasticsearch-book-to-read/" data-tooltip="ElasticSearch Book to read">
               
-                <i class="fa fa-angle-left"></i>
-                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-              </a>
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2014/08/13/fluentd-ansible-playbook/" data-tooltip="Ansible: Fluentd playbook">
               
-                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                <i class="fa fa-angle-right"></i>
-              </a>
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
             </li>
+          
         </ul>
       </nav>
     <ul class="post-actions post-action-share" >
@@ -488,6 +501,24 @@ es_version: <span style="color: #ae81ff">1</span>.3
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2014/08/15/deploy-a-logs-managememt-infrastructure-elasticsearchkibanfluentd-with-ansible/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2014/08/15/deploy-a-logs-managememt-infrastructure-elasticsearchkibanfluentd-with-ansible/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2014/08/15/deploy-a-logs-managememt-infrastructure-elasticsearchkibanfluentd-with-ansible/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
         
       
       
@@ -513,6 +544,24 @@ es_version: <span style="color: #ae81ff">1</span>.3
   <i id="btn-close-shareoptions" class="fa fa-close"></i>
   <ul class="share-options">
     
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2014%2F08%2F15%2Fdeploy-a-logs-managememt-infrastructure-elasticsearchkibanfluentd-with-ansible%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2014%2F08%2F15%2Fdeploy-a-logs-managememt-infrastructure-elasticsearchkibanfluentd-with-ansible%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fblog.deimos.fr%2F2014%2F08%2F15%2Fdeploy-a-logs-managememt-infrastructure-elasticsearchkibanfluentd-with-ansible%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
   </ul>
 </div>
 <div id="share-options-mask" class="share-options-mask"></div>
@@ -532,7 +581,7 @@ es_version: <span style="color: #ae81ff">1</span>.3
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; Nousmotards Co-Founder
+        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
       </div>
     
     
@@ -563,6 +612,42 @@ es_version: <span style="color: #ae81ff">1</span>.3
       <div class="no-result text-color-light text-center">no post found</div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/">
+                <h3 class="media-heading">Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/">
+                <h3 class="media-heading">MySocialApp Create your own social network</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">If you follow me, you may know that I launched with friends Nousmotards social application a few years ago. The solution continue to grow in France with more than 70k bikers and that&rsquo;s a good point for all those riders :)
+Since we launched Nousmotards, several persons asked us: &ldquo;You&rsquo;ve made an amazing job for bikers, do you provide your social solution to any other communities or for enterprises?&rdquo;. The answer was: No we didn&rsquo;t.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -714,43 +799,6 @@ Today I am going to talk about our experience after having using it for 2 years 
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/">
-                <h3 class="media-heading">Docker: why you should use Monit instead of supervisord</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting Nousmotards infrastructure, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.
-Introduction Docker is made to run a process in a confined area.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/08/graphite-events-on-debian-jessie/">
-                <h3 class="media-heading">Graphite events on Debian jessie</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">I&rsquo;m using Graphite at work and for my Nousmotards project. For Nousmotards, I&rsquo;m using the Graphite version available in the default Debian Jessie repositories. This to avoid mismatch django dependencies etc&hellip;
-A few days ago, I wanted to try Graphite events to get something pretty cool in Grafana :
-This to be able to know when a new app version is deployed and make it easier to understand when an issue occurs.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -758,7 +806,7 @@ This to be able to know when a new app version is deployed and make it easier to
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         836 posts found
+         837 posts found
       </p>
     </div>
   </div>
@@ -771,26 +819,15 @@ This to be able to know when a new app version is deployed and make it easier to
 
 
     
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-IFHWFEbU2/+wNycDECKgjIRSirRNIDp2acEB5fvdVRU=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js" integrity="sha256-+mpyNVJsNt4rVXCw0F+pAOiB3YxmHgrbJsx4ecPuUaI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js" integrity="sha256-vMxgR/7FtLovVA+IPrR7+xTgIgARH7y9VZQnmmi0HDI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js" integrity="sha256-N0qFUh7/9vLvia87dDndewmsgsyYoNkdA212tPc+2NI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
 <script src="https://blog.deimos.fr/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
 
 
-<script>
-$(document).ready(function() {
-  hljs.configure({ classPrefix: '', useBR: false });
-  $('pre.code-highlight, pre > code').each(function(i, block) {
-    if (!$(this).hasClass('codeblock')) {
-      $(this).addClass('codeblock');
-    }
-    hljs.highlightBlock(block);
-  });
-});
-</script>
+
 
   
     

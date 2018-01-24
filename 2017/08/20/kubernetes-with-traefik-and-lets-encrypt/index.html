@@ -21,7 +21,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.26 with theme Tranquilpeak 0.4.0-BETA">
+    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
     <title>Kubernetes with Traefik and Let&#39;s Encrypt</title>
     <meta name="author" content="Pierre Mavro / Deimosfr">
     <meta name="keywords" content="">
@@ -71,7 +71,7 @@ I wanted to deploy it on Kubernetes for its interesting features like:
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-fpbzgxsy0kgmdvyrj5ykkg6ratccrk3gocmaqn4xpcjywmv5dteilzucro4f.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
     
     
       
@@ -259,7 +259,6 @@ ga('send', 'pageview');
     
   
 
-
   </div>
 
 </div>
@@ -292,154 +291,148 @@ switch to it while waiting the fix.</p>
 <p>I&rsquo;ll show in that post how I did, to make it works. If you&rsquo;re following me, you&rsquo;ll remind that I&rsquo;m not using a cloud but
 a bare metal installation of Kubernetes. As I&rsquo;m not using a shared storage for the moment, I&rsquo;m storing data locally on a
 specific servers labeled:
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>kubectl label nodes srv1 srv2 srv3 <span style="color: #f8f8f2">consul</span><span style="color: #f92672">=</span>server
-</pre></div>
-</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kubectl label nodes srv1 srv2 srv3 consul<span style="color:#f92672">=</span>server</code></pre></div></p>
 
 <p>Then I&rsquo;ll need a headless (&lsquo;clusterIP: None&rsquo;) service to be used by a StatefulSet Consul type:
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #ae81ff">apiVersion</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">v1</span>
-<span style="color: #ae81ff">kind</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">Service</span>
-<span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">consul</span>
-  <span style="color: #ae81ff">namespace</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-system</span>
-  <span style="color: #ae81ff">labels</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">consul</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">server</span>
-<span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">clusterIP</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">None</span>
-  <span style="color: #ae81ff">ports</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">http</span>
-      <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8500</span>
-      <span style="color: #ae81ff">targetPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8500</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">https</span>
-      <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8443</span>
-      <span style="color: #ae81ff">targetPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8443</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">rpc</span>
-      <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8400</span>
-      <span style="color: #ae81ff">targetPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8400</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">serflan-tcp</span>
-      <span style="color: #ae81ff">protocol</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;TCP&quot;</span>
-      <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8301</span>
-      <span style="color: #ae81ff">targetPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8301</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">serflan-udp</span>
-      <span style="color: #ae81ff">protocol</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;UDP&quot;</span>
-      <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8301</span>
-      <span style="color: #ae81ff">targetPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8301</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">serfwan-tcp</span>
-      <span style="color: #ae81ff">protocol</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;TCP&quot;</span>
-      <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8302</span>
-      <span style="color: #ae81ff">targetPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8302</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">serfwan-udp</span>
-      <span style="color: #ae81ff">protocol</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;UDP&quot;</span>
-      <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8302</span>
-      <span style="color: #ae81ff">targetPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8302</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">server</span>
-      <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8300</span>
-      <span style="color: #ae81ff">targetPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8300</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">consuldns</span>
-      <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8600</span>
-      <span style="color: #ae81ff">targetPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8600</span>
-  <span style="color: #ae81ff">selector</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">consul</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">server</span>
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">apiVersion: v<span style="color:#ae81ff">1</span>
+kind: Service
+metadata:
+  name: consul
+  namespace: kube-system
+  labels:
+    consul: server
+spec:
+  clusterIP: None
+  ports:
+    - name: http
+      port: <span style="color:#ae81ff">8500</span>
+      targetPort: <span style="color:#ae81ff">8500</span>
+    - name: https
+      port: <span style="color:#ae81ff">8443</span>
+      targetPort: <span style="color:#ae81ff">8443</span>
+    - name: rpc
+      port: <span style="color:#ae81ff">8400</span>
+      targetPort: <span style="color:#ae81ff">8400</span>
+    - name: serflan-tcp
+      protocol: <span style="color:#e6db74">&#34;TCP&#34;</span>
+      port: <span style="color:#ae81ff">8301</span>
+      targetPort: <span style="color:#ae81ff">8301</span>
+    - name: serflan-udp
+      protocol: <span style="color:#e6db74">&#34;UDP&#34;</span>
+      port: <span style="color:#ae81ff">8301</span>
+      targetPort: <span style="color:#ae81ff">8301</span>
+    - name: serfwan-tcp
+      protocol: <span style="color:#e6db74">&#34;TCP&#34;</span>
+      port: <span style="color:#ae81ff">8302</span>
+      targetPort: <span style="color:#ae81ff">8302</span>
+    - name: serfwan-udp
+      protocol: <span style="color:#e6db74">&#34;UDP&#34;</span>
+      port: <span style="color:#ae81ff">8302</span>
+      targetPort: <span style="color:#ae81ff">8302</span>
+    - name: server
+      port: <span style="color:#ae81ff">8300</span>
+      targetPort: <span style="color:#ae81ff">8300</span>
+    - name: consuldns
+      port: <span style="color:#ae81ff">8600</span>
+      targetPort: <span style="color:#ae81ff">8600</span>
+  selector:
+    consul: server</code></pre></div>
 This is needed to be able to access with the help of DNS to the wished instance name (ex: consul-0.consul.kube-system.svc.cluster.local).</p>
 
 <p>Now I&rsquo;m ready to bootstrap the Consul cluster. To do so, I&rsquo;m using this StatefulSet configuration:
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #ae81ff">apiVersion</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">apps/v1beta1</span>
-<span style="color: #ae81ff">kind</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">StatefulSet</span>
-<span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">consul</span>
-  <span style="color: #ae81ff">namespace</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-system</span>
-<span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">serviceName</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">consul</span>
-  <span style="color: #ae81ff">replicas</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">3</span>
-  <span style="color: #ae81ff">template</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">labels</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">consul</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">server</span>
-    <span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">nodeSelector</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">consul</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">server</span>
-      <span style="color: #ae81ff">affinity</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">podAntiAffinity</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #ae81ff">requiredDuringSchedulingIgnoredDuringExecution</span><span style="color: #f8f8f2">:</span>
-            <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">labelSelector</span><span style="color: #f8f8f2">:</span>
-                <span style="color: #ae81ff">matchExpressions</span><span style="color: #f8f8f2">:</span>
-                  <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">key</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">consul</span>
-                    <span style="color: #ae81ff">operator</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">In</span>
-                    <span style="color: #ae81ff">values</span><span style="color: #f8f8f2">:</span>
-                      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">server</span>
-              <span style="color: #ae81ff">topologyKey</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kubernetes.io/hostname</span>
-      <span style="color: #ae81ff">terminationGracePeriodSeconds</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">10</span>
-      <span style="color: #ae81ff">securityContext</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">fsGroup</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1000</span>
-      <span style="color: #ae81ff">containers</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">consul</span>
-        <span style="color: #ae81ff">image</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">consul:0.9.2</span>
-        <span style="color: #ae81ff">args</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;agent&quot;</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;-advertise=$(POD_IP)&quot;</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;-bind=0.0.0.0&quot;</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;-bootstrap-expect=3&quot;</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;-retry-join=consul-0.consul.$(NAMESPACE).svc.cluster.local&quot;</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;-retry-join=consul-1.consul.$(NAMESPACE).svc.cluster.local&quot;</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;-retry-join=consul-2.consul.$(NAMESPACE).svc.cluster.local&quot;</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;-client=0.0.0.0&quot;</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;-datacenter=fr&quot;</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;-data-dir=/consul/data&quot;</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;-domain=cluster.local&quot;</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;-server&quot;</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;-ui&quot;</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;-disable-host-node-id&quot;</span>
-        <span style="color: #ae81ff">ports</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">containerPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8500</span>
-          <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">ui-port</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">containerPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8400</span>
-          <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">alt-port</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">containerPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">53</span>
-          <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">udp-port</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">containerPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8443</span>
-          <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">https-port</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">containerPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8080</span>
-          <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">http-port</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">containerPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8301</span>
-          <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">serflan</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">containerPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8302</span>
-          <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">serfwan</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">containerPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8600</span>
-          <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">consuldns</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">containerPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8300</span>
-          <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">server</span>
-        <span style="color: #ae81ff">env</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">POD_IP</span>
-          <span style="color: #ae81ff">valueFrom</span><span style="color: #f8f8f2">:</span>
-            <span style="color: #ae81ff">fieldRef</span><span style="color: #f8f8f2">:</span>
-              <span style="color: #ae81ff">fieldPath</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">status.podIP</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">NAMESPACE</span>
-          <span style="color: #ae81ff">valueFrom</span><span style="color: #f8f8f2">:</span>
-            <span style="color: #ae81ff">fieldRef</span><span style="color: #f8f8f2">:</span>
-              <span style="color: #ae81ff">fieldPath</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">metadata.namespace</span>
-        <span style="color: #ae81ff">lifecycle</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #ae81ff">preStop</span><span style="color: #f8f8f2">:</span>
-            <span style="color: #ae81ff">exec</span><span style="color: #f8f8f2">:</span>
-              <span style="color: #ae81ff">command</span><span style="color: #f8f8f2">:</span>
-              <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">/bin/sh</span>
-              <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">-c</span>
-              <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">consul leave</span>
-        <span style="color: #ae81ff">volumeMounts</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">ca-certificates</span>
-          <span style="color: #ae81ff">mountPath</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/etc/ssl/certs</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">consul-data</span>
-          <span style="color: #ae81ff">mountPath</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/consul/data</span>
-      <span style="color: #ae81ff">volumes</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">ca-certificates</span>
-        <span style="color: #ae81ff">hostPath</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #ae81ff">path</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/usr/share/ca-certificates/</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">consul-data</span>
-        <span style="color: #ae81ff">hostPath</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #ae81ff">path</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/mnt/consul</span>
-</pre></div>
-</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">apiVersion: apps/v1beta<span style="color:#ae81ff">1</span>
+kind: StatefulSet
+metadata:
+  name: consul
+  namespace: kube-system
+spec:
+  serviceName: consul
+  replicas: <span style="color:#ae81ff">3</span>
+  template:
+    metadata:
+      labels:
+        consul: server
+    spec:
+      nodeSelector:
+        consul: server
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: consul
+                    operator: In
+                    values:
+                      - server
+              topologyKey: kubernetes.io/hostname
+      terminationGracePeriodSeconds: <span style="color:#ae81ff">10</span>
+      securityContext:
+        fsGroup: <span style="color:#ae81ff">1000</span>
+      containers:
+      - name: consul
+        image: consul:<span style="color:#ae81ff">0.9</span>.<span style="color:#ae81ff">2</span>
+        args:
+        - <span style="color:#e6db74">&#34;agent&#34;</span>
+        - <span style="color:#e6db74">&#34;-advertise=$(POD_IP)&#34;</span>
+        - <span style="color:#e6db74">&#34;-bind=0.0.0.0&#34;</span>
+        - <span style="color:#e6db74">&#34;-bootstrap-expect=3&#34;</span>
+        - <span style="color:#e6db74">&#34;-retry-join=consul-0.consul.$(NAMESPACE).svc.cluster.local&#34;</span>
+        - <span style="color:#e6db74">&#34;-retry-join=consul-1.consul.$(NAMESPACE).svc.cluster.local&#34;</span>
+        - <span style="color:#e6db74">&#34;-retry-join=consul-2.consul.$(NAMESPACE).svc.cluster.local&#34;</span>
+        - <span style="color:#e6db74">&#34;-client=0.0.0.0&#34;</span>
+        - <span style="color:#e6db74">&#34;-datacenter=fr&#34;</span>
+        - <span style="color:#e6db74">&#34;-data-dir=/consul/data&#34;</span>
+        - <span style="color:#e6db74">&#34;-domain=cluster.local&#34;</span>
+        - <span style="color:#e6db74">&#34;-server&#34;</span>
+        - <span style="color:#e6db74">&#34;-ui&#34;</span>
+        - <span style="color:#e6db74">&#34;-disable-host-node-id&#34;</span>
+        ports:
+        - containerPort: <span style="color:#ae81ff">8500</span>
+          name: ui-port
+        - containerPort: <span style="color:#ae81ff">8400</span>
+          name: alt-port
+        - containerPort: <span style="color:#ae81ff">53</span>
+          name: udp-port
+        - containerPort: <span style="color:#ae81ff">8443</span>
+          name: https-port
+        - containerPort: <span style="color:#ae81ff">8080</span>
+          name: http-port
+        - containerPort: <span style="color:#ae81ff">8301</span>
+          name: serflan
+        - containerPort: <span style="color:#ae81ff">8302</span>
+          name: serfwan
+        - containerPort: <span style="color:#ae81ff">8600</span>
+          name: consuldns
+        - containerPort: <span style="color:#ae81ff">8300</span>
+          name: server
+        env:
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        lifecycle:
+          preStop:
+            exec:
+              command:
+              - /bin/sh
+              - -c
+              - consul leave
+        volumeMounts:
+        - name: ca-certificates
+          mountPath: /etc/ssl/certs
+        - name: consul-data
+          mountPath: /consul/data
+      volumes:
+      - name: ca-certificates
+        hostPath:
+          path: /usr/share/ca-certificates/
+      - name: consul-data
+        hostPath:
+          path: /mnt/consul</code></pre></div></p>
 
 <p>After a few seconds (look at the logs), your cluster should be ready.</p>
 
@@ -447,61 +440,59 @@ This is needed to be able to access with the help of DNS to the wished instance 
 read Kubernetes configmaps for the moment).</p>
 
 <p>My Traefik configmap looks like this:
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #ae81ff">apiVersion</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">v1</span>
-<span style="color: #ae81ff">kind</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">ConfigMap</span>
-<span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">traefik</span>
-  <span style="color: #ae81ff">namespace</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-system</span>
-<span style="color: #ae81ff">data</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">traefik.toml</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">|-</span>
-    <span style="color: #66d9ef">checkNewVersion = false</span>
-    <span style="color: #66d9ef">IdleTimeout = &quot;180s&quot;</span>
-    <span style="color: #66d9ef">MaxIdleConnsPerHost = 500</span>
-    <span style="color: #66d9ef">logLevel = &quot;INFO&quot;</span>
-    <span style="color: #66d9ef">defaultEntryPoints = [&quot;http&quot;, &quot;https&quot;]</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">apiVersion: v<span style="color:#ae81ff">1</span>
+kind: ConfigMap
+metadata:
+  name: traefik
+  namespace: kube-system
+data:
+  traefik.toml: |-
+    checkNewVersion = <span style="color:#66d9ef">false</span>
+    IdleTimeout = <span style="color:#e6db74">&#34;180s&#34;</span>
+    MaxIdleConnsPerHost = <span style="color:#ae81ff">500</span>
+    logLevel = <span style="color:#e6db74">&#34;INFO&#34;</span>
+    defaultEntryPoints = [<span style="color:#e6db74">&#34;http&#34;</span>, <span style="color:#e6db74">&#34;https&#34;</span>]
 
-    <span style="color: #66d9ef">[retry]</span>
-    <span style="color: #66d9ef">attempts = 3</span>
+    [retry]
+    attempts = <span style="color:#ae81ff">3</span>
 
-    <span style="color: #66d9ef">[web]</span>
-    <span style="color: #66d9ef">address = &quot;:8081&quot;</span>
+    [web]
+    address = <span style="color:#e6db74">&#34;:8081&#34;</span>
 
-    <span style="color: #66d9ef">[kubernetes]</span>
-    <span style="color: #66d9ef">endpoint = &quot;http://localhost:8080&quot;</span>
-    <span style="color: #66d9ef">namespaces = [&quot;default&quot;]</span>
+    [kubernetes]
+    endpoint = <span style="color:#e6db74">&#34;http://localhost:8080&#34;</span>
+    namespaces = [<span style="color:#e6db74">&#34;default&#34;</span>]
 
-    <span style="color: #66d9ef">[consul]</span>
-    <span style="color: #66d9ef">endpoint = &quot;consul:8500&quot;</span>
-    <span style="color: #66d9ef">watch = true</span>
-    <span style="color: #66d9ef">prefix = &quot;traefik&quot;</span>
+    [consul]
+    endpoint = <span style="color:#e6db74">&#34;consul:8500&#34;</span>
+    watch = <span style="color:#66d9ef">true</span>
+    prefix = <span style="color:#e6db74">&#34;traefik&#34;</span>
 
-    <span style="color: #66d9ef">[acme]</span>
-    <span style="color: #66d9ef">email = &quot;my@email.here&quot;</span>
-    <span style="color: #66d9ef">storage = &quot;traefik/acme/account&quot;</span>
-    <span style="color: #66d9ef">entryPoint = &quot;https&quot;</span>
-    <span style="color: #66d9ef">OnHostRule = true</span>
-    <span style="color: #66d9ef">onDemand = true</span>
-    <span style="color: #66d9ef">acmeLogging = true</span>
-    <span style="color: #66d9ef">#caServer = &quot;https://acme-staging.api.letsencrypt.org/directory&quot;</span>
+    [acme]
+    email = <span style="color:#e6db74">&#34;my@email.here&#34;</span>
+    storage = <span style="color:#e6db74">&#34;traefik/acme/account&#34;</span>
+    entryPoint = <span style="color:#e6db74">&#34;https&#34;</span>
+    OnHostRule = <span style="color:#66d9ef">true</span>
+    onDemand = <span style="color:#66d9ef">true</span>
+    acmeLogging = <span style="color:#66d9ef">true</span>
+    <span style="color:#75715e">#caServer = &#34;https://acme-staging.api.letsencrypt.org/directory&#34;</span>
 
-    <span style="color: #66d9ef">[[acme.domains]]</span>
-       <span style="color: #66d9ef">main = &quot;mydomain.fqdn&quot;</span>
+    [[acme.domains]]
+       main = <span style="color:#e6db74">&#34;mydomain.fqdn&#34;</span>
 
-    <span style="color: #66d9ef">[entryPoints]</span>
-      <span style="color: #66d9ef">[entryPoints.http]</span>
-      <span style="color: #66d9ef">address = &quot;:80&quot;</span>
-      <span style="color: #66d9ef">compress = true</span>
-        <span style="color: #66d9ef">[entryPoints.http.redirect]</span>
-        <span style="color: #66d9ef">entryPoint = &quot;https&quot;</span>
-      <span style="color: #66d9ef">[entryPoints.https]</span>
-      <span style="color: #66d9ef">address = &quot;:443&quot;</span>
-        <span style="color: #66d9ef">[entryPoints.https.tls]</span>
-  <span style="color: #ae81ff">resolv.conf</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">|-</span>
-    <span style="color: #66d9ef">nameserver 10.3.0.10</span>
-    <span style="color: #66d9ef">search kube-system.svc.cluster.local svc.cluster.local cluster.local</span>
-    <span style="color: #66d9ef">options ndots:5</span>
-</pre></div>
-
+    [entryPoints]
+      [entryPoints.http]
+      address = <span style="color:#e6db74">&#34;:80&#34;</span>
+      compress = <span style="color:#66d9ef">true</span>
+        [entryPoints.http.redirect]
+        entryPoint = <span style="color:#e6db74">&#34;https&#34;</span>
+      [entryPoints.https]
+      address = <span style="color:#e6db74">&#34;:443&#34;</span>
+        [entryPoints.https.tls]
+  resolv.conf: |-
+    nameserver <span style="color:#ae81ff">10.3</span>.<span style="color:#ae81ff">0.10</span>
+    search kube-system.svc.cluster.local svc.cluster.local cluster.local
+    options ndots:<span style="color:#ae81ff">5</span></code></pre></div>
 To get more information on it, please look at the <a href="http://docs.traefik.io/toml/" target="_blank">good Traefik documentation</a>. You&rsquo;ll see why there is resolv.conf
 later in this post. This Traefik configuration give the Traefik we interface on port 8081, connects to Kubernetes on
 localhost and port 8080, connects to Consul using the headless service, manages let&rsquo;s encrypt certificates and redirect
@@ -511,119 +502,109 @@ http to https.</p>
 traefik configuration in Consul when you&rsquo;ll be ready to go prod (and of course remove this line).</p>
 
 <p>Now let&rsquo;s run the job which will push this configuration into the Consul KV:
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #ae81ff">apiVersion</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">batch/v1</span>
-<span style="color: #ae81ff">kind</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">Job</span>
-<span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">traefik-boostrap</span>
-  <span style="color: #ae81ff">namespace</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-system</span>
-<span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">template</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">traefik-boostrap</span>
-    <span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">containers</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">image</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">traefik:v1.3-alpine</span>
-        <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">traefik-bootstrap</span>
-        <span style="color: #ae81ff">args</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">storeconfig</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">--configfile=/etc/traefik/traefik.toml</span>
-        <span style="color: #ae81ff">volumeMounts</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">traefik-config</span>
-          <span style="color: #ae81ff">mountPath</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/etc/traefik</span>
-      <span style="color: #ae81ff">restartPolicy</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">Never</span>
-      <span style="color: #ae81ff">volumes</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">traefik-config</span>
-        <span style="color: #ae81ff">configMap</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">traefik</span>
-</pre></div>
-</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">apiVersion: batch/v<span style="color:#ae81ff">1</span>
+kind: Job
+metadata:
+  name: traefik-boostrap
+  namespace: kube-system
+spec:
+  template:
+    metadata:
+      name: traefik-boostrap
+    spec:
+      containers:
+      - image: traefik:v<span style="color:#ae81ff">1.3</span>-alpine
+        name: traefik-bootstrap
+        args:
+        - storeconfig
+        - --configfile=/etc/traefik/traefik.toml
+        volumeMounts:
+        - name: traefik-config
+          mountPath: /etc/traefik
+      restartPolicy: Never
+      volumes:
+      - name: traefik-config
+        configMap:
+          name: traefik</code></pre></div></p>
 
 <p>Traefik is now ready to be deployed. We need a service account:
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #ae81ff">apiVersion</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">v1</span>
-<span style="color: #ae81ff">kind</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">ServiceAccount</span>
-<span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">traefik-ingress-controller</span>
-  <span style="color: #ae81ff">namespace</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-system</span>
-</pre></div>
-</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">apiVersion: v<span style="color:#ae81ff">1</span>
+kind: ServiceAccount
+metadata:
+  name: traefik-ingress-controller
+  namespace: kube-system</code></pre></div></p>
 
 <p>And the service for the web admin interface:
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #ae81ff">apiVersion</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">v1</span>
-<span style="color: #ae81ff">kind</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">Service</span>
-<span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">traefik-web-ui</span>
-  <span style="color: #ae81ff">namespace</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-system</span>
-<span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">selector</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">k8s-app</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">traefik-ingress-lb</span>
-  <span style="color: #ae81ff">ports</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">web</span>
-    <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">80</span>
-    <span style="color: #ae81ff">targetPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8081</span>
-</pre></div>
-</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">apiVersion: v<span style="color:#ae81ff">1</span>
+kind: Service
+metadata:
+  name: traefik-web-ui
+  namespace: kube-system
+spec:
+  selector:
+    k8s-app: traefik-ingress-lb
+  ports:
+  - name: web
+    port: <span style="color:#ae81ff">80</span>
+    targetPort: <span style="color:#ae81ff">8081</span></code></pre></div></p>
 
 <p>Just before deploying Traefik, there is a small bug to workaround before going ahead. A key in the Consul KV store should be
 deleted:
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>kubectl --namespace kube-system <span style="color: #f8f8f2">exec</span> -it consul-0 consul kv delete traefik/acme/storagefile
-</pre></div>
-</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl --namespace kube-system exec -it consul-0 consul kv delete traefik/acme/storagefile</code></pre></div></p>
 
 <p>I&rsquo;m using a daemonset for Traefik as I want it to run on a ll my Kubernetes nodes:
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #ae81ff">kind</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">DaemonSet</span>
-<span style="color: #ae81ff">apiVersion</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">extensions/v1beta1</span>
-<span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">traefik-ingress-controller</span>
-  <span style="color: #ae81ff">namespace</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">kube-system</span>
-  <span style="color: #ae81ff">labels</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">k8s-app</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">traefik-ingress-lb</span>
-<span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">template</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">labels</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">k8s-app</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">traefik-ingress-lb</span>
-        <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">traefik-ingress-lb</span>
-    <span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">serviceAccountName</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">traefik-ingress-controller</span>
-      <span style="color: #ae81ff">terminationGracePeriodSeconds</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">60</span>
-      <span style="color: #ae81ff">hostNetwork</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-      <span style="color: #ae81ff">containers</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">image</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">traefik:v1.3-alpine</span>
-        <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">traefik-ingress-lb</span>
-        <span style="color: #ae81ff">command</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;/bin/sh&quot;</span>
-          <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;-c&quot;</span>
-          <span style="color: #f8f8f2">-</span> <span style="color: #e6db74">&quot;cat</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">/etc/resolvconf/resolv.conf</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">&gt;</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">/etc/resolv.conf</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">;</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">/entrypoint.sh</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">--consul</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">--consul.endpoint=consul:8500&quot;</span>
-        <span style="color: #ae81ff">resources</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #ae81ff">limits</span><span style="color: #f8f8f2">:</span>
-            <span style="color: #ae81ff">cpu</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">200m</span>
-            <span style="color: #ae81ff">memory</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">30Mi</span>
-          <span style="color: #ae81ff">requests</span><span style="color: #f8f8f2">:</span>
-            <span style="color: #ae81ff">cpu</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">100m</span>
-            <span style="color: #ae81ff">memory</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">20Mi</span>
-        <span style="color: #ae81ff">ports</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">http</span>
-          <span style="color: #ae81ff">hostPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">80</span>
-          <span style="color: #ae81ff">containerPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">80</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">https</span>
-          <span style="color: #ae81ff">hostPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">443</span>
-          <span style="color: #ae81ff">containerPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">443</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">admin</span>
-          <span style="color: #ae81ff">containerPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8081</span>
-        <span style="color: #ae81ff">securityContext</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #ae81ff">privileged</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-        <span style="color: #ae81ff">volumeMounts</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">traefik-config</span>
-          <span style="color: #ae81ff">mountPath</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/etc/resolvconf</span>
-      <span style="color: #ae81ff">volumes</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">traefik-config</span>
-        <span style="color: #ae81ff">configMap</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">traefik</span>
-          <span style="color: #ae81ff">items</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">key</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">resolv.conf</span>
-            <span style="color: #ae81ff">path</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">resolv.conf</span>
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">kind: DaemonSet
+apiVersion: extensions/v1beta<span style="color:#ae81ff">1</span>
+metadata:
+  name: traefik-ingress-controller
+  namespace: kube-system
+  labels:
+    k8s-app: traefik-ingress-lb
+spec:
+  template:
+    metadata:
+      labels:
+        k8s-app: traefik-ingress-lb
+        name: traefik-ingress-lb
+    spec:
+      serviceAccountName: traefik-ingress-controller
+      terminationGracePeriodSeconds: <span style="color:#ae81ff">60</span>
+      hostNetwork: <span style="color:#66d9ef">true</span>
+      containers:
+      - image: traefik:v<span style="color:#ae81ff">1.3</span>-alpine
+        name: traefik-ingress-lb
+        command:
+          - <span style="color:#e6db74">&#34;/bin/sh&#34;</span>
+          - <span style="color:#e6db74">&#34;-c&#34;</span>
+          - <span style="color:#e6db74">&#34;cat /etc/resolvconf/resolv.conf &gt; /etc/resolv.conf ; /entrypoint.sh --consul --consul.endpoint=consul:8500&#34;</span>
+        resources:
+          limits:
+            cpu: 200m
+            memory: 30Mi
+          requests:
+            cpu: 100m
+            memory: 20Mi
+        ports:
+        - name: http
+          hostPort: <span style="color:#ae81ff">80</span>
+          containerPort: <span style="color:#ae81ff">80</span>
+        - name: https
+          hostPort: <span style="color:#ae81ff">443</span>
+          containerPort: <span style="color:#ae81ff">443</span>
+        - name: admin
+          containerPort: <span style="color:#ae81ff">8081</span>
+        securityContext:
+          privileged: <span style="color:#66d9ef">true</span>
+        volumeMounts:
+        - name: traefik-config
+          mountPath: /etc/resolvconf
+      volumes:
+      - name: traefik-config
+        configMap:
+          name: traefik
+          items:
+          - key: resolv.conf
+            path: resolv.conf</code></pre></div>
 If you&rsquo;re encountering an issue with port 443 already in use, you&rsquo;ll have to update the Kubernetes API default port to
 another one.</p>
 
@@ -631,59 +612,57 @@ another one.</p>
 the host and not the one generated by Kubernetes. Without this, you won&rsquo;t be able to contact Consul endpoint.</p>
 
 <p>Now you&rsquo;re done ! You can create ingress services :-). Here is an example of a full service:
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #ae81ff">apiVersion</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">extensions/v1beta1</span>
-<span style="color: #ae81ff">kind</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">Deployment</span>
-<span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">hostnames</span>
-  <span style="color: #ae81ff">namespace</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">default</span>
-  <span style="color: #ae81ff">labels</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">app</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">hostnames</span>
-<span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">replicas</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">3</span>
-  <span style="color: #ae81ff">template</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">labels</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">app</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">hostnames</span>
-    <span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">hostNetwork</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
-      <span style="color: #ae81ff">containers</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">hostnames</span>
-        <span style="color: #ae81ff">image</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">gcr.io/google_containers/serve_hostname</span>
-        <span style="color: #ae81ff">ports</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">containerPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">9376</span>
-          <span style="color: #ae81ff">hostPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">9376</span>
-<span style="color: #f8f8f2">---</span>
-<span style="color: #ae81ff">apiVersion</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">v1</span>
-<span style="color: #ae81ff">kind</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">Service</span>
-<span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">hostnames</span>
-  <span style="color: #ae81ff">namespace</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">default</span>
-<span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">selector</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">app</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">hostnames</span>
-  <span style="color: #ae81ff">ports</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">default</span>
-    <span style="color: #ae81ff">port</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">80</span>
-    <span style="color: #ae81ff">targetPort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">9376</span>
-<span style="color: #f8f8f2">---</span>
-<span style="color: #ae81ff">apiVersion</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">extensions/v1beta1</span>
-<span style="color: #ae81ff">kind</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">Ingress</span>
-<span style="color: #ae81ff">metadata</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">hostnames</span>
-  <span style="color: #ae81ff">namespace</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">default</span>
-  <span style="color: #ae81ff">annotations</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">kubernetes.io/ingress.class</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;traefik&quot;</span>
-<span style="color: #ae81ff">spec</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">rules</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">host</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">test.mydomain.fqdn</span>
-    <span style="color: #ae81ff">http</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">paths</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">path</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">/</span>
-        <span style="color: #ae81ff">backend</span><span style="color: #f8f8f2">:</span>
-          <span style="color: #ae81ff">serviceName</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">hostnames</span>
-          <span style="color: #ae81ff">servicePort</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">80</span>
-</pre></div>
-</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">apiVersion: extensions/v1beta<span style="color:#ae81ff">1</span>
+kind: Deployment
+metadata:
+  name: hostnames
+  namespace: default
+  labels:
+    app: hostnames
+spec:
+  replicas: <span style="color:#ae81ff">3</span>
+  template:
+    metadata:
+      labels:
+        app: hostnames
+    spec:
+      hostNetwork: <span style="color:#66d9ef">true</span>
+      containers:
+      - name: hostnames
+        image: gcr.io/google_containers/serve_hostname
+        ports:
+        - containerPort: <span style="color:#ae81ff">9376</span>
+          hostPort: <span style="color:#ae81ff">9376</span>
+---
+apiVersion: v<span style="color:#ae81ff">1</span>
+kind: Service
+metadata:
+  name: hostnames
+  namespace: default
+spec:
+  selector:
+    app: hostnames
+  ports:
+  - name: default
+    port: <span style="color:#ae81ff">80</span>
+    targetPort: <span style="color:#ae81ff">9376</span>
+---
+apiVersion: extensions/v1beta<span style="color:#ae81ff">1</span>
+kind: Ingress
+metadata:
+  name: hostnames
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: <span style="color:#e6db74">&#34;traefik&#34;</span>
+spec:
+  rules:
+  - host: test.mydomain.fqdn
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: hostnames
+          servicePort: <span style="color:#ae81ff">80</span></code></pre></div></p>
 
 <p>Connect to <a href="http://test.mydomain.fqdn" target="_blank">http://test.mydomain.fqdn</a>, you will be redirected to <a href="https://test.mydomain.fqdn" target="_blank">https://test.mydomain.fqdn</a>. The first connexion may take
 some seconds because of the generation of the SSL certificate.</p>
@@ -717,22 +696,24 @@ some seconds because of the generation of the SSL certificate.</p>
   <div class="post-actions-wrap">
       <nav >
         <ul class="post-actions post-action-nav">
+          
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/" data-tooltip="MySocialApp Create your own social network">
               
-                <i class="fa fa-angle-left"></i>
-                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-              </a>
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/" data-tooltip="Deploy Kubernetes with Ansible">
               
-                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                <i class="fa fa-angle-right"></i>
-              </a>
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
             </li>
+          
         </ul>
       </nav>
     <ul class="post-actions post-action-share" >
@@ -742,6 +723,24 @@ some seconds because of the generation of the SSL certificate.</p>
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
         
       
       
@@ -773,7 +772,7 @@ some seconds because of the generation of the SSL certificate.</p>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2017 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2018 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 
@@ -783,22 +782,24 @@ some seconds because of the generation of the SSL certificate.</p>
   <div class="post-actions-wrap">
       <nav >
         <ul class="post-actions post-action-nav">
+          
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/" data-tooltip="MySocialApp Create your own social network">
               
-                <i class="fa fa-angle-left"></i>
-                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-              </a>
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/" data-tooltip="Deploy Kubernetes with Ansible">
               
-                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                <i class="fa fa-angle-right"></i>
-              </a>
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
             </li>
+          
         </ul>
       </nav>
     <ul class="post-actions post-action-share" >
@@ -808,6 +809,24 @@ some seconds because of the generation of the SSL certificate.</p>
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
         
       
       
@@ -833,6 +852,24 @@ some seconds because of the generation of the SSL certificate.</p>
   <i id="btn-close-shareoptions" class="fa fa-close"></i>
   <ul class="share-options">
     
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2017%2F08%2F20%2Fkubernetes-with-traefik-and-lets-encrypt%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2017%2F08%2F20%2Fkubernetes-with-traefik-and-lets-encrypt%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fblog.deimos.fr%2F2017%2F08%2F20%2Fkubernetes-with-traefik-and-lets-encrypt%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
   </ul>
 </div>
 <div id="share-options-mask" class="share-options-mask"></div>
@@ -852,7 +889,7 @@ some seconds because of the generation of the SSL certificate.</p>
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; Nousmotards Co-Founder
+        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
       </div>
     
     
@@ -883,6 +920,42 @@ some seconds because of the generation of the SSL certificate.</p>
       <div class="no-result text-color-light text-center">no post found</div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/">
+                <h3 class="media-heading">Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/">
+                <h3 class="media-heading">MySocialApp Create your own social network</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">If you follow me, you may know that I launched with friends Nousmotards social application a few years ago. The solution continue to grow in France with more than 70k bikers and that&rsquo;s a good point for all those riders :)
+Since we launched Nousmotards, several persons asked us: &ldquo;You&rsquo;ve made an amazing job for bikers, do you provide your social solution to any other communities or for enterprises?&rdquo;. The answer was: No we didn&rsquo;t.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -1034,43 +1107,6 @@ Today I am going to talk about our experience after having using it for 2 years 
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/">
-                <h3 class="media-heading">Docker: why you should use Monit instead of supervisord</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting Nousmotards infrastructure, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.
-Introduction Docker is made to run a process in a confined area.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/08/graphite-events-on-debian-jessie/">
-                <h3 class="media-heading">Graphite events on Debian jessie</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">I&rsquo;m using Graphite at work and for my Nousmotards project. For Nousmotards, I&rsquo;m using the Graphite version available in the default Debian Jessie repositories. This to avoid mismatch django dependencies etc&hellip;
-A few days ago, I wanted to try Graphite events to get something pretty cool in Grafana :
-This to be able to know when a new app version is deployed and make it easier to understand when an issue occurs.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -1078,7 +1114,7 @@ This to be able to know when a new app version is deployed and make it easier to
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         836 posts found
+         837 posts found
       </p>
     </div>
   </div>
@@ -1091,26 +1127,15 @@ This to be able to know when a new app version is deployed and make it easier to
 
 
     
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-IFHWFEbU2/+wNycDECKgjIRSirRNIDp2acEB5fvdVRU=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js" integrity="sha256-+mpyNVJsNt4rVXCw0F+pAOiB3YxmHgrbJsx4ecPuUaI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js" integrity="sha256-vMxgR/7FtLovVA+IPrR7+xTgIgARH7y9VZQnmmi0HDI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js" integrity="sha256-N0qFUh7/9vLvia87dDndewmsgsyYoNkdA212tPc+2NI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
 <script src="https://blog.deimos.fr/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
 
 
-<script>
-$(document).ready(function() {
-  hljs.configure({ classPrefix: '', useBR: false });
-  $('pre.code-highlight, pre > code').each(function(i, block) {
-    if (!$(this).hasClass('codeblock')) {
-      $(this).addClass('codeblock');
-    }
-    hljs.highlightBlock(block);
-  });
-});
-</script>
+
 
   
     
