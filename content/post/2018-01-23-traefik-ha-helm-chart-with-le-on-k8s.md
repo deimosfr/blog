@@ -98,7 +98,7 @@ echo "Bootstrap has already been done, traefik container will start"
 exit 0
 {{< /highlight >}}
 
-Now if you deploy this chart for the first time or not, you won't need any manual intervention anymore :)
+Now if you deploy [this Traefik chart][7] for the first time or not, you won't need any manual intervention anymore :)
 
 Before deploying it, you will need a consul cluster setup and ready. If you're searching for a [Consul Helm chart][6], I've made one also for [MySocialApp][3]. We're using this chart on bare metal with local storage. We recommend that consul servers are used with "Node Selector" option to stick to specific servers.
 
