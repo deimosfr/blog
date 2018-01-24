@@ -102,7 +102,7 @@ Now if you deploy this chart for the first time or not, you won't need any manua
 
 Before deploying it, you will need a consul cluster setup and ready. If you're searching for a [Consul Helm chart][6], I've made one also for [MySocialApp][3]. We're using this chart on bare metal with local storage. We recommend that consul servers are used with "Node Selector" option to stick to specific servers.
 
-Then you have to update "values.yaml" from the Traefik chart file before deloying. You're now ready to go.
+Then you have to update "values.yaml" from the [Traefik chart][7] file before deloying. You're now ready to go.
 
  [1]: https://traefik.io/
  [2]: https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/
@@ -110,3 +110,4 @@ Then you have to update "values.yaml" from the Traefik chart file before deloyin
  [4]: https://docs.helm.sh/
  [5]: https://www.consul.io/docs/guides/semaphore.html
  [6]: https://github.com/MySocialApp/kubernetes-helm-chart-consul
+ [7]: https://github.com/MySocialApp/kubernetes-helm-chart-traefik
