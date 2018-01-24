@@ -15,5 +15,5 @@ ln -s ../../scripts/pre_ci_hook.sh ./pre-commit
 # Create a new post
 
 ```
-hugo new post/yyyy-mm-dd-my-title.md
+hugo new post/$(date +%Y-%m-%d)-my-title.md
 ```
