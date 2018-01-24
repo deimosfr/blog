@@ -105,7 +105,7 @@ Before deploying it, you will need a consul cluster setup and ready. If you're s
 Then you have to update "values.yaml" from the [Traefik chart][7] file before deloying. You're now ready to go.
 
  [1]: https://traefik.io/
- [2]: https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/
+ [2]: {{< ref "2017-08-20-Kubernetes-with-traefik-and-lets-encrypt.md" >}}
  [3]: https://mysocialapp.io/
  [4]: https://docs.helm.sh/
  [5]: https://www.consul.io/docs/guides/semaphore.html
