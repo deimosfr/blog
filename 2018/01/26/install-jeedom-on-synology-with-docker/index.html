@@ -1,0 +1,846 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+    <title>Install Jeedom on Synology with Docker</title>
+    <meta name="author" content="Pierre Mavro / Deimosfr">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="https://blog.deimos.fr/favicon.png">
+    
+
+    
+    <meta name="description" content="The Jeedom software is open source; you have complete access to the software that manages your home automation. Jeedom is compatible with various protocols, like Z-Wave, RFXCOM, RTS SOMFY, EnOcean, xPL, etc.
+Installing Jeedom on Synology with Docker it not a complex task. However for those who are not familiar with those technologies, I summarized here the installation process for a Z-wave network.
+First of all, let&rsquo;s look at the requirements:">
+    <meta property="og:description" content="The Jeedom software is open source; you have complete access to the software that manages your home automation. Jeedom is compatible with various protocols, like Z-Wave, RFXCOM, RTS SOMFY, EnOcean, xPL, etc.
+Installing Jeedom on Synology with Docker it not a complex task. However for those who are not familiar with those technologies, I summarized here the installation process for a Z-wave network.
+First of all, let&rsquo;s look at the requirements:">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Install Jeedom on Synology with Docker">
+    <meta property="og:url" content="/2018/01/26/install-jeedom-on-synology-with-docker/">
+    <meta property="og:site_name" content="Deimosfr Blog">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Deimosfr Blog">
+    <meta name="twitter:description" content="The Jeedom software is open source; you have complete access to the software that manages your home automation. Jeedom is compatible with various protocols, like Z-Wave, RFXCOM, RTS SOMFY, EnOcean, xPL, etc.
+Installing Jeedom on Synology with Docker it not a complex task. However for those who are not familiar with those technologies, I summarized here the installation process for a Z-wave network.
+First of all, let&rsquo;s look at the requirements:">
+    
+      <meta name="twitter:creator" content="@deimosfr">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+    
+
+    
+      <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_jeedom.png">
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+      
+        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+      
+    
+
+    
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-63927289-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.deimos.fr/">Deimosfr Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://blog.deimos.fr/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.deimos.fr/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.deimos.fr" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-user"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
+      
+      <span class="sidebar-button-desc">Wiki</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Install Jeedom on Synology with Docker
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-01-26T18:00:00&#43;02:00">
+        
+  
+  
+  
+  
+    26 January 2018
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/home-automation">Home automation</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/jeedom">Jeedom</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/synology">Synology</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/docker">Docker</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p><img src="https://blog.deimos.fr/images/logo_jeedom.png" alt="Jeedom" /></p>
+
+<p>The <a href="https://www.jeedom.com/" target="_blank">Jeedom</a> software is open source; you have complete access to the software that manages your home automation.
+Jeedom is compatible with various protocols, like Z-Wave, RFXCOM, RTS SOMFY, EnOcean, xPL, etc.</p>
+
+<p>Installing <a href="https://www.jeedom.com/" target="_blank">Jeedom</a> on <a href="https://www.synology.com" target="_blank">Synology</a> with <a href="https://www.docker.com/" target="_blank">Docker</a> it not a complex task. However for those who are not familiar with those technologies, I summarized here the installation process for a Z-wave network.</p>
+
+<p>First of all, let&rsquo;s look at the requirements:</p>
+
+<ul>
+<li>You need to have a <a href="https://www.google.fr/search?q=everspring+z-wave&amp;source=lnms&amp;tbm=shop" target="_blank">Z-wave+ USB key</a> plugged on the Synology</li>
+<li>You need to have Docker installed</li>
+<li>You need to create folders on your &ldquo;Synology File Station&rdquo;:
+
+<ul>
+<li>/docker/jeedom</li>
+<li>/docker/mariadb</li>
+</ul></li>
+</ul>
+
+<p><img src="https://blog.deimos.fr/images/jeedom_docker_folders.png" alt="Docker folders" /></p>
+
+<p>Once done, we are now going to deploy a dedicated database (<a href="https://mariadb.org/" target="_blank">MariaDB</a>) and Jeedom as Docker containers. For those who wonder why MariaDB instead of MySQL, it&rsquo;s because I&rsquo;ve more affinity with MariaDB but you can use MySQL if you prefer. Anyway I strongly recommend MariaDB :p (by the way here is the <a href="https://www.packtpub.com/application-development/mariadb-high-performance" target="_blank">book I&rsquo;ve wrote on MariaDB</a>).</p>
+
+<p>To deploy those containers, open Docker on your Synology then, click on &ldquo;Container&rdquo;, &ldquo;Parameters&rdquo; and finally &ldquo;Import&rdquo;. Then load those files (you need to upload them somewhere on your Synology first):</p>
+
+<ul>
+<li><a href="https://blog.deimos.fr/archives/mariadb.syno.json">MariaDB container</a>: the password for &ldquo;root&rdquo; login is &ldquo;jeedom&rdquo;</li>
+<li><a href="https://blog.deimos.fr/archives/jeedom.syno.json">Jeedom container</a>: the web application (Jeedom) is available on port 9080</li>
+</ul>
+
+<p>First start MariaDB, wait 30 seconds to be sure it has successfuly started, then start jeedom. Now connect to <a href="http://your_NAS_ip:9080" target="_blank">http://your_NAS_ip:9080</a>, you&rsquo;ll be redirected to the setup page:</p>
+
+<p><img src="https://blog.deimos.fr/images/jeedom_db_setup.png" alt="Jeedom setup" /></p>
+
+<p>Fill the fields as described on the screenshot above (use &ldquo;jeedom&rdquo; as password)and click on &ldquo;Proceed&rdquo;. You should see this message:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#e6db74">&#34;The installation jeedom is ongoing.&#34;</span></code></pre></div>
+
+<p>And then the initialization logs:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>START UPDATE<span style="color:#f92672">]</span>
+****Install jeedom from <span style="color:#ae81ff">3</span>.1.7 <span style="color:#f92672">(</span><span style="color:#ae81ff">2018</span>-01-26 <span style="color:#ae81ff">23</span>:11:25<span style="color:#f92672">)</span>****
+
+Install of Jeedom <span style="color:#ae81ff">3</span>.1.7
+Install of database...OK
+Post install...
+<span style="color:#f92672">[</span>START CONSISTENCY<span style="color:#f92672">]</span>
+Création de plugin::cronDaily
+Création de jeedom::backup
+Création de plugin::cronHourly
+Création de scenario::check
+Création de jeedom::cronDaily
+Création de jeedom::cronHourly
+Création de jeedom::cron5
+Création de jeedom::cron
+Création de plugin::cron
+Création de plugin::cron5
+Création de plugin::cron15
+Création de plugin::cron30
+Création de plugin::checkDeamon
+Création de cache::persist
+Création de history::archive
+<span style="color:#f92672">[</span>END CONSISTENCY<span style="color:#f92672">]</span>
+Add user <span style="color:#f92672">(</span>admin,admin<span style="color:#f92672">)</span>
+OK
+Install duration : 2s
+<span style="color:#f92672">[</span>END INSTALL SUCCESS<span style="color:#f92672">]</span></code></pre></div>
+
+<p>When ended, reconnect to <a href="http://your_NAS_ip:9080" target="_blank">http://your_NAS_ip:9080</a>. You can now login with &ldquo;admin&rdquo; as login and password. <strong>Do not forget to change the default password</strong> !</p>
+
+<p>Install the offical Z-Wave module and configure it. You should see &ldquo;/dev/ttyACM0&rdquo; device. If it&rsquo;s not the case, reboot your Synology.</p>
+
+<p>Usefull links:</p>
+
+<ul>
+<li><a href="https://www.jeedom.com/forum/viewtopic.php?f=67&amp;t=24776" target="_blank">https://www.jeedom.com/forum/viewtopic.php?f=67&amp;t=24776</a></li>
+<li><a href="https://www.jeedom.com/forum/viewtopic.php?f=67&amp;t=16777" target="_blank">https://www.jeedom.com/forum/viewtopic.php?f=67&amp;t=16777</a></li>
+<li><a href="https://jeedom.github.io/documentation/installation/en_US/" target="_blank">https://jeedom.github.io/documentation/installation/en_US/</a></li>
+</ul>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/home-automation/">Home automation</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/jeedom/">Jeedom</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/synology/">Synology</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/docker/">Docker</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/" data-tooltip="Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2018/01/26/install-jeedom-on-synology-with-docker/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2018/01/26/install-jeedom-on-synology-with-docker/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2018/01/26/install-jeedom-on-synology-with-docker/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 Pierre Mavro / Deimosfr. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/" data-tooltip="Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2018/01/26/install-jeedom-on-synology-with-docker/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2018/01/26/install-jeedom-on-synology-with-docker/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2018/01/26/install-jeedom-on-synology-with-docker/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2018%2F01%2F26%2Finstall-jeedom-on-synology-with-docker%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2018%2F01%2F26%2Finstall-jeedom-on-synology-with-docker%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fblog.deimos.fr%2F2018%2F01%2F26%2Finstall-jeedom-on-synology-with-docker%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Paris - France
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/26/install-jeedom-on-synology-with-docker/">
+                <h3 class="media-heading">Install Jeedom on Synology with Docker</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">The Jeedom software is open source; you have complete access to the software that manages your home automation. Jeedom is compatible with various protocols, like Z-Wave, RFXCOM, RTS SOMFY, EnOcean, xPL, etc.
+Installing Jeedom on Synology with Docker it not a complex task. However for those who are not familiar with those technologies, I summarized here the installation process for a Z-wave network.
+First of all, let&rsquo;s look at the requirements:</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/">
+                <h3 class="media-heading">Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/">
+                <h3 class="media-heading">MySocialApp Create your own social network</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">If you follow me, you may know that I launched with friends Nousmotards social application a few years ago. The solution continue to grow in France with more than 70k bikers and that&rsquo;s a good point for all those riders :)
+Since we launched Nousmotards, several persons asked us: &ldquo;You&rsquo;ve made an amazing job for bikers, do you provide your social solution to any other communities or for enterprises?&rdquo;. The answer was: No we didn&rsquo;t.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/">
+                <h3 class="media-heading">Kubernetes with Traefik and Let&#39;s Encrypt</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+I wanted to deploy it on Kubernetes for its interesting features like:
+ Connect to Kubernetes API to listen changes and perform on the fly updates Automatic SSL management through Let&rsquo;s encrypt (SNI) Prometheus native integration HTTP/2 support  I really like HAProxy, but in a Kubernetes case, it&rsquo;s not the recommended solution because of its lake of features.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/">
+                <h3 class="media-heading">Deploy Kubernetes with Ansible</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications. I&rsquo;m using it for Nousmotards and decided to build an Ansible role for it to make it simpler to deploy.
+Why did I built it as other projects like Kargo already exists? I just wanted a simple and maintainable role based on CoreOS official documentation. That&rsquo;s what I did:
+ This role bootstrap a Kubernetes cluster based on CoreOS Container Linux for production usages.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2017/04/18/blog-migrated-to-hugo-on-github/">
+                <h3 class="media-heading">Blog migrated to Hugo on Github</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">As you certainly seen, the blog has been migrated :-). Visualy there is a big change and technically it&rsquo;s the same.
+I was fed up about maintaining Wordpress with its stack (Nginx / php-fpm / MariaDB) for a mostly static blog. I was thinking about migrating from Wordpress to something in markdown since several years but didn&rsquo;t know exactly which solution I wanted to choose. I really enjoyed using Wordpress but wanted to keep hands on my blog and didn&rsquo;t want to switch to full hosted Wordpress because of its limitations (image size etc&hellip;).</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/">
+                <h3 class="media-heading">Deploy CoreOS with Ansible</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">&nbsp;
+CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications.&nbsp;I&rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
+As I&rsquo;m still an Ansible lover, I&rsquo;ve made 2 roles:
+ CoreOS Ansible:&nbsp;Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  If you want to quickly look at the result:</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/">
+                <h3 class="media-heading">Do not waste time with grep anymore, use tag</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jun 6, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Long time since my last post. This one is not very technical post, but it&rsquo;s a nice to have solution if you use grep usually. Are not you fed up to type vim  and search the line after a grep command ? If yes, this post is for you.
+First of all, you may know that an alternative more user friendly to grep exist, called ag (perf comparison). I really like ag and grep, but something make me loose my time since several years and I&rsquo;m pretty sure it&rsquo;s your case too.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/">
+                <h3 class="media-heading">Zero downtime upgrade with Ansible and HAProxy</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Some of you may not be familiar with the terms &ldquo;Rolling upgrade&rdquo; or &ldquo;Rolling restart&rdquo;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&rsquo;re managing and the number of active nodes in your cluster.
+At Nousmotards we have several Java Spring Boot applications running. Restarting one application can take up to 1 min.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/20/how-we-speed-up-news-feed-and-user-wall-display-using-elasticsearch/">
+                <h3 class="media-heading">Elasticsearch: How we speed up news feeds and user walls display</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">&nbsp;
+In my previous post, I talked about how to speed up reads and writes coupling Redis with Neo4J. Now I want to share with you how it&rsquo;s possible to unload your server and use Elasticsearch to speed up news feed and user wall.
+1/ Show me your news feed A news feed is the main page of traditional social networks. Its main goal is to show you all recents updates from your friends and your interests.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         838 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://blog.deimos.fr/images/fish_background.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://blog.deimos.fr/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/blog.deimos.fr\/2018\/01\/26\/install-jeedom-on-synology-with-docker\/';
+          
+            this.page.identifier = '\/2018\/01\/26\/install-jeedom-on-synology-with-docker\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'blog-deimosfr';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+

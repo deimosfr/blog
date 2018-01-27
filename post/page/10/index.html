@@ -215,6 +215,76 @@ ga('send', 'pageview');
             
   
     
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2014/10/06/fio-bench-io-disks/">
+          FIO: Bench IO disks
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2014-10-06T10:00:30Z">
+        
+  
+  
+  
+  
+    6 October 2014
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/ceph">Ceph</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      The first thing you generally want to do when you have any new Storage system like SSD, Disk arrays or a Cluster Ceph, is benching. You will want to know how can read and write throughput. FIO is able to do that for you, here is an example:
+[global] ioengine=libaio invalidate=1 ramp_time=5 direct=1 size=5G runtime=300 time_based directory=/home [seq-read] rw=read bs=64K stonewall [rand-read] rw=randread bs=4K stonewall [seq-write] rw=write bs=64K stonewall [rand-write] rw=randwrite bs=4K stonewall You then will have a good output of everything you need to know.
+      <p>
+        <a href="https://blog.deimos.fr/2014/10/06/fio-bench-io-disks/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2014/10/06/fio-bench-io-disks/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
+          
+            
+  
+    
       
         
       
@@ -607,69 +677,6 @@ In that book, I made my best to make things as simple as possible to test featur
 </article>
 
           
-            
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://blog.deimos.fr/2014/09/22/sphinxdoc-easily-make-a-documentation/">
-          Sphinxdoc: easily make a documentation
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2014-09-22T10:00:57Z">
-        
-  
-  
-  
-  
-    22 September 2014
-  
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/developement">Developement</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      I already heard of Sphinxdoc a year ago and see some of my colleges are using it for professional or personal usages. With my friend Sebastien Tardif (Teka101), we decided to rebuild a complete documentation for MySecureShell in a more fashion way as the old doculentation starts looking ugly. Even if it&rsquo;s more an oriented Python solution, it can be used for any other kind of project and we decided to use SphinxDoc to make a newer documentation.
-      <p>
-        <a href="https://blog.deimos.fr/2014/09/22/sphinxdoc-easily-make-a-documentation/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://blog.deimos.fr/2014/09/22/sphinxdoc-easily-make-a-documentation/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/Sphinx_Python_Documentation_Logo.png"/>
-      </div>
-    </a>
-  
-</article>
-
-          
           
   <div class="pagination-bar">
     <ul class="pagination">
@@ -751,6 +758,25 @@ In that book, I made my best to make things as simple as possible to test featur
       <div class="no-result text-color-light text-center">no post found</div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/26/install-jeedom-on-synology-with-docker/">
+                <h3 class="media-heading">Install Jeedom on Synology with Docker</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">The Jeedom software is open source; you have complete access to the software that manages your home automation. Jeedom is compatible with various protocols, like Z-Wave, RFXCOM, RTS SOMFY, EnOcean, xPL, etc.
+Installing Jeedom on Synology with Docker it not a complex task. However for those who are not familiar with those technologies, I summarized here the installation process for a Z-wave network.
+First of all, let&rsquo;s look at the requirements:</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -919,25 +945,6 @@ In my previous post, I talked about how to speed up reads and writes coupling R
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/15/how-we-use-neo4j-on-our-social-network-and-workaround-performance-issues/">
-                <h3 class="media-heading">How we use Neo4J on our social network and workaround performance issues</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">Neo4J is the most popular graph database in the NoSQL databases family. We&rsquo;re using it in the Nousmotards project to store all social data through nodes and relationships.
-Today I am going to talk about our experience after having using it for 2 years now (take a look at directed graph if you are not really familiar with Graph Database).
-1/ Our use case Nousmotards is a social network for bikers, we aim to provide valuable tools to ride, meet and share nice time with people who like motorcycling.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -945,7 +952,7 @@ Today I am going to talk about our experience after having using it for 2 years 
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         837 posts found
+         838 posts found
       </p>
     </div>
   </div>
