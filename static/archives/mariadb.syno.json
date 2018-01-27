@@ -1,0 +1,73 @@
+{
+   "cap_add" : null,
+   "cap_drop" : null,
+   "cmd" : "mysqld",
+   "cpu_priority" : 50,
+   "devices" : null,
+   "enable_publish_all_ports" : false,
+   "enable_restart_policy" : true,
+   "enabled" : true,
+   "entrypoint_default" : "docker-entrypoint.sh",
+   "env_variables" : [
+      {
+         "key" : "PATH",
+         "value" : "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      },
+      {
+         "key" : "GOSU_VERSION",
+         "value" : "1.10"
+      },
+      {
+         "key" : "GPG_KEYS",
+         "value" : "199369E5404BD5FC7D2FE43BCBCB082A1BB943DB \t430BDF5C56E7C94E848EE60C1C4CBDCDCD2EFD2A \t4D1BB29D63D98E422B2113B19334A25F8507EFA5"
+      },
+      {
+         "key" : "MARIADB_MAJOR",
+         "value" : "10.2"
+      },
+      {
+         "key" : "MARIADB_VERSION",
+         "value" : "10.2.12+maria~jessie"
+      },
+      {
+         "key" : "MYSQL_ROOT_PASSWORD",
+         "value" : "jeedom"
+      }
+   ],
+   "exporting" : false,
+   "id" : "716c22165ce7415c94d415be3a9efe42717db3600d39687aadea5ce95f0d4550",
+   "image" : "mariadb:latest",
+   "is_ddsm" : false,
+   "is_package" : false,
+   "links" : [],
+   "memory_limit" : 0,
+   "name" : "mariadb",
+   "network" : [
+      {
+         "driver" : "bridge",
+         "name" : "bridge"
+      }
+   ],
+   "network_mode" : "bridge",
+   "port_bindings" : [
+      {
+         "container_port" : 3306,
+         "host_port" : 13306,
+         "type" : "tcp"
+      }
+   ],
+   "privileged" : false,
+   "shortcut" : {
+      "enable_shortcut" : false
+   },
+   "ulimits" : null,
+   "use_host_network" : false,
+   "volume_bindings" : [
+      {
+         "host_volume_file" : "/docker/mariadb",
+         "mount_point" : "/var/lib/mysql",
+         "type" : "rw"
+      }
+   ],
+   "volumes_from" : null
+}

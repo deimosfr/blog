@@ -1,0 +1,66 @@
+{
+   "cap_add" : null,
+   "cap_drop" : null,
+   "cmd" : "/root/init.sh",
+   "cpu_priority" : 50,
+   "devices" : null,
+   "enable_publish_all_ports" : false,
+   "enable_restart_policy" : true,
+   "enabled" : true,
+   "env_variables" : [
+      {
+         "key" : "PATH",
+         "value" : "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      },
+      {
+         "key" : "SHELL_ROOT_PASSWORD",
+         "value" : "Mjeedom96"
+      }
+   ],
+   "exporting" : false,
+   "id" : "e588dbe1b53efc3769231ad0f4cf0b073a6714d93b675b2c226b4ea3495b706b",
+   "image" : "jeedom/jeedom:latest",
+   "is_ddsm" : false,
+   "is_package" : false,
+   "links" : [
+      {
+         "alias" : "mariadb",
+         "link_container" : "mariadb"
+      }
+   ],
+   "memory_limit" : 0,
+   "name" : "jeedom",
+   "network" : [
+      {
+         "driver" : "bridge",
+         "name" : "bridge"
+      }
+   ],
+   "network_mode" : "bridge",
+   "port_bindings" : [
+      {
+         "container_port" : 22,
+         "host_port" : 9022,
+         "type" : "tcp"
+      },
+      {
+         "container_port" : 80,
+         "host_port" : 9080,
+         "type" : "tcp"
+      }
+   ],
+   "privileged" : true,
+   "shortcut" : {
+      "enable_shortcut" : false
+   },
+   "ulimits" : null,
+   "use_host_network" : false,
+   "volume_bindings" : [
+      {
+         "host_volume_file" : "/docker/jeedom",
+         "mount_point" : "/var/www/html",
+         "type" : "rw"
+      }
+   ],
+   "volumes_from" : null
+}
