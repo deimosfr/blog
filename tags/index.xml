@@ -93,6 +93,15 @@
     </item>
     
     <item>
+      <title>Containers</title>
+      <link>https://blog.deimos.fr/tags/containers/</link>
+      <pubDate>Wed, 31 Jan 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/tags/containers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Coreos Docker</title>
       <link>https://blog.deimos.fr/tags/coreos-docker/</link>
       <pubDate>Thu, 29 May 2014 10:00:00 +0000</pubDate>
@@ -149,7 +158,7 @@
     <item>
       <title>Docker</title>
       <link>https://blog.deimos.fr/tags/docker/</link>
-      <pubDate>Fri, 26 Jan 2018 18:00:00 +0200</pubDate>
+      <pubDate>Wed, 31 Jan 2018 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/tags/docker/</guid>
       <description></description>
@@ -320,7 +329,7 @@
     <item>
       <title>Kubernetes</title>
       <link>https://blog.deimos.fr/tags/kubernetes/</link>
-      <pubDate>Tue, 23 Jan 2018 18:00:00 +0200</pubDate>
+      <pubDate>Wed, 31 Jan 2018 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/tags/kubernetes/</guid>
       <description></description>
@@ -602,6 +611,15 @@
       <pubDate>Fri, 20 Jun 2014 10:00:00 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/tags/redhat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Registry</title>
+      <link>https://blog.deimos.fr/tags/registry/</link>
+      <pubDate>Wed, 31 Jan 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/tags/registry/</guid>
       <description></description>
     </item>
     
