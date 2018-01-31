@@ -6,7 +6,7 @@ categories:
   - Docker
   - Containers
   - Registry
-date: 2018-01-28T18:00:00+02:00
+date: 2018-01-31T00:00:00+02:00
 tags:
   - Kubernetes
   - Docker
@@ -15,8 +15,8 @@ tags:
 image: /images/logo_gcr.png
 thumbnailImage: /thumbnails/logo_gcr.png
 thumbnailImagePosition: left
-title: Integrate GCR on your on premise k8s cluster
-url: /2018/01/28/integrate-gcr-in-your-on-premise-kubernetes/
+title: Integrate GCR in your on premise k8s cluster
+url: /2018/01/31/integrate-gcr-in-your-on-premise-kubernetes/
 
 ---
 
