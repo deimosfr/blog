@@ -24,11 +24,11 @@ url: /2018/06/24/running-cassandra-on-kubernetes/
 
 ![Cassandra](/images/logo_cassandra.png)
 
-For my own company [MySocialApp][1], I'm managing several [Cassandra][2] clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:
+For my own company [MySocialApp][1], I'm managing multiple [Cassandra][2] clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:
 
 > The [Apache Cassandra][2] database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data. Cassandra's support for replicating across multiple datacenters is best-in-class, providing lower latency for your users and the peace of mind of knowing that you can survive regional outages.
 
-What does that mean in a Kubernetes on premise cluster? Here are the basics:
+What does that mean having a Cassandra cluster in a Kubernetes on premise cluster? Here are the basics:
 
 * **Data location**: having data means, you should be able to know where they are located (physically, or should be able to access them in a known way). You can't run a Cassandra instance anywhere if you're not sure the data will be there and if you care about your data (of course).
 * **Performance**: distributed storage on top of a distributed database is strongly discouraged if you're searching for the best performances.
