@@ -1,0 +1,1141 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+    <title>Running Cassandra in Kubernetes</title>
+    <meta name="author" content="Pierre Mavro / Deimosfr">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="https://blog.deimos.fr/favicon.png">
+    
+
+    
+    <meta name="description" content="For my own company MySocialApp, I&rsquo;m managing several Cassandra clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:
+ The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data.">
+    <meta property="og:description" content="For my own company MySocialApp, I&rsquo;m managing several Cassandra clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:
+ The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data.">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Running Cassandra in Kubernetes">
+    <meta property="og:url" content="/2018/06/24/running-cassandra-on-kubernetes/">
+    <meta property="og:site_name" content="Deimosfr Blog">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Deimosfr Blog">
+    <meta name="twitter:description" content="For my own company MySocialApp, I&rsquo;m managing several Cassandra clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:
+ The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data.">
+    
+      <meta name="twitter:creator" content="@deimosfr">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+    
+
+    
+      <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_cassandra.png">
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+      
+        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+      
+    
+
+    
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-63927289-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.deimos.fr/">Deimosfr Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://blog.deimos.fr/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.deimos.fr/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.deimos.fr" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-user"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
+      
+      <span class="sidebar-button-desc">Wiki</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Running Cassandra in Kubernetes
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-07-16T00:00:00&#43;02:00">
+        
+  
+  
+  
+  
+    16 July 2018
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/kubernetes">Kubernetes</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/containers">Containers</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/cassandra">Cassandra</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/databases">Databases</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/distributed">Distributed</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<p><img src="https://blog.deimos.fr/images/logo_cassandra.png" alt="Cassandra" /></p>
+
+<p>For my own company <a href="https://mysocialapp.io/" target="_blank">MySocialApp</a>, I&rsquo;m managing several <a href="http://cassandra.apache.org/" target="_blank">Cassandra</a> clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:</p>
+
+<blockquote>
+<p>The <a href="http://cassandra.apache.org/" target="_blank">Apache Cassandra</a> database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data. Cassandra&rsquo;s support for replicating across multiple datacenters is best-in-class, providing lower latency for your users and the peace of mind of knowing that you can survive regional outages.</p>
+</blockquote>
+
+<p>What does that mean in a Kubernetes on premise cluster? Here are the basics:</p>
+
+<ul>
+<li><strong>Data location</strong>: having data means, you should be able to know where they are located (physically, or should be able to access them in a known way). You can&rsquo;t run a Cassandra instance anywhere if you&rsquo;re not sure the data will be there and if you care about your data (of course).</li>
+<li><strong>Performance</strong>: distributed storage on top of a distributed database is strongly discouraged if you&rsquo;re searching for the best performances.</li>
+<li><strong>Observability</strong>: distributed solutions are generaly more complex to observe. The observability tooling around it must be good enough to easily troubleshot.</li>
+<li><strong>Self management</strong>: having a Cassandra self managed solution on Kubernetes is a good idea, however managing all scenario cases on distributed systems is a very long and complex achievement.</li>
+</ul>
+
+<p>That&rsquo;s why in this blog post, you&rsquo;ll see how I made a <a href="https://github.com/MySocialApp/kubernetes-helm-chart-cassandra/" target="_blank">Cassandra helm chart</a>, what are the benefits based on my experience on Cassandra + Kubernetes and finally how it works.</p>
+
+<h1 id="performances">Performances</h1>
+
+<p>Cassandra require a local storage to get the best performances. That&rsquo;s why you should avoid using distributed storage and use a hostPath or <a href="https://kubernetes.io/docs/concepts/storage/volumes/" target="_blank">localstorage</a> configuration like:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">volumes:
+  - name: cassandra-data
+    hostPath:
+      path: /mnt/data/{{ .Release.Namespace }}/cassandra</code></pre></div>
+
+<p>More than that, Cassandra maanges by itself replication. Let&rsquo;s say you&rsquo;ve got a RF (Replication Factor) of 3, your data is available on 3 nodes. If you&rsquo;re using a distributed storage on top of Cassandra, it certainly also has a x3 RF. Which mean the same <strong>data is stored 9 times</strong>. That&rsquo;s a huge waste of space and money in addition of the performances.</p>
+
+<p>Another thing, I&rsquo;ve added some default Cassandra options, however I recommend to update the Cassandra configuration settings according to your hardware and wishes:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">cassandraConfig:
+  concurrentWrites: <span style="color:#ae81ff">128</span>
+  concurrentReads: <span style="color:#ae81ff">128</span>
+  concurrentCompactors: <span style="color:#ae81ff">2</span>
+  batchSizeWarnThresholdInKb: <span style="color:#ae81ff">64</span>
+  batchSizeFailThresholdInKb: <span style="color:#ae81ff">640</span>
+  compactionThroughputMbPerSec: <span style="color:#ae81ff">150</span>
+  heapNewSize: 256M
+  hintedHandoffThrottleInKb: <span style="color:#ae81ff">4096</span>
+  maxHeap: 4G
+  maxHintsDeliveryThreads: <span style="color:#ae81ff">4</span>
+  memtableAllocationType: <span style="color:#e6db74">&#34;offheap_objects&#34;</span>
+  memtableFlushWriter: <span style="color:#ae81ff">4</span>
+  memtableCleanupThreshold: <span style="color:#ae81ff">0.2</span>
+  rowCacheSizeInMb: <span style="color:#ae81ff">128</span>
+  rowCacheSavePeriod: <span style="color:#ae81ff">14400</span></code></pre></div>
+
+<p>To reduce performance issues as well and reduce cluster failure in case of an issue, I should <strong>avoid getting multiple instances on the same physocal host</strong>. For that I&rsquo;m using <code>podAntiAffinity</code>:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">affinity:
+  podAntiAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+    - labelSelector:
+        matchExpressions:
+        - key: app
+          operator: In
+          values:
+          - {{ template <span style="color:#e6db74">&#34;kubernetes.name&#34;</span> . }}
+      topologyKey: kubernetes.io/hostname</code></pre></div>
+
+<p>You can also tune the JVM memory allocation and parameters to optimize memory usage in a container.</p>
+
+<h1 id="statefulset-self-management">Statefulset &amp; self management</h1>
+
+<h2 id="statefulset">Statefulset</h2>
+
+<p>On this <a href="https://github.com/MySocialApp/kubernetes-helm-chart-cassandra/" target="_blank">Cassandra helm chart</a>, I decided to use <code>Statefulset</code> because:</p>
+
+<ul>
+<li>It understands the complexity of most of the stateful applications and have a the corresponding behavior</li>
+<li>The given naming convention is simple to follow: <code>cassandra-X</code></li>
+<li>Coupled with a <code>PodDisruptionBudget</code>, it brings a safetier solution</li>
+<li>With postStart and preStop hooks, I&rsquo;m able to define the tasks I want to address to the Cassandra cluster</li>
+</ul>
+
+<h2 id="upgrade-stategy">Upgrade stategy</h2>
+
+<p>Regarding the rollout and <a href="https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#update-strategies" target="_blank">rolling upgrade/restart strategy</a>, it&rsquo;s really simple with this kind of rules on a Statefulset, I&rsquo;m sure the procedure won&rsquo;t go too fast:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">updateStrategy:
+  type: <span style="color:#e6db74">&#34;RollingUpdate&#34;</span></code></pre></div>
+
+<h2 id="pod-disruption-budget">Pod disruption budget</h2>
+
+<p>Using the <code>PodDisruptionBudget</code>, I&rsquo;m also sure I won&rsquo;t have more than 1 (the default) planned node down in my cluster. With a RF of 3, I know I can loose a node during a rolling restart:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">maxUnavailable: {{ .Values.cassandraMaxUnavailableNodes }}
+selector:
+  matchLabels:
+    app: {{ template <span style="color:#e6db74">&#34;kubernetes.name&#34;</span> . }}</code></pre></div>
+
+<h2 id="run-override">Run override</h2>
+
+<p>I also added an override script to replace run.sh for several reasons:</p>
+
+<ul>
+<li><strong>Prerequisites</strong>: I wanted to set some global variables first requiring shell and pipes stuffs.</li>
+<li><strong>Flexibility</strong>: it makes possible to add specific command before the instance start. This could be very be useful if you need to run at a given time some commands, but can&rsquo;t rolling restart the whole cluster. This already saved my life twice.</li>
+</ul>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+source /usr/local/apache-cassandra/scripts/envVars.sh
+/usr/local/apache-cassandra/scripts/jvm_options.sh
+
+/run.sh</code></pre></div>
+
+<h2 id="post-start-hook">Post start hook</h2>
+
+<p>In the pre start hook:</p>
+
+<ul>
+<li>I&rsquo;m ensuring the service is up and running</li>
+<li>I&rsquo;m registering the cluster to <a href="http://cassandra-reaper.io" target="_blank">Cassandra reaper</a> if not already done (will talk later about Cassandra Reaper)</li>
+</ul>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>source /usr/local/apache-cassandra/scripts/envVars.sh
+
+<span style="color:#66d9ef">until</span> /ready-probe.sh ; <span style="color:#66d9ef">do</span>
+  echo <span style="color:#e6db74">&#34;Waiting node to be ready&#34;</span>
+  sleep <span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">done</span>
+
+<span style="color:#f92672">{{</span>- <span style="color:#66d9ef">if</span> .Values.cassandraReaper.enabled <span style="color:#f92672">}}</span>
+<span style="color:#75715e"># Wait until replicas is 3 to ready Cassandra Reaper database
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>hostname<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;cassandra-2&#39;</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">then</span>
+  cqlsh -e <span style="color:#e6db74">&#34;CREATE KEYSPACE IF NOT EXISTS reaper_db WITH replication = {&#39;class&#39;: &#39;NetworkTopologyStrategy&#39;, &#39;{{ .Values.cassandraDC }}&#39;: 3};&#34;</span> &gt; /var/log/reaperdb.log
+<span style="color:#66d9ef">fi</span>
+<span style="color:#f92672">{{</span>- end <span style="color:#f92672">}}</span>
+
+<span style="color:#f92672">{{</span>- <span style="color:#66d9ef">if</span> .Values.cassandraReaperRegister.enableReaperRegister <span style="color:#f92672">}}</span>
+<span style="color:#75715e"># Register cluster into Cassandra Reaper
+</span><span style="color:#75715e"># Do not target current instance to avoid unready instance status (and registration failure)
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>hostname<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;cassandra-0&#39;</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">then</span>
+  seedHost<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>hostname -A | sed <span style="color:#e6db74">&#39;s/^cassandra-0/cassandra-1/&#39;</span><span style="color:#66d9ef">)</span>
+<span style="color:#66d9ef">else</span>
+  seedHost<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>hostname -A | sed -r <span style="color:#e6db74">&#39;s/^cassandra-\w+(\..+)/cassandra-0\1/&#39;</span><span style="color:#66d9ef">)</span>
+<span style="color:#66d9ef">fi</span>
+
+<span style="color:#75715e"># Check if cluster needs to be registred or simply updated
+</span><span style="color:#75715e"></span>counter<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#66d9ef">$(</span>curl -s <span style="color:#e6db74">&#34;http://{{ .Values.cassandraReaperRegister.reaperServerServiceName }}/cluster&#34;</span> | grep -c $CASSANDRA_CLUSTER_NAME<span style="color:#66d9ef">)</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">then</span>
+  <span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span> <span style="color:#66d9ef">$(</span>curl -s -I -X POST <span style="color:#e6db74">&#34;http://{{ .Values.cassandraReaperRegister.reaperServerServiceName }}/cluster?seedHost=</span>$seedHost<span style="color:#e6db74">&#34;</span> | grep -c <span style="color:#e6db74">&#34;^HTTP/1.1 201 Created&#34;</span><span style="color:#66d9ef">)</span> !<span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">do</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $counter <span style="color:#f92672">==</span> <span style="color:#ae81ff">5</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">then</span>
+      break
+    <span style="color:#66d9ef">fi</span>
+    counter<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span>counter+1<span style="color:#66d9ef">))</span>
+    sleep <span style="color:#ae81ff">5</span>
+  <span style="color:#66d9ef">done</span>
+<span style="color:#66d9ef">else</span>
+  <span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span> <span style="color:#66d9ef">$(</span>curl -s -I -X PUT <span style="color:#e6db74">&#34;http://{{ .Values.cassandraReaperRegister.reaperServerServiceName }}/cluster/</span><span style="color:#e6db74">${</span>CASSANDRA_CLUSTER_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">?seedHost=</span>$seedHost<span style="color:#e6db74">&#34;</span> | egrep -c <span style="color:#e6db74">&#34;^HTTP/1.1 (200|304)&#34;</span><span style="color:#66d9ef">)</span> !<span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">do</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $counter <span style="color:#f92672">==</span> <span style="color:#ae81ff">5</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">then</span>
+      break
+    <span style="color:#66d9ef">fi</span>
+    counter<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span>counter+1<span style="color:#66d9ef">))</span>
+    sleep <span style="color:#ae81ff">5</span>
+  <span style="color:#66d9ef">done</span>
+<span style="color:#66d9ef">fi</span>
+<span style="color:#f92672">{{</span>- end <span style="color:#f92672">}}</span>
+exit <span style="color:#ae81ff">0</span></code></pre></div>
+
+<h2 id="pre-stop-hook">Pre stop hook</h2>
+
+<p>In the pre stop hook:</p>
+
+<ul>
+<li>I&rsquo;m ensure the correct health of the cluster before requesting node leave. This to avoid a total blackout</li>
+<li>I&rsquo;m ensuring the node stops properly</li>
+</ul>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>
+run_nodetool<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+  echo <span style="color:#e6db74">&#34;Running: nodetool </span>$1<span style="color:#e6db74">&#34;</span>
+  /usr/local/apache-cassandra/bin/nodetool $1
+  sleep <span style="color:#ae81ff">5</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span> <span style="color:#66d9ef">$(</span>/usr/local/apache-cassandra/bin/nodetool status | awk <span style="color:#e6db74">&#34;/</span>$CASSANDRA_RACK<span style="color:#e6db74">/{ print \$1,\$2 }&#34;</span> | grep -v $POD_IP | awk <span style="color:#e6db74">&#39;{ print $1 }&#39;</span> | grep -v UN<span style="color:#66d9ef">)</span> -eq <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">do</span>
+  echo <span style="color:#e6db74">&#34;Waiting all nodes to recover a correct status before draining this node&#34;</span>
+  sleep <span style="color:#ae81ff">5</span>
+  pidof java <span style="color:#f92672">||</span> exit <span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">done</span>
+
+run_nodetool disablethrift
+run_nodetool disablebinary
+run_nodetool disablegossip
+run_nodetool flush
+run_nodetool drain
+sleep <span style="color:#ae81ff">10</span>
+run_nodetool stop
+run_nodetool stopdaemon
+
+exit <span style="color:#ae81ff">0</span></code></pre></div>
+
+<h1 id="observability">Observability</h1>
+
+<p>Observing a Cassandra cluster may not be an easy task. There are plenty of metrics per nodes which can confuse the beginners. That&rsquo;s why providing an exporter with a pre-made Grafana dashboard is a good solution for everyone.</p>
+
+<h2 id="cassandra-exporter">Cassandra exporter</h2>
+
+<p>To make it simple, I&rsquo;m using the Prometheus format (as it becomes the standard now) and I&rsquo;m using <a href="https://github.com/criteo/cassandra_exporter" target="_blank">Cassandra Exporter</a> (made by my NoSQL team at <a href="https://www.criteo.com" target="_blank">Criteo</a>).</p>
+
+<p>On each nodes it will deploy an exporter (an additional container in the Cassandra pod):</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># Cassandra Exporter</span>
+cassandraExporter:
+  enableExporter: <span style="color:#66d9ef">false</span>
+  replicaCount: <span style="color:#ae81ff">1</span>
+  imageVersion: <span style="color:#ae81ff">1.0</span>.<span style="color:#ae81ff">2</span>
+  nodeSelector:
+    node-role.kubernetes.io/node: <span style="color:#e6db74">&#34;true&#34;</span>
+  resources:
+    limits:
+      cpu: 300m
+      memory: 500Mi
+    requests:
+      cpu: 300m
+      memory: 500Mi
+  config:
+    host: <span style="color:#ae81ff">127.0</span>.<span style="color:#ae81ff">0.1</span>:<span style="color:#ae81ff">7199</span>
+    listenPort: <span style="color:#ae81ff">8080</span>
+    jvmOpts: <span style="color:#e6db74">&#34;&#34;</span>
+
+<span style="color:#75715e"># Prometheus scraping</span>
+cassandraPrometheusScrap:
+  enableScrap: <span style="color:#66d9ef">false</span></code></pre></div>
+
+<p>If you&rsquo;re using <a href="https://github.com/coreos/prometheus-operator" target="_blank">Prometheus Operator</a>, you can enable automatic scraping here (mean that Prometheus server will automatically retrieve information from exporter).</p>
+
+<h2 id="grafana">Grafana</h2>
+
+<p>A Cassandra dashboard compatible with Kubernetes is also available <a href="https://grafana.com/dashboards/6258" target="_blank">here</a>.</p>
+
+<p><img src="https://blog.deimos.fr/images/cassandra_grafana.png" alt="CassandraDashboard" /></p>
+
+<p>You only have to import it in your Grafana interface.</p>
+
+<h2 id="alerting">Alerting</h2>
+
+<p>Once again, if you&rsquo;re using <a href="https://github.com/coreos/prometheus-operator" target="_blank">Prometheus Operator</a>, you can enable basic alerting rules with Alert Manager:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">cassandraAlertmanager:
+  enableAlerts: <span style="color:#66d9ef">true</span>
+  alertLabels:
+    sloInterrupt:
+      serviceLevel: objective
+      severity: interrupt
+      team: infra
+      type: functional
+    sloPage:
+      serviceLevel: objective
+      severity: page
+      team: infra
+      type: functional</code></pre></div>
+
+<h1 id="maintenance-and-operations">Maintenance and operations</h1>
+
+<p>On Cassandra, there are 2 others important actions:</p>
+
+<ul>
+<li><strong>Backups</strong>: as usual, it&rsquo;s always preferable to get backups (just in case)</li>
+<li><strong>Repair</strong>: repair tables to ensure consistency</li>
+</ul>
+
+<h2 id="backups-restore">Backups / Restore</h2>
+
+<p>Backuping Cassandra is not so trivial. That&rsquo;s why I&rsquo;ve made some scripts included in the helm chart <strong>ready to plan backups and help on restore</strong>.</p>
+
+<p><strong>The backups scripts are made to store on AWS S3</strong>. A cronjob exist for it, you simple have to set the &ldquo;cassandraBackup&rdquo; parameters.</p>
+
+<h3 id="enbale-backups">Enbale backups</h3>
+
+<p>To enable backups, you simply have to update this section with your options. A Cron job will be created to perform backups of all nodes at the same time (for consistency purpose):</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">cassandraBackup:
+  enableBackups: <span style="color:#66d9ef">true</span>
+  backupSchedule: <span style="color:#e6db74">&#34;0 3 * * *&#34;</span>
+  backupImageVersion: v<span style="color:#ae81ff">0.1</span>
+  awsAccessKeyId: <span style="color:#e6db74">&#34;xxx&#34;</span>
+  awsSecretAccessKey: <span style="color:#e6db74">&#34;yyy&#34;</span>
+  awsPassphrase: <span style="color:#e6db74">&#34;zzz&#34;</span>
+  awsBucket: <span style="color:#e6db74">&#34;bucket_name&#34;</span>
+  <span style="color:#75715e">#duplicityOptions: &#34;--archive-dir /var/lib/cassandra/.duplicity --allow-source-mismatch --s3-european-buckets --s3-use-new-style --copy-links --num-retries 3 --s3-use-multiprocessing --s3-multipart-chunk-size 100 --volsize 1024 full . s3://s3.amazonaws.com/cassandra-backups/$CLUSTER_DOMAIN/$CASSANDRA_CLUSTER_NAME/$(hostname)&#34;</span>
+  awsDestinationPath: <span style="color:#e6db74">&#34;s3://s3-eu-west-1.amazonaws.com/${AWS_BUCKET}/$CLUSTER_DOMAIN/$CASSANDRA_CLUSTER_NAME/$(hostname)&#34;</span>
+  restoreFolder: <span style="color:#e6db74">&#34;/var/lib/cassandra/restore&#34;</span></code></pre></div>
+
+<h3 id="list">List</h3>
+
+<p>To list backups for a statefulset instance, connect to an instance like in this example and call the script:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl exec -it cassandra-0 bash
+/usr/local/apache-cassandra/scripts/snapshot2s3.sh list &lt;AWS_ACCESS_KEY_ID&gt; &lt;AWS_SECRET_ACCESS_KEY&gt; &lt;AWS_PASSPHRASE&gt; &lt;AWS_BUCKET&gt;</code></pre></div>
+
+<p>Replace all AWS information with the corresponding ones.</p>
+
+<h3 id="restore">Restore</h3>
+
+<p>To restore backups, configure properly the &ldquo;restoreFolder&rdquo; var and run this command:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl exec -it cassandra-0 bash
+/usr/local/apache-cassandra/scripts/snapshot2s3.sh restore &lt;AWS_ACCESS_KEY_ID&gt; &lt;AWS_SECRET_ACCESS_KEY&gt; &lt;AWS_PASSPHRASE&gt; &lt;AWS_BUCKET&gt; &lt;RESTORE_TIME&gt;</code></pre></div>
+
+<p>RESTORE_TIME should be used as described in the <a href="http://duplicity.nongnu.org/duplicity.1.html#sect8" target="_blank">Duplicity manual Time Format section</a>.
+For example (3D to restore the the last 3 days backup)</p>
+
+<p>You can then use the script cassandra-restore.sh to restore a desired keyspace with all or one table:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/usr/local/apache-cassandra/scripts/cassandra-restore.sh /var/lib/cassandra/restore/var/lib/cassandra/data <span style="color:#f92672">[</span>keyspace<span style="color:#f92672">]</span></code></pre></div>
+
+<p>Try to use help if you need more info about it.</p>
+
+<h2 id="repair-tables">Repair tables</h2>
+
+<p>Repairing tables may be painfull sometimes. Hopefully <a href="http://cassandra-reaper.io" target="_blank">Cassandra Reaper</a> helps to avoid managing it manually.</p>
+
+<p>You can deploy a server instance (require a Cassandra backend):</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">cassandraReaper:
+  enableReaper: <span style="color:#66d9ef">true</span>
+  replicaCount: <span style="color:#ae81ff">1</span>
+  imageVersion: <span style="color:#ae81ff">1.1</span>.<span style="color:#ae81ff">0</span>
+  nodeSelector:
+    node-role.kubernetes.io/node: <span style="color:#e6db74">&#34;true&#34;</span>
+  contactPoints: cassandra-<span style="color:#ae81ff">0.</span>cassandra
+  jmxAuth:
+    username: reaperUser
+    password: reaperPass
+  <span style="color:#75715e"># clusterName:</span>
+  <span style="color:#75715e"># keyspace: reaper_db</span>
+  envVariables:
+    JAVA_OPTS: <span style="color:#e6db74">&#34;-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=2 -XX:+AlwaysPreTouch&#34;</span>
+    REAPER_CASS_KEYSPACE: reaper_db
+    REAPER_REPAIR_PARALELLISM: DATACENTER_AWARE
+    REAPER_REPAIR_INTENSITY: <span style="color:#ae81ff">0.5</span>
+    REAPER_AUTO_SCHEDULING_ENABLED: <span style="color:#66d9ef">true</span>
+    REAPER_SCHEDULE_DAYS_BETWEEN: <span style="color:#ae81ff">2</span>
+    REAPER_REPAIR_RUN_THREADS: <span style="color:#ae81ff">16</span>
+    REAPER_HANGING_REPAIR_TIMEOUT_MINS: <span style="color:#ae81ff">30</span>
+    REAPER_REPAIR_MANAGER_SCHEDULING_INTERVAL_SECONDS: <span style="color:#ae81ff">10</span>
+    REAPER_SEGMENT_COUNT: <span style="color:#ae81ff">200</span>
+    REAPER_LOGGING_ROOT_LEVEL: INFO
+    REAPER_SERVER_ADMIN_PORT: <span style="color:#ae81ff">8081</span>
+    REAPER_SERVER_APP_PORT: <span style="color:#ae81ff">8080</span>
+    REAPER_METRICS_ENABLED: <span style="color:#66d9ef">true</span>
+  resources:
+    limits:
+      cpu: 500m
+      memory: 500Mi
+    requests:
+      cpu: 500m
+      memory: 500Mi</code></pre></div>
+
+<p>And then you simply have enable client registration to get all your nodes and cluster automatically added into Cassandra Reaper:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">cassandraReaperRegister:
+  enableReaperRegister: <span style="color:#66d9ef">true</span>
+  reaperServerServiceName: cassandra-reaper.svc</code></pre></div>
+
+<p>Finally you&rsquo;ll find the reaper interface available:</p>
+
+<p><img src="https://blog.deimos.fr/images/cassandra_reaper.jpg" alt="CassandraReaper" /></p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>This <a href="https://github.com/MySocialApp/kubernetes-helm-chart-cassandra/" target="_blank">Cassandra helm chart</a> is helping me day to day. It gives a lot of autonomy to my cluster, gives me the possibility to switch to fallback to a manual way to manage specific Cassandra cases, gives enough automation to avoid spending too many time on managing my Cassandra clusters. I&rsquo;m pretty well satisfied of this solution.</p>
+
+<p>Some of you may think an Operator would be preferable, that&rsquo;s true. However in nowdays, there is no stable enough Operator managing Cassandra. Writing one takes some time and I unfortunately do not get this time today (but be happy to participate if a serious initiative is driven) and getting one ready to handle every situations will require a ton of tests and time.</p>
+
+<p>So feel free to participate and I hope you&rsquo;ll enjoy it :)</p>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/kubernetes/">Kubernetes</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/containers/">Containers</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/cassandra/">Cassandra</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/databases/">Databases</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/distributed/">Distributed</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2018/01/31/integrate-gcr-in-your-on-premise-kubernetes/" data-tooltip="Integrate GCR in your on premise k8s cluster">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2018/06/24/running-cassandra-on-kubernetes/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2018/06/24/running-cassandra-on-kubernetes/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2018/06/24/running-cassandra-on-kubernetes/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 Pierre Mavro / Deimosfr. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2018/01/31/integrate-gcr-in-your-on-premise-kubernetes/" data-tooltip="Integrate GCR in your on premise k8s cluster">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2018/06/24/running-cassandra-on-kubernetes/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2018/06/24/running-cassandra-on-kubernetes/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.deimos.fr/2018/06/24/running-cassandra-on-kubernetes/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2018%2F06%2F24%2Frunning-cassandra-on-kubernetes%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2018%2F06%2F24%2Frunning-cassandra-on-kubernetes%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fblog.deimos.fr%2F2018%2F06%2F24%2Frunning-cassandra-on-kubernetes%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Paris - France
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/06/24/running-cassandra-on-kubernetes/">
+                <h3 class="media-heading">Running Cassandra in Kubernetes</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jul 7, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">For my own company MySocialApp, I&rsquo;m managing several Cassandra clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:
+ The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/31/integrate-gcr-in-your-on-premise-kubernetes/">
+                <h3 class="media-heading">Integrate GCR in your on premise k8s cluster</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">I&rsquo;m using Kubernetes on an on premise cluster for MySocialApp. Today, I&rsquo;m storing MySocialApp public images at Quay.io and I also wanted to store private images. I didn&rsquo;t want to bootstrap a private registry for it to avoid maintaining it, having a distributed storage to maintain for it etc&hellip;but wanted a solution at a lower cost.
+I started to look at DockerHub and Quay.io. As far aas I saw, DockerHub do not provide private registry while Quay does.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/26/install-jeedom-on-synology-with-docker/">
+                <h3 class="media-heading">Install Jeedom on Synology with Docker</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">The Jeedom software is open source; you have complete access to the software that manages your home automation. Jeedom is compatible with various protocols, like Z-Wave, RFXCOM, RTS SOMFY, EnOcean, xPL, etc.
+Installing Jeedom on Synology with Docker it not a complex task. However for those who are not familiar with those technologies, I summarized here the installation process for a Z-wave network.
+First of all, let&rsquo;s look at the requirements:</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/">
+                <h3 class="media-heading">Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/">
+                <h3 class="media-heading">MySocialApp Create your own social network</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">If you follow me, you may know that I launched with friends Nousmotards social application a few years ago. The solution continue to grow in France with more than 70k bikers and that&rsquo;s a good point for all those riders :)
+Since we launched Nousmotards, several persons asked us: &ldquo;You&rsquo;ve made an amazing job for bikers, do you provide your social solution to any other communities or for enterprises?&rdquo;. The answer was: No we didn&rsquo;t.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/">
+                <h3 class="media-heading">Kubernetes with Traefik and Let&#39;s Encrypt</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+I wanted to deploy it on Kubernetes for its interesting features like:
+ Connect to Kubernetes API to listen changes and perform on the fly updates Automatic SSL management through Let&rsquo;s encrypt (SNI) Prometheus native integration HTTP/2 support  I really like HAProxy, but in a Kubernetes case, it&rsquo;s not the recommended solution because of its lake of features.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/">
+                <h3 class="media-heading">Deploy Kubernetes with Ansible</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications. I&rsquo;m using it for Nousmotards and decided to build an Ansible role for it to make it simpler to deploy.
+Why did I built it as other projects like Kargo already exists? I just wanted a simple and maintainable role based on CoreOS official documentation. That&rsquo;s what I did:
+ This role bootstrap a Kubernetes cluster based on CoreOS Container Linux for production usages.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2017/04/18/blog-migrated-to-hugo-on-github/">
+                <h3 class="media-heading">Blog migrated to Hugo on Github</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">As you certainly seen, the blog has been migrated :-). Visualy there is a big change and technically it&rsquo;s the same.
+I was fed up about maintaining Wordpress with its stack (Nginx / php-fpm / MariaDB) for a mostly static blog. I was thinking about migrating from Wordpress to something in markdown since several years but didn&rsquo;t know exactly which solution I wanted to choose. I really enjoyed using Wordpress but wanted to keep hands on my blog and didn&rsquo;t want to switch to full hosted Wordpress because of its limitations (image size etc&hellip;).</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/">
+                <h3 class="media-heading">Deploy CoreOS with Ansible</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">&nbsp;
+CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications.&nbsp;I&rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
+As I&rsquo;m still an Ansible lover, I&rsquo;ve made 2 roles:
+ CoreOS Ansible:&nbsp;Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  If you want to quickly look at the result:</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/">
+                <h3 class="media-heading">Do not waste time with grep anymore, use tag</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jun 6, 2016
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Long time since my last post. This one is not very technical post, but it&rsquo;s a nice to have solution if you use grep usually. Are not you fed up to type vim  and search the line after a grep command ? If yes, this post is for you.
+First of all, you may know that an alternative more user friendly to grep exist, called ag (perf comparison). I really like ag and grep, but something make me loose my time since several years and I&rsquo;m pretty sure it&rsquo;s your case too.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         840 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://blog.deimos.fr/images/fish_background.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://blog.deimos.fr/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/blog.deimos.fr\/2018\/06\/24\/running-cassandra-on-kubernetes\/';
+          
+            this.page.identifier = '\/2018\/06\/24\/running-cassandra-on-kubernetes\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'blog-deimosfr';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+

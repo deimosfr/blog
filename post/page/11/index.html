@@ -215,6 +215,68 @@ ga('send', 'pageview');
             
   
     
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2014/09/26/readthedocs-a-hosting-documentation-solution-with-github/">
+          ReadTheDocs: a hosting documentation solution with GitHub
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2014-09-26T10:00:53Z">
+        
+  
+  
+  
+  
+    26 September 2014
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/web">Web</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      I recently talked about Sphinxdoc and we wanted (still for MySecureShell project) a solution to host our documentation. ReadTheDocs is a very good, free and pretty solution made for Sphinxdoc :-)
+What we liked in addition of the hosting, is the usage with GitHub. You can configure a webhook to your GitHub account to automatically ask ReadTheDocs to build a newer version each time a commit is pushed on your GitHub account.
+      <p>
+        <a href="https://blog.deimos.fr/2014/09/26/readthedocs-a-hosting-documentation-solution-with-github/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+          
+            
+  
+    
   
 
 
@@ -611,68 +673,6 @@ As I&rsquo;m hosting several WordPress, Mediawiki, Piwik and other PHP web softw
 </article>
 
           
-            
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://blog.deimos.fr/2014/09/12/fail2ban-limit-wordpress-brueforce-on-with-custom-rules/">
-          Fail2ban: limit WordPress brueforce with custom rules
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2014-09-12T10:00:48Z">
-        
-  
-  
-  
-  
-    12 September 2014
-  
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/web">Web</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      I recently worked on a client issues because of massive SQL injections. As it wasn&rsquo;t easily for the client to fix on the application side and the request was urgent, I dig into writing fail2ban custom rules and it works quite well.
-I decided to adapt those rules to block bruteforce login attack for WordPress. The problem is WordPress is not returning 403 error code when a user fail to logon but return a 200 instead :-/.
-      <p>
-        <a href="https://blog.deimos.fr/2014/09/12/fail2ban-limit-wordpress-brueforce-on-with-custom-rules/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
           
   <div class="pagination-bar">
     <ul class="pagination">
@@ -754,6 +754,24 @@ I decided to adapt those rules to block bruteforce login attack for WordPress. T
       <div class="no-result text-color-light text-center">no post found</div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/06/24/running-cassandra-on-kubernetes/">
+                <h3 class="media-heading">Running Cassandra in Kubernetes</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jul 7, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">For my own company MySocialApp, I&rsquo;m managing several Cassandra clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:
+ The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -922,24 +940,6 @@ First of all, you may know that an alternative more user friendly to grep exist,
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/">
-                <h3 class="media-heading">Zero downtime upgrade with Ansible and HAProxy</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">Some of you may not be familiar with the terms &ldquo;Rolling upgrade&rdquo; or &ldquo;Rolling restart&rdquo;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&rsquo;re managing and the number of active nodes in your cluster.
-At Nousmotards we have several Java Spring Boot applications running. Restarting one application can take up to 1 min.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -947,7 +947,7 @@ At Nousmotards we have several Java Spring Boot applications running. Restarti
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         839 posts found
+         840 posts found
       </p>
     </div>
   </div>

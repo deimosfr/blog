@@ -48,6 +48,15 @@
     </item>
     
     <item>
+      <title>Cassandra</title>
+      <link>https://blog.deimos.fr/tags/cassandra/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/tags/cassandra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Ceph</title>
       <link>https://blog.deimos.fr/tags/ceph/</link>
       <pubDate>Mon, 06 Oct 2014 10:00:30 +0000</pubDate>
@@ -95,7 +104,7 @@
     <item>
       <title>Containers</title>
       <link>https://blog.deimos.fr/tags/containers/</link>
-      <pubDate>Wed, 31 Jan 2018 00:00:00 +0200</pubDate>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/tags/containers/</guid>
       <description></description>
@@ -122,7 +131,7 @@
     <item>
       <title>Databases</title>
       <link>https://blog.deimos.fr/tags/databases/</link>
-      <pubDate>Fri, 27 Feb 2015 11:00:01 +0000</pubDate>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/tags/databases/</guid>
       <description></description>
@@ -152,6 +161,15 @@
       <pubDate>Wed, 11 Feb 2015 11:00:22 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/tags/developement/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Distributed</title>
+      <link>https://blog.deimos.fr/tags/distributed/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/tags/distributed/</guid>
       <description></description>
     </item>
     
@@ -329,7 +347,7 @@
     <item>
       <title>Kubernetes</title>
       <link>https://blog.deimos.fr/tags/kubernetes/</link>
-      <pubDate>Wed, 31 Jan 2018 00:00:00 +0200</pubDate>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/tags/kubernetes/</guid>
       <description></description>
