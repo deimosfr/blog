@@ -414,7 +414,7 @@ Some of you may think an Operator would be preferable, that's true. However in n
 
 So feel free to participate and I hope you'll enjoy it :)
 
- [1]: https://mysocialapp.io/
+ [1]: https://mysocialapp.io/?ref=deimos_fr_running_cassandra_on_kubernetes
  [2]: http://cassandra.apache.org/
  [3]: https://github.com/MySocialApp/kubernetes-helm-chart-cassandra/
  [4]: https://kubernetes.io/docs/concepts/storage/volumes/
