@@ -22,7 +22,7 @@ MetaDataFormat = "yaml"
 [author]
   name = "Pierre Mavro / Deimosfr"
   #bio = "Super bio with markdown support **COOL**"
-  job = "SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder"
+  job = "MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo"
   location = "Paris - France"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
   gravatarEmail = "deimos@deimos.fr"
@@ -87,6 +87,10 @@ MetaDataFormat = "yaml"
   # Global keywords configuration. Following keywords will be add to every pages
   # keywords = ["development", "next-gen"]
 
+  # Syntax highlighter, possible choice between: "highlight.js" (recommanded) and "prism.js" (experimental)
+  # You can comment it to disable syntax highlighting
+  syntaxHighlighter = "highlight.js"
+
   # Hide sidebar on all article page to let article take full width to improve reading, and enjoy wide images and cover images. (true: enable, false: disable)
   clearReading = true
 
@@ -145,13 +149,38 @@ MetaDataFormat = "yaml"
   #     icon: search
   #     class: st-search-show-outputs
 
+  # Display `Next` on left side of the pagination, and `Prev` on right side one.
+  # If you set this value to `true`, these positions swap.
+  # swapPaginator = true
+
   # Custom CSS. Put here your custom CSS files. They are loaded after the theme CSS;
   # they have to be referred from static root. Example
-  customCSS = ["/css/custom.css"]
+  [[params.customCSS]]
+    href = "css/custom.css"
 
   # Custom JS. Put here your custom JS files. They are loaded after the theme JS;
   # they have to be referred from static root. Example
-  #customJS = ["js/highlight.js"]
+  [[params.customJS]]
+    src = "js/custom.js"
+
+  # Sharing options
+  # Comment and uncomment to enable or disable sharing options
+  # If you wanna add a sharing option, read user documentation :
+  # Tranquilpeak configuration > Theme configuration > sharing-options
+  [[params.sharingOptions]]
+    name = "Facebook"
+    icon = "fa-facebook-official"
+    url = "https://www.facebook.com/sharer/sharer.php?u=%s"
+
+  [[params.sharingOptions]]
+    name = "Twitter"
+    icon = "fa-twitter"
+    url = "https://twitter.com/intent/tweet?text=%s"
+
+  [[params.sharingOptions]]
+    name = "Google+"
+    icon = "fa-google-plus"
+    url = "https://plus.google.com/share?url=%s"
 
   [params.header.rightLink]
     class = ""
@@ -165,20 +194,3 @@ MetaDataFormat = "yaml"
   # Customize copyright value "© 2016 <CUSTOMIZATION>. All Rights Reserved"
   # [params.footer]
   #   copyright = "<a href=\"https://github.com/kakawait\">kakawait</a>"
-
-  [[params.sharingOptions]]
-    name = "Facebook"
-    icon = "fa-facebook-official"
-    url = "https://www.facebook.com/sharer/sharer.php?u=%s"
-  [[params.sharingOptions]]
-    name = "Twitter"
-    icon = "fa-twitter"
-    url = "https://twitter.com/intent/tweet?text=%s"
-  [[params.sharingOptions]]
-    name = "Google+"
-    icon = "fa-google-plus"
-    url = "https://plus.google.com/share?url=%s"
-
-[blackfriday]
-   plainIDAnchors = true
-   hrefTargetBlank = true
