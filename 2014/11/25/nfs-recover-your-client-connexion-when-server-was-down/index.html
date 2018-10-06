@@ -290,18 +290,18 @@ I recently had the case, where I lost connexion of my NFS client connexion becau
 
 <p>And when I tried to remount NFS clients connexions, I got:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mount.nfs: mount<span style="color:#f92672">(</span><span style="color:#ae81ff">2</span><span style="color:#f92672">)</span>: Protocol not supported
-mount.nfs: trying text-based options <span style="color:#e6db74">&#39;udp,sec=sys,rsize=8192,wsize=8192,intr,hard,addr=10.0.0.1&#39;</span>
-mount.nfs: prog <span style="color:#ae81ff">100003</span>, trying vers<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, prot<span style="color:#f92672">=</span><span style="color:#ae81ff">17</span>
-mount.nfs: trying <span style="color:#ae81ff">10</span>.0.0.1 prog <span style="color:#ae81ff">100003</span> vers <span style="color:#ae81ff">3</span> prot UDP port <span style="color:#ae81ff">2049</span>
-mount.nfs: prog <span style="color:#ae81ff">100005</span>, trying vers<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, prot<span style="color:#f92672">=</span><span style="color:#ae81ff">17</span>
-mount.nfs: trying <span style="color:#ae81ff">10</span>.0.0.1 prog <span style="color:#ae81ff">100005</span> vers <span style="color:#ae81ff">3</span> prot UDP port <span style="color:#ae81ff">54874</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mount.nfs: mount<span class="o">(</span><span class="m">2</span><span class="o">)</span>: Protocol not supported
+mount.nfs: trying text-based options <span class="s1">&#39;udp,sec=sys,rsize=8192,wsize=8192,intr,hard,addr=10.0.0.1&#39;</span>
+mount.nfs: prog <span class="m">100003</span>, trying <span class="nv">vers</span><span class="o">=</span><span class="m">3</span>, <span class="nv">prot</span><span class="o">=</span><span class="m">17</span>
+mount.nfs: trying <span class="m">10</span>.0.0.1 prog <span class="m">100003</span> vers <span class="m">3</span> prot UDP port <span class="m">2049</span>
+mount.nfs: prog <span class="m">100005</span>, trying <span class="nv">vers</span><span class="o">=</span><span class="m">3</span>, <span class="nv">prot</span><span class="o">=</span><span class="m">17</span>
+mount.nfs: trying <span class="m">10</span>.0.0.1 prog <span class="m">100005</span> vers <span class="m">3</span> prot UDP port <span class="m">54874</span></code></pre></div>
 
 <p>The solution to recover was to unexport connexions from the server:</p>
 
-<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">exportfs -u &lt;ip&gt;:/mnt/nfs/dev/xmlcache&lt;/ip&gt;</code></pre></div></p>
+<p><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">exportfs -u &lt;ip&gt;:/mnt/nfs/dev/xmlcache&lt;/ip&gt;</code></pre></div></p>
 
-<p>If you want to know a little bit more about it, you can <a href="https://wiki.deimos.fr/NFS_:_Mise_en_place_d%27un_serveur_NFS#mount.282.29:_Protocol_not_supported">check my wiki page on NFS</a>. I think this kind of issue may be less present in the version 4 of the NFS protocol, but I didn&rsquo;t try to reproduce it with the 4 version. Any feedback will be appreciated 😉</p>
+<p>If you want to know a little bit more about it, you can <a href="https://wiki.deimos.fr/NFS_:_Mise_en_place_d%27un_serveur_NFS#mount.282.29:_Protocol_not_supported" target="_blank">check my wiki page on NFS</a>. I think this kind of issue may be less present in the version 4 of the NFS protocol, but I didn&rsquo;t try to reproduce it with the 4 version. Any feedback will be appreciated 😉</p>
 
 <p>Hope this will help</p>
 

@@ -304,23 +304,23 @@ You may know that I really like LXC and the major problem when you want to use t
 
 <p>Regarding the CPU side, I do not have an easy answer for the moment :-(. However regarding the memory, I&rsquo;ve made a Nagios/Naemon check which will check the memory (RAM) and SWAP of a container. Here is how to use it:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Usage : check_lxc_resources -h &lt;container&gt; -n &lt;namespace&gt; -w &lt;warning%&gt; -c &lt;critical%&gt; <span style="color:#f92672">[</span>-d<span style="color:#f92672">]</span>
-    -h : set container name
-    -n : set container namespace to check <span style="color:#f92672">(</span>memory|swap<span style="color:#f92672">)</span>
-    -w : set warning percent alert
-    -c : set critical percent alert
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">Usage : check_lxc_resources -h &lt;container&gt; -n &lt;namespace&gt; -w &lt;warning%&gt; -c &lt;critical%&gt; <span class="o">[</span>-d<span class="o">]</span>
+    -h : <span class="nb">set</span> container name
+    -n : <span class="nb">set</span> container namespace to check <span class="o">(</span>memory<span class="p">|</span>swap<span class="o">)</span>
+    -w : <span class="nb">set</span> warning percent alert
+    -c : <span class="nb">set</span> critical percent alert
     -d : debug mode
     -help : print this message</code></pre></div>
 
 <p>Output will looks like this for memory:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">memory usage is <span style="color:#ae81ff">42</span>.95% <span style="color:#f92672">(</span>219M/512M<span style="color:#f92672">)</span> / 292M free / 177M cached</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">memory usage is <span class="m">42</span>.95% <span class="o">(</span>219M/512M<span class="o">)</span> / 292M free / 177M cached</code></pre></div>
 
 <p>And like this for swap:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">swap usage is <span style="color:#ae81ff">0</span>.02% <span style="color:#f92672">(</span>0M/464M<span style="color:#f92672">)</span> / 463M free</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">swap usage is <span class="m">0</span>.02% <span class="o">(</span>0M/464M<span class="o">)</span> / 463M free</code></pre></div>
 
-<p>If you want to know more about this check or simply use it, <a href="https://github.com/deimosfr/nagios-check_lxc_resources">you can find it on my GitHub</a>. I hope you&rsquo;ll like it.</p>
+<p>If you want to know more about this check or simply use it, <a href="https://github.com/deimosfr/nagios-check_lxc_resources" target="_blank">you can find it on my GitHub</a>. I hope you&rsquo;ll like it.</p>
 
               
             </div>

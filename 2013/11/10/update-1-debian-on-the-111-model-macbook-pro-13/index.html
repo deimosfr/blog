@@ -280,17 +280,17 @@ ga('send', 'pageview');
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p><img src="https://blog.deimos.fr/images/logo_debian.png" alt="debian_logo" />
-So this is my first update to get a full working MacBook Pro under Debian. For now, <a href="http://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/">as already talked in a last post</a>, I&rsquo;m trying to make every things working.</p>
+So this is my first update to get a full working MacBook Pro under Debian. For now, <a href="http://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/" target="_blank">as already talked in a last post</a>, I&rsquo;m trying to make every things working.</p>
 
 <p>The remaining nonworking things/problems were and the resolutions I&rsquo;ve found :</p>
 
 <ul>
 <li>The iSight Camera : still not working (didn&rsquo;t had time to search solution neither)</li>
-<li>The Speaker : should work with the latest kernel and patch (<a href="https://bugzilla.kernel.org/show_bug.cgi?id=64401">RedHat bugzilla</a>) but didn&rsquo;t have the time to test it yet (<a href="https://mega.co.nz/#!uop2SL6S!TeWiU1i-Oc8j1CatOmA5-BLphyFrN2PrOnQSpE6UHUM">3.12 version available here</a>)</li>
-<li>Some randoms hangs : resolved by adding <a href="http://www.kernel.org/doc/Documentation/kernel-parameters.txt">libata</a> in the grub configuration (/etc/default/grub) :</li>
+<li>The Speaker : should work with the latest kernel and patch (<a href="https://bugzilla.kernel.org/show_bug.cgi?id=64401" target="_blank">RedHat bugzilla</a>) but didn&rsquo;t have the time to test it yet (<a href="https://mega.co.nz/#!uop2SL6S!TeWiU1i-Oc8j1CatOmA5-BLphyFrN2PrOnQSpE6UHUM" target="_blank">3.12 version available here</a>)</li>
+<li>Some randoms hangs : resolved by adding <a href="http://www.kernel.org/doc/Documentation/kernel-parameters.txt" target="_blank">libata</a> in the grub configuration (/etc/default/grub) :</li>
 </ul>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">GRUB_CMDLINE_LINUX_DEFAULT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;quiet elevator=deadline libata.force=noncq&#34;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&#34;quiet elevator=deadline libata.force=noncq&#34;</span></code></pre></div>
 
 <ul>
 <li>Youtube : Others video providers I&rsquo;ve tested works well, but youtube preload, show the firsts frames and crash. Works fine with 3.11.6 kernel but not with 3.12, didn&rsquo;t have to investigate more yet)</li>

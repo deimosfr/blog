@@ -297,12 +297,12 @@ ga('send', 'pageview');
 
 <p>If you follow me, you should be aware that I use Vagrant every day. I wanted to get a Wheezy version with fr keyboard, up to date, correct locales and configured source.list file. I&rsquo;ve also added Puppet and Chef on it.</p>
 
-<p>So I&rsquo;ve learned on how to build a box and it&rsquo;s really easy by <a href="http://docs.vagrantup.com/v2/boxes/base.html">following the documentations on the website</a>. Here is my Debian Wheezy box based on VirtualBox provider available on <a href="https://www.dropbox.com/s/gpagp78g4mye1l7/wheezy.box">DropBox</a> or <a href="https://mega.co.nz/#!25olxQQR!e07S0lQbHcNLwOE8y47Foy7451gZq-l2SNB4W7ZYZqw">Mega</a>.</p>
+<p>So I&rsquo;ve learned on how to build a box and it&rsquo;s really easy by <a href="http://docs.vagrantup.com/v2/boxes/base.html" target="_blank">following the documentations on the website</a>. Here is my Debian Wheezy box based on VirtualBox provider available on <a href="https://www.dropbox.com/s/gpagp78g4mye1l7/wheezy.box" target="_blank">DropBox</a> or <a href="https://mega.co.nz/#!25olxQQR!e07S0lQbHcNLwOE8y47Foy7451gZq-l2SNB4W7ZYZqw" target="_blank">Mega</a>.</p>
 
 <p>I hope you&rsquo;ll use it :-). To add this box to your current list, it&rsquo;s simple :</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vagrant box add wheezy https://www.dropbox.com/s/gpagp78g4mye1l7/wheezy.box
-mkidr tmp <span style="color:#f92672">&amp;&amp;</span> cd tmp
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">vagrant box add wheezy https://www.dropbox.com/s/gpagp78g4mye1l7/wheezy.box
+mkidr tmp <span class="o">&amp;&amp;</span> <span class="nb">cd</span> tmp
 vagrant init wheezy
 vagrant up</code></pre></div>
 

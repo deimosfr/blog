@@ -302,15 +302,15 @@ ga('send', 'pageview');
               
 
 <p><img src="https://blog.deimos.fr/images/logo_haproxy.png" alt="Haproxy-logo" />
-A few months ago, I already talked about <a href="https://blog.deimos.fr/2014/01/23/offloading-ssl-with-nginx-and-varnish/">offloading SSL with Nginx</a>. I also wanted to try it with HAProxy which can be more interesting in some cases.</p>
+A few months ago, I already talked about <a href="https://blog.deimos.fr/2014/01/23/offloading-ssl-with-nginx-and-varnish/" target="_blank">offloading SSL with Nginx</a>. I also wanted to try it with HAProxy which can be more interesting in some cases.</p>
 
 <h1 id="the-good">The good</h1>
 
 <p>On HAProxy, the good thing is the simplicity to do it. First of all you need to have at least the version 1.5 of HAProxy so to get SSL support. Then you only need those lines to offload SSL:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">frontend frontend-https
-    bind :443 ssl crt /etc/haproxy/ssl/server-unified.pem
-    reqadd X-Forwarded-Proto:<span style="color:#ae81ff">\ </span>https
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">frontend frontend-https
+    <span class="nb">bind</span> :443 ssl crt /etc/haproxy/ssl/server-unified.pem
+    reqadd X-Forwarded-Proto:<span class="se">\ </span>https
     default_backend ssl-backend</code></pre></div>
 
 <p>This is simple, powerful and works quickly.</p>
@@ -337,7 +337,7 @@ A few months ago, I already talked about <a href="https://blog.deimos.fr/2014/01
 
 <p>For example, if you have multiple vhosts to handle, the a good way to address it, would be to have a dedicated HAProxy instance for each domain (things that can be done in Cloud environment with load balancer as a service like on OpenStack). It will be easier to manage and with less risks in problem case.</p>
 
-<p>To finish, <a href="https://wiki.deimos.fr/HAProxy:_load_balance_your_traffic#Offloading_SSL">I made a documentation on how to setup the SSL offload on HAProxy</a>. Hope it will help.</p>
+<p>To finish, <a href="https://wiki.deimos.fr/HAProxy:_load_balance_your_traffic#Offloading_SSL" target="_blank">I made a documentation on how to setup the SSL offload on HAProxy</a>. Hope it will help.</p>
 
               
             </div>

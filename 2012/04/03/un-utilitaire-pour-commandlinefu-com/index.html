@@ -311,15 +311,15 @@ ga('send', 'pageview');
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>Sachez que vous pouvez faire une recherche dans ce site pour en extraire des exemples grâce à un petit script. Exemple :
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; fu -a awk
- <span style="color:#ae81ff">1</span>	<span style="color:#75715e">#  List of commands you use most often
-</span><span style="color:#75715e"></span>	history | awk <span style="color:#e6db74">&#39;{a[$2]++}END{for(i in a){print a[i] &#34; &#34; i}}&#39;</span> | sort -rn | head&lt;/p&gt;
- <span style="color:#ae81ff">2</span>	<span style="color:#75715e">#  Display a block of text with AWK
-</span><span style="color:#75715e"></span>	awk <span style="color:#e6db74">&#39;/start_pattern/,/stop_pattern/&#39;</span> file.txt&lt;/p&gt;
- <span style="color:#ae81ff">3</span>	<span style="color:#75715e">#  Remove duplicate entries in a file without sorting.
-</span><span style="color:#75715e"></span>	awk <span style="color:#e6db74">&#39;!x[$0]++&#39;</span> &lt;file&gt;</code></pre></div></p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">&gt; fu -a awk
+ <span class="m">1</span>	<span class="c1">#  List of commands you use most often
+</span><span class="c1"></span>	<span class="nb">history</span> <span class="p">|</span> awk <span class="s1">&#39;{a[$2]++}END{for(i in a){print a[i] &#34; &#34; i}}&#39;</span> <span class="p">|</span> sort -rn <span class="p">|</span> head&lt;/p&gt;
+ <span class="m">2</span>	<span class="c1">#  Display a block of text with AWK
+</span><span class="c1"></span>	awk <span class="s1">&#39;/start_pattern/,/stop_pattern/&#39;</span> file.txt&lt;/p&gt;
+ <span class="m">3</span>	<span class="c1">#  Remove duplicate entries in a file without sorting.
+</span><span class="c1"></span>	awk <span class="s1">&#39;!x[$0]++&#39;</span> &lt;file&gt;</code></pre></div></p>
 
-<p>Et là vous vous dites que c&rsquo;est super pratique :-). <a href="http://wiki.deimos.fr/Fu_:_un_script_pour_récupérer_des_exemples_depuis_commandlinefu.com">Voici comment l&rsquo;installer</a>.</p>
+<p>Et là vous vous dites que c&rsquo;est super pratique :-). <a href="http://wiki.deimos.fr/Fu_:_un_script_pour_récupérer_des_exemples_depuis_commandlinefu.com" target="_blank">Voici comment l&rsquo;installer</a>.</p>
 
               
             </div>

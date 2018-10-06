@@ -284,13 +284,13 @@ ga('send', 'pageview');
               <p><img src="https://blog.deimos.fr/images/logo_squid.png" alt="Squid_logo" />
 C&rsquo;est un truc con, mais par défaut, Squid donne un peu trop d&rsquo;informations lorsque quelqu&rsquo;un le traverse pour accéder à un site.</p>
 
-<p>J&rsquo;ai donc modifier <a href="http://wiki.deimos.fr/Squid_:_Installation_et_configuration_de_Squid">la documentation sur Squid</a> pour y ajouter ces 3 petites lignes :
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Be more anonymous
-</span><span style="color:#75715e"># That’s three pieces of information you may not want to give away:
-</span><span style="color:#75715e"># - The host name of your proxy server
-</span><span style="color:#75715e"># - The version of Squid it’s running
-</span><span style="color:#75715e"># - The IP address of the system that’s making the request via the proxy
-</span><span style="color:#75715e"></span>forwarded_for off
+<p>J&rsquo;ai donc modifier <a href="http://wiki.deimos.fr/Squid_:_Installation_et_configuration_de_Squid" target="_blank">la documentation sur Squid</a> pour y ajouter ces 3 petites lignes :
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Be more anonymous
+</span><span class="c1"># That’s three pieces of information you may not want to give away:
+</span><span class="c1"># - The host name of your proxy server
+</span><span class="c1"># - The version of Squid it’s running
+</span><span class="c1"># - The IP address of the system that’s making the request via the proxy
+</span><span class="c1"></span>forwarded_for off
 visible_hostname proxy.local
 httpd_suppress_version_string on</code></pre></div></p>
 

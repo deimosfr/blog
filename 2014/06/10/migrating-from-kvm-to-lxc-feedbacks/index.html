@@ -300,17 +300,17 @@ ga('send', 'pageview');
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p><img src="https://blog.deimos.fr/images/Poweredbylinux.jpg" alt="Poweredbylinux" />
-I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&hellip;Thanks <a href="http://www.online.net/fr">Online</a>.</p>
+I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&hellip;Thanks <a href="http://www.online.net/fr" target="_blank">Online</a>.</p>
 
-<p>I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to <strong>migrate my VM from KVM</strong>. All my <a href="https://wiki.deimos.fr/KVM_:_Mise_en_place_de_KVM">KVM</a> VM are on Debian Wheezy so that was pretty easy.</p>
+<p>I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to <strong>migrate my VM from KVM</strong>. All my <a href="https://wiki.deimos.fr/KVM_:_Mise_en_place_de_KVM" target="_blank">KVM</a> VM are on Debian Wheezy so that was pretty easy.</p>
 
-<p>First of all I used <a href="https://wiki.deimos.fr/Automatiser_une_installation_de_Debian">Preseed to quickly deploy Debian</a> on the host&hellip;as minimal as possible. Then I&rsquo;ve made an <a href="https://galaxy.ansible.com/deimosfr/lxc/">LXC Ansible playbook (available on Ansible Galaxy)</a> to be able to quickly deploy the server. I encountered several little issues and <a href="https://github.com/deimosfr/ansible-lxc">pushed the fixes to my repository on GitHub</a> (linked to my Ansible Galaxy account).</p>
+<p>First of all I used <a href="https://wiki.deimos.fr/Automatiser_une_installation_de_Debian" target="_blank">Preseed to quickly deploy Debian</a> on the host&hellip;as minimal as possible. Then I&rsquo;ve made an <a href="https://galaxy.ansible.com/deimosfr/lxc/" target="_blank">LXC Ansible playbook (available on Ansible Galaxy)</a> to be able to quickly deploy the server. I encountered several little issues and <a href="https://github.com/deimosfr/ansible-lxc" target="_blank">pushed the fixes to my repository on GitHub</a> (linked to my Ansible Galaxy account).</p>
 
-<p>I had to make the iptables configuration to forward incoming connections to my NATed containers. This is not managed by the LXC playbook as it doesn&rsquo;t have to in my opinion. <a href="https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Network">But you could find examples on my documentation if you need</a>.</p>
+<p>I had to make the iptables configuration to forward incoming connections to my NATed containers. This is not managed by the LXC playbook as it doesn&rsquo;t have to in my opinion. <a href="https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Network" target="_blank">But you could find examples on my documentation if you need</a>.</p>
 
 <p>I wanted to manage the deployment of my LXC containers with Ansible, however I didn&rsquo;t had the time to do it. So I concentrated more on migrating my running KVM VMs to the LXC server.</p>
 
-<p>Then <a href="https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Convert.2FMigrate_a_VM.2FHost_to_a_LXC_container">I&rsquo;ve followed the doc I&rsquo;ve made to convert an existing system to an LXC container</a>. Was working like a charm. To resume:</p>
+<p>Then <a href="https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Convert.2FMigrate_a_VM.2FHost_to_a_LXC_container" target="_blank">I&rsquo;ve followed the doc I&rsquo;ve made to convert an existing system to an LXC container</a>. Was working like a charm. To resume:</p>
 
 <ol>
 <li>I made an rsync copy to the remote rootfs destination</li>
@@ -320,11 +320,11 @@ I recently migrated this server to a new one. New hardware, better performance, 
 
 <p>Migration finished! Really easy to do it isn&rsquo;t it ? <strong>Only 3 easy steps</strong>.</p>
 
-<p>To finish, <a href="https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Container_limits_.28cgroups.29">I setup cgroups configuration for my containers</a>. That gave me the possibility to restrict CPU, RAM, DISK I/O and SWAP usage for all my containers.</p>
+<p>To finish, <a href="https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Container_limits_.28cgroups.29" target="_blank">I setup cgroups configuration for my containers</a>. That gave me the possibility to restrict CPU, RAM, DISK I/O and SWAP usage for all my containers.</p>
 
 <p>I strongly encourage you to test LXC!</p>
 
-<p>In the next months/years, I think I will start looking at <a href="https://wiki.deimos.fr/Docker_:_manage_LXC_containers_easily_with_advanced_features">Docker</a> (which uses LXC) in a production and will <a href="http://docs.ansible.com/docker_module.html">deploy all my containers with Ansible as a module already exist</a>. I do not really know yet the maturity of Docker in production but I&rsquo;m sure this will be one of the most used cloud solutions with OpenStack and Ceph in the next years.</p>
+<p>In the next months/years, I think I will start looking at <a href="https://wiki.deimos.fr/Docker_:_manage_LXC_containers_easily_with_advanced_features" target="_blank">Docker</a> (which uses LXC) in a production and will <a href="http://docs.ansible.com/docker_module.html" target="_blank">deploy all my containers with Ansible as a module already exist</a>. I do not really know yet the maturity of Docker in production but I&rsquo;m sure this will be one of the most used cloud solutions with OpenStack and Ceph in the next years.</p>
 
               
             </div>

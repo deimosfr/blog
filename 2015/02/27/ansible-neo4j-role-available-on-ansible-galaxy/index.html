@@ -314,26 +314,26 @@ For a new project (will talk about it later), I needed to use Neo4J (graph datab
 
 <p>I tried to cover more features than the current existing Ansible roles available on Ansible Galaxy. More will come in the next weeks. I also tried to make it simple to install it and do not force dependencies at maximum. Here are parameters you can set:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Select neo4j version
-</span><span style="color:#75715e"></span>neo4j_package: neo4j <span style="color:#75715e"># community version
-</span><span style="color:#75715e">#neo4j_package: neo4j-advanced
-</span><span style="color:#75715e">#neo4j_package: neo4j-enterprise
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e"># Neo4j spatial plugin
-</span><span style="color:#75715e"></span>neo4j_install_spatial: false
-neo4j_spatial_version: <span style="color:#e6db74">&#39;0.13-neo4j-2.1.2&#39;</span>
-neo4j_plugins_directory: <span style="color:#e6db74">&#39;/usr/share/neo4j/plugins&#39;</span>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Select neo4j version
+</span><span class="c1"></span>neo4j_package: neo4j <span class="c1"># community version
+</span><span class="c1">#neo4j_package: neo4j-advanced
+</span><span class="c1">#neo4j_package: neo4j-enterprise
+</span><span class="c1"></span>
+<span class="c1"># Neo4j spatial plugin
+</span><span class="c1"></span>neo4j_install_spatial: <span class="nb">false</span>
+neo4j_spatial_version: <span class="s1">&#39;0.13-neo4j-2.1.2&#39;</span>
+neo4j_plugins_directory: <span class="s1">&#39;/usr/share/neo4j/plugins&#39;</span>
 
-<span style="color:#75715e"># java prerequisite
-</span><span style="color:#75715e"></span>neo4j_install_java: false
+<span class="c1"># java prerequisite
+</span><span class="c1"></span>neo4j_install_java: <span class="nb">false</span>
 neo4j_java_package_name: openjdk-7-jdk
 
-<span style="color:#75715e"># limits.conf
-</span><span style="color:#75715e"></span>neo4j_update_limits: true
-neo4j_nofile_value: <span style="color:#ae81ff">40000</span>
+<span class="c1"># limits.conf
+</span><span class="c1"></span>neo4j_update_limits: <span class="nb">true</span>
+neo4j_nofile_value: <span class="m">40000</span>
 
-<span style="color:#75715e"># neo4j neostore mapped memory
-</span><span style="color:#75715e"></span>neo4j_mm_nodestore: 25M
+<span class="c1"># neo4j neostore mapped memory
+</span><span class="c1"></span>neo4j_mm_nodestore: 25M
 neo4j_mm_relationshipstore: 50M
 neo4j_mm_propertystore: 90M
 neo4j_mm_propertystore_strings: 130M
@@ -342,30 +342,30 @@ neo4j_mm_index: 5M
 neo4j_nm_index_keys: 5M
 neo4j_cache_type: none
 
-<span style="color:#75715e"># server
-</span><span style="color:#75715e"></span>neo4j_server_database_location: data/graph.db
-neo4j_server_webserver_address: <span style="color:#ae81ff">127</span>.0.0.1
-neo4j_server_webserver_port: <span style="color:#ae81ff">7474</span>
-neo4j_server_webserver_https_enabled: false
-neo4j_server_webserver_https_port: <span style="color:#ae81ff">7473</span>
+<span class="c1"># server
+</span><span class="c1"></span>neo4j_server_database_location: data/graph.db
+neo4j_server_webserver_address: <span class="m">127</span>.0.0.1
+neo4j_server_webserver_port: <span class="m">7474</span>
+neo4j_server_webserver_https_enabled: <span class="nb">false</span>
+neo4j_server_webserver_https_port: <span class="m">7473</span>
 neo4j_server_webserver_https_cert_location: conf/ssl/snakeoil.cert
 neo4j_server_webserver_https_key_location: conf/ssl/snakeoil.key
 neo4j_server_webserver_https_keystore_location: data/keystore
 
-<span style="color:#75715e"># webadmin
-</span><span style="color:#75715e"></span>neo4j_server_webadmin_rrdb_location: data/rrd
+<span class="c1"># webadmin
+</span><span class="c1"></span>neo4j_server_webadmin_rrdb_location: data/rrd
 neo4j_server_webadmin_data_uri: /db/data/
 neo4j_server_webadmin_management_uri: /db/manage/
 neo4j_server_db_tuning_properties: conf/neo4j.properties
 neo4j_server_manage_console_engines: shell
 neo4j_server_database_mode: SINGLE
 
-<span style="color:#75715e"># logging
-</span><span style="color:#75715e"></span>neo4j_server_http_log_enabled: false
+<span class="c1"># logging
+</span><span class="c1"></span>neo4j_server_http_log_enabled: <span class="nb">false</span>
 neo4j_server_http_log_config: conf/neo4j-http-logging.xml
 neo4j_keep_logical_logs: true</code></pre></div>
 
-<p>You can find <a href="https://galaxy.ansible.com/deimosfr/neo4j/">the Ansible role for Neo4j here</a>, it manages all versions (community, enterprise&hellip;) and you can install Spatial plugin as well easilly.</p>
+<p>You can find <a href="https://galaxy.ansible.com/deimosfr/neo4j/" target="_blank">the Ansible role for Neo4j here</a>, it manages all versions (community, enterprise&hellip;) and you can install Spatial plugin as well easilly.</p>
 
 <p>Hope it will help</p>
 

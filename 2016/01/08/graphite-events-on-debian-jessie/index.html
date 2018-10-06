@@ -281,9 +281,9 @@ ga('send', 'pageview');
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>I&rsquo;m using Graphite at work and for my <a href="http://www.nousmotards.com">Nousmotards</a> project. For Nousmotards, I&rsquo;m using the Graphite version available in the default Debian Jessie repositories. This to avoid mismatch django dependencies etc&hellip;</p>
+              <p>I&rsquo;m using Graphite at work and for my <a href="http://www.nousmotards.com" target="_blank">Nousmotards</a> project. For Nousmotards, I&rsquo;m using the Graphite version available in the default Debian Jessie repositories. This to avoid mismatch django dependencies etc&hellip;</p>
 
-<p>A few days ago, I wanted to try Graphite events to get <a href="http://docs.grafana.org/reference/annotations/">something pretty cool in Grafana</a> :</p>
+<p>A few days ago, I wanted to try Graphite events to get <a href="http://docs.grafana.org/reference/annotations/" target="_blank">something pretty cool in Grafana</a> :</p>
 
 <p><img src="https://blog.deimos.fr/images/grafana_annotations-1024x278.png" alt="grafana_annotations-1024x278" /></p>
 
@@ -291,22 +291,22 @@ ga('send', 'pageview');
 
 <p>send data, because there is a mismatch dependencies between the Django version and Graphite version in Debian Jessie:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Traceback <span style="color:#f92672">(</span>most recent call last<span style="color:#f92672">)</span>:
-  File <span style="color:#e6db74">&#34;/usr/lib/python2.6/site-packages/django/core/handlers/base.py&#34;</span>, line <span style="color:#ae81ff">114</span>, in get_response
-    response <span style="color:#f92672">=</span> wrapped_callback<span style="color:#f92672">(</span>request, *callback_args, **callback_kwargs<span style="color:#f92672">)</span>
-  File <span style="color:#e6db74">&#34;/opt/graphite/webapp/graphite/events/views.py&#34;</span>, line <span style="color:#ae81ff">32</span>, in view_events
-    <span style="color:#66d9ef">return</span> post_event<span style="color:#f92672">(</span>request<span style="color:#f92672">)</span>
-  File <span style="color:#e6db74">&#34;/opt/graphite/webapp/graphite/events/views.py&#34;</span>, line <span style="color:#ae81ff">44</span>, in post_event
-    event <span style="color:#f92672">=</span> json.loads<span style="color:#f92672">(</span>request.raw_post_data<span style="color:#f92672">)</span>
-AttributeError: <span style="color:#e6db74">&#39;WSGIRequest&#39;</span> object has no attribute <span style="color:#e6db74">&#39;raw_post_data&#39;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+  File <span class="s2">&#34;/usr/lib/python2.6/site-packages/django/core/handlers/base.py&#34;</span>, line <span class="m">114</span>, in get_response
+    <span class="nv">response</span> <span class="o">=</span> wrapped_callback<span class="o">(</span>request, *callback_args, **callback_kwargs<span class="o">)</span>
+  File <span class="s2">&#34;/opt/graphite/webapp/graphite/events/views.py&#34;</span>, line <span class="m">32</span>, in view_events
+    <span class="k">return</span> post_event<span class="o">(</span>request<span class="o">)</span>
+  File <span class="s2">&#34;/opt/graphite/webapp/graphite/events/views.py&#34;</span>, line <span class="m">44</span>, in post_event
+    <span class="nv">event</span> <span class="o">=</span> json.loads<span class="o">(</span>request.raw_post_data<span class="o">)</span>
+AttributeError: <span class="s1">&#39;WSGIRequest&#39;</span> object has no attribute <span class="s1">&#39;raw_post_data&#39;</span></code></pre></div>
 
 <p>I&rsquo;ve found several solution proposing Django upgrade etc&hellip; but the simplest solution I&rsquo;ve found for me is to simply make a replacement directly in a graphite lib. Edit the file /usr/lib/python2.7/dist-packages/graphite/events/views.py and update the event line like this:</p>
 
-<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">post_event</span>(request):
-    <span style="color:#66d9ef">if</span> request<span style="color:#f92672">.</span>method <span style="color:#f92672">==</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;POST&#39;</span>:
-        <span style="color:#75715e">#event = json.loads(request.raw_post_data)</span>
-        event <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>loads(request<span style="color:#f92672">.</span>body)
-        <span style="color:#66d9ef">assert</span> isinstance(event, dict)</code></pre></div></p>
+<p><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">post_event</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="sa"></span><span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="c1">#event = json.loads(request.raw_post_data)</span>
+        <span class="n">event</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span></code></pre></div></p>
 
 <p>Then restart uwsgi service and finally it works like a charm :-)</p>
 

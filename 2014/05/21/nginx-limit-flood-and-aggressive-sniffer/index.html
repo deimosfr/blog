@@ -286,11 +286,11 @@ Last week, have been faced on a <strong>big sniffing issue on my wiki</strong>. 
 
 <p>The only way to <strong>temporary solve the issue was to block the IP address</strong> (from OVH) with iptables. This guy recurred a little bit slower from another IP (from Orange) a few hours later. I pretty sure this was the same guy as the user agent in the logs was the same in addition of a non usual useragent name:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#e6db74">&#34;Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)&#34;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="s2">&#34;Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)&#34;</span></code></pre></div>
 
 <p>I finally find a long term solution to solve this problem using an <strong>Nginx module called req_limit</strong>. You can specify how many requests per seconds per IPs are allowed, if you return a 503 error or simply delay aggressive requests, burst for a virtualhost etc&hellip;</p>
 
-<p>I&rsquo;ve added to my current <a href="http://wiki.deimos.fr/Nginx_:_Installation_et_configuration_d%27une_alternative_d%27Apache#Limiter_le_flood_et_les_sniffers">Nginx documentation (in French)</a> the way to configure this req_limit module. I hope this will help some of you too.</p>
+<p>I&rsquo;ve added to my current <a href="http://wiki.deimos.fr/Nginx_:_Installation_et_configuration_d%27une_alternative_d%27Apache#Limiter_le_flood_et_les_sniffers" target="_blank">Nginx documentation (in French)</a> the way to configure this req_limit module. I hope this will help some of you too.</p>
 
 <p>Note for the sniffer guy: you can try now it should be OK :-)</p>
 

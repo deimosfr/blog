@@ -276,42 +276,42 @@ ga('send', 'pageview');
 
 <p>First of all, I had to be in recovery mod (bottom button + vol up + power). Then I wanted to create a /sdcard but it didn&rsquo;t want to mount and I didn&rsquo;t want to format my sdcard. So I mounted a tmpfs onto it:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; adb shell mount -t tmpfs none /sdcard</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">&gt; adb shell mount -t tmpfs none /sdcard</code></pre></div>
 
 <p>Then the problem was to find a compatible version of clockworkmod. Because of this issue when I wanted to apply Cyanogen:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">set_metadata_recursive: some changes failed</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">set_metadata_recursive: some changes failed</code></pre></div>
 
-<p>I had to find and send a compatible clockworkmod with kitkat (<a href="http://downloadandroidrom.com/file/GalaxyS2/recovery/CWM-KitKatCompatible-i9100.zip">link1</a>, <a href="https://mega.co.nz/#!65xDnDoA!IG9CfqrrirRNJJs-h7rjKVgB2SQQKOKnxBs14u3OB5U">link2</a>) to the phone:</p>
+<p>I had to find and send a compatible clockworkmod with kitkat (<a href="http://downloadandroidrom.com/file/GalaxyS2/recovery/CWM-KitKatCompatible-i9100.zip" target="_blank">link1</a>, <a href="https://mega.co.nz/#!65xDnDoA!IG9CfqrrirRNJJs-h7rjKVgB2SQQKOKnxBs14u3OB5U" target="_blank">link2</a>) to the phone:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; adb push recovery-clockwork-4.0.1.5-galaxys2.zip /sdcard/
-<span style="color:#ae81ff">3388</span> KB/s <span style="color:#f92672">(</span><span style="color:#ae81ff">1358054</span> bytes in <span style="color:#ae81ff">0</span>.391s<span style="color:#f92672">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">&gt; adb push recovery-clockwork-4.0.1.5-galaxys2.zip /sdcard/
+<span class="m">3388</span> KB/s <span class="o">(</span><span class="m">1358054</span> bytes in <span class="m">0</span>.391s<span class="o">)</span></code></pre></div>
 
-<p>Afterward, apply the zip from the recovery mode from the phone. Then I had to download the M5 version on <a href="http://download.cyanogenmod.org/?device=i9100">Cyanogen website</a> and push it on the device:</p>
+<p>Afterward, apply the zip from the recovery mode from the phone. Then I had to download the M5 version on <a href="http://download.cyanogenmod.org/?device=i9100" target="_blank">Cyanogen website</a> and push it on the device:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; adb push cm-11-20140405-SNAPSHOT-M5-i9100.zip /storage/sdcard0/
-error: insufficient permissions <span style="color:#66d9ef">for</span> device</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">&gt; adb push cm-11-20140405-SNAPSHOT-M5-i9100.zip /storage/sdcard0/
+error: insufficient permissions <span class="k">for</span> device</code></pre></div>
 
 <p>Bad isn&rsquo;t it ? When I looked at the connected devices, I got:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; adb devices
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">&gt; adb devices
 List of devices attached
 ???????????? no permissions</code></pre></div>
 
 <p>The solution was to restart the server and relaunch it:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; adb kill-server</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">&gt; adb kill-server</code></pre></div>
 
 <p>Better now:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; adb devices
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">&gt; adb devices
 List of devices attached
 0019026e78c75e recovery</code></pre></div>
 
 <p>Finally I could push last cyanogen version :</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">adb push cm-11-20140405-SNAPSHOT-M5-i9100.zip /storage/sdcard0/
-<span style="color:#ae81ff">3259</span> KB/s <span style="color:#f92672">(</span><span style="color:#ae81ff">199874044</span> bytes in <span style="color:#ae81ff">59</span>.887s<span style="color:#f92672">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">adb push cm-11-20140405-SNAPSHOT-M5-i9100.zip /storage/sdcard0/
+<span class="m">3259</span> KB/s <span class="o">(</span><span class="m">199874044</span> bytes in <span class="m">59</span>.887s<span class="o">)</span></code></pre></div>
 
 <p>And installed the zip with the method I previously did for clockworkmod !</p>
 

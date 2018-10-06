@@ -296,19 +296,19 @@ ga('send', 'pageview');
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p><img src="https://blog.deimos.fr/images/logo_gogs.png" alt="gogs-lg" />
-I <a href="http://blog.deimos.fr/2014/08/19/github-vs-gitlab-vs-stash-vs-gogs/">recently talked about Gogs</a> and really like this solution. The main problem I encounter was the current stable version which may not be usable on Debian.</p>
+I <a href="http://blog.deimos.fr/2014/08/19/github-vs-gitlab-vs-stash-vs-gogs/" target="_blank">recently talked about Gogs</a> and really like this solution. The main problem I encounter was the current stable version which may not be usable on Debian.</p>
 
 <p>Here is a quick solution to make it work. First of all, install git:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt-get install git</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">apt-get install git</code></pre></div>
 
-<p>Then you can download the latest compiled version <a href="http://gobuild.io/download/github.com/gogits/gogs">directly from gobuild</a>.</p>
+<p>Then you can download the latest compiled version <a href="http://gobuild.io/download/github.com/gogits/gogs" target="_blank">directly from gobuild</a>.</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget http://gobuild.io/github.com/gogits/gogs/master/linux/amd64 -O output.zip
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">wget http://gobuild.io/github.com/gogits/gogs/master/linux/amd64 -O output.zip
 unzip output.zip
 ./start.sh</code></pre></div>
 
-<p>You can now access to port 3000. If you want to use it through a web server, here is <a href="https://wiki.deimos.fr/Nginx_:_Installation_et_configuration_d%27une_alternative_d%27Apache#Gogs">my configuration with Nginx</a>.</p>
+<p>You can now access to port 3000. If you want to use it through a web server, here is <a href="https://wiki.deimos.fr/Nginx_:_Installation_et_configuration_d%27une_alternative_d%27Apache#Gogs" target="_blank">my configuration with Nginx</a>.</p>
 
 <p>I hope it helped</p>
 

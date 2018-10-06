@@ -290,30 +290,30 @@ ga('send', 'pageview');
               <p><img src="https://blog.deimos.fr/images/logo_packer.png" alt="packer_logo" />
 I recently wanted to update my Vagrant box running Debian Wheezy. The problem is, the box size is growing on each updates for several reasons. And <strong>I prefer to create a new box from scratch</strong> on any new Debian release.</p>
 
-<p>Starting from scratch each time is a little bit boring, that&rsquo;s why <a href="https://wiki.deimos.fr/Automatiser_une_installation_de_Debian">I created a preseed file</a> (french). That made the install automatically, however I always had to do other step by hands (or need to write a script for it).</p>
+<p>Starting from scratch each time is a little bit boring, that&rsquo;s why <a href="https://wiki.deimos.fr/Automatiser_une_installation_de_Debian" target="_blank">I created a preseed file</a> (french). That made the install automatically, however I always had to do other step by hands (or need to write a script for it).</p>
 
-<p>I remembered to have <a href="http://blog.deimos.fr/2014/03/18/packer-win-time-by-easily-testing-your-app-on-multiple-platforms/">tested Packer a few times ago</a> and decided to look at the features of the latest version.</p>
+<p>I remembered to have <a href="http://blog.deimos.fr/2014/03/18/packer-win-time-by-easily-testing-your-app-on-multiple-platforms/" target="_blank">tested Packer a few times ago</a> and decided to look at the features of the latest version.</p>
 
-<p>The last one is good enough to make all I needed. So I started to write a <a href="https://github.com/deimosfr/packer-wheezy">Packer configuration file (on GitHub)</a> and <strong>now I can build a Vagrant box ready in a few minutes in only one command!</strong></p>
+<p>The last one is good enough to make all I needed. So I started to write a <a href="https://github.com/deimosfr/packer-wheezy" target="_blank">Packer configuration file (on GitHub)</a> and <strong>now I can build a Vagrant box ready in a few minutes in only one command!</strong></p>
 
 <p>Do you want to see? First clone the repository:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://github.com/deimosfr/packer-wheezy</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ git clone https://github.com/deimosfr/packer-wheezy</code></pre></div>
 
 <p>Then edit _deimosfr<em>debian-wheezy</em> file and adapt the variables fields with the Debian version you want and the ISO sha512 checksum:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#e6db74">&#34;variables&#34;</span><span style="color:#f92672">:</span> {
-        <span style="color:#e6db74">&#34;debian_version&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;7.6.0&#34;</span>,
-        <span style="color:#e6db74">&#34;iso_checksum&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;f8f0e2ddc5bafd5eb4188cca40a7e0acd12be3bb425ce5ad56734df6e807237e8798e61ac6bb07b02056ef7e7621ceba5f84c00449be449005f9c4e47055333f&#34;</span>
-    },</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="s2">&#34;variables&#34;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&#34;debian_version&#34;</span><span class="o">:</span> <span class="s2">&#34;7.6.0&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;iso_checksum&#34;</span><span class="o">:</span> <span class="s2">&#34;f8f0e2ddc5bafd5eb4188cca40a7e0acd12be3bb425ce5ad56734df6e807237e8798e61ac6bb07b02056ef7e7621ceba5f84c00449be449005f9c4e47055333f&#34;</span>
+    <span class="p">},</span></code></pre></div>
 
 <p>Once done, create your box file:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ packer build deimosfr_debian-wheezy</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ packer build deimosfr_debian-wheezy</code></pre></div>
 
 <p>That&rsquo;s it :-)</p>
 
-<p>You can find the result on the vagrantcloud here if you only want to get the version built with it: <a href="https://vagrantcloud.com/deimosfr/debian-wheezy">https://vagrantcloud.com/deimosfr/debian-wheezy</a></p>
+<p>You can find the result on the vagrantcloud here if you only want to get the version built with it: <a href="https://vagrantcloud.com/deimosfr/debian-wheezy" target="_blank">https://vagrantcloud.com/deimosfr/debian-wheezy</a></p>
 
 <p>Thanks HashiCorp for Vagrant and Packer :-)</p>
 

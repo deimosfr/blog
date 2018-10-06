@@ -286,24 +286,24 @@ ga('send', 'pageview');
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p><img src="https://blog.deimos.fr/images/Perl_icon.png" alt="Perl_icon" />
-In the past, <a href="http://wiki.deimos.fr/Introduction_%C3%A0_Perl#Cr.C3.A9ation_d.27un_exe_sous_Windows">I already made an article on how to make exe from a Perl script on Windows</a>. I was <strong>using Strawberry</strong> or Activesync but have a preference for Strawberry as <strong>it&rsquo;s totally free</strong> :-).</p>
+In the past, <a href="http://wiki.deimos.fr/Introduction_%C3%A0_Perl#Cr.C3.A9ation_d.27un_exe_sous_Windows" target="_blank">I already made an article on how to make exe from a Perl script on Windows</a>. I was <strong>using Strawberry</strong> or Activesync but have a preference for Strawberry as <strong>it&rsquo;s totally free</strong> :-).</p>
 
 <p>This time, I tried to reproduce the tips but encountered several issues. The first one was that error :</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">The locale codeset <span style="color:#f92672">(</span>cp1252<span style="color:#f92672">)</span> isn<span style="color:#960050;background-color:#1e0010">&#39;</span>t one that perl can decode, stopped at Encode/Locale.pm line <span style="color:#ae81ff">94</span>.</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">The locale codeset <span class="o">(</span>cp1252<span class="o">)</span> isn<span class="err">&#39;</span>t one that perl can decode, stopped at Encode/Locale.pm line <span class="m">94</span>.</code></pre></div>
 
 <p>It could simply be <strong>resolved by addressing &lsquo;-x&rsquo;</strong> parameter to the &lsquo;pp&rsquo; command line.</p>
 
 <p>The other problem was this <strong>compilation error</strong> :</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">SYSTEM ERROR in executing url_service_action.pl: <span style="color:#ae81ff">256</span> at C:/strawberry/perl/site/lib/Module/ScanDeps.pm line <span style="color:#ae81ff">1302</span>.</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">SYSTEM ERROR in executing url_service_action.pl: <span class="m">256</span> at C:/strawberry/perl/site/lib/Module/ScanDeps.pm line <span class="m">1302</span>.</code></pre></div>
 
 <p>To quickly fix that issue, I did a sad thing : commenting those lines in C:\strawberry\perl\site\lib\Module\ScanDeps.pm line 1302 :</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#75715e">#die $compile</span>
-<span style="color:#75715e"># ? &#34;SYSTEM ERROR in compiling $file: $rc&#34;</span>
-<span style="color:#75715e"># : &#34;SYSTEM ERROR in executing $file: $rc&#34;</span>
-<span style="color:#75715e"># unless $rc == 0</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-perl" data-lang="perl"><span class="c1">#die $compile</span>
+<span class="c1"># ? &#34;SYSTEM ERROR in compiling $file: $rc&#34;</span>
+<span class="c1"># : &#34;SYSTEM ERROR in executing $file: $rc&#34;</span>
+<span class="c1"># unless $rc == 0</span></code></pre></div>
 
 <p>This is certainly not the best thing to do but it resolved my issue and my binary works perfectly :-)</p>
 

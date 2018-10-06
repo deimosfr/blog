@@ -282,7 +282,7 @@ ga('send', 'pageview');
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p><img src="https://blog.deimos.fr/images/logo_php.png" alt="php_logo" />
-Because of the <a href="https://twitter.com/dotdeb/status/504994627272056833">recent announce from DotDeb about PHP 5.6 availability on Debian</a>, I saw that I totally forgot to move from PHP 5.4 to 5.5.</p>
+Because of the <a href="https://twitter.com/dotdeb/status/504994627272056833" target="_blank">recent announce from DotDeb about PHP 5.6 availability on Debian</a>, I saw that I totally forgot to move from PHP 5.4 to 5.5.</p>
 
 <p>As I&rsquo;m hosting several WordPress, Mediawiki, Piwik and other PHP web software, I was not very comfortable with that migration. I knew that the major change was on PHP cache. I was intensively using APC cache but in PHP 5.5, it is deprecated and Opcache replace it. The advantage of Opcache is it&rsquo;s embedded in PHP 5.5 and maintained by the PHP team.</p>
 
@@ -292,21 +292,21 @@ Because of the <a href="https://twitter.com/dotdeb/status/504994627272056833">re
 <li>Opcode is not activated by default and I needed to enable it in php.ini. Here is my configuration:</li>
 </ol>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[opcache]</span>
-<span style="color:#a6e22e">opcache.enable</span><span style="color:#f92672">=</span><span style="color:#e6db74">1</span>
-<span style="color:#a6e22e">opcache.enable_cli</span><span style="color:#f92672">=</span><span style="color:#e6db74">1</span>
-<span style="color:#a6e22e">opcache.memory_consumption</span><span style="color:#f92672">=</span><span style="color:#e6db74">128</span>
-<span style="color:#a6e22e">opcache.interned_strings_buffer</span><span style="color:#f92672">=</span><span style="color:#e6db74">8</span>
-<span style="color:#a6e22e">opcache.max_accelerated_files</span><span style="color:#f92672">=</span><span style="color:#e6db74">4000</span>
-<span style="color:#a6e22e">opcache.revalidate_freq</span><span style="color:#f92672">=</span><span style="color:#e6db74">60</span>
-<span style="color:#a6e22e">opcache.fast_shutdown</span><span style="color:#f92672">=</span><span style="color:#e6db74">1</span>
-<span style="color:#a6e22e">opcache.consistency_checks</span><span style="color:#f92672">=</span><span style="color:#e6db74">1</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[opcache]</span>
+<span class="na">opcache.enable</span><span class="o">=</span><span class="s">1</span>
+<span class="na">opcache.enable_cli</span><span class="o">=</span><span class="s">1</span>
+<span class="na">opcache.memory_consumption</span><span class="o">=</span><span class="s">128</span>
+<span class="na">opcache.interned_strings_buffer</span><span class="o">=</span><span class="s">8</span>
+<span class="na">opcache.max_accelerated_files</span><span class="o">=</span><span class="s">4000</span>
+<span class="na">opcache.revalidate_freq</span><span class="o">=</span><span class="s">60</span>
+<span class="na">opcache.fast_shutdown</span><span class="o">=</span><span class="s">1</span>
+<span class="na">opcache.consistency_checks</span><span class="o">=</span><span class="s">1</span></code></pre></div>
 
 <ol>
 <li>The last thing is I had to install an extra package for the cache to be used by the web applications:</li>
 </ol>
 
-<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aptitude install php5-apcu</code></pre></div></p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">aptitude install php5-apcu</code></pre></div>
 
 <p>Once done, I restarted PHP-FPM and everything was running as expected without any other changes :-)</p>
 

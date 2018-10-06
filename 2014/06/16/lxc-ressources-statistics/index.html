@@ -288,43 +288,43 @@ ga('send', 'pageview');
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p><img src="https://blog.deimos.fr/images/Poweredbylinux.jpg" alt="Poweredbylinux" />
-I wanted to find a way to properly view resources (memory/CPU/IO) usages or configuration. For that I need to use <a href="https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Container_limits_.28cgroups.29" title="cgroups ">cgroups</a>. But the problem are on free, top, htop or common any tools, as they do not get the real informations of the container.</p>
+I wanted to find a way to properly view resources (memory/CPU/IO) usages or configuration. For that I need to use <a href="https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Container_limits_.28cgroups.29" title="cgroups " target="_blank">cgroups</a>. But the problem are on free, top, htop or common any tools, as they do not get the real informations of the container.</p>
 
-<p>We&rsquo;re in fact waiting on a lot of work on the kernel side or systemd side. More information&rsquo;s <a href="http://fabiokung.com/2014/03/13/memory-inside-linux-containers/">can be found here</a>. Another solution that permit to bind a socks inside containers exists called <a href="https://lwn.net/Articles/575683/">CGManager</a>, however classical tools doesn&rsquo;t use it to get informations.</p>
+<p>We&rsquo;re in fact waiting on a lot of work on the kernel side or systemd side. More information&rsquo;s <a href="http://fabiokung.com/2014/03/13/memory-inside-linux-containers/" target="_blank">can be found here</a>. Another solution that permit to bind a socks inside containers exists called <a href="https://lwn.net/Articles/575683/" target="_blank">CGManager</a>, however classical tools doesn&rsquo;t use it to get informations.</p>
 
 <p>In waiting a real solution, I wrote all little script that give information&rsquo;s regarding the container resources. It&rsquo;s quick and dirty but make the job:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">=====</span> mycontainer <span style="color:#f92672">=====</span>
-CPU, cap:                <span style="color:#ae81ff">3</span>-4,6-7
-CPU, shares:             <span style="color:#ae81ff">1024</span>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">=====</span> <span class="nv">mycontainer</span> <span class="o">=====</span>
+CPU, cap:                <span class="m">3</span>-4,6-7
+CPU, shares:             <span class="m">1024</span>
 RAM, limit usage:        2048M
 RAM+SWAP, limit usage:   3072M
-RAM, current usage:      <span style="color:#ae81ff">1577</span>.33M
-RAM+SWAP, current usage: <span style="color:#ae81ff">1582</span>.79M
+RAM, current usage:      <span class="m">1577</span>.33M
+RAM+SWAP, current usage: <span class="m">1582</span>.79M
 RAM, max usage:          2048M
-RAM+SWAP, max usage:     <span style="color:#ae81ff">2060</span>.5M
-DISK I/O weight:         <span style="color:#ae81ff">500</span></code></pre></div>
+RAM+SWAP, max usage:     <span class="m">2060</span>.5M
+DISK I/O weight:         <span class="m">500</span></code></pre></div>
 
 <p>Regarding the code, here it is&hellip;simply read the cgroups information:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>
-cd /sys/fs/cgroup/lxc/
-<span style="color:#66d9ef">for</span> i in * ; <span style="color:#66d9ef">do</span>
-    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -d $i <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">then</span>
-        echo <span style="color:#e6db74">&#34;===== </span>$i<span style="color:#e6db74"> =====&#34;</span>
-        echo <span style="color:#e6db74">&#34;CPU, cap:               &#34;</span> <span style="color:#66d9ef">$(</span>cat /sys/fs/cgroup/lxc/$i/cpuset.cpus<span style="color:#66d9ef">)</span>
-        echo <span style="color:#e6db74">&#34;CPU, shares:            &#34;</span> <span style="color:#66d9ef">$(</span>cat /sys/fs/cgroup/lxc/$i/cpu.shares<span style="color:#66d9ef">)</span>
-        awk <span style="color:#e6db74">&#39;{ printf &#34;RAM, limit usage:        %sM\n&#34;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/$i/memory.limit_in_bytes
-        awk <span style="color:#e6db74">&#39;{ printf &#34;RAM+SWAP, limit usage:   %sM\n&#34;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/$i/memory.memsw.limit_in_bytes
-        awk <span style="color:#e6db74">&#39;{ printf &#34;RAM, current usage:      %sM\n&#34;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/$i/memory.usage_in_bytes
-        awk <span style="color:#e6db74">&#39;{ printf &#34;RAM+SWAP, current usage: %sM\n&#34;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/$i/memory.memsw.usage_in_bytes
-        awk <span style="color:#e6db74">&#39;{ printf &#34;RAM, max usage:          %sM\n&#34;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/$i/memory.max_usage_in_bytes
-        awk <span style="color:#e6db74">&#39;{ printf &#34;RAM+SWAP, max usage:     %sM\n&#34;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/$i/memory.memsw.max_usage_in_bytes
-        echo <span style="color:#e6db74">&#34;DISK I/O weight:        &#34;</span> <span style="color:#66d9ef">$(</span>cat /sys/fs/cgroup/lxc/$i/blkio.weight<span style="color:#66d9ef">)</span>
-        echo <span style="color:#e6db74">&#34;&#34;</span>
-    <span style="color:#66d9ef">fi</span>  
-<span style="color:#66d9ef">done</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+<span class="nb">cd</span> /sys/fs/cgroup/lxc/
+<span class="k">for</span> i in * <span class="p">;</span> <span class="k">do</span>
+    <span class="k">if</span> <span class="o">[</span> -d <span class="nv">$i</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span> <span class="s2">&#34;===== </span><span class="nv">$i</span><span class="s2"> =====&#34;</span>
+        <span class="nb">echo</span> <span class="s2">&#34;CPU, cap:               &#34;</span> <span class="k">$(</span>cat /sys/fs/cgroup/lxc/<span class="nv">$i</span>/cpuset.cpus<span class="k">)</span>
+        <span class="nb">echo</span> <span class="s2">&#34;CPU, shares:            &#34;</span> <span class="k">$(</span>cat /sys/fs/cgroup/lxc/<span class="nv">$i</span>/cpu.shares<span class="k">)</span>
+        awk <span class="s1">&#39;{ printf &#34;RAM, limit usage:        %sM\n&#34;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/<span class="nv">$i</span>/memory.limit_in_bytes
+        awk <span class="s1">&#39;{ printf &#34;RAM+SWAP, limit usage:   %sM\n&#34;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/<span class="nv">$i</span>/memory.memsw.limit_in_bytes
+        awk <span class="s1">&#39;{ printf &#34;RAM, current usage:      %sM\n&#34;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/<span class="nv">$i</span>/memory.usage_in_bytes
+        awk <span class="s1">&#39;{ printf &#34;RAM+SWAP, current usage: %sM\n&#34;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/<span class="nv">$i</span>/memory.memsw.usage_in_bytes
+        awk <span class="s1">&#39;{ printf &#34;RAM, max usage:          %sM\n&#34;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/<span class="nv">$i</span>/memory.max_usage_in_bytes
+        awk <span class="s1">&#39;{ printf &#34;RAM+SWAP, max usage:     %sM\n&#34;, $1/ 1024/1024 }&#39;</span> /sys/fs/cgroup/lxc/<span class="nv">$i</span>/memory.memsw.max_usage_in_bytes
+        <span class="nb">echo</span> <span class="s2">&#34;DISK I/O weight:        &#34;</span> <span class="k">$(</span>cat /sys/fs/cgroup/lxc/<span class="nv">$i</span>/blkio.weight<span class="k">)</span>
+        <span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
+    <span class="k">fi</span>  
+<span class="k">done</span></code></pre></div>
 
 <p>Hope this help some of you who didn&rsquo;t know where to look at.</p>
 

@@ -290,12 +290,12 @@ ga('send', 'pageview');
             <div class="main-content-wrap">
               <p><img src="https://wiki.deimos.fr/images/5/50/Pagespeed.png" alt="Pagespeed" /></p>
 
-<p><a href="http://blog.deimos.fr/2014/02/12/page-speed-optimize-on-the-fly-your-rendered-code-with-nginx/">Following a previous post</a>, I&rsquo;ve enabled <a href="https://wiki.deimos.fr/Page_Speed:_optimize_on_the_fly_your_rendered_code">PageSpeed</a> on both <a href="http://wiki.deimos.fr">wiki</a> and <a href="http://blog.deimos.fr">blog</a> deimos.fr.</p>
+<p><a href="http://blog.deimos.fr/2014/02/12/page-speed-optimize-on-the-fly-your-rendered-code-with-nginx/" target="_blank">Following a previous post</a>, I&rsquo;ve enabled <a href="https://wiki.deimos.fr/Page_Speed:_optimize_on_the_fly_your_rendered_code" target="_blank">PageSpeed</a> on both <a href="http://wiki.deimos.fr" target="_blank">wiki</a> and <a href="http://blog.deimos.fr" target="_blank">blog</a> deimos.fr.</p>
 
 <p>What I can say is, it&rsquo;s very important to take the time to test every optimizations you want to add. I experienced for example issues on silly things like :</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Optimize browser rendering
-</span><span style="color:#75715e"></span>pagespeed EnableFilters lazyload_images;</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Optimize browser rendering
+</span><span class="c1"></span>pagespeed EnableFilters lazyload_images<span class="p">;</span></code></pre></div>
 
 <p>Some images weren&rsquo;t shown if you didn&rsquo;t refresh once again your page browser. I only had this problem on the blog and not the wiki. That&rsquo;s why you absolutely need to test everything !</p>
 

@@ -274,23 +274,23 @@ ga('send', 'pageview');
 
 <p>C&rsquo;est en fait à cause du CSS mis en place pour Monobook. J&rsquo;ai donc changer ceci :</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#960050;background-color:#1e0010">`</span><span style="color:#75715e">/* Changer la couleur de fond des articles */</span><span style="color:#f92672">&lt;</span><span style="color:#f92672">br</span> <span style="color:#f92672">/&gt;</span>
-.<span style="color:#a6e22e">ns-0</span> <span style="color:#f92672">*</span> #content<span style="color:#f92672">,</span> .<span style="color:#a6e22e">ns-0</span> <span style="color:#f92672">*</span> #p-cactions <span style="color:#f92672">li</span><span style="color:#f92672">,</span> .<span style="color:#a6e22e">ns-0</span> <span style="color:#f92672">*</span> #p-cactions <span style="color:#f92672">li</span> <span style="color:#f92672">a</span> {<span style="color:#960050;background-color:#1e0010">&lt;br</span> <span style="color:#960050;background-color:#1e0010">/&gt;</span>
-<span style="color:#66d9ef">filter</span>:<span style="color:#a6e22e">alpha</span>(opacity<span style="color:#960050;background-color:#1e0010">=</span><span style="color:#ae81ff">90</span>);<span style="color:#960050;background-color:#1e0010">&lt;br</span> <span style="color:#960050;background-color:#1e0010">/&gt;</span>
-<span style="color:#66d9ef">-moz-</span><span style="color:#66d9ef">opacity</span>:<span style="color:#ae81ff">.90</span>;<span style="color:#960050;background-color:#1e0010">&lt;br</span> <span style="color:#960050;background-color:#1e0010">/&gt;</span>
-<span style="color:#66d9ef">opacity</span>:<span style="color:#ae81ff">.90</span>;<span style="color:#960050;background-color:#1e0010">&lt;br</span> <span style="color:#960050;background-color:#1e0010">/&gt;</span>
-<span style="color:#75715e">/* Fin de la transparence*/</span><span style="color:#960050;background-color:#1e0010">`</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="err">`</span><span class="c">/* Changer la couleur de fond des articles */</span><span class="o">&lt;</span><span class="nt">br</span> <span class="o">/&gt;</span>
+<span class="p">.</span><span class="nc">ns-0</span> <span class="o">*</span> <span class="p">#</span><span class="nn">content</span><span class="o">,</span> <span class="p">.</span><span class="nc">ns-0</span> <span class="o">*</span> <span class="p">#</span><span class="nn">p-cactions</span> <span class="nt">li</span><span class="o">,</span> <span class="p">.</span><span class="nc">ns-0</span> <span class="o">*</span> <span class="p">#</span><span class="nn">p-cactions</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span><span class="err">&lt;br</span> <span class="err">/&gt;</span>
+<span class="k">filter</span><span class="p">:</span><span class="nf">alpha</span><span class="p">(</span><span class="n">opacity</span><span class="err">=</span><span class="mi">90</span><span class="p">);</span><span class="err">&lt;br</span> <span class="err">/&gt;</span>
+<span class="kp">-moz-</span><span class="k">opacity</span><span class="p">:</span><span class="mf">.90</span><span class="p">;</span><span class="err">&lt;br</span> <span class="err">/&gt;</span>
+<span class="k">opacity</span><span class="p">:</span><span class="mf">.90</span><span class="p">;</span><span class="err">&lt;br</span> <span class="err">/&gt;</span>
+<span class="c">/* Fin de la transparence*/</span><span class="err">`</span></code></pre></div>
 
 <p>En cela :</p>
 
-<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#960050;background-color:#1e0010">`</span><span style="color:#75715e">/* Changer la couleur de fond des articles */</span><span style="color:#f92672">&lt;</span><span style="color:#f92672">br</span> <span style="color:#f92672">/&gt;</span>
-.<span style="color:#a6e22e">ns-0</span> <span style="color:#f92672">*</span> #content<span style="color:#f92672">,</span> .<span style="color:#a6e22e">ns-0</span> <span style="color:#f92672">*</span> #p-cactions <span style="color:#f92672">li</span><span style="color:#f92672">,</span> .<span style="color:#a6e22e">ns-0</span> <span style="color:#f92672">*</span> #p-cactions <span style="color:#f92672">li</span> <span style="color:#f92672">a</span> {<span style="color:#960050;background-color:#1e0010">&lt;br</span> <span style="color:#960050;background-color:#1e0010">/&gt;</span>
-<span style="color:#66d9ef">filter</span>:<span style="color:#a6e22e">alpha</span>(opacity<span style="color:#960050;background-color:#1e0010">=</span><span style="color:#ae81ff">90</span>);<span style="color:#960050;background-color:#1e0010">&lt;br</span> <span style="color:#960050;background-color:#1e0010">/&gt;</span>
-}<span style="color:#960050;background-color:#1e0010">`</span></code></pre></div></p>
+<p><div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="err">`</span><span class="c">/* Changer la couleur de fond des articles */</span><span class="o">&lt;</span><span class="nt">br</span> <span class="o">/&gt;</span>
+<span class="p">.</span><span class="nc">ns-0</span> <span class="o">*</span> <span class="p">#</span><span class="nn">content</span><span class="o">,</span> <span class="p">.</span><span class="nc">ns-0</span> <span class="o">*</span> <span class="p">#</span><span class="nn">p-cactions</span> <span class="nt">li</span><span class="o">,</span> <span class="p">.</span><span class="nc">ns-0</span> <span class="o">*</span> <span class="p">#</span><span class="nn">p-cactions</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span><span class="err">&lt;br</span> <span class="err">/&gt;</span>
+<span class="k">filter</span><span class="p">:</span><span class="nf">alpha</span><span class="p">(</span><span class="n">opacity</span><span class="err">=</span><span class="mi">90</span><span class="p">);</span><span class="err">&lt;br</span> <span class="err">/&gt;</span>
+<span class="p">}</span><span class="err">`</span></code></pre></div></p>
 
 <p>Et c&rsquo;est fini, ça ne freeze plus firefox. Ahhhhhh enfin&hellip;.</p>
 
-<p><a href="http://wiki.deimos.fr/MediaWiki:Installation_et_configuration#Affichage_Monobook">http://wiki.deimos.fr/MediaWiki:Installation_et_configuration#Affichage_Monobook</a></p>
+<p><a href="http://wiki.deimos.fr/MediaWiki:Installation_et_configuration#Affichage_Monobook" target="_blank">http://wiki.deimos.fr/MediaWiki:Installation_et_configuration#Affichage_Monobook</a></p>
 
               
             </div>

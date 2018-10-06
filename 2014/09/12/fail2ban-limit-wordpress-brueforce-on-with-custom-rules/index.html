@@ -276,17 +276,17 @@ ga('send', 'pageview');
 
 <p>I decided to adapt those rules to block bruteforce login attack for WordPress. The problem is WordPress is not returning 403 error code when a user fail to logon but return a 200 instead :-/. So to deal with it without modifying WordPress code, I had to to play with requested URL instead which give something like this:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#75715e"># WordPress brute force auth filter</span>
-<span style="color:#75715e">#</span>
-<span style="color:#75715e"># Block IPs trying to auth wp wordpress</span>
-<span style="color:#75715e">#</span>
-<span style="color:#66d9ef">[Definition]</span>
-<span style="color:#a6e22e">failregex</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">^&lt;HOST&gt; -.*&#34;POST.*(wp-login|xmlrpc)\.php</span>
-<span style="color:#a6e22e">ignoreregex</span> <span style="color:#f92672">=</span><span style="color:#e6db74"></span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-ini" data-lang="ini"><span class="c1"># WordPress brute force auth filter</span>
+<span class="c1">#</span>
+<span class="c1"># Block IPs trying to auth wp wordpress</span>
+<span class="c1">#</span>
+<span class="k">[Definition]</span>
+<span class="na">failregex</span> <span class="o">=</span> <span class="s">^&lt;HOST&gt; -.*&#34;POST.*(wp-login|xmlrpc)\.php</span>
+<span class="na">ignoreregex</span> <span class="o">=</span><span class="s"></span></code></pre></div>
 
 <p>The problem here is that I&rsquo;m have to block xmlrpc attacks too which can lead to blocking yourself if you&rsquo;re attempting to update several posts using xmlrpc too. This can generally be the case if you&rsquo;re using WordPress mobile version.</p>
 
-<p>I&rsquo;ve made a complete doc here <a href="https://wiki.deimos.fr/Fail2ban_:_mise_en_place_de_r%C3%A8gles_automatis%C3%A9es_iptables_pour_contrer_les_attaques_par_bruteforce">if you want to setup it for WordPress</a>. Hope this will help.</p>
+<p>I&rsquo;ve made a complete doc here <a href="https://wiki.deimos.fr/Fail2ban_:_mise_en_place_de_r%C3%A8gles_automatis%C3%A9es_iptables_pour_contrer_les_attaques_par_bruteforce" target="_blank">if you want to setup it for WordPress</a>. Hope this will help.</p>
 
               
             </div>

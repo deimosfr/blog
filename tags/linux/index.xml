@@ -38,7 +38,7 @@ At Nousmotards we have several Java Spring Boot applications running. Restarti
       
       <guid>https://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/</guid>
       <description>As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:
-consul_template_version: &amp;#39;0.11.0&amp;#39; consul_template_arch: &amp;#39;linux_amd64&amp;#39; consul_template_http_src: &amp;#34;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&amp;#34; You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
+consul_template_version:&amp;#39;0.11.0&amp;#39;consul_template_arch:&amp;#39;linux_amd64&amp;#39;consul_template_http_src:&amp;#34;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&amp;#34; You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
 I hope you&amp;rsquo;ll enjoy this new version :-)</description>
     </item>
     

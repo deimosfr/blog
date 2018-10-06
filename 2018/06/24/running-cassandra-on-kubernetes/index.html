@@ -297,10 +297,10 @@ ga('send', 'pageview');
 
 <p><img src="https://blog.deimos.fr/images/logo_cassandra.png" alt="Cassandra" /></p>
 
-<p>For my own company <a href="https://mysocialapp.io/?ref=deimos_fr_running_cassandra_on_kubernetes">MySocialApp</a>, I&rsquo;m managing multiple <a href="http://cassandra.apache.org/">Cassandra</a> clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:</p>
+<p>For my own company <a href="https://mysocialapp.io/?ref=deimos_fr_running_cassandra_on_kubernetes" target="_blank">MySocialApp</a>, I&rsquo;m managing multiple <a href="http://cassandra.apache.org/" target="_blank">Cassandra</a> clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:</p>
 
 <blockquote>
-<p>The <a href="http://cassandra.apache.org/">Apache Cassandra</a> database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data. Cassandra&rsquo;s support for replicating across multiple datacenters is best-in-class, providing lower latency for your users and the peace of mind of knowing that you can survive regional outages.</p>
+<p>The <a href="http://cassandra.apache.org/" target="_blank">Apache Cassandra</a> database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data. Cassandra&rsquo;s support for replicating across multiple datacenters is best-in-class, providing lower latency for your users and the peace of mind of knowing that you can survive regional outages.</p>
 </blockquote>
 
 <p>What does that mean having a Cassandra cluster in a Kubernetes on premise cluster? Here are the basics:</p>
@@ -312,50 +312,50 @@ ga('send', 'pageview');
 <li><strong>Self management</strong>: having a Cassandra self managed solution on Kubernetes is a good idea, however managing all scenario cases on distributed systems is a very long and complex achievement.</li>
 </ul>
 
-<p>That&rsquo;s why in this blog post, you&rsquo;ll see how I made a <a href="https://github.com/MySocialApp/kubernetes-helm-chart-cassandra/">Cassandra helm chart</a>, what are the benefits based on my experience on Cassandra + Kubernetes and finally how it works.</p>
+<p>That&rsquo;s why in this blog post, you&rsquo;ll see how I made a <a href="https://github.com/MySocialApp/kubernetes-helm-chart-cassandra/" target="_blank">Cassandra helm chart</a>, what are the benefits based on my experience on Cassandra + Kubernetes and finally how it works.</p>
 
 <h1 id="performances">Performances</h1>
 
-<p>Cassandra require a local storage to get the best performances. That&rsquo;s why you should avoid using distributed storage and use a hostPath or <a href="https://kubernetes.io/docs/concepts/storage/volumes/">localstorage</a> configuration like:</p>
+<p>Cassandra require a local storage to get the best performances. That&rsquo;s why you should avoid using distributed storage and use a hostPath or <a href="https://kubernetes.io/docs/concepts/storage/volumes/" target="_blank">localstorage</a> configuration like:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">volumes:
-  - name: cassandra-data
-    hostPath:
-      path: /mnt/data/{{ .Release.Namespace }}/cassandra</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">volumes<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>cassandra-data<span class="w">
+</span><span class="w">    </span>hostPath<span class="p">:</span><span class="w">
+</span><span class="w">      </span>path<span class="p">:</span><span class="w"> </span>/mnt/data/{{<span class="w"> </span>.Release.Namespace<span class="w"> </span>}}/cassandra</code></pre></div>
 
 <p>More than that, Cassandra maanges by itself replication. Let&rsquo;s say you&rsquo;ve got a RF (Replication Factor) of 3, your data is available on 3 nodes. If you&rsquo;re using a distributed storage on top of Cassandra, it certainly also has a x3 RF. Which mean the same <strong>data is stored 9 times</strong>. That&rsquo;s a huge waste of space and money in addition of the performances.</p>
 
 <p>Another thing, I&rsquo;ve added some default Cassandra options, however I recommend to update the Cassandra configuration settings according to your hardware and wishes:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">cassandraConfig:
-  concurrentWrites: <span style="color:#ae81ff">128</span>
-  concurrentReads: <span style="color:#ae81ff">128</span>
-  concurrentCompactors: <span style="color:#ae81ff">2</span>
-  batchSizeWarnThresholdInKb: <span style="color:#ae81ff">64</span>
-  batchSizeFailThresholdInKb: <span style="color:#ae81ff">640</span>
-  compactionThroughputMbPerSec: <span style="color:#ae81ff">150</span>
-  heapNewSize: 256M
-  hintedHandoffThrottleInKb: <span style="color:#ae81ff">4096</span>
-  maxHeap: 4G
-  maxHintsDeliveryThreads: <span style="color:#ae81ff">4</span>
-  memtableAllocationType: <span style="color:#e6db74">&#34;offheap_objects&#34;</span>
-  memtableFlushWriter: <span style="color:#ae81ff">4</span>
-  memtableCleanupThreshold: <span style="color:#ae81ff">0.2</span>
-  rowCacheSizeInMb: <span style="color:#ae81ff">128</span>
-  rowCacheSavePeriod: <span style="color:#ae81ff">14400</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">cassandraConfig<span class="p">:</span><span class="w">
+</span><span class="w">  </span>concurrentWrites<span class="p">:</span><span class="w"> </span><span class="m">128</span><span class="w">
+</span><span class="w">  </span>concurrentReads<span class="p">:</span><span class="w"> </span><span class="m">128</span><span class="w">
+</span><span class="w">  </span>concurrentCompactors<span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span><span class="w">  </span>batchSizeWarnThresholdInKb<span class="p">:</span><span class="w"> </span><span class="m">64</span><span class="w">
+</span><span class="w">  </span>batchSizeFailThresholdInKb<span class="p">:</span><span class="w"> </span><span class="m">640</span><span class="w">
+</span><span class="w">  </span>compactionThroughputMbPerSec<span class="p">:</span><span class="w"> </span><span class="m">150</span><span class="w">
+</span><span class="w">  </span>heapNewSize<span class="p">:</span><span class="w"> </span>256M<span class="w">
+</span><span class="w">  </span>hintedHandoffThrottleInKb<span class="p">:</span><span class="w"> </span><span class="m">4096</span><span class="w">
+</span><span class="w">  </span>maxHeap<span class="p">:</span><span class="w"> </span>4G<span class="w">
+</span><span class="w">  </span>maxHintsDeliveryThreads<span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="w">
+</span><span class="w">  </span>memtableAllocationType<span class="p">:</span><span class="w"> </span><span class="s2">&#34;offheap_objects&#34;</span><span class="w">
+</span><span class="w">  </span>memtableFlushWriter<span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="w">
+</span><span class="w">  </span>memtableCleanupThreshold<span class="p">:</span><span class="w"> </span><span class="m">0.2</span><span class="w">
+</span><span class="w">  </span>rowCacheSizeInMb<span class="p">:</span><span class="w"> </span><span class="m">128</span><span class="w">
+</span><span class="w">  </span>rowCacheSavePeriod<span class="p">:</span><span class="w"> </span><span class="m">14400</span></code></pre></div>
 
 <p>To reduce performance issues as well and reduce cluster failure in case of an issue, I should <strong>avoid getting multiple instances on the same physocal host</strong>. For that I&rsquo;m using <code>podAntiAffinity</code>:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">affinity:
-  podAntiAffinity:
-    requiredDuringSchedulingIgnoredDuringExecution:
-    - labelSelector:
-        matchExpressions:
-        - key: app
-          operator: In
-          values:
-          - {{ template <span style="color:#e6db74">&#34;kubernetes.name&#34;</span> . }}
-      topologyKey: kubernetes.io/hostname</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">affinity<span class="p">:</span><span class="w">
+</span><span class="w">  </span>podAntiAffinity<span class="p">:</span><span class="w">
+</span><span class="w">    </span>requiredDuringSchedulingIgnoredDuringExecution<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>labelSelector<span class="p">:</span><span class="w">
+</span><span class="w">        </span>matchExpressions<span class="p">:</span><span class="w">
+</span><span class="w">        </span>-<span class="w"> </span>key<span class="p">:</span><span class="w"> </span>app<span class="w">
+</span><span class="w">          </span>operator<span class="p">:</span><span class="w"> </span>In<span class="w">
+</span><span class="w">          </span>values<span class="p">:</span><span class="w">
+</span><span class="w">          </span>-<span class="w"> </span>{{<span class="w"> </span>template<span class="w"> </span><span class="s2">&#34;kubernetes.name&#34;</span><span class="w"> </span>.<span class="w"> </span>}}<span class="w">
+</span><span class="w">      </span>topologyKey<span class="p">:</span><span class="w"> </span>kubernetes.io/hostname</code></pre></div>
 
 <p>You can also tune the JVM memory allocation and parameters to optimize memory usage in a container.</p>
 
@@ -363,7 +363,7 @@ ga('send', 'pageview');
 
 <h2 id="statefulset">Statefulset</h2>
 
-<p>On this <a href="https://github.com/MySocialApp/kubernetes-helm-chart-cassandra/">Cassandra helm chart</a>, I decided to use <code>Statefulset</code> because:</p>
+<p>On this <a href="https://github.com/MySocialApp/kubernetes-helm-chart-cassandra/" target="_blank">Cassandra helm chart</a>, I decided to use <code>Statefulset</code> because:</p>
 
 <ul>
 <li>It understands the complexity of most of the stateful applications and have a the corresponding behavior</li>
@@ -374,19 +374,19 @@ ga('send', 'pageview');
 
 <h2 id="upgrade-stategy">Upgrade stategy</h2>
 
-<p>Regarding the rollout and <a href="https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#update-strategies">rolling upgrade/restart strategy</a>, it&rsquo;s really simple with this kind of rules on a Statefulset, I&rsquo;m sure the procedure won&rsquo;t go too fast:</p>
+<p>Regarding the rollout and <a href="https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#update-strategies" target="_blank">rolling upgrade/restart strategy</a>, it&rsquo;s really simple with this kind of rules on a Statefulset, I&rsquo;m sure the procedure won&rsquo;t go too fast:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">updateStrategy:
-  type: <span style="color:#e6db74">&#34;RollingUpdate&#34;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">updateStrategy<span class="p">:</span><span class="w">
+</span><span class="w">  </span>type<span class="p">:</span><span class="w"> </span><span class="s2">&#34;RollingUpdate&#34;</span></code></pre></div>
 
 <h2 id="pod-disruption-budget">Pod disruption budget</h2>
 
 <p>Using the <code>PodDisruptionBudget</code>, I&rsquo;m also sure I won&rsquo;t have more than 1 (the default) planned node down in my cluster. With a RF of 3, I know I can loose a node during a rolling restart:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">maxUnavailable: {{ .Values.cassandraMaxUnavailableNodes }}
-selector:
-  matchLabels:
-    app: {{ template <span style="color:#e6db74">&#34;kubernetes.name&#34;</span> . }}</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">maxUnavailable<span class="p">:</span><span class="w"> </span>{{<span class="w"> </span>.Values.cassandraMaxUnavailableNodes<span class="w"> </span>}}<span class="w">
+</span><span class="w"></span>selector<span class="p">:</span><span class="w">
+</span><span class="w">  </span>matchLabels<span class="p">:</span><span class="w">
+</span><span class="w">    </span>app<span class="p">:</span><span class="w"> </span>{{<span class="w"> </span>template<span class="w"> </span><span class="s2">&#34;kubernetes.name&#34;</span><span class="w"> </span>.<span class="w"> </span>}}</code></pre></div>
 
 <h2 id="run-override">Run override</h2>
 
@@ -397,9 +397,9 @@ selector:
 <li><strong>Flexibility</strong>: it makes possible to add specific command before the instance start. This could be very be useful if you need to run at a given time some commands, but can&rsquo;t rolling restart the whole cluster. This already saved my life twice.</li>
 </ul>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>
-source /usr/local/apache-cassandra/scripts/envVars.sh
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+<span class="nb">source</span> /usr/local/apache-cassandra/scripts/envVars.sh
 /usr/local/apache-cassandra/scripts/jvm_options.sh
 
 /run.sh</code></pre></div>
@@ -410,54 +410,54 @@ source /usr/local/apache-cassandra/scripts/envVars.sh
 
 <ul>
 <li>I&rsquo;m ensuring the service is up and running</li>
-<li>I&rsquo;m registering the cluster to <a href="http://cassandra-reaper.io">Cassandra reaper</a> if not already done (will talk later about Cassandra Reaper)</li>
+<li>I&rsquo;m registering the cluster to <a href="http://cassandra-reaper.io" target="_blank">Cassandra reaper</a> if not already done (will talk later about Cassandra Reaper)</li>
 </ul>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>source /usr/local/apache-cassandra/scripts/envVars.sh
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nb">source</span> /usr/local/apache-cassandra/scripts/envVars.sh
 
-<span style="color:#66d9ef">until</span> /ready-probe.sh ; <span style="color:#66d9ef">do</span>
-  echo <span style="color:#e6db74">&#34;Waiting node to be ready&#34;</span>
-  sleep <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">done</span>
+<span class="k">until</span> /ready-probe.sh <span class="p">;</span> <span class="k">do</span>
+  <span class="nb">echo</span> <span class="s2">&#34;Waiting node to be ready&#34;</span>
+  sleep <span class="m">1</span>
+<span class="k">done</span>
 
-<span style="color:#f92672">{{</span>- <span style="color:#66d9ef">if</span> .Values.cassandraReaper.enabled <span style="color:#f92672">}}</span>
-<span style="color:#75715e"># Wait until replicas is 3 to ready Cassandra Reaper database
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>hostname<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;cassandra-2&#39;</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">then</span>
-  cqlsh -e <span style="color:#e6db74">&#34;CREATE KEYSPACE IF NOT EXISTS reaper_db WITH replication = {&#39;class&#39;: &#39;NetworkTopologyStrategy&#39;, &#39;{{ .Values.cassandraDC }}&#39;: 3};&#34;</span> &gt; /var/log/reaperdb.log
-<span style="color:#66d9ef">fi</span>
-<span style="color:#f92672">{{</span>- end <span style="color:#f92672">}}</span>
+<span class="o">{{</span>- <span class="k">if</span> .Values.cassandraReaper.enabled <span class="o">}}</span>
+<span class="c1"># Wait until replicas is 3 to ready Cassandra Reaper database
+</span><span class="c1"></span><span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="k">$(</span>hostname<span class="k">)</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s1">&#39;cassandra-2&#39;</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+  cqlsh -e <span class="s2">&#34;CREATE KEYSPACE IF NOT EXISTS reaper_db WITH replication = {&#39;class&#39;: &#39;NetworkTopologyStrategy&#39;, &#39;{{ .Values.cassandraDC }}&#39;: 3};&#34;</span> &gt; /var/log/reaperdb.log
+<span class="k">fi</span>
+<span class="o">{{</span>- end <span class="o">}}</span>
 
-<span style="color:#f92672">{{</span>- <span style="color:#66d9ef">if</span> .Values.cassandraReaperRegister.enableReaperRegister <span style="color:#f92672">}}</span>
-<span style="color:#75715e"># Register cluster into Cassandra Reaper
-</span><span style="color:#75715e"># Do not target current instance to avoid unready instance status (and registration failure)
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>hostname<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;cassandra-0&#39;</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">then</span>
-  seedHost<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>hostname -A | sed <span style="color:#e6db74">&#39;s/^cassandra-0/cassandra-1/&#39;</span><span style="color:#66d9ef">)</span>
-<span style="color:#66d9ef">else</span>
-  seedHost<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>hostname -A | sed -r <span style="color:#e6db74">&#39;s/^cassandra-\w+(\..+)/cassandra-0\1/&#39;</span><span style="color:#66d9ef">)</span>
-<span style="color:#66d9ef">fi</span>
+<span class="o">{{</span>- <span class="k">if</span> .Values.cassandraReaperRegister.enableReaperRegister <span class="o">}}</span>
+<span class="c1"># Register cluster into Cassandra Reaper
+</span><span class="c1"># Do not target current instance to avoid unready instance status (and registration failure)
+</span><span class="c1"></span><span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="k">$(</span>hostname<span class="k">)</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s1">&#39;cassandra-0&#39;</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+  <span class="nv">seedHost</span><span class="o">=</span><span class="k">$(</span>hostname -A <span class="p">|</span> sed <span class="s1">&#39;s/^cassandra-0/cassandra-1/&#39;</span><span class="k">)</span>
+<span class="k">else</span>
+  <span class="nv">seedHost</span><span class="o">=</span><span class="k">$(</span>hostname -A <span class="p">|</span> sed -r <span class="s1">&#39;s/^cassandra-\w+(\..+)/cassandra-0\1/&#39;</span><span class="k">)</span>
+<span class="k">fi</span>
 
-<span style="color:#75715e"># Check if cluster needs to be registred or simply updated
-</span><span style="color:#75715e"></span>counter<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#66d9ef">$(</span>curl -s <span style="color:#e6db74">&#34;http://{{ .Values.cassandraReaperRegister.reaperServerServiceName }}/cluster&#34;</span> | grep -c $CASSANDRA_CLUSTER_NAME<span style="color:#66d9ef">)</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">then</span>
-  <span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span> <span style="color:#66d9ef">$(</span>curl -s -I -X POST <span style="color:#e6db74">&#34;http://{{ .Values.cassandraReaperRegister.reaperServerServiceName }}/cluster?seedHost=</span>$seedHost<span style="color:#e6db74">&#34;</span> | grep -c <span style="color:#e6db74">&#34;^HTTP/1.1 201 Created&#34;</span><span style="color:#66d9ef">)</span> !<span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">do</span>
-    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $counter <span style="color:#f92672">==</span> <span style="color:#ae81ff">5</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">then</span>
-      break
-    <span style="color:#66d9ef">fi</span>
-    counter<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span>counter+1<span style="color:#66d9ef">))</span>
-    sleep <span style="color:#ae81ff">5</span>
-  <span style="color:#66d9ef">done</span>
-<span style="color:#66d9ef">else</span>
-  <span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span> <span style="color:#66d9ef">$(</span>curl -s -I -X PUT <span style="color:#e6db74">&#34;http://{{ .Values.cassandraReaperRegister.reaperServerServiceName }}/cluster/</span><span style="color:#e6db74">${</span>CASSANDRA_CLUSTER_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">?seedHost=</span>$seedHost<span style="color:#e6db74">&#34;</span> | egrep -c <span style="color:#e6db74">&#34;^HTTP/1.1 (200|304)&#34;</span><span style="color:#66d9ef">)</span> !<span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">do</span>
-    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $counter <span style="color:#f92672">==</span> <span style="color:#ae81ff">5</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">then</span>
-      break
-    <span style="color:#66d9ef">fi</span>
-    counter<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span>counter+1<span style="color:#66d9ef">))</span>
-    sleep <span style="color:#ae81ff">5</span>
-  <span style="color:#66d9ef">done</span>
-<span style="color:#66d9ef">fi</span>
-<span style="color:#f92672">{{</span>- end <span style="color:#f92672">}}</span>
-exit <span style="color:#ae81ff">0</span></code></pre></div>
+<span class="c1"># Check if cluster needs to be registred or simply updated
+</span><span class="c1"></span><span class="nv">counter</span><span class="o">=</span><span class="m">0</span>
+<span class="k">if</span> <span class="o">[</span> <span class="k">$(</span>curl -s <span class="s2">&#34;http://{{ .Values.cassandraReaperRegister.reaperServerServiceName }}/cluster&#34;</span> <span class="p">|</span> grep -c <span class="nv">$CASSANDRA_CLUSTER_NAME</span><span class="k">)</span> <span class="o">==</span> <span class="m">0</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+  <span class="k">while</span> <span class="o">[</span> <span class="k">$(</span>curl -s -I -X POST <span class="s2">&#34;http://{{ .Values.cassandraReaperRegister.reaperServerServiceName }}/cluster?seedHost=</span><span class="nv">$seedHost</span><span class="s2">&#34;</span> <span class="p">|</span> grep -c <span class="s2">&#34;^HTTP/1.1 201 Created&#34;</span><span class="k">)</span> !<span class="o">=</span> <span class="m">1</span> <span class="o">]</span> <span class="p">;</span> <span class="k">do</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="nv">$counter</span> <span class="o">==</span> <span class="m">5</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+      <span class="nb">break</span>
+    <span class="k">fi</span>
+    <span class="nv">counter</span><span class="o">=</span><span class="k">$((</span>counter+1<span class="k">))</span>
+    sleep <span class="m">5</span>
+  <span class="k">done</span>
+<span class="k">else</span>
+  <span class="k">while</span> <span class="o">[</span> <span class="k">$(</span>curl -s -I -X PUT <span class="s2">&#34;http://{{ .Values.cassandraReaperRegister.reaperServerServiceName }}/cluster/</span><span class="si">${</span><span class="nv">CASSANDRA_CLUSTER_NAME</span><span class="si">}</span><span class="s2">?seedHost=</span><span class="nv">$seedHost</span><span class="s2">&#34;</span> <span class="p">|</span> egrep -c <span class="s2">&#34;^HTTP/1.1 (200|304)&#34;</span><span class="k">)</span> !<span class="o">=</span> <span class="m">1</span> <span class="o">]</span> <span class="p">;</span> <span class="k">do</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="nv">$counter</span> <span class="o">==</span> <span class="m">5</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+      <span class="nb">break</span>
+    <span class="k">fi</span>
+    <span class="nv">counter</span><span class="o">=</span><span class="k">$((</span>counter+1<span class="k">))</span>
+    sleep <span class="m">5</span>
+  <span class="k">done</span>
+<span class="k">fi</span>
+<span class="o">{{</span>- end <span class="o">}}</span>
+<span class="nb">exit</span> <span class="m">0</span></code></pre></div>
 
 <h2 id="pre-stop-hook">Pre stop hook</h2>
 
@@ -468,30 +468,30 @@ exit <span style="color:#ae81ff">0</span></code></pre></div>
 <li>I&rsquo;m ensuring the node stops properly</li>
 </ul>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/sh
-</span><span style="color:#75715e"></span>
-run_nodetool<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-  echo <span style="color:#e6db74">&#34;Running: nodetool </span>$1<span style="color:#e6db74">&#34;</span>
-  /usr/local/apache-cassandra/bin/nodetool $1
-  sleep <span style="color:#ae81ff">5</span>
-<span style="color:#f92672">}</span>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/sh
+</span><span class="cp"></span>
+run_nodetool<span class="o">()</span> <span class="o">{</span>
+  <span class="nb">echo</span> <span class="s2">&#34;Running: nodetool </span><span class="nv">$1</span><span class="s2">&#34;</span>
+  /usr/local/apache-cassandra/bin/nodetool <span class="nv">$1</span>
+  sleep <span class="m">5</span>
+<span class="o">}</span>
 
-<span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span> <span style="color:#66d9ef">$(</span>/usr/local/apache-cassandra/bin/nodetool status | awk <span style="color:#e6db74">&#34;/</span>$CASSANDRA_RACK<span style="color:#e6db74">/{ print \$1,\$2 }&#34;</span> | grep -v $POD_IP | awk <span style="color:#e6db74">&#39;{ print $1 }&#39;</span> | grep -v UN<span style="color:#66d9ef">)</span> -eq <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">do</span>
-  echo <span style="color:#e6db74">&#34;Waiting all nodes to recover a correct status before draining this node&#34;</span>
-  sleep <span style="color:#ae81ff">5</span>
-  pidof java <span style="color:#f92672">||</span> exit <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">done</span>
+<span class="k">while</span> <span class="o">[</span> <span class="k">$(</span>/usr/local/apache-cassandra/bin/nodetool status <span class="p">|</span> awk <span class="s2">&#34;/</span><span class="nv">$CASSANDRA_RACK</span><span class="s2">/{ print \$1,\$2 }&#34;</span> <span class="p">|</span> grep -v <span class="nv">$POD_IP</span> <span class="p">|</span> awk <span class="s1">&#39;{ print $1 }&#39;</span> <span class="p">|</span> grep -v UN<span class="k">)</span> -eq <span class="m">0</span> <span class="o">]</span> <span class="p">;</span> <span class="k">do</span>
+  <span class="nb">echo</span> <span class="s2">&#34;Waiting all nodes to recover a correct status before draining this node&#34;</span>
+  sleep <span class="m">5</span>
+  pidof java <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">done</span>
 
 run_nodetool disablethrift
 run_nodetool disablebinary
 run_nodetool disablegossip
 run_nodetool flush
 run_nodetool drain
-sleep <span style="color:#ae81ff">10</span>
+sleep <span class="m">10</span>
 run_nodetool stop
 run_nodetool stopdaemon
 
-exit <span style="color:#ae81ff">0</span></code></pre></div>
+<span class="nb">exit</span> <span class="m">0</span></code></pre></div>
 
 <h1 id="observability">Observability</h1>
 
@@ -499,38 +499,38 @@ exit <span style="color:#ae81ff">0</span></code></pre></div>
 
 <h2 id="cassandra-exporter">Cassandra exporter</h2>
 
-<p>To make it simple, I&rsquo;m using the Prometheus format (as it becomes the standard now) and I&rsquo;m using <a href="https://github.com/criteo/cassandra_exporter">Cassandra Exporter</a> (made by my NoSQL team at <a href="https://www.criteo.com">Criteo</a>).</p>
+<p>To make it simple, I&rsquo;m using the Prometheus format (as it becomes the standard now) and I&rsquo;m using <a href="https://github.com/criteo/cassandra_exporter" target="_blank">Cassandra Exporter</a> (made by my NoSQL team at <a href="https://www.criteo.com" target="_blank">Criteo</a>).</p>
 
 <p>On each nodes it will deploy an exporter (an additional container in the Cassandra pod):</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># Cassandra Exporter</span>
-cassandraExporter:
-  enableExporter: <span style="color:#66d9ef">false</span>
-  replicaCount: <span style="color:#ae81ff">1</span>
-  imageVersion: <span style="color:#ae81ff">1.0</span>.<span style="color:#ae81ff">2</span>
-  nodeSelector:
-    node-role.kubernetes.io/node: <span style="color:#e6db74">&#34;true&#34;</span>
-  resources:
-    limits:
-      cpu: 300m
-      memory: 500Mi
-    requests:
-      cpu: 300m
-      memory: 500Mi
-  config:
-    host: <span style="color:#ae81ff">127.0</span>.<span style="color:#ae81ff">0.1</span>:<span style="color:#ae81ff">7199</span>
-    listenPort: <span style="color:#ae81ff">8080</span>
-    jvmOpts: <span style="color:#e6db74">&#34;&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># Cassandra Exporter</span><span class="w">
+</span><span class="w"></span>cassandraExporter<span class="p">:</span><span class="w">
+</span><span class="w">  </span>enableExporter<span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w">  </span>replicaCount<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">  </span>imageVersion<span class="p">:</span><span class="w"> </span><span class="m">1.0</span>.<span class="m">2</span><span class="w">
+</span><span class="w">  </span>nodeSelector<span class="p">:</span><span class="w">
+</span><span class="w">    </span>node-role.kubernetes.io/node<span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
+</span><span class="w">  </span>resources<span class="p">:</span><span class="w">
+</span><span class="w">    </span>limits<span class="p">:</span><span class="w">
+</span><span class="w">      </span>cpu<span class="p">:</span><span class="w"> </span>300m<span class="w">
+</span><span class="w">      </span>memory<span class="p">:</span><span class="w"> </span>500Mi<span class="w">
+</span><span class="w">    </span>requests<span class="p">:</span><span class="w">
+</span><span class="w">      </span>cpu<span class="p">:</span><span class="w"> </span>300m<span class="w">
+</span><span class="w">      </span>memory<span class="p">:</span><span class="w"> </span>500Mi<span class="w">
+</span><span class="w">  </span>config<span class="p">:</span><span class="w">
+</span><span class="w">    </span>host<span class="p">:</span><span class="w"> </span><span class="m">127.0</span>.<span class="m">0.1</span><span class="p">:</span><span class="m">7199</span><span class="w">
+</span><span class="w">    </span>listenPort<span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
+</span><span class="w">    </span>jvmOpts<span class="p">:</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Prometheus scraping</span><span class="w">
+</span><span class="w"></span>cassandraPrometheusScrap<span class="p">:</span><span class="w">
+</span><span class="w">  </span>enableScrap<span class="p">:</span><span class="w"> </span><span class="kc">false</span></code></pre></div>
 
-<span style="color:#75715e"># Prometheus scraping</span>
-cassandraPrometheusScrap:
-  enableScrap: <span style="color:#66d9ef">false</span></code></pre></div>
-
-<p>If you&rsquo;re using <a href="https://github.com/coreos/prometheus-operator">Prometheus Operator</a>, you can enable automatic scraping here (mean that Prometheus server will automatically retrieve information from exporter).</p>
+<p>If you&rsquo;re using <a href="https://github.com/coreos/prometheus-operator" target="_blank">Prometheus Operator</a>, you can enable automatic scraping here (mean that Prometheus server will automatically retrieve information from exporter).</p>
 
 <h2 id="grafana">Grafana</h2>
 
-<p>A Cassandra dashboard compatible with Kubernetes is also available <a href="https://grafana.com/dashboards/6258">here</a>.</p>
+<p>A Cassandra dashboard compatible with Kubernetes is also available <a href="https://grafana.com/dashboards/6258" target="_blank">here</a>.</p>
 
 <p><img src="https://blog.deimos.fr/images/cassandra_grafana.png" alt="CassandraDashboard" /></p>
 
@@ -538,21 +538,21 @@ cassandraPrometheusScrap:
 
 <h2 id="alerting">Alerting</h2>
 
-<p>Once again, if you&rsquo;re using <a href="https://github.com/coreos/prometheus-operator">Prometheus Operator</a>, you can enable basic alerting rules with Alert Manager:</p>
+<p>Once again, if you&rsquo;re using <a href="https://github.com/coreos/prometheus-operator" target="_blank">Prometheus Operator</a>, you can enable basic alerting rules with Alert Manager:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">cassandraAlertmanager:
-  enableAlerts: <span style="color:#66d9ef">true</span>
-  alertLabels:
-    sloInterrupt:
-      serviceLevel: objective
-      severity: interrupt
-      team: infra
-      type: functional
-    sloPage:
-      serviceLevel: objective
-      severity: page
-      team: infra
-      type: functional</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">cassandraAlertmanager<span class="p">:</span><span class="w">
+</span><span class="w">  </span>enableAlerts<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">  </span>alertLabels<span class="p">:</span><span class="w">
+</span><span class="w">    </span>sloInterrupt<span class="p">:</span><span class="w">
+</span><span class="w">      </span>serviceLevel<span class="p">:</span><span class="w"> </span>objective<span class="w">
+</span><span class="w">      </span>severity<span class="p">:</span><span class="w"> </span>interrupt<span class="w">
+</span><span class="w">      </span>team<span class="p">:</span><span class="w"> </span>infra<span class="w">
+</span><span class="w">      </span>type<span class="p">:</span><span class="w"> </span>functional<span class="w">
+</span><span class="w">    </span>sloPage<span class="p">:</span><span class="w">
+</span><span class="w">      </span>serviceLevel<span class="p">:</span><span class="w"> </span>objective<span class="w">
+</span><span class="w">      </span>severity<span class="p">:</span><span class="w"> </span>page<span class="w">
+</span><span class="w">      </span>team<span class="p">:</span><span class="w"> </span>infra<span class="w">
+</span><span class="w">      </span>type<span class="p">:</span><span class="w"> </span>functional</code></pre></div>
 
 <h1 id="maintenance-and-operations">Maintenance and operations</h1>
 
@@ -573,23 +573,23 @@ cassandraPrometheusScrap:
 
 <p>To enable backups, you simply have to update this section with your options. A Cron job will be created to perform backups of all nodes at the same time (for consistency purpose):</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">cassandraBackup:
-  enableBackups: <span style="color:#66d9ef">true</span>
-  backupSchedule: <span style="color:#e6db74">&#34;0 3 * * *&#34;</span>
-  backupImageVersion: v<span style="color:#ae81ff">0.1</span>
-  awsAccessKeyId: <span style="color:#e6db74">&#34;xxx&#34;</span>
-  awsSecretAccessKey: <span style="color:#e6db74">&#34;yyy&#34;</span>
-  awsPassphrase: <span style="color:#e6db74">&#34;zzz&#34;</span>
-  awsBucket: <span style="color:#e6db74">&#34;bucket_name&#34;</span>
-  <span style="color:#75715e">#duplicityOptions: &#34;--archive-dir /var/lib/cassandra/.duplicity --allow-source-mismatch --s3-european-buckets --s3-use-new-style --copy-links --num-retries 3 --s3-use-multiprocessing --s3-multipart-chunk-size 100 --volsize 1024 full . s3://s3.amazonaws.com/cassandra-backups/$CLUSTER_DOMAIN/$CASSANDRA_CLUSTER_NAME/$(hostname)&#34;</span>
-  awsDestinationPath: <span style="color:#e6db74">&#34;s3://s3-eu-west-1.amazonaws.com/${AWS_BUCKET}/$CLUSTER_DOMAIN/$CASSANDRA_CLUSTER_NAME/$(hostname)&#34;</span>
-  restoreFolder: <span style="color:#e6db74">&#34;/var/lib/cassandra/restore&#34;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">cassandraBackup<span class="p">:</span><span class="w">
+</span><span class="w">  </span>enableBackups<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">  </span>backupSchedule<span class="p">:</span><span class="w"> </span><span class="s2">&#34;0 3 * * *&#34;</span><span class="w">
+</span><span class="w">  </span>backupImageVersion<span class="p">:</span><span class="w"> </span>v<span class="m">0.1</span><span class="w">
+</span><span class="w">  </span>awsAccessKeyId<span class="p">:</span><span class="w"> </span><span class="s2">&#34;xxx&#34;</span><span class="w">
+</span><span class="w">  </span>awsSecretAccessKey<span class="p">:</span><span class="w"> </span><span class="s2">&#34;yyy&#34;</span><span class="w">
+</span><span class="w">  </span>awsPassphrase<span class="p">:</span><span class="w"> </span><span class="s2">&#34;zzz&#34;</span><span class="w">
+</span><span class="w">  </span>awsBucket<span class="p">:</span><span class="w"> </span><span class="s2">&#34;bucket_name&#34;</span><span class="w">
+</span><span class="w">  </span><span class="c">#duplicityOptions: &#34;--archive-dir /var/lib/cassandra/.duplicity --allow-source-mismatch --s3-european-buckets --s3-use-new-style --copy-links --num-retries 3 --s3-use-multiprocessing --s3-multipart-chunk-size 100 --volsize 1024 full . s3://s3.amazonaws.com/cassandra-backups/$CLUSTER_DOMAIN/$CASSANDRA_CLUSTER_NAME/$(hostname)&#34;</span><span class="w">
+</span><span class="w">  </span>awsDestinationPath<span class="p">:</span><span class="w"> </span><span class="s2">&#34;s3://s3-eu-west-1.amazonaws.com/${AWS_BUCKET}/$CLUSTER_DOMAIN/$CASSANDRA_CLUSTER_NAME/$(hostname)&#34;</span><span class="w">
+</span><span class="w">  </span>restoreFolder<span class="p">:</span><span class="w"> </span><span class="s2">&#34;/var/lib/cassandra/restore&#34;</span></code></pre></div>
 
 <h3 id="list">List</h3>
 
 <p>To list backups for a statefulset instance, connect to an instance like in this example and call the script:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl exec -it cassandra-0 bash
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">kubectl <span class="nb">exec</span> -it cassandra-0 bash
 /usr/local/apache-cassandra/scripts/snapshot2s3.sh list &lt;AWS_ACCESS_KEY_ID&gt; &lt;AWS_SECRET_ACCESS_KEY&gt; &lt;AWS_PASSPHRASE&gt; &lt;AWS_BUCKET&gt;</code></pre></div>
 
 <p>Replace all AWS information with the corresponding ones.</p>
@@ -598,64 +598,64 @@ cassandraPrometheusScrap:
 
 <p>To restore backups, configure properly the &ldquo;restoreFolder&rdquo; var and run this command:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl exec -it cassandra-0 bash
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">kubectl <span class="nb">exec</span> -it cassandra-0 bash
 /usr/local/apache-cassandra/scripts/snapshot2s3.sh restore &lt;AWS_ACCESS_KEY_ID&gt; &lt;AWS_SECRET_ACCESS_KEY&gt; &lt;AWS_PASSPHRASE&gt; &lt;AWS_BUCKET&gt; &lt;RESTORE_TIME&gt;</code></pre></div>
 
-<p>RESTORE_TIME should be used as described in the <a href="http://duplicity.nongnu.org/duplicity.1.html#sect8">Duplicity manual Time Format section</a>.
+<p>RESTORE_TIME should be used as described in the <a href="http://duplicity.nongnu.org/duplicity.1.html#sect8" target="_blank">Duplicity manual Time Format section</a>.
 For example (3D to restore the the last 3 days backup)</p>
 
 <p>You can then use the script cassandra-restore.sh to restore a desired keyspace with all or one table:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/usr/local/apache-cassandra/scripts/cassandra-restore.sh /var/lib/cassandra/restore/var/lib/cassandra/data <span style="color:#f92672">[</span>keyspace<span style="color:#f92672">]</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">/usr/local/apache-cassandra/scripts/cassandra-restore.sh /var/lib/cassandra/restore/var/lib/cassandra/data <span class="o">[</span>keyspace<span class="o">]</span></code></pre></div>
 
 <p>Try to use help if you need more info about it.</p>
 
 <h2 id="repair-tables">Repair tables</h2>
 
-<p>Repairing tables may be painfull sometimes. Hopefully <a href="http://cassandra-reaper.io">Cassandra Reaper</a> helps to avoid managing it manually.</p>
+<p>Repairing tables may be painfull sometimes. Hopefully <a href="http://cassandra-reaper.io" target="_blank">Cassandra Reaper</a> helps to avoid managing it manually.</p>
 
 <p>You can deploy a server instance (require a Cassandra backend):</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">cassandraReaper:
-  enableReaper: <span style="color:#66d9ef">true</span>
-  replicaCount: <span style="color:#ae81ff">1</span>
-  imageVersion: <span style="color:#ae81ff">1.1</span>.<span style="color:#ae81ff">0</span>
-  nodeSelector:
-    node-role.kubernetes.io/node: <span style="color:#e6db74">&#34;true&#34;</span>
-  contactPoints: cassandra-<span style="color:#ae81ff">0.</span>cassandra
-  jmxAuth:
-    username: reaperUser
-    password: reaperPass
-  <span style="color:#75715e"># clusterName:</span>
-  <span style="color:#75715e"># keyspace: reaper_db</span>
-  envVariables:
-    JAVA_OPTS: <span style="color:#e6db74">&#34;-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=2 -XX:+AlwaysPreTouch&#34;</span>
-    REAPER_CASS_KEYSPACE: reaper_db
-    REAPER_REPAIR_PARALELLISM: DATACENTER_AWARE
-    REAPER_REPAIR_INTENSITY: <span style="color:#ae81ff">0.5</span>
-    REAPER_AUTO_SCHEDULING_ENABLED: <span style="color:#66d9ef">true</span>
-    REAPER_SCHEDULE_DAYS_BETWEEN: <span style="color:#ae81ff">2</span>
-    REAPER_REPAIR_RUN_THREADS: <span style="color:#ae81ff">16</span>
-    REAPER_HANGING_REPAIR_TIMEOUT_MINS: <span style="color:#ae81ff">30</span>
-    REAPER_REPAIR_MANAGER_SCHEDULING_INTERVAL_SECONDS: <span style="color:#ae81ff">10</span>
-    REAPER_SEGMENT_COUNT: <span style="color:#ae81ff">200</span>
-    REAPER_LOGGING_ROOT_LEVEL: INFO
-    REAPER_SERVER_ADMIN_PORT: <span style="color:#ae81ff">8081</span>
-    REAPER_SERVER_APP_PORT: <span style="color:#ae81ff">8080</span>
-    REAPER_METRICS_ENABLED: <span style="color:#66d9ef">true</span>
-  resources:
-    limits:
-      cpu: 500m
-      memory: 500Mi
-    requests:
-      cpu: 500m
-      memory: 500Mi</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">cassandraReaper<span class="p">:</span><span class="w">
+</span><span class="w">  </span>enableReaper<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">  </span>replicaCount<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">  </span>imageVersion<span class="p">:</span><span class="w"> </span><span class="m">1.1</span>.<span class="m">0</span><span class="w">
+</span><span class="w">  </span>nodeSelector<span class="p">:</span><span class="w">
+</span><span class="w">    </span>node-role.kubernetes.io/node<span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
+</span><span class="w">  </span>contactPoints<span class="p">:</span><span class="w"> </span>cassandra-<span class="m">0.</span>cassandra<span class="w">
+</span><span class="w">  </span>jmxAuth<span class="p">:</span><span class="w">
+</span><span class="w">    </span>username<span class="p">:</span><span class="w"> </span>reaperUser<span class="w">
+</span><span class="w">    </span>password<span class="p">:</span><span class="w"> </span>reaperPass<span class="w">
+</span><span class="w">  </span><span class="c"># clusterName:</span><span class="w">
+</span><span class="w">  </span><span class="c"># keyspace: reaper_db</span><span class="w">
+</span><span class="w">  </span>envVariables<span class="p">:</span><span class="w">
+</span><span class="w">    </span>JAVA_OPTS<span class="p">:</span><span class="w"> </span><span class="s2">&#34;-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=2 -XX:+AlwaysPreTouch&#34;</span><span class="w">
+</span><span class="w">    </span>REAPER_CASS_KEYSPACE<span class="p">:</span><span class="w"> </span>reaper_db<span class="w">
+</span><span class="w">    </span>REAPER_REPAIR_PARALELLISM<span class="p">:</span><span class="w"> </span>DATACENTER_AWARE<span class="w">
+</span><span class="w">    </span>REAPER_REPAIR_INTENSITY<span class="p">:</span><span class="w"> </span><span class="m">0.5</span><span class="w">
+</span><span class="w">    </span>REAPER_AUTO_SCHEDULING_ENABLED<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span>REAPER_SCHEDULE_DAYS_BETWEEN<span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span><span class="w">    </span>REAPER_REPAIR_RUN_THREADS<span class="p">:</span><span class="w"> </span><span class="m">16</span><span class="w">
+</span><span class="w">    </span>REAPER_HANGING_REPAIR_TIMEOUT_MINS<span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
+</span><span class="w">    </span>REAPER_REPAIR_MANAGER_SCHEDULING_INTERVAL_SECONDS<span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
+</span><span class="w">    </span>REAPER_SEGMENT_COUNT<span class="p">:</span><span class="w"> </span><span class="m">200</span><span class="w">
+</span><span class="w">    </span>REAPER_LOGGING_ROOT_LEVEL<span class="p">:</span><span class="w"> </span>INFO<span class="w">
+</span><span class="w">    </span>REAPER_SERVER_ADMIN_PORT<span class="p">:</span><span class="w"> </span><span class="m">8081</span><span class="w">
+</span><span class="w">    </span>REAPER_SERVER_APP_PORT<span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
+</span><span class="w">    </span>REAPER_METRICS_ENABLED<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">  </span>resources<span class="p">:</span><span class="w">
+</span><span class="w">    </span>limits<span class="p">:</span><span class="w">
+</span><span class="w">      </span>cpu<span class="p">:</span><span class="w"> </span>500m<span class="w">
+</span><span class="w">      </span>memory<span class="p">:</span><span class="w"> </span>500Mi<span class="w">
+</span><span class="w">    </span>requests<span class="p">:</span><span class="w">
+</span><span class="w">      </span>cpu<span class="p">:</span><span class="w"> </span>500m<span class="w">
+</span><span class="w">      </span>memory<span class="p">:</span><span class="w"> </span>500Mi</code></pre></div>
 
 <p>And then you simply have enable client registration to get all your nodes and cluster automatically added into Cassandra Reaper:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">cassandraReaperRegister:
-  enableReaperRegister: <span style="color:#66d9ef">true</span>
-  reaperServerServiceName: cassandra-reaper.svc</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">cassandraReaperRegister<span class="p">:</span><span class="w">
+</span><span class="w">  </span>enableReaperRegister<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">  </span>reaperServerServiceName<span class="p">:</span><span class="w"> </span>cassandra-reaper.svc</code></pre></div>
 
 <p>Finally you&rsquo;ll find the reaper interface available:</p>
 
@@ -663,7 +663,7 @@ For example (3D to restore the the last 3 days backup)</p>
 
 <h1 id="conclusion">Conclusion</h1>
 
-<p>This <a href="https://github.com/MySocialApp/kubernetes-helm-chart-cassandra/">Cassandra helm chart</a> is helping me day to day. It gives a lot of autonomy to my cluster, gives me the possibility to switch to fallback to a manual way to manage specific Cassandra cases, gives enough automation to avoid spending too many time on managing my Cassandra clusters. I&rsquo;m pretty well satisfied of this solution.</p>
+<p>This <a href="https://github.com/MySocialApp/kubernetes-helm-chart-cassandra/" target="_blank">Cassandra helm chart</a> is helping me day to day. It gives a lot of autonomy to my cluster, gives me the possibility to switch to fallback to a manual way to manage specific Cassandra cases, gives enough automation to avoid spending too many time on managing my Cassandra clusters. I&rsquo;m pretty well satisfied of this solution.</p>
 
 <p>Some of you may think an Operator would be preferable, that&rsquo;s true. However in nowdays, there is no stable enough Operator managing Cassandra. Writing one takes some time and I unfortunately do not get this time today (but be happy to participate if a serious initiative is driven) and getting one ready to handle every situations will require a ton of tests and time.</p>
 

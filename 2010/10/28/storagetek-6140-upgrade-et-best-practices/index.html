@@ -284,19 +284,19 @@ ga('send', 'pageview');
               <p><img src="https://blog.deimos.fr/images/disk_array1.jpg" alt="disk_array1" />
 J&rsquo;ai récemment mis à jour une baie de disques Sun StorageTek 6140 de la version 6 à la version 7. La tâche n&rsquo;était pas simple, il a fallu tout d&rsquo;abord télécharger des outils spécifique pour effectuer cette upgrade :</p>
 
-<p><a href="http://download.oracle.com/docs/cd/E19780-01/820-7197-12/820-7197-12.pdf">http://dlc.sun.com/pdf/820-7197-<sup>12</sup>&frasl;<sub>820</sub>-7197-12.pdf</a></p>
+<p><a href="http://download.oracle.com/docs/cd/E19780-01/820-7197-12/820-7197-12.pdf" target="_blank">http://dlc.sun.com/pdf/820-7197-<sup>12</sup>&frasl;<sub>820</sub>-7197-12.pdf</a></p>
 
 <p>Ensuite, un collègue m&rsquo;a filé ce lien qui permet d&rsquo;avoir les best practice pour faire du RAID 6 :</p>
 
-<p><a href="http://www.filibeto.org/sun/lib/blueprints/820-5825.pdf">http://www.filibeto.org/sun/lib/blueprints/820-5825.pdf</a></p>
+<p><a href="http://www.filibeto.org/sun/lib/blueprints/820-5825.pdf" target="_blank">http://www.filibeto.org/sun/lib/blueprints/820-5825.pdf</a></p>
 
 <p>Tout ça pour faire du vmware. Il a donc fallu changer le mode de visualisation de la baie par les hosts en vmware et idem encore utiliser les recommandations de Vmware par rapport aux LUN etc&hellip; :</p>
 
-<p><a href="http://download3.vmware.com/vmworld/2006/adc0051.pdf">http://download3.vmware.com/vmworld/2006/adc0051.pdf</a></p>
+<p><a href="http://download3.vmware.com/vmworld/2006/adc0051.pdf" target="_blank">http://download3.vmware.com/vmworld/2006/adc0051.pdf</a></p>
 
 <p>Mais un problème de performance déjà vu sur 2540 (la ptite soeur de la 6140) nous a montré de gros problèmes de performances aléatoire. La solution était tout simplement de retirer le mapping de la LUN 31 (LUN dédiée à la baie et présente par défaut sur les versions 6.x du firemware) :</p>
 
-<p><a href="http://www.lukedarby.co.uk/?p=186">http://www.lukedarby.co.uk/?p=186</a></p>
+<p><a href="http://www.lukedarby.co.uk/?p=186" target="_blank">http://www.lukedarby.co.uk/?p=186</a></p>
 
               
             </div>

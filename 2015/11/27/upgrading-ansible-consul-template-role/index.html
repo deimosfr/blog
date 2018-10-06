@@ -9,12 +9,12 @@
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:
-consul_template_version: &#39;0.11.0&#39; consul_template_arch: &#39;linux_amd64&#39; consul_template_http_src: &#34;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&#34; You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
+consul_template_version:&#39;0.11.0&#39;consul_template_arch:&#39;linux_amd64&#39;consul_template_http_src:&#34;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&#34; You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
 I hope you&rsquo;ll enjoy this new version :-)">
 
 
 <meta property="og:description" content="As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:
-consul_template_version: &#39;0.11.0&#39; consul_template_arch: &#39;linux_amd64&#39; consul_template_http_src: &#34;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&#34; You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
+consul_template_version:&#39;0.11.0&#39;consul_template_arch:&#39;linux_amd64&#39;consul_template_http_src:&#34;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&#34; You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
 I hope you&rsquo;ll enjoy this new version :-)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Upgrading Ansible Consul Template role">
@@ -23,10 +23,10 @@ I hope you&rsquo;ll enjoy this new version :-)">
 <meta property="twitter:url" content="https://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/">
 <meta property="og:site_name" content="Deimosfr Blog">
 <meta property="og:description" content="As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:
-consul_template_version: &#39;0.11.0&#39; consul_template_arch: &#39;linux_amd64&#39; consul_template_http_src: &#34;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&#34; You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
+consul_template_version:&#39;0.11.0&#39;consul_template_arch:&#39;linux_amd64&#39;consul_template_http_src:&#34;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&#34; You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
 I hope you&rsquo;ll enjoy this new version :-)">
 <meta name="twitter:description" content="As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:
-consul_template_version: &#39;0.11.0&#39; consul_template_arch: &#39;linux_amd64&#39; consul_template_http_src: &#34;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&#34; You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
+consul_template_version:&#39;0.11.0&#39;consul_template_arch:&#39;linux_amd64&#39;consul_template_http_src:&#34;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&#34; You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
 I hope you&rsquo;ll enjoy this new version :-)">
 <meta property="og:locale" content="en-us">
 
@@ -306,11 +306,11 @@ ga('send', 'pageview');
               <p><img src="https://blog.deimos.fr/images/logo_ansible.png" alt="ansible_logo" />
 As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">consul_template_version: <span style="color:#e6db74">&#39;0.11.0&#39;</span>
-consul_template_arch: <span style="color:#e6db74">&#39;linux_amd64&#39;</span>
-consul_template_http_src: <span style="color:#e6db74">&#34;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&#34;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">consul_template_version<span class="p">:</span><span class="w"> </span><span class="s1">&#39;0.11.0&#39;</span><span class="w">
+</span><span class="w"></span>consul_template_arch<span class="p">:</span><span class="w"> </span><span class="s1">&#39;linux_amd64&#39;</span><span class="w">
+</span><span class="w"></span>consul_template_http_src<span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&#34;</span></code></pre></div>
 
-<p>You can of course find the role to Ansible Galaxy: <a href="https://galaxy.ansible.com/deimosfr/consul-template/">https://galaxy.ansible.com/deimosfr/consul-template/</a></p>
+<p>You can of course find the role to Ansible Galaxy: <a href="https://galaxy.ansible.com/deimosfr/consul-template/" target="_blank">https://galaxy.ansible.com/deimosfr/consul-template/</a></p>
 
 <p>I hope you&rsquo;ll enjoy this new version :-)</p>
 

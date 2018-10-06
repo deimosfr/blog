@@ -282,11 +282,11 @@ ga('send', 'pageview');
               <p><img src="https://blog.deimos.fr/images/logo_mariadb.png" alt="Mariadb-logo" />
 I recently discovered how to restore only one database from a huge sql dump containing more than 1 database and wanted to share it with you :</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql -u&lt;user&gt; -p&lt;password&gt; --one-database &lt;database_name&gt; &lt; backup-<span style="color:#e6db74">`</span>date +%y%m%d<span style="color:#e6db74">`</span>.sql</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mysql -u&lt;user&gt; -p&lt;password&gt; --one-database &lt;database_name&gt; &lt; backup-<span class="sb">`</span>date +%y%m%d<span class="sb">`</span>.sql</code></pre></div>
 
-<p>I&rsquo;ve added it <a href="http://wiki.deimos.fr/Sauvegardes,_restaurations_et_transferts#Restaurations">to my wiki as well</a>.</p>
+<p>I&rsquo;ve added it <a href="http://wiki.deimos.fr/Sauvegardes,_restaurations_et_transferts#Restaurations" target="_blank">to my wiki as well</a>.</p>
 
-<p>Source : <a href="http://www.system-linux.eu/index.php?post/2013/09/09/Mysql-%3A-Restaurer-une-seule-base-avec-une-sauvegarde-qui-contient-toutes-vos-bases">System Linux</a></p>
+<p>Source : <a href="http://www.system-linux.eu/index.php?post/2013/09/09/Mysql-%3A-Restaurer-une-seule-base-avec-une-sauvegarde-qui-contient-toutes-vos-bases" target="_blank">System Linux</a></p>
 
               
             </div>

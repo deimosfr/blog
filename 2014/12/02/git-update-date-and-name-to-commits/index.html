@@ -280,28 +280,28 @@ ga('send', 'pageview');
               <p><img src="https://blog.deimos.fr/images/logo_git.png" alt="Git-logo" />
 A lot of time, I had to modify the text of my commit since I&rsquo;m using a versionning system. Modifying the last commit comment is something common:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git commit --amend</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git commit --amend</code></pre></div>
 
 <p>However, modifying the date is not so common. You may want to do it for several reasons (stats or similar), here is how to:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">GIT_COMMITTER_DATE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;`date`&#34;</span> git commit --amend --date <span style="color:#e6db74">&#34;`date`&#34;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">GIT_COMMITTER_DATE</span><span class="o">=</span><span class="s2">&#34;`date`&#34;</span> git commit --amend --date <span class="s2">&#34;`date`&#34;</span></code></pre></div>
 
 <p>This will change the last commit with the current date.</p>
 
 <p>The last thing I wanted to do is modifying the author. Because I&rsquo;ve a personal and professional GitHub account, I made mistake several times using the wrong account. Here is a solution to rename author commits:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git filter-branch --env-filter <span style="color:#e6db74">&#39;
-</span><span style="color:#e6db74">oldname=&#34;old username&#34;
-</span><span style="color:#e6db74">oldemail=&#34;old email address&#34;
-</span><span style="color:#e6db74">newname=&#34;new username&#34;
-</span><span style="color:#e6db74">newemail=&#34;old username address&#34;
-</span><span style="color:#e6db74">[ &#34;$GIT_AUTHOR_EMAIL&#34;=&#34;$oldemail&#34; ] &amp;&amp; GIT_AUTHOR_EMAIL=&#34;$newemail&#34;
-</span><span style="color:#e6db74">[ &#34;$GIT_COMMITTER_EMAIL&#34;=&#34;$oldemail&#34; ] &amp;&amp; GIT_COMMITTER_EMAIL=&#34;$newemail&#34;
-</span><span style="color:#e6db74">[ &#34;$GIT_AUTHOR_NAME&#34;=&#34;$oldname&#34; ] &amp;&amp; GIT_AUTHOR_NAME=&#34;$newname&#34;
-</span><span style="color:#e6db74">[ &#34;$GIT_COMMITTER_NAME&#34;=&#34;$oldname&#34; ] &amp;&amp; GIT_COMMITTER_NAME=&#34;$newname&#34;
-</span><span style="color:#e6db74">&#39;</span> HEAD</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git filter-branch --env-filter <span class="s1">&#39;
+</span><span class="s1">oldname=&#34;old username&#34;
+</span><span class="s1">oldemail=&#34;old email address&#34;
+</span><span class="s1">newname=&#34;new username&#34;
+</span><span class="s1">newemail=&#34;old username address&#34;
+</span><span class="s1">[ &#34;$GIT_AUTHOR_EMAIL&#34;=&#34;$oldemail&#34; ] &amp;&amp; GIT_AUTHOR_EMAIL=&#34;$newemail&#34;
+</span><span class="s1">[ &#34;$GIT_COMMITTER_EMAIL&#34;=&#34;$oldemail&#34; ] &amp;&amp; GIT_COMMITTER_EMAIL=&#34;$newemail&#34;
+</span><span class="s1">[ &#34;$GIT_AUTHOR_NAME&#34;=&#34;$oldname&#34; ] &amp;&amp; GIT_AUTHOR_NAME=&#34;$newname&#34;
+</span><span class="s1">[ &#34;$GIT_COMMITTER_NAME&#34;=&#34;$oldname&#34; ] &amp;&amp; GIT_COMMITTER_NAME=&#34;$newname&#34;
+</span><span class="s1">&#39;</span> HEAD</code></pre></div>
 
-<p>If you want to know more about some git tips, you can look at <a href="https://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Modifier_la_date_du_dernier_commit">my wiki page</a>.</p>
+<p>If you want to know more about some git tips, you can look at <a href="https://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Modifier_la_date_du_dernier_commit" target="_blank">my wiki page</a>.</p>
 
 <p>Hope this will help</p>
 

@@ -281,27 +281,27 @@ ga('send', 'pageview');
 <p>Déjà pour commencer&hellip;qui utilise cette méthode ?</p>
 
 <ul>
-<li>OpenStack : <a href="https://review.openstack.org">https://review.openstack.org</a></li>
-<li>MediaWiki : <a href="https://lwn.net/Articles/480002/">https://lwn.net/Articles/480002/</a></li>
+<li>OpenStack : <a href="https://review.openstack.org" target="_blank">https://review.openstack.org</a></li>
+<li>MediaWiki : <a href="https://lwn.net/Articles/480002/" target="_blank">https://lwn.net/Articles/480002/</a></li>
 </ul>
 
 <p>Plutôt des gens qui ont de grosses infrastructures donc. Mais concrètement en quoi ça consiste ? Beaucoup d&rsquo;articles existent en anglais sur le net et abordent le sujet, mais je n&rsquo;en ai pas vraiment trouvé qui parlaient de comment mettre en place ce genre de méthodes et avec quels outils. Je vais donc tenter de vous expliquer.</p>
 
 <ol>
 <li>Prenons le cas d&rsquo;une boîte qui utilise des VMs (comme la plus part maintenant) pour faire des tests ou sont utilisées pour la gestion du SI ou bien de la prod d&rsquo;une quelconque manière&hellip;Nous somme d&rsquo;accord que nous multiplions les OS, que la gestion de ceux ci peuvent être fastidieux. Pour ceux qui utilisent de l&rsquo;Amazon EC2 ou de l&rsquo;OpenStack, ils en savent généralement quelque chose puisqu&rsquo;une une VM, une fois éteinte, est totalement effacée. Bref, c&rsquo;est du consommable.</li>
-<li>Pour gérer tous ces nœuds, on va utiliser <a href="http://wiki.deimos.fr/Puppet_:_Solution_de_gestion_de_fichier_de_configuration">Puppet</a>. Si vous me suivez depuis un moment vous savez que j&rsquo;ai fais pas mal d&rsquo;articles dessus et <a href="http://wiki.deimos.fr/Serveurs#Puppet">que j&rsquo;ai des docs sur le sujet</a>. Donc Puppet est un premier outil dans la gestion de parc de type Infrastructure as Code.</li>
-<li>Si vous êtes habitué à Puppet vous avez normalement un <a href="http://wiki.deimos.fr/Serveurs#Versionning">VCS</a> qui va vous permettre d&rsquo;archiver vos configurations et peut être même vous utilisez des branches pour séparer simplement le test de l&rsquo;UAT et de la prod. Encore une méthode d&rsquo;infrastructure as code.</li>
-<li>Vous utilisez un framework d&rsquo;orchestration de type <a href="http://wiki.deimos.fr/MCollective_:_lancez_des_actions_en_parall%C3%A8le_sur_des_machines_distante">MCollective</a> pour contrôler tous vos nœuds. Parce que devoir se connecter sur x machines pour récupérer des infos ou devoir scripter des commandes SSH, ce n&rsquo;est simplement plus envisageable, c&rsquo;est une perte de temps.</li>
-<li>On va utiliser <a href="http://wiki.deimos.fr/Jenkins_:_Mise_en_place_d%27un_outil_d%27int%C3%A9gration_continue">Jenkins</a> pour effectuer des tests automatisés. Lors d&rsquo;un changement sur une branche de test de votre configuration Puppet, Jenkins va reconstituer une plateforme de test via OpenStack par exemple, puis intégrer cette machine a votre Puppet de test, exécuter votre nouvelle configuration Puppet, puis indiquer si cela fonctionne ou non. Il fera ensuite le ménage.</li>
+<li>Pour gérer tous ces nœuds, on va utiliser <a href="http://wiki.deimos.fr/Puppet_:_Solution_de_gestion_de_fichier_de_configuration" target="_blank">Puppet</a>. Si vous me suivez depuis un moment vous savez que j&rsquo;ai fais pas mal d&rsquo;articles dessus et <a href="http://wiki.deimos.fr/Serveurs#Puppet" target="_blank">que j&rsquo;ai des docs sur le sujet</a>. Donc Puppet est un premier outil dans la gestion de parc de type Infrastructure as Code.</li>
+<li>Si vous êtes habitué à Puppet vous avez normalement un <a href="http://wiki.deimos.fr/Serveurs#Versionning" target="_blank">VCS</a> qui va vous permettre d&rsquo;archiver vos configurations et peut être même vous utilisez des branches pour séparer simplement le test de l&rsquo;UAT et de la prod. Encore une méthode d&rsquo;infrastructure as code.</li>
+<li>Vous utilisez un framework d&rsquo;orchestration de type <a href="http://wiki.deimos.fr/MCollective_:_lancez_des_actions_en_parall%C3%A8le_sur_des_machines_distante" target="_blank">MCollective</a> pour contrôler tous vos nœuds. Parce que devoir se connecter sur x machines pour récupérer des infos ou devoir scripter des commandes SSH, ce n&rsquo;est simplement plus envisageable, c&rsquo;est une perte de temps.</li>
+<li>On va utiliser <a href="http://wiki.deimos.fr/Jenkins_:_Mise_en_place_d%27un_outil_d%27int%C3%A9gration_continue" target="_blank">Jenkins</a> pour effectuer des tests automatisés. Lors d&rsquo;un changement sur une branche de test de votre configuration Puppet, Jenkins va reconstituer une plateforme de test via OpenStack par exemple, puis intégrer cette machine a votre Puppet de test, exécuter votre nouvelle configuration Puppet, puis indiquer si cela fonctionne ou non. Il fera ensuite le ménage.</li>
 </ol>
 
 <p>Pour résumer, tout comme du code, nous allons avoir :</p>
 
 <ul>
-<li>Des tests de non régression pour améliorer la qualité de nos plateformes via <a href="http://wiki.deimos.fr/Jenkins_:_Mise_en_place_d%27un_outil_d%27int%C3%A9gration_continue">Jenkins</a></li>
-<li>Un historique de tout ce qui est déployé sur nos serveurs, le <a href="http://wiki.deimos.fr/Serveurs#Versionning">VCS</a> est la pour ça.</li>
-<li>Un gain de temps sur le management de ces machines via <a href="http://wiki.deimos.fr/MCollective_:_lancez_des_actions_en_parall%C3%A8le_sur_des_machines_distante">Mcollective</a>.</li>
-<li>Nous avons des configurations ISO et maîtrisées via <a href="http://wiki.deimos.fr/Serveurs#Puppet">Puppet</a>. Si une VM doit être remontée a l&rsquo;identique&hellip;pas de problèmes.</li>
+<li>Des tests de non régression pour améliorer la qualité de nos plateformes via <a href="http://wiki.deimos.fr/Jenkins_:_Mise_en_place_d%27un_outil_d%27int%C3%A9gration_continue" target="_blank">Jenkins</a></li>
+<li>Un historique de tout ce qui est déployé sur nos serveurs, le <a href="http://wiki.deimos.fr/Serveurs#Versionning" target="_blank">VCS</a> est la pour ça.</li>
+<li>Un gain de temps sur le management de ces machines via <a href="http://wiki.deimos.fr/MCollective_:_lancez_des_actions_en_parall%C3%A8le_sur_des_machines_distante" target="_blank">Mcollective</a>.</li>
+<li>Nous avons des configurations ISO et maîtrisées via <a href="http://wiki.deimos.fr/Serveurs#Puppet" target="_blank">Puppet</a>. Si une VM doit être remontée a l&rsquo;identique&hellip;pas de problèmes.</li>
 <li>Et enfin une infrastructure horizontalement scalable via OpenStack ou tout système de virtualisation basé sur le même modèle.</li>
 </ul>
 

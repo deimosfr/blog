@@ -290,29 +290,29 @@ ga('send', 'pageview');
               <p><img src="https://github.com/aykamko/tag/raw/master/tag.gif" alt="tag" />
 Long time since my last post. This one is not very technical post, but it&rsquo;s a nice to have solution if you use grep usually. Are not you fed up to type vim <file> and search the line after a grep command ? If yes, this post is for you.</p>
 
-<p>First of all, you may know that an alternative more user friendly to grep exist, called ag (<a href="https://www.reddit.com/r/commandline/comments/3wwyvh/ag_vs_grep/">perf comparison</a>). I really like ag and grep, but something make me loose my time since several years and I&rsquo;m pretty sure it&rsquo;s your case too.</p>
+<p>First of all, you may know that an alternative more user friendly to grep exist, called ag (<a href="https://www.reddit.com/r/commandline/comments/3wwyvh/ag_vs_grep/" target="_blank">perf comparison</a>). I really like ag and grep, but something make me loose my time since several years and I&rsquo;m pretty sure it&rsquo;s your case too.</p>
 
-<p>Let&rsquo;s say you generally want to parse files, find the information and jump with vim into it. With <a href="https://github.com/aykamko/tag">tag</a> (using ag only) you can do it in only 2 commands. Let say I want to search my username in /etc:</p>
+<p>Let&rsquo;s say you generally want to parse files, find the information and jump with vim into it. With <a href="https://github.com/aykamko/tag" target="_blank">tag</a> (using ag only) you can do it in only 2 commands. Let say I want to search my username in /etc:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo tag pmavro /etc/
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo tag pmavro /etc/
 /etc/mailname
-<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#ae81ff">1</span>:mbp-pmavro
+<span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="m">1</span>:mbp-pmavro
 
 /etc/gshadow
-<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span> <span style="color:#ae81ff">18</span>:cdrom:*::pmavro
-<span style="color:#f92672">[</span><span style="color:#ae81ff">3</span><span style="color:#f92672">]</span> <span style="color:#ae81ff">19</span>:floppy:*::pmavro
-<span style="color:#f92672">[</span><span style="color:#ae81ff">4</span><span style="color:#f92672">]</span> <span style="color:#ae81ff">22</span>:audio:*::pmavro,pulse
-<span style="color:#f92672">[</span><span style="color:#ae81ff">5</span><span style="color:#f92672">]</span> <span style="color:#ae81ff">23</span>:dip:*::pmavro
-<span style="color:#f92672">[</span><span style="color:#ae81ff">6</span><span style="color:#f92672">]</span> <span style="color:#ae81ff">33</span>:video:*::pmavro
-<span style="color:#f92672">[</span><span style="color:#ae81ff">7</span><span style="color:#f92672">]</span> <span style="color:#ae81ff">35</span>:plugdev:*::pmavro
-<span style="color:#f92672">[</span><span style="color:#ae81ff">8</span><span style="color:#f92672">]</span> <span style="color:#ae81ff">47</span>:netdev:!::pmavro
-<span style="color:#f92672">[</span><span style="color:#ae81ff">9</span><span style="color:#f92672">]</span> <span style="color:#ae81ff">53</span>:bluetooth:!::pmavro
-<span style="color:#f92672">[</span><span style="color:#ae81ff">10</span><span style="color:#f92672">]</span> <span style="color:#ae81ff">54</span>:pmavro:!::
-<span style="color:#f92672">[</span><span style="color:#ae81ff">11</span><span style="color:#f92672">]</span> <span style="color:#ae81ff">60</span>:docker:!::pmavro</code></pre></div>
+<span class="o">[</span><span class="m">2</span><span class="o">]</span> <span class="m">18</span>:cdrom:*::pmavro
+<span class="o">[</span><span class="m">3</span><span class="o">]</span> <span class="m">19</span>:floppy:*::pmavro
+<span class="o">[</span><span class="m">4</span><span class="o">]</span> <span class="m">22</span>:audio:*::pmavro,pulse
+<span class="o">[</span><span class="m">5</span><span class="o">]</span> <span class="m">23</span>:dip:*::pmavro
+<span class="o">[</span><span class="m">6</span><span class="o">]</span> <span class="m">33</span>:video:*::pmavro
+<span class="o">[</span><span class="m">7</span><span class="o">]</span> <span class="m">35</span>:plugdev:*::pmavro
+<span class="o">[</span><span class="m">8</span><span class="o">]</span> <span class="m">47</span>:netdev:!::pmavro
+<span class="o">[</span><span class="m">9</span><span class="o">]</span> <span class="m">53</span>:bluetooth:!::pmavro
+<span class="o">[</span><span class="m">10</span><span class="o">]</span> <span class="m">54</span>:pmavro:!::
+<span class="o">[</span><span class="m">11</span><span class="o">]</span> <span class="m">60</span>:docker:!::pmavro</code></pre></div>
 
 <p>Now if I want to edit /etc/gshadow at line 54 with vim, I only have to type in the terminal:</p>
 
-<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ e10</code></pre></div></p>
+<p><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ e10</code></pre></div></p>
 
 <p>&ldquo;e&rdquo; will read a temporary file containing the result and 10 will ask vim to position in the file to the matching line number.</p>
 

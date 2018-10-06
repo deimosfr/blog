@@ -291,17 +291,17 @@ ga('send', 'pageview');
 I think this will be the last post for the Debian installation on MacBook Pro 13&rsquo; late 2013. To resume, here are the previous posts :</p>
 
 <ul>
-<li><a href="http://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/">http://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/</a></li>
-<li><a href="http://blog.deimos.fr/2013/11/10/update-1-debian-on-the-111-model-macbook-pro-13/">http://blog.deimos.fr/2013/11/10/update-1-debian-on-the-111-model-macbook-pro-13/</a></li>
+<li><a href="http://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/" target="_blank">http://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/</a></li>
+<li><a href="http://blog.deimos.fr/2013/11/10/update-1-debian-on-the-111-model-macbook-pro-13/" target="_blank">http://blog.deimos.fr/2013/11/10/update-1-debian-on-the-111-model-macbook-pro-13/</a></li>
 </ul>
 
 <p>The majority of the bugs will be resolve in the Linux Kernel 3.13. I&rsquo;ve tested the rc2, but it&rsquo;s too much unstable for the moment and I need to wait. Arch wiki gives a lot of informations to make (most of) everything working :</p>
 
-<p><a href="https://wiki.archlinux.org/index.php/MacBookPro11,x">https://wiki.archlinux.org/index.php/MacBookPro11,x</a></p>
+<p><a href="https://wiki.archlinux.org/index.php/MacBookPro11,x" target="_blank">https://wiki.archlinux.org/index.php/MacBookPro11,x</a></p>
 
 <p>So this is my last post on this subject. I&rsquo;d like to give a last tips that a colleague gave me to make the speaker work without waiting the new kernel :</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo hda-verb /dev/snd/hwC0D0 0x1 set_gpio_data <span style="color:#ae81ff">1</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo hda-verb /dev/snd/hwC0D0 0x1 set_gpio_data <span class="m">1</span></code></pre></div>
 
 <p>I hope this will help some of you who are in my case. The last remaining thing that doesn&rsquo;t work is the camera and there is no clue at all for today.</p>
 

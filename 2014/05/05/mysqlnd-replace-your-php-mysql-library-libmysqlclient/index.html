@@ -311,17 +311,17 @@ As you may know, I&rsquo;m using and loving MariaDB. A colleague recently introd
 </ul>
 </blockquote>
 
-<p>Why did I really changed? Because I was facing to this warning problems after <a href="http://www.dotdeb.org/2014/04/04/about-the-mysql_connect-headers-and-client-library-minor-version-mismatch-warning-2/">an upgrade of PHP library from DotDeb packages</a>:</p>
+<p>Why did I really changed? Because I was facing to this warning problems after <a href="http://www.dotdeb.org/2014/04/04/about-the-mysql_connect-headers-and-client-library-minor-version-mismatch-warning-2/" target="_blank">an upgrade of PHP library from DotDeb packages</a>:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">PHP Warning: mysql_connect<span style="color:#f92672">()</span>: Headers and client library minor version mismatch. Headers:50535 Library:50617</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">PHP Warning: mysql_connect<span class="o">()</span>: Headers and client library minor version mismatch. Headers:50535 Library:50617</code></pre></div>
 
 <p>So I decided to switch to php5-mysqlnd as a replacement of php5-mysql on Wheezy. However, it is not as easy as it could be. <strong>You need to completely remove php5-mysql, loose dependencies and then reinstall everything.</strong> To be more clear:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt-get remove php5-mysql
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">apt-get remove php5-mysql
 apt-get install php5-mysqlnd
 apt-get install php-fpm php5-geoip...</code></pre></div>
 
-<p>Now everything is back to normal and I won&rsquo;t be annoyed of it in the future. You can also see the differences on <a href="http://www.php.net/manual/en/mysqlinfo.library.choosing.php">the official PHP website</a>.</p>
+<p>Now everything is back to normal and I won&rsquo;t be annoyed of it in the future. You can also see the differences on <a href="http://www.php.net/manual/en/mysqlinfo.library.choosing.php" target="_blank">the official PHP website</a>.</p>
 
               
             </div>

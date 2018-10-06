@@ -287,9 +287,9 @@ ga('send', 'pageview');
             <div class="main-content-wrap">
               <p><img src="https://blog.deimos.fr/images/logo_kubernetes.png" alt="Kubernetes" /></p>
 
-<p><a href="https://kubernetes.io/">Kubernetes</a> is an open-source system for automating deployment, scaling, and management of containerized applications. I&rsquo;m using it for <a href="https://www.nousmotards.com">Nousmotards</a> and decided to build an <a href="https://galaxy.ansible.com/deimosfr/coreos-kubernetes/">Ansible role</a> for it to make it simpler to deploy.</p>
+<p><a href="https://kubernetes.io/" target="_blank">Kubernetes</a> is an open-source system for automating deployment, scaling, and management of containerized applications. I&rsquo;m using it for <a href="https://www.nousmotards.com" target="_blank">Nousmotards</a> and decided to build an <a href="https://galaxy.ansible.com/deimosfr/coreos-kubernetes/" target="_blank">Ansible role</a> for it to make it simpler to deploy.</p>
 
-<p>Why did I built it as other projects like <a href="https://github.com/kubernetes-incubator/kargo">Kargo</a> already exists? I just wanted a simple and maintainable role based on CoreOS official documentation. That&rsquo;s what I did:</p>
+<p>Why did I built it as other projects like <a href="https://github.com/kubernetes-incubator/kargo" target="_blank">Kargo</a> already exists? I just wanted a simple and maintainable role based on CoreOS official documentation. That&rsquo;s what I did:</p>
 
 <script type="text/javascript" src="https://asciinema.org/a/97170.js" id="asciicast-97170" async></script>
 
@@ -303,487 +303,487 @@ ga('send', 'pageview');
 <li>Deploy Kubernetes DNS and Dashboard</li>
 </ul>
 
-<p>If you want to know more on CoreOS installation with ansible, you can <a href="https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/">look at the previous post</a>.</p>
+<p>If you want to know more on CoreOS installation with ansible, you can <a href="https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/" target="_blank">look at the previous post</a>.</p>
 
 <p>If you look at the configuration, it could looks like big, but in fact it&rsquo;s not so complicated if you&rsquo;re a little bit familiar with Kubernetes:
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">k8s_version: <span style="color:#e6db74">&#39;v1.5.1_coreos.0&#39;</span>
-k8s_dashboard_version: <span style="color:#e6db74">&#39;1.5.0&#39;</span>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">k8s_version<span class="p">:</span><span class="w"> </span><span class="s1">&#39;v1.5.1_coreos.0&#39;</span><span class="w">
+</span><span class="w"></span>k8s_dashboard_version<span class="p">:</span><span class="w"> </span><span class="s1">&#39;1.5.0&#39;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Master host will ideally be a network load balancer that sits in front of</span><span class="w">
+</span><span class="w"></span><span class="c"># them. Alternatively, a DNS name can be configured which will resolve to</span><span class="w">
+</span><span class="w"></span><span class="c"># the master IPs</span><span class="w">
+</span><span class="w"></span>k8s_master_host<span class="p">:</span><span class="w"> </span><span class="s1">&#39;kub-master-host.myfqdn.com&#39;</span><span class="w">
+</span><span class="w"></span>k8s_etcd_endpoints<span class="p">:</span><span class="w"> </span><span class="s2">&#34;http://{{ groups[&#39;k8s-masters&#39;] | map(&#39;extract&#39;, hostvars, [&#39;priv_ip&#39;]) | join(&#39;:2379,http://&#39;) }}:2379&#34;</span><span class="w">
+</span><span class="w"></span>k8s_flanneld_subnet<span class="p">:</span><span class="w"> </span><span class="s2">&#34;10.1.0.0/16&#34;</span><span class="w">
+</span><span class="w"></span>k8s_pod_network<span class="p">:</span><span class="w"> </span><span class="s1">&#39;10.2.0.0/16&#39;</span><span class="w">
+</span><span class="w"></span>k8s_service_ip_range<span class="p">:</span><span class="w"> </span><span class="s1">&#39;10.3.0.0/24&#39;</span><span class="w">
+</span><span class="w"></span>k8s_service_ip<span class="p">:</span><span class="w"> </span><span class="s1">&#39;10.3.0.1&#39;</span><span class="w">
+</span><span class="w"></span>k8s_dns_service_ip<span class="p">:</span><span class="w"> </span><span class="s1">&#39;10.3.0.10&#39;</span><span class="w">
+</span><span class="w"></span>k8s_cluster_domain<span class="p">:</span><span class="w"> </span><span class="s1">&#39;cluster.local&#39;</span><span class="w">
+</span><span class="w"></span>k8s_kubectl_cluster_name<span class="p">:</span><span class="w"> </span><span class="s1">&#39;default-cluster&#39;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span>k8s_adverstise_ip<span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ansible_enp0s8.ipv4.address}}&#34;</span><span class="w">
+</span><span class="w"></span><span class="c"># Leave it blank if you&#39;re using flannel, otherwize use cni for Calico</span><span class="w">
+</span><span class="w"></span>k8s_kublet_network_plugin<span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">
+</span><span class="w"></span><span class="c"># Set to false by default because kubelet-wrapper will handle it</span><span class="w">
+</span><span class="w"></span>k8s_restart_kubelet<span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># SSL</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span>k8s_role_path<span class="p">:</span><span class="w"> </span><span class="s2">&#34;roles/deimosfr.coreos-kubernetes&#34;</span><span class="w">
+</span><span class="w"></span>k8s_template_dir<span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{k8s_role_path}}/templates&#34;</span><span class="w">
+</span><span class="w"></span>k8s_ssl_local_path<span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{k8s_role_path}}/files/ssl/{{k8s_kubectl_cluster_name}}&#34;</span><span class="w">
+</span><span class="w"></span>k8s_ssl_api_server_path<span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{k8s_ssl_local_path}}/api_servers&#34;</span><span class="w">
+</span><span class="w"></span>k8s_ssl_workers_path<span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{k8s_ssl_local_path}}/workers&#34;</span><span class="w">
+</span><span class="w"></span>k8s_ssl_admin_path<span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{k8s_ssl_local_path}}/admins&#34;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span>k8s_ssl_bytes_encrypt<span class="p">:</span><span class="w"> </span><span class="m">2048</span><span class="w">
+</span><span class="w"></span>k8s_ssl_ca_name<span class="p">:</span><span class="w"> </span><span class="s1">&#39;ca-key.pem&#39;</span><span class="w">
+</span><span class="w"></span>k8s_ssl_ca_pem_key_name<span class="p">:</span><span class="w"> </span><span class="s1">&#39;ca.pem&#39;</span><span class="w">
+</span><span class="w"></span>k8s_ssl_valid_days<span class="p">:</span><span class="w"> </span><span class="m">10000</span><span class="w">
+</span><span class="w"></span>k8s_ssl_ca_pem_subj<span class="p">:</span><span class="w"> </span><span class="s1">&#39;/CN=kube-ca&#39;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span>k8s_ssl_apiserver_key_pem_name<span class="p">:</span><span class="w"> </span><span class="s1">&#39;apiserver-key.pem&#39;</span><span class="w">
+</span><span class="w"></span>k8s_ssl_apiserver_csr_name<span class="p">:</span><span class="w"> </span><span class="s1">&#39;apiserver.csr&#39;</span><span class="w">
+</span><span class="w"></span>k8s_ssl_apiserver_subj<span class="p">:</span><span class="w"> </span><span class="s1">&#39;/CN=kube-apiserver&#39;</span><span class="w">
+</span><span class="w"></span>k8s_ssl_apiserver_pem_name<span class="p">:</span><span class="w"> </span><span class="s1">&#39;apiserver.pem&#39;</span><span class="w">
+</span><span class="w"></span>k8s_ssl_apiserver_days<span class="p">:</span><span class="w"> </span><span class="m">10000</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span>k8s_openssl_config<span class="p">:</span><span class="w">
+</span><span class="w">  </span>req<span class="p">:</span><span class="w">
+</span><span class="w">    </span>req_extensions<span class="p">:</span><span class="w"> </span><span class="s1">&#39;v3_req&#39;</span><span class="w">
+</span><span class="w">    </span>distinguished_name<span class="p">:</span><span class="w"> </span><span class="s1">&#39;req_distinguished_name&#39;</span><span class="w">
+</span><span class="w">  </span>req_distinguished_name<span class="p">:</span><span class="w">
+</span><span class="w">  </span>v3_req<span class="p">:</span><span class="w">
+</span><span class="w">    </span>basicConstraints<span class="p">:</span><span class="w"> </span><span class="s1">&#39;CA:FALSE&#39;</span><span class="w">
+</span><span class="w">    </span>keyUsage<span class="p">:</span><span class="w"> </span><span class="s1">&#39;nonRepudiation, digitalSignature, keyEncipherment&#39;</span><span class="w">
+</span><span class="w">    </span>subjectAltName<span class="p">:</span><span class="w"> </span><span class="s1">&#39;@alt_names&#39;</span><span class="w">
+</span><span class="w">  </span>alt_names<span class="p">:</span><span class="w">
+</span><span class="w">    </span>DNS<span class="p">:</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>kubernetes<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>kubernetes.default<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>kubernetes.default.svc<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span><span class="s2">&#34;kubernetes.default.svc.{{k8s_cluster_domain}}&#34;</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span><span class="s2">&#34;*.myfqdn.com&#34;</span><span class="w">
+</span><span class="w">    </span><span class="c"># Do not fulfil IP of master nodes, they&#39;ll be automatically generated</span><span class="w">
+</span><span class="w">    </span><span class="c"># from k8s-masters group</span><span class="w">
+</span><span class="w">    </span>IP<span class="p">:</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span><span class="s2">&#34;{{k8s_service_ip}}&#34;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span>k8s_workers_openssl_config<span class="p">:</span><span class="w">
+</span><span class="w">  </span>req<span class="p">:</span><span class="w">
+</span><span class="w">    </span>req_extensions<span class="p">:</span><span class="w"> </span><span class="s1">&#39;v3_req&#39;</span><span class="w">
+</span><span class="w">    </span>distinguished_name<span class="p">:</span><span class="w"> </span><span class="s1">&#39;req_distinguished_name&#39;</span><span class="w">
+</span><span class="w">  </span>req_distinguished_name<span class="p">:</span><span class="w">
+</span><span class="w">  </span>v3_req<span class="p">:</span><span class="w">
+</span><span class="w">    </span>basicConstraints<span class="p">:</span><span class="w"> </span><span class="s1">&#39;CA:FALSE&#39;</span><span class="w">
+</span><span class="w">    </span>keyUsage<span class="p">:</span><span class="w"> </span><span class="s1">&#39;nonRepudiation, digitalSignature, keyEncipherment&#39;</span><span class="w">
+</span><span class="w">    </span>subjectAltName<span class="p">:</span><span class="w"> </span><span class="s1">&#39;@alt_names&#39;</span><span class="w">
+</span><span class="w">  </span><span class="c"># Do not fulfil alt_names, it will automatically be generated</span><span class="w">
+</span><span class="w">  </span>alt_names<span class="p">:</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span>k8s_kube_apiserver<span class="p">:</span><span class="w">
+</span><span class="w">  </span>apiVersion<span class="p">:</span><span class="w"> </span>v<span class="m">1</span><span class="w">
+</span><span class="w">  </span>kind<span class="p">:</span><span class="w"> </span>Pod<span class="w">
+</span><span class="w">  </span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">    </span>name<span class="p">:</span><span class="w"> </span>kube-apiserver<span class="w">
+</span><span class="w">    </span>namespace<span class="p">:</span><span class="w"> </span>kube-system<span class="w">
+</span><span class="w">  </span>spec<span class="p">:</span><span class="w">
+</span><span class="w">    </span>hostNetwork<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span>containers<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>kube-apiserver<span class="w">
+</span><span class="w">      </span>image<span class="p">:</span><span class="w"> </span><span class="s2">&#34;quay.io/coreos/hyperkube:{{k8s_version}}&#34;</span><span class="w">
+</span><span class="w">      </span>command<span class="p">:</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>/hyperkube<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>apiserver<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--bind-address=<span class="m">0.0</span>.<span class="m">0.0</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--etcd-servers={{k8s_etcd_endpoints}}<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--allow-privileged=<span class="kc">true</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--service-cluster-ip-range={{k8s_service_ip_range}}<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--secure-port=<span class="m">443</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--advertise-address={{k8s_adverstise_ip}}<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--admission-control=NamespaceLifecycle<span class="p">,</span>LimitRanger<span class="p">,</span>ServiceAccount<span class="p">,</span>DefaultStorageClass<span class="p">,</span>ResourceQuota<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--tls-cert-file=/etc/kubernetes/ssl/{{k8s_ssl_apiserver_pem_name}}<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--tls-private-key-file=/etc/kubernetes/ssl/{{k8s_ssl_apiserver_key_pem_name}}<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--client-ca-file=/etc/kubernetes/ssl/{{k8s_ssl_ca_pem_key_name}}<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--service-account-key-file=/etc/kubernetes/ssl/{{k8s_ssl_apiserver_key_pem_name}}<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--runtime-config=extensions/v1beta<span class="m">1</span>=<span class="kc">true</span><span class="p">,</span>extensions/v1beta<span class="m">1</span>/networkpolicies=<span class="kc">true</span><span class="w">
+</span><span class="w">      </span>livenessProbe<span class="p">:</span><span class="w">
+</span><span class="w">        </span>httpGet<span class="p">:</span><span class="w">
+</span><span class="w">          </span>host<span class="p">:</span><span class="w"> </span><span class="m">127.0</span>.<span class="m">0.1</span><span class="w">
+</span><span class="w">          </span>port<span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
+</span><span class="w">          </span>path<span class="p">:</span><span class="w"> </span>/healthz<span class="w">
+</span><span class="w">        </span>initialDelaySeconds<span class="p">:</span><span class="w"> </span><span class="m">15</span><span class="w">
+</span><span class="w">        </span>timeoutSeconds<span class="p">:</span><span class="w"> </span><span class="m">15</span><span class="w">
+</span><span class="w">      </span>ports<span class="p">:</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>containerPort<span class="p">:</span><span class="w"> </span><span class="m">443</span><span class="w">
+</span><span class="w">        </span>hostPort<span class="p">:</span><span class="w"> </span><span class="m">443</span><span class="w">
+</span><span class="w">        </span>name<span class="p">:</span><span class="w"> </span>https<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>containerPort<span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
+</span><span class="w">        </span>hostPort<span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
+</span><span class="w">        </span>name<span class="p">:</span><span class="w"> </span>local<span class="w">
+</span><span class="w">      </span>volumeMounts<span class="p">:</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>mountPath<span class="p">:</span><span class="w"> </span>/etc/kubernetes/ssl<span class="w">
+</span><span class="w">        </span>name<span class="p">:</span><span class="w"> </span>ssl-certs-kubernetes<span class="w">
+</span><span class="w">        </span>readOnly<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>mountPath<span class="p">:</span><span class="w"> </span>/etc/ssl/certs<span class="w">
+</span><span class="w">        </span>name<span class="p">:</span><span class="w"> </span>ssl-certs-host<span class="w">
+</span><span class="w">        </span>readOnly<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span>volumes<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>hostPath<span class="p">:</span><span class="w">
+</span><span class="w">        </span>path<span class="p">:</span><span class="w"> </span>/etc/kubernetes/ssl<span class="w">
+</span><span class="w">      </span>name<span class="p">:</span><span class="w"> </span>ssl-certs-kubernetes<span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>hostPath<span class="p">:</span><span class="w">
+</span><span class="w">        </span>path<span class="p">:</span><span class="w"> </span>/usr/share/ca-certificates<span class="w">
+</span><span class="w">      </span>name<span class="p">:</span><span class="w"> </span>ssl-certs-host<span class="w">
+</span><span class="w">
+</span><span class="w"></span>k8s_kube_proxy_masters<span class="p">:</span><span class="w">
+</span><span class="w">  </span>apiVersion<span class="p">:</span><span class="w"> </span>v<span class="m">1</span><span class="w">
+</span><span class="w">  </span>kind<span class="p">:</span><span class="w"> </span>Pod<span class="w">
+</span><span class="w">  </span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">    </span>name<span class="p">:</span><span class="w"> </span>kube-proxy<span class="w">
+</span><span class="w">    </span>namespace<span class="p">:</span><span class="w"> </span>kube-system<span class="w">
+</span><span class="w">  </span>spec<span class="p">:</span><span class="w">
+</span><span class="w">    </span>hostNetwork<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span>containers<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>kube-proxy<span class="w">
+</span><span class="w">      </span>image<span class="p">:</span><span class="w"> </span><span class="s2">&#34;quay.io/coreos/hyperkube:{{k8s_version}}&#34;</span><span class="w">
+</span><span class="w">      </span>command<span class="p">:</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>/hyperkube<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>proxy<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--master=http<span class="p">:</span>//<span class="m">127.0</span>.<span class="m">0.1</span><span class="p">:</span><span class="m">8080</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--proxy-mode=iptables<span class="w">
+</span><span class="w">      </span>securityContext<span class="p">:</span><span class="w">
+</span><span class="w">        </span>privileged<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span>volumeMounts<span class="p">:</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>mountPath<span class="p">:</span><span class="w"> </span>/etc/ssl/certs<span class="w">
+</span><span class="w">        </span>name<span class="p">:</span><span class="w"> </span>ssl-certs-host<span class="w">
+</span><span class="w">        </span>readOnly<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span>volumes<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>hostPath<span class="p">:</span><span class="w">
+</span><span class="w">        </span>path<span class="p">:</span><span class="w"> </span>/usr/share/ca-certificates<span class="w">
+</span><span class="w">      </span>name<span class="p">:</span><span class="w"> </span>ssl-certs-host<span class="w">
+</span><span class="w">
+</span><span class="w"></span>k8s_kube_proxy_workers<span class="p">:</span><span class="w">
+</span><span class="w">  </span>apiVersion<span class="p">:</span><span class="w"> </span>v<span class="m">1</span><span class="w">
+</span><span class="w">  </span>kind<span class="p">:</span><span class="w"> </span>Pod<span class="w">
+</span><span class="w">  </span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">    </span>name<span class="p">:</span><span class="w"> </span>kube-proxy<span class="w">
+</span><span class="w">    </span>namespace<span class="p">:</span><span class="w"> </span>kube-system<span class="w">
+</span><span class="w">  </span>spec<span class="p">:</span><span class="w">
+</span><span class="w">    </span>hostNetwork<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span>containers<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>kube-proxy<span class="w">
+</span><span class="w">      </span>image<span class="p">:</span><span class="w"> </span><span class="s2">&#34;quay.io/coreos/hyperkube:{{k8s_version}}&#34;</span><span class="w">
+</span><span class="w">      </span>command<span class="p">:</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>/hyperkube<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>proxy<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--master=https<span class="p">:</span>//{{k8s_master_host}}<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--kubeconfig=/etc/kubernetes/worker-kubeconfig.yaml<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--proxy-mode=iptables<span class="w">
+</span><span class="w">      </span>securityContext<span class="p">:</span><span class="w">
+</span><span class="w">        </span>privileged<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span>volumeMounts<span class="p">:</span><span class="w">
+</span><span class="w">        </span>-<span class="w"> </span>mountPath<span class="p">:</span><span class="w"> </span>/etc/ssl/certs<span class="w">
+</span><span class="w">          </span>name<span class="p">:</span><span class="w"> </span><span class="s2">&#34;ssl-certs&#34;</span><span class="w">
+</span><span class="w">        </span>-<span class="w"> </span>mountPath<span class="p">:</span><span class="w"> </span>/etc/kubernetes/worker-kubeconfig.yaml<span class="w">
+</span><span class="w">          </span>name<span class="p">:</span><span class="w"> </span><span class="s2">&#34;kubeconfig&#34;</span><span class="w">
+</span><span class="w">          </span>readOnly<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">        </span>-<span class="w"> </span>mountPath<span class="p">:</span><span class="w"> </span>/etc/kubernetes/ssl<span class="w">
+</span><span class="w">          </span>name<span class="p">:</span><span class="w"> </span><span class="s2">&#34;etc-kube-ssl&#34;</span><span class="w">
+</span><span class="w">          </span>readOnly<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span>volumes<span class="p">:</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span><span class="s2">&#34;ssl-certs&#34;</span><span class="w">
+</span><span class="w">        </span>hostPath<span class="p">:</span><span class="w">
+</span><span class="w">          </span>path<span class="p">:</span><span class="w"> </span><span class="s2">&#34;/usr/share/ca-certificates&#34;</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span><span class="s2">&#34;kubeconfig&#34;</span><span class="w">
+</span><span class="w">        </span>hostPath<span class="p">:</span><span class="w">
+</span><span class="w">          </span>path<span class="p">:</span><span class="w"> </span><span class="s2">&#34;/etc/kubernetes/worker-kubeconfig.yaml&#34;</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span><span class="s2">&#34;etc-kube-ssl&#34;</span><span class="w">
+</span><span class="w">        </span>hostPath<span class="p">:</span><span class="w">
+</span><span class="w">          </span>path<span class="p">:</span><span class="w"> </span><span class="s2">&#34;/etc/kubernetes/ssl&#34;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span>k8s_kube_controller_manager<span class="p">:</span><span class="w">
+</span><span class="w">  </span>apiVersion<span class="p">:</span><span class="w"> </span>v<span class="m">1</span><span class="w">
+</span><span class="w">  </span>kind<span class="p">:</span><span class="w"> </span>Pod<span class="w">
+</span><span class="w">  </span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">    </span>name<span class="p">:</span><span class="w"> </span>kube-controller-manager<span class="w">
+</span><span class="w">    </span>namespace<span class="p">:</span><span class="w"> </span>kube-system<span class="w">
+</span><span class="w">  </span>spec<span class="p">:</span><span class="w">
+</span><span class="w">    </span>hostNetwork<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span>containers<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>kube-controller-manager<span class="w">
+</span><span class="w">      </span>image<span class="p">:</span><span class="w"> </span><span class="s2">&#34;quay.io/coreos/hyperkube:{{k8s_version}}&#34;</span><span class="w">
+</span><span class="w">      </span>command<span class="p">:</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>/hyperkube<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>controller-manager<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--master=http<span class="p">:</span>//<span class="m">127.0</span>.<span class="m">0.1</span><span class="p">:</span><span class="m">8080</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--leader-elect=<span class="kc">true</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--service-account-private-key-file=/etc/kubernetes/ssl/{{k8s_ssl_apiserver_key_pem_name}}<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--root-ca-file=/etc/kubernetes/ssl/{{k8s_ssl_ca_pem_key_name}}<span class="w">
+</span><span class="w">      </span>livenessProbe<span class="p">:</span><span class="w">
+</span><span class="w">        </span>httpGet<span class="p">:</span><span class="w">
+</span><span class="w">          </span>host<span class="p">:</span><span class="w"> </span><span class="m">127.0</span>.<span class="m">0.1</span><span class="w">
+</span><span class="w">          </span>path<span class="p">:</span><span class="w"> </span>/healthz<span class="w">
+</span><span class="w">          </span>port<span class="p">:</span><span class="w"> </span><span class="m">10252</span><span class="w">
+</span><span class="w">        </span>initialDelaySeconds<span class="p">:</span><span class="w"> </span><span class="m">15</span><span class="w">
+</span><span class="w">        </span>timeoutSeconds<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">      </span>volumeMounts<span class="p">:</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>mountPath<span class="p">:</span><span class="w"> </span>/etc/kubernetes/ssl<span class="w">
+</span><span class="w">        </span>name<span class="p">:</span><span class="w"> </span>ssl-certs-kubernetes<span class="w">
+</span><span class="w">        </span>readOnly<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>mountPath<span class="p">:</span><span class="w"> </span>/etc/ssl/certs<span class="w">
+</span><span class="w">        </span>name<span class="p">:</span><span class="w"> </span>ssl-certs-host<span class="w">
+</span><span class="w">        </span>readOnly<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span>volumes<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>hostPath<span class="p">:</span><span class="w">
+</span><span class="w">        </span>path<span class="p">:</span><span class="w"> </span>/etc/kubernetes/ssl<span class="w">
+</span><span class="w">      </span>name<span class="p">:</span><span class="w"> </span>ssl-certs-kubernetes<span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>hostPath<span class="p">:</span><span class="w">
+</span><span class="w">        </span>path<span class="p">:</span><span class="w"> </span>/usr/share/ca-certificates<span class="w">
+</span><span class="w">      </span>name<span class="p">:</span><span class="w"> </span>ssl-certs-host<span class="w">
+</span><span class="w">
+</span><span class="w"></span>k8s_kube_scheduler<span class="p">:</span><span class="w">
+</span><span class="w">  </span>apiVersion<span class="p">:</span><span class="w"> </span>v<span class="m">1</span><span class="w">
+</span><span class="w">  </span>kind<span class="p">:</span><span class="w"> </span>Pod<span class="w">
+</span><span class="w">  </span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">    </span>name<span class="p">:</span><span class="w"> </span>kube-scheduler<span class="w">
+</span><span class="w">    </span>namespace<span class="p">:</span><span class="w"> </span>kube-system<span class="w">
+</span><span class="w">  </span>spec<span class="p">:</span><span class="w">
+</span><span class="w">    </span>hostNetwork<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span>containers<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>kube-scheduler<span class="w">
+</span><span class="w">      </span>image<span class="p">:</span><span class="w"> </span><span class="s2">&#34;quay.io/coreos/hyperkube:{{k8s_version}}&#34;</span><span class="w">
+</span><span class="w">      </span>command<span class="p">:</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>/hyperkube<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>scheduler<span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--master=http<span class="p">:</span>//<span class="m">127.0</span>.<span class="m">0.1</span><span class="p">:</span><span class="m">8080</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>--leader-elect=<span class="kc">true</span><span class="w">
+</span><span class="w">      </span>livenessProbe<span class="p">:</span><span class="w">
+</span><span class="w">        </span>httpGet<span class="p">:</span><span class="w">
+</span><span class="w">          </span>host<span class="p">:</span><span class="w"> </span><span class="m">127.0</span>.<span class="m">0.1</span><span class="w">
+</span><span class="w">          </span>path<span class="p">:</span><span class="w"> </span>/healthz<span class="w">
+</span><span class="w">          </span>port<span class="p">:</span><span class="w"> </span><span class="m">10251</span><span class="w">
+</span><span class="w">        </span>initialDelaySeconds<span class="p">:</span><span class="w"> </span><span class="m">15</span><span class="w">
+</span><span class="w">        </span>timeoutSeconds<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span>k8s_worker_kubeconfig<span class="p">:</span><span class="w">
+</span><span class="w">  </span>apiVersion<span class="p">:</span><span class="w"> </span>v<span class="m">1</span><span class="w">
+</span><span class="w">  </span>kind<span class="p">:</span><span class="w"> </span>Config<span class="w">
+</span><span class="w">  </span>clusters<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>local<span class="w">
+</span><span class="w">    </span>cluster<span class="p">:</span><span class="w">
+</span><span class="w">      </span>certificate-authority<span class="p">:</span><span class="w"> </span>/etc/kubernetes/ssl/ca.pem<span class="w">
+</span><span class="w">      </span>server<span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://{{k8s_master_host}}:443&#34;</span><span class="w">
+</span><span class="w">  </span>users<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>kubelet<span class="w">
+</span><span class="w">    </span>user<span class="p">:</span><span class="w">
+</span><span class="w">      </span>client-certificate<span class="p">:</span><span class="w"> </span>/etc/kubernetes/ssl/worker.pem<span class="w">
+</span><span class="w">      </span>client-key<span class="p">:</span><span class="w"> </span>/etc/kubernetes/ssl/worker-key.pem<span class="w">
+</span><span class="w">  </span>contexts<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>context<span class="p">:</span><span class="w">
+</span><span class="w">      </span>cluster<span class="p">:</span><span class="w"> </span>local<span class="w">
+</span><span class="w">      </span>user<span class="p">:</span><span class="w"> </span>kubelet<span class="w">
+</span><span class="w">    </span>name<span class="p">:</span><span class="w"> </span>kubelet-context<span class="w">
+</span><span class="w">  </span>current-context<span class="p">:</span><span class="w"> </span>kubelet-context<span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># 3rd party apps</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span>k8s_dns_service<span class="p">:</span><span class="w">
+</span><span class="w">  </span>apiVersion<span class="p">:</span><span class="w"> </span>v<span class="m">1</span><span class="w">
+</span><span class="w">  </span>kind<span class="p">:</span><span class="w"> </span>Service<span class="w">
+</span><span class="w">  </span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">    </span>name<span class="p">:</span><span class="w"> </span>kube-dns<span class="w">
+</span><span class="w">    </span>namespace<span class="p">:</span><span class="w"> </span>kube-system<span class="w">
+</span><span class="w">    </span>labels<span class="p">:</span><span class="w">
+</span><span class="w">      </span>k8s-app<span class="p">:</span><span class="w"> </span>kube-dns<span class="w">
+</span><span class="w">      </span>kubernetes.io/cluster-service<span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
+</span><span class="w">      </span>kubernetes.io/name<span class="p">:</span><span class="w"> </span><span class="s2">&#34;KubeDNS&#34;</span><span class="w">
+</span><span class="w">  </span>spec<span class="p">:</span><span class="w">
+</span><span class="w">    </span>selector<span class="p">:</span><span class="w">
+</span><span class="w">      </span>k8s-app<span class="p">:</span><span class="w"> </span>kube-dns<span class="w">
+</span><span class="w">    </span>clusterIP<span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{k8s_dns_service_ip}}&#34;</span><span class="w">
+</span><span class="w">    </span>ports<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>dns<span class="w">
+</span><span class="w">      </span>port<span class="p">:</span><span class="w"> </span><span class="m">53</span><span class="w">
+</span><span class="w">      </span>protocol<span class="p">:</span><span class="w"> </span>UDP<span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>dns-tcp<span class="w">
+</span><span class="w">      </span>port<span class="p">:</span><span class="w"> </span><span class="m">53</span><span class="w">
+</span><span class="w">      </span>protocol<span class="p">:</span><span class="w"> </span>TCP<span class="w">
+</span><span class="w">
+</span><span class="w"></span>k8s_dns_replication_controller<span class="p">:</span><span class="w">
+</span><span class="w">  </span>apiVersion<span class="p">:</span><span class="w"> </span>v<span class="m">1</span><span class="w">
+</span><span class="w">  </span>kind<span class="p">:</span><span class="w"> </span>ReplicationController<span class="w">
+</span><span class="w">  </span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">    </span>name<span class="p">:</span><span class="w"> </span>kube-dns-v<span class="m">20</span><span class="w">
+</span><span class="w">    </span>namespace<span class="p">:</span><span class="w"> </span>kube-system<span class="w">
+</span><span class="w">    </span>labels<span class="p">:</span><span class="w">
+</span><span class="w">      </span>k8s-app<span class="p">:</span><span class="w"> </span>kube-dns<span class="w">
+</span><span class="w">      </span>version<span class="p">:</span><span class="w"> </span>v<span class="m">20</span><span class="w">
+</span><span class="w">      </span>kubernetes.io/cluster-service<span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
+</span><span class="w">  </span>spec<span class="p">:</span><span class="w">
+</span><span class="w">    </span>replicas<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">    </span>selector<span class="p">:</span><span class="w">
+</span><span class="w">      </span>k8s-app<span class="p">:</span><span class="w"> </span>kube-dns<span class="w">
+</span><span class="w">      </span>version<span class="p">:</span><span class="w"> </span>v<span class="m">20</span><span class="w">
+</span><span class="w">    </span>template<span class="p">:</span><span class="w">
+</span><span class="w">      </span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">        </span>labels<span class="p">:</span><span class="w">
+</span><span class="w">          </span>k8s-app<span class="p">:</span><span class="w"> </span>kube-dns<span class="w">
+</span><span class="w">          </span>version<span class="p">:</span><span class="w"> </span>v<span class="m">20</span><span class="w">
+</span><span class="w">        </span>annotations<span class="p">:</span><span class="w">
+</span><span class="w">          </span>scheduler.alpha.kubernetes.io/critical-pod<span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">
+</span><span class="w">          </span>scheduler.alpha.kubernetes.io/tolerations<span class="p">:</span><span class="w"> </span><span class="s1">&#39;[{&#34;key&#34;:&#34;CriticalAddonsOnly&#34;, &#34;operator&#34;:&#34;Exists&#34;}]&#39;</span><span class="w">
+</span><span class="w">      </span>spec<span class="p">:</span><span class="w">
+</span><span class="w">        </span>containers<span class="p">:</span><span class="w">
+</span><span class="w">        </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>kubedns<span class="w">
+</span><span class="w">          </span>image<span class="p">:</span><span class="w"> </span>gcr.io/google_containers/kubedns-amd<span class="m">64</span><span class="p">:</span><span class="m">1.9</span><span class="w">
+</span><span class="w">          </span>resources<span class="p">:</span><span class="w">
+</span><span class="w">            </span>limits<span class="p">:</span><span class="w">
+</span><span class="w">              </span>memory<span class="p">:</span><span class="w"> </span>170Mi<span class="w">
+</span><span class="w">            </span>requests<span class="p">:</span><span class="w">
+</span><span class="w">              </span>cpu<span class="p">:</span><span class="w"> </span>100m<span class="w">
+</span><span class="w">              </span>memory<span class="p">:</span><span class="w"> </span>70Mi<span class="w">
+</span><span class="w">          </span>livenessProbe<span class="p">:</span><span class="w">
+</span><span class="w">            </span>httpGet<span class="p">:</span><span class="w">
+</span><span class="w">              </span>path<span class="p">:</span><span class="w"> </span>/healthz-kubedns<span class="w">
+</span><span class="w">              </span>port<span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
+</span><span class="w">              </span>scheme<span class="p">:</span><span class="w"> </span>HTTP<span class="w">
+</span><span class="w">            </span>initialDelaySeconds<span class="p">:</span><span class="w"> </span><span class="m">60</span><span class="w">
+</span><span class="w">            </span>timeoutSeconds<span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span><span class="w">            </span>successThreshold<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">            </span>failureThreshold<span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span><span class="w">          </span>readinessProbe<span class="p">:</span><span class="w">
+</span><span class="w">            </span>httpGet<span class="p">:</span><span class="w">
+</span><span class="w">              </span>path<span class="p">:</span><span class="w"> </span>/readiness<span class="w">
+</span><span class="w">              </span>port<span class="p">:</span><span class="w"> </span><span class="m">8081</span><span class="w">
+</span><span class="w">              </span>scheme<span class="p">:</span><span class="w"> </span>HTTP<span class="w">
+</span><span class="w">            </span>initialDelaySeconds<span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span><span class="w">            </span>timeoutSeconds<span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span><span class="w">          </span>args<span class="p">:</span><span class="w">
+</span><span class="w">            </span>-<span class="w"> </span><span class="s2">&#34;--domain={{k8s_cluster_domain}}.&#34;</span><span class="w">
+</span><span class="w">            </span>-<span class="w"> </span>--dns-port=<span class="m">10053</span><span class="w">
+</span><span class="w">          </span>ports<span class="p">:</span><span class="w">
+</span><span class="w">          </span>-<span class="w"> </span>containerPort<span class="p">:</span><span class="w"> </span><span class="m">10053</span><span class="w">
+</span><span class="w">            </span>name<span class="p">:</span><span class="w"> </span>dns-local<span class="w">
+</span><span class="w">            </span>protocol<span class="p">:</span><span class="w"> </span>UDP<span class="w">
+</span><span class="w">          </span>-<span class="w"> </span>containerPort<span class="p">:</span><span class="w"> </span><span class="m">10053</span><span class="w">
+</span><span class="w">            </span>name<span class="p">:</span><span class="w"> </span>dns-tcp-local<span class="w">
+</span><span class="w">            </span>protocol<span class="p">:</span><span class="w"> </span>TCP<span class="w">
+</span><span class="w">        </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>dnsmasq<span class="w">
+</span><span class="w">          </span>image<span class="p">:</span><span class="w"> </span>gcr.io/google_containers/kube-dnsmasq-amd<span class="m">64</span><span class="p">:</span><span class="m">1.4</span><span class="w">
+</span><span class="w">          </span>livenessProbe<span class="p">:</span><span class="w">
+</span><span class="w">            </span>httpGet<span class="p">:</span><span class="w">
+</span><span class="w">              </span>path<span class="p">:</span><span class="w"> </span>/healthz-dnsmasq<span class="w">
+</span><span class="w">              </span>port<span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
+</span><span class="w">              </span>scheme<span class="p">:</span><span class="w"> </span>HTTP<span class="w">
+</span><span class="w">            </span>initialDelaySeconds<span class="p">:</span><span class="w"> </span><span class="m">60</span><span class="w">
+</span><span class="w">            </span>timeoutSeconds<span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span><span class="w">            </span>successThreshold<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">            </span>failureThreshold<span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span><span class="w">          </span>args<span class="p">:</span><span class="w">
+</span><span class="w">          </span>-<span class="w"> </span>--cache-size=<span class="m">1000</span><span class="w">
+</span><span class="w">          </span>-<span class="w"> </span>--no-resolv<span class="w">
+</span><span class="w">          </span>-<span class="w"> </span>--server=<span class="m">127.0</span>.<span class="m">0.1</span><span class="c">#10053</span><span class="w">
+</span><span class="w">          </span>-<span class="w"> </span>--log-facility=-<span class="w">
+</span><span class="w">          </span>ports<span class="p">:</span><span class="w">
+</span><span class="w">          </span>-<span class="w"> </span>containerPort<span class="p">:</span><span class="w"> </span><span class="m">53</span><span class="w">
+</span><span class="w">            </span>name<span class="p">:</span><span class="w"> </span>dns<span class="w">
+</span><span class="w">            </span>protocol<span class="p">:</span><span class="w"> </span>UDP<span class="w">
+</span><span class="w">          </span>-<span class="w"> </span>containerPort<span class="p">:</span><span class="w"> </span><span class="m">53</span><span class="w">
+</span><span class="w">            </span>name<span class="p">:</span><span class="w"> </span>dns-tcp<span class="w">
+</span><span class="w">            </span>protocol<span class="p">:</span><span class="w"> </span>TCP<span class="w">
+</span><span class="w">        </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>healthz<span class="w">
+</span><span class="w">          </span>image<span class="p">:</span><span class="w"> </span>gcr.io/google_containers/exechealthz-amd<span class="m">64</span><span class="p">:</span><span class="m">1.2</span><span class="w">
+</span><span class="w">          </span>resources<span class="p">:</span><span class="w">
+</span><span class="w">            </span>limits<span class="p">:</span><span class="w">
+</span><span class="w">              </span>memory<span class="p">:</span><span class="w"> </span>50Mi<span class="w">
+</span><span class="w">            </span>requests<span class="p">:</span><span class="w">
+</span><span class="w">              </span>cpu<span class="p">:</span><span class="w"> </span>10m<span class="w">
+</span><span class="w">              </span>memory<span class="p">:</span><span class="w"> </span>50Mi<span class="w">
+</span><span class="w">          </span>args<span class="p">:</span><span class="w">
+</span><span class="w">          </span>-<span class="w"> </span><span class="s2">&#34;--cmd=nslookup kubernetes.default.svc.{{k8s_cluster_domain}} 127.0.0.1 &gt;/dev/null&#34;</span><span class="w">
+</span><span class="w">          </span>-<span class="w"> </span>--url=/healthz-dnsmasq<span class="w">
+</span><span class="w">          </span>-<span class="w"> </span><span class="s2">&#34;--cmd=nslookup kubernetes.default.svc.{{k8s_cluster_domain}} 127.0.0.1:10053 &gt;/dev/null&#34;</span><span class="w">
+</span><span class="w">          </span>-<span class="w"> </span>--url=/healthz-kubedns<span class="w">
+</span><span class="w">          </span>-<span class="w"> </span>--port=<span class="m">8080</span><span class="w">
+</span><span class="w">          </span>-<span class="w"> </span>--quiet<span class="w">
+</span><span class="w">          </span>ports<span class="p">:</span><span class="w">
+</span><span class="w">          </span>-<span class="w"> </span>containerPort<span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
+</span><span class="w">            </span>protocol<span class="p">:</span><span class="w"> </span>TCP<span class="w">
+</span><span class="w">        </span>dnsPolicy<span class="p">:</span><span class="w"> </span>Default<span class="w">
+</span><span class="w">
+</span><span class="w"></span>k8s_dashboard_deployment<span class="p">:</span><span class="w">
+</span><span class="w">  </span>kind<span class="p">:</span><span class="w"> </span>Deployment<span class="w">
+</span><span class="w">  </span>apiVersion<span class="p">:</span><span class="w"> </span>extensions/v1beta<span class="m">1</span><span class="w">
+</span><span class="w">  </span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">    </span>labels<span class="p">:</span><span class="w">
+</span><span class="w">      </span>app<span class="p">:</span><span class="w"> </span>kubernetes-dashboard<span class="w">
+</span><span class="w">    </span>name<span class="p">:</span><span class="w"> </span>kubernetes-dashboard<span class="w">
+</span><span class="w">    </span>namespace<span class="p">:</span><span class="w"> </span>kube-system<span class="w">
+</span><span class="w">  </span>spec<span class="p">:</span><span class="w">
+</span><span class="w">    </span>replicas<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">    </span>selector<span class="p">:</span><span class="w">
+</span><span class="w">      </span>matchLabels<span class="p">:</span><span class="w">
+</span><span class="w">        </span>app<span class="p">:</span><span class="w"> </span>kubernetes-dashboard<span class="w">
+</span><span class="w">    </span>template<span class="p">:</span><span class="w">
+</span><span class="w">      </span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">        </span>labels<span class="p">:</span><span class="w">
+</span><span class="w">          </span>app<span class="p">:</span><span class="w"> </span>kubernetes-dashboard<span class="w">
+</span><span class="w">        </span>annotations<span class="p">:</span><span class="w">
+</span><span class="w">          </span>scheduler.alpha.kubernetes.io/tolerations<span class="p">:</span><span class="w"> </span><span class="sd">|
+</span><span class="sd">            [
+</span><span class="sd">              {
+</span><span class="sd">                &#34;key&#34;: &#34;dedicated&#34;,
+</span><span class="sd">                &#34;operator&#34;: &#34;Equal&#34;,
+</span><span class="sd">                &#34;value&#34;: &#34;master&#34;,
+</span><span class="sd">                &#34;effect&#34;: &#34;NoSchedule&#34;
+</span><span class="sd">              }
+</span><span class="sd">            ]</span><span class="w">
+</span><span class="w">      </span>spec<span class="p">:</span><span class="w">
+</span><span class="w">        </span>containers<span class="p">:</span><span class="w">
+</span><span class="w">        </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>kubernetes-dashboard<span class="w">
+</span><span class="w">          </span>image<span class="p">:</span><span class="w"> </span><span class="s2">&#34;gcr.io/google_containers/kubernetes-dashboard-amd64:v{{k8s_dashboard_version}}&#34;</span><span class="w">
+</span><span class="w">          </span>imagePullPolicy<span class="p">:</span><span class="w"> </span>Always<span class="w">
+</span><span class="w">          </span>resources<span class="p">:</span><span class="w">
+</span><span class="w">            </span>limits<span class="p">:</span><span class="w">
+</span><span class="w">              </span>cpu<span class="p">:</span><span class="w"> </span>100m<span class="w">
+</span><span class="w">              </span>memory<span class="p">:</span><span class="w"> </span>50Mi<span class="w">
+</span><span class="w">            </span>requests<span class="p">:</span><span class="w">
+</span><span class="w">              </span>cpu<span class="p">:</span><span class="w"> </span>100m<span class="w">
+</span><span class="w">              </span>memory<span class="p">:</span><span class="w"> </span>50Mi<span class="w">
+</span><span class="w">          </span>ports<span class="p">:</span><span class="w">
+</span><span class="w">          </span>-<span class="w"> </span>containerPort<span class="p">:</span><span class="w"> </span><span class="m">9090</span><span class="w">
+</span><span class="w">            </span>protocol<span class="p">:</span><span class="w"> </span>TCP<span class="w">
+</span><span class="w">          </span>args<span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="c"># Uncomment the following line to manually specify Kubernetes API server Host</span><span class="w">
+</span><span class="w">            </span><span class="c"># If not specified, Dashboard will attempt to auto discover the API server and connect</span><span class="w">
+</span><span class="w">            </span><span class="c"># to it. Uncomment only if the default does not work.</span><span class="w">
+</span><span class="w">            </span><span class="c"># - --apiserver-host=http://my-address:port</span><span class="w">
+</span><span class="w">          </span>livenessProbe<span class="p">:</span><span class="w">
+</span><span class="w">            </span>httpGet<span class="p">:</span><span class="w">
+</span><span class="w">              </span>path<span class="p">:</span><span class="w"> </span>/<span class="w">
+</span><span class="w">              </span>port<span class="p">:</span><span class="w"> </span><span class="m">9090</span><span class="w">
+</span><span class="w">            </span>initialDelaySeconds<span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
+</span><span class="w">            </span>timeoutSeconds<span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span>k8s_dashboard_service<span class="p">:</span><span class="w">
+</span><span class="w">  </span>apiVersion<span class="p">:</span><span class="w"> </span>v<span class="m">1</span><span class="w">
+</span><span class="w">  </span>kind<span class="p">:</span><span class="w"> </span>Service<span class="w">
+</span><span class="w">  </span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">    </span>name<span class="p">:</span><span class="w"> </span>kubernetes-dashboard<span class="w">
+</span><span class="w">    </span>namespace<span class="p">:</span><span class="w"> </span>kube-system<span class="w">
+</span><span class="w">    </span>labels<span class="p">:</span><span class="w">
+</span><span class="w">      </span>k8s-app<span class="p">:</span><span class="w"> </span>kubernetes-dashboard<span class="w">
+</span><span class="w">      </span>kubernetes.io/cluster-service<span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
+</span><span class="w">  </span>spec<span class="p">:</span><span class="w">
+</span><span class="w">    </span>selector<span class="p">:</span><span class="w">
+</span><span class="w">      </span>k8s-app<span class="p">:</span><span class="w"> </span>kubernetes-dashboard<span class="w">
+</span><span class="w">    </span>ports<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>port<span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span><span class="w">      </span>targetPort<span class="p">:</span><span class="w"> </span><span class="m">9090</span></code></pre></div></p>
 
-<span style="color:#75715e"># Master host will ideally be a network load balancer that sits in front of</span>
-<span style="color:#75715e"># them. Alternatively, a DNS name can be configured which will resolve to</span>
-<span style="color:#75715e"># the master IPs</span>
-k8s_master_host: <span style="color:#e6db74">&#39;kub-master-host.myfqdn.com&#39;</span>
-k8s_etcd_endpoints: <span style="color:#e6db74">&#34;http://{{ groups[&#39;k8s-masters&#39;] | map(&#39;extract&#39;, hostvars, [&#39;priv_ip&#39;]) | join(&#39;:2379,http://&#39;) }}:2379&#34;</span>
-k8s_flanneld_subnet: <span style="color:#e6db74">&#34;10.1.0.0/16&#34;</span>
-k8s_pod_network: <span style="color:#e6db74">&#39;10.2.0.0/16&#39;</span>
-k8s_service_ip_range: <span style="color:#e6db74">&#39;10.3.0.0/24&#39;</span>
-k8s_service_ip: <span style="color:#e6db74">&#39;10.3.0.1&#39;</span>
-k8s_dns_service_ip: <span style="color:#e6db74">&#39;10.3.0.10&#39;</span>
-k8s_cluster_domain: <span style="color:#e6db74">&#39;cluster.local&#39;</span>
-k8s_kubectl_cluster_name: <span style="color:#e6db74">&#39;default-cluster&#39;</span>
-
-k8s_adverstise_ip: <span style="color:#e6db74">&#34;{{ansible_enp0s8.ipv4.address}}&#34;</span>
-<span style="color:#75715e"># Leave it blank if you&#39;re using flannel, otherwize use cni for Calico</span>
-k8s_kublet_network_plugin: <span style="color:#e6db74">&#39;&#39;</span>
-<span style="color:#75715e"># Set to false by default because kubelet-wrapper will handle it</span>
-k8s_restart_kubelet: <span style="color:#66d9ef">false</span>
-
-<span style="color:#75715e"># SSL</span>
-
-k8s_role_path: <span style="color:#e6db74">&#34;roles/deimosfr.coreos-kubernetes&#34;</span>
-k8s_template_dir: <span style="color:#e6db74">&#34;{{k8s_role_path}}/templates&#34;</span>
-k8s_ssl_local_path: <span style="color:#e6db74">&#34;{{k8s_role_path}}/files/ssl/{{k8s_kubectl_cluster_name}}&#34;</span>
-k8s_ssl_api_server_path: <span style="color:#e6db74">&#34;{{k8s_ssl_local_path}}/api_servers&#34;</span>
-k8s_ssl_workers_path: <span style="color:#e6db74">&#34;{{k8s_ssl_local_path}}/workers&#34;</span>
-k8s_ssl_admin_path: <span style="color:#e6db74">&#34;{{k8s_ssl_local_path}}/admins&#34;</span>
-
-k8s_ssl_bytes_encrypt: <span style="color:#ae81ff">2048</span>
-k8s_ssl_ca_name: <span style="color:#e6db74">&#39;ca-key.pem&#39;</span>
-k8s_ssl_ca_pem_key_name: <span style="color:#e6db74">&#39;ca.pem&#39;</span>
-k8s_ssl_valid_days: <span style="color:#ae81ff">10000</span>
-k8s_ssl_ca_pem_subj: <span style="color:#e6db74">&#39;/CN=kube-ca&#39;</span>
-
-k8s_ssl_apiserver_key_pem_name: <span style="color:#e6db74">&#39;apiserver-key.pem&#39;</span>
-k8s_ssl_apiserver_csr_name: <span style="color:#e6db74">&#39;apiserver.csr&#39;</span>
-k8s_ssl_apiserver_subj: <span style="color:#e6db74">&#39;/CN=kube-apiserver&#39;</span>
-k8s_ssl_apiserver_pem_name: <span style="color:#e6db74">&#39;apiserver.pem&#39;</span>
-k8s_ssl_apiserver_days: <span style="color:#ae81ff">10000</span>
-
-k8s_openssl_config:
-  req:
-    req_extensions: <span style="color:#e6db74">&#39;v3_req&#39;</span>
-    distinguished_name: <span style="color:#e6db74">&#39;req_distinguished_name&#39;</span>
-  req_distinguished_name:
-  v3_req:
-    basicConstraints: <span style="color:#e6db74">&#39;CA:FALSE&#39;</span>
-    keyUsage: <span style="color:#e6db74">&#39;nonRepudiation, digitalSignature, keyEncipherment&#39;</span>
-    subjectAltName: <span style="color:#e6db74">&#39;@alt_names&#39;</span>
-  alt_names:
-    DNS:
-      - kubernetes
-      - kubernetes.default
-      - kubernetes.default.svc
-      - <span style="color:#e6db74">&#34;kubernetes.default.svc.{{k8s_cluster_domain}}&#34;</span>
-      - <span style="color:#e6db74">&#34;*.myfqdn.com&#34;</span>
-    <span style="color:#75715e"># Do not fulfil IP of master nodes, they&#39;ll be automatically generated</span>
-    <span style="color:#75715e"># from k8s-masters group</span>
-    IP:
-      - <span style="color:#e6db74">&#34;{{k8s_service_ip}}&#34;</span>
-
-k8s_workers_openssl_config:
-  req:
-    req_extensions: <span style="color:#e6db74">&#39;v3_req&#39;</span>
-    distinguished_name: <span style="color:#e6db74">&#39;req_distinguished_name&#39;</span>
-  req_distinguished_name:
-  v3_req:
-    basicConstraints: <span style="color:#e6db74">&#39;CA:FALSE&#39;</span>
-    keyUsage: <span style="color:#e6db74">&#39;nonRepudiation, digitalSignature, keyEncipherment&#39;</span>
-    subjectAltName: <span style="color:#e6db74">&#39;@alt_names&#39;</span>
-  <span style="color:#75715e"># Do not fulfil alt_names, it will automatically be generated</span>
-  alt_names:
-
-k8s_kube_apiserver:
-  apiVersion: v<span style="color:#ae81ff">1</span>
-  kind: Pod
-  metadata:
-    name: kube-apiserver
-    namespace: kube-system
-  spec:
-    hostNetwork: <span style="color:#66d9ef">true</span>
-    containers:
-    - name: kube-apiserver
-      image: <span style="color:#e6db74">&#34;quay.io/coreos/hyperkube:{{k8s_version}}&#34;</span>
-      command:
-      - /hyperkube
-      - apiserver
-      - --bind-address=<span style="color:#ae81ff">0.0</span>.<span style="color:#ae81ff">0.0</span>
-      - --etcd-servers={{k8s_etcd_endpoints}}
-      - --allow-privileged=<span style="color:#66d9ef">true</span>
-      - --service-cluster-ip-range={{k8s_service_ip_range}}
-      - --secure-port=<span style="color:#ae81ff">443</span>
-      - --advertise-address={{k8s_adverstise_ip}}
-      - --admission-control=NamespaceLifecycle,LimitRanger,ServiceAccount,DefaultStorageClass,ResourceQuota
-      - --tls-cert-file=/etc/kubernetes/ssl/{{k8s_ssl_apiserver_pem_name}}
-      - --tls-private-key-file=/etc/kubernetes/ssl/{{k8s_ssl_apiserver_key_pem_name}}
-      - --client-ca-file=/etc/kubernetes/ssl/{{k8s_ssl_ca_pem_key_name}}
-      - --service-account-key-file=/etc/kubernetes/ssl/{{k8s_ssl_apiserver_key_pem_name}}
-      - --runtime-config=extensions/v1beta<span style="color:#ae81ff">1</span>=<span style="color:#66d9ef">true</span>,extensions/v1beta<span style="color:#ae81ff">1</span>/networkpolicies=<span style="color:#66d9ef">true</span>
-      livenessProbe:
-        httpGet:
-          host: <span style="color:#ae81ff">127.0</span>.<span style="color:#ae81ff">0.1</span>
-          port: <span style="color:#ae81ff">8080</span>
-          path: /healthz
-        initialDelaySeconds: <span style="color:#ae81ff">15</span>
-        timeoutSeconds: <span style="color:#ae81ff">15</span>
-      ports:
-      - containerPort: <span style="color:#ae81ff">443</span>
-        hostPort: <span style="color:#ae81ff">443</span>
-        name: https
-      - containerPort: <span style="color:#ae81ff">8080</span>
-        hostPort: <span style="color:#ae81ff">8080</span>
-        name: local
-      volumeMounts:
-      - mountPath: /etc/kubernetes/ssl
-        name: ssl-certs-kubernetes
-        readOnly: <span style="color:#66d9ef">true</span>
-      - mountPath: /etc/ssl/certs
-        name: ssl-certs-host
-        readOnly: <span style="color:#66d9ef">true</span>
-    volumes:
-    - hostPath:
-        path: /etc/kubernetes/ssl
-      name: ssl-certs-kubernetes
-    - hostPath:
-        path: /usr/share/ca-certificates
-      name: ssl-certs-host
-
-k8s_kube_proxy_masters:
-  apiVersion: v<span style="color:#ae81ff">1</span>
-  kind: Pod
-  metadata:
-    name: kube-proxy
-    namespace: kube-system
-  spec:
-    hostNetwork: <span style="color:#66d9ef">true</span>
-    containers:
-    - name: kube-proxy
-      image: <span style="color:#e6db74">&#34;quay.io/coreos/hyperkube:{{k8s_version}}&#34;</span>
-      command:
-      - /hyperkube
-      - proxy
-      - --master=http://<span style="color:#ae81ff">127.0</span>.<span style="color:#ae81ff">0.1</span>:<span style="color:#ae81ff">8080</span>
-      - --proxy-mode=iptables
-      securityContext:
-        privileged: <span style="color:#66d9ef">true</span>
-      volumeMounts:
-      - mountPath: /etc/ssl/certs
-        name: ssl-certs-host
-        readOnly: <span style="color:#66d9ef">true</span>
-    volumes:
-    - hostPath:
-        path: /usr/share/ca-certificates
-      name: ssl-certs-host
-
-k8s_kube_proxy_workers:
-  apiVersion: v<span style="color:#ae81ff">1</span>
-  kind: Pod
-  metadata:
-    name: kube-proxy
-    namespace: kube-system
-  spec:
-    hostNetwork: <span style="color:#66d9ef">true</span>
-    containers:
-    - name: kube-proxy
-      image: <span style="color:#e6db74">&#34;quay.io/coreos/hyperkube:{{k8s_version}}&#34;</span>
-      command:
-      - /hyperkube
-      - proxy
-      - --master=https://{{k8s_master_host}}
-      - --kubeconfig=/etc/kubernetes/worker-kubeconfig.yaml
-      - --proxy-mode=iptables
-      securityContext:
-        privileged: <span style="color:#66d9ef">true</span>
-      volumeMounts:
-        - mountPath: /etc/ssl/certs
-          name: <span style="color:#e6db74">&#34;ssl-certs&#34;</span>
-        - mountPath: /etc/kubernetes/worker-kubeconfig.yaml
-          name: <span style="color:#e6db74">&#34;kubeconfig&#34;</span>
-          readOnly: <span style="color:#66d9ef">true</span>
-        - mountPath: /etc/kubernetes/ssl
-          name: <span style="color:#e6db74">&#34;etc-kube-ssl&#34;</span>
-          readOnly: <span style="color:#66d9ef">true</span>
-    volumes:
-      - name: <span style="color:#e6db74">&#34;ssl-certs&#34;</span>
-        hostPath:
-          path: <span style="color:#e6db74">&#34;/usr/share/ca-certificates&#34;</span>
-      - name: <span style="color:#e6db74">&#34;kubeconfig&#34;</span>
-        hostPath:
-          path: <span style="color:#e6db74">&#34;/etc/kubernetes/worker-kubeconfig.yaml&#34;</span>
-      - name: <span style="color:#e6db74">&#34;etc-kube-ssl&#34;</span>
-        hostPath:
-          path: <span style="color:#e6db74">&#34;/etc/kubernetes/ssl&#34;</span>
-
-k8s_kube_controller_manager:
-  apiVersion: v<span style="color:#ae81ff">1</span>
-  kind: Pod
-  metadata:
-    name: kube-controller-manager
-    namespace: kube-system
-  spec:
-    hostNetwork: <span style="color:#66d9ef">true</span>
-    containers:
-    - name: kube-controller-manager
-      image: <span style="color:#e6db74">&#34;quay.io/coreos/hyperkube:{{k8s_version}}&#34;</span>
-      command:
-      - /hyperkube
-      - controller-manager
-      - --master=http://<span style="color:#ae81ff">127.0</span>.<span style="color:#ae81ff">0.1</span>:<span style="color:#ae81ff">8080</span>
-      - --leader-elect=<span style="color:#66d9ef">true</span>
-      - --service-account-private-key-file=/etc/kubernetes/ssl/{{k8s_ssl_apiserver_key_pem_name}}
-      - --root-ca-file=/etc/kubernetes/ssl/{{k8s_ssl_ca_pem_key_name}}
-      livenessProbe:
-        httpGet:
-          host: <span style="color:#ae81ff">127.0</span>.<span style="color:#ae81ff">0.1</span>
-          path: /healthz
-          port: <span style="color:#ae81ff">10252</span>
-        initialDelaySeconds: <span style="color:#ae81ff">15</span>
-        timeoutSeconds: <span style="color:#ae81ff">1</span>
-      volumeMounts:
-      - mountPath: /etc/kubernetes/ssl
-        name: ssl-certs-kubernetes
-        readOnly: <span style="color:#66d9ef">true</span>
-      - mountPath: /etc/ssl/certs
-        name: ssl-certs-host
-        readOnly: <span style="color:#66d9ef">true</span>
-    volumes:
-    - hostPath:
-        path: /etc/kubernetes/ssl
-      name: ssl-certs-kubernetes
-    - hostPath:
-        path: /usr/share/ca-certificates
-      name: ssl-certs-host
-
-k8s_kube_scheduler:
-  apiVersion: v<span style="color:#ae81ff">1</span>
-  kind: Pod
-  metadata:
-    name: kube-scheduler
-    namespace: kube-system
-  spec:
-    hostNetwork: <span style="color:#66d9ef">true</span>
-    containers:
-    - name: kube-scheduler
-      image: <span style="color:#e6db74">&#34;quay.io/coreos/hyperkube:{{k8s_version}}&#34;</span>
-      command:
-      - /hyperkube
-      - scheduler
-      - --master=http://<span style="color:#ae81ff">127.0</span>.<span style="color:#ae81ff">0.1</span>:<span style="color:#ae81ff">8080</span>
-      - --leader-elect=<span style="color:#66d9ef">true</span>
-      livenessProbe:
-        httpGet:
-          host: <span style="color:#ae81ff">127.0</span>.<span style="color:#ae81ff">0.1</span>
-          path: /healthz
-          port: <span style="color:#ae81ff">10251</span>
-        initialDelaySeconds: <span style="color:#ae81ff">15</span>
-        timeoutSeconds: <span style="color:#ae81ff">1</span>
-
-k8s_worker_kubeconfig:
-  apiVersion: v<span style="color:#ae81ff">1</span>
-  kind: Config
-  clusters:
-  - name: local
-    cluster:
-      certificate-authority: /etc/kubernetes/ssl/ca.pem
-      server: <span style="color:#e6db74">&#34;https://{{k8s_master_host}}:443&#34;</span>
-  users:
-  - name: kubelet
-    user:
-      client-certificate: /etc/kubernetes/ssl/worker.pem
-      client-key: /etc/kubernetes/ssl/worker-key.pem
-  contexts:
-  - context:
-      cluster: local
-      user: kubelet
-    name: kubelet-context
-  current-context: kubelet-context
-
-<span style="color:#75715e"># 3rd party apps</span>
-
-k8s_dns_service:
-  apiVersion: v<span style="color:#ae81ff">1</span>
-  kind: Service
-  metadata:
-    name: kube-dns
-    namespace: kube-system
-    labels:
-      k8s-app: kube-dns
-      kubernetes.io/cluster-service: <span style="color:#e6db74">&#34;true&#34;</span>
-      kubernetes.io/name: <span style="color:#e6db74">&#34;KubeDNS&#34;</span>
-  spec:
-    selector:
-      k8s-app: kube-dns
-    clusterIP: <span style="color:#e6db74">&#34;{{k8s_dns_service_ip}}&#34;</span>
-    ports:
-    - name: dns
-      port: <span style="color:#ae81ff">53</span>
-      protocol: UDP
-    - name: dns-tcp
-      port: <span style="color:#ae81ff">53</span>
-      protocol: TCP
-
-k8s_dns_replication_controller:
-  apiVersion: v<span style="color:#ae81ff">1</span>
-  kind: ReplicationController
-  metadata:
-    name: kube-dns-v<span style="color:#ae81ff">20</span>
-    namespace: kube-system
-    labels:
-      k8s-app: kube-dns
-      version: v<span style="color:#ae81ff">20</span>
-      kubernetes.io/cluster-service: <span style="color:#e6db74">&#34;true&#34;</span>
-  spec:
-    replicas: <span style="color:#ae81ff">1</span>
-    selector:
-      k8s-app: kube-dns
-      version: v<span style="color:#ae81ff">20</span>
-    template:
-      metadata:
-        labels:
-          k8s-app: kube-dns
-          version: v<span style="color:#ae81ff">20</span>
-        annotations:
-          scheduler.alpha.kubernetes.io/critical-pod: <span style="color:#e6db74">&#39;&#39;</span>
-          scheduler.alpha.kubernetes.io/tolerations: <span style="color:#e6db74">&#39;[{&#34;key&#34;:&#34;CriticalAddonsOnly&#34;, &#34;operator&#34;:&#34;Exists&#34;}]&#39;</span>
-      spec:
-        containers:
-        - name: kubedns
-          image: gcr.io/google_containers/kubedns-amd<span style="color:#ae81ff">64</span>:<span style="color:#ae81ff">1.9</span>
-          resources:
-            limits:
-              memory: 170Mi
-            requests:
-              cpu: 100m
-              memory: 70Mi
-          livenessProbe:
-            httpGet:
-              path: /healthz-kubedns
-              port: <span style="color:#ae81ff">8080</span>
-              scheme: HTTP
-            initialDelaySeconds: <span style="color:#ae81ff">60</span>
-            timeoutSeconds: <span style="color:#ae81ff">5</span>
-            successThreshold: <span style="color:#ae81ff">1</span>
-            failureThreshold: <span style="color:#ae81ff">5</span>
-          readinessProbe:
-            httpGet:
-              path: /readiness
-              port: <span style="color:#ae81ff">8081</span>
-              scheme: HTTP
-            initialDelaySeconds: <span style="color:#ae81ff">3</span>
-            timeoutSeconds: <span style="color:#ae81ff">5</span>
-          args:
-            - <span style="color:#e6db74">&#34;--domain={{k8s_cluster_domain}}.&#34;</span>
-            - --dns-port=<span style="color:#ae81ff">10053</span>
-          ports:
-          - containerPort: <span style="color:#ae81ff">10053</span>
-            name: dns-local
-            protocol: UDP
-          - containerPort: <span style="color:#ae81ff">10053</span>
-            name: dns-tcp-local
-            protocol: TCP
-        - name: dnsmasq
-          image: gcr.io/google_containers/kube-dnsmasq-amd<span style="color:#ae81ff">64</span>:<span style="color:#ae81ff">1.4</span>
-          livenessProbe:
-            httpGet:
-              path: /healthz-dnsmasq
-              port: <span style="color:#ae81ff">8080</span>
-              scheme: HTTP
-            initialDelaySeconds: <span style="color:#ae81ff">60</span>
-            timeoutSeconds: <span style="color:#ae81ff">5</span>
-            successThreshold: <span style="color:#ae81ff">1</span>
-            failureThreshold: <span style="color:#ae81ff">5</span>
-          args:
-          - --cache-size=<span style="color:#ae81ff">1000</span>
-          - --no-resolv
-          - --server=<span style="color:#ae81ff">127.0</span>.<span style="color:#ae81ff">0.1</span><span style="color:#75715e">#10053</span>
-          - --log-facility=-
-          ports:
-          - containerPort: <span style="color:#ae81ff">53</span>
-            name: dns
-            protocol: UDP
-          - containerPort: <span style="color:#ae81ff">53</span>
-            name: dns-tcp
-            protocol: TCP
-        - name: healthz
-          image: gcr.io/google_containers/exechealthz-amd<span style="color:#ae81ff">64</span>:<span style="color:#ae81ff">1.2</span>
-          resources:
-            limits:
-              memory: 50Mi
-            requests:
-              cpu: 10m
-              memory: 50Mi
-          args:
-          - <span style="color:#e6db74">&#34;--cmd=nslookup kubernetes.default.svc.{{k8s_cluster_domain}} 127.0.0.1 &gt;/dev/null&#34;</span>
-          - --url=/healthz-dnsmasq
-          - <span style="color:#e6db74">&#34;--cmd=nslookup kubernetes.default.svc.{{k8s_cluster_domain}} 127.0.0.1:10053 &gt;/dev/null&#34;</span>
-          - --url=/healthz-kubedns
-          - --port=<span style="color:#ae81ff">8080</span>
-          - --quiet
-          ports:
-          - containerPort: <span style="color:#ae81ff">8080</span>
-            protocol: TCP
-        dnsPolicy: Default
-
-k8s_dashboard_deployment:
-  kind: Deployment
-  apiVersion: extensions/v1beta<span style="color:#ae81ff">1</span>
-  metadata:
-    labels:
-      app: kubernetes-dashboard
-    name: kubernetes-dashboard
-    namespace: kube-system
-  spec:
-    replicas: <span style="color:#ae81ff">1</span>
-    selector:
-      matchLabels:
-        app: kubernetes-dashboard
-    template:
-      metadata:
-        labels:
-          app: kubernetes-dashboard
-        annotations:
-          scheduler.alpha.kubernetes.io/tolerations: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">            [
-</span><span style="color:#e6db74">              {
-</span><span style="color:#e6db74">                &#34;key&#34;: &#34;dedicated&#34;,
-</span><span style="color:#e6db74">                &#34;operator&#34;: &#34;Equal&#34;,
-</span><span style="color:#e6db74">                &#34;value&#34;: &#34;master&#34;,
-</span><span style="color:#e6db74">                &#34;effect&#34;: &#34;NoSchedule&#34;
-</span><span style="color:#e6db74">              }
-</span><span style="color:#e6db74">            ]</span>
-      spec:
-        containers:
-        - name: kubernetes-dashboard
-          image: <span style="color:#e6db74">&#34;gcr.io/google_containers/kubernetes-dashboard-amd64:v{{k8s_dashboard_version}}&#34;</span>
-          imagePullPolicy: Always
-          resources:
-            limits:
-              cpu: 100m
-              memory: 50Mi
-            requests:
-              cpu: 100m
-              memory: 50Mi
-          ports:
-          - containerPort: <span style="color:#ae81ff">9090</span>
-            protocol: TCP
-          args:
-            <span style="color:#75715e"># Uncomment the following line to manually specify Kubernetes API server Host</span>
-            <span style="color:#75715e"># If not specified, Dashboard will attempt to auto discover the API server and connect</span>
-            <span style="color:#75715e"># to it. Uncomment only if the default does not work.</span>
-            <span style="color:#75715e"># - --apiserver-host=http://my-address:port</span>
-          livenessProbe:
-            httpGet:
-              path: /
-              port: <span style="color:#ae81ff">9090</span>
-            initialDelaySeconds: <span style="color:#ae81ff">30</span>
-            timeoutSeconds: <span style="color:#ae81ff">30</span>
-
-k8s_dashboard_service:
-  apiVersion: v<span style="color:#ae81ff">1</span>
-  kind: Service
-  metadata:
-    name: kubernetes-dashboard
-    namespace: kube-system
-    labels:
-      k8s-app: kubernetes-dashboard
-      kubernetes.io/cluster-service: <span style="color:#e6db74">&#34;true&#34;</span>
-  spec:
-    selector:
-      k8s-app: kubernetes-dashboard
-    ports:
-    - port: <span style="color:#ae81ff">80</span>
-      targetPort: <span style="color:#ae81ff">9090</span></code></pre></div></p>
-
-<p>If you need more information with a Vagrant test, you can take a look at the repository and <a href="https://galaxy.ansible.com/deimosfr/coreos-kubernetes/">Ansible galaxy</a>.</p>
+<p>If you need more information with a Vagrant test, you can take a look at the repository and <a href="https://galaxy.ansible.com/deimosfr/coreos-kubernetes/" target="_blank">Ansible galaxy</a>.</p>
 
               
             </div>

@@ -280,11 +280,11 @@ ga('send', 'pageview');
               
 
 <p><img src="https://blog.deimos.fr/images/logo_docker.png" alt="docker-logo" />
-This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting <a href="http://www.meetup.com/fr/Ansible-Paris/events/223572292/">Nousmotards infrastructure</a>, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.</p>
+This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting <a href="http://www.meetup.com/fr/Ansible-Paris/events/223572292/" target="_blank">Nousmotards infrastructure</a>, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.</p>
 
 <h2 id="introduction">Introduction</h2>
 
-<p>Docker is made to run a process in a confined area. The problem is when you want to run several processes inside a container! <strong>Docker is simply not designed for it by default and that&rsquo;s why a process manager should be considered</strong>. Docker officially recommend to use <a href="https://docs.docker.com/engine/articles/using_supervisord/">supervisord</a> as the init system. This is why I first started with it. However <strong>I encountered several crashes</strong> with supervisord when a failing managed process occurred and were looping. I also wanted to look at the available options and I was very surprised by <strong>the lack of features compared to Monit</strong>.</p>
+<p>Docker is made to run a process in a confined area. The problem is when you want to run several processes inside a container! <strong>Docker is simply not designed for it by default and that&rsquo;s why a process manager should be considered</strong>. Docker officially recommend to use <a href="https://docs.docker.com/engine/articles/using_supervisord/" target="_blank">supervisord</a> as the init system. This is why I first started with it. However <strong>I encountered several crashes</strong> with supervisord when a failing managed process occurred and were looping. I also wanted to look at the available options and I was very surprised by <strong>the lack of features compared to Monit</strong>.</p>
 
 <h2 id="why-supervisord-is-a-bad-idea-for-docker">Why Supervisord is a bad idea for Docker?</h2>
 
@@ -298,14 +298,14 @@ This title can sounds like a troll, but this is not the case! I&rsquo;m writing 
 <li>Did you already run a packaged java application like elasticsearch, Cassandra, Tomcat, etc&hellip;? Have you already seen the number of arguments passed when you run this kind of service with Sysv or Systemd? If not, here is an example:</li>
 </ul>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/usr/lib/jvm/java-8-oracle//bin/java -Xms8g -Xmx8g -Djava.awt.headless<span style="color:#f92672">=</span>true -XX:+UseParNewGC
--XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction<span style="color:#f92672">=</span><span style="color:#ae81ff">75</span> -XX:+UseCMSInitiatingOccupancyOnly
--XX:+HeapDumpOnOutOfMemoryError -XX:+DisableExplicitGC -Dfile.encoding<span style="color:#f92672">=</span>UTF-8 -Delasticsearch
--Des.pidfile<span style="color:#f92672">=</span>/var/run/elasticsearch/elasticsearch.pid -Des.path.home<span style="color:#f92672">=</span>/usr/share/elasticsearch
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">/usr/lib/jvm/java-8-oracle//bin/java -Xms8g -Xmx8g -Djava.awt.headless<span class="o">=</span><span class="nb">true</span> -XX:+UseParNewGC
+-XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction<span class="o">=</span><span class="m">75</span> -XX:+UseCMSInitiatingOccupancyOnly
+-XX:+HeapDumpOnOutOfMemoryError -XX:+DisableExplicitGC -Dfile.encoding<span class="o">=</span>UTF-8 -Delasticsearch
+-Des.pidfile<span class="o">=</span>/var/run/elasticsearch/elasticsearch.pid -Des.path.home<span class="o">=</span>/usr/share/elasticsearch
 -cp :/usr/share/elasticsearch/lib/elasticsearch-1.7.4.jar:/usr/share/elasticsearch/lib/*:/usr/share/elasticsearch/lib/sigar/*
--Des.default.config<span style="color:#f92672">=</span>/etc/elasticsearch/elasticsearch.yml -Des.default.path.home<span style="color:#f92672">=</span>/usr/share/elasticsearch
--Des.default.path.logs<span style="color:#f92672">=</span>/var/log/elasticsearch -Des.default.path.data<span style="color:#f92672">=</span>/var/lib/elasticsearch
--Des.default.path.work<span style="color:#f92672">=</span>/tmp/elasticsearch -Des.default.path.conf<span style="color:#f92672">=</span>/etc/elasticsearch org.elasticsearch.bootstrap.Elasticsearch</code></pre></div>
+-Des.default.config<span class="o">=</span>/etc/elasticsearch/elasticsearch.yml -Des.default.path.home<span class="o">=</span>/usr/share/elasticsearch
+-Des.default.path.logs<span class="o">=</span>/var/log/elasticsearch -Des.default.path.data<span class="o">=</span>/var/lib/elasticsearch
+-Des.default.path.work<span class="o">=</span>/tmp/elasticsearch -Des.default.path.conf<span class="o">=</span>/etc/elasticsearch org.elasticsearch.bootstrap.Elasticsearch</code></pre></div>
 
 <p><p style="padding-left: 30px;">
   <strong>Are you really going to copy/paste all those lines in supervisord to start your process?</strong> What will happen if one of those arguments needs to be changed, as it could be the case during an application life cycle with the package manager of your distribution? Will you always be aware at any changes and update them in consequence? I&rsquo;m not sure and this is typically a <strong>source of potential issues that can be avoided</strong>. So in Docker, using init scripts services is the best solution in my opinion as you don&rsquo;t have to care about them. You just have to let the distribution/editor choose the best arguments for you and override them in the /etc/default folder as usual if needed.</p>
@@ -319,41 +319,41 @@ This title can sounds like a troll, but this is not the case! I&rsquo;m writing 
 
 <p>I hope you&rsquo;re now convinced that Monit is a very good candidate to manage processes inside a Docker container. As said, <strong>the first launched command on Docker will take the PID 1</strong>. This is where the main issue is as you may want to restart Monit or upgrade it for an emergency case (because in theory you shouldn&rsquo;t have to touch processes inside your container and deploy a new container instead that will replace the current one). More than that, <strong>when you&rsquo;re going to kill Monit, it won&rsquo;t gracefully shutdown the managed processes</strong>. So <strong>you need to handle the kill signal and perform a stop</strong> on all of them properly. I&rsquo;ve made a basic and simple init script for Docker that permit to do it:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e"># Catch signals
-</span><span style="color:#75715e"></span>trap <span style="color:#e6db74">&#34;/usr/bin/monit_stop_all_wait.sh ; exit&#34;</span> EXIT
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+<span class="c1"># Catch signals
+</span><span class="c1"></span><span class="nb">trap</span> <span class="s2">&#34;/usr/bin/monit_stop_all_wait.sh ; exit&#34;</span> EXIT
 
-<span style="color:#75715e"># Monit will start all apps
-</span><span style="color:#75715e"></span>service monit start
+<span class="c1"># Monit will start all apps
+</span><span class="c1"></span>service monit start
 
-<span style="color:#75715e"># Stay up for container to stay alive
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">do</span>
+<span class="c1"># Stay up for container to stay alive
+</span><span class="c1"></span><span class="k">while</span> <span class="o">[</span> <span class="m">1</span> <span class="o">]</span> <span class="p">;</span> <span class="k">do</span>
    sleep 1d
-<span style="color:#66d9ef">done</span></code></pre></div>
+<span class="k">done</span></code></pre></div>
 
 <p>The kill signal with call another script that will request monit to stop all managed services and wait for them to be stopped before returning:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span><span style="color:#75715e"># Wait for all monit services to be stop before release
-</span><span style="color:#75715e"></span>
-total_services<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>monit summary | grep -c <span style="color:#e6db74">&#34;^Process&#34;</span><span style="color:#66d9ef">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="c1"># Wait for all monit services to be stop before release
+</span><span class="c1"></span>
+<span class="nv">total_services</span><span class="o">=</span><span class="k">$(</span>monit summary <span class="p">|</span> grep -c <span class="s2">&#34;^Process&#34;</span><span class="k">)</span>
 
-command_return<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span> $command_return !<span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">do</span>
-   sleep <span style="color:#ae81ff">1</span>
-   command_return<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>/usr/bin/monit stop all <span style="color:#ae81ff">2</span>&gt;&amp;<span style="color:#ae81ff">1</span> | grep -c <span style="color:#e6db74">&#34;Action failed&#34;</span><span style="color:#66d9ef">)</span>
-<span style="color:#66d9ef">done</span>
+<span class="nv">command_return</span><span class="o">=</span><span class="m">1</span>
+<span class="k">while</span> <span class="o">[</span> <span class="nv">$command_return</span> !<span class="o">=</span> <span class="m">0</span> <span class="o">]</span> <span class="p">;</span> <span class="k">do</span>
+   sleep <span class="m">1</span>
+   <span class="nv">command_return</span><span class="o">=</span><span class="k">$(</span>/usr/bin/monit stop all <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> grep -c <span class="s2">&#34;Action failed&#34;</span><span class="k">)</span>
+<span class="k">done</span>
 
-<span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span> $total_services !<span style="color:#f92672">=</span> <span style="color:#66d9ef">$(</span>monit summary | grep <span style="color:#e6db74">&#34;^Process&#34;</span> | grep -c <span style="color:#e6db74">&#34;Not monitored&#34;</span><span style="color:#66d9ef">)</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">do</span>
-   sleep <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">done</span></code></pre></div>
+<span class="k">while</span> <span class="o">[</span> <span class="nv">$total_services</span> !<span class="o">=</span> <span class="k">$(</span>monit summary <span class="p">|</span> grep <span class="s2">&#34;^Process&#34;</span> <span class="p">|</span> grep -c <span class="s2">&#34;Not monitored&#34;</span><span class="k">)</span> <span class="o">]</span> <span class="p">;</span> <span class="k">do</span>
+   sleep <span class="m">1</span>
+<span class="k">done</span></code></pre></div>
 
 <h2 id="conclusion">Conclusion</h2>
 
 <p>With Monit and those basic scripts, you can have a featured and stable launcher, do emergency things on Monit if necessary and keep it simple by using your distribution init scripts.</p>
 
-<p>I recently discovered another solution that nearly do the same thing like <a href="http://engineeringblog.yelp.com/2016/01/dumb-init-an-init-for-docker.html">dumb-init</a>. I personally prefer to keep the most stupid thing but stable.</p>
+<p>I recently discovered another solution that nearly do the same thing like <a href="http://engineeringblog.yelp.com/2016/01/dumb-init-an-init-for-docker.html" target="_blank">dumb-init</a>. I personally prefer to keep the most stupid thing but stable.</p>
 
 <p>To finish, I&rsquo;ve nothing against Supervisord, this is just not the best appropriate solution for Docker.</p>
 

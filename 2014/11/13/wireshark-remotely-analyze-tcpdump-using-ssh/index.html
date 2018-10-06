@@ -287,15 +287,15 @@ ga('send', 'pageview');
 
 <p>For this last case, it can seems complicated but not at all. Locally create a fifo file:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkfifo /tmp/wshark</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mkfifo /tmp/wshark</code></pre></div>
 
 <p>Then connect to your remote server through SSH and run tcpdump (here is a basic example, but adapt it with your filters):</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh root@ip <span style="color:#e6db74">&#34;tcpdump -s 0 -U -n -w - -i eth0 not port 22&#34;</span> &gt; /tmp/wshark</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">ssh root@ip <span class="s2">&#34;tcpdump -s 0 -U -n -w - -i eth0 not port 22&#34;</span> &gt; /tmp/wshark</code></pre></div>
 
 <p>Then launch Wireshark locally pointing to the fifo file:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wireshark -k -i /tmp/wshark</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">wireshark -k -i /tmp/wshark</code></pre></div>
 
 <p>Here you have the output in realtime of your server through Wireshark :-)</p>
 

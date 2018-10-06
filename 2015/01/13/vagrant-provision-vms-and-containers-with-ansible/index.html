@@ -301,224 +301,224 @@ ga('send', 'pageview');
             <div class="main-content-wrap">
               <p><img src="https://blog.deimos.fr/images/logo_vagrant.png" alt="Vagrant-logo" /></p>
 
-<p>In the last post, I talked about how <a href="https://blog.deimos.fr/?p=5290">to manage Docker and VirtualBox with Vagrant</a>. This post follows the last one, with the integration of Ansible as a provisioner. Once again, I&rsquo;m using it for the <a href="http://www.usmash.me/">Smash</a> project.</p>
+<p>In the last post, I talked about how <a href="https://blog.deimos.fr/?p=5290" target="_blank">to manage Docker and VirtualBox with Vagrant</a>. This post follows the last one, with the integration of Ansible as a provisioner. Once again, I&rsquo;m using it for the <a href="http://www.usmash.me/" target="_blank">Smash</a> project.</p>
 
 <p>With Ansible, I made several &ldquo;group_vars&rdquo; files containing custom and common information related to the used environment (dev, uat, staging&hellip;). This helps to setup different kind of environment easily. Vagrant will help to build images with Ansible deployed inside. Also it will construct on the fly a list of inventory hosts that will be used by Ansible. Let&rsquo;s see what you can get and how!</p>
 
 <p>First, we&rsquo;re taking back the Vagrantfile (like the previous post), but you&rsquo;ll notice some differences due to Ansible:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#75715e"># -*- mode: ruby -*-</span>
-<span style="color:#75715e"># vi: set ft=ruby :</span>
+<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># -*- mode: ruby -*-</span>
+<span class="c1"># vi: set ft=ruby :</span>
 
-<span style="color:#75715e"># Examples:</span>
-<span style="color:#75715e"># VAGRANT_DEPLOY_ENV=&#39;preprod&#39; vagrant up</span>
+<span class="c1"># Examples:</span>
+<span class="c1"># VAGRANT_DEPLOY_ENV=&#39;preprod&#39; vagrant up</span>
 
-<span style="color:#75715e"># Vagrantfile API/syntax version. Don&#39;t touch unless you know what you&#39;re doing!</span>
-<span style="color:#66d9ef">VAGRANTFILE_API_VERSION</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;2&#34;</span>
+<span class="c1"># Vagrantfile API/syntax version. Don&#39;t touch unless you know what you&#39;re doing!</span>
+<span class="no">VAGRANTFILE_API_VERSION</span> <span class="o">=</span> <span class="s2">&#34;2&#34;</span>
 
-<span style="color:#75715e"># You can override those vars by using shell environment vars </span>
-deploy_env <span style="color:#f92672">=</span> (<span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;VAGRANT_DEPLOY_ENV&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39;dev&#39;</span>)
-vb_box <span style="color:#f92672">=</span> (<span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;VAGRANT_VB_BOX&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39;deimosfr/debian-wheezy&#39;</span>)
-<span style="color:#75715e"># Workaround for mitchellh/vagrant#1867 / source: https://groups.google.com/forum/#!topic/vagrant-up/XIxGdm78s4I</span>
-<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">ARGV</span><span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">and</span> \
-    (<span style="color:#66d9ef">ARGV</span><span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">].</span>split(<span style="color:#e6db74">&#39;=&#39;</span>)<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;--provider&#34;</span> <span style="color:#f92672">or</span> <span style="color:#66d9ef">ARGV</span><span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span>)
-    provider <span style="color:#f92672">=</span> (<span style="color:#66d9ef">ARGV</span><span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">].</span>split(<span style="color:#e6db74">&#39;=&#39;</span>)<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">||</span> <span style="color:#66d9ef">ARGV</span><span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span>)
-<span style="color:#66d9ef">else</span>
-    provider <span style="color:#f92672">=</span> (<span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;VAGRANT_DEFAULT_PROVIDER&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">:virtualbox</span>)<span style="color:#f92672">.</span>to_sym
-<span style="color:#66d9ef">end</span>
+<span class="c1"># You can override those vars by using shell environment vars </span>
+<span class="n">deploy_env</span> <span class="o">=</span> <span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;VAGRANT_DEPLOY_ENV&#39;</span><span class="o">]</span> <span class="o">||</span> <span class="s1">&#39;dev&#39;</span><span class="p">)</span>
+<span class="n">vb_box</span> <span class="o">=</span> <span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;VAGRANT_VB_BOX&#39;</span><span class="o">]</span> <span class="o">||</span> <span class="s1">&#39;deimosfr/debian-wheezy&#39;</span><span class="p">)</span>
+<span class="c1"># Workaround for mitchellh/vagrant#1867 / source: https://groups.google.com/forum/#!topic/vagrant-up/XIxGdm78s4I</span>
+<span class="k">if</span> <span class="no">ARGV</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="ow">and</span> <span class="p">\</span>
+    <span class="p">(</span><span class="no">ARGV</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="s2">&#34;--provider&#34;</span> <span class="ow">or</span> <span class="no">ARGV</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span>
+    <span class="n">provider</span> <span class="o">=</span> <span class="p">(</span><span class="no">ARGV</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">||</span> <span class="no">ARGV</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span>
+<span class="k">else</span>
+    <span class="n">provider</span> <span class="o">=</span> <span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;VAGRANT_DEFAULT_PROVIDER&#39;</span><span class="o">]</span> <span class="o">||</span> <span class="ss">:virtualbox</span><span class="p">)</span><span class="o">.</span><span class="n">to_sym</span>
+<span class="k">end</span>
 
-<span style="color:#75715e"># Show used vars</span>
-puts <span style="color:#e6db74">&#34;==&gt; Using </span><span style="color:#e6db74">#{</span>provider<span style="color:#e6db74">}</span><span style="color:#e6db74"> provider&#34;</span>
-puts <span style="color:#e6db74">&#34;==&gt; Deploying Ansible </span><span style="color:#e6db74">#{</span>deploy_env<span style="color:#e6db74">}</span><span style="color:#e6db74"> environment&#34;</span></code></pre></div>
+<span class="c1"># Show used vars</span>
+<span class="nb">puts</span> <span class="s2">&#34;==&gt; Using </span><span class="si">#{</span><span class="n">provider</span><span class="si">}</span><span class="s2"> provider&#34;</span>
+<span class="nb">puts</span> <span class="s2">&#34;==&gt; Deploying Ansible </span><span class="si">#{</span><span class="n">deploy_env</span><span class="si">}</span><span class="s2"> environment&#34;</span></code></pre></div>
 
 <p>This part include the environment I want to deploy, the provider to use and the Vagrant image box I need to use to launch my VM.</p>
 
 <p>The provider part is simple for VirtualBox as nothing has to be done with most of boxes you can find on Atlas (ex Vagrant Cloud). However, for the Docker provider, you have to be sure that an SSH server is present, started and a Vagrant key is present for the root user (as no Vagrant user exist by default). The Vagrant part should looks like this:</p>
 
-<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">Vagrant</span><span style="color:#f92672">.</span>configure(<span style="color:#66d9ef">VAGRANTFILE_API_VERSION</span>) <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>config<span style="color:#f92672">|</span>
+<p><div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="no">VAGRANTFILE_API_VERSION</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
 
-    <span style="color:#75715e"># Common settings</span>
-    config<span style="color:#f92672">.</span>ssh<span style="color:#f92672">.</span>insert_key <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
-    config<span style="color:#f92672">.</span>ssh<span style="color:#f92672">.</span>forward_agent <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+    <span class="c1"># Common settings</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">ssh</span><span class="o">.</span><span class="n">insert_key</span> <span class="o">=</span> <span class="kp">false</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">ssh</span><span class="o">.</span><span class="n">forward_agent</span> <span class="o">=</span> <span class="kp">true</span>
 
-    <span style="color:#75715e"># VirtualBox settings</span>
-    <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>provider<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;virtualbox&#34;</span>
-        config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provider <span style="color:#e6db74">&#34;virtualbox&#34;</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>vb<span style="color:#f92672">|</span>
-            config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>box <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>vb_box<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-        <span style="color:#66d9ef">end</span>
-    <span style="color:#66d9ef">end</span>
+    <span class="c1"># VirtualBox settings</span>
+    <span class="k">if</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="n">provider</span><span class="si">}</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;virtualbox&#34;</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span> <span class="s2">&#34;virtualbox&#34;</span> <span class="k">do</span> <span class="o">|</span><span class="n">vb</span><span class="o">|</span>
+            <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="n">vb_box</span><span class="si">}</span><span class="s2">&#34;</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
 
-    <span style="color:#75715e"># Docker settings</span>
-    <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>provider<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;docker&#34;</span>
-        config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provider <span style="color:#e6db74">&#34;docker&#34;</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>d<span style="color:#f92672">|</span>
-            d<span style="color:#f92672">.</span>build_dir <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;.&#34;</span>
-            d<span style="color:#f92672">.</span>remains_running <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
-            d<span style="color:#f92672">.</span>has_ssh <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
-            config<span style="color:#f92672">.</span>ssh<span style="color:#f92672">.</span>username <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;root&#34;</span>
-        <span style="color:#66d9ef">end</span>
-    <span style="color:#66d9ef">end</span></code></pre></div></p>
+    <span class="c1"># Docker settings</span>
+    <span class="k">if</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="n">provider</span><span class="si">}</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;docker&#34;</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span> <span class="s2">&#34;docker&#34;</span> <span class="k">do</span> <span class="o">|</span><span class="n">d</span><span class="o">|</span>
+            <span class="n">d</span><span class="o">.</span><span class="n">build_dir</span> <span class="o">=</span> <span class="s2">&#34;.&#34;</span>
+            <span class="n">d</span><span class="o">.</span><span class="n">remains_running</span> <span class="o">=</span> <span class="kp">true</span>
+            <span class="n">d</span><span class="o">.</span><span class="n">has_ssh</span> <span class="o">=</span> <span class="kp">true</span>
+            <span class="n">config</span><span class="o">.</span><span class="n">ssh</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="s2">&#34;root&#34;</span>
+        <span class="k">end</span>
+    <span class="k">end</span></code></pre></div></p>
 
 <p>For the Docker part, I&rsquo;m using a Dockerfile which looks like this to start SSH server (required for Ansible):</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">FROM debian:wheezy
-<span style="color:#75715e"># Start SSHd
-</span><span style="color:#75715e"></span>EXPOSE <span style="color:#ae81ff">22</span>
-CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;/usr/sbin/sshd&#34;</span>, <span style="color:#e6db74">&#34;-D&#34;</span><span style="color:#f92672">]</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">FROM debian:wheezy
+<span class="c1"># Start SSHd
+</span><span class="c1"></span>EXPOSE <span class="m">22</span>
+CMD <span class="o">[</span><span class="s2">&#34;/usr/sbin/sshd&#34;</span>, <span class="s2">&#34;-D&#34;</span><span class="o">]</span></code></pre></div>
 
 <p>Regarding the definition of the VM, you need to forward your SSH agent to make it work with Ansible:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#75715e"># Web servers</span>
-    config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>define <span style="color:#e6db74">&#39;web1&#39;</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>machine<span style="color:#f92672">|</span>
-        config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>host_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;web1&#39;</span>
-        config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provider <span style="color:#e6db74">&#34;virtualbox&#34;</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>vb<span style="color:#f92672">|</span>
-            vb<span style="color:#f92672">.</span>customize <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;modifyvm&#34;</span>, <span style="color:#e6db74">:id</span>, <span style="color:#e6db74">&#34;--memory&#34;</span>, <span style="color:#e6db74">&#34;384&#34;</span><span style="color:#f92672">]</span>
-        <span style="color:#66d9ef">end</span>
-        config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>network <span style="color:#e6db74">&#34;public_network&#34;</span>, <span style="color:#e6db74">:bridge</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;wlan0&#39;</span>
-    <span style="color:#66d9ef">end</span>
+<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># Web servers</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s1">&#39;web1&#39;</span> <span class="k">do</span> <span class="o">|</span><span class="n">machine</span><span class="o">|</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">host_name</span> <span class="o">=</span> <span class="s1">&#39;web1&#39;</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span> <span class="s2">&#34;virtualbox&#34;</span> <span class="k">do</span> <span class="o">|</span><span class="n">vb</span><span class="o">|</span>
+            <span class="n">vb</span><span class="o">.</span><span class="n">customize</span> <span class="o">[</span><span class="s2">&#34;modifyvm&#34;</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="s2">&#34;--memory&#34;</span><span class="p">,</span> <span class="s2">&#34;384&#34;</span><span class="o">]</span>
+        <span class="k">end</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&#34;public_network&#34;</span><span class="p">,</span> <span class="ss">:bridge</span> <span class="o">=&gt;</span> <span class="s1">&#39;wlan0&#39;</span>
+    <span class="k">end</span>
 
-    <span style="color:#75715e"># SQL servers</span>
-    config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>define <span style="color:#e6db74">&#39;sql1&#39;</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>machine<span style="color:#f92672">|</span>
-        config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>host_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;sql1&#39;</span>
-        config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provider <span style="color:#e6db74">&#34;virtualbox&#34;</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>vb<span style="color:#f92672">|</span>
-            vb<span style="color:#f92672">.</span>customize <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;modifyvm&#34;</span>, <span style="color:#e6db74">:id</span>, <span style="color:#e6db74">&#34;--memory&#34;</span>, <span style="color:#e6db74">&#34;512&#34;</span><span style="color:#f92672">]</span>
-        <span style="color:#66d9ef">end</span>
-        config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>network <span style="color:#e6db74">&#34;public_network&#34;</span>, <span style="color:#e6db74">:bridge</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;wlan0&#39;</span>
-    <span style="color:#66d9ef">end</span></code></pre></div>
+    <span class="c1"># SQL servers</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s1">&#39;sql1&#39;</span> <span class="k">do</span> <span class="o">|</span><span class="n">machine</span><span class="o">|</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">host_name</span> <span class="o">=</span> <span class="s1">&#39;sql1&#39;</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span> <span class="s2">&#34;virtualbox&#34;</span> <span class="k">do</span> <span class="o">|</span><span class="n">vb</span><span class="o">|</span>
+            <span class="n">vb</span><span class="o">.</span><span class="n">customize</span> <span class="o">[</span><span class="s2">&#34;modifyvm&#34;</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="s2">&#34;--memory&#34;</span><span class="p">,</span> <span class="s2">&#34;512&#34;</span><span class="o">]</span>
+        <span class="k">end</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&#34;public_network&#34;</span><span class="p">,</span> <span class="ss">:bridge</span> <span class="o">=&gt;</span> <span class="s1">&#39;wlan0&#39;</span>
+    <span class="k">end</span></code></pre></div>
 
 <p>As we&rsquo;re talking about forwarding agent, I had an issue with sudo usage. My goal was to clone a private repository on GitHub. But the agent wasn&rsquo;t forwarded when I was using sudo command. That&rsquo;s why, I got an Ansible playbook rule for it configuring the sudoers file:</p>
 
-<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">---
-- name: Make sure ssh-agent is forwarded via sudo
-  lineinfile: dest=/etc/sudoers state=present regexp=<span style="color:#e6db74">&#39;^Defaults env_keep\+\=SSH_AUTH_SOCK&#39;</span> line=<span style="color:#e6db74">&#39;Defaults env_keep+=SSH_AUTH_SOCK&#39;</span></code></pre></div></p>
+<p><div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">---<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>Make<span class="w"> </span>sure<span class="w"> </span>ssh-agent<span class="w"> </span>is<span class="w"> </span>forwarded<span class="w"> </span>via<span class="w"> </span>sudo<span class="w">
+</span><span class="w">  </span>lineinfile<span class="p">:</span><span class="w"> </span>dest=/etc/sudoers<span class="w"> </span>state=present<span class="w"> </span>regexp=<span class="s1">&#39;^Defaults env_keep\+\=SSH_AUTH_SOCK&#39;</span><span class="w"> </span>line=<span class="s1">&#39;Defaults env_keep+=SSH_AUTH_SOCK&#39;</span></code></pre></div></p>
 
 <p>This line export the environment var &ldquo;SSH_AUTH_SOCK&rdquo; with sudo. That means, my personal SSH key is forwarded to the VM with Vagrant (with vagrant user) and then is used with root user with the help of sudo. And that&rsquo;s not finished! We have to play with the Ansible provisioner as well to force the key forwarding:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provision <span style="color:#e6db74">&#34;ansible&#34;</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>ansible<span style="color:#f92672">|</span>
-        ansible<span style="color:#f92672">.</span>sudo <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
-        ansible<span style="color:#f92672">.</span>host_key_checking <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
-        ansible<span style="color:#f92672">.</span>raw_ssh_args <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;-o UserKnownHostsFile=/dev/null&#39;</span><span style="color:#f92672">]</span>
-        ansible<span style="color:#f92672">.</span>playbook <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;site.yml&#34;</span>
-        <span style="color:#75715e">#ansible.verbose = &#39;v&#39;</span>
-        <span style="color:#75715e">#ansible.verbose = &#39;vvv&#39;</span>
-        <span style="color:#75715e">#ansible.limit = &#39;web1&#39;</span>
-        <span style="color:#75715e">#ansible.tags = [&#39;smash&#39;]</span>
-        ansible<span style="color:#f92672">.</span>groups <span style="color:#f92672">=</span> {
-            <span style="color:#e6db74">&#39;web&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;web1&#39;</span><span style="color:#f92672">]</span>,
-            <span style="color:#e6db74">&#39;webapp&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;web1&#39;</span><span style="color:#f92672">]</span>,
-            <span style="color:#e6db74">&#39;sql&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;sql1&#39;</span><span style="color:#f92672">]</span>
-        }
-        ansible<span style="color:#f92672">.</span>extra_vars <span style="color:#f92672">=</span> {
-            <span style="color:#e6db74">ansible_ssh_user</span>: <span style="color:#e6db74">&#39;vagrant&#39;</span>,
-            <span style="color:#e6db74">ansible_connection</span>: <span style="color:#e6db74">&#39;ssh&#39;</span>,
-            <span style="color:#e6db74">ansible_ssh_args</span>: <span style="color:#e6db74">&#39;-o ForwardAgent=yes -A&#39;</span>,
-            <span style="color:#e6db74">set_env</span>: <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>deploy_env<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>,
-        }
-    <span style="color:#66d9ef">end</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&#34;ansible&#34;</span> <span class="k">do</span> <span class="o">|</span><span class="n">ansible</span><span class="o">|</span>
+        <span class="n">ansible</span><span class="o">.</span><span class="n">sudo</span> <span class="o">=</span> <span class="kp">true</span>
+        <span class="n">ansible</span><span class="o">.</span><span class="n">host_key_checking</span> <span class="o">=</span> <span class="kp">false</span>
+        <span class="n">ansible</span><span class="o">.</span><span class="n">raw_ssh_args</span> <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;-o UserKnownHostsFile=/dev/null&#39;</span><span class="o">]</span>
+        <span class="n">ansible</span><span class="o">.</span><span class="n">playbook</span> <span class="o">=</span> <span class="s2">&#34;site.yml&#34;</span>
+        <span class="c1">#ansible.verbose = &#39;v&#39;</span>
+        <span class="c1">#ansible.verbose = &#39;vvv&#39;</span>
+        <span class="c1">#ansible.limit = &#39;web1&#39;</span>
+        <span class="c1">#ansible.tags = [&#39;smash&#39;]</span>
+        <span class="n">ansible</span><span class="o">.</span><span class="n">groups</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;web&#39;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s1">&#39;web1&#39;</span><span class="o">]</span><span class="p">,</span>
+            <span class="s1">&#39;webapp&#39;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s1">&#39;web1&#39;</span><span class="o">]</span><span class="p">,</span>
+            <span class="s1">&#39;sql&#39;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s1">&#39;sql1&#39;</span><span class="o">]</span>
+        <span class="p">}</span>
+        <span class="n">ansible</span><span class="o">.</span><span class="n">extra_vars</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="ss">ansible_ssh_user</span><span class="p">:</span> <span class="s1">&#39;vagrant&#39;</span><span class="p">,</span>
+            <span class="ss">ansible_connection</span><span class="p">:</span> <span class="s1">&#39;ssh&#39;</span><span class="p">,</span>
+            <span class="ss">ansible_ssh_args</span><span class="p">:</span> <span class="s1">&#39;-o ForwardAgent=yes -A&#39;</span><span class="p">,</span>
+            <span class="ss">set_env</span><span class="p">:</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="n">deploy_env</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="k">end</span></code></pre></div>
 
 <p>I&rsquo;m using sudo for the VirtualBox part and require a vagrant user for Docker. I also don&rsquo;t want to check the host key. The following things related to Ansible should remind you something if you&rsquo;re familiar with it. Regarding the Ansible groups, here is how to help Vagrant to build on the fly the inventory. You have to define your groups and define which server belongs to which group in your default YAML file. Extra vars are used to force Vagrant user to be used and the ForwardAgent to be used (still to clone private repository requiring your private key).</p>
 
 <p>We also need to activate sudo (even with root user) in the Ansible playbook configuration (site.yml):</p>
 
-<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">---
-<span style="color:#75715e"># All machines</span>
-- name: common
-  hosts: all
-  user: root
-  sudo: yes
-  roles:
-    - common
-...</code></pre></div></p>
+<p><div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">---<span class="w">
+</span><span class="w"></span><span class="c"># All machines</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>common<span class="w">
+</span><span class="w">  </span>hosts<span class="p">:</span><span class="w"> </span>all<span class="w">
+</span><span class="w">  </span>user<span class="p">:</span><span class="w"> </span>root<span class="w">
+</span><span class="w">  </span>sudo<span class="p">:</span><span class="w"> </span>yes<span class="w">
+</span><span class="w">  </span>roles<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>common<span class="w">
+</span><span class="w"></span>...</code></pre></div></p>
 
 <p>The complete Vagrantfile looks like this:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#75715e"># -*- mode: ruby -*-</span>
-<span style="color:#75715e"># vi: set ft=ruby :</span>
+<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># -*- mode: ruby -*-</span>
+<span class="c1"># vi: set ft=ruby :</span>
 
-<span style="color:#75715e"># Examples:</span>
-<span style="color:#75715e"># VAGRANT_DEPLOY_ENV=&#39;preprod&#39; vagrant up</span>
+<span class="c1"># Examples:</span>
+<span class="c1"># VAGRANT_DEPLOY_ENV=&#39;preprod&#39; vagrant up</span>
 
-<span style="color:#75715e"># Vagrantfile API/syntax version. Don&#39;t touch unless you know what you&#39;re doing!</span>
-<span style="color:#66d9ef">VAGRANTFILE_API_VERSION</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;2&#34;</span>
+<span class="c1"># Vagrantfile API/syntax version. Don&#39;t touch unless you know what you&#39;re doing!</span>
+<span class="no">VAGRANTFILE_API_VERSION</span> <span class="o">=</span> <span class="s2">&#34;2&#34;</span>
 
-<span style="color:#75715e"># You can override those vars by using shell environment vars </span>
-deploy_env <span style="color:#f92672">=</span> (<span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;VAGRANT_DEPLOY_ENV&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39;dev&#39;</span>)
-vb_box <span style="color:#f92672">=</span> (<span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;VAGRANT_VB_BOX&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39;deimosfr/debian-wheezy&#39;</span>)
-<span style="color:#75715e"># Workaround for mitchellh/vagrant#1867 / source: https://groups.google.com/forum/#!topic/vagrant-up/XIxGdm78s4I</span>
-<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">ARGV</span><span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">and</span> \
-    (<span style="color:#66d9ef">ARGV</span><span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">].</span>split(<span style="color:#e6db74">&#39;=&#39;</span>)<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;--provider&#34;</span> <span style="color:#f92672">or</span> <span style="color:#66d9ef">ARGV</span><span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span>)
-    provider <span style="color:#f92672">=</span> (<span style="color:#66d9ef">ARGV</span><span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">].</span>split(<span style="color:#e6db74">&#39;=&#39;</span>)<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">||</span> <span style="color:#66d9ef">ARGV</span><span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span>)
-<span style="color:#66d9ef">else</span>
-    provider <span style="color:#f92672">=</span> (<span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;VAGRANT_DEFAULT_PROVIDER&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">:virtualbox</span>)<span style="color:#f92672">.</span>to_sym
-<span style="color:#66d9ef">end</span>
+<span class="c1"># You can override those vars by using shell environment vars </span>
+<span class="n">deploy_env</span> <span class="o">=</span> <span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;VAGRANT_DEPLOY_ENV&#39;</span><span class="o">]</span> <span class="o">||</span> <span class="s1">&#39;dev&#39;</span><span class="p">)</span>
+<span class="n">vb_box</span> <span class="o">=</span> <span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;VAGRANT_VB_BOX&#39;</span><span class="o">]</span> <span class="o">||</span> <span class="s1">&#39;deimosfr/debian-wheezy&#39;</span><span class="p">)</span>
+<span class="c1"># Workaround for mitchellh/vagrant#1867 / source: https://groups.google.com/forum/#!topic/vagrant-up/XIxGdm78s4I</span>
+<span class="k">if</span> <span class="no">ARGV</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="ow">and</span> <span class="p">\</span>
+    <span class="p">(</span><span class="no">ARGV</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="s2">&#34;--provider&#34;</span> <span class="ow">or</span> <span class="no">ARGV</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span>
+    <span class="n">provider</span> <span class="o">=</span> <span class="p">(</span><span class="no">ARGV</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">||</span> <span class="no">ARGV</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span>
+<span class="k">else</span>
+    <span class="n">provider</span> <span class="o">=</span> <span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;VAGRANT_DEFAULT_PROVIDER&#39;</span><span class="o">]</span> <span class="o">||</span> <span class="ss">:virtualbox</span><span class="p">)</span><span class="o">.</span><span class="n">to_sym</span>
+<span class="k">end</span>
 
-<span style="color:#75715e"># Show used vars</span>
-puts <span style="color:#e6db74">&#34;==&gt; Using </span><span style="color:#e6db74">#{</span>provider<span style="color:#e6db74">}</span><span style="color:#e6db74"> provider&#34;</span>
-puts <span style="color:#e6db74">&#34;==&gt; Deploying Ansible </span><span style="color:#e6db74">#{</span>deploy_env<span style="color:#e6db74">}</span><span style="color:#e6db74"> environment&#34;</span>
+<span class="c1"># Show used vars</span>
+<span class="nb">puts</span> <span class="s2">&#34;==&gt; Using </span><span class="si">#{</span><span class="n">provider</span><span class="si">}</span><span class="s2"> provider&#34;</span>
+<span class="nb">puts</span> <span class="s2">&#34;==&gt; Deploying Ansible </span><span class="si">#{</span><span class="n">deploy_env</span><span class="si">}</span><span class="s2"> environment&#34;</span>
 
-<span style="color:#66d9ef">Vagrant</span><span style="color:#f92672">.</span>configure(<span style="color:#66d9ef">VAGRANTFILE_API_VERSION</span>) <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>config<span style="color:#f92672">|</span>
+<span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="no">VAGRANTFILE_API_VERSION</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
 
-    <span style="color:#75715e"># Common settings</span>
-    config<span style="color:#f92672">.</span>ssh<span style="color:#f92672">.</span>insert_key <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
-    config<span style="color:#f92672">.</span>ssh<span style="color:#f92672">.</span>forward_agent <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+    <span class="c1"># Common settings</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">ssh</span><span class="o">.</span><span class="n">insert_key</span> <span class="o">=</span> <span class="kp">false</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">ssh</span><span class="o">.</span><span class="n">forward_agent</span> <span class="o">=</span> <span class="kp">true</span>
 
-    <span style="color:#75715e"># VirtualBox settings</span>
-    <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>provider<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;virtualbox&#34;</span>
-        config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provider <span style="color:#e6db74">&#34;virtualbox&#34;</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>vb<span style="color:#f92672">|</span>
-            config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>box <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>vb_box<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-        <span style="color:#66d9ef">end</span>
-    <span style="color:#66d9ef">end</span>
+    <span class="c1"># VirtualBox settings</span>
+    <span class="k">if</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="n">provider</span><span class="si">}</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;virtualbox&#34;</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span> <span class="s2">&#34;virtualbox&#34;</span> <span class="k">do</span> <span class="o">|</span><span class="n">vb</span><span class="o">|</span>
+            <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="n">vb_box</span><span class="si">}</span><span class="s2">&#34;</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
 
-    <span style="color:#75715e"># Docker settings</span>
-    <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>provider<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;docker&#34;</span>
-        config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provider <span style="color:#e6db74">&#34;docker&#34;</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>d<span style="color:#f92672">|</span>
-            d<span style="color:#f92672">.</span>build_dir <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;.&#34;</span>
-            d<span style="color:#f92672">.</span>remains_running <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
-            d<span style="color:#f92672">.</span>has_ssh <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
-            config<span style="color:#f92672">.</span>ssh<span style="color:#f92672">.</span>username <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;root&#34;</span>
-        <span style="color:#66d9ef">end</span>
-    <span style="color:#66d9ef">end</span>
+    <span class="c1"># Docker settings</span>
+    <span class="k">if</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="n">provider</span><span class="si">}</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;docker&#34;</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span> <span class="s2">&#34;docker&#34;</span> <span class="k">do</span> <span class="o">|</span><span class="n">d</span><span class="o">|</span>
+            <span class="n">d</span><span class="o">.</span><span class="n">build_dir</span> <span class="o">=</span> <span class="s2">&#34;.&#34;</span>
+            <span class="n">d</span><span class="o">.</span><span class="n">remains_running</span> <span class="o">=</span> <span class="kp">true</span>
+            <span class="n">d</span><span class="o">.</span><span class="n">has_ssh</span> <span class="o">=</span> <span class="kp">true</span>
+            <span class="n">config</span><span class="o">.</span><span class="n">ssh</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="s2">&#34;root&#34;</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
 
-    <span style="color:#75715e"># Web servers</span>
-    config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>define <span style="color:#e6db74">&#39;web1&#39;</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>machine<span style="color:#f92672">|</span>
-        config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>host_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;web1&#39;</span>
-        config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provider <span style="color:#e6db74">&#34;virtualbox&#34;</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>vb<span style="color:#f92672">|</span>
-            vb<span style="color:#f92672">.</span>customize <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;modifyvm&#34;</span>, <span style="color:#e6db74">:id</span>, <span style="color:#e6db74">&#34;--memory&#34;</span>, <span style="color:#e6db74">&#34;384&#34;</span><span style="color:#f92672">]</span>
-        <span style="color:#66d9ef">end</span>
-        config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>network <span style="color:#e6db74">&#34;public_network&#34;</span>, <span style="color:#e6db74">:bridge</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;wlan0&#39;</span>
-    <span style="color:#66d9ef">end</span>
+    <span class="c1"># Web servers</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s1">&#39;web1&#39;</span> <span class="k">do</span> <span class="o">|</span><span class="n">machine</span><span class="o">|</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">host_name</span> <span class="o">=</span> <span class="s1">&#39;web1&#39;</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span> <span class="s2">&#34;virtualbox&#34;</span> <span class="k">do</span> <span class="o">|</span><span class="n">vb</span><span class="o">|</span>
+            <span class="n">vb</span><span class="o">.</span><span class="n">customize</span> <span class="o">[</span><span class="s2">&#34;modifyvm&#34;</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="s2">&#34;--memory&#34;</span><span class="p">,</span> <span class="s2">&#34;384&#34;</span><span class="o">]</span>
+        <span class="k">end</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&#34;public_network&#34;</span><span class="p">,</span> <span class="ss">:bridge</span> <span class="o">=&gt;</span> <span class="s1">&#39;wlan0&#39;</span>
+    <span class="k">end</span>
 
-    <span style="color:#75715e"># SQL servers</span>
-    config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>define <span style="color:#e6db74">&#39;sql1&#39;</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>machine<span style="color:#f92672">|</span>
-        config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>host_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;sql1&#39;</span>
-        config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provider <span style="color:#e6db74">&#34;virtualbox&#34;</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>vb<span style="color:#f92672">|</span>
-            vb<span style="color:#f92672">.</span>customize <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;modifyvm&#34;</span>, <span style="color:#e6db74">:id</span>, <span style="color:#e6db74">&#34;--memory&#34;</span>, <span style="color:#e6db74">&#34;512&#34;</span><span style="color:#f92672">]</span>
-        <span style="color:#66d9ef">end</span>
-        config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>network <span style="color:#e6db74">&#34;public_network&#34;</span>, <span style="color:#e6db74">:bridge</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;wlan0&#39;</span>
-    <span style="color:#66d9ef">end</span>
+    <span class="c1"># SQL servers</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s1">&#39;sql1&#39;</span> <span class="k">do</span> <span class="o">|</span><span class="n">machine</span><span class="o">|</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">host_name</span> <span class="o">=</span> <span class="s1">&#39;sql1&#39;</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span> <span class="s2">&#34;virtualbox&#34;</span> <span class="k">do</span> <span class="o">|</span><span class="n">vb</span><span class="o">|</span>
+            <span class="n">vb</span><span class="o">.</span><span class="n">customize</span> <span class="o">[</span><span class="s2">&#34;modifyvm&#34;</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="s2">&#34;--memory&#34;</span><span class="p">,</span> <span class="s2">&#34;512&#34;</span><span class="o">]</span>
+        <span class="k">end</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&#34;public_network&#34;</span><span class="p">,</span> <span class="ss">:bridge</span> <span class="o">=&gt;</span> <span class="s1">&#39;wlan0&#39;</span>
+    <span class="k">end</span>
 
-    <span style="color:#75715e"># Deploy ansible playbook</span>
-    config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provision <span style="color:#e6db74">&#34;ansible&#34;</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>ansible<span style="color:#f92672">|</span>
-        ansible<span style="color:#f92672">.</span>sudo <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
-        ansible<span style="color:#f92672">.</span>host_key_checking <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
-        ansible<span style="color:#f92672">.</span>raw_ssh_args <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;-o UserKnownHostsFile=/dev/null&#39;</span><span style="color:#f92672">]</span>
-        ansible<span style="color:#f92672">.</span>playbook <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;site.yml&#34;</span>
-        <span style="color:#75715e">#ansible.verbose = &#39;v&#39;</span>
-        <span style="color:#75715e">#ansible.verbose = &#39;vvv&#39;</span>
-        <span style="color:#75715e">#ansible.limit = &#39;web1&#39;</span>
-        <span style="color:#75715e">#ansible.tags = [&#39;smash&#39;]</span>
-        ansible<span style="color:#f92672">.</span>groups <span style="color:#f92672">=</span> {
-            <span style="color:#e6db74">&#39;web&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;web1&#39;</span><span style="color:#f92672">]</span>,
-            <span style="color:#e6db74">&#39;webapp&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;web1&#39;</span><span style="color:#f92672">]</span>,
-            <span style="color:#e6db74">&#39;sql&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;sql1&#39;</span><span style="color:#f92672">]</span>
-        }
-        ansible<span style="color:#f92672">.</span>extra_vars <span style="color:#f92672">=</span> {
-            <span style="color:#e6db74">ansible_ssh_user</span>: <span style="color:#e6db74">&#39;vagrant&#39;</span>,
-            <span style="color:#e6db74">ansible_connection</span>: <span style="color:#e6db74">&#39;ssh&#39;</span>,
-            <span style="color:#e6db74">ansible_ssh_args</span>: <span style="color:#e6db74">&#39;-o ForwardAgent=yes -A&#39;</span>,
-            <span style="color:#e6db74">set_env</span>: <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>deploy_env<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>,
-        }
-    <span style="color:#66d9ef">end</span>
-<span style="color:#66d9ef">end</span></code></pre></div>
+    <span class="c1"># Deploy ansible playbook</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&#34;ansible&#34;</span> <span class="k">do</span> <span class="o">|</span><span class="n">ansible</span><span class="o">|</span>
+        <span class="n">ansible</span><span class="o">.</span><span class="n">sudo</span> <span class="o">=</span> <span class="kp">true</span>
+        <span class="n">ansible</span><span class="o">.</span><span class="n">host_key_checking</span> <span class="o">=</span> <span class="kp">false</span>
+        <span class="n">ansible</span><span class="o">.</span><span class="n">raw_ssh_args</span> <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;-o UserKnownHostsFile=/dev/null&#39;</span><span class="o">]</span>
+        <span class="n">ansible</span><span class="o">.</span><span class="n">playbook</span> <span class="o">=</span> <span class="s2">&#34;site.yml&#34;</span>
+        <span class="c1">#ansible.verbose = &#39;v&#39;</span>
+        <span class="c1">#ansible.verbose = &#39;vvv&#39;</span>
+        <span class="c1">#ansible.limit = &#39;web1&#39;</span>
+        <span class="c1">#ansible.tags = [&#39;smash&#39;]</span>
+        <span class="n">ansible</span><span class="o">.</span><span class="n">groups</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;web&#39;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s1">&#39;web1&#39;</span><span class="o">]</span><span class="p">,</span>
+            <span class="s1">&#39;webapp&#39;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s1">&#39;web1&#39;</span><span class="o">]</span><span class="p">,</span>
+            <span class="s1">&#39;sql&#39;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s1">&#39;sql1&#39;</span><span class="o">]</span>
+        <span class="p">}</span>
+        <span class="n">ansible</span><span class="o">.</span><span class="n">extra_vars</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="ss">ansible_ssh_user</span><span class="p">:</span> <span class="s1">&#39;vagrant&#39;</span><span class="p">,</span>
+            <span class="ss">ansible_connection</span><span class="p">:</span> <span class="s1">&#39;ssh&#39;</span><span class="p">,</span>
+            <span class="ss">ansible_ssh_args</span><span class="p">:</span> <span class="s1">&#39;-o ForwardAgent=yes -A&#39;</span><span class="p">,</span>
+            <span class="ss">set_env</span><span class="p">:</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="n">deploy_env</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="k">end</span>
+<span class="k">end</span></code></pre></div>
 
 <p>I hope you&rsquo;ll win a lot of time, because I&rsquo;ll loose too much IMO :-p</p>
 

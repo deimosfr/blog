@@ -290,7 +290,7 @@ ga('send', 'pageview');
               
 
 <p><img src="https://blog.deimos.fr/images/logo_debian.png" alt="debian_logo" />
-I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, <a href="https://blog.deimos.fr/2014/01/07/update-3-debian-on-the-111-model-macbook-pro-13/">this is not the first time</a> I want to use Debian on a new MacBookPro version.</p>
+I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, <a href="https://blog.deimos.fr/2014/01/07/update-3-debian-on-the-111-model-macbook-pro-13/" target="_blank">this is not the first time</a> I want to use Debian on a new MacBookPro version.</p>
 
 <h2 id="overview">Overview</h2>
 
@@ -312,9 +312,9 @@ I recently had the chance to get the latest MacBookPro 13 for my new work at Cri
 
 <h2 id="wifi">Wifi</h2>
 
-<p>The wifi broadcom chipset is unfortunately not working out of the box <a href="http://ubuntuforums.org/showthread.php?t=2274110">(source)</a>. For this you need a kernel version at least equal to 3.19. As the Linux Kernel 4 is out, I recompiled a kernel with this version and added the wifi support in it. Here is the procedure:</p>
+<p>The wifi broadcom chipset is unfortunately not working out of the box <a href="http://ubuntuforums.org/showthread.php?t=2274110" target="_blank">(source)</a>. For this you need a kernel version at least equal to 3.19. As the Linux Kernel 4 is out, I recompiled a kernel with this version and added the wifi support in it. Here is the procedure:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget https://blog.deimos.fr/wp-content/uploads/2015/04/linux-image-4.0.0_4.0_amd64.deb_.tgz
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">wget https://blog.deimos.fr/wp-content/uploads/2015/04/linux-image-4.0.0_4.0_amd64.deb_.tgz
 tar -xzf linux-image-4.0.0_4.0_amd64.deb_.tgz
 sudo dpkg -i linux-image-4.0.0_4.0_amd64.deb
 sudo wget -O /lib/firmware/brcm/brcmfmac43602-pcie.bin https://git.kernel.org/cgit/linux/kernel/git/firmware/linux-firmware.git/plain/brcm/brcmfmac43602-pcie.bin</code></pre></div>
@@ -323,19 +323,19 @@ sudo wget -O /lib/firmware/brcm/brcmfmac43602-pcie.bin https://git.kernel.org/cg
 
 <h2 id="fn-keyboard-key">Fn keyboard key</h2>
 
-<p>Following this <a href="https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1443370">thread</a>, the Fn key doesn&rsquo;t work at all because not recognized by the kernel. I included the patch in the kernel as well. So you can use the same procedure than above to install the kernel.</p>
+<p>Following this <a href="https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1443370" target="_blank">thread</a>, the Fn key doesn&rsquo;t work at all because not recognized by the kernel. I included the patch in the kernel as well. So you can use the same procedure than above to install the kernel.</p>
 
-<p>Also, here is another interesting <a href="https://github.com/SicVolo/hid-apple-3.19">link</a>.</p>
+<p>Also, here is another interesting <a href="https://github.com/SicVolo/hid-apple-3.19" target="_blank">link</a>.</p>
 
 <h2 id="sound">Sound</h2>
 
 <p>Regarding the sound, it&rsquo;s like for the previous MacBookPro, you need to adjust some module parameters:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat /etc/modprobe.d/alsa.conf
-<span style="color:#75715e"># alsa fix
-</span><span style="color:#75715e"></span>options snd-hda-intel model<span style="color:#f92672">=</span>mbp101 index<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
-<span style="color:#75715e"># Keep snd-pcsp from beeing loaded as first soundcard
-</span><span style="color:#75715e"></span>options snd-pcsp index<span style="color:#f92672">=</span>-2</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ cat /etc/modprobe.d/alsa.conf
+<span class="c1"># alsa fix
+</span><span class="c1"></span>options snd-hda-intel <span class="nv">model</span><span class="o">=</span>mbp101 <span class="nv">index</span><span class="o">=</span><span class="m">1</span>
+<span class="c1"># Keep snd-pcsp from beeing loaded as first soundcard
+</span><span class="c1"></span>options snd-pcsp <span class="nv">index</span><span class="o">=</span>-2</code></pre></div>
 
 <p>&nbsp;</p>
 
@@ -343,98 +343,98 @@ sudo wget -O /lib/firmware/brcm/brcmfmac43602-pcie.bin https://git.kernel.org/cg
 
 <p>Here is the line I&rsquo;ve got in /etc/default/grub to resolve the problem:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">GRUB_CMDLINE_LINUX_DEFAULT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;quiet libata.force=noncq rootflags=data=writeback&#34;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&#34;quiet libata.force=noncq rootflags=data=writeback&#34;</span></code></pre></div>
 
 <h2 id="screen-backlight">Screen backlight</h2>
 
 <p>I used a script for the previous Mac (11,1) but needed to update it to make it work properly. Here is the updated version:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $UID -ne <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-    echo <span style="color:#e6db74">&#34;Please run this program as superuser&#34;</span>
-    exit <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">fi</span>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$UID</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&#34;Please run this program as superuser&#34;</span>
+    <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
 
-GMDIR<span style="color:#f92672">=</span>/sys/class/backlight/acpi_video0
-BLDIR<span style="color:#f92672">=</span>/sys/class/backlight/intel_backlight
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> ! -d $BLDIR <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
-    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -d $GMDIR <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
-        BLDIR<span style="color:#f92672">=</span>$GMDIR
-    <span style="color:#66d9ef">else</span>
-        echo <span style="color:#e6db74">&#34;Check what directory your backlight is stored in /sys/class/backlight/&#34;</span>
-        exit <span style="color:#ae81ff">1</span>
-    <span style="color:#66d9ef">fi</span>
-<span style="color:#66d9ef">fi</span>
+<span class="nv">GMDIR</span><span class="o">=</span>/sys/class/backlight/acpi_video0
+<span class="nv">BLDIR</span><span class="o">=</span>/sys/class/backlight/intel_backlight
+<span class="k">if</span> <span class="o">[[</span> ! -d <span class="nv">$BLDIR</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="k">if</span> <span class="o">[[</span> -d <span class="nv">$GMDIR</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nv">BLDIR</span><span class="o">=</span><span class="nv">$GMDIR</span>
+    <span class="k">else</span>
+        <span class="nb">echo</span> <span class="s2">&#34;Check what directory your backlight is stored in /sys/class/backlight/&#34;</span>
+        <span class="nb">exit</span> <span class="m">1</span>
+    <span class="k">fi</span>
+<span class="k">fi</span>
 
-BLFILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$BLDIR<span style="color:#e6db74">/brightness&#34;</span>
-BACKLIGHT<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cat $BLFILE<span style="color:#66d9ef">)</span>
-INCREMENT<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>
-SET_VALUE<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
-MAX<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cat <span style="color:#e6db74">&#34;</span>$BLDIR<span style="color:#e6db74">/max_brightness&#34;</span><span style="color:#66d9ef">)</span>
+<span class="nv">BLFILE</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$BLDIR</span><span class="s2">/brightness&#34;</span>
+<span class="nv">BACKLIGHT</span><span class="o">=</span><span class="k">$(</span>cat <span class="nv">$BLFILE</span><span class="k">)</span>
+<span class="nv">INCREMENT</span><span class="o">=</span><span class="m">50</span>
+<span class="nv">SET_VALUE</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">MAX</span><span class="o">=</span><span class="k">$(</span>cat <span class="s2">&#34;</span><span class="nv">$BLDIR</span><span class="s2">/max_brightness&#34;</span><span class="k">)</span>
 
-<span style="color:#66d9ef">case</span> $1 in
+<span class="k">case</span> <span class="nv">$1</span> in
 
-    up<span style="color:#f92672">)</span>
-        TOTAL<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>expr $BACKLIGHT + $INCREMENT<span style="color:#e6db74">`</span>
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $TOTAL -gt <span style="color:#e6db74">&#34;</span>$MAX<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-            exit <span style="color:#ae81ff">1</span>
-        <span style="color:#66d9ef">fi</span>
-        SET_VALUE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
-        ;;
-    down<span style="color:#f92672">)</span>
-        TOTAL<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>expr $BACKLIGHT - $INCREMENT<span style="color:#e6db74">`</span>
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $TOTAL -lt <span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-            exit <span style="color:#ae81ff">1</span>
-        <span style="color:#66d9ef">fi</span>
-        SET_VALUE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
-        ;;
-    total<span style="color:#f92672">)</span>
-	TEMP_VALUE<span style="color:#f92672">=</span>$BACKLIGHT
-	<span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span> $TEMP_VALUE -lt <span style="color:#e6db74">&#34;</span>$MAX<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">do</span>
-		TEMP_VALUE<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>expr $TEMP_VALUE + <span style="color:#ae81ff">1</span><span style="color:#e6db74">`</span>
-		<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $TEMP_VALUE -gt <span style="color:#e6db74">&#34;</span>$MAX<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span> TEMP_VALUE<span style="color:#f92672">=</span>$MAX; <span style="color:#66d9ef">fi</span>
-		echo $TEMP_VALUE &gt; $BLFILE
-	<span style="color:#66d9ef">done</span>
-        ;;
-    off<span style="color:#f92672">)</span>
-	TEMP_VALUE<span style="color:#f92672">=</span>$BACKLIGHT
-	<span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span> $TEMP_VALUE -gt <span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">do</span>
-		TEMP_VALUE<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>expr $TEMP_VALUE - <span style="color:#ae81ff">1</span><span style="color:#e6db74">`</span>
-		<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $TEMP_VALUE -lt <span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span> TEMP_VALUE<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; <span style="color:#66d9ef">fi</span>
-		echo $TEMP_VALUE &gt; $BLFILE
-	<span style="color:#66d9ef">done</span>
-        ;;
-    *<span style="color:#f92672">)</span>
-        echo <span style="color:#e6db74">&#34;Use: screen-backlight up|down|total|off&#34;</span>
-        ;;
-<span style="color:#66d9ef">esac</span>
+    up<span class="o">)</span>
+        <span class="nv">TOTAL</span><span class="o">=</span><span class="sb">`</span>expr <span class="nv">$BACKLIGHT</span> + <span class="nv">$INCREMENT</span><span class="sb">`</span>
+        <span class="k">if</span> <span class="o">[</span> <span class="nv">$TOTAL</span> -gt <span class="s2">&#34;</span><span class="nv">$MAX</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+            <span class="nb">exit</span> <span class="m">1</span>
+        <span class="k">fi</span>
+        <span class="nv">SET_VALUE</span><span class="o">=</span><span class="m">1</span>
+        <span class="p">;;</span>
+    down<span class="o">)</span>
+        <span class="nv">TOTAL</span><span class="o">=</span><span class="sb">`</span>expr <span class="nv">$BACKLIGHT</span> - <span class="nv">$INCREMENT</span><span class="sb">`</span>
+        <span class="k">if</span> <span class="o">[</span> <span class="nv">$TOTAL</span> -lt <span class="s2">&#34;0&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+            <span class="nb">exit</span> <span class="m">1</span>
+        <span class="k">fi</span>
+        <span class="nv">SET_VALUE</span><span class="o">=</span><span class="m">1</span>
+        <span class="p">;;</span>
+    total<span class="o">)</span>
+	<span class="nv">TEMP_VALUE</span><span class="o">=</span><span class="nv">$BACKLIGHT</span>
+	<span class="k">while</span> <span class="o">[</span> <span class="nv">$TEMP_VALUE</span> -lt <span class="s2">&#34;</span><span class="nv">$MAX</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">do</span>
+		<span class="nv">TEMP_VALUE</span><span class="o">=</span><span class="sb">`</span>expr <span class="nv">$TEMP_VALUE</span> + <span class="m">1</span><span class="sb">`</span>
+		<span class="k">if</span> <span class="o">[</span> <span class="nv">$TEMP_VALUE</span> -gt <span class="s2">&#34;</span><span class="nv">$MAX</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="nv">TEMP_VALUE</span><span class="o">=</span><span class="nv">$MAX</span><span class="p">;</span> <span class="k">fi</span>
+		<span class="nb">echo</span> <span class="nv">$TEMP_VALUE</span> &gt; <span class="nv">$BLFILE</span>
+	<span class="k">done</span>
+        <span class="p">;;</span>
+    off<span class="o">)</span>
+	<span class="nv">TEMP_VALUE</span><span class="o">=</span><span class="nv">$BACKLIGHT</span>
+	<span class="k">while</span> <span class="o">[</span> <span class="nv">$TEMP_VALUE</span> -gt <span class="s2">&#34;0&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">do</span>
+		<span class="nv">TEMP_VALUE</span><span class="o">=</span><span class="sb">`</span>expr <span class="nv">$TEMP_VALUE</span> - <span class="m">1</span><span class="sb">`</span>
+		<span class="k">if</span> <span class="o">[</span> <span class="nv">$TEMP_VALUE</span> -lt <span class="s2">&#34;0&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="nv">TEMP_VALUE</span><span class="o">=</span><span class="m">0</span><span class="p">;</span> <span class="k">fi</span>
+		<span class="nb">echo</span> <span class="nv">$TEMP_VALUE</span> &gt; <span class="nv">$BLFILE</span>
+	<span class="k">done</span>
+        <span class="p">;;</span>
+    *<span class="o">)</span>
+        <span class="nb">echo</span> <span class="s2">&#34;Use: screen-backlight up|down|total|off&#34;</span>
+        <span class="p">;;</span>
+<span class="k">esac</span>
 
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $SET_VALUE -eq <span style="color:#e6db74">&#34;1&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-    echo $TOTAL &gt; $BLFILE
-<span style="color:#66d9ef">fi</span></code></pre></div>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$SET_VALUE</span> -eq <span class="s2">&#34;1&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="nv">$TOTAL</span> &gt; <span class="nv">$BLFILE</span>
+<span class="k">fi</span></code></pre></div>
 
 <p>As I&rsquo;m using i3 wm, I added those lines in my configuration to make keyboard bindings:</p>
 
-<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">bindcode <span style="color:#ae81ff">233</span> exec --no-startup-id <span style="color:#e6db74">&#34;sudo screen-backlight up&#34;</span>
-bindcode <span style="color:#ae81ff">232</span> exec --no-startup-id <span style="color:#e6db74">&#34;sudo screen-backlight down&#34;</span></code></pre></div></p>
+<p><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">bindcode <span class="m">233</span> <span class="nb">exec</span> --no-startup-id <span class="s2">&#34;sudo screen-backlight up&#34;</span>
+bindcode <span class="m">232</span> <span class="nb">exec</span> --no-startup-id <span class="s2">&#34;sudo screen-backlight down&#34;</span></code></pre></div></p>
 
 <p>As you can see, some sudo commands are required, so I&rsquo;ve created a file in /etc/sudoers.d with this content:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Cmnd_Alias SCREENBACKLIGHT <span style="color:#f92672">=</span> /usr/bin/screen-backlight
-%deimos ALL <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>ALL<span style="color:#f92672">)</span> NOPASSWD: SCREENBACKLIGHT</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">Cmnd_Alias <span class="nv">SCREENBACKLIGHT</span> <span class="o">=</span> /usr/bin/screen-backlight
+%deimos <span class="nv">ALL</span> <span class="o">=</span> <span class="o">(</span>ALL<span class="o">)</span> NOPASSWD: SCREENBACKLIGHT</code></pre></div>
 
 <h2 id="video-driver">Video driver</h2>
 
 <p>You can get working video drivers by installing experimental version of xorg intel package. You need to get experimental repository in your sources.list, then upgrade the package:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt-get install -t experimental xserver-xorg-video-intel</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">apt-get install -t experimental xserver-xorg-video-intel</code></pre></div>
 
 <h2 id="conclusion">Conclusion</h2>
 
 <p>I have some work to do to make all the things work and wait for some drivers to be released. Debian Jessie is now out and I&rsquo;ll switch to the next testing branch. This will permit to avoid doing so manual stuffs like kernel recompilation.</p>
 
-<p>If you encounter other issues, you should also take a look at Arch Linux wiki on the previous MacBookPro version as a lot of things corresponding to this new MacBooPro version as well: <a href="https://wiki.archlinux.org/index.php/MacBookPro11,x">https://wiki.archlinux.org/index.php/MacBookPro11,x</a></p>
+<p>If you encounter other issues, you should also take a look at Arch Linux wiki on the previous MacBookPro version as a lot of things corresponding to this new MacBooPro version as well: <a href="https://wiki.archlinux.org/index.php/MacBookPro11,x" target="_blank">https://wiki.archlinux.org/index.php/MacBookPro11,x</a></p>
 
               
             </div>

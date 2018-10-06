@@ -290,13 +290,13 @@ If you already played with Puppet&rsquo;s environments, you certainly know that 
 
 <p>It&rsquo;s really easy to maintain your modules <strong>without using a lot of git submodules</strong>. Simply declare your modules informations like that:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mod <span style="color:#e6db74">&#39;filemapper&#39;</span>,
-:git <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;git://github.com/adrienthebo/puppet-filemapper.git&#39;</span>,
-:ref <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;1.1.1&#39;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mod <span class="s1">&#39;filemapper&#39;</span>,
+:git <span class="o">=</span>&gt; <span class="s1">&#39;git://github.com/adrienthebo/puppet-filemapper.git&#39;</span>,
+:ref <span class="o">=</span>&gt; <span class="s1">&#39;1.1.1&#39;</span></code></pre></div>
 
 <p>and ask r10k to get informations from a GitHub repository for example, with specific tag etc&hellip; So you can easily build a huge amount list of module there and easily test a new version of something in a new environment. Then when you call your puppet agent for test, <strong>simply add the correct wished environment variable</strong>.</p>
 
-<p>r10k is a gem and easy to install. When you have more and more environments to manage, you should do it dynamically. More informations are available <a href="https://github.com/adrienthebo/r10k">on the official GitHub project</a>.</p>
+<p>r10k is a gem and easy to install. When you have more and more environments to manage, you should do it dynamically. More informations are available <a href="https://github.com/adrienthebo/r10k" target="_blank">on the official GitHub project</a>.</p>
 
               
             </div>

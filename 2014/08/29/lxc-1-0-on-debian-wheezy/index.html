@@ -292,7 +292,7 @@ I&rsquo;m using for my own servers LXC for about a year now. I&rsquo;m still fed
 
 <p>To install it with the required dependencies:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /tmp
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /tmp
 wget http://blog.deimos.fr/wp-content/uploads/2014/08/lxc_1.0.4.tgz
 tar -xzf lxc_1.0.4.tgz
 dpkg -i lxc_1.0.4-3_amd64.deb lxc-stuff_1.0.4-3_all.deb
@@ -300,7 +300,7 @@ apt-get -f install</code></pre></div>
 
 <p>Now, you need to change your LXC configuration if you want them to automatically start at boot. Edit config file of each containers and add this line (eg. /var/lib/lxc/container/config):</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">lxc.start.auto <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">lxc.start.auto <span class="o">=</span> <span class="m">1</span></code></pre></div>
 
 <p>You now have to reboot to validate new configuration. That&rsquo;s it.</p>
 
@@ -314,20 +314,20 @@ apt-get -f install</code></pre></div>
 <li>First, temporary insert the Jessie sources in your sources.list and add wheezy backports:</li>
 </ol>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Jessie
-</span><span style="color:#75715e"></span>deb http://ftp.fr.debian.org/debian/ jessie main non-free contrib
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Jessie
+</span><span class="c1"></span>deb http://ftp.fr.debian.org/debian/ jessie main non-free contrib
 deb-src http://ftp.fr.debian.org/debian/ jessie main non-free contrib
-<span style="color:#75715e"># Wheezy backports
-</span><span style="color:#75715e"></span>deb http://ftp.fr.debian.org/debian/ wheezy-backports main</code></pre></div>
+<span class="c1"># Wheezy backports
+</span><span class="c1"></span>deb http://ftp.fr.debian.org/debian/ wheezy-backports main</code></pre></div>
 
 <ol>
 <li>Get the sources:</li>
 </ol>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt-get update
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">apt-get update
 mkdir /tmp/lxc
-cd !$
-apt-get source lxc</code></pre></div>
+<span class="nb">cd</span> !$
+apt-get <span class="nb">source</span> lxc</code></pre></div>
 
 <ol>
 <li><p>Remove previously added jessie sources and apt-get update once again.</p></li>
@@ -335,13 +335,13 @@ apt-get source lxc</code></pre></div>
 <li><p>Install dependencies:</p></li>
 </ol>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt-get install build-essential fakeroot dpkg-dev dh-autoreconf doxygen docbook2x graphviz libapparmor-dev liblua5.2-dev libseccomp-dev libselinux-dev pkg-config python3-dev dh-systemd libcap-dev</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">apt-get install build-essential fakeroot dpkg-dev dh-autoreconf doxygen docbook2x graphviz libapparmor-dev liblua5.2-dev libseccomp-dev libselinux-dev pkg-config python3-dev dh-systemd libcap-dev</code></pre></div>
 
 <ol>
 <li>Finally make new packages:</li>
 </ol>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dpkg-buildpackage -rfakeroot -b</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">dpkg-buildpackage -rfakeroot -b</code></pre></div>
 
 <p>.deb packages are now available. I hope that help you. I would like to send it to Debian backport team, but never did it in the past and unfortunately don&rsquo;t have much time to spend in it for the moment. So if someone familiar have the time to do it, it will be a pleasure.</p>
 

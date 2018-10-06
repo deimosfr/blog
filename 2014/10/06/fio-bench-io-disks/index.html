@@ -294,45 +294,45 @@ ga('send', 'pageview');
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p><img src="https://blog.deimos.fr/images/Poweredbylinux.jpg" alt="Poweredbylinux" />
-The first thing you generally want to do when you have any new Storage system like SSD, Disk arrays or <a href="https://wiki.deimos.fr/Ceph_:_performance,_reliability_and_scalability_storage_solution">a Cluster Ceph</a>, is benching. You will want to know how can read and write throughput. FIO is able to do that for you, here is an example:</p>
+The first thing you generally want to do when you have any new Storage system like SSD, Disk arrays or <a href="https://wiki.deimos.fr/Ceph_:_performance,_reliability_and_scalability_storage_solution" target="_blank">a Cluster Ceph</a>, is benching. You will want to know how can read and write throughput. FIO is able to do that for you, here is an example:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>global<span style="color:#f92672">]</span>
-ioengine<span style="color:#f92672">=</span>libaio
-invalidate<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
-ramp_time<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>global<span class="o">]</span>
+<span class="nv">ioengine</span><span class="o">=</span>libaio
+<span class="nv">invalidate</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">ramp_time</span><span class="o">=</span><span class="m">5</span>
 
-direct<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
-size<span style="color:#f92672">=</span>5G
+<span class="nv">direct</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">size</span><span class="o">=</span>5G
 
-runtime<span style="color:#f92672">=</span><span style="color:#ae81ff">300</span>
+<span class="nv">runtime</span><span class="o">=</span><span class="m">300</span>
 time_based
-directory<span style="color:#f92672">=</span>/home
+<span class="nv">directory</span><span class="o">=</span>/home
 
-<span style="color:#f92672">[</span>seq-read<span style="color:#f92672">]</span>
-rw<span style="color:#f92672">=</span>read
-bs<span style="color:#f92672">=</span>64K
+<span class="o">[</span>seq-read<span class="o">]</span>
+<span class="nv">rw</span><span class="o">=</span><span class="nb">read</span>
+<span class="nv">bs</span><span class="o">=</span>64K
 stonewall
 
-<span style="color:#f92672">[</span>rand-read<span style="color:#f92672">]</span>
-rw<span style="color:#f92672">=</span>randread
-bs<span style="color:#f92672">=</span>4K
+<span class="o">[</span>rand-read<span class="o">]</span>
+<span class="nv">rw</span><span class="o">=</span>randread
+<span class="nv">bs</span><span class="o">=</span>4K
 stonewall
 
-<span style="color:#f92672">[</span>seq-write<span style="color:#f92672">]</span>
-rw<span style="color:#f92672">=</span>write
-bs<span style="color:#f92672">=</span>64K
+<span class="o">[</span>seq-write<span class="o">]</span>
+<span class="nv">rw</span><span class="o">=</span>write
+<span class="nv">bs</span><span class="o">=</span>64K
 stonewall
 
-<span style="color:#f92672">[</span>rand-write<span style="color:#f92672">]</span>
-rw<span style="color:#f92672">=</span>randwrite
-bs<span style="color:#f92672">=</span>4K
+<span class="o">[</span>rand-write<span class="o">]</span>
+<span class="nv">rw</span><span class="o">=</span>randwrite
+<span class="nv">bs</span><span class="o">=</span>4K
 stonewall</code></pre></div>
 
 <p>You then will have a good output of everything you need to know. More than that you can plot it:</p>
 
 <p><img src="https://blog.deimos.fr/images/fio_graph.jpg" alt="fio_graph" /></p>
 
-<p>You also can look at the <a href="http://techs.enovance.com/6110/adding-new-3rd-party-tools-in-fio">nice eNovance blog post on it</a>.</p>
+<p>You also can look at the <a href="http://techs.enovance.com/6110/adding-new-3rd-party-tools-in-fio" target="_blank">nice eNovance blog post on it</a>.</p>
 
               
             </div>

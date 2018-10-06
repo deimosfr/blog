@@ -266,24 +266,24 @@ ga('send', 'pageview');
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>Suite à un <a href="https://blog.deimos.fr/2010/05/15/creer-des-diagrammes-en-ascii/">précédent post</a>, c’est super de faire des schéma en ASCII, mais des fois on aimerait bien les avoir en version un peu plus propre. On va donc éviter de tout refaire hein :-) ! Et c’est là que Ditaa entre en jeu ! Il est écrit en java et permet simplement une conversion. Voici l’exemple d’un schéma ASCII :</p>
+              <p>Suite à un <a href="https://blog.deimos.fr/2010/05/15/creer-des-diagrammes-en-ascii/" target="_blank">précédent post</a>, c’est super de faire des schéma en ASCII, mais des fois on aimerait bien les avoir en version un peu plus propre. On va donc éviter de tout refaire hein :-) ! Et c’est là que Ditaa entre en jeu ! Il est écrit en java et permet simplement une conversion. Voici l’exemple d’un schéma ASCII :</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">+------+
- +-------+    +-----------+      +---------+  br0   |VE101 |
- |       |    |  OpenBSD  |-----&gt;| Debian  |-------&gt;|      |
- | WAN   |---&gt;|  Router   |      | OpenVZ  |        +------+
- |       |    |  Firewall |-----&gt;| br0 br1 |  br1   +------+
- +-------+    +-----------+      +---------+-------&gt;|VE102 |
-                                     |br0           |      |
-                                     |VLAN br0.110  +------+
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">+------+
+ +-------+    +-----------+      +---------+  br0   <span class="p">|</span>VE101 <span class="p">|</span>
+ <span class="p">|</span>       <span class="p">|</span>    <span class="p">|</span>  OpenBSD  <span class="p">|</span>-----&gt;<span class="p">|</span> Debian  <span class="p">|</span>-------&gt;<span class="p">|</span>      <span class="p">|</span>
+ <span class="p">|</span> WAN   <span class="p">|</span>---&gt;<span class="p">|</span>  Router   <span class="p">|</span>      <span class="p">|</span> OpenVZ  <span class="p">|</span>        +------+
+ <span class="p">|</span>       <span class="p">|</span>    <span class="p">|</span>  Firewall <span class="p">|</span>-----&gt;<span class="p">|</span> br0 br1 <span class="p">|</span>  br1   +------+
+ +-------+    +-----------+      +---------+-------&gt;<span class="p">|</span>VE102 <span class="p">|</span>
+                                     <span class="p">|</span>br0           <span class="p">|</span>      <span class="p">|</span>
+                                     <span class="p">|</span>VLAN br0.110  +------+
                                      v
                                  +---------+
-                                 |VE103.110|
+                                 <span class="p">|</span>VE103.110<span class="p">|</span>
                                  +---------+</code></pre></div>
 
 <p>On utilise donc Ditaa pour la conversion :</p>
 
-<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">java -jar ditaa0_9.jar source destination</code></pre></div></p>
+<p><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">java -jar ditaa0_9.jar <span class="nb">source</span> destination</code></pre></div></p>
 
 <p>Et voilà le résultat :
 <img src="https://blog.deimos.fr/images/schema.png" alt="schema" /></p>

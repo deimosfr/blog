@@ -284,7 +284,7 @@ ga('send', 'pageview');
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p><img src="https://blog.deimos.fr/images/logo_awesome.png" alt="Awesome_logo" />
-<a href="https://wiki.deimos.fr/Awesome_:_un_bureau_l%C3%A9ger_et_puissant">Awesome</a> is still my window manager and I still love it. With my laptop, I need to be able to quickly get my working environment when I power it on. The major problem I had was to avoid having the same opened windows at boot if I&rsquo;m in the train, at work or at home. Of course there is no GPS in the laptop to detect my location, so I couldn&rsquo;t set a rule for it. By the way, I do not have the same number of screens depending on my location :</p>
+<a href="https://wiki.deimos.fr/Awesome_:_un_bureau_l%C3%A9ger_et_puissant" target="_blank">Awesome</a> is still my window manager and I still love it. With my laptop, I need to be able to quickly get my working environment when I power it on. The major problem I had was to avoid having the same opened windows at boot if I&rsquo;m in the train, at work or at home. Of course there is no GPS in the laptop to detect my location, so I couldn&rsquo;t set a rule for it. By the way, I do not have the same number of screens depending on my location :</p>
 
 <ul>
 <li>1 screen : standalone mode, like train etc&hellip; I don&rsquo;t want applications to start automatically</li>
@@ -294,42 +294,42 @@ ga('send', 'pageview');
 
 <p>That&rsquo;s why I&rsquo;ve configured Awesome to take care of that 2 kinds of configuration. To did it, I&rsquo;ve added those lines in my rc.lua configuration :</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#66d9ef">if</span> screen.count() <span style="color:#f92672">==</span> <span style="color:#ae81ff">3</span> <span style="color:#66d9ef">then</span>
-    <span style="color:#75715e">-- Desktop/tags organization</span>
-    <span style="color:#75715e">-- {{{ Rules</span>
-    awful.rules.rules <span style="color:#f92672">=</span> { 
-        <span style="color:#75715e">-- All clients will match this rule.</span>
-        { rule <span style="color:#f92672">=</span> { },
-          properties <span style="color:#f92672">=</span> { border_width <span style="color:#f92672">=</span> beautiful.border_width,
-                         border_color <span style="color:#f92672">=</span> beautiful.border_normal,
-                         focus <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>,
-                         keys <span style="color:#f92672">=</span> clientkeys,
-                         buttons <span style="color:#f92672">=</span> clientbuttons } },
-        <span style="color:#75715e">-- Set Firefox to always map on tags number 2 of screen 1.</span>
-        { rule <span style="color:#f92672">=</span> { class <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Firefox&#34;</span> },  properties <span style="color:#f92672">=</span> { tag <span style="color:#f92672">=</span> tags[<span style="color:#ae81ff">2</span>][<span style="color:#ae81ff">1</span>] } },
-        { rule <span style="color:#f92672">=</span> { class <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Thunderbird&#34;</span> },  properties <span style="color:#f92672">=</span> { tag <span style="color:#f92672">=</span> tags[<span style="color:#ae81ff">3</span>][<span style="color:#ae81ff">1</span>] } },
-        { rule <span style="color:#f92672">=</span> { class <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Pidgin&#34;</span> },  properties <span style="color:#f92672">=</span> { tag <span style="color:#f92672">=</span> tags[<span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">4</span>], switchtotag <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span> } },
-    }   
-    <span style="color:#75715e">-- Launch those commands on startup</span>
-    run_once(<span style="color:#e6db74">&#34;thunderbird&#34;</span>)
-    run_once(<span style="color:#e6db74">&#34;firefox&#34;</span>)
-    run_once(<span style="color:#e6db74">&#34;pidgin&#34;</span>)
-<span style="color:#75715e">-- 1 screen, I&#39;m nomad</span>
-<span style="color:#66d9ef">elseif</span> screen.count() <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">then</span>
-    awful.util.spawn_with_shell(<span style="color:#e6db74">&#34;xrandr --output DP3 --off --output DP2 --off --output DP1 --off --output HDMI3 --off --output HDMI2 --off --output HDMI1 --off --output LVDS1 --mode 1600x900 --pos 0x0 --rotate normal --output VGA1 --off&#34;</span>)
-    <span style="color:#75715e">-- Desktop/tags organization</span>
-    <span style="color:#75715e">-- {{{ Rules</span>
-    awful.rules.rules <span style="color:#f92672">=</span> { 
-        <span style="color:#75715e">-- All clients will match this rule.</span>
-        { rule <span style="color:#f92672">=</span> { },
-          properties <span style="color:#f92672">=</span> { border_width <span style="color:#f92672">=</span> beautiful.border_width,
-                         border_color <span style="color:#f92672">=</span> beautiful.border_normal,
-                         focus <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>,
-                         keys <span style="color:#f92672">=</span> clientkeys,
-                         buttons <span style="color:#f92672">=</span> clientbuttons } },
-    }   
-    <span style="color:#75715e">-- }}}</span>
-<span style="color:#66d9ef">end</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-lua" data-lang="lua"><span class="kr">if</span> <span class="n">screen.count</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span> <span class="kr">then</span>
+    <span class="c1">-- Desktop/tags organization</span>
+    <span class="c1">-- {{{ Rules</span>
+    <span class="n">awful.rules</span><span class="p">.</span><span class="n">rules</span> <span class="o">=</span> <span class="p">{</span> 
+        <span class="c1">-- All clients will match this rule.</span>
+        <span class="p">{</span> <span class="n">rule</span> <span class="o">=</span> <span class="p">{</span> <span class="p">},</span>
+          <span class="n">properties</span> <span class="o">=</span> <span class="p">{</span> <span class="n">border_width</span> <span class="o">=</span> <span class="n">beautiful.border_width</span><span class="p">,</span>
+                         <span class="n">border_color</span> <span class="o">=</span> <span class="n">beautiful.border_normal</span><span class="p">,</span>
+                         <span class="n">focus</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+                         <span class="n">keys</span> <span class="o">=</span> <span class="n">clientkeys</span><span class="p">,</span>
+                         <span class="n">buttons</span> <span class="o">=</span> <span class="n">clientbuttons</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="c1">-- Set Firefox to always map on tags number 2 of screen 1.</span>
+        <span class="p">{</span> <span class="n">rule</span> <span class="o">=</span> <span class="p">{</span> <span class="n">class</span> <span class="o">=</span> <span class="s2">&#34;Firefox&#34;</span> <span class="p">},</span>  <span class="n">properties</span> <span class="o">=</span> <span class="p">{</span> <span class="n">tag</span> <span class="o">=</span> <span class="n">tags</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">rule</span> <span class="o">=</span> <span class="p">{</span> <span class="n">class</span> <span class="o">=</span> <span class="s2">&#34;Thunderbird&#34;</span> <span class="p">},</span>  <span class="n">properties</span> <span class="o">=</span> <span class="p">{</span> <span class="n">tag</span> <span class="o">=</span> <span class="n">tags</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">rule</span> <span class="o">=</span> <span class="p">{</span> <span class="n">class</span> <span class="o">=</span> <span class="s2">&#34;Pidgin&#34;</span> <span class="p">},</span>  <span class="n">properties</span> <span class="o">=</span> <span class="p">{</span> <span class="n">tag</span> <span class="o">=</span> <span class="n">tags</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">4</span><span class="p">],</span> <span class="n">switchtotag</span> <span class="o">=</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">},</span>
+    <span class="p">}</span>   
+    <span class="c1">-- Launch those commands on startup</span>
+    <span class="n">run_once</span><span class="p">(</span><span class="s2">&#34;thunderbird&#34;</span><span class="p">)</span>
+    <span class="n">run_once</span><span class="p">(</span><span class="s2">&#34;firefox&#34;</span><span class="p">)</span>
+    <span class="n">run_once</span><span class="p">(</span><span class="s2">&#34;pidgin&#34;</span><span class="p">)</span>
+<span class="c1">-- 1 screen, I&#39;m nomad</span>
+<span class="kr">elseif</span> <span class="n">screen.count</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span> <span class="kr">then</span>
+    <span class="n">awful.util</span><span class="p">.</span><span class="n">spawn_with_shell</span><span class="p">(</span><span class="s2">&#34;xrandr --output DP3 --off --output DP2 --off --output DP1 --off --output HDMI3 --off --output HDMI2 --off --output HDMI1 --off --output LVDS1 --mode 1600x900 --pos 0x0 --rotate normal --output VGA1 --off&#34;</span><span class="p">)</span>
+    <span class="c1">-- Desktop/tags organization</span>
+    <span class="c1">-- {{{ Rules</span>
+    <span class="n">awful.rules</span><span class="p">.</span><span class="n">rules</span> <span class="o">=</span> <span class="p">{</span> 
+        <span class="c1">-- All clients will match this rule.</span>
+        <span class="p">{</span> <span class="n">rule</span> <span class="o">=</span> <span class="p">{</span> <span class="p">},</span>
+          <span class="n">properties</span> <span class="o">=</span> <span class="p">{</span> <span class="n">border_width</span> <span class="o">=</span> <span class="n">beautiful.border_width</span><span class="p">,</span>
+                         <span class="n">border_color</span> <span class="o">=</span> <span class="n">beautiful.border_normal</span><span class="p">,</span>
+                         <span class="n">focus</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+                         <span class="n">keys</span> <span class="o">=</span> <span class="n">clientkeys</span><span class="p">,</span>
+                         <span class="n">buttons</span> <span class="o">=</span> <span class="n">clientbuttons</span> <span class="p">}</span> <span class="p">},</span>
+    <span class="p">}</span>   
+    <span class="c1">-- }}}</span>
+<span class="kr">end</span></code></pre></div>
 
 <p>I&rsquo;ve added comments to get a better understanding on what each lines does, but the most important are :</p>
 
@@ -340,7 +340,7 @@ ga('send', 'pageview');
 
 <p>Note : I do not set any xrandr configuration when I&rsquo;ve 3 screens as this is my default and already set in my .xinitrc file.</p>
 
-<p>As a reminder, you can have access to <a href="https://git.deimos.fr/?p=git_deimosfr.git;a=tree;f=user_config/awesome">my complete Awesome configuration here</a>.</p>
+<p>As a reminder, you can have access to <a href="https://git.deimos.fr/?p=git_deimosfr.git;a=tree;f=user_config/awesome" target="_blank">my complete Awesome configuration here</a>.</p>
 
               
             </div>

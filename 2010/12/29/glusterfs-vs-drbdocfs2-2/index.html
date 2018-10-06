@@ -286,7 +286,7 @@ ga('send', 'pageview');
             <div class="main-content-wrap">
               <p>Ca fait un moment que je me dit qu’il va falloir étudier le cas de la réplication de fichiers temps réel entre mon serveur perso et ma dedibox. J’en avais un peu marre de mon rsync crontabé (oui le verbe existe).</p>
 
-<p>J&rsquo;ai donc écris une petite documentation sur <a href="http://wiki.deimos.fr/GlusterFS_:_Filesystem_cluster_pour_HA">GlusterFS </a>sur comment répliquer le /var/www. Dans la pratique c&rsquo;est plutôt bien :</p>
+<p>J&rsquo;ai donc écris une petite documentation sur <a href="http://wiki.deimos.fr/GlusterFS_:_Filesystem_cluster_pour_HA" target="_blank">GlusterFS </a>sur comment répliquer le /var/www. Dans la pratique c&rsquo;est plutôt bien :</p>
 
 <ul>
 <li><p>Rapide à mettre en place</p></li>
@@ -298,7 +298,7 @@ ga('send', 'pageview');
 
 <p>Ouaaaa&hellip;séduisant tout ça hein ! Seul hic c&rsquo;est que dans la vrai vie, c&rsquo;est un cauchemars. En effet avec une liaison LAN, pas de problèmes, les accès sont performants, mais à travers du WAN, c&rsquo;est tout simplement inutilisable (a moins d&rsquo;une liaison fibre de malade). Les pages mettent 3 à 5 min pour s&rsquo;afficher. Je me suis tourné du côté du tuning de GlusterFS? mais je n&rsquo;ai rien trouvé de très satifaisant.</p>
 
-<p>Je me suis donc attaqué à <a href="http://wiki.deimos.fr/Installation_et_configuration_de_DRBD">DRBD</a> + <a href="http://wiki.deimos.fr/OCFS2_:_Le_FileSystem_Cluster_d%27Oracle">OCFS2</a>, ce qui m&rsquo;a donné l&rsquo;occasion de mettre à jour mes docs. Et là, c&rsquo;est le jour et la nuit, ça fonctionne parfaitement. Par contre :</p>
+<p>Je me suis donc attaqué à <a href="http://wiki.deimos.fr/Installation_et_configuration_de_DRBD" target="_blank">DRBD</a> + <a href="http://wiki.deimos.fr/OCFS2_:_Le_FileSystem_Cluster_d%27Oracle" target="_blank">OCFS2</a>, ce qui m&rsquo;a donné l&rsquo;occasion de mettre à jour mes docs. Et là, c&rsquo;est le jour et la nuit, ça fonctionne parfaitement. Par contre :</p>
 
 <ul>
 <li><p>Long à mettre en place</p></li>
@@ -314,7 +314,7 @@ ga('send', 'pageview');
 
 <p>Mon plus gros problèmes actuel (car pas eu le temps de finir l&rsquo;étude) est le repassage automatique en primary d&rsquo;un noeud DRBD après déconnexion. A première vue, la seule solution est de mettre un cluster de type PaceMaker pour palier à ce problème. Au final on se retrouve avec une belle usine à gaz par rapport au simple GlusterFS.</p>
 
-<p>Clairement les avantages et inconvénients sont importants. Je pense que GlusterFS est très bien pour un partage Samba ou autre, mais que pour de l&rsquo;accès de données un peu plus diversifiés tel que le PHP ou autres appli dépendantes de plusieurs fichiers, ce n&rsquo;est pas la solution à utiliser aujourd&rsquo;hui. DRBD et OCFS2 sont depuis pas mal d&rsquo;années utilisés et donc très stable. Ils continuent tous les 2 à évoluer, mais un peu trop lentement à mon gout. D&rsquo;autres filesystems de réplication (et + si affinité) commencent à pointer le bout de leur nez dont <a href="http://ceph.newdream.net/">Ceph</a> qui sera intégré dans le noyau 2.6.37. Malheureusement, ceci n&rsquo;est pas encore dispo pour les environnements de productions.</p>
+<p>Clairement les avantages et inconvénients sont importants. Je pense que GlusterFS est très bien pour un partage Samba ou autre, mais que pour de l&rsquo;accès de données un peu plus diversifiés tel que le PHP ou autres appli dépendantes de plusieurs fichiers, ce n&rsquo;est pas la solution à utiliser aujourd&rsquo;hui. DRBD et OCFS2 sont depuis pas mal d&rsquo;années utilisés et donc très stable. Ils continuent tous les 2 à évoluer, mais un peu trop lentement à mon gout. D&rsquo;autres filesystems de réplication (et + si affinité) commencent à pointer le bout de leur nez dont <a href="http://ceph.newdream.net/" target="_blank">Ceph</a> qui sera intégré dans le noyau 2.6.37. Malheureusement, ceci n&rsquo;est pas encore dispo pour les environnements de productions.</p>
 
 <p>Temporairement (le temps de finaliser mon étude) je suis repassé à ma bonne vielle méthode Rsync. Si vous avez des solutions ou propositions à m&rsquo;apporter, n&rsquo;hésitez pas :-)</p>
 

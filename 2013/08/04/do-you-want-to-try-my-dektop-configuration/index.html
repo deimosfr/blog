@@ -302,19 +302,19 @@ ga('send', 'pageview');
 
 <p>In addition, sometimes I need to set up a quick desktop environment with my preferences and deploy all I need may take a while. That&rsquo;s why I&rsquo;ve written some scripts (in Python and shell script) to help on deploying all my configuration and all the packages I wish. Those scripts are not perfect but they do the job and could be reused for any other usages.</p>
 
-<p>Do you want to try ? Ok, you&rsquo;ll see, it&rsquo;s quick. You can use a VM with <a href="http://wiki.deimos.fr/Vagrant_:_quickly_deploy_virtual_machines">Vagrant</a> (here is what I&rsquo;ll do with VirtualBox) or simply use it a dedicated machine. I forgot to mention that this automation script is only for Debian and have only been tested on Stable/Unstable (Testing works with stable repo in addition).</p>
+<p>Do you want to try ? Ok, you&rsquo;ll see, it&rsquo;s quick. You can use a VM with <a href="http://wiki.deimos.fr/Vagrant_:_quickly_deploy_virtual_machines" target="_blank">Vagrant</a> (here is what I&rsquo;ll do with VirtualBox) or simply use it a dedicated machine. I forgot to mention that this automation script is only for Debian and have only been tested on Stable/Unstable (Testing works with stable repo in addition).</p>
 
 <p>Let&rsquo;s start now with downloading a wheezy vagrant box and start it :</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vagrant box add wheezy https://www.dropbox.com/s/gpagp78g4mye1l7/wheezy.box
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">vagrant box add wheezy https://www.dropbox.com/s/gpagp78g4mye1l7/wheezy.box
 vagrant init wheezy
 vagrant up</code></pre></div>
 
 <p>Then connect to the machine, configure your locales, download the script and launch it :</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vagrant ssh
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">vagrant ssh
 sudo dpkg-reconfigure locales
-wget -O install_config.sh <span style="color:#e6db74">&#34;https://git.deimos.fr/?p=git_deimosfr.git;a=blob_plain;f=user_config/install_config/install_config.sh;hb=HEAD&#34;</span>
+wget -O install_config.sh <span class="s2">&#34;https://git.deimos.fr/?p=git_deimosfr.git;a=blob_plain;f=user_config/install_config/install_config.sh;hb=HEAD&#34;</span>
 bash install_config.sh</code></pre></div>
 
 <p>You&rsquo;ll now be able to configure and install specific configurations :</p>
@@ -325,18 +325,18 @@ bash install_config.sh</code></pre></div>
 
 <p><img src="https://blog.deimos.fr/images/install_group_packages.png" alt="install_group_packages" /></p>
 
-<p>The list of packages could be easily changed by <a href="https://git.deimos.fr/?p=git_deimosfr.git;a=blob_plain;f=user_config/install_config/install_config/packages_list;hb=HEAD">editing that file</a> :</p>
+<p>The list of packages could be easily changed by <a href="https://git.deimos.fr/?p=git_deimosfr.git;a=blob_plain;f=user_config/install_config/install_config/packages_list;hb=HEAD" target="_blank">editing that file</a> :</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># minimal tools
-</span><span style="color:#75715e"></span>zsh
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># minimal tools
+</span><span class="c1"></span>zsh
 tmux
 vim
 htop
 apt-file
 linux-non-free
 
-<span style="color:#75715e"># console extra
-</span><span style="color:#75715e"></span>wicd-curses
+<span class="c1"># console extra
+</span><span class="c1"></span>wicd-curses
 ...</code></pre></div>
 
 <p>The first hash tag followed by a name, is the group package/bundle name (&ldquo;console extra&rdquo; for example) and then the list of packages that belongs to that group. If you need to set comments, simply double the hash tag.</p>

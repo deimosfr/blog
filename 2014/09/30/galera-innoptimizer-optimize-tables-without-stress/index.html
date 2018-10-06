@@ -302,32 +302,32 @@ I recently been faced on a classical problem on InnoDB which is the fragmentatio
 
 <p>Here is how it works:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; ./ginnoptimizer.py -d all
-<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Trying to connect to MySQL/MariaDB instance...OK
-<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Getting all databases...OK
-<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Checking current Galera state... 
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">&gt; ./ginnoptimizer.py -d all
+<span class="o">[</span>+<span class="o">]</span> Trying to connect to MySQL/MariaDB instance...OK
+<span class="o">[</span>+<span class="o">]</span> Getting all databases...OK
+<span class="o">[</span>+<span class="o">]</span> Checking current Galera state... 
   -&gt; wsrep_ready status...OK
   -&gt; wsrep_cluster status...OK
   -&gt; wsrep_connected status...OK
   -&gt; wsrep_desync status...OK
   -&gt; wsrep_OSU_method status...OK
-<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Getting list of all tables in database1 database...OK
-<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Enabling RSU mode...OK
-<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Starting optimization on database1 database... 
-  -&gt; wsrep_flow_control_paused status &gt; <span style="color:#ae81ff">0</span>.3...OK
+<span class="o">[</span>+<span class="o">]</span> Getting list of all tables in database1 database...OK
+<span class="o">[</span>+<span class="o">]</span> Enabling RSU mode...OK
+<span class="o">[</span>+<span class="o">]</span> Starting optimization on database1 database... 
+  -&gt; wsrep_flow_control_paused status &gt; <span class="m">0</span>.3...OK
   -&gt; optimizing tablename in progress...OK
-<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Restoring TOI mode...OK
-<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Getting list of all tables in database2 database...OK
-<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Enabling RSU mode...OK
-<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Starting optimization on database2 database... 
-  -&gt; wsrep_flow_control_paused status &gt; <span style="color:#ae81ff">0</span>.3...OK
+<span class="o">[</span>+<span class="o">]</span> Restoring TOI mode...OK
+<span class="o">[</span>+<span class="o">]</span> Getting list of all tables in database2 database...OK
+<span class="o">[</span>+<span class="o">]</span> Enabling RSU mode...OK
+<span class="o">[</span>+<span class="o">]</span> Starting optimization on database2 database... 
+  -&gt; wsrep_flow_control_paused status &gt; <span class="m">0</span>.3...OK
   -&gt; optimizing tablename1 in progress...OK
-  -&gt; wsrep_flow_control_paused status &gt; <span style="color:#ae81ff">0</span>.3...OK
+  -&gt; wsrep_flow_control_paused status &gt; <span class="m">0</span>.3...OK
   -&gt; optimizing tablename2 in progress...OK
-<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Restoring TOI mode...OK
+<span class="o">[</span>+<span class="o">]</span> Restoring TOI mode...OK
 Done !</code></pre></div>
 
-<p>To know more about the solution and to get it, please <a href="https://github.com/deimosfr/galera_innoptimizer">follow the link of the project</a>.</p>
+<p>To know more about the solution and to get it, please <a href="https://github.com/deimosfr/galera_innoptimizer" target="_blank">follow the link of the project</a>.</p>
 
 <p>Of course this is the first version, I&rsquo;d like to add more things like database exclude, table include/exclude, percentage of progression etc&hellip;Do not hesitate to give feedbacks on it :-)</p>
 

@@ -298,30 +298,30 @@ ga('send', 'pageview');
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p><img src="https://blog.deimos.fr/images/logo_fluentd.png" alt="Fluentd_logo" />
-During the last weeks I started to play with <a href="http://blog.deimos.fr/2014/08/09/ansible-elasticsearch-playbook/">Elasticsearch</a>, <a href="http://blog.deimos.fr/2014/08/13/fluentd-ansible-playbook/">Fluentd</a> and <a href="http://blog.deimos.fr/2014/08/11/ansible-kibana-playbook/">Kibana</a>. <a href="https://wiki.deimos.fr/Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd">I made a documentation</a> to help on deploying it easily.</p>
+During the last weeks I started to play with <a href="http://blog.deimos.fr/2014/08/09/ansible-elasticsearch-playbook/" target="_blank">Elasticsearch</a>, <a href="http://blog.deimos.fr/2014/08/13/fluentd-ansible-playbook/" target="_blank">Fluentd</a> and <a href="http://blog.deimos.fr/2014/08/11/ansible-kibana-playbook/" target="_blank">Kibana</a>. <a href="https://wiki.deimos.fr/Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd" target="_blank">I made a documentation</a> to help on deploying it easily.</p>
 
 <p>As you may know, I&rsquo;m an Ansible fan, so I made Ansible playbooks to deploy a complete infrastructure (server and clients). They will deploy this kind of architecture:</p>
 
 <p><img src="https://wiki.deimos.fr/images/e/e7/Es_ki_fl.png" alt="Es_ki_fl" /></p>
 
-<p>On the client side, Fluentd clients will get syslog and Nginx logs, to send them to the Fluentd server. On the server side, a Fluentd receiver will be there to get data from other Fluentd clients. It will then push it to the Elasticsearch server. The Elasticsearch server is located on the same server than the Fluentd receiver to make it simpler. An autopurge can be configured directly from the playbook using <a href="https://github.com/elasticsearch/curator">curator</a> tool. To finish, Kibana is installed on the server to make it simpler as well.</p>
+<p>On the client side, Fluentd clients will get syslog and Nginx logs, to send them to the Fluentd server. On the server side, a Fluentd receiver will be there to get data from other Fluentd clients. It will then push it to the Elasticsearch server. The Elasticsearch server is located on the same server than the Fluentd receiver to make it simpler. An autopurge can be configured directly from the playbook using <a href="https://github.com/elasticsearch/curator" target="_blank">curator</a> tool. To finish, Kibana is installed on the server to make it simpler as well.</p>
 
-<p>You can find <a href="https://github.com/deimosfr">those playbooks on my GitHub</a> or on <a href="https://galaxy.ansible.com/deimosfr/fluentd/">Ansible Galaxy</a>.</p>
+<p>You can find <a href="https://github.com/deimosfr" target="_blank">those playbooks on my GitHub</a> or on <a href="https://galaxy.ansible.com/deimosfr/fluentd/" target="_blank">Ansible Galaxy</a>.</p>
 
 <p>Is it complex to configure Ansible playbooks it? I made my best to make it as quick as possible and as customizable as possible (for the context and my needs). What you need to do is first getting playbooks like this (site.yml):</p>
 
 <p>site.yml:
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># All machines
-</span><span style="color:#75715e"></span>- name: fluent-clients
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># All machines
+</span><span class="c1"></span>- name: fluent-clients
   hosts: all
   user: root
   roles:
     - fluentd
   vars_files:
-    - <span style="color:#e6db74">&#34;group_vars/fluentd_client.yml&#34;</span>
+    - <span class="s2">&#34;group_vars/fluentd_client.yml&#34;</span>
 
-<span style="color:#75715e"># Log
-</span><span style="color:#75715e"></span>- name: log servers
+<span class="c1"># Log
+</span><span class="c1"></span>- name: log servers
   hosts: logs
   user: root
   roles:
@@ -331,61 +331,61 @@ During the last weeks I started to play with <a href="http://blog.deimos.fr/2014
         - server:
            file_name: kibana.domain.com
            server_name: kibana.domain.com
-           listen: <span style="color:#ae81ff">80</span>
+           listen: <span class="m">80</span>
            root: /usr/share/nginx/www/kibana/src
-           location1: <span style="color:#f92672">{</span>name: /, try_files: <span style="color:#e6db74">&#34;</span>$uri<span style="color:#e6db74"> </span>$uri<span style="color:#e6db74">/ /index.html&#34;</span><span style="color:#f92672">}</span>
+           location1: <span class="o">{</span>name: /, try_files: <span class="s2">&#34;</span><span class="nv">$uri</span><span class="s2"> </span><span class="nv">$uri</span><span class="s2">/ /index.html&#34;</span><span class="o">}</span>
     - kibana
     - fluentd
   vars_files:
-    - <span style="color:#e6db74">&#34;host_vars/kibana.yml&#34;</span></code></pre></div></p>
+    - <span class="s2">&#34;host_vars/kibana.yml&#34;</span></code></pre></div></p>
 
 <p>Then you have to configure/adapt the mandatory options to your needs for fluentd_clients (fluentd_client.yml):</p>
 
 <p>fluentd_client.yml:
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">## Fluentd client
-</span><span style="color:#75715e"># fluentd fqdn used by forwarders to fluentd
-</span><span style="color:#75715e"></span>fluentd_server_fqdn: kibana.domain.com
-<span style="color:#75715e"># Address of elasticsearch used by fluentd
-</span><span style="color:#75715e"></span>es_fqdn: localhost
-es_port: <span style="color:#ae81ff">9200</span>
-<span style="color:#75715e"># Syslog plugin
-</span><span style="color:#75715e"></span>fluentd_plugin_syslog_ip: <span style="color:#ae81ff">127</span>.0.0.1
-fluentd_plugin_syslog_port: <span style="color:#ae81ff">5140</span></code></pre></div></p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">## Fluentd client
+</span><span class="c1"># fluentd fqdn used by forwarders to fluentd
+</span><span class="c1"></span>fluentd_server_fqdn: kibana.domain.com
+<span class="c1"># Address of elasticsearch used by fluentd
+</span><span class="c1"></span>es_fqdn: localhost
+es_port: <span class="m">9200</span>
+<span class="c1"># Syslog plugin
+</span><span class="c1"></span>fluentd_plugin_syslog_ip: <span class="m">127</span>.0.0.1
+fluentd_plugin_syslog_port: <span class="m">5140</span></code></pre></div></p>
 
 <p>And like this for the log server (kibana.yml):</p>
 
 <p>kibana.yml:
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">## Fluentd server
-</span><span style="color:#75715e"># Address of elasticsearch used by fluentd
-</span><span style="color:#75715e"></span>es_fqdn: localhost
-es_port: <span style="color:#ae81ff">9200</span>
-<span style="color:#75715e"># If this machine should forward to Elasticsearch
-</span><span style="color:#75715e"></span>forward_to_es: True
-<span style="color:#75715e"># Curator tool
-</span><span style="color:#75715e"></span>install_curator: True
-curator_max_keep_days: <span style="color:#ae81ff">90</span>
-<span style="color:#75715e"># Head plugin
-</span><span style="color:#75715e"></span>install_head: True
-<span style="color:#75715e"># ElasticHQ plugin
-</span><span style="color:#75715e"></span>install_eshq: False
-<span style="color:#75715e"># Marvel plugin
-</span><span style="color:#75715e"></span>install_marvel: True
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">## Fluentd server
+</span><span class="c1"># Address of elasticsearch used by fluentd
+</span><span class="c1"></span>es_fqdn: localhost
+es_port: <span class="m">9200</span>
+<span class="c1"># If this machine should forward to Elasticsearch
+</span><span class="c1"></span>forward_to_es: True
+<span class="c1"># Curator tool
+</span><span class="c1"></span>install_curator: True
+curator_max_keep_days: <span class="m">90</span>
+<span class="c1"># Head plugin
+</span><span class="c1"></span>install_head: True
+<span class="c1"># ElasticHQ plugin
+</span><span class="c1"></span>install_eshq: False
+<span class="c1"># Marvel plugin
+</span><span class="c1"></span>install_marvel: True
 
-<span style="color:#75715e">## Kibana
-</span><span style="color:#75715e"># URL address to reach kibana
-</span><span style="color:#75715e"></span>dns_url_kibana: kibana.domain.com
-<span style="color:#75715e"># Folder to store Kibana
-</span><span style="color:#75715e"></span>kibana_path: /usr/share/nginx/www/kibana
-<span style="color:#75715e"># Kibana version from GitHub tag
-</span><span style="color:#75715e"></span>kibana_tag_version: v3.1.0
+<span class="c1">## Kibana
+</span><span class="c1"># URL address to reach kibana
+</span><span class="c1"></span>dns_url_kibana: kibana.domain.com
+<span class="c1"># Folder to store Kibana
+</span><span class="c1"></span>kibana_path: /usr/share/nginx/www/kibana
+<span class="c1"># Kibana version from GitHub tag
+</span><span class="c1"></span>kibana_tag_version: v3.1.0
 
-<span style="color:#75715e">## Elasticsearch
-</span><span style="color:#75715e"># Elasticsearch version from debian repository
-</span><span style="color:#75715e"></span>es_version: <span style="color:#ae81ff">1</span>.3</code></pre></div></p>
+<span class="c1">## Elasticsearch
+</span><span class="c1"># Elasticsearch version from debian repository
+</span><span class="c1"></span>es_version: <span class="m">1</span>.3</code></pre></div></p>
 
 <p>Then launch the Ansible playbook, it will install everything by itself:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ansible-playbook site.yml</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ ansible-playbook site.yml</code></pre></div>
 
 <p>At the end, the web interface of kibana will be ready and all your fluentd clients will redirect their syslog and default nginx configuration to ElasticSearch.</p>
 

@@ -272,27 +272,27 @@ ga('send', 'pageview');
               <p><img src="https://blog.deimos.fr/images/logo_ubuntu.png" alt="ubuntu_logo" />
 J&rsquo;ai eu pour mon anniversaire un Netbook HP. Magnifique petite bête. Seul inconvénient temporaire, le matériel est trop récent et certains pilotes ne fonctionnent pas comme le wifi par exemple. En cherchant un peu sur le net, j&rsquo;ai trouvé des solutions pour faire fonctionner les pilotes sur Ubuntu 12.04. Le problème est que lorsque je compilais les drivers sur une 12.10, j&rsquo;avais des kernel panic à répétition.</p>
 
-<p>Sur launchpad, j&rsquo;ai vu que le driver rt3290 était intégré dans le kernel 3.6 et manque de bol, sur Ubuntu 12.10 c&rsquo;est un kernel 3.5 qui est installé. Je me suis donc recompiler un kernel 3.7 et l&rsquo;ai installé. Une fois redémarré, le système reconnaissait bien le wifi, mais le Network Manager me disait &ldquo;micrologiciel absent&rdquo;. Je suis tombé sur <a href="http://forum.novatech.co.uk/showthread.php?25562-How-to-get-the-RAlink-3290-wireless-working">ce post</a> qui m&rsquo;a permit de résoudre ce problème et faire finalement fonctionner le wifi. J&rsquo;avais tout simplement oublié de copier le firmware.</p>
+<p>Sur launchpad, j&rsquo;ai vu que le driver rt3290 était intégré dans le kernel 3.6 et manque de bol, sur Ubuntu 12.10 c&rsquo;est un kernel 3.5 qui est installé. Je me suis donc recompiler un kernel 3.7 et l&rsquo;ai installé. Une fois redémarré, le système reconnaissait bien le wifi, mais le Network Manager me disait &ldquo;micrologiciel absent&rdquo;. Je suis tombé sur <a href="http://forum.novatech.co.uk/showthread.php?25562-How-to-get-the-RAlink-3290-wireless-working" target="_blank">ce post</a> qui m&rsquo;a permit de résoudre ce problème et faire finalement fonctionner le wifi. J&rsquo;avais tout simplement oublié de copier le firmware.</p>
 
 <p>Donc pour ceux qui souhaitent faire fonctionner cet équipement :</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ lspci | grep Network
-<span style="color:#ae81ff">02</span>:00.0 Network controller: Ralink corp. Device <span style="color:#ae81ff">3290</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ lspci <span class="p">|</span> grep Network
+<span class="m">02</span>:00.0 Network controller: Ralink corp. Device <span class="m">3290</span></code></pre></div>
 
 <p>Je vais donner tout ce qu&rsquo;il faut. Pour commencer, récupérez le kernel que j&rsquo;ai recompilé, ainsi que le firmware associé :</p>
 
 <ul>
 <li>Kernel 3.7.10 : Kernel 3.7.10.</li>
-<li>Firmware : <a href="http://git.kernel.org/cgit/linux/kernel/git/firmware/linux-firmware.git/plain/rt3290.bin">http://git.kernel.org/cgit/linux/kernel/git/firmware/linux-firmware.git/plain/rt3290.bin</a></li>
+<li>Firmware : <a href="http://git.kernel.org/cgit/linux/kernel/git/firmware/linux-firmware.git/plain/rt3290.bin" target="_blank">http://git.kernel.org/cgit/linux/kernel/git/firmware/linux-firmware.git/plain/rt3290.bin</a></li>
 </ul>
 
 <p>Vous avez donc 2 fichiers. Nous allons installer le kernel :</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo dpkg -i linux-image-3.7.6_1.0_amd64.deb</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo dpkg -i linux-image-3.7.6_1.0_amd64.deb</code></pre></div>
 
 <p>Puis il faut mettre le firmware dans le dossier des firmwares :</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo cp rt3290.bin /lib/firmware</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo cp rt3290.bin /lib/firmware</code></pre></div>
 
 <p>Il ne vous reste plus qu&rsquo;à redémarrer pour que cela fonctionne :-). Une dernière petite chose : j&rsquo;ai noté qu&rsquo;avec les redémarrages, le wifi ne restait pas et je n&rsquo;ai pas vraiment le temps de regarder pourquoi. Donc arrêtez votre ordinateur et rallumez le si besoin pour que le wifi reste fonctionnel.</p>
 
@@ -302,7 +302,7 @@ J&rsquo;ai eu pour mon anniversaire un Netbook HP. Magnifique petite bête. Seul
 
 <p>Update 1 : le kernel n&rsquo;est malheureusement plus disponible sur le site de free. Je réupload une version plus récente du kernel (3.7.10) pour Debian qui <del>devrait fonctionner</del> fonctionne également sur Ubuntu et disponible ici.</p>
 
-<p>Update 2 : <a href="http://dl.free.fr/c7wXeJ12M" title="Kernel 3.9.6">voici la version 3.9.6 du kernel</a></p>
+<p>Update 2 : <a href="http://dl.free.fr/c7wXeJ12M" title="Kernel 3.9.6" target="_blank">voici la version 3.9.6 du kernel</a></p>
 
               
             </div>

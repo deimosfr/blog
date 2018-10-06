@@ -294,41 +294,41 @@ ga('send', 'pageview');
             <div class="main-content-wrap">
               <p><img src="https://blog.deimos.fr/images/heartbleed-247x300.png" alt="heartbleed-247x300" /></p>
 
-<p>A big and major issue on OpenSSL has been discovered and everybody is talking about it. To get more informations, <a href="http://heartbleed.com/">there&rsquo;s a website</a>.</p>
+<p>A big and major issue on OpenSSL has been discovered and everybody is talking about it. To get more informations, <a href="http://heartbleed.com/" target="_blank">there&rsquo;s a website</a>.</p>
 
-<p>How to check the vulnerability, <a href="https://mega.co.nz/#!OpA1DJKC!6Vy7V03TtAL9io41R_-HFQ-8275X3h78Zj87qTs9osI">download this file</a>:</p>
+<p>How to check the vulnerability, <a href="https://mega.co.nz/#!OpA1DJKC!6Vy7V03TtAL9io41R_-HFQ-8275X3h78Zj87qTs9osI" target="_blank">download this file</a>:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chmod <span style="color:#ae81ff">755</span> ssltest.py</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">chmod <span class="m">755</span> ssltest.py</code></pre></div>
 
 <p>Now launch it:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./ssltest.py blog.deimos.fr
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">./ssltest.py blog.deimos.fr
 Connecting...
 Sending Client Hello...
-Waiting <span style="color:#66d9ef">for</span> Server Hello...
-... received message: type <span style="color:#f92672">=</span> <span style="color:#ae81ff">22</span>, ver <span style="color:#f92672">=</span> <span style="color:#ae81ff">0302</span>, length <span style="color:#f92672">=</span> <span style="color:#ae81ff">66</span>
-... received message: type <span style="color:#f92672">=</span> <span style="color:#ae81ff">22</span>, ver <span style="color:#f92672">=</span> <span style="color:#ae81ff">0302</span>, length <span style="color:#f92672">=</span> <span style="color:#ae81ff">5559</span>
-... received message: type <span style="color:#f92672">=</span> <span style="color:#ae81ff">22</span>, ver <span style="color:#f92672">=</span> <span style="color:#ae81ff">0302</span>, length <span style="color:#f92672">=</span> <span style="color:#ae81ff">587</span>
-... received message: type <span style="color:#f92672">=</span> <span style="color:#ae81ff">22</span>, ver <span style="color:#f92672">=</span> <span style="color:#ae81ff">0302</span>, length <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+Waiting <span class="k">for</span> Server Hello...
+... received message: <span class="nb">type</span> <span class="o">=</span> <span class="m">22</span>, <span class="nv">ver</span> <span class="o">=</span> <span class="m">0302</span>, <span class="nv">length</span> <span class="o">=</span> <span class="m">66</span>
+... received message: <span class="nb">type</span> <span class="o">=</span> <span class="m">22</span>, <span class="nv">ver</span> <span class="o">=</span> <span class="m">0302</span>, <span class="nv">length</span> <span class="o">=</span> <span class="m">5559</span>
+... received message: <span class="nb">type</span> <span class="o">=</span> <span class="m">22</span>, <span class="nv">ver</span> <span class="o">=</span> <span class="m">0302</span>, <span class="nv">length</span> <span class="o">=</span> <span class="m">587</span>
+... received message: <span class="nb">type</span> <span class="o">=</span> <span class="m">22</span>, <span class="nv">ver</span> <span class="o">=</span> <span class="m">0302</span>, <span class="nv">length</span> <span class="o">=</span> <span class="m">4</span>
 Sending heartbeat request...
-... received message: type <span style="color:#f92672">=</span> <span style="color:#ae81ff">24</span>, ver <span style="color:#f92672">=</span> <span style="color:#ae81ff">0302</span>, length <span style="color:#f92672">=</span> <span style="color:#ae81ff">16384</span>
+... received message: <span class="nb">type</span> <span class="o">=</span> <span class="m">24</span>, <span class="nv">ver</span> <span class="o">=</span> <span class="m">0302</span>, <span class="nv">length</span> <span class="o">=</span> <span class="m">16384</span>
 Received heartbeat response:
-<span style="color:#ae81ff">0000</span>: <span style="color:#ae81ff">02</span> <span style="color:#ae81ff">40</span> <span style="color:#ae81ff">00</span> D8 <span style="color:#ae81ff">03</span> <span style="color:#ae81ff">02</span> <span style="color:#ae81ff">53</span> <span style="color:#ae81ff">43</span> 5B <span style="color:#ae81ff">90</span> 9D 9B <span style="color:#ae81ff">72</span> 0B BC 0C .@....SC<span style="color:#f92672">[</span>...r...
-<span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
-3ff0: <span style="color:#ae81ff">70</span> <span style="color:#ae81ff">78</span> <span style="color:#ae81ff">20</span> <span style="color:#ae81ff">30</span> <span style="color:#ae81ff">20</span> <span style="color:#ae81ff">33</span> <span style="color:#ae81ff">70</span> <span style="color:#ae81ff">78</span> <span style="color:#ae81ff">20</span> <span style="color:#ae81ff">31</span> 2E <span style="color:#ae81ff">35</span> <span style="color:#ae81ff">65</span> 6D 3B 6D px <span style="color:#ae81ff">0</span> 3px <span style="color:#ae81ff">1</span>.5em;m
+<span class="m">0000</span>: <span class="m">02</span> <span class="m">40</span> <span class="m">00</span> D8 <span class="m">03</span> <span class="m">02</span> <span class="m">53</span> <span class="m">43</span> 5B <span class="m">90</span> 9D 9B <span class="m">72</span> 0B BC 0C .@....SC<span class="o">[</span>...r...
+<span class="o">[</span>...<span class="o">]</span>
+3ff0: <span class="m">70</span> <span class="m">78</span> <span class="m">20</span> <span class="m">30</span> <span class="m">20</span> <span class="m">33</span> <span class="m">70</span> <span class="m">78</span> <span class="m">20</span> <span class="m">31</span> 2E <span class="m">35</span> <span class="m">65</span> 6D 3B 6D px <span class="m">0</span> 3px <span class="m">1</span>.5em<span class="p">;</span>m
 
 WARNING: server returned more data than it should - server is vulnerable!</code></pre></div>
 
 <p>I was vulnerable as you can see. I deployed latest Debian OpenSSL packages, restarted Nginx and then relaunched the tool:</p>
 
-<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./ssltest.py wiki.deimos.fr -p <span style="color:#ae81ff">443</span>
+<p><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">./ssltest.py wiki.deimos.fr -p <span class="m">443</span>
 Connecting...
 Sending Client Hello...
-Waiting <span style="color:#66d9ef">for</span> Server Hello...
-... received message: type <span style="color:#f92672">=</span> <span style="color:#ae81ff">22</span>, ver <span style="color:#f92672">=</span> <span style="color:#ae81ff">0302</span>, length <span style="color:#f92672">=</span> <span style="color:#ae81ff">66</span>
-... received message: type <span style="color:#f92672">=</span> <span style="color:#ae81ff">22</span>, ver <span style="color:#f92672">=</span> <span style="color:#ae81ff">0302</span>, length <span style="color:#f92672">=</span> <span style="color:#ae81ff">5559</span>
-... received message: type <span style="color:#f92672">=</span> <span style="color:#ae81ff">22</span>, ver <span style="color:#f92672">=</span> <span style="color:#ae81ff">0302</span>, length <span style="color:#f92672">=</span> <span style="color:#ae81ff">587</span>
-... received message: type <span style="color:#f92672">=</span> <span style="color:#ae81ff">22</span>, ver <span style="color:#f92672">=</span> <span style="color:#ae81ff">0302</span>, length <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+Waiting <span class="k">for</span> Server Hello...
+... received message: <span class="nb">type</span> <span class="o">=</span> <span class="m">22</span>, <span class="nv">ver</span> <span class="o">=</span> <span class="m">0302</span>, <span class="nv">length</span> <span class="o">=</span> <span class="m">66</span>
+... received message: <span class="nb">type</span> <span class="o">=</span> <span class="m">22</span>, <span class="nv">ver</span> <span class="o">=</span> <span class="m">0302</span>, <span class="nv">length</span> <span class="o">=</span> <span class="m">5559</span>
+... received message: <span class="nb">type</span> <span class="o">=</span> <span class="m">22</span>, <span class="nv">ver</span> <span class="o">=</span> <span class="m">0302</span>, <span class="nv">length</span> <span class="o">=</span> <span class="m">587</span>
+... received message: <span class="nb">type</span> <span class="o">=</span> <span class="m">22</span>, <span class="nv">ver</span> <span class="o">=</span> <span class="m">0302</span>, <span class="nv">length</span> <span class="o">=</span> <span class="m">4</span>
 Sending heartbeat request...
 Unexpected EOF receiving record header - server closed connection
 No heartbeat response received, server likely not vulnerable</code></pre></div></p>
