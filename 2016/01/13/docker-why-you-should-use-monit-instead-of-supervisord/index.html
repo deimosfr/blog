@@ -1,66 +1,85 @@
-
-
-  
-    
-  
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting Nousmotards infrastructure, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.
+Introduction Docker is made to run a process in a confined area.">
+
+
+<meta property="og:description" content="This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting Nousmotards infrastructure, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.
+Introduction Docker is made to run a process in a confined area.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker: why you should use Monit instead of supervisord">
+<meta name="twitter:title" content="Docker: why you should use Monit instead of supervisord">
+<meta property="og:url" content="https://blog.deimos.fr/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting Nousmotards infrastructure, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.
+Introduction Docker is made to run a process in a confined area.">
+<meta name="twitter:description" content="This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting Nousmotards infrastructure, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.
+Introduction Docker is made to run a process in a confined area.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2016-01-13T11:00:04">
+  
+  
+    <meta property="article:modified_time" content="2016-01-13T11:00:04">
+  
+  
+  
+    
+      <meta property="article:section" content="Docker">
+    
+      <meta property="article:section" content="Hi-Tech">
+    
+      <meta property="article:section" content="Nousmotards">
+    
+  
+  
+    
+      <meta property="article:tag" content="nousmotards">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_docker.png">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_docker.png">
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Docker: why you should use Monit instead of supervisord</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
 
     
-    <meta name="description" content="This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting Nousmotards infrastructure, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.
-Introduction Docker is made to run a process in a confined area.">
-    <meta property="og:description" content="This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting Nousmotards infrastructure, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.
-Introduction Docker is made to run a process in a confined area.">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Docker: why you should use Monit instead of supervisord">
-    <meta property="og:url" content="/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting Nousmotards infrastructure, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.
-Introduction Docker is made to run a process in a confined area.">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-      <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_docker.png">
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -68,11 +87,11 @@ Introduction Docker is made to run a process in a confined area.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -107,7 +126,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -119,7 +138,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -261,11 +280,11 @@ ga('send', 'pageview');
               
 
 <p><img src="https://blog.deimos.fr/images/logo_docker.png" alt="docker-logo" />
-This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting <a href="http://www.meetup.com/fr/Ansible-Paris/events/223572292/" target="_blank">Nousmotards infrastructure</a>, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.</p>
+This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting <a href="http://www.meetup.com/fr/Ansible-Paris/events/223572292/">Nousmotards infrastructure</a>, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.</p>
 
 <h2 id="introduction">Introduction</h2>
 
-<p>Docker is made to run a process in a confined area. The problem is when you want to run several processes inside a container! <strong>Docker is simply not designed for it by default and that&rsquo;s why a process manager should be considered</strong>. Docker officially recommend to use <a href="https://docs.docker.com/engine/articles/using_supervisord/" target="_blank">supervisord</a> as the init system. This is why I first started with it. However <strong>I encountered several crashes</strong> with supervisord when a failing managed process occurred and were looping. I also wanted to look at the available options and I was very surprised by <strong>the lack of features compared to Monit</strong>.</p>
+<p>Docker is made to run a process in a confined area. The problem is when you want to run several processes inside a container! <strong>Docker is simply not designed for it by default and that&rsquo;s why a process manager should be considered</strong>. Docker officially recommend to use <a href="https://docs.docker.com/engine/articles/using_supervisord/">supervisord</a> as the init system. This is why I first started with it. However <strong>I encountered several crashes</strong> with supervisord when a failing managed process occurred and were looping. I also wanted to look at the available options and I was very surprised by <strong>the lack of features compared to Monit</strong>.</p>
 
 <h2 id="why-supervisord-is-a-bad-idea-for-docker">Why Supervisord is a bad idea for Docker?</h2>
 
@@ -334,7 +353,7 @@ command_return<span style="color:#f92672">=</span><span style="color:#ae81ff">1<
 
 <p>With Monit and those basic scripts, you can have a featured and stable launcher, do emergency things on Monit if necessary and keep it simple by using your distribution init scripts.</p>
 
-<p>I recently discovered another solution that nearly do the same thing like <a href="http://engineeringblog.yelp.com/2016/01/dumb-init-an-init-for-docker.html" target="_blank">dumb-init</a>. I personally prefer to keep the most stupid thing but stable.</p>
+<p>I recently discovered another solution that nearly do the same thing like <a href="http://engineeringblog.yelp.com/2016/01/dumb-init-an-init-for-docker.html">dumb-init</a>. I personally prefer to keep the most stupid thing but stable.</p>
 
 <p>To finish, I&rsquo;ve nothing against Supervisord, this is just not the best appropriate solution for Docker.</p>
 
@@ -355,8 +374,8 @@ command_return<span style="color:#f92672">=</span><span style="color:#ae81ff">1<
                 
               
             
-            
-  <div class="post-actions-wrap">
+            <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -421,8 +440,8 @@ command_return<span style="color:#f92672">=</span><span style="color:#ae81ff">1<
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
             
               
@@ -441,8 +460,8 @@ command_return<span style="color:#f92672">=</span><span style="color:#ae81ff">1<
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        
-  <div class="post-actions-wrap">
+        <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -507,8 +526,8 @@ command_return<span style="color:#f92672">=</span><span style="color:#ae81ff">1<
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
       </div>
       <div id="share-options-bar" class="share-options-bar" data-behavior="5">
@@ -544,7 +563,7 @@ command_return<span style="color:#f92672">=</span><span style="color:#ae81ff">1<
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -552,7 +571,7 @@ command_return<span style="color:#f92672">=</span><span style="color:#ae81ff">1<
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -791,6 +810,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -801,6 +822,32 @@ First of all, you may know that an alternative more user friendly to grep exist,
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
 
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
   
@@ -828,6 +875,7 @@ First of all, you may know that an alternative more user friendly to grep exist,
       </script>
     
   
+
 
 
 

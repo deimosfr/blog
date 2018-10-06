@@ -1,69 +1,87 @@
-
-
-  
-    
-  
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Neo4J is the most popular graph database in the NoSQL databases family. We&rsquo;re using it in the Nousmotards project to store all social data through nodes and relationships.
+Today I am going to talk about our experience after having using it for 2 years now (take a look at directed graph if you are not really familiar with Graph Database).
+1/ Our use case Nousmotards is a social network for bikers, we aim to provide valuable tools to ride, meet and share nice time with people who like motorcycling.">
+
+
+<meta property="og:description" content="Neo4J is the most popular graph database in the NoSQL databases family. We&rsquo;re using it in the Nousmotards project to store all social data through nodes and relationships.
+Today I am going to talk about our experience after having using it for 2 years now (take a look at directed graph if you are not really familiar with Graph Database).
+1/ Our use case Nousmotards is a social network for bikers, we aim to provide valuable tools to ride, meet and share nice time with people who like motorcycling.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How we use Neo4J on our social network and workaround performance issues">
+<meta name="twitter:title" content="How we use Neo4J on our social network and workaround performance issues">
+<meta property="og:url" content="https://blog.deimos.fr/2016/01/15/how-we-use-neo4j-on-our-social-network-and-workaround-performance-issues/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2016/01/15/how-we-use-neo4j-on-our-social-network-and-workaround-performance-issues/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Neo4J is the most popular graph database in the NoSQL databases family. We&rsquo;re using it in the Nousmotards project to store all social data through nodes and relationships.
+Today I am going to talk about our experience after having using it for 2 years now (take a look at directed graph if you are not really familiar with Graph Database).
+1/ Our use case Nousmotards is a social network for bikers, we aim to provide valuable tools to ride, meet and share nice time with people who like motorcycling.">
+<meta name="twitter:description" content="Neo4J is the most popular graph database in the NoSQL databases family. We&rsquo;re using it in the Nousmotards project to store all social data through nodes and relationships.
+Today I am going to talk about our experience after having using it for 2 years now (take a look at directed graph if you are not really familiar with Graph Database).
+1/ Our use case Nousmotards is a social network for bikers, we aim to provide valuable tools to ride, meet and share nice time with people who like motorcycling.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2016-01-15T10:07:48">
+  
+  
+    <meta property="article:modified_time" content="2016-01-15T10:07:48">
+  
+  
+  
+    
+      <meta property="article:section" content="NoSQL">
+    
+      <meta property="article:section" content="Nousmotards">
+    
+  
+  
+    
+      <meta property="article:tag" content="nousmotards">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_neo4j.png">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_neo4j.png">
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>How we use Neo4J on our social network and workaround performance issues</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
 
     
-    <meta name="description" content="Neo4J is the most popular graph database in the NoSQL databases family. We&rsquo;re using it in the Nousmotards project to store all social data through nodes and relationships.
-Today I am going to talk about our experience after having using it for 2 years now (take a look at directed graph if you are not really familiar with Graph Database).
-1/ Our use case Nousmotards is a social network for bikers, we aim to provide valuable tools to ride, meet and share nice time with people who like motorcycling.">
-    <meta property="og:description" content="Neo4J is the most popular graph database in the NoSQL databases family. We&rsquo;re using it in the Nousmotards project to store all social data through nodes and relationships.
-Today I am going to talk about our experience after having using it for 2 years now (take a look at directed graph if you are not really familiar with Graph Database).
-1/ Our use case Nousmotards is a social network for bikers, we aim to provide valuable tools to ride, meet and share nice time with people who like motorcycling.">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="How we use Neo4J on our social network and workaround performance issues">
-    <meta property="og:url" content="/2016/01/15/how-we-use-neo4j-on-our-social-network-and-workaround-performance-issues/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Neo4J is the most popular graph database in the NoSQL databases family. We&rsquo;re using it in the Nousmotards project to store all social data through nodes and relationships.
-Today I am going to talk about our experience after having using it for 2 years now (take a look at directed graph if you are not really familiar with Graph Database).
-1/ Our use case Nousmotards is a social network for bikers, we aim to provide valuable tools to ride, meet and share nice time with people who like motorcycling.">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-      <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_neo4j.png">
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/2016/01/15/how-we-use-neo4j-on-our-social-network-and-workaround-performance-issues/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -71,11 +89,11 @@ Today I am going to talk about our experience after having using it for 2 years 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -110,7 +128,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -122,7 +140,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -261,13 +279,13 @@ ga('send', 'pageview');
             <div class="main-content-wrap">
               
 
-<p><a href="http://neo4j.com/" target="_blank">Neo4J</a> is the most popular graph database in the <a href="https://en.wikipedia.org/wiki/NoSQL" target="_blank">NoSQL databases</a> family. We&rsquo;re using it in the <a href="https://www.nousmotards.com" target="_blank">Nousmotards project</a> to store all social data through nodes and relationships.</p>
+<p><a href="http://neo4j.com/">Neo4J</a> is the most popular graph database in the <a href="https://en.wikipedia.org/wiki/NoSQL">NoSQL databases</a> family. We&rsquo;re using it in the <a href="https://www.nousmotards.com">Nousmotards project</a> to store all social data through nodes and relationships.</p>
 
-<p>Today I am going to talk about our experience after having using it for 2 years now (take a look at <a href="https://en.wikipedia.org/wiki/Directed_graph" target="_blank">directed graph</a> if you are not really familiar with Graph Database).</p>
+<p>Today I am going to talk about our experience after having using it for 2 years now (take a look at <a href="https://en.wikipedia.org/wiki/Directed_graph">directed graph</a> if you are not really familiar with Graph Database).</p>
 
 <h3 id="1-our-use-case">1/ Our use case</h3>
 
-<p><a href="https://www.nousmotards.com" target="_blank">Nousmotards</a> is a social network for bikers, we aim to provide valuable tools to ride, meet and share nice time with people who like motorcycling.</p>
+<p><a href="https://www.nousmotards.com">Nousmotards</a> is a social network for bikers, we aim to provide valuable tools to ride, meet and share nice time with people who like motorcycling.</p>
 
 <p><img src="https://blog.deimos.fr/images/Screen-Shot-2016-01-13-at-16.27.39-1024x699.png" alt="Screen-Shot-2016-01-13-at-16.27.39-1024x699" /></p>
 
@@ -287,11 +305,11 @@ ga('send', 'pageview');
 
 <p><img src="https://blog.deimos.fr/images/3.png" alt="3" /></p>
 
-<p>Our social network is at the moment composed of +100k nodes, +300k relationships and +500k properties. We are accessing Neo4J in server mode by using REST API and more precisely <a href="http://projects.spring.io/spring-data-neo4j/" target="_blank">Spring Data Neo4J</a> 3.4.x. Server mode is good to have multiple clients and HA features at the cost of performance (note: If you are looking for intensive graph processing, you should consider using <a href="http://neo4j.com/docs/stable/tutorials-java-embedded.html" target="_blank">embedded mode</a> or developing your own <a href="http://neo4j.com/docs/stable/server-extending.html" target="_blank">server extension</a>). This way (using server mode) our micro services can access graph data at anytime.</p>
+<p>Our social network is at the moment composed of +100k nodes, +300k relationships and +500k properties. We are accessing Neo4J in server mode by using REST API and more precisely <a href="http://projects.spring.io/spring-data-neo4j/">Spring Data Neo4J</a> 3.4.x. Server mode is good to have multiple clients and HA features at the cost of performance (note: If you are looking for intensive graph processing, you should consider using <a href="http://neo4j.com/docs/stable/tutorials-java-embedded.html">embedded mode</a> or developing your own <a href="http://neo4j.com/docs/stable/server-extending.html">server extension</a>). This way (using server mode) our micro services can access graph data at anytime.</p>
 
 <h3 id="2-fast-to-implement">2/ Fast to implement</h3>
 
-<p>At first use, Neo4J was really impressive to find connected data, even if they are really &ldquo;<a href="http://neo4j.com/docs/stable/tutorials-java-embedded-traversal.html" target="_blank">far away</a>&rdquo; from each others. Neo Technology has wrote their own query language called &ldquo;<a href="https://en.wikipedia.org/wiki/Cypher_Query_Language" target="_blank">Cypher</a>&rdquo; and let you express yourself to easily retrieve data. For example getting friends of friends (FOF) is amazingly easy:</p>
+<p>At first use, Neo4J was really impressive to find connected data, even if they are really &ldquo;<a href="http://neo4j.com/docs/stable/tutorials-java-embedded-traversal.html">far away</a>&rdquo; from each others. Neo Technology has wrote their own query language called &ldquo;<a href="https://en.wikipedia.org/wiki/Cypher_Query_Language">Cypher</a>&rdquo; and let you express yourself to easily retrieve data. For example getting friends of friends (FOF) is amazingly easy:</p>
 
 <blockquote>
 <p>MATCH (a: Rider)-[:IS_FRIEND]-(b: Rider)-[:IS_FRIEND]-(c: Rider) WHERE id(a)=123  RETURN c;</p>
@@ -313,15 +331,15 @@ ga('send', 'pageview');
 
 <p>The first mistake we made was to think we could be able to fetch data in real time from Neo4J.. <strong>That was a really bad idea!</strong></p>
 
-<p>You should simply forget doing this if you are using Neo4J in server mode. Server mode is using REST API and the overhead of <span style="color: #800000;">opening an http connection <strong>&gt;</strong> making your request <strong>&gt;</strong> the server deserializing your request <strong>&gt;</strong> fetching data <strong>&gt;</strong> serializing the response <strong>&gt;</strong> send it back to your application &gt; closing the http connection</span> cost so much that you will never get over it. <a href="http://docs.spring.io/spring-data/neo4j/docs/3.0.2.RELEASE/reference/html/reference_performance.html" target="_blank">Note that Spring Data Neo4J is adding an abstraction layer and low performance as well</a>.</p>
+<p>You should simply forget doing this if you are using Neo4J in server mode. Server mode is using REST API and the overhead of <span style="color: #800000;">opening an http connection <strong>&gt;</strong> making your request <strong>&gt;</strong> the server deserializing your request <strong>&gt;</strong> fetching data <strong>&gt;</strong> serializing the response <strong>&gt;</strong> send it back to your application &gt; closing the http connection</span> cost so much that you will never get over it. <a href="http://docs.spring.io/spring-data/neo4j/docs/3.0.2.RELEASE/reference/html/reference_performance.html">Note that Spring Data Neo4J is adding an abstraction layer and low performance as well</a>.</p>
 
 <p>How did we figure it out ? By putting a cache layer between our application and Neo4J. This layer intermediate each call to the Neo4J API to retrieve data from Redis at first, and then in Neo4J if they are not available.</p>
 
 <p><img src="https://blog.deimos.fr/images/4-1.png" alt="4-1" /></p>
 
-<p>This drastically improved the read performance. It&rsquo;s not only about network overhead, but the way how Neo4J take its time to respond.. They are using <a href="http://neo4j.com/docs/stable/transactions-locking.html" target="_blank">locking</a> to ensure data coherence which is a good thing, but this is bad for performance purpose if you&rsquo;re expecting to read or write data in near real time.</p>
+<p>This drastically improved the read performance. It&rsquo;s not only about network overhead, but the way how Neo4J take its time to respond.. They are using <a href="http://neo4j.com/docs/stable/transactions-locking.html">locking</a> to ensure data coherence which is a good thing, but this is bad for performance purpose if you&rsquo;re expecting to read or write data in near real time.</p>
 
-<p>The second problem was to improve write performance.. For almost all databases, what you have to do is to batch your inserts into one statement instead of putting one statement per insert. Neo4J REST API gives you the possibility to do batch insert, but SDN (Spring Data Neo4J) don&rsquo;t (<a href="http://code.paananen.fi/2012/04/05/neo4j-batchinserter-and-spring-data-for-neo4j/" target="_blank">There is a non official workaround available</a>) ! A user who post a new message, do not want to wait 10s to see his message appearing, <a href="https://www.nngroup.com/articles/response-times-3-important-limits/" target="_blank">this can be a very bad user experience</a> and your app will for sure lose its users..</p>
+<p>The second problem was to improve write performance.. For almost all databases, what you have to do is to batch your inserts into one statement instead of putting one statement per insert. Neo4J REST API gives you the possibility to do batch insert, but SDN (Spring Data Neo4J) don&rsquo;t (<a href="http://code.paananen.fi/2012/04/05/neo4j-batchinserter-and-spring-data-for-neo4j/">There is a non official workaround available</a>) ! A user who post a new message, do not want to wait 10s to see his message appearing, <a href="https://www.nngroup.com/articles/response-times-3-important-limits/">this can be a very bad user experience</a> and your app will for sure lose its users..</p>
 
 <p>What we imagine to solve write latency was:</p>
 
@@ -343,11 +361,11 @@ ga('send', 'pageview');
 <p>You can find more info on graph databases and neo4j:</p>
 
 <ul>
-<li><a href="http://blog.octo.com/en/graph-databases-an-overview/" target="_blank">blog.octo.com/en/graph-databases-an-overview/</a></li>
-<li><a href="http://docs.spring.io/spring-data/data-neo4j/docs/3.4.2.RELEASE/reference/html/" target="_blank">docs.spring.io/spring-data/data-neo4j/docs/3.4.2.RELEASE/reference/html/</a></li>
+<li><a href="http://blog.octo.com/en/graph-databases-an-overview/">blog.octo.com/en/graph-databases-an-overview/</a></li>
+<li><a href="http://docs.spring.io/spring-data/data-neo4j/docs/3.4.2.RELEASE/reference/html/">docs.spring.io/spring-data/data-neo4j/docs/3.4.2.RELEASE/reference/html/</a></li>
 </ul>
 
-<p>To get more informations on nousmotards: <a href="http://blog.nousmotards.com" target="_blank">blog.nousmotards.com</a></p>
+<p>To get more informations on nousmotards: <a href="http://blog.nousmotards.com">blog.nousmotards.com</a></p>
 
 <p>Join us ! :-)</p>
 
@@ -370,8 +388,8 @@ ga('send', 'pageview');
                 
               
             
-            
-  <div class="post-actions-wrap">
+            <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -436,8 +454,8 @@ ga('send', 'pageview');
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
             
               
@@ -456,8 +474,8 @@ ga('send', 'pageview');
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        
-  <div class="post-actions-wrap">
+        <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -522,8 +540,8 @@ ga('send', 'pageview');
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
       </div>
       <div id="share-options-bar" class="share-options-bar" data-behavior="5">
@@ -559,7 +577,7 @@ ga('send', 'pageview');
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -567,7 +585,7 @@ ga('send', 'pageview');
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -806,6 +824,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -816,6 +836,32 @@ First of all, you may know that an alternative more user friendly to grep exist,
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
 
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
   
@@ -843,6 +889,7 @@ First of all, you may know that an alternative more user friendly to grep exist,
       </script>
     
   
+
 
 
 

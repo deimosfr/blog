@@ -1,26 +1,49 @@
-
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Debian">
+<meta name="twitter:title" content="Debian">
+<meta property="og:url" content="https://blog.deimos.fr/categories/debian/">
+<meta property="twitter:url" content="https://blog.deimos.fr/categories/debian/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Debian</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
@@ -28,32 +51,8 @@
     
 
     
-    <meta name="description" content="Deimos Blog">
-    <meta property="og:description" content="Deimos Blog">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Debian">
-    <meta property="og:url" content="/categories/debian/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Deimos Blog">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/categories/debian/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -61,11 +60,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -100,7 +99,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -112,7 +111,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -269,8 +268,10 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      When you have a huge amount of mail to deliver, you can&rsquo;t release the queue at once and let the server maximize the outgoing mail throughput ! The result will be: you&rsquo;ll get blacklisted from a lot of MX servers.
+      
+        When you have a huge amount of mail to deliver, you can&rsquo;t release the queue at once and let the server maximize the outgoing mail throughput ! The result will be: you&rsquo;ll get blacklisted from a lot of MX servers.
 That&rsquo;s why you should take care of it and do traffic shaping. I&rsquo;ve wrote a little tips on it.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/03/14/postfix-limit-outgoing-mail-throttling/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -333,9 +334,11 @@ That&rsquo;s why you should take care of it and do traffic shaping. I&rsquo;ve w
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      The 1.5 version of Vagrant has been released and that&rsquo;s awesome ! They finally did a Cloud where all Vagrant boxes could (https://vagrantcloud.com/) be inventoried and easily deployed through command line !
+      
+        The 1.5 version of Vagrant has been released and that&rsquo;s awesome ! They finally did a Cloud where all Vagrant boxes could (https://vagrantcloud.com/) be inventoried and easily deployed through command line !
 You can find my boxes here. If you want to add one, it&rsquo;s really simple:
 vagrant box add deimosfr/debian-wheezy And the second awesome feature is&hellip;the sharing! You can for example have access to a distant and nated Vagrant instance through SSH!
+      
       <p>
         <a href="https://blog.deimos.fr/2014/03/12/vagrant-v1-5-use-boxes-on-vagrantcloud/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -404,9 +407,11 @@ vagrant box add deimosfr/debian-wheezy And the second awesome feature is&hellip;
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I recently played with HAProxy and discovered that I&rsquo;ve never made a documentation regarding this fantastic software. So if you don&rsquo;t know what HAProxy is, it&rsquo;s a load balancer working on layer 7 and specialized for http protocol.
+      
+        I recently played with HAProxy and discovered that I&rsquo;ve never made a documentation regarding this fantastic software. So if you don&rsquo;t know what HAProxy is, it&rsquo;s a load balancer working on layer 7 and specialized for http protocol.
 It is able to handle sticky sessions which is really powerful. More than that, it has a small footprint and can work under a high load traffic.
 Here is my documentation.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/03/10/haproxy-a-powerful-load-balancer/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -479,9 +484,11 @@ Here is my documentation.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      It&rsquo;s been a while now that I&rsquo;ve heard of Ansible but I only started playing with a week ago. You may certainly know that I&rsquo;m a Puppet lover, but this solution is more powerful than Puppet in my opinion.
+      
+        It&rsquo;s been a while now that I&rsquo;ve heard of Ansible but I only started playing with a week ago. You may certainly know that I&rsquo;m a Puppet lover, but this solution is more powerful than Puppet in my opinion.
 So I started to migrate my personal Puppet to Ansible just to play with. Here are the pros:
  No client needed on the clients, only SSH! It&rsquo;s written in Python By default a lot of modules Not only a configuration management tool, it&rsquo;s an orchestrator too!
+      
       <p>
         <a href="https://blog.deimos.fr/2014/03/04/ansible-the-puppet-outsider/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -542,8 +549,10 @@ So I started to migrate my personal Puppet to Ansible just to play with. Here ar
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I recently discovered a Vagrant plugin that manage the VirtualBox Guest Additions automatically. I mean, when you launch a virtual machine, it automatically checks if the Guest Additions are installed. If it&rsquo;s not the case or if they are not up to date, installation of the latest version is made automatically !
+      
+        I recently discovered a Vagrant plugin that manage the VirtualBox Guest Additions automatically. I mean, when you launch a virtual machine, it automatically checks if the Guest Additions are installed. If it&rsquo;s not the case or if they are not up to date, installation of the latest version is made automatically !
 Here is how to install it.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/02/28/vagrant-do-not-manage-vbox-guest-additions-manually-anymore/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -610,7 +619,9 @@ Here is how to install it.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Big resolution with small screens is more and more common and we&rsquo;re facing a problem on fonts visualization as the readability is not optimal. We have a lot of non adapted fonts for retina display, even if most of them are not so bad. The solution to resolve that problem is to install additional fonts to replace the default one. And one of the best one I&rsquo;ve seen is Infinality fonts !
+      
+        Big resolution with small screens is more and more common and we&rsquo;re facing a problem on fonts visualization as the readability is not optimal. We have a lot of non adapted fonts for retina display, even if most of them are not so bad. The solution to resolve that problem is to install additional fonts to replace the default one. And one of the best one I&rsquo;ve seen is Infinality fonts !
+      
       <p>
         <a href="https://blog.deimos.fr/2014/02/24/linux-better-fonts-for-retina-display/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -681,9 +692,11 @@ Here is how to install it.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Yesterday a colleague (Dimitri) tested a tool on this blog. He informed me that Varnish was disabled and PageSpeed may be the cause as this is the last modification I&rsquo;ve made on the server.
+      
+        Yesterday a colleague (Dimitri) tested a tool on this blog. He informed me that Varnish was disabled and PageSpeed may be the cause as this is the last modification I&rsquo;ve made on the server.
 After verification he was totally right ! By default, PageSpeed disable cache by serving HTML files with:
 Cache-Control: no-cache, max-age=0 After reading the PageSpeed documentation on that topic, it is clear: PageSpeed needs to know how to purge the cache as it rewrites a lot of elements and it has the control instead of the application.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/02/20/pagespeed-disable-varnish-by-default-get-both-working-together/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -737,7 +750,7 @@ Cache-Control: no-cache, max-age=0 After reading the PageSpeed documentation on 
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -745,7 +758,7 @@ Cache-Control: no-cache, max-age=0 After reading the PageSpeed documentation on 
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -984,6 +997,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -993,6 +1008,33 @@ First of all, you may know that an alternative more user friendly to grep exist,
   
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
 

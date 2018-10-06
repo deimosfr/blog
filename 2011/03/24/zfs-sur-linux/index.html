@@ -1,66 +1,97 @@
-
-
-  
-    
-  
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur lequel je souhaites la double parité et surtout un OS Linux car c&rsquo;est ce que je connais de mieux pour la partie multimédia.
+Aujourd&rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&rsquo;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.">
+
+
+<meta property="og:description" content="Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur lequel je souhaites la double parité et surtout un OS Linux car c&rsquo;est ce que je connais de mieux pour la partie multimédia.
+Aujourd&rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&rsquo;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ZFS sur Linux">
+<meta name="twitter:title" content="ZFS sur Linux">
+<meta property="og:url" content="https://blog.deimos.fr/2011/03/24/zfs-sur-linux/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2011/03/24/zfs-sur-linux/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur lequel je souhaites la double parité et surtout un OS Linux car c&rsquo;est ce que je connais de mieux pour la partie multimédia.
+Aujourd&rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&rsquo;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.">
+<meta name="twitter:description" content="Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur lequel je souhaites la double parité et surtout un OS Linux car c&rsquo;est ce que je connais de mieux pour la partie multimédia.
+Aujourd&rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&rsquo;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2011-03-24T11:16:29">
+  
+  
+    <meta property="article:modified_time" content="2011-03-24T11:16:29">
+  
+  
+  
+    
+      <meta property="article:section" content="FreeBSD">
+    
+      <meta property="article:section" content="Hi-Tech">
+    
+      <meta property="article:section" content="Linux">
+    
+      <meta property="article:section" content="Others">
+    
+      <meta property="article:section" content="Private life">
+    
+  
+  
+    
+      <meta property="article:tag" content="FreeBSD">
+    
+      <meta property="article:tag" content="Hi-Tech">
+    
+      <meta property="article:tag" content="Linux">
+    
+      <meta property="article:tag" content="Others">
+    
+      <meta property="article:tag" content="Private life">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_zfsonlinux.png">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_zfsonlinux.png">
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>ZFS sur Linux</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
 
     
-    <meta name="description" content="Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur lequel je souhaites la double parité et surtout un OS Linux car c&rsquo;est ce que je connais de mieux pour la partie multimédia.
-Aujourd&rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&rsquo;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.">
-    <meta property="og:description" content="Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur lequel je souhaites la double parité et surtout un OS Linux car c&rsquo;est ce que je connais de mieux pour la partie multimédia.
-Aujourd&rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&rsquo;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="ZFS sur Linux">
-    <meta property="og:url" content="/2011/03/24/zfs-sur-linux/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur lequel je souhaites la double parité et surtout un OS Linux car c&rsquo;est ce que je connais de mieux pour la partie multimédia.
-Aujourd&rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&rsquo;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-      <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_zfsonlinux.png">
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/2011/03/24/zfs-sur-linux/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -68,11 +99,11 @@ Aujourd&rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -107,7 +138,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -119,7 +150,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -265,9 +296,9 @@ ga('send', 'pageview');
               <p><img src="https://blog.deimos.fr/images/logo_zfsonlinux.png" alt="Zfs-linux" />
 Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur lequel je souhaites la double parité et surtout un OS Linux car c&rsquo;est ce que je connais de mieux pour la partie multimédia.</p>
 
-<p>Aujourd&rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&rsquo;émulation de couches basses Linux). Je me tourne donc vers <a href="http://wiki.deimos.fr/ZFS_On_Linux_:_Mise_en_place_de_ZFS_sous_Linux" target="_blank">ZFS on Linux</a>.</p>
+<p>Aujourd&rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&rsquo;émulation de couches basses Linux). Je me tourne donc vers <a href="http://wiki.deimos.fr/ZFS_On_Linux_:_Mise_en_place_de_ZFS_sous_Linux">ZFS on Linux</a>.</p>
 
-<p>Je rajouterais à ceci une couche d&rsquo;encryption disque avec <a href="http://wiki.deimos.fr/Encfs_:_Mise_en_place_d%27Encfs_avec_FUSE" target="_blank">ENCFS</a>. Je testerais donc la compression ZFS pour minimiser l&rsquo;espace supplémentaire occupé par l&rsquo;encryption des données. Cependant je craint qu&rsquo;avec seulement 5 disques avec du raidz2 je les satures rapidement si j&rsquo;ai beaucoup d&rsquo;activité dessus ou tout du moins si ils sont beaucoup sollicités (ex. la lecture d&rsquo;un film en Full HD).</p>
+<p>Je rajouterais à ceci une couche d&rsquo;encryption disque avec <a href="http://wiki.deimos.fr/Encfs_:_Mise_en_place_d%27Encfs_avec_FUSE">ENCFS</a>. Je testerais donc la compression ZFS pour minimiser l&rsquo;espace supplémentaire occupé par l&rsquo;encryption des données. Cependant je craint qu&rsquo;avec seulement 5 disques avec du raidz2 je les satures rapidement si j&rsquo;ai beaucoup d&rsquo;activité dessus ou tout du moins si ils sont beaucoup sollicités (ex. la lecture d&rsquo;un film en Full HD).</p>
 
 <p>Pour ceux qui auraient du mal à se rendre compte de ce que ça donnerais, voici un schéma :</p>
 
@@ -278,11 +309,11 @@ Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur
 <p>Ceux qui ont quelques retours d&rsquo;expérience avec ZFS on linux, je suis preneur. Et pour les documentations c&rsquo;est ici :</p>
 
 <ul>
-<li><p><a href="http://wiki.deimos.fr/ZFS_On_Linux_:_Mise_en_place_de_ZFS_sous_Linux" target="_blank">ZFS on Linux</a></p></li>
+<li><p><a href="http://wiki.deimos.fr/ZFS_On_Linux_:_Mise_en_place_de_ZFS_sous_Linux">ZFS on Linux</a></p></li>
 
-<li><p><a href="http://wiki.deimos.fr/ZFS_:_Le_FileSystem_par_excellence" target="_blank">Utilisation du ZFS</a></p></li>
+<li><p><a href="http://wiki.deimos.fr/ZFS_:_Le_FileSystem_par_excellence">Utilisation du ZFS</a></p></li>
 
-<li><p><a href="http://wiki.deimos.fr/Encfs_:_Mise_en_place_d%27Encfs_avec_FUSE" target="_blank">Encfs</a></p></li>
+<li><p><a href="http://wiki.deimos.fr/Encfs_:_Mise_en_place_d%27Encfs_avec_FUSE">Encfs</a></p></li>
 </ul>
 
               
@@ -310,8 +341,8 @@ Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur
                 
               
             
-            
-  <div class="post-actions-wrap">
+            <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -376,8 +407,8 @@ Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
             
               
@@ -396,8 +427,8 @@ Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        
-  <div class="post-actions-wrap">
+        <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -462,8 +493,8 @@ Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
       </div>
       <div id="share-options-bar" class="share-options-bar" data-behavior="5">
@@ -499,7 +530,7 @@ Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -507,7 +538,7 @@ Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -746,6 +777,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -756,6 +789,32 @@ First of all, you may know that an alternative more user friendly to grep exist,
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
 
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
   
@@ -783,6 +842,7 @@ First of all, you may know that an alternative more user friendly to grep exist,
       </script>
     
   
+
 
 
 

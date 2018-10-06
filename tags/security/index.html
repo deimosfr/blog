@@ -1,26 +1,49 @@
-
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Security">
+<meta name="twitter:title" content="Security">
+<meta property="og:url" content="https://blog.deimos.fr/tags/security/">
+<meta property="twitter:url" content="https://blog.deimos.fr/tags/security/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Security</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
@@ -28,32 +51,8 @@
     
 
     
-    <meta name="description" content="Deimos Blog">
-    <meta property="og:description" content="Deimos Blog">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Security">
-    <meta property="og:url" content="/tags/security/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Deimos Blog">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/tags/security/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -61,11 +60,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -100,7 +99,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -112,7 +111,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -269,8 +268,10 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I recently heard of HSTS which is a way to force users to come back to your website in SSL if they&rsquo;ve already be to HTTPS once. It is simple, just add this line:
+      
+        I recently heard of HSTS which is a way to force users to come back to your website in SSL if they&rsquo;ve already be to HTTPS once. It is simple, just add this line:
 # HSTS (force users to come in SSL if they&#39;ve already been once) add_header Strict-Transport-Security &#34;max-age=31536000; includeSubdomains&#34;; If you want to have an overview of a complete configuration with it, look at the my wiki.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/09/18/nginx-enable-hsts-force-ssl-for-users/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -337,8 +338,10 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      NAXSI means Nginx Anti Xss &amp; Sql Injection. Technically, it is a third party nginx module, available as a package for many UNIX-like platforms. This module, by default, reads a small subset of simple rules (naxsi_core.rules) containing 99% of known patterns involved in websites vulnerabilities. For example, &lsquo;&lt; &lsquo;, &lsquo;|&rsquo; or &lsquo;drop&rsquo; are not supposed to be part of a URI.
+      
+        NAXSI means Nginx Anti Xss &amp; Sql Injection. Technically, it is a third party nginx module, available as a package for many UNIX-like platforms. This module, by default, reads a small subset of simple rules (naxsi_core.rules) containing 99% of known patterns involved in websites vulnerabilities. For example, &lsquo;&lt; &lsquo;, &lsquo;|&rsquo; or &lsquo;drop&rsquo; are not supposed to be part of a URI.
 It&rsquo;s been a while that I wanted to test NAXSI and it seams working not so bad.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/04/15/naxsi/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -409,10 +412,12 @@ It&rsquo;s been a while that I wanted to test NAXSI and it seams working not so 
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      A big and major issue on OpenSSL has been discovered and everybody is talking about it. To get more informations, there&rsquo;s a website.
+      
+        A big and major issue on OpenSSL has been discovered and everybody is talking about it. To get more informations, there&rsquo;s a website.
 How to check the vulnerability, download this file:
 chmod 755 ssltest.py Now launch it:
 ./ssltest.py blog.deimos.fr Connecting... Sending Client Hello... Waiting for Server Hello... ... received message: type = 22, ver = 0302, length = 66 ... received message: type = 22, ver = 0302, length = 5559 .
+      
       <p>
         <a href="https://blog.deimos.fr/2014/04/08/openssl-diagnose-and-correct-the-heartbleed-issue/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -471,9 +476,11 @@ chmod 755 ssltest.py Now launch it:
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I already talked about nftables and it has now been implemented in the 3.13 kernel !
+      
+        I already talked about nftables and it has now been implemented in the 3.13 kernel !
 For those who never heard of that, it&rsquo;s a kernel built in replacement of iptables. All features are not there yet but should be implemented in 3.15.
 If you like Packet Filter, you&rsquo;ll be happy. If you&rsquo;re not sure of the advantages of it, simply read that short comparison and you&rsquo;ll be convinced : https://home.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/01/27/nftables-now-available-on-3-13-kernel/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -544,9 +551,11 @@ If you like Packet Filter, you&rsquo;ll be happy. If you&rsquo;re not sure of th
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      If you’re not aware that the next kernel version will replace iptables by nftables, it’s time to learn on how it works, what are the features, why the change and how to use it.
+      
+        If you’re not aware that the next kernel version will replace iptables by nftables, it’s time to learn on how it works, what are the features, why the change and how to use it.
 If like me, you love PF, you&rsquo;ll be pleased to find a similar syntax on NFtables ! To have a good introduction on it, look at those slides :
   Kernel Recipes 2013 - Nftables, what motivations and what solutions  from Anne Nicolas
+      
       <p>
         <a href="https://blog.deimos.fr/2013/11/24/iptables-is-going-to-be-replaced-by-nftables/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -611,9 +620,11 @@ If like me, you love PF, you&rsquo;ll be pleased to find a similar syntax on NFt
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I&rsquo;ve bought 2 Yubikeys several months ago and didn&rsquo;t really took the time to play with them.
+      
+        I&rsquo;ve bought 2 Yubikeys several months ago and didn&rsquo;t really took the time to play with them.
 A ex-colleague took that time and configured it on his desktop under ArchLinux. I decided to play with it, see how could it works and with his help, put it in place in a very short time.
 I configured it to work in parallel of my password. With that configuration, I do not need anymore typing my password, but only need to plug in my Yubikey.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/07/09/yubikey-protect-your-desktop-authentication-using-pam-and-yubikey-library/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -692,8 +703,10 @@ I configured it to work in parallel of my password. With that configuration, I d
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Avant d&rsquo;attaquer le 2 ème jour, je vais finir sur le premier (la suite d&rsquo;hier).
+      
+        Avant d&rsquo;attaquer le 2 ème jour, je vais finir sur le premier (la suite d&rsquo;hier).
 Un des supers sujet était Bind 10 que j&rsquo;attendais avec impatience. Il n&rsquo;y a malheureusement eu d&rsquo;informations sur les nouveautés aidant a la HA. Cependant il a été totalement réécrit pour supporter + de 100 cores alors qu&rsquo;aujourd&rsquo;hui au delà de 6, il y a des problèmes de performances. On a également (et étrangement) un serveur DHCP qui est intégré a Bind.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -746,7 +759,7 @@ Un des supers sujet était Bind 10 que j&rsquo;attendais avec impatience. Il n&r
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -754,7 +767,7 @@ Un des supers sujet était Bind 10 que j&rsquo;attendais avec impatience. Il n&r
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -993,6 +1006,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -1002,6 +1017,33 @@ First of all, you may know that an alternative more user friendly to grep exist,
   
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
 

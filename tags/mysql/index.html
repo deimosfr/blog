@@ -1,26 +1,49 @@
-
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mysql">
+<meta name="twitter:title" content="Mysql">
+<meta property="og:url" content="https://blog.deimos.fr/tags/mysql/">
+<meta property="twitter:url" content="https://blog.deimos.fr/tags/mysql/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Mysql</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
@@ -28,32 +51,8 @@
     
 
     
-    <meta name="description" content="Deimos Blog">
-    <meta property="og:description" content="Deimos Blog">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Mysql">
-    <meta property="og:url" content="/tags/mysql/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Deimos Blog">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/tags/mysql/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -61,11 +60,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -100,7 +99,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -112,7 +111,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -265,9 +264,11 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      For my personal usages, I wanted do use DotDeb and MySQL playbooks. I first looked at the current ones on the Ansible Galaxy. However I did not find a good one for my needs.
+      
+        For my personal usages, I wanted do use DotDeb and MySQL playbooks. I first looked at the current ones on the Ansible Galaxy. However I did not find a good one for my needs.
 I first wanted to try to contribute to an existing one. But I needed to have them quickly and unfortunately didn&rsquo;t have the time to do it.
 That&rsquo;s why I made 2 new Ansible roles and added them to Ansible Galaxy.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/12/26/ansible-dotdeb-and-mysql-roles/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -340,7 +341,9 @@ That&rsquo;s why I made 2 new Ansible roles and added them to Ansible Galaxy.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I recently been faced on a classical problem on InnoDB which is the fragmentation, but on Galera. InnoDB engine doesn&rsquo;t defragment on the fly and requires optimize maintenance sometimes to free disk space. But on Galera, which is a fault tolerance and high availability solution, it&rsquo;s a problem having tables locked by an optimize procedure. Until Galera doesn&rsquo;t support TokuDB and only fully support InnoDB, we had (with a colleague (Kevin aka Vinek)) to find a solution.
+      
+        I recently been faced on a classical problem on InnoDB which is the fragmentation, but on Galera. InnoDB engine doesn&rsquo;t defragment on the fly and requires optimize maintenance sometimes to free disk space. But on Galera, which is a fault tolerance and high availability solution, it&rsquo;s a problem having tables locked by an optimize procedure. Until Galera doesn&rsquo;t support TokuDB and only fully support InnoDB, we had (with a colleague (Kevin aka Vinek)) to find a solution.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/09/30/galera-innoptimizer-optimize-tables-without-stress/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -403,9 +406,11 @@ That&rsquo;s why I made 2 new Ansible roles and added them to Ansible Galaxy.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Pour régler ces petits tracas, je vous propose donc une petite documentation sur Xtrabackup.
+      
+        Pour régler ces petits tracas, je vous propose donc une petite documentation sur Xtrabackup.
 Je travaille actuellement sur un projet à mon taf dont je suis l&rsquo;initiateur mais pas le développeur, qui est FenriSQL. C&rsquo;est un outil qui va permettre d&rsquo;avoir un démon pour gérer tous ses backups MySQL via Xtrabackups.
 L&rsquo;outil est en version beta, va s&rsquo;apprêter à passer en rc. Une release du code devrait arriver très prochainement sur sourceforge.
+      
       <p>
         <a href="https://blog.deimos.fr/2011/11/17/xtrabackup-optimisez-vos-sauvegardes-mysql/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -474,7 +479,9 @@ L&rsquo;outil est en version beta, va s&rsquo;apprêter à passer en rc. Une rel
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Et bien me voilà encore en pleine créativité, on ne m’arrête plus !!!! Pour la petite histoire, il y a maintenant peut être 2 ans, je cherchais une extension pour MediaWiki me permettant de supprimer mon historique. J’avais trouvé l’extension parfaite SpecialDeleteOldRevisions, mais lors d’une upgrade, impossible de la faire fonctionner correctement. Toujours pas d’update de cette extension 1 an après. Je m’étais dis que j’en ferais une un de ces 4.
+      
+        Et bien me voilà encore en pleine créativité, on ne m’arrête plus !!!! Pour la petite histoire, il y a maintenant peut être 2 ans, je cherchais une extension pour MediaWiki me permettant de supprimer mon historique. J’avais trouvé l’extension parfaite SpecialDeleteOldRevisions, mais lors d’une upgrade, impossible de la faire fonctionner correctement. Toujours pas d’update de cette extension 1 an après. Je m’étais dis que j’en ferais une un de ces 4.
+      
       <p>
         <a href="https://blog.deimos.fr/2010/04/20/deletehistory-mon-extension-pour-mediawiki/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -537,8 +544,10 @@ L&rsquo;outil est en version beta, va s&rsquo;apprêter à passer en rc. Une rel
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      J’ai concocté un petit script permettant d’optimiser toutes les tables de ses bases MySQL. Mon petit script récupère les noms des bases de données, liste les tables et optimise tout ce petit monde pour gagner de l’espace sur le disque :-). Bref, je ne vais pas expliquer de long en large ce que fait la fonction ‘OPTIMIZE’ de MySQL mais en gros l’idée est là.
+      
+        J’ai concocté un petit script permettant d’optimiser toutes les tables de ses bases MySQL. Mon petit script récupère les noms des bases de données, liste les tables et optimise tout ce petit monde pour gagner de l’espace sur le disque :-). Bref, je ne vais pas expliquer de long en large ce que fait la fonction ‘OPTIMIZE’ de MySQL mais en gros l’idée est là.
 Pour trouver ce petit script, je vous invite à suivre ce liens.
+      
       <p>
         <a href="https://blog.deimos.fr/2010/04/08/automatiser-loptimisation-de-ses-tables-mysql/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -601,8 +610,10 @@ Pour trouver ce petit script, je vous invite à suivre ce liens.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Depuis le début de la semaine et jusqu’à aujourd’hui, j’ai un expert MySQL qui est à côté de moi au taf. C’est fou tout ce qu’on peut apprendre :-p. Pour moi les optimisations MySQL n’étaient nécessaire que quand des milliers de personnes font des requêtes ou quand vraiment on ressent de grosses pertes de perfs etc…
+      
+        Depuis le début de la semaine et jusqu’à aujourd’hui, j’ai un expert MySQL qui est à côté de moi au taf. C’est fou tout ce qu’on peut apprendre :-p. Pour moi les optimisations MySQL n’étaient nécessaire que quand des milliers de personnes font des requêtes ou quand vraiment on ressent de grosses pertes de perfs etc…
 Nous avons eu besoin de lui car c&rsquo;est les pertes de perfs qui nous troublaient.
+      
       <p>
         <a href="https://blog.deimos.fr/2010/01/29/mysql-audit-et-optimisation/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -632,7 +643,7 @@ Nous avons eu besoin de lui car c&rsquo;est les pertes de perfs qui nous troubla
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -640,7 +651,7 @@ Nous avons eu besoin de lui car c&rsquo;est les pertes de perfs qui nous troubla
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -879,6 +890,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -888,6 +901,33 @@ First of all, you may know that an alternative more user friendly to grep exist,
   
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
 

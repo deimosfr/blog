@@ -1,26 +1,49 @@
-
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ansible">
+<meta name="twitter:title" content="Ansible">
+<meta property="og:url" content="https://blog.deimos.fr/categories/ansible/">
+<meta property="twitter:url" content="https://blog.deimos.fr/categories/ansible/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Ansible</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
@@ -28,32 +51,8 @@
     
 
     
-    <meta name="description" content="Deimos Blog">
-    <meta property="og:description" content="Deimos Blog">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Ansible">
-    <meta property="og:url" content="/categories/ansible/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Deimos Blog">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/categories/ansible/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -61,11 +60,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -100,7 +99,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -112,7 +111,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -267,9 +266,11 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I&rsquo;ve recently updated my LXC role for ansible. You can get it like that:
+      
+        I&rsquo;ve recently updated my LXC role for ansible. You can get it like that:
 ansible-galaxy install deimosfr.lxc Here is the change log:
 + Adding new parameters for dnsmasq and interfaces + Adding new prequesite to avoid unwanted modules to load in the latest kernel versions = Corrected networking configuration issue = Templates do not create @LOCALSTATEDIR@ folder anymore It works perfectly on my new Dedibox :-)
+      
       <p>
         <a href="https://blog.deimos.fr/2014/06/02/ansible-lxc-role-v1-1/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -336,8 +337,10 @@ ansible-galaxy install deimosfr.lxc Here is the change log:
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I started to play with Ansible a little bit more than a week ago and I really enjoy it compared to Puppet. I still do not have all my reflex that I can have on Puppet, however what I can say is how easy it is to start making complicated things on Ansible!
+      
+        I started to play with Ansible a little bit more than a week ago and I really enjoy it compared to Puppet. I still do not have all my reflex that I can have on Puppet, however what I can say is how easy it is to start making complicated things on Ansible!
 I started to rewrite my Puppet manifests to Ansible playbooks and what I can say is it&rsquo;s really fast and easy.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/05/15/ansible-my-first-playbook-is-for-lxc/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -412,9 +415,11 @@ I started to rewrite my Puppet manifests to Ansible playbooks and what I can say
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Vagrant and Ansible are out in version 1.6! They are both bringing new super features.
+      
+        Vagrant and Ansible are out in version 1.6! They are both bringing new super features.
 For Vagrant, each major versions are bringing incredible features, this time they are:
  Global Status and Control: Global Status shows you the status of all created Vagrant environments on your machine. Global Control lets you control any of these created environments from anywhere on your machine. You unfortunately need to have VM created under 1.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/05/07/vagrant-and-ansible-are-out-in-version-1-6/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -477,9 +482,11 @@ For Vagrant, each major versions are bringing incredible features, this time the
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      A meetup on Ansible and SaltStack will take place in Paris next Monday. It unfortunately has not been initiated on the traditional meet up website and you may missed it like me.
+      
+        A meetup on Ansible and SaltStack will take place in Paris next Monday. It unfortunately has not been initiated on the traditional meet up website and you may missed it like me.
 So if you&rsquo;re interested by those two configuration tool outsiders, follow the link. Both tools are written in Python, that why it is a Python meetup at first.
 I&rsquo;m happy to participate to the meetup as this is the first one, I&rsquo;m sure I&rsquo;ll learn interesting things on it and meet new faces :-)
+      
       <p>
         <a href="https://blog.deimos.fr/2014/03/22/ansible-first-french-meetup-on-monday/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -538,8 +545,10 @@ I&rsquo;m happy to participate to the meetup as this is the first one, I&rsquo;m
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      One of my colleague (Sebastien Han) started to play (like me) with Ansible. As he is a Ceph master, he often deploy Ceph for tests or production. He generally uses Puppet for that purpose.
+      
+        One of my colleague (Sebastien Han) started to play (like me) with Ansible. As he is a Ceph master, he often deploy Ceph for tests or production. He generally uses Puppet for that purpose.
 But due to some Puppet limitations or big brain fuck it involves, he started to play with Ansible and created a Ceph module for it. He showed me it, when he was writing it and it seamed working like a charm.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/03/06/ceph-deploy-it-with-ansible/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -592,7 +601,7 @@ But due to some Puppet limitations or big brain fuck it involves, he started to 
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -600,7 +609,7 @@ But due to some Puppet limitations or big brain fuck it involves, he started to 
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -839,6 +848,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -848,6 +859,33 @@ First of all, you may know that an alternative more user friendly to grep exist,
   
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
 

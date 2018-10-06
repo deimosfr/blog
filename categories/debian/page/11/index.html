@@ -1,26 +1,49 @@
-
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Debian">
+<meta name="twitter:title" content="Debian">
+<meta property="og:url" content="https://blog.deimos.fr/categories/debian/">
+<meta property="twitter:url" content="https://blog.deimos.fr/categories/debian/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Debian</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
@@ -28,32 +51,8 @@
     
 
     
-    <meta name="description" content="Deimos Blog">
-    <meta property="og:description" content="Deimos Blog">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Debian">
-    <meta property="og:url" content="/categories/debian/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Deimos Blog">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/categories/debian/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -61,11 +60,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -100,7 +99,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -112,7 +111,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -269,9 +268,11 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Following a previous post, I&rsquo;ve enabled PageSpeed on both wiki and blog deimos.fr.
+      
+        Following a previous post, I&rsquo;ve enabled PageSpeed on both wiki and blog deimos.fr.
 What I can say is, it&rsquo;s very important to take the time to test every optimizations you want to add. I experienced for example issues on silly things like :
 # Optimize browser rendering pagespeed EnableFilters lazyload_images; Some images weren&rsquo;t shown if you didn&rsquo;t refresh once again your page browser. I only had this problem on the blog and not the wiki.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/02/16/deimos-fr-is-now-using-pagespeed-feedbacks/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -336,8 +337,10 @@ What I can say is, it&rsquo;s very important to take the time to test every opti
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I&rsquo;ve first heard of Page Speed last year for Apache. I was really waiting a stable version for Nginx and it&rsquo;s now done. A few days ago, Nicolargo made a post regarding it and that&rsquo;s what motivated me to go ahead on Page Speed.
+      
+        I&rsquo;ve first heard of Page Speed last year for Apache. I was really waiting a stable version for Nginx and it&rsquo;s now done. A few days ago, Nicolargo made a post regarding it and that&rsquo;s what motivated me to go ahead on Page Speed.
 PageSpeed speeds up your site and reduces page load time. This open-source webserver module automatically applies web performance best practices to pages and associated assets (CSS, JavaScript, images) without requiring that you modify your existing content or workflow.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/02/12/page-speed-optimize-on-the-fly-your-rendered-code-with-nginx/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -398,9 +401,11 @@ PageSpeed speeds up your site and reduces page load time. This open-source webse
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I discovered Dotdeb a few months ago and decided to make a quick documentation to install the repository. But before, here is the official explaination of what is the repository made for :
+      
+        I discovered Dotdeb a few months ago and decided to make a quick documentation to install the repository. But before, here is the official explaination of what is the repository made for :
  Dotdeb is a repository containing packages to turn your Debian boxes into powerful, stable and up-to-date LAMP servers :
  Nginx PHP 5.4 and 5.3, useful PHP extensions : APC, imagick, Pinba, xcache, Xdebug, XHprof… MySQL 5.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/02/10/detdeb-use-up-to-date-packages-for-the-web/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -465,8 +470,10 @@ PageSpeed speeds up your site and reduces page load time. This open-source webse
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I&rsquo;ve recently updated some of my tutorials :
+      
+        I&rsquo;ve recently updated some of my tutorials :
  Optimizing Hard Drive performances : I&rsquo;ve updated SSD subject Luks : added more information on how auto mount automatically at boot a crypted partition. Xtrabackup : corrected a non working command LXC : modified containers files to avoid boot issues APT-Pinning : Added the command to install a package from a designed repository Sed : forgotten to add -i option which is so important Vagrant : Added an example to the quick tutorial  
+      
       <p>
         <a href="https://blog.deimos.fr/2014/01/25/news-in-bulk-3/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -533,9 +540,11 @@ PageSpeed speeds up your site and reduces page load time. This open-source webse
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Varnish is a real powerful cache solution for web servers. He is unfortunately not able to do it over SSL. Anyway, there is a solution by offloading it with Nginx. Here is a schema to get a better understanding :
+      
+        Varnish is a real powerful cache solution for web servers. He is unfortunately not able to do it over SSL. Anyway, there is a solution by offloading it with Nginx. Here is a schema to get a better understanding :
 Nginx decrypt SSL, pass it in clear to Varnish. If Varnish got it, replies to Nginx which crypt back data to send to user.
 I&rsquo;ve made a full documentation to get it working well, follow the link.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/01/23/offloading-ssl-with-nginx-and-varnish/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -602,9 +611,11 @@ I&rsquo;ve made a full documentation to get it working well, follow the link.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      In addition of object storage, Ceph is able to provide block devices. Ceph’s RADOS Block Device (RBD) provides access to block device images that are striped and replicated across the entire storage cluster.
+      
+        In addition of object storage, Ceph is able to provide block devices. Ceph’s RADOS Block Device (RBD) provides access to block device images that are striped and replicated across the entire storage cluster.
 For example this is used to store Virtual Machines on OpenStack. With that solution, you&rsquo;ve got a real fault tolerance system for your VM and distributed.
 The RBD part is an easy task when you&rsquo;ve already setup a Ceph cluster.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/01/21/ceph-setup-block-devices-rbd-nodes-on-debian/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -673,9 +684,11 @@ The RBD part is an easy task when you&rsquo;ve already setup a Ceph cluster.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      CloudFlare is a Free solution to load your website faster and add security. I&rsquo;ve tested it 2 days ago, that&rsquo;s why you may experienced issues in accessing the blog and wiki.
+      
+        CloudFlare is a Free solution to load your website faster and add security. I&rsquo;ve tested it 2 days ago, that&rsquo;s why you may experienced issues in accessing the blog and wiki.
 I had issues on WordPress, so I need to correct some problems relating images (http/https) as the Free version of CloudFlare doesn&rsquo;t support SSL. That&rsquo;s why I&rsquo;ve roll back for the moment.
 I have other kind of modifications to make on WordPress before it works as it should.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/01/17/cloudflare-testing-a-free-cdn/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -729,7 +742,7 @@ I have other kind of modifications to make on WordPress before it works as it sh
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -737,7 +750,7 @@ I have other kind of modifications to make on WordPress before it works as it sh
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -976,6 +989,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -985,6 +1000,33 @@ First of all, you may know that an alternative more user friendly to grep exist,
   
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
 

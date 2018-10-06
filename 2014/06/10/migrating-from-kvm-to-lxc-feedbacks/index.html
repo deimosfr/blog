@@ -1,66 +1,101 @@
-
-
-  
-    
-  
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&hellip;Thanks Online.
+I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to migrate my VM from KVM. All my KVM VM are on Debian Wheezy so that was pretty easy.">
+
+
+<meta property="og:description" content="I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&hellip;Thanks Online.
+I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to migrate my VM from KVM. All my KVM VM are on Debian Wheezy so that was pretty easy.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Migrating from KVM to LXC…feedbacks">
+<meta name="twitter:title" content="Migrating from KVM to LXC…feedbacks">
+<meta property="og:url" content="https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&hellip;Thanks Online.
+I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to migrate my VM from KVM. All my KVM VM are on Debian Wheezy so that was pretty easy.">
+<meta name="twitter:description" content="I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&hellip;Thanks Online.
+I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to migrate my VM from KVM. All my KVM VM are on Debian Wheezy so that was pretty easy.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2014-06-10T10:00:00">
+  
+  
+    <meta property="article:modified_time" content="2014-06-10T10:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="Ansible">
+    
+      <meta property="article:section" content="Debian">
+    
+      <meta property="article:section" content="Hi-Tech">
+    
+      <meta property="article:section" content="Linux">
+    
+      <meta property="article:section" content="LXC">
+    
+      <meta property="article:section" content="Virtualization">
+    
+  
+  
+    
+      <meta property="article:tag" content="Ansible">
+    
+      <meta property="article:tag" content="Debian">
+    
+      <meta property="article:tag" content="Hi-Tech">
+    
+      <meta property="article:tag" content="Linux">
+    
+      <meta property="article:tag" content="LXC">
+    
+      <meta property="article:tag" content="Virtualization">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg">
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Migrating from KVM to LXC…feedbacks</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
 
     
-    <meta name="description" content="I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&hellip;Thanks Online.
-I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to migrate my VM from KVM. All my KVM VM are on Debian Wheezy so that was pretty easy.">
-    <meta property="og:description" content="I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&hellip;Thanks Online.
-I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to migrate my VM from KVM. All my KVM VM are on Debian Wheezy so that was pretty easy.">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Migrating from KVM to LXC…feedbacks">
-    <meta property="og:url" content="/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&hellip;Thanks Online.
-I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to migrate my VM from KVM. All my KVM VM are on Debian Wheezy so that was pretty easy.">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-      <meta property="og:image" content="https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg">
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -68,11 +103,11 @@ I&rsquo;m already using LXC on my home server and see the benefits for 8 months 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -107,7 +142,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -119,7 +154,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -265,17 +300,17 @@ ga('send', 'pageview');
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p><img src="https://blog.deimos.fr/images/Poweredbylinux.jpg" alt="Poweredbylinux" />
-I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&hellip;Thanks <a href="http://www.online.net/fr" target="_blank">Online</a>.</p>
+I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&hellip;Thanks <a href="http://www.online.net/fr">Online</a>.</p>
 
-<p>I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to <strong>migrate my VM from KVM</strong>. All my <a href="https://wiki.deimos.fr/KVM_:_Mise_en_place_de_KVM" target="_blank">KVM</a> VM are on Debian Wheezy so that was pretty easy.</p>
+<p>I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to <strong>migrate my VM from KVM</strong>. All my <a href="https://wiki.deimos.fr/KVM_:_Mise_en_place_de_KVM">KVM</a> VM are on Debian Wheezy so that was pretty easy.</p>
 
-<p>First of all I used <a href="https://wiki.deimos.fr/Automatiser_une_installation_de_Debian" target="_blank">Preseed to quickly deploy Debian</a> on the host&hellip;as minimal as possible. Then I&rsquo;ve made an <a href="https://galaxy.ansible.com/deimosfr/lxc/" target="_blank">LXC Ansible playbook (available on Ansible Galaxy)</a> to be able to quickly deploy the server. I encountered several little issues and <a href="https://github.com/deimosfr/ansible-lxc" target="_blank">pushed the fixes to my repository on GitHub</a> (linked to my Ansible Galaxy account).</p>
+<p>First of all I used <a href="https://wiki.deimos.fr/Automatiser_une_installation_de_Debian">Preseed to quickly deploy Debian</a> on the host&hellip;as minimal as possible. Then I&rsquo;ve made an <a href="https://galaxy.ansible.com/deimosfr/lxc/">LXC Ansible playbook (available on Ansible Galaxy)</a> to be able to quickly deploy the server. I encountered several little issues and <a href="https://github.com/deimosfr/ansible-lxc">pushed the fixes to my repository on GitHub</a> (linked to my Ansible Galaxy account).</p>
 
-<p>I had to make the iptables configuration to forward incoming connections to my NATed containers. This is not managed by the LXC playbook as it doesn&rsquo;t have to in my opinion. <a href="https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Network" target="_blank">But you could find examples on my documentation if you need</a>.</p>
+<p>I had to make the iptables configuration to forward incoming connections to my NATed containers. This is not managed by the LXC playbook as it doesn&rsquo;t have to in my opinion. <a href="https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Network">But you could find examples on my documentation if you need</a>.</p>
 
 <p>I wanted to manage the deployment of my LXC containers with Ansible, however I didn&rsquo;t had the time to do it. So I concentrated more on migrating my running KVM VMs to the LXC server.</p>
 
-<p>Then <a href="https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Convert.2FMigrate_a_VM.2FHost_to_a_LXC_container" target="_blank">I&rsquo;ve followed the doc I&rsquo;ve made to convert an existing system to an LXC container</a>. Was working like a charm. To resume:</p>
+<p>Then <a href="https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Convert.2FMigrate_a_VM.2FHost_to_a_LXC_container">I&rsquo;ve followed the doc I&rsquo;ve made to convert an existing system to an LXC container</a>. Was working like a charm. To resume:</p>
 
 <ol>
 <li>I made an rsync copy to the remote rootfs destination</li>
@@ -285,11 +320,11 @@ I recently migrated this server to a new one. New hardware, better performance, 
 
 <p>Migration finished! Really easy to do it isn&rsquo;t it ? <strong>Only 3 easy steps</strong>.</p>
 
-<p>To finish, <a href="https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Container_limits_.28cgroups.29" target="_blank">I setup cgroups configuration for my containers</a>. That gave me the possibility to restrict CPU, RAM, DISK I/O and SWAP usage for all my containers.</p>
+<p>To finish, <a href="https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Container_limits_.28cgroups.29">I setup cgroups configuration for my containers</a>. That gave me the possibility to restrict CPU, RAM, DISK I/O and SWAP usage for all my containers.</p>
 
 <p>I strongly encourage you to test LXC!</p>
 
-<p>In the next months/years, I think I will start looking at <a href="https://wiki.deimos.fr/Docker_:_manage_LXC_containers_easily_with_advanced_features" target="_blank">Docker</a> (which uses LXC) in a production and will <a href="http://docs.ansible.com/docker_module.html" target="_blank">deploy all my containers with Ansible as a module already exist</a>. I do not really know yet the maturity of Docker in production but I&rsquo;m sure this will be one of the most used cloud solutions with OpenStack and Ceph in the next years.</p>
+<p>In the next months/years, I think I will start looking at <a href="https://wiki.deimos.fr/Docker_:_manage_LXC_containers_easily_with_advanced_features">Docker</a> (which uses LXC) in a production and will <a href="http://docs.ansible.com/docker_module.html">deploy all my containers with Ansible as a module already exist</a>. I do not really know yet the maturity of Docker in production but I&rsquo;m sure this will be one of the most used cloud solutions with OpenStack and Ceph in the next years.</p>
 
               
             </div>
@@ -318,8 +353,8 @@ I recently migrated this server to a new one. New hardware, better performance, 
                 
               
             
-            
-  <div class="post-actions-wrap">
+            <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -384,8 +419,8 @@ I recently migrated this server to a new one. New hardware, better performance, 
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
             
               
@@ -404,8 +439,8 @@ I recently migrated this server to a new one. New hardware, better performance, 
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        
-  <div class="post-actions-wrap">
+        <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -470,8 +505,8 @@ I recently migrated this server to a new one. New hardware, better performance, 
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
       </div>
       <div id="share-options-bar" class="share-options-bar" data-behavior="5">
@@ -507,7 +542,7 @@ I recently migrated this server to a new one. New hardware, better performance, 
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -515,7 +550,7 @@ I recently migrated this server to a new one. New hardware, better performance, 
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -754,6 +789,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -764,6 +801,32 @@ First of all, you may know that an alternative more user friendly to grep exist,
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
 
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
   
@@ -791,6 +854,7 @@ First of all, you may know that an alternative more user friendly to grep exist,
       </script>
     
   
+
 
 
 

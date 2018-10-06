@@ -1,66 +1,97 @@
-
-
-  
-    
-  
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="For my own company MySocialApp, I&rsquo;m managing multiple Cassandra clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:
+ The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data.">
+
+
+<meta property="og:description" content="For my own company MySocialApp, I&rsquo;m managing multiple Cassandra clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:
+ The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Running Cassandra in Kubernetes">
+<meta name="twitter:title" content="Running Cassandra in Kubernetes">
+<meta property="og:url" content="https://blog.deimos.fr/2018/06/24/running-cassandra-on-kubernetes/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2018/06/24/running-cassandra-on-kubernetes/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="For my own company MySocialApp, I&rsquo;m managing multiple Cassandra clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:
+ The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data.">
+<meta name="twitter:description" content="For my own company MySocialApp, I&rsquo;m managing multiple Cassandra clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:
+ The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2018-07-16T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2018-07-16T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="Kubernetes">
+    
+      <meta property="article:section" content="Containers">
+    
+      <meta property="article:section" content="Cassandra">
+    
+      <meta property="article:section" content="Databases">
+    
+      <meta property="article:section" content="Distributed">
+    
+  
+  
+    
+      <meta property="article:tag" content="Kubernetes">
+    
+      <meta property="article:tag" content="Containers">
+    
+      <meta property="article:tag" content="Cassandra">
+    
+      <meta property="article:tag" content="Databases">
+    
+      <meta property="article:tag" content="Distributed">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_cassandra.png">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_cassandra.png">
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Running Cassandra in Kubernetes</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
 
     
-    <meta name="description" content="For my own company MySocialApp, I&rsquo;m managing multiple Cassandra clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:
- The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data.">
-    <meta property="og:description" content="For my own company MySocialApp, I&rsquo;m managing multiple Cassandra clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:
- The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data.">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Running Cassandra in Kubernetes">
-    <meta property="og:url" content="/2018/06/24/running-cassandra-on-kubernetes/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="For my own company MySocialApp, I&rsquo;m managing multiple Cassandra clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:
- The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data.">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-      <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_cassandra.png">
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/2018/06/24/running-cassandra-on-kubernetes/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -68,11 +99,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -107,7 +138,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -119,7 +150,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -266,10 +297,10 @@ ga('send', 'pageview');
 
 <p><img src="https://blog.deimos.fr/images/logo_cassandra.png" alt="Cassandra" /></p>
 
-<p>For my own company <a href="https://mysocialapp.io/?ref=deimos_fr_running_cassandra_on_kubernetes" target="_blank">MySocialApp</a>, I&rsquo;m managing multiple <a href="http://cassandra.apache.org/" target="_blank">Cassandra</a> clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:</p>
+<p>For my own company <a href="https://mysocialapp.io/?ref=deimos_fr_running_cassandra_on_kubernetes">MySocialApp</a>, I&rsquo;m managing multiple <a href="http://cassandra.apache.org/">Cassandra</a> clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:</p>
 
 <blockquote>
-<p>The <a href="http://cassandra.apache.org/" target="_blank">Apache Cassandra</a> database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data. Cassandra&rsquo;s support for replicating across multiple datacenters is best-in-class, providing lower latency for your users and the peace of mind of knowing that you can survive regional outages.</p>
+<p>The <a href="http://cassandra.apache.org/">Apache Cassandra</a> database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data. Cassandra&rsquo;s support for replicating across multiple datacenters is best-in-class, providing lower latency for your users and the peace of mind of knowing that you can survive regional outages.</p>
 </blockquote>
 
 <p>What does that mean having a Cassandra cluster in a Kubernetes on premise cluster? Here are the basics:</p>
@@ -281,11 +312,11 @@ ga('send', 'pageview');
 <li><strong>Self management</strong>: having a Cassandra self managed solution on Kubernetes is a good idea, however managing all scenario cases on distributed systems is a very long and complex achievement.</li>
 </ul>
 
-<p>That&rsquo;s why in this blog post, you&rsquo;ll see how I made a <a href="https://github.com/MySocialApp/kubernetes-helm-chart-cassandra/" target="_blank">Cassandra helm chart</a>, what are the benefits based on my experience on Cassandra + Kubernetes and finally how it works.</p>
+<p>That&rsquo;s why in this blog post, you&rsquo;ll see how I made a <a href="https://github.com/MySocialApp/kubernetes-helm-chart-cassandra/">Cassandra helm chart</a>, what are the benefits based on my experience on Cassandra + Kubernetes and finally how it works.</p>
 
 <h1 id="performances">Performances</h1>
 
-<p>Cassandra require a local storage to get the best performances. That&rsquo;s why you should avoid using distributed storage and use a hostPath or <a href="https://kubernetes.io/docs/concepts/storage/volumes/" target="_blank">localstorage</a> configuration like:</p>
+<p>Cassandra require a local storage to get the best performances. That&rsquo;s why you should avoid using distributed storage and use a hostPath or <a href="https://kubernetes.io/docs/concepts/storage/volumes/">localstorage</a> configuration like:</p>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">volumes:
   - name: cassandra-data
@@ -332,7 +363,7 @@ ga('send', 'pageview');
 
 <h2 id="statefulset">Statefulset</h2>
 
-<p>On this <a href="https://github.com/MySocialApp/kubernetes-helm-chart-cassandra/" target="_blank">Cassandra helm chart</a>, I decided to use <code>Statefulset</code> because:</p>
+<p>On this <a href="https://github.com/MySocialApp/kubernetes-helm-chart-cassandra/">Cassandra helm chart</a>, I decided to use <code>Statefulset</code> because:</p>
 
 <ul>
 <li>It understands the complexity of most of the stateful applications and have a the corresponding behavior</li>
@@ -343,7 +374,7 @@ ga('send', 'pageview');
 
 <h2 id="upgrade-stategy">Upgrade stategy</h2>
 
-<p>Regarding the rollout and <a href="https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#update-strategies" target="_blank">rolling upgrade/restart strategy</a>, it&rsquo;s really simple with this kind of rules on a Statefulset, I&rsquo;m sure the procedure won&rsquo;t go too fast:</p>
+<p>Regarding the rollout and <a href="https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#update-strategies">rolling upgrade/restart strategy</a>, it&rsquo;s really simple with this kind of rules on a Statefulset, I&rsquo;m sure the procedure won&rsquo;t go too fast:</p>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">updateStrategy:
   type: <span style="color:#e6db74">&#34;RollingUpdate&#34;</span></code></pre></div>
@@ -379,7 +410,7 @@ source /usr/local/apache-cassandra/scripts/envVars.sh
 
 <ul>
 <li>I&rsquo;m ensuring the service is up and running</li>
-<li>I&rsquo;m registering the cluster to <a href="http://cassandra-reaper.io" target="_blank">Cassandra reaper</a> if not already done (will talk later about Cassandra Reaper)</li>
+<li>I&rsquo;m registering the cluster to <a href="http://cassandra-reaper.io">Cassandra reaper</a> if not already done (will talk later about Cassandra Reaper)</li>
 </ul>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
@@ -468,7 +499,7 @@ exit <span style="color:#ae81ff">0</span></code></pre></div>
 
 <h2 id="cassandra-exporter">Cassandra exporter</h2>
 
-<p>To make it simple, I&rsquo;m using the Prometheus format (as it becomes the standard now) and I&rsquo;m using <a href="https://github.com/criteo/cassandra_exporter" target="_blank">Cassandra Exporter</a> (made by my NoSQL team at <a href="https://www.criteo.com" target="_blank">Criteo</a>).</p>
+<p>To make it simple, I&rsquo;m using the Prometheus format (as it becomes the standard now) and I&rsquo;m using <a href="https://github.com/criteo/cassandra_exporter">Cassandra Exporter</a> (made by my NoSQL team at <a href="https://www.criteo.com">Criteo</a>).</p>
 
 <p>On each nodes it will deploy an exporter (an additional container in the Cassandra pod):</p>
 
@@ -495,11 +526,11 @@ cassandraExporter:
 cassandraPrometheusScrap:
   enableScrap: <span style="color:#66d9ef">false</span></code></pre></div>
 
-<p>If you&rsquo;re using <a href="https://github.com/coreos/prometheus-operator" target="_blank">Prometheus Operator</a>, you can enable automatic scraping here (mean that Prometheus server will automatically retrieve information from exporter).</p>
+<p>If you&rsquo;re using <a href="https://github.com/coreos/prometheus-operator">Prometheus Operator</a>, you can enable automatic scraping here (mean that Prometheus server will automatically retrieve information from exporter).</p>
 
 <h2 id="grafana">Grafana</h2>
 
-<p>A Cassandra dashboard compatible with Kubernetes is also available <a href="https://grafana.com/dashboards/6258" target="_blank">here</a>.</p>
+<p>A Cassandra dashboard compatible with Kubernetes is also available <a href="https://grafana.com/dashboards/6258">here</a>.</p>
 
 <p><img src="https://blog.deimos.fr/images/cassandra_grafana.png" alt="CassandraDashboard" /></p>
 
@@ -507,7 +538,7 @@ cassandraPrometheusScrap:
 
 <h2 id="alerting">Alerting</h2>
 
-<p>Once again, if you&rsquo;re using <a href="https://github.com/coreos/prometheus-operator" target="_blank">Prometheus Operator</a>, you can enable basic alerting rules with Alert Manager:</p>
+<p>Once again, if you&rsquo;re using <a href="https://github.com/coreos/prometheus-operator">Prometheus Operator</a>, you can enable basic alerting rules with Alert Manager:</p>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">cassandraAlertmanager:
   enableAlerts: <span style="color:#66d9ef">true</span>
@@ -570,7 +601,7 @@ cassandraPrometheusScrap:
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl exec -it cassandra-0 bash
 /usr/local/apache-cassandra/scripts/snapshot2s3.sh restore &lt;AWS_ACCESS_KEY_ID&gt; &lt;AWS_SECRET_ACCESS_KEY&gt; &lt;AWS_PASSPHRASE&gt; &lt;AWS_BUCKET&gt; &lt;RESTORE_TIME&gt;</code></pre></div>
 
-<p>RESTORE_TIME should be used as described in the <a href="http://duplicity.nongnu.org/duplicity.1.html#sect8" target="_blank">Duplicity manual Time Format section</a>.
+<p>RESTORE_TIME should be used as described in the <a href="http://duplicity.nongnu.org/duplicity.1.html#sect8">Duplicity manual Time Format section</a>.
 For example (3D to restore the the last 3 days backup)</p>
 
 <p>You can then use the script cassandra-restore.sh to restore a desired keyspace with all or one table:</p>
@@ -581,7 +612,7 @@ For example (3D to restore the the last 3 days backup)</p>
 
 <h2 id="repair-tables">Repair tables</h2>
 
-<p>Repairing tables may be painfull sometimes. Hopefully <a href="http://cassandra-reaper.io" target="_blank">Cassandra Reaper</a> helps to avoid managing it manually.</p>
+<p>Repairing tables may be painfull sometimes. Hopefully <a href="http://cassandra-reaper.io">Cassandra Reaper</a> helps to avoid managing it manually.</p>
 
 <p>You can deploy a server instance (require a Cassandra backend):</p>
 
@@ -632,7 +663,7 @@ For example (3D to restore the the last 3 days backup)</p>
 
 <h1 id="conclusion">Conclusion</h1>
 
-<p>This <a href="https://github.com/MySocialApp/kubernetes-helm-chart-cassandra/" target="_blank">Cassandra helm chart</a> is helping me day to day. It gives a lot of autonomy to my cluster, gives me the possibility to switch to fallback to a manual way to manage specific Cassandra cases, gives enough automation to avoid spending too many time on managing my Cassandra clusters. I&rsquo;m pretty well satisfied of this solution.</p>
+<p>This <a href="https://github.com/MySocialApp/kubernetes-helm-chart-cassandra/">Cassandra helm chart</a> is helping me day to day. It gives a lot of autonomy to my cluster, gives me the possibility to switch to fallback to a manual way to manage specific Cassandra cases, gives enough automation to avoid spending too many time on managing my Cassandra clusters. I&rsquo;m pretty well satisfied of this solution.</p>
 
 <p>Some of you may think an Operator would be preferable, that&rsquo;s true. However in nowdays, there is no stable enough Operator managing Cassandra. Writing one takes some time and I unfortunately do not get this time today (but be happy to participate if a serious initiative is driven) and getting one ready to handle every situations will require a ton of tests and time.</p>
 
@@ -663,8 +694,8 @@ For example (3D to restore the the last 3 days backup)</p>
                 
               
             
-            
-  <div class="post-actions-wrap">
+            <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -729,8 +760,8 @@ For example (3D to restore the the last 3 days backup)</p>
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
             
               
@@ -749,8 +780,8 @@ For example (3D to restore the the last 3 days backup)</p>
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        
-  <div class="post-actions-wrap">
+        <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -815,8 +846,8 @@ For example (3D to restore the the last 3 days backup)</p>
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
       </div>
       <div id="share-options-bar" class="share-options-bar" data-behavior="5">
@@ -852,7 +883,7 @@ For example (3D to restore the the last 3 days backup)</p>
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -860,7 +891,7 @@ For example (3D to restore the the last 3 days backup)</p>
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -1099,6 +1130,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -1109,6 +1142,32 @@ First of all, you may know that an alternative more user friendly to grep exist,
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
 
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
   
@@ -1136,6 +1195,7 @@ First of all, you may know that an alternative more user friendly to grep exist,
       </script>
     
   
+
 
 
 

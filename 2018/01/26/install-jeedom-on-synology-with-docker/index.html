@@ -1,69 +1,97 @@
-
-
-  
-    
-  
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="The Jeedom software is open source; you have complete access to the software that manages your home automation. Jeedom is compatible with various protocols, like Z-Wave, RFXCOM, RTS SOMFY, EnOcean, xPL, etc.
+Installing Jeedom on Synology with Docker it not a complex task. However for those who are not familiar with those technologies, I summarized here the installation process for a Z-wave network.
+First of all, let&rsquo;s look at the requirements:">
+
+
+<meta property="og:description" content="The Jeedom software is open source; you have complete access to the software that manages your home automation. Jeedom is compatible with various protocols, like Z-Wave, RFXCOM, RTS SOMFY, EnOcean, xPL, etc.
+Installing Jeedom on Synology with Docker it not a complex task. However for those who are not familiar with those technologies, I summarized here the installation process for a Z-wave network.
+First of all, let&rsquo;s look at the requirements:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Install Jeedom on Synology with Docker">
+<meta name="twitter:title" content="Install Jeedom on Synology with Docker">
+<meta property="og:url" content="https://blog.deimos.fr/2018/01/26/install-jeedom-on-synology-with-docker/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2018/01/26/install-jeedom-on-synology-with-docker/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="The Jeedom software is open source; you have complete access to the software that manages your home automation. Jeedom is compatible with various protocols, like Z-Wave, RFXCOM, RTS SOMFY, EnOcean, xPL, etc.
+Installing Jeedom on Synology with Docker it not a complex task. However for those who are not familiar with those technologies, I summarized here the installation process for a Z-wave network.
+First of all, let&rsquo;s look at the requirements:">
+<meta name="twitter:description" content="The Jeedom software is open source; you have complete access to the software that manages your home automation. Jeedom is compatible with various protocols, like Z-Wave, RFXCOM, RTS SOMFY, EnOcean, xPL, etc.
+Installing Jeedom on Synology with Docker it not a complex task. However for those who are not familiar with those technologies, I summarized here the installation process for a Z-wave network.
+First of all, let&rsquo;s look at the requirements:">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2018-01-26T18:00:00">
+  
+  
+    <meta property="article:modified_time" content="2018-01-26T18:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="Home automation">
+    
+      <meta property="article:section" content="Jeedom">
+    
+      <meta property="article:section" content="Synology">
+    
+      <meta property="article:section" content="Docker">
+    
+  
+  
+    
+      <meta property="article:tag" content="Home automation">
+    
+      <meta property="article:tag" content="Jeedom">
+    
+      <meta property="article:tag" content="Synology">
+    
+      <meta property="article:tag" content="Docker">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_jeedom.png">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_jeedom.png">
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Install Jeedom on Synology with Docker</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
 
     
-    <meta name="description" content="The Jeedom software is open source; you have complete access to the software that manages your home automation. Jeedom is compatible with various protocols, like Z-Wave, RFXCOM, RTS SOMFY, EnOcean, xPL, etc.
-Installing Jeedom on Synology with Docker it not a complex task. However for those who are not familiar with those technologies, I summarized here the installation process for a Z-wave network.
-First of all, let&rsquo;s look at the requirements:">
-    <meta property="og:description" content="The Jeedom software is open source; you have complete access to the software that manages your home automation. Jeedom is compatible with various protocols, like Z-Wave, RFXCOM, RTS SOMFY, EnOcean, xPL, etc.
-Installing Jeedom on Synology with Docker it not a complex task. However for those who are not familiar with those technologies, I summarized here the installation process for a Z-wave network.
-First of all, let&rsquo;s look at the requirements:">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Install Jeedom on Synology with Docker">
-    <meta property="og:url" content="/2018/01/26/install-jeedom-on-synology-with-docker/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="The Jeedom software is open source; you have complete access to the software that manages your home automation. Jeedom is compatible with various protocols, like Z-Wave, RFXCOM, RTS SOMFY, EnOcean, xPL, etc.
-Installing Jeedom on Synology with Docker it not a complex task. However for those who are not familiar with those technologies, I summarized here the installation process for a Z-wave network.
-First of all, let&rsquo;s look at the requirements:">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-      <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_jeedom.png">
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/2018/01/26/install-jeedom-on-synology-with-docker/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -71,11 +99,11 @@ First of all, let&rsquo;s look at the requirements:">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -110,7 +138,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -122,7 +150,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -265,15 +293,15 @@ ga('send', 'pageview');
             <div class="main-content-wrap">
               <p><img src="https://blog.deimos.fr/images/logo_jeedom.png" alt="Jeedom" /></p>
 
-<p>The <a href="https://www.jeedom.com/" target="_blank">Jeedom</a> software is open source; you have complete access to the software that manages your home automation.
+<p>The <a href="https://www.jeedom.com/">Jeedom</a> software is open source; you have complete access to the software that manages your home automation.
 Jeedom is compatible with various protocols, like Z-Wave, RFXCOM, RTS SOMFY, EnOcean, xPL, etc.</p>
 
-<p>Installing <a href="https://www.jeedom.com/" target="_blank">Jeedom</a> on <a href="https://www.synology.com" target="_blank">Synology</a> with <a href="https://www.docker.com/" target="_blank">Docker</a> it not a complex task. However for those who are not familiar with those technologies, I summarized here the installation process for a Z-wave network.</p>
+<p>Installing <a href="https://www.jeedom.com/">Jeedom</a> on <a href="https://www.synology.com">Synology</a> with <a href="https://www.docker.com/">Docker</a> it not a complex task. However for those who are not familiar with those technologies, I summarized here the installation process for a Z-wave network.</p>
 
 <p>First of all, let&rsquo;s look at the requirements:</p>
 
 <ul>
-<li>You need to have a <a href="https://www.google.fr/search?q=everspring+z-wave&amp;source=lnms&amp;tbm=shop" target="_blank">Z-wave+ USB key</a> plugged on the Synology</li>
+<li>You need to have a <a href="https://www.google.fr/search?q=everspring+z-wave&amp;source=lnms&amp;tbm=shop">Z-wave+ USB key</a> plugged on the Synology</li>
 <li>You need to have Docker installed</li>
 <li>You need to create folders on your &ldquo;Synology File Station&rdquo;:
 
@@ -285,7 +313,7 @@ Jeedom is compatible with various protocols, like Z-Wave, RFXCOM, RTS SOMFY, EnO
 
 <p><img src="https://blog.deimos.fr/images/jeedom_docker_folders.png" alt="Docker folders" /></p>
 
-<p>Once done, we are now going to deploy a dedicated database (<a href="https://mariadb.org/" target="_blank">MariaDB</a>) and Jeedom as Docker containers. For those who wonder why MariaDB instead of MySQL, it&rsquo;s because I&rsquo;ve more affinity with MariaDB but you can use MySQL if you prefer. Anyway I strongly recommend MariaDB :p (by the way here is the <a href="https://www.packtpub.com/application-development/mariadb-high-performance" target="_blank">book I&rsquo;ve wrote on MariaDB</a>).</p>
+<p>Once done, we are now going to deploy a dedicated database (<a href="https://mariadb.org/">MariaDB</a>) and Jeedom as Docker containers. For those who wonder why MariaDB instead of MySQL, it&rsquo;s because I&rsquo;ve more affinity with MariaDB but you can use MySQL if you prefer. Anyway I strongly recommend MariaDB :p (by the way here is the <a href="https://www.packtpub.com/application-development/mariadb-high-performance">book I&rsquo;ve wrote on MariaDB</a>).</p>
 
 <p>To deploy those containers, open Docker on your Synology then, click on &ldquo;Container&rdquo;, &ldquo;Parameters&rdquo; and finally &ldquo;Import&rdquo;. Then load those files (you need to upload them somewhere on your Synology first):</p>
 
@@ -294,7 +322,7 @@ Jeedom is compatible with various protocols, like Z-Wave, RFXCOM, RTS SOMFY, EnO
 <li><a href="https://blog.deimos.fr/archives/jeedom.syno.json">Jeedom container</a>: the web application (Jeedom) is available on port 9080</li>
 </ul>
 
-<p>First start MariaDB, wait 30 seconds to be sure it has successfuly started, then start jeedom. Now connect to <a href="http://your_NAS_ip:9080" target="_blank">http://your_NAS_ip:9080</a>, you&rsquo;ll be redirected to the setup page:</p>
+<p>First start MariaDB, wait 30 seconds to be sure it has successfuly started, then start jeedom. Now connect to <a href="http://your_NAS_ip:9080">http://your_NAS_ip:9080</a>, you&rsquo;ll be redirected to the setup page:</p>
 
 <p><img src="https://blog.deimos.fr/images/jeedom_db_setup.png" alt="Jeedom setup" /></p>
 
@@ -332,16 +360,16 @@ OK
 Install duration : 2s
 <span style="color:#f92672">[</span>END INSTALL SUCCESS<span style="color:#f92672">]</span></code></pre></div>
 
-<p>When ended, reconnect to <a href="http://your_NAS_ip:9080" target="_blank">http://your_NAS_ip:9080</a>. You can now login with &ldquo;admin&rdquo; as login and password. <strong>Do not forget to change the default password</strong> !</p>
+<p>When ended, reconnect to <a href="http://your_NAS_ip:9080">http://your_NAS_ip:9080</a>. You can now login with &ldquo;admin&rdquo; as login and password. <strong>Do not forget to change the default password</strong> !</p>
 
 <p>Install the offical Z-Wave module and configure it. You should see &ldquo;/dev/ttyACM0&rdquo; device. If it&rsquo;s not the case, reboot your Synology.</p>
 
 <p>Usefull links:</p>
 
 <ul>
-<li><a href="https://www.jeedom.com/forum/viewtopic.php?f=67&amp;t=24776" target="_blank">https://www.jeedom.com/forum/viewtopic.php?f=67&amp;t=24776</a></li>
-<li><a href="https://www.jeedom.com/forum/viewtopic.php?f=67&amp;t=16777" target="_blank">https://www.jeedom.com/forum/viewtopic.php?f=67&amp;t=16777</a></li>
-<li><a href="https://jeedom.github.io/documentation/installation/en_US/" target="_blank">https://jeedom.github.io/documentation/installation/en_US/</a></li>
+<li><a href="https://www.jeedom.com/forum/viewtopic.php?f=67&amp;t=24776">https://www.jeedom.com/forum/viewtopic.php?f=67&amp;t=24776</a></li>
+<li><a href="https://www.jeedom.com/forum/viewtopic.php?f=67&amp;t=16777">https://www.jeedom.com/forum/viewtopic.php?f=67&amp;t=16777</a></li>
+<li><a href="https://jeedom.github.io/documentation/installation/en_US/">https://jeedom.github.io/documentation/installation/en_US/</a></li>
 </ul>
 
               
@@ -367,8 +395,8 @@ Install duration : 2s
                 
               
             
-            
-  <div class="post-actions-wrap">
+            <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -433,8 +461,8 @@ Install duration : 2s
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
             
               
@@ -453,8 +481,8 @@ Install duration : 2s
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        
-  <div class="post-actions-wrap">
+        <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -519,8 +547,8 @@ Install duration : 2s
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
       </div>
       <div id="share-options-bar" class="share-options-bar" data-behavior="5">
@@ -556,7 +584,7 @@ Install duration : 2s
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -564,7 +592,7 @@ Install duration : 2s
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -803,6 +831,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -813,6 +843,32 @@ First of all, you may know that an alternative more user friendly to grep exist,
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
 
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
   
@@ -840,6 +896,7 @@ First of all, you may know that an alternative more user friendly to grep exist,
       </script>
     
   
+
 
 
 

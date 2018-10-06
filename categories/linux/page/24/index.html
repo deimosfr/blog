@@ -1,26 +1,49 @@
-
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Linux">
+<meta name="twitter:title" content="Linux">
+<meta property="og:url" content="https://blog.deimos.fr/categories/linux/">
+<meta property="twitter:url" content="https://blog.deimos.fr/categories/linux/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Linux</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
@@ -28,32 +51,8 @@
     
 
     
-    <meta name="description" content="Deimos Blog">
-    <meta property="og:description" content="Deimos Blog">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Linux">
-    <meta property="og:url" content="/categories/linux/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Deimos Blog">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/categories/linux/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -61,11 +60,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -100,7 +99,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -112,7 +111,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -265,8 +264,10 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Nginx Substitutions Filter is a filter module able to do both regular expression and fixed string substitutions on response bodies. This module is quite different from the Nginx&rsquo;s native Substitution Module. It scans the output chains buffer and matches string line by line, just like Apache&rsquo;s mod_substitute.
+      
+        Nginx Substitutions Filter is a filter module able to do both regular expression and fixed string substitutions on response bodies. This module is quite different from the Nginx&rsquo;s native Substitution Module. It scans the output chains buffer and matches string line by line, just like Apache&rsquo;s mod_substitute.
 I&rsquo;ve played with the classic substitution module but due to limitations (only one matching pattern and no regex), it wasn&rsquo;t easy to do all I wanted to do.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/05/14/nginx-substitutions-filter-change-of-the-fly-page-content/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -333,8 +334,10 @@ I&rsquo;ve played with the classic substitution module but due to limitations (o
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      It´s been a while that I was waiting for a tool that tells me if my Debian server is requesting a reboot or not. Of course GUI tools exists (like Ubuntu update-manager), but on a server machine, where there is no X server installed (thankfuly), this kind of CLI tools can be quickly interesting.
+      
+        It´s been a while that I was waiting for a tool that tells me if my Debian server is requesting a reboot or not. Of course GUI tools exists (like Ubuntu update-manager), but on a server machine, where there is no X server installed (thankfuly), this kind of CLI tools can be quickly interesting.
 That´s why I wrote a tool called deb_reboot that gives the reboot requierement information in parsing postinstall scripts of installed packages.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/05/12/deb_reboot-it-tells-you-if-you-need-to-reboot-your-debian-or-not/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -399,9 +402,11 @@ That´s why I wrote a tool called deb_reboot that gives the reboot requierement 
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      How could this happen ? I found a communication on that and it has simply been removed as there were no updates since a long time. Even if CVE were recently proposed, it&rsquo;s considered as not enough :
+      
+        How could this happen ? I found a communication on that and it has simply been removed as there were no updates since a long time. Even if CVE were recently proposed, it&rsquo;s considered as not enough :
 http://debian.2.n7.nabble.com/Status-of-haproxy-for-upcoming-wheezy-release-td2907665.html
 But guys ! Seriously, do you know how many people are using HAproxy ? It&rsquo;s a shame that it&rsquo;s not in the current stable version of Debian. Now let&rsquo;s check the availability on all Debian versions, it&rsquo;s currently only on oldstable and experimental versions :
+      
       <p>
         <a href="https://blog.deimos.fr/2013/05/10/haproxy-no-more-available-on-wheezy/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -472,8 +477,10 @@ But guys ! Seriously, do you know how many people are using HAproxy ? It&rsquo;s
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I was searching a way to minify my CSS. For those who don’t know what it is, it’s a method to win space for your CSS as it will remove all unneeded blank spaces and lines return. A lot of websites exists to minify your CSS, but if your website is not online and only running locally, you won’t be able to minimize it.
+      
+        I was searching a way to minify my CSS. For those who don’t know what it is, it’s a method to win space for your CSS as it will remove all unneeded blank spaces and lines return. A lot of websites exists to minify your CSS, but if your website is not online and only running locally, you won’t be able to minimize it.
 I found a little software written in Python, that makes it easy, called mincss (thanks to Peter Bengtsson for it).
+      
       <p>
         <a href="https://blog.deimos.fr/2013/05/08/mincss-easily-minify-you-css/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -532,9 +539,11 @@ I found a little software written in Python, that makes it easy, called mincss (
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I&rsquo;m so happy that Debian 7 is out :-) !
+      
+        I&rsquo;m so happy that Debian 7 is out :-) !
 I&rsquo;ve been running it since a few months on it (on my servers and as a desktop) and I congratulate Debian team for their work ! In the upcoming weeks I&rsquo;ll try to start getting involved in some Debian&rsquo;s packaging projects. My problem is : how many time do I have to give ?
 One of my first taks, will be to integrate MySecureShell in the officials Debian repositories.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/05/06/debian-wheezy-is-finaly-out/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -601,8 +610,10 @@ One of my first taks, will be to integrate MySecureShell in the officials Debian
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Voici une interface web plutôt bien fichue qui permet de vous gérer vos serveurs Bind. Son nom est NamedManager. Elle sait aussi bien gérer des trucs classique, que des choses un peu plus poussée (la gestion automatique des PTR, le renseignement automatique un subnet, le multi serveurs&hellip;) et en plus elle est élégante !
+      
+        Voici une interface web plutôt bien fichue qui permet de vous gérer vos serveurs Bind. Son nom est NamedManager. Elle sait aussi bien gérer des trucs classique, que des choses un peu plus poussée (la gestion automatique des PTR, le renseignement automatique un subnet, le multi serveurs&hellip;) et en plus elle est élégante !
 Je vous ai fait une doc pour sa mise en place qui n&rsquo;est pas aussi simple qu&rsquo;on pourrait l&rsquo;imaginer.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/04/26/namedmanager-une-interface-web-agreable-pour-administrer-bind/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -669,8 +680,10 @@ Je vous ai fait une doc pour sa mise en place qui n&rsquo;est pas aussi simple q
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Cela faisait un bail que j&rsquo;attendais un soft de ce type, à tel point que je pensais en développer un au cas ou je ne trouve pas mon bonheur. Et par hasard, je suis tombé sur Copy-Queue qui fait exactement ce que je veux. A savoir, en ligne de commande, je peux faire des cp et des mv avec une gestion de file d&rsquo;attente.
+      
+        Cela faisait un bail que j&rsquo;attendais un soft de ce type, à tel point que je pensais en développer un au cas ou je ne trouve pas mon bonheur. Et par hasard, je suis tombé sur Copy-Queue qui fait exactement ce que je veux. A savoir, en ligne de commande, je peux faire des cp et des mv avec une gestion de file d&rsquo;attente.
 J&rsquo;ai fais un petit article pour sa mise en place.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/04/22/copy-queue-un-gestionnaire-de-queue-pour-cp-et-mv/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -730,7 +743,7 @@ J&rsquo;ai fais un petit article pour sa mise en place.
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -738,7 +751,7 @@ J&rsquo;ai fais un petit article pour sa mise en place.
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -977,6 +990,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -986,6 +1001,33 @@ First of all, you may know that an alternative more user friendly to grep exist,
   
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
 

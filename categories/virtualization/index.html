@@ -1,26 +1,49 @@
-
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Virtualization">
+<meta name="twitter:title" content="Virtualization">
+<meta property="og:url" content="https://blog.deimos.fr/categories/virtualization/">
+<meta property="twitter:url" content="https://blog.deimos.fr/categories/virtualization/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Virtualization</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
@@ -28,32 +51,8 @@
     
 
     
-    <meta name="description" content="Deimos Blog">
-    <meta property="og:description" content="Deimos Blog">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Virtualization">
-    <meta property="og:url" content="/categories/virtualization/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Deimos Blog">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/categories/virtualization/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -61,11 +60,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -100,7 +99,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -112,7 +111,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -271,8 +270,10 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Packer is one of the tools I&rsquo;ve used in the past to build VirtualBox boxes. You can find what I&rsquo;ve done on my GitHub account.
+      
+        Packer is one of the tools I&rsquo;ve used in the past to build VirtualBox boxes. You can find what I&rsquo;ve done on my GitHub account.
 For Smash project, I wanted to make a packer configuration to manage Docker and VirtualBox. I also wanted to call Ansible to build specific images for each needs. The goal is to be able to build cloud image ready to start, without any special dependencies. This because I need different usages:
+      
       <p>
         <a href="https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -345,8 +346,10 @@ For Smash project, I wanted to make a packer configuration to manage Docker and 
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      In the last post, I talked about how to manage Docker and VirtualBox with Vagrant. This post follows the last one, with the integration of Ansible as a provisioner. Once again, I&rsquo;m using it for the Smash project.
+      
+        In the last post, I talked about how to manage Docker and VirtualBox with Vagrant. This post follows the last one, with the integration of Ansible as a provisioner. Once again, I&rsquo;m using it for the Smash project.
 With Ansible, I made several &ldquo;group_vars&rdquo; files containing custom and common information related to the used environment (dev, uat, staging&hellip;). This helps to setup different kind of environment easily. Vagrant will help to build images with Ansible deployed inside.
+      
       <p>
         <a href="https://blog.deimos.fr/2015/01/13/vagrant-provision-vms-and-containers-with-ansible/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -417,8 +420,10 @@ With Ansible, I made several &ldquo;group_vars&rdquo; files containing custom an
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      OpenStack Summit will take place in Paris in 2 days! I&rsquo;m excited to be able to participate. Big thanks to eNovance/RedHat for it!
+      
+        OpenStack Summit will take place in Paris in 2 days! I&rsquo;m excited to be able to participate. Big thanks to eNovance/RedHat for it!
 To know more about the event, please follow the link.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/11/01/openstack-summit-in-paris-on-monday/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -489,8 +494,10 @@ To know more about the event, please follow the link.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&hellip;Thanks Online.
+      
+        I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&hellip;Thanks Online.
 I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to migrate my VM from KVM. All my KVM VM are on Debian Wheezy so that was pretty easy.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -555,7 +562,9 @@ I&rsquo;m already using LXC on my home server and see the benefits for 8 months 
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      &gt; CoreOS is a new Linux distribution that has been rearchitected to provide features needed to run modern infrastructure stacks. The strategies and architectures that influence CoreOS allow companies like Google, Facebook and Twitter to run their services at scale with high resilience. We&rsquo;ve implemented them correctly so you don&rsquo;t have to endure the slow, learn-as-you-go infrastructure building process. &gt; &gt; CoreOS can run on your existing hardware or on most cloud providers.
+      
+        &gt; CoreOS is a new Linux distribution that has been rearchitected to provide features needed to run modern infrastructure stacks. The strategies and architectures that influence CoreOS allow companies like Google, Facebook and Twitter to run their services at scale with high resilience. We&rsquo;ve implemented them correctly so you don&rsquo;t have to endure the slow, learn-as-you-go infrastructure building process. &gt; &gt; CoreOS can run on your existing hardware or on most cloud providers.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/05/29/coreos-minimize-your-bare-metal-usage/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -626,8 +635,10 @@ I&rsquo;m already using LXC on my home server and see the benefits for 8 months 
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I&rsquo;ve heard of Docker a year ago, started to play with it for some months and really start using it a few days ago. At first, I thought it was more complex than expected and finally I saw how simple it is and how many time I&rsquo;ve lost because I didn&rsquo;t used it.
+      
+        I&rsquo;ve heard of Docker a year ago, started to play with it for some months and really start using it a few days ago. At first, I thought it was more complex than expected and finally I saw how simple it is and how many time I&rsquo;ve lost because I didn&rsquo;t used it.
 Docker is an open-source engine that automates the deployment of any application as a lightweight, portable, self-sufficient container that will run virtually anywhere.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/05/27/docker-10-min-to-play-with-basics/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -702,9 +713,11 @@ Docker is an open-source engine that automates the deployment of any application
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Vagrant and Ansible are out in version 1.6! They are both bringing new super features.
+      
+        Vagrant and Ansible are out in version 1.6! They are both bringing new super features.
 For Vagrant, each major versions are bringing incredible features, this time they are:
  Global Status and Control: Global Status shows you the status of all created Vagrant environments on your machine. Global Control lets you control any of these created environments from anywhere on your machine. You unfortunately need to have VM created under 1.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/05/07/vagrant-and-ansible-are-out-in-version-1-6/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -751,7 +764,7 @@ For Vagrant, each major versions are bringing incredible features, this time the
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -759,7 +772,7 @@ For Vagrant, each major versions are bringing incredible features, this time the
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -998,6 +1011,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -1007,6 +1022,33 @@ First of all, you may know that an alternative more user friendly to grep exist,
   
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
 

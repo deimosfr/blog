@@ -1,26 +1,49 @@
-
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Virtualization">
+<meta name="twitter:title" content="Virtualization">
+<meta property="og:url" content="https://blog.deimos.fr/tags/virtualization/">
+<meta property="twitter:url" content="https://blog.deimos.fr/tags/virtualization/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Virtualization</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
@@ -28,32 +51,8 @@
     
 
     
-    <meta name="description" content="Deimos Blog">
-    <meta property="og:description" content="Deimos Blog">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Virtualization">
-    <meta property="og:url" content="/tags/virtualization/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Deimos Blog">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/tags/virtualization/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -61,11 +60,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -100,7 +99,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -112,7 +111,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -265,9 +264,11 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I&rsquo;m currently playing with Ceph and wanted to generate multiple machines (6) on my laptop to perform several tests. I needed :
+      
+        I&rsquo;m currently playing with Ceph and wanted to generate multiple machines (6) on my laptop to perform several tests. I needed :
  1 public network 1 private network Debian wheezy OS Automatically install Ceph Add disk for specific machines (OSD)  It wasn&rsquo;t easy to make it work quickly as the documentation doesn&rsquo;t give a lot of examples. But what a powerful solution when it works !
 If you want to try multiple VM managment, please follow the link.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/12/14/vagrant-one-file-generate-several-machines/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -350,8 +351,10 @@ If you want to try multiple VM managment, please follow the link.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Vagrant is a fast solution build on top of VirtualBox. I already talked about it in a previous post.
+      
+        Vagrant is a fast solution build on top of VirtualBox. I already talked about it in a previous post.
 The thing is, you could do really more with Vagrant by adding Puppet manifests or Chef recipes in your Vagrant configuration file. For those who don&rsquo;t often use one of those 2 softwares, it quickly could transform into a nightmare when they want to deploy softwares in addition of the OS.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/08/06/puphpet-speed-up-your-vagrant-deployment/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -410,8 +413,10 @@ The thing is, you could do really more with Vagrant by adding Puppet manifests o
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      A few months ago, I wanted to install as fast as possible new VMs headless. In addition, I wanted to give the possibility for my ex colleagues to be able to easily create remote VMs on my desktop as most of them got slow machines. KVM did the job perfectly. I also needed to quickly deploy Debian, so I made a pressed file.
+      
+        A few months ago, I wanted to install as fast as possible new VMs headless. In addition, I wanted to give the possibility for my ex colleagues to be able to easily create remote VMs on my desktop as most of them got slow machines. KVM did the job perfectly. I also needed to quickly deploy Debian, so I made a pressed file.
 Here at eNovance, I can be selfish :-p as everybody got a fast machine (Thanks eNovance).
+      
       <p>
         <a href="https://blog.deimos.fr/2013/07/11/vagrant-i-finally-dropped-kvm-for-virtualbox/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -476,8 +481,10 @@ Here at eNovance, I can be selfish :-p as everybody got a fast machine (Thanks e
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Si vous voulez tester OpenStack sans vous fatiguer, il existe un projet baptisé DevStack. C&rsquo;est un simple script shell qui va vous construire une machine avec tous les composants nécessaire pour pouvoir tester et développer sur un environnement OpenStack.
+      
+        Si vous voulez tester OpenStack sans vous fatiguer, il existe un projet baptisé DevStack. C&rsquo;est un simple script shell qui va vous construire une machine avec tous les composants nécessaire pour pouvoir tester et développer sur un environnement OpenStack.
 Et ce qui est bien, c&rsquo;est de pouvoir faire du Qemu dans du KVM. Bon attention aux performances et aux bugs quand même, je vous rappelle que c&rsquo;est du test et que ça s&rsquo;appuie sur la version actuelle du repository.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/03/31/devstack-testez-facilement-et-rapidement-openstack/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -546,8 +553,10 @@ Et ce qui est bien, c&rsquo;est de pouvoir faire du Qemu dans du KVM. Bon attent
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Il y a quelques années, j&rsquo;avais déjà fait un upgrade de mon Mac Mini qui me sert aujourd&rsquo;hui de serveur.
+      
+        Il y a quelques années, j&rsquo;avais déjà fait un upgrade de mon Mac Mini qui me sert aujourd&rsquo;hui de serveur.
 Maintenant, je commence a avoir de nouveaux besoins, nécessitant de plus en plus de ressources. J&rsquo;avais déjà quelques problèmes d&rsquo;I/O, ce qui m&rsquo;a pousser à prendre un SSD et un besoin de plus des 4 Gb de mémoire installés. En parcourant la documentation de mon Mac mini, la taille maximale annoncée est de 4Gb.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/03/29/upgrader-la-ram-de-vos-mac-plus-que-possible/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -616,8 +625,10 @@ Maintenant, je commence a avoir de nouveaux besoins, nécessitant de plus en plu
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Pour faire suite à mon article précédent sur KVM en desktop, j&rsquo;avais cherché comment suspendre les guests lorsque j’éteins ma machine, au lieu qu&rsquo;ils soient arrêtés.
+      
+        Pour faire suite à mon article précédent sur KVM en desktop, j&rsquo;avais cherché comment suspendre les guests lorsque j’éteins ma machine, au lieu qu&rsquo;ils soient arrêtés.
 J&rsquo;ai donc fais un petit article dessus :-)
+      
       <p>
         <a href="https://blog.deimos.fr/2013/03/21/kvm-suspendre-ses-guests-a-larret-du-host/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -684,8 +695,10 @@ J&rsquo;ai donc fais un petit article dessus :-)
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      KVM, quel merveilleux hyperviseur ! Je l&rsquo;utilise depuis plusieurs années sur mes serveurs et je commence a l&rsquo;utiliser sur ma workstation pour plusieurs raisons. Je vais comparer KVM a l&rsquo;outil de virtualisation gratuit, a la mode : VirtualBox. Voici les raisons qui me poussent a passer a KVM :
+      
+        KVM, quel merveilleux hyperviseur ! Je l&rsquo;utilise depuis plusieurs années sur mes serveurs et je commence a l&rsquo;utiliser sur ma workstation pour plusieurs raisons. Je vais comparer KVM a l&rsquo;outil de virtualisation gratuit, a la mode : VirtualBox. Voici les raisons qui me poussent a passer a KVM :
  La licence : VirtualBox c&rsquo;est bien, mais si je peux éviter toute dépendance avec Oracle, c&rsquo;est mieux ! Je n&rsquo;ai pas envie de connaître a fond une techno propriétaire qui peut d&rsquo;un jour a l&rsquo;autre basculer de gratuite à payante (faut pas oublier que c&rsquo;est Oracle hein !
+      
       <p>
         <a href="https://blog.deimos.fr/2013/03/19/remplacer-virtualbox-par-kvm-sur-son-desktop/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -745,7 +758,7 @@ J&rsquo;ai donc fais un petit article dessus :-)
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -753,7 +766,7 @@ J&rsquo;ai donc fais un petit article dessus :-)
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -992,6 +1005,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -1001,6 +1016,33 @@ First of all, you may know that an alternative more user friendly to grep exist,
   
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
 

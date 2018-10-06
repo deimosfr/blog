@@ -1,64 +1,90 @@
-
-
-  
-    
-  
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="First of all I will only talk about open sources solutions. I don&rsquo;t want to take part of any commercial one. In addition, I will focus on only 4 solutions which seem to me the most used at this time. I will also talk about my history, my level on each one and why I recommend or not that solution.
+Puppet is in my opinion the most known solution. Because of the marketing they were/are doing, because it was a good alternative compared to the old cfengine.">
+
+
+<meta property="og:description" content="First of all I will only talk about open sources solutions. I don&rsquo;t want to take part of any commercial one. In addition, I will focus on only 4 solutions which seem to me the most used at this time. I will also talk about my history, my level on each one and why I recommend or not that solution.
+Puppet is in my opinion the most known solution. Because of the marketing they were/are doing, because it was a good alternative compared to the old cfengine.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Which configuration management tool should you use?">
+<meta name="twitter:title" content="Which configuration management tool should you use?">
+<meta property="og:url" content="https://blog.deimos.fr/2014/11/17/which-configuration-management-tool-should-you-use/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2014/11/17/which-configuration-management-tool-should-you-use/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="First of all I will only talk about open sources solutions. I don&rsquo;t want to take part of any commercial one. In addition, I will focus on only 4 solutions which seem to me the most used at this time. I will also talk about my history, my level on each one and why I recommend or not that solution.
+Puppet is in my opinion the most known solution. Because of the marketing they were/are doing, because it was a good alternative compared to the old cfengine.">
+<meta name="twitter:description" content="First of all I will only talk about open sources solutions. I don&rsquo;t want to take part of any commercial one. In addition, I will focus on only 4 solutions which seem to me the most used at this time. I will also talk about my history, my level on each one and why I recommend or not that solution.
+Puppet is in my opinion the most known solution. Because of the marketing they were/are doing, because it was a good alternative compared to the old cfengine.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2014-11-17T11:00:20">
+  
+  
+    <meta property="article:modified_time" content="2014-11-17T11:00:20">
+  
+  
+  
+    
+      <meta property="article:section" content="Ansible">
+    
+      <meta property="article:section" content="Hi-Tech">
+    
+      <meta property="article:section" content="Linux">
+    
+      <meta property="article:section" content="Puppet">
+    
+  
+  
+    
+      <meta property="article:tag" content="Ansible">
+    
+      <meta property="article:tag" content="Hi-Tech">
+    
+      <meta property="article:tag" content="Linux">
+    
+      <meta property="article:tag" content="Puppet">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Which configuration management tool should you use?</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
 
     
-    <meta name="description" content="First of all I will only talk about open sources solutions. I don&rsquo;t want to take part of any commercial one. In addition, I will focus on only 4 solutions which seem to me the most used at this time. I will also talk about my history, my level on each one and why I recommend or not that solution.
-Puppet is in my opinion the most known solution. Because of the marketing they were/are doing, because it was a good alternative compared to the old cfengine.">
-    <meta property="og:description" content="First of all I will only talk about open sources solutions. I don&rsquo;t want to take part of any commercial one. In addition, I will focus on only 4 solutions which seem to me the most used at this time. I will also talk about my history, my level on each one and why I recommend or not that solution.
-Puppet is in my opinion the most known solution. Because of the marketing they were/are doing, because it was a good alternative compared to the old cfengine.">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Which configuration management tool should you use?">
-    <meta property="og:url" content="/2014/11/17/which-configuration-management-tool-should-you-use/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="First of all I will only talk about open sources solutions. I don&rsquo;t want to take part of any commercial one. In addition, I will focus on only 4 solutions which seem to me the most used at this time. I will also talk about my history, my level on each one and why I recommend or not that solution.
-Puppet is in my opinion the most known solution. Because of the marketing they were/are doing, because it was a good alternative compared to the old cfengine.">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/2014/11/17/which-configuration-management-tool-should-you-use/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -66,11 +92,11 @@ Puppet is in my opinion the most known solution. Because of the marketing they w
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -105,7 +131,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -117,7 +143,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -262,7 +288,7 @@ ga('send', 'pageview');
 
 <p><img src="https://wiki.deimos.fr/images/e/ef/Puppet-short.png" alt="Puppet-short" /></p>
 
-<p>Puppet is in my opinion the most known solution. Because of the marketing they were/are doing, because it was a good alternative compared to the old cfengine. I&rsquo;m now using Puppet for about 6 years. I felt in love with that solution when I first used it to configure Solaris servers I had to manage. That simplified my life a lot at this time. Things done were simple, <strong>the DSL was light</strong>, but gave me a solution to avoid forgetting to configure things on a fresh server installation. Puppet needs a lot of time to be familiar with the DSL but once done, you&rsquo;ll win time. I had to rewrite from scratch a Puppet master when I switched to RedHat to make better manifests. I enjoyed doing it and you can find a big part of that job on my <a href="https://wiki.deimos.fr/Puppet_:_Solution_de_gestion_de_fichier_de_configuration" target="_blank">wiki</a>. However there is no Hiera because it wasn&rsquo;t out at this time. I waste time as well because stdlib didn&rsquo;t exist and I had to write my own lib :-/.</p>
+<p>Puppet is in my opinion the most known solution. Because of the marketing they were/are doing, because it was a good alternative compared to the old cfengine. I&rsquo;m now using Puppet for about 6 years. I felt in love with that solution when I first used it to configure Solaris servers I had to manage. That simplified my life a lot at this time. Things done were simple, <strong>the DSL was light</strong>, but gave me a solution to avoid forgetting to configure things on a fresh server installation. Puppet needs a lot of time to be familiar with the DSL but once done, you&rsquo;ll win time. I had to rewrite from scratch a Puppet master when I switched to RedHat to make better manifests. I enjoyed doing it and you can find a big part of that job on my <a href="https://wiki.deimos.fr/Puppet_:_Solution_de_gestion_de_fichier_de_configuration">wiki</a>. However there is no Hiera because it wasn&rsquo;t out at this time. I waste time as well because stdlib didn&rsquo;t exist and I had to write my own lib :-/.</p>
 
 <p>I really like Puppet but there are several bad points in my opinion:</p>
 
@@ -313,7 +339,7 @@ ga('send', 'pageview');
 <li>Lot of modules by default</li>
 </ul>
 
-<p>Ansible is very easy to use, you&rsquo;ll learn it in a very short time, you can do complicated things without having to write a lot of lines. Ansible is very flexible and I really like that solution. I&rsquo;m using it for about 6 months now, <a href="https://github.com/search?q=user%3Adeimosfr+ansible" target="_blank">wrote several Playbook</a> (for ElasticSearch/Kibana/Fluentd, Naemon&hellip;) and if I have the choice between all those 4 solutions, I use Ansible without any hesitations! I&rsquo;ve recently been to OpenStack summit and a lot of people were talking about using it to deploy OpenStack which sounds the best option. Ansible and SaltStack are the outsiders! Ansible is the youngest solution but the most promising in my humble opinion.</p>
+<p>Ansible is very easy to use, you&rsquo;ll learn it in a very short time, you can do complicated things without having to write a lot of lines. Ansible is very flexible and I really like that solution. I&rsquo;m using it for about 6 months now, <a href="https://github.com/search?q=user%3Adeimosfr+ansible">wrote several Playbook</a> (for ElasticSearch/Kibana/Fluentd, Naemon&hellip;) and if I have the choice between all those 4 solutions, I use Ansible without any hesitations! I&rsquo;ve recently been to OpenStack summit and a lot of people were talking about using it to deploy OpenStack which sounds the best option. Ansible and SaltStack are the outsiders! Ansible is the youngest solution but the most promising in my humble opinion.</p>
 
 <p>My conclusion is, there is no good or bad solution. They all have their pros and cons. Some are old and stable while others outsiders are young, easier and more flexible. You&rsquo;ve understood that I prefer Ansible for several reasons and I really think this will be a major actor in the next years.</p>
 
@@ -342,8 +368,8 @@ ga('send', 'pageview');
                 
               
             
-            
-  <div class="post-actions-wrap">
+            <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -408,8 +434,8 @@ ga('send', 'pageview');
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
             
               
@@ -428,8 +454,8 @@ ga('send', 'pageview');
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        
-  <div class="post-actions-wrap">
+        <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -494,8 +520,8 @@ ga('send', 'pageview');
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
       </div>
       <div id="share-options-bar" class="share-options-bar" data-behavior="5">
@@ -531,7 +557,7 @@ ga('send', 'pageview');
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -539,7 +565,7 @@ ga('send', 'pageview');
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -778,6 +804,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -788,6 +816,32 @@ First of all, you may know that an alternative more user friendly to grep exist,
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
 
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
   
@@ -815,6 +869,7 @@ First of all, you may know that an alternative more user friendly to grep exist,
       </script>
     
   
+
 
 
 

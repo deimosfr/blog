@@ -1,26 +1,49 @@
-
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sql">
+<meta name="twitter:title" content="Sql">
+<meta property="og:url" content="https://blog.deimos.fr/tags/sql/">
+<meta property="twitter:url" content="https://blog.deimos.fr/tags/sql/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Sql</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
@@ -28,32 +51,8 @@
     
 
     
-    <meta name="description" content="Deimos Blog">
-    <meta property="og:description" content="Deimos Blog">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Sql">
-    <meta property="og:url" content="/tags/sql/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Deimos Blog">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/tags/sql/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -61,11 +60,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -100,7 +99,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -112,7 +111,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -263,8 +262,10 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Pour ceux qui ont l&rsquo;habitude de faire de la réplication MySQL Master to Master, vous allez kiffer cet article ! Vous connaissez MariaDB ? Je vous en avait déjà parlé il y a quelques temps. Allez&hellip;un petit refresh pour ceux qui ont oubliés : c&rsquo;est un fork de MySQL, fait par l&rsquo;auteur de MySQL.
+      
+        Pour ceux qui ont l&rsquo;habitude de faire de la réplication MySQL Master to Master, vous allez kiffer cet article ! Vous connaissez MariaDB ? Je vous en avait déjà parlé il y a quelques temps. Allez&hellip;un petit refresh pour ceux qui ont oubliés : c&rsquo;est un fork de MySQL, fait par l&rsquo;auteur de MySQL.
 MariaDB prends aujourd&rsquo;hui de plus en plus d’essor et nous propose depuis un petit moment maintenant sa solution cluster à base de Galera (qui fonctionne aussi sous MySQL).
+      
       <p>
         <a href="https://blog.deimos.fr/2013/05/02/mariadb-galera-cluster-la-replication-multi-maitres/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -327,8 +328,10 @@ MariaDB prends aujourd&rsquo;hui de plus en plus d’essor et nous propose depui
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Et voilà, c&rsquo;est une très bonne nouvelle qui vient de tomber ! SkySQL rachète MariaDB. Les boites frileuses de passer sous MariaDB, sous prétexte qu&rsquo;il n&rsquo;y a pas de boites derrière, vont pouvoir être rassurer et y aller pour de la production. C&rsquo;est donc une excellente nouvelle pour MariaDB dont certains moteurs passent en OpenSource comme tokudb par exemple.
+      
+        Et voilà, c&rsquo;est une très bonne nouvelle qui vient de tomber ! SkySQL rachète MariaDB. Les boites frileuses de passer sous MariaDB, sous prétexte qu&rsquo;il n&rsquo;y a pas de boites derrière, vont pouvoir être rassurer et y aller pour de la production. C&rsquo;est donc une excellente nouvelle pour MariaDB dont certains moteurs passent en OpenSource comme tokudb par exemple.
 Je pense qu&rsquo;à terme, un bon paquet de distributions, tel que Mageia (cc Kharec), vont switcher sur MariaDB et abandonner définitivement MySQL.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/04/24/au-revoir-mysqloracle-bonjour-mariadbskysql/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -413,8 +416,10 @@ Je pense qu&rsquo;à terme, un bon paquet de distributions, tel que Mageia (cc K
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Avant d&rsquo;attaquer le 2 ème jour, je vais finir sur le premier (la suite d&rsquo;hier).
+      
+        Avant d&rsquo;attaquer le 2 ème jour, je vais finir sur le premier (la suite d&rsquo;hier).
 Un des supers sujet était Bind 10 que j&rsquo;attendais avec impatience. Il n&rsquo;y a malheureusement eu d&rsquo;informations sur les nouveautés aidant a la HA. Cependant il a été totalement réécrit pour supporter + de 100 cores alors qu&rsquo;aujourd&rsquo;hui au delà de 6, il y a des problèmes de performances. On a également (et étrangement) un serveur DHCP qui est intégré a Bind.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -479,8 +484,10 @@ Un des supers sujet était Bind 10 que j&rsquo;attendais avec impatience. Il n&r
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Si vous ne savez pas quoi utiliser pour faire des sondages professionels, voici Limesurvey. Il est possible de faire des formulaires assez complexe de façon élégantes et assez simple une fois le logiciel prit en main.
+      
+        Si vous ne savez pas quoi utiliser pour faire des sondages professionels, voici Limesurvey. Il est possible de faire des formulaires assez complexe de façon élégantes et assez simple une fois le logiciel prit en main.
 Je vous ai concocté une petite documentation sur sa mise en place, mais pas pour son utilisation. Je pense que l&rsquo;utilisation vous n&rsquo;avez pas besoin de moi :-)
+      
       <p>
         <a href="https://blog.deimos.fr/2012/12/01/creer-des-sondages-limesurvey/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -543,8 +550,10 @@ Je vous ai concocté une petite documentation sur sa mise en place, mais pas pou
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      J&rsquo;ai récemment eu besoin de faire des comparaisons de schéma SQL et pouvoir me connecter à des bases de données de type PostgreSQL. Il existe ce merveilleux outil qu&rsquo;un ancien collègue (Merci François S.) m&rsquo;avait parlé qui s&rsquo;appelle SquirrelSQL. Vous connaissez peut être d’ailleurs Squirrelmail :-)
+      
+        J&rsquo;ai récemment eu besoin de faire des comparaisons de schéma SQL et pouvoir me connecter à des bases de données de type PostgreSQL. Il existe ce merveilleux outil qu&rsquo;un ancien collègue (Merci François S.) m&rsquo;avait parlé qui s&rsquo;appelle SquirrelSQL. Vous connaissez peut être d’ailleurs Squirrelmail :-)
 Il permet de se connecter à plusieurs type de bases de données (MySQL, DB2, Oracle&hellip;) et est multi plateformes !!! Il n&rsquo;est certes pas très beau, mais très fonctionnel !
+      
       <p>
         <a href="https://blog.deimos.fr/2012/11/07/squirrel-sql-le-couteau-suisse-des-dbs/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -611,8 +620,10 @@ Il permet de se connecter à plusieurs type de bases de données (MySQL, DB2, Or
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Cela fait fort longtemps que je connais ce soft, je n&rsquo;en avais encore jamais mis en place. C&rsquo;est ultra puissant (voir trop, tellement c&rsquo;est complexe), alors je vous ai concocté une petite documentation pour sa mise en place avec un backend PostgreSQL.
+      
+        Cela fait fort longtemps que je connais ce soft, je n&rsquo;en avais encore jamais mis en place. C&rsquo;est ultra puissant (voir trop, tellement c&rsquo;est complexe), alors je vous ai concocté une petite documentation pour sa mise en place avec un backend PostgreSQL.
 Et hop, direction le wiki pour OTRS.
+      
       <p>
         <a href="https://blog.deimos.fr/2012/11/01/otrs-bel-outil-de-ticketing/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -677,8 +688,10 @@ Et hop, direction le wiki pour OTRS.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Je travaille actuellement sur un projet dont la base de données est PostgreSQL. Ca faisait des années que je n&rsquo;avais pas bossé sur ce type d&rsquo;instances. J&rsquo;en ai donc profiter pour mettre à jour mon article qui avait prit un bon coup de vieux.
+      
+        Je travaille actuellement sur un projet dont la base de données est PostgreSQL. Ca faisait des années que je n&rsquo;avais pas bossé sur ce type d&rsquo;instances. J&rsquo;en ai donc profiter pour mettre à jour mon article qui avait prit un bon coup de vieux.
 Vous pouvez consulter mon article sur l&rsquo;administration d&rsquo;une base de données PostgreSQL ici.
+      
       <p>
         <a href="https://blog.deimos.fr/2012/10/30/postgresql/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -738,7 +751,7 @@ Vous pouvez consulter mon article sur l&rsquo;administration d&rsquo;une base de
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -746,7 +759,7 @@ Vous pouvez consulter mon article sur l&rsquo;administration d&rsquo;une base de
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -985,6 +998,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -994,6 +1009,33 @@ First of all, you may know that an alternative more user friendly to grep exist,
   
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
 

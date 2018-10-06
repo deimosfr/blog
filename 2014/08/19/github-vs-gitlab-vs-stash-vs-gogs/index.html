@@ -1,66 +1,89 @@
-
-
-  
-    
-  
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="I was using Gitweb for about 3 years now and wanted to have a more enhanced web version. I started to look at 3 solutions for my own needs. So my comparison is for my own usage with 2 or 3 friends at max and not for enterprise:
+ GitHub: can make free public and paid private repositories. Sounds very good, the most powerful solution of the market in my opinion.">
+
+
+<meta property="og:description" content="I was using Gitweb for about 3 years now and wanted to have a more enhanced web version. I started to look at 3 solutions for my own needs. So my comparison is for my own usage with 2 or 3 friends at max and not for enterprise:
+ GitHub: can make free public and paid private repositories. Sounds very good, the most powerful solution of the market in my opinion.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub vs GitLab vs Stash vs Gogs">
+<meta name="twitter:title" content="GitHub vs GitLab vs Stash vs Gogs">
+<meta property="og:url" content="https://blog.deimos.fr/2014/08/19/github-vs-gitlab-vs-stash-vs-gogs/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2014/08/19/github-vs-gitlab-vs-stash-vs-gogs/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="I was using Gitweb for about 3 years now and wanted to have a more enhanced web version. I started to look at 3 solutions for my own needs. So my comparison is for my own usage with 2 or 3 friends at max and not for enterprise:
+ GitHub: can make free public and paid private repositories. Sounds very good, the most powerful solution of the market in my opinion.">
+<meta name="twitter:description" content="I was using Gitweb for about 3 years now and wanted to have a more enhanced web version. I started to look at 3 solutions for my own needs. So my comparison is for my own usage with 2 or 3 friends at max and not for enterprise:
+ GitHub: can make free public and paid private repositories. Sounds very good, the most powerful solution of the market in my opinion.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2014-08-19T10:00:08">
+  
+  
+    <meta property="article:modified_time" content="2014-08-19T10:00:08">
+  
+  
+  
+    
+      <meta property="article:section" content="Hi-Tech">
+    
+      <meta property="article:section" content="Linux">
+    
+      <meta property="article:section" content="Web">
+    
+  
+  
+    
+      <meta property="article:tag" content="Hi-Tech">
+    
+      <meta property="article:tag" content="Linux">
+    
+      <meta property="article:tag" content="Web">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_github.png">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_github.png">
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>GitHub vs GitLab vs Stash vs Gogs</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
 
     
-    <meta name="description" content="I was using Gitweb for about 3 years now and wanted to have a more enhanced web version. I started to look at 3 solutions for my own needs. So my comparison is for my own usage with 2 or 3 friends at max and not for enterprise:
- GitHub: can make free public and paid private repositories. Sounds very good, the most powerful solution of the market in my opinion.">
-    <meta property="og:description" content="I was using Gitweb for about 3 years now and wanted to have a more enhanced web version. I started to look at 3 solutions for my own needs. So my comparison is for my own usage with 2 or 3 friends at max and not for enterprise:
- GitHub: can make free public and paid private repositories. Sounds very good, the most powerful solution of the market in my opinion.">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="GitHub vs GitLab vs Stash vs Gogs">
-    <meta property="og:url" content="/2014/08/19/github-vs-gitlab-vs-stash-vs-gogs/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="I was using Gitweb for about 3 years now and wanted to have a more enhanced web version. I started to look at 3 solutions for my own needs. So my comparison is for my own usage with 2 or 3 friends at max and not for enterprise:
- GitHub: can make free public and paid private repositories. Sounds very good, the most powerful solution of the market in my opinion.">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-      <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_github.png">
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/2014/08/19/github-vs-gitlab-vs-stash-vs-gogs/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -68,11 +91,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -107,7 +130,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -119,7 +142,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -262,10 +285,10 @@ ga('send', 'pageview');
 I was using Gitweb for about 3 years now and wanted to have a more enhanced web version. I started to look at 3 solutions for my own needs. So my comparison is for my own usage with 2 or 3 friends at max and not for enterprise:</p>
 
 <ul>
-<li><strong><a href="https://github.com/" target="_blank">GitHub</a></strong>: can make free public and paid private repositories. Sounds very good, the most powerful solution of the market in my opinion. However, the cost for private repository is too high in my opinion for personal usages.</li>
-<li><strong><a href="https://about.gitlab.com/" target="_blank">GitLab</a></strong>: This solution is a very good alternative to GitHub. But all ruby stuff and dependencies is a real nightmare. That&rsquo;s why GitLab have repositories! But what do they exactly do? Installing a lot of things and calling Chef recipes! Seriously, this is not acceptable. More than that, you need to use PostgreSQL or need to pay to have it working (with packaged version) with MySQL/MariaDB. Too much bad things here, I unfortunately drop the idea.</li>
-<li><strong><a href="https://www.atlassian.com/fr/software/stash" target="_blank">Stash</a></strong>: Looks like a good alternative, not free but not too many expensive. I tried it, but using a JVM just for my needs or with some friends consumes too much hardware resources in my opinion. So I drop the idea too.</li>
-<li><a href="https://github.com/gogits/gogs" target="_blank"><strong>Gogs</strong></a>: Gogs is a solution written in Go, not consuming a lot of resources, easy to upgrade, free but a little bit young. There are several bugs, but it does the job quite well and the developer quickly answer then correct bugs are found. The project is really active and ambitious, it has to be more known and used.</li>
+<li><strong><a href="https://github.com/">GitHub</a></strong>: can make free public and paid private repositories. Sounds very good, the most powerful solution of the market in my opinion. However, the cost for private repository is too high in my opinion for personal usages.</li>
+<li><strong><a href="https://about.gitlab.com/">GitLab</a></strong>: This solution is a very good alternative to GitHub. But all ruby stuff and dependencies is a real nightmare. That&rsquo;s why GitLab have repositories! But what do they exactly do? Installing a lot of things and calling Chef recipes! Seriously, this is not acceptable. More than that, you need to use PostgreSQL or need to pay to have it working (with packaged version) with MySQL/MariaDB. Too much bad things here, I unfortunately drop the idea.</li>
+<li><strong><a href="https://www.atlassian.com/fr/software/stash">Stash</a></strong>: Looks like a good alternative, not free but not too many expensive. I tried it, but using a JVM just for my needs or with some friends consumes too much hardware resources in my opinion. So I drop the idea too.</li>
+<li><a href="https://github.com/gogits/gogs"><strong>Gogs</strong></a>: Gogs is a solution written in Go, not consuming a lot of resources, easy to upgrade, free but a little bit young. There are several bugs, but it does the job quite well and the developer quickly answer then correct bugs are found. The project is really active and ambitious, it has to be more known and used.</li>
 </ul>
 
 <p>So if I resume, GitHub is perfect for public repositories and Gogs do the job for private repositories. My choice is made, I&rsquo;m now using both to get the better of the both worlds :-)</p>
@@ -291,8 +314,8 @@ I was using Gitweb for about 3 years now and wanted to have a more enhanced web 
                 
               
             
-            
-  <div class="post-actions-wrap">
+            <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -357,8 +380,8 @@ I was using Gitweb for about 3 years now and wanted to have a more enhanced web 
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
             
               
@@ -377,8 +400,8 @@ I was using Gitweb for about 3 years now and wanted to have a more enhanced web 
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        
-  <div class="post-actions-wrap">
+        <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -443,8 +466,8 @@ I was using Gitweb for about 3 years now and wanted to have a more enhanced web 
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
       </div>
       <div id="share-options-bar" class="share-options-bar" data-behavior="5">
@@ -480,7 +503,7 @@ I was using Gitweb for about 3 years now and wanted to have a more enhanced web 
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -488,7 +511,7 @@ I was using Gitweb for about 3 years now and wanted to have a more enhanced web 
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -727,6 +750,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -737,6 +762,32 @@ First of all, you may know that an alternative more user friendly to grep exist,
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
 
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
   
@@ -764,6 +815,7 @@ First of all, you may know that an alternative more user friendly to grep exist,
       </script>
     
   
+
 
 
 

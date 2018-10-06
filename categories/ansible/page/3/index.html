@@ -1,26 +1,49 @@
-
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ansible">
+<meta name="twitter:title" content="Ansible">
+<meta property="og:url" content="https://blog.deimos.fr/categories/ansible/">
+<meta property="twitter:url" content="https://blog.deimos.fr/categories/ansible/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Ansible</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
@@ -28,32 +51,8 @@
     
 
     
-    <meta name="description" content="Deimos Blog">
-    <meta property="og:description" content="Deimos Blog">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Ansible">
-    <meta property="og:url" content="/categories/ansible/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Deimos Blog">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/categories/ansible/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -61,11 +60,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -100,7 +99,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -112,7 +111,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -267,9 +266,11 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Following the deployment blog post I made on ES/Kibana/Fluentd, I released new version of Fluentd and Kibana playbooks to support the latests versions of themselves and ElasticSearch.
+      
+        Following the deployment blog post I made on ES/Kibana/Fluentd, I released new version of Fluentd and Kibana playbooks to support the latests versions of themselves and ElasticSearch.
 ElasticSearch 1.4 version is ,out which doesn&rsquo;t changed anything for the deployment. However Kibana requires to enable an ElasticSearch configuration option now, to work properly. I updated the Kibana playbook for it.
 On its side, Fluentd has the major release 2.0 out and I updated Ansible playbook for the best integration with Debian Wheezy.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/12/09/ansible-fluentd-and-kibana-playbooks-updated/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -340,8 +341,10 @@ On its side, Fluentd has the major release 2.0 out and I updated Ansible playboo
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      First of all I will only talk about open sources solutions. I don&rsquo;t want to take part of any commercial one. In addition, I will focus on only 4 solutions which seem to me the most used at this time. I will also talk about my history, my level on each one and why I recommend or not that solution.
+      
+        First of all I will only talk about open sources solutions. I don&rsquo;t want to take part of any commercial one. In addition, I will focus on only 4 solutions which seem to me the most used at this time. I will also talk about my history, my level on each one and why I recommend or not that solution.
 Puppet is in my opinion the most known solution. Because of the marketing they were/are doing, because it was a good alternative compared to the old cfengine.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/11/17/which-configuration-management-tool-should-you-use/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -404,9 +407,11 @@ Puppet is in my opinion the most known solution. Because of the marketing they w
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      During the last weeks I started to play with Elasticsearch, Fluentd and Kibana. I made a documentation to help on deploying it easily.
+      
+        During the last weeks I started to play with Elasticsearch, Fluentd and Kibana. I made a documentation to help on deploying it easily.
 As you may know, I&rsquo;m an Ansible fan, so I made Ansible playbooks to deploy a complete infrastructure (server and clients). They will deploy this kind of architecture:
 On the client side, Fluentd clients will get syslog and Nginx logs, to send them to the Fluentd server. On the server side, a Fluentd receiver will be there to get data from other Fluentd clients.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/08/15/deploy-a-logs-managememt-infrastructure-elasticsearchkibanfluentd-with-ansible/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -475,8 +480,10 @@ On the client side, Fluentd clients will get syslog and Nginx logs, to send them
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      In the previous posts, I&rsquo;ve introduced my Ansible playbooks for kibana and Elasticsearch.
+      
+        In the previous posts, I&rsquo;ve introduced my Ansible playbooks for kibana and Elasticsearch.
 You may now be happy to know that I&rsquo;ve made an Ansible playbook for Fluentd as well. If you still don&rsquo;t see what those tree ansible playbook can do when they are combined together, you&rsquo;ll see in the next post :-)
+      
       <p>
         <a href="https://blog.deimos.fr/2014/08/13/fluentd-ansible-playbook/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -545,9 +552,11 @@ You may now be happy to know that I&rsquo;ve made an Ansible playbook for Fluent
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      In my last post you&rsquo;ve seen the Ansible playbook I&rsquo;ve made for ElasticSearch. I&rsquo;ve made a new one, but for Kibana which is able to easily manage version upgrade and of course is easy to install and use.
+      
+        In my last post you&rsquo;ve seen the Ansible playbook I&rsquo;ve made for ElasticSearch. I&rsquo;ve made a new one, but for Kibana which is able to easily manage version upgrade and of course is easy to install and use.
 You can find my Kibana playbook on GitHub.
 The next once will of course be related to fluentd :-)
+      
       <p>
         <a href="https://blog.deimos.fr/2014/08/11/ansible-kibana-playbook/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -608,8 +617,10 @@ The next once will of course be related to fluentd :-)
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      As I&rsquo;m an Ansible fan, I&rsquo;ve created a playbook for it available on GitHub and on the Ansible Galaxy. You&rsquo;ll be able to add additional plugins like Head, Curator, Mavel&hellip;
+      
+        As I&rsquo;m an Ansible fan, I&rsquo;ve created a playbook for it available on GitHub and on the Ansible Galaxy. You&rsquo;ll be able to add additional plugins like Head, Curator, Mavel&hellip;
 I hope you&rsquo;ll enjoy it.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/08/09/ansible-elasticsearch-playbook/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -680,8 +691,10 @@ I hope you&rsquo;ll enjoy it.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&hellip;Thanks Online.
+      
+        I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&hellip;Thanks Online.
 I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to migrate my VM from KVM. All my KVM VM are on Debian Wheezy so that was pretty easy.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -741,7 +754,7 @@ I&rsquo;m already using LXC on my home server and see the benefits for 8 months 
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -749,7 +762,7 @@ I&rsquo;m already using LXC on my home server and see the benefits for 8 months 
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -988,6 +1001,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -997,6 +1012,33 @@ First of all, you may know that an alternative more user friendly to grep exist,
   
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
 

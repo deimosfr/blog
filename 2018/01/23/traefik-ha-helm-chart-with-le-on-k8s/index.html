@@ -1,66 +1,101 @@
-
-
-  
-    
-  
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.">
+
+
+<meta property="og:description" content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes">
+<meta name="twitter:title" content="Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes">
+<meta property="og:url" content="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.">
+<meta name="twitter:description" content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2018-01-23T18:00:00">
+  
+  
+    <meta property="article:modified_time" content="2018-01-23T18:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="Kubernetes">
+    
+      <meta property="article:section" content="SSL">
+    
+      <meta property="article:section" content="Let&#39;s Encrypt">
+    
+      <meta property="article:section" content="Consul">
+    
+      <meta property="article:section" content="Traefik">
+    
+      <meta property="article:section" content="Helm">
+    
+  
+  
+    
+      <meta property="article:tag" content="Kubernetes">
+    
+      <meta property="article:tag" content="SSL">
+    
+      <meta property="article:tag" content="Let&#39;s Encrypt">
+    
+      <meta property="article:tag" content="Consul">
+    
+      <meta property="article:tag" content="Traefik">
+    
+      <meta property="article:tag" content="Helm">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_helm.png">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_helm.png">
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
 
     
-    <meta name="description" content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
-In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.">
-    <meta property="og:description" content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
-In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes">
-    <meta property="og:url" content="/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
-In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-      <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_helm.png">
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -68,11 +103,11 @@ In a previous post, I explained how to manually deploy it in HA mode. For MySoci
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -107,7 +142,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -119,7 +154,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -266,16 +301,16 @@ ga('send', 'pageview');
             <div class="main-content-wrap">
               <p><img src="https://blog.deimos.fr/images/logo_traefik.png" alt="Traefik" /></p>
 
-<p><a href="https://traefik.io/" target="_blank">Traefik</a> (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy
+<p><a href="https://traefik.io/">Traefik</a> (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy
 microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd,
 Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.</p>
 
-<p><a href="https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/" target="_blank">In a previous post</a>, I explained how to manually deploy it in HA mode. For <a href="https://mysocialapp.io/" target="_blank">MySocialApp</a> (iOS and Android social app builder - SaaS), I had to automate it. That&rsquo;s why I used <a href="https://docs.helm.sh/" target="_blank">Helm</a>.</p>
+<p><a href="https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/">In a previous post</a>, I explained how to manually deploy it in HA mode. For <a href="https://mysocialapp.io/">MySocialApp</a> (iOS and Android social app builder - SaaS), I had to automate it. That&rsquo;s why I used <a href="https://docs.helm.sh/">Helm</a>.</p>
 
 <p>Where was the complexity? Bootstraping Traefik in HA mode require to push (only the first time) the configuration you&rsquo;ve made to Consul KV store.
 I wanted to get rid of that manual boostraping part. In addition, all pods are booting at the same time and that make it more difficult.</p>
 
-<p>To avoid multiple bootstrap at the same time, I used the <a href="https://www.consul.io/docs/guides/semaphore.html" target="_blank">distributed lock mechanism in Consul</a>. So when they all start, I randomize the start time and then request a lock. Here is the code:</p>
+<p>To avoid multiple bootstrap at the same time, I used the <a href="https://www.consul.io/docs/guides/semaphore.html">distributed lock mechanism in Consul</a>. So when they all start, I randomize the start time and then request a lock. Here is the code:</p>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/bash
 </span><span style="color:#75715e"></span>nodes<span style="color:#f92672">=(</span> consul-0.<span style="color:#f92672">{{</span> .Values.traefikConsulServiceName <span style="color:#f92672">}}</span> consul-1.<span style="color:#f92672">{{</span> .Values.traefikConsulServiceName <span style="color:#f92672">}}</span> consul-2.<span style="color:#f92672">{{</span> .Values.traefikConsulServiceName <span style="color:#f92672">}}</span> <span style="color:#f92672">{{</span> .Values.traefikConsulServiceName <span style="color:#f92672">}}</span> <span style="color:#f92672">)</span>
@@ -336,11 +371,11 @@ contacted<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span
 echo <span style="color:#e6db74">&#34;Bootstrap has already been done, traefik container will start&#34;</span>
 exit <span style="color:#ae81ff">0</span></code></pre></div>
 
-<p>Now if you deploy <a href="https://github.com/MySocialApp/kubernetes-helm-chart-traefik" target="_blank">this Traefik chart</a> for the first time or not, you won&rsquo;t need any manual intervention anymore :)</p>
+<p>Now if you deploy <a href="https://github.com/MySocialApp/kubernetes-helm-chart-traefik">this Traefik chart</a> for the first time or not, you won&rsquo;t need any manual intervention anymore :)</p>
 
-<p>Before deploying it, you will need a consul cluster setup and ready. If you&rsquo;re searching for a <a href="https://github.com/MySocialApp/kubernetes-helm-chart-consul" target="_blank">Consul Helm chart</a>, I&rsquo;ve made one also for <a href="https://mysocialapp.io/" target="_blank">MySocialApp</a>. We&rsquo;re using this chart on bare metal with local storage. We recommend that consul servers are used with &ldquo;Node Selector&rdquo; option to stick to specific servers.</p>
+<p>Before deploying it, you will need a consul cluster setup and ready. If you&rsquo;re searching for a <a href="https://github.com/MySocialApp/kubernetes-helm-chart-consul">Consul Helm chart</a>, I&rsquo;ve made one also for <a href="https://mysocialapp.io/">MySocialApp</a>. We&rsquo;re using this chart on bare metal with local storage. We recommend that consul servers are used with &ldquo;Node Selector&rdquo; option to stick to specific servers.</p>
 
-<p>Then you have to update &ldquo;values.yaml&rdquo; from the <a href="https://github.com/MySocialApp/kubernetes-helm-chart-traefik" target="_blank">Traefik chart</a> file before deloying. You&rsquo;re now ready to go.</p>
+<p>Then you have to update &ldquo;values.yaml&rdquo; from the <a href="https://github.com/MySocialApp/kubernetes-helm-chart-traefik">Traefik chart</a> file before deloying. You&rsquo;re now ready to go.</p>
 
               
             </div>
@@ -369,8 +404,8 @@ exit <span style="color:#ae81ff">0</span></code></pre></div>
                 
               
             
-            
-  <div class="post-actions-wrap">
+            <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -435,8 +470,8 @@ exit <span style="color:#ae81ff">0</span></code></pre></div>
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
             
               
@@ -455,8 +490,8 @@ exit <span style="color:#ae81ff">0</span></code></pre></div>
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        
-  <div class="post-actions-wrap">
+        <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -521,8 +556,8 @@ exit <span style="color:#ae81ff">0</span></code></pre></div>
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
       </div>
       <div id="share-options-bar" class="share-options-bar" data-behavior="5">
@@ -558,7 +593,7 @@ exit <span style="color:#ae81ff">0</span></code></pre></div>
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -566,7 +601,7 @@ exit <span style="color:#ae81ff">0</span></code></pre></div>
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -805,6 +840,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -815,6 +852,32 @@ First of all, you may know that an alternative more user friendly to grep exist,
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
 
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
   
@@ -842,6 +905,7 @@ First of all, you may know that an alternative more user friendly to grep exist,
       </script>
     
   
+
 
 
 

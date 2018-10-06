@@ -1,69 +1,97 @@
-
-
-  
-    
-  
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="You may remember the first introduction of that tool here. I&rsquo;ve made changes to support tables&rsquo; partition, to avoid a big lock on huge tables.
+The solution is to rebuild every partition one by one instead of rebuilding the whole table. This is smoother and less stressing Galera. I hope you&rsquo;ll enjoy this new version (v0.2).
+Note: I still got issues on MariaDB 10 with such thing, I&rsquo;m working on it.">
+
+
+<meta property="og:description" content="You may remember the first introduction of that tool here. I&rsquo;ve made changes to support tables&rsquo; partition, to avoid a big lock on huge tables.
+The solution is to rebuild every partition one by one instead of rebuilding the whole table. This is smoother and less stressing Galera. I hope you&rsquo;ll enjoy this new version (v0.2).
+Note: I still got issues on MariaDB 10 with such thing, I&rsquo;m working on it.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Galera Innoptimizer: now support tables’ partition">
+<meta name="twitter:title" content="Galera Innoptimizer: now support tables’ partition">
+<meta property="og:url" content="https://blog.deimos.fr/2014/10/08/galera-innoptimizer-now-support-tables-partition/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2014/10/08/galera-innoptimizer-now-support-tables-partition/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="You may remember the first introduction of that tool here. I&rsquo;ve made changes to support tables&rsquo; partition, to avoid a big lock on huge tables.
+The solution is to rebuild every partition one by one instead of rebuilding the whole table. This is smoother and less stressing Galera. I hope you&rsquo;ll enjoy this new version (v0.2).
+Note: I still got issues on MariaDB 10 with such thing, I&rsquo;m working on it.">
+<meta name="twitter:description" content="You may remember the first introduction of that tool here. I&rsquo;ve made changes to support tables&rsquo; partition, to avoid a big lock on huge tables.
+The solution is to rebuild every partition one by one instead of rebuilding the whole table. This is smoother and less stressing Galera. I hope you&rsquo;ll enjoy this new version (v0.2).
+Note: I still got issues on MariaDB 10 with such thing, I&rsquo;m working on it.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2014-10-08T10:00:33">
+  
+  
+    <meta property="article:modified_time" content="2014-10-08T10:00:33">
+  
+  
+  
+    
+      <meta property="article:section" content="Databases">
+    
+      <meta property="article:section" content="Developement">
+    
+      <meta property="article:section" content="Hi-Tech">
+    
+      <meta property="article:section" content="SQL">
+    
+  
+  
+    
+      <meta property="article:tag" content="Databases">
+    
+      <meta property="article:tag" content="Developement">
+    
+      <meta property="article:tag" content="Hi-Tech">
+    
+      <meta property="article:tag" content="SQL">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_galera.jpg">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_galera.jpg">
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Galera Innoptimizer: now support tables’ partition</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
 
     
-    <meta name="description" content="You may remember the first introduction of that tool here. I&rsquo;ve made changes to support tables&rsquo; partition, to avoid a big lock on huge tables.
-The solution is to rebuild every partition one by one instead of rebuilding the whole table. This is smoother and less stressing Galera. I hope you&rsquo;ll enjoy this new version (v0.2).
-Note: I still got issues on MariaDB 10 with such thing, I&rsquo;m working on it.">
-    <meta property="og:description" content="You may remember the first introduction of that tool here. I&rsquo;ve made changes to support tables&rsquo; partition, to avoid a big lock on huge tables.
-The solution is to rebuild every partition one by one instead of rebuilding the whole table. This is smoother and less stressing Galera. I hope you&rsquo;ll enjoy this new version (v0.2).
-Note: I still got issues on MariaDB 10 with such thing, I&rsquo;m working on it.">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Galera Innoptimizer: now support tables’ partition">
-    <meta property="og:url" content="/2014/10/08/galera-innoptimizer-now-support-tables-partition/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="You may remember the first introduction of that tool here. I&rsquo;ve made changes to support tables&rsquo; partition, to avoid a big lock on huge tables.
-The solution is to rebuild every partition one by one instead of rebuilding the whole table. This is smoother and less stressing Galera. I hope you&rsquo;ll enjoy this new version (v0.2).
-Note: I still got issues on MariaDB 10 with such thing, I&rsquo;m working on it.">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-      <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_galera.jpg">
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/2014/10/08/galera-innoptimizer-now-support-tables-partition/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -71,11 +99,11 @@ Note: I still got issues on MariaDB 10 with such thing, I&rsquo;m working on it.
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -110,7 +138,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -122,7 +150,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -264,9 +292,9 @@ ga('send', 'pageview');
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p><img src="https://blog.deimos.fr/images/logo_galera.jpg" alt="Galera-Cluster-logo" />
-You may remember the first introduction of <a href="http://blog.deimos.fr/2014/09/30/galera-innoptimizer-optimize-tables-without-stress/" target="_blank">that tool here</a>. I&rsquo;ve made changes to support tables&rsquo; partition, to avoid a big lock on huge tables.</p>
+You may remember the first introduction of <a href="http://blog.deimos.fr/2014/09/30/galera-innoptimizer-optimize-tables-without-stress/">that tool here</a>. I&rsquo;ve made changes to support tables&rsquo; partition, to avoid a big lock on huge tables.</p>
 
-<p>The solution is to rebuild every partition one by one instead of rebuilding the whole table. This is smoother and less stressing Galera. I hope you&rsquo;ll enjoy <a href="https://github.com/deimosfr/galera_innoptimizer" target="_blank">this new version (v0.2)</a>.</p>
+<p>The solution is to rebuild every partition one by one instead of rebuilding the whole table. This is smoother and less stressing Galera. I hope you&rsquo;ll enjoy <a href="https://github.com/deimosfr/galera_innoptimizer">this new version (v0.2)</a>.</p>
 
 <p>Note: I still got issues on MariaDB 10 with such thing, I&rsquo;m working on it.</p>
 
@@ -293,8 +321,8 @@ You may remember the first introduction of <a href="http://blog.deimos.fr/2014/0
                 
               
             
-            
-  <div class="post-actions-wrap">
+            <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -359,8 +387,8 @@ You may remember the first introduction of <a href="http://blog.deimos.fr/2014/0
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
             
               
@@ -379,8 +407,8 @@ You may remember the first introduction of <a href="http://blog.deimos.fr/2014/0
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        
-  <div class="post-actions-wrap">
+        <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -445,8 +473,8 @@ You may remember the first introduction of <a href="http://blog.deimos.fr/2014/0
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
       </div>
       <div id="share-options-bar" class="share-options-bar" data-behavior="5">
@@ -482,7 +510,7 @@ You may remember the first introduction of <a href="http://blog.deimos.fr/2014/0
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -490,7 +518,7 @@ You may remember the first introduction of <a href="http://blog.deimos.fr/2014/0
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -729,6 +757,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -739,6 +769,32 @@ First of all, you may know that an alternative more user friendly to grep exist,
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
 
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
   
@@ -766,6 +822,7 @@ First of all, you may know that an alternative more user friendly to grep exist,
       </script>
     
   
+
 
 
 

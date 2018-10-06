@@ -1,26 +1,49 @@
-
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ceph">
+<meta name="twitter:title" content="Ceph">
+<meta property="og:url" content="https://blog.deimos.fr/tags/ceph/">
+<meta property="twitter:url" content="https://blog.deimos.fr/tags/ceph/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Ceph</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
@@ -28,32 +51,8 @@
     
 
     
-    <meta name="description" content="Deimos Blog">
-    <meta property="og:description" content="Deimos Blog">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Ceph">
-    <meta property="og:url" content="/tags/ceph/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Deimos Blog">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/tags/ceph/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -61,11 +60,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -100,7 +99,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -112,7 +111,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -267,8 +266,10 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      The first thing you generally want to do when you have any new Storage system like SSD, Disk arrays or a Cluster Ceph, is benching. You will want to know how can read and write throughput. FIO is able to do that for you, here is an example:
+      
+        The first thing you generally want to do when you have any new Storage system like SSD, Disk arrays or a Cluster Ceph, is benching. You will want to know how can read and write throughput. FIO is able to do that for you, here is an example:
 [global] ioengine=libaio invalidate=1 ramp_time=5 direct=1 size=5G runtime=300 time_based directory=/home [seq-read] rw=read bs=64K stonewall [rand-read] rw=randread bs=4K stonewall [seq-write] rw=write bs=64K stonewall [rand-write] rw=randwrite bs=4K stonewall You then will have a good output of everything you need to know.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/10/06/fio-bench-io-disks/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -335,9 +336,11 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Do not miss OpenStack meetup event at eNovance headquarter! There will be big talks on:
+      
+        Do not miss OpenStack meetup event at eNovance headquarter! There will be big talks on:
  ZFS Ceph Swift  You&rsquo;ve understood, it&rsquo; storage related for OpenStack.
 Of course I&rsquo;ll be there :-D. More informations are available here.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/06/14/openstack-meetup-9-ceph-swift-and-zfs/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -404,9 +407,11 @@ Of course I&rsquo;ll be there :-D. More informations are available here.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      This is a very good news if you&rsquo;re using Ceph in production! Originally delivered as a proprietary dashboard included with Inktank Ceph Enterprise, Calamari has some really great visualization stuff for your cluster as well as the long term goal of being the all-in-wonder management system that can configure and analyze a Ceph cluster.
+      
+        This is a very good news if you&rsquo;re using Ceph in production! Originally delivered as a proprietary dashboard included with Inktank Ceph Enterprise, Calamari has some really great visualization stuff for your cluster as well as the long term goal of being the all-in-wonder management system that can configure and analyze a Ceph cluster.
 Calamari is composed in 2 elements:
  Backend: the Calamari backend is written in Python 2.6+, using Saltstack, ZeroRPC, gevent, Django, django-rest-framework, graphite, (and a few others I may have forgotten) and instantiates a new REST API for integration with other systems.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/06/04/ceph-calamari-gui-is-now-opensource-thanks-redhat/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -471,8 +476,10 @@ Calamari is composed in 2 elements:
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      In France, we have the chance to have an ISP/Mobile Telephony provider called Free. They considerably reduced the market price for the Mobile phone communications in 2012. This was very fine for competition and for French people. Now we can have correct prices for Internet and cell phone data. Thanks to Free.
+      
+        In France, we have the chance to have an ISP/Mobile Telephony provider called Free. They considerably reduced the market price for the Mobile phone communications in 2012. This was very fine for competition and for French people. Now we can have correct prices for Internet and cell phone data. Thanks to Free.
 Ceph is quite the same as Free but for storage systems. Since many years, disks array constructors sold us locked solutions with a very high cost of hardware and licenses&rsquo; software.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/04/11/ceph-why-dont-you-try-ceph-and-stop-disks-array/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -531,8 +538,10 @@ Ceph is quite the same as Free but for storage systems. Since many years, disks 
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      One of my colleague (Sebastien Han) started to play (like me) with Ansible. As he is a Ceph master, he often deploy Ceph for tests or production. He generally uses Puppet for that purpose.
+      
+        One of my colleague (Sebastien Han) started to play (like me) with Ansible. As he is a Ceph master, he often deploy Ceph for tests or production. He generally uses Puppet for that purpose.
 But due to some Puppet limitations or big brain fuck it involves, he started to play with Ansible and created a Ceph module for it. He showed me it, when he was writing it and it seamed working like a charm.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/03/06/ceph-deploy-it-with-ansible/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -599,9 +608,11 @@ But due to some Puppet limitations or big brain fuck it involves, he started to 
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I&rsquo;ll be once again happy to participate to Ceph Day ! We&rsquo;ll see the new version of Ceph, best practices and how to scale it right :-)
+      
+        I&rsquo;ll be once again happy to participate to Ceph Day ! We&rsquo;ll see the new version of Ceph, best practices and how to scale it right :-)
 This sounds good ! To get more informations: https://www.eventbrite.com/e/ceph-day-frankfurt-tickets-10173269523
 Thanks for eNovance to send me there, I&rsquo;m really happy !
+      
       <p>
         <a href="https://blog.deimos.fr/2014/02/22/ceph-day-in-frankfurt-next-week/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -664,8 +675,10 @@ Thanks for eNovance to send me there, I&rsquo;m really happy !
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Don&rsquo;t miss the Ceph Meetup on Monday ! You will be aware of the new features in Firefly (like tiering or erasure coding) ! And this is the first long time support release !!!
+      
+        Don&rsquo;t miss the Ceph Meetup on Monday ! You will be aware of the new features in Firefly (like tiering or erasure coding) ! And this is the first long time support release !!!
 To get more informations: http://www.meetup.com/Ceph-in-Paris/events/158942372/
+      
       <p>
         <a href="https://blog.deimos.fr/2014/02/14/ceph-meetup-whats-new-in-firefly/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -712,7 +725,7 @@ To get more informations: http://www.meetup.com/Ceph-in-Paris/events/158942372/
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -720,7 +733,7 @@ To get more informations: http://www.meetup.com/Ceph-in-Paris/events/158942372/
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -959,6 +972,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -968,6 +983,33 @@ First of all, you may know that an alternative more user friendly to grep exist,
   
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
 

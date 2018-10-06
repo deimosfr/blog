@@ -1,66 +1,93 @@
-
-
-  
-    
-  
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="I am using Nagios for about 8 years now for personal and professional usage. What I can say is, this is a super product, old and stable but not as scalable as I would like. We&rsquo;re in the age of Cloud computing and in my opinion we shouldn&rsquo;t have to take care about backup and monitoring in now days, this should be automatic.
+I was searching a solution for my personal usages, that&rsquo;s why I first wanted a lightweight solution but with enough maturity to auto discover my newly created LXC containers.">
+
+
+<meta property="og:description" content="I am using Nagios for about 8 years now for personal and professional usage. What I can say is, this is a super product, old and stable but not as scalable as I would like. We&rsquo;re in the age of Cloud computing and in my opinion we shouldn&rsquo;t have to take care about backup and monitoring in now days, this should be automatic.
+I was searching a solution for my personal usages, that&rsquo;s why I first wanted a lightweight solution but with enough maturity to auto discover my newly created LXC containers.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Monitoring: switching from Nagios to Naemon (not Shinken or Sensu)">
+<meta name="twitter:title" content="Monitoring: switching from Nagios to Naemon (not Shinken or Sensu)">
+<meta property="og:url" content="https://blog.deimos.fr/2014/08/25/monitoring-switching-from-nagios-feedbacks/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2014/08/25/monitoring-switching-from-nagios-feedbacks/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="I am using Nagios for about 8 years now for personal and professional usage. What I can say is, this is a super product, old and stable but not as scalable as I would like. We&rsquo;re in the age of Cloud computing and in my opinion we shouldn&rsquo;t have to take care about backup and monitoring in now days, this should be automatic.
+I was searching a solution for my personal usages, that&rsquo;s why I first wanted a lightweight solution but with enough maturity to auto discover my newly created LXC containers.">
+<meta name="twitter:description" content="I am using Nagios for about 8 years now for personal and professional usage. What I can say is, this is a super product, old and stable but not as scalable as I would like. We&rsquo;re in the age of Cloud computing and in my opinion we shouldn&rsquo;t have to take care about backup and monitoring in now days, this should be automatic.
+I was searching a solution for my personal usages, that&rsquo;s why I first wanted a lightweight solution but with enough maturity to auto discover my newly created LXC containers.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2014-08-25T10:00:00">
+  
+  
+    <meta property="article:modified_time" content="2014-08-25T10:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="Debian">
+    
+      <meta property="article:section" content="Hi-Tech">
+    
+      <meta property="article:section" content="Linux">
+    
+      <meta property="article:section" content="Nagios">
+    
+  
+  
+    
+      <meta property="article:tag" content="Debian">
+    
+      <meta property="article:tag" content="Hi-Tech">
+    
+      <meta property="article:tag" content="Linux">
+    
+      <meta property="article:tag" content="Nagios">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_naemon.png">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_naemon.png">
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Monitoring: switching from Nagios to Naemon (not Shinken or Sensu)</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
 
     
-    <meta name="description" content="I am using Nagios for about 8 years now for personal and professional usage. What I can say is, this is a super product, old and stable but not as scalable as I would like. We&rsquo;re in the age of Cloud computing and in my opinion we shouldn&rsquo;t have to take care about backup and monitoring in now days, this should be automatic.
-I was searching a solution for my personal usages, that&rsquo;s why I first wanted a lightweight solution but with enough maturity to auto discover my newly created LXC containers.">
-    <meta property="og:description" content="I am using Nagios for about 8 years now for personal and professional usage. What I can say is, this is a super product, old and stable but not as scalable as I would like. We&rsquo;re in the age of Cloud computing and in my opinion we shouldn&rsquo;t have to take care about backup and monitoring in now days, this should be automatic.
-I was searching a solution for my personal usages, that&rsquo;s why I first wanted a lightweight solution but with enough maturity to auto discover my newly created LXC containers.">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Monitoring: switching from Nagios to Naemon (not Shinken or Sensu)">
-    <meta property="og:url" content="/2014/08/25/monitoring-switching-from-nagios-feedbacks/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="I am using Nagios for about 8 years now for personal and professional usage. What I can say is, this is a super product, old and stable but not as scalable as I would like. We&rsquo;re in the age of Cloud computing and in my opinion we shouldn&rsquo;t have to take care about backup and monitoring in now days, this should be automatic.
-I was searching a solution for my personal usages, that&rsquo;s why I first wanted a lightweight solution but with enough maturity to auto discover my newly created LXC containers.">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-      <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_naemon.png">
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/2014/08/25/monitoring-switching-from-nagios-feedbacks/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -68,11 +95,11 @@ I was searching a solution for my personal usages, that&rsquo;s why I first want
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -107,7 +134,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -119,7 +146,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -261,19 +288,19 @@ ga('send', 'pageview');
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p><img src="https://blog.deimos.fr/images/logo_naemon.png" alt="naemon_logo" />
-I am <strong>using <a href="http://www.nagios.org/" target="_blank">Nagios</a> for about 8 years now for personal and professional usage</strong>. What I can say is, this is a super product, old and stable but <strong>not as scalable</strong> as I would like. We&rsquo;re in the age of Cloud computing and in my opinion we shouldn&rsquo;t have to take care about backup and monitoring in now days, this should be automatic.</p>
+I am <strong>using <a href="http://www.nagios.org/">Nagios</a> for about 8 years now for personal and professional usage</strong>. What I can say is, this is a super product, old and stable but <strong>not as scalable</strong> as I would like. We&rsquo;re in the age of Cloud computing and in my opinion we shouldn&rsquo;t have to take care about backup and monitoring in now days, this should be automatic.</p>
 
 <p>I was searching a solution for my personal usages, that&rsquo;s why I first wanted a lightweight solution but with enough maturity to auto discover my newly created LXC containers. In addition, I do not really agree on the strategic position that Nagios is taking so I wanted to change.</p>
 
-<p>That&rsquo;s why I first tried <a href="http://www.shinken-monitoring.org/" target="_blank">Shinken</a> which was the best solution to fit my vision/needs. Shinken tend to be a powerful, scalable, Nagios configuration file replacement, with advanced features like <strong>auto discovery</strong>. A major version <a href="http://shinkenlab.io/2-0-release/" target="_blank">was recently released</a> and I wanted to test it. But after 2 hours fighting on installation, trying to understand how the configuration work, because of the lack of documentation actually, I finally stopped to work in that direction as I didn&rsquo;t had enough time to dig in it. However I still keep an eye on it as I&rsquo;m pretty sure <strong>this will be the best monitoring solutions in the next months/years</strong>.</p>
+<p>That&rsquo;s why I first tried <a href="http://www.shinken-monitoring.org/">Shinken</a> which was the best solution to fit my vision/needs. Shinken tend to be a powerful, scalable, Nagios configuration file replacement, with advanced features like <strong>auto discovery</strong>. A major version <a href="http://shinkenlab.io/2-0-release/">was recently released</a> and I wanted to test it. But after 2 hours fighting on installation, trying to understand how the configuration work, because of the lack of documentation actually, I finally stopped to work in that direction as I didn&rsquo;t had enough time to dig in it. However I still keep an eye on it as I&rsquo;m pretty sure <strong>this will be the best monitoring solutions in the next months/years</strong>.</p>
 
-<p>I also looked at <a href="http://sensuapp.org/" target="_blank">Sensu</a> as I heard a lot of it since a year and wanted to look ahead. Sensu has <strong>not enough features and maturity</strong> in my opinion to replace Nagios. More than that, <strong>agent is written in Ruby</strong> and I do not agree using with this language in a production environment (because of the required dependencies and resources usage due to this language). Sensu looks like interesting in the way it has been designed (<strong>Redis and RabbitMQ</strong>) but did not convinced me for the previous reasons I mentionned.</p>
+<p>I also looked at <a href="http://sensuapp.org/">Sensu</a> as I heard a lot of it since a year and wanted to look ahead. Sensu has <strong>not enough features and maturity</strong> in my opinion to replace Nagios. More than that, <strong>agent is written in Ruby</strong> and I do not agree using with this language in a production environment (because of the required dependencies and resources usage due to this language). Sensu looks like interesting in the way it has been designed (<strong>Redis and RabbitMQ</strong>) but did not convinced me for the previous reasons I mentionned.</p>
 
 <p>Zabbix is a <strong>complete solution</strong> and I always had good feedback about it. The required consuming resources it requires are a little bit high for my personal usage, but the <strong>auto discovery is not fully implemented yet</strong> and new interesting features are planned for next major release. So I didn&rsquo;t choose that solution.</p>
 
-<p>Naemon, <a href="http://blog.deimos.fr/2013/10/31/omg-nagios-project-is-dead/" target="_blank">I already talked about it</a>, this is a <strong>Nagios 4 fork</strong> and looks very interesting. It <strong>doesn&rsquo;t have auto discovery yet</strong> but this is the lightweight solution I&rsquo;ve found and doesn&rsquo;t change my Nagios configuration files at all. So I&rsquo;ve choose this software for the moment as <strong>no other solution answered more my needs than Naemon</strong>. As there is no auto discovery, I implemented a faked auto discovery feature by automating the integration of new hosts in Naemon with Ansible (better than nothing).</p>
+<p>Naemon, <a href="http://blog.deimos.fr/2013/10/31/omg-nagios-project-is-dead/">I already talked about it</a>, this is a <strong>Nagios 4 fork</strong> and looks very interesting. It <strong>doesn&rsquo;t have auto discovery yet</strong> but this is the lightweight solution I&rsquo;ve found and doesn&rsquo;t change my Nagios configuration files at all. So I&rsquo;ve choose this software for the moment as <strong>no other solution answered more my needs than Naemon</strong>. As there is no auto discovery, I implemented a faked auto discovery feature by automating the integration of new hosts in Naemon with Ansible (better than nothing).</p>
 
-<p>After a few weeks of usage, <strong>Naemon works well, I do not reported any issues</strong>, the installation is really easy and Thruk is the default web interface :-). <strong>Naemon (like Shinken) brings livestatus plugin embedded</strong> with avoid to install all the <a href="https://mathias-kettner.de/check_mk.html" target="_blank">check_Mk</a> stack. I&rsquo;m happy to choose that solution even if all my requirements are not there yet.</p>
+<p>After a few weeks of usage, <strong>Naemon works well, I do not reported any issues</strong>, the installation is really easy and Thruk is the default web interface :-). <strong>Naemon (like Shinken) brings livestatus plugin embedded</strong> with avoid to install all the <a href="https://mathias-kettner.de/check_mk.html">check_Mk</a> stack. I&rsquo;m happy to choose that solution even if all my requirements are not there yet.</p>
 
 <p>Now I am waiting the maturity of Shinken 2 :-)</p>
 
@@ -300,8 +327,8 @@ I am <strong>using <a href="http://www.nagios.org/" target="_blank">Nagios</a> f
                 
               
             
-            
-  <div class="post-actions-wrap">
+            <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -366,8 +393,8 @@ I am <strong>using <a href="http://www.nagios.org/" target="_blank">Nagios</a> f
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
             
               
@@ -386,8 +413,8 @@ I am <strong>using <a href="http://www.nagios.org/" target="_blank">Nagios</a> f
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        
-  <div class="post-actions-wrap">
+        <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -452,8 +479,8 @@ I am <strong>using <a href="http://www.nagios.org/" target="_blank">Nagios</a> f
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
       </div>
       <div id="share-options-bar" class="share-options-bar" data-behavior="5">
@@ -489,7 +516,7 @@ I am <strong>using <a href="http://www.nagios.org/" target="_blank">Nagios</a> f
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -497,7 +524,7 @@ I am <strong>using <a href="http://www.nagios.org/" target="_blank">Nagios</a> f
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -736,6 +763,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -746,6 +775,32 @@ First of all, you may know that an alternative more user friendly to grep exist,
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
 
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
   
@@ -773,6 +828,7 @@ First of all, you may know that an alternative more user friendly to grep exist,
       </script>
     
   
+
 
 
 

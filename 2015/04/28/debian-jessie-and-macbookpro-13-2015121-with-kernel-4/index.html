@@ -1,66 +1,93 @@
-
-
-  
-    
-  
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, this is not the first time I want to use Debian on a new MacBookPro version.
+Overview History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:">
+
+
+<meta property="og:description" content="I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, this is not the first time I want to use Debian on a new MacBookPro version.
+Overview History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4">
+<meta name="twitter:title" content="Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4">
+<meta property="og:url" content="https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, this is not the first time I want to use Debian on a new MacBookPro version.
+Overview History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:">
+<meta name="twitter:description" content="I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, this is not the first time I want to use Debian on a new MacBookPro version.
+Overview History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2015-04-28T10:00:45">
+  
+  
+    <meta property="article:modified_time" content="2015-04-28T10:00:45">
+  
+  
+  
+    
+      <meta property="article:section" content="Debian">
+    
+      <meta property="article:section" content="Hi-Tech">
+    
+      <meta property="article:section" content="Linux">
+    
+      <meta property="article:section" content="Mac">
+    
+  
+  
+    
+      <meta property="article:tag" content="Debian">
+    
+      <meta property="article:tag" content="Hi-Tech">
+    
+      <meta property="article:tag" content="Linux">
+    
+      <meta property="article:tag" content="Mac">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_debian.png">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_debian.png">
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
 
     
-    <meta name="description" content="I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, this is not the first time I want to use Debian on a new MacBookPro version.
-Overview History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:">
-    <meta property="og:description" content="I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, this is not the first time I want to use Debian on a new MacBookPro version.
-Overview History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4">
-    <meta property="og:url" content="/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, this is not the first time I want to use Debian on a new MacBookPro version.
-Overview History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-      <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_debian.png">
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -68,11 +95,11 @@ Overview History repeats itself and as you can think, some things are not workin
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -107,7 +134,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -119,7 +146,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -263,7 +290,7 @@ ga('send', 'pageview');
               
 
 <p><img src="https://blog.deimos.fr/images/logo_debian.png" alt="debian_logo" />
-I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, <a href="https://blog.deimos.fr/2014/01/07/update-3-debian-on-the-111-model-macbook-pro-13/" target="_blank">this is not the first time</a> I want to use Debian on a new MacBookPro version.</p>
+I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, <a href="https://blog.deimos.fr/2014/01/07/update-3-debian-on-the-111-model-macbook-pro-13/">this is not the first time</a> I want to use Debian on a new MacBookPro version.</p>
 
 <h2 id="overview">Overview</h2>
 
@@ -285,7 +312,7 @@ I recently had the chance to get the latest MacBookPro 13 for my new work at Cri
 
 <h2 id="wifi">Wifi</h2>
 
-<p>The wifi broadcom chipset is unfortunately not working out of the box <a href="http://ubuntuforums.org/showthread.php?t=2274110" target="_blank">(source)</a>. For this you need a kernel version at least equal to 3.19. As the Linux Kernel 4 is out, I recompiled a kernel with this version and added the wifi support in it. Here is the procedure:</p>
+<p>The wifi broadcom chipset is unfortunately not working out of the box <a href="http://ubuntuforums.org/showthread.php?t=2274110">(source)</a>. For this you need a kernel version at least equal to 3.19. As the Linux Kernel 4 is out, I recompiled a kernel with this version and added the wifi support in it. Here is the procedure:</p>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget https://blog.deimos.fr/wp-content/uploads/2015/04/linux-image-4.0.0_4.0_amd64.deb_.tgz
 tar -xzf linux-image-4.0.0_4.0_amd64.deb_.tgz
@@ -296,9 +323,9 @@ sudo wget -O /lib/firmware/brcm/brcmfmac43602-pcie.bin https://git.kernel.org/cg
 
 <h2 id="fn-keyboard-key">Fn keyboard key</h2>
 
-<p>Following this <a href="https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1443370" target="_blank">thread</a>, the Fn key doesn&rsquo;t work at all because not recognized by the kernel. I included the patch in the kernel as well. So you can use the same procedure than above to install the kernel.</p>
+<p>Following this <a href="https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1443370">thread</a>, the Fn key doesn&rsquo;t work at all because not recognized by the kernel. I included the patch in the kernel as well. So you can use the same procedure than above to install the kernel.</p>
 
-<p>Also, here is another interesting <a href="https://github.com/SicVolo/hid-apple-3.19" target="_blank">link</a>.</p>
+<p>Also, here is another interesting <a href="https://github.com/SicVolo/hid-apple-3.19">link</a>.</p>
 
 <h2 id="sound">Sound</h2>
 
@@ -407,7 +434,7 @@ bindcode <span style="color:#ae81ff">232</span> exec --no-startup-id <span style
 
 <p>I have some work to do to make all the things work and wait for some drivers to be released. Debian Jessie is now out and I&rsquo;ll switch to the next testing branch. This will permit to avoid doing so manual stuffs like kernel recompilation.</p>
 
-<p>If you encounter other issues, you should also take a look at Arch Linux wiki on the previous MacBookPro version as a lot of things corresponding to this new MacBooPro version as well: <a href="https://wiki.archlinux.org/index.php/MacBookPro11,x" target="_blank">https://wiki.archlinux.org/index.php/MacBookPro11,x</a></p>
+<p>If you encounter other issues, you should also take a look at Arch Linux wiki on the previous MacBookPro version as a lot of things corresponding to this new MacBooPro version as well: <a href="https://wiki.archlinux.org/index.php/MacBookPro11,x">https://wiki.archlinux.org/index.php/MacBookPro11,x</a></p>
 
               
             </div>
@@ -432,8 +459,8 @@ bindcode <span style="color:#ae81ff">232</span> exec --no-startup-id <span style
                 
               
             
-            
-  <div class="post-actions-wrap">
+            <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -498,8 +525,8 @@ bindcode <span style="color:#ae81ff">232</span> exec --no-startup-id <span style
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
             
               
@@ -518,8 +545,8 @@ bindcode <span style="color:#ae81ff">232</span> exec --no-startup-id <span style
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        
-  <div class="post-actions-wrap">
+        <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -584,8 +611,8 @@ bindcode <span style="color:#ae81ff">232</span> exec --no-startup-id <span style
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
       </div>
       <div id="share-options-bar" class="share-options-bar" data-behavior="5">
@@ -621,7 +648,7 @@ bindcode <span style="color:#ae81ff">232</span> exec --no-startup-id <span style
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -629,7 +656,7 @@ bindcode <span style="color:#ae81ff">232</span> exec --no-startup-id <span style
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -868,6 +895,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -878,6 +907,32 @@ First of all, you may know that an alternative more user friendly to grep exist,
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
 
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
   
@@ -905,6 +960,7 @@ First of all, you may know that an alternative more user friendly to grep exist,
       </script>
     
   
+
 
 
 

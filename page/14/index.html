@@ -1,26 +1,49 @@
-
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Deimosfr Blog">
+<meta name="twitter:title" content="Deimosfr Blog">
+<meta property="og:url" content="https://blog.deimos.fr/">
+<meta property="twitter:url" content="https://blog.deimos.fr/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Deimosfr Blog</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
@@ -28,32 +51,8 @@
     
 
     
-    <meta name="description" content="Deimos Blog">
-    <meta property="og:description" content="Deimos Blog">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Deimosfr Blog">
-    <meta property="og:url" content="/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Deimos Blog">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -61,11 +60,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -100,7 +99,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -112,7 +111,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -264,9 +263,11 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      During the last weeks I started to play with Elasticsearch, Fluentd and Kibana. I made a documentation to help on deploying it easily.
+      
+        During the last weeks I started to play with Elasticsearch, Fluentd and Kibana. I made a documentation to help on deploying it easily.
 As you may know, I&rsquo;m an Ansible fan, so I made Ansible playbooks to deploy a complete infrastructure (server and clients). They will deploy this kind of architecture:
 On the client side, Fluentd clients will get syslog and Nginx logs, to send them to the Fluentd server. On the server side, a Fluentd receiver will be there to get data from other Fluentd clients.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/08/15/deploy-a-logs-managememt-infrastructure-elasticsearchkibanfluentd-with-ansible/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -335,8 +336,10 @@ On the client side, Fluentd clients will get syslog and Nginx logs, to send them
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      In the previous posts, I&rsquo;ve introduced my Ansible playbooks for kibana and Elasticsearch.
+      
+        In the previous posts, I&rsquo;ve introduced my Ansible playbooks for kibana and Elasticsearch.
 You may now be happy to know that I&rsquo;ve made an Ansible playbook for Fluentd as well. If you still don&rsquo;t see what those tree ansible playbook can do when they are combined together, you&rsquo;ll see in the next post :-)
+      
       <p>
         <a href="https://blog.deimos.fr/2014/08/13/fluentd-ansible-playbook/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -405,9 +408,11 @@ You may now be happy to know that I&rsquo;ve made an Ansible playbook for Fluent
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      In my last post you&rsquo;ve seen the Ansible playbook I&rsquo;ve made for ElasticSearch. I&rsquo;ve made a new one, but for Kibana which is able to easily manage version upgrade and of course is easy to install and use.
+      
+        In my last post you&rsquo;ve seen the Ansible playbook I&rsquo;ve made for ElasticSearch. I&rsquo;ve made a new one, but for Kibana which is able to easily manage version upgrade and of course is easy to install and use.
 You can find my Kibana playbook on GitHub.
 The next once will of course be related to fluentd :-)
+      
       <p>
         <a href="https://blog.deimos.fr/2014/08/11/ansible-kibana-playbook/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -468,8 +473,10 @@ The next once will of course be related to fluentd :-)
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      As I&rsquo;m an Ansible fan, I&rsquo;ve created a playbook for it available on GitHub and on the Ansible Galaxy. You&rsquo;ll be able to add additional plugins like Head, Curator, Mavel&hellip;
+      
+        As I&rsquo;m an Ansible fan, I&rsquo;ve created a playbook for it available on GitHub and on the Ansible Galaxy. You&rsquo;ll be able to add additional plugins like Head, Curator, Mavel&hellip;
 I hope you&rsquo;ll enjoy it.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/08/09/ansible-elasticsearch-playbook/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -536,8 +543,10 @@ I hope you&rsquo;ll enjoy it.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      My use case is specific but not isolated. When I&rsquo;m at work, I&rsquo;m connected to my VPN at home. I have a specific DNS at home for my domain in deimos.lan and this is very useful to avoid me to remind all the IP of the services I have.
+      
+        My use case is specific but not isolated. When I&rsquo;m at work, I&rsquo;m connected to my VPN at home. I have a specific DNS at home for my domain in deimos.lan and this is very useful to avoid me to remind all the IP of the services I have.
 Sometimes, I want to connect to a home service from the VPN, but my bookmarked links have my home DNS which are unknown from the DNS at work.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/08/07/dnsmasq-and-dhclient-use-a-specific-dns-for-a-specific-domain/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -602,8 +611,10 @@ Sometimes, I want to connect to a home service from the VPN, but my bookmarked l
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Ubiquiti brings software that are easy to install on Windows and Mac OS. However as it is strongly recommended to let this software always up, it&rsquo;s preferable to have a Linux version to run it in a container or a virtual machine. That&rsquo;s why I decided to install it for a powerstrip mPower on Debian inside LXC.
+      
+        Ubiquiti brings software that are easy to install on Windows and Mac OS. However as it is strongly recommended to let this software always up, it&rsquo;s preferable to have a Linux version to run it in a container or a virtual machine. That&rsquo;s why I decided to install it for a powerstrip mPower on Debian inside LXC.
 The documentation is very poor, that&rsquo;s why I made this one for those who want to do like me.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/08/05/ubiquiti-mpower/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -666,9 +677,11 @@ The documentation is very poor, that&rsquo;s why I made this one for those who w
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      In previous posts, I was talking about brainfucks I had when migrating OpenBSD from a version to another. I really love OpenBSD but this fed me up a couple of years ago.
+      
+        In previous posts, I was talking about brainfucks I had when migrating OpenBSD from a version to another. I really love OpenBSD but this fed me up a couple of years ago.
 That&rsquo;s why I decided to test and switch to FreeBSD. Which one I forgot to upgrade since a while and I decided to do it to see if it&rsquo;s the same nightmare I encountered on OpenBSD.
 I was surprised by the simplicity of the upgrade and how things happens without any issues.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/08/03/upgrading-my-soekris-to-freebsd-10/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -727,7 +740,7 @@ I was surprised by the simplicity of the upgrade and how things happens without 
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -735,7 +748,7 @@ I was surprised by the simplicity of the upgrade and how things happens without 
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -974,6 +987,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -983,6 +998,33 @@ First of all, you may know that an alternative more user friendly to grep exist,
   
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
 

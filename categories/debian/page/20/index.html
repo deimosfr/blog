@@ -1,26 +1,49 @@
-
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Debian">
+<meta name="twitter:title" content="Debian">
+<meta property="og:url" content="https://blog.deimos.fr/categories/debian/">
+<meta property="twitter:url" content="https://blog.deimos.fr/categories/debian/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Debian</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
@@ -28,32 +51,8 @@
     
 
     
-    <meta name="description" content="Deimos Blog">
-    <meta property="og:description" content="Deimos Blog">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Debian">
-    <meta property="og:url" content="/categories/debian/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Deimos Blog">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/categories/debian/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -61,11 +60,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -100,7 +99,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -112,7 +111,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -263,7 +262,9 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Alors oui je sais, c&rsquo;est vraiment pas propre en prod, mais que voulez vous&hellip;on a pas toujours le choix, surtout quand on a pas la main sur l&rsquo;infrastructure en question. J&rsquo;ai eu besoin de mettre en place un tunnel SSH permanent (ce qui sous entends qu&rsquo;il se reconnecte en cas de déconnexion), ça ne vous rappelle rien ? Un post que j&rsquo;avais fait il y a quelques temps sur AutoSSH.
+      
+        Alors oui je sais, c&rsquo;est vraiment pas propre en prod, mais que voulez vous&hellip;on a pas toujours le choix, surtout quand on a pas la main sur l&rsquo;infrastructure en question. J&rsquo;ai eu besoin de mettre en place un tunnel SSH permanent (ce qui sous entends qu&rsquo;il se reconnecte en cas de déconnexion), ça ne vous rappelle rien ? Un post que j&rsquo;avais fait il y a quelques temps sur AutoSSH.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/04/16/autossh-sur-un-serveur/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -328,8 +329,10 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Un peu à la manière de mon Tmux powerlined, j&rsquo;ai fait un zsh powerline. Je suis en train de revoir du coup complètement ma configuration qui est devenu au fil du temps ingérable. Ma configuration n&rsquo;est pas encore finie, mais est pleinement utilisable.
+      
+        Un peu à la manière de mon Tmux powerlined, j&rsquo;ai fait un zsh powerline. Je suis en train de revoir du coup complètement ma configuration qui est devenu au fil du temps ingérable. Ma configuration n&rsquo;est pas encore finie, mais est pleinement utilisable.
 Si vous essayez et avez des suggestions, n&rsquo;hésitez pas, je suis preneur :-). Vous pouvez récupérer ma configuration zsh sur mon git.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/04/14/zsh-powerlined/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -394,8 +397,10 @@ Si vous essayez et avez des suggestions, n&rsquo;hésitez pas, je suis preneur :
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Dans un précédent article, je vous parlait des fonts powerline et de l&rsquo;adaptation de celles ci à tout pleins d&rsquo;outils. J&rsquo;ai pu récupérer d&rsquo;un collègue sa configuration tmux powerline et l&rsquo;ai adaptée à mes besoins. Le résultat ci dessus en screenshot, c&rsquo;est booooooooo :-) !
+      
+        Dans un précédent article, je vous parlait des fonts powerline et de l&rsquo;adaptation de celles ci à tout pleins d&rsquo;outils. J&rsquo;ai pu récupérer d&rsquo;un collègue sa configuration tmux powerline et l&rsquo;ai adaptée à mes besoins. Le résultat ci dessus en screenshot, c&rsquo;est booooooooo :-) !
 Vous aurez donc besoin des fonts powerline et de ma configuration tmux que vous pouvez récupérer ici.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/04/12/tmux-powerlined/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -460,8 +465,10 @@ Vous aurez donc besoin des fonts powerline et de ma configuration tmux que vous 
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Je vous l&rsquo;avais récemment annoncé, je travaille maintenant avec l&rsquo;environnement Awesome et l&rsquo;ai tuné powerline. Je n&rsquo;ai pas encore totalement fini ma configuration comme je le souhaite, mais c&rsquo;est déjà pleinement utilisable pour le quotidien.
+      
+        Je vous l&rsquo;avais récemment annoncé, je travaille maintenant avec l&rsquo;environnement Awesome et l&rsquo;ai tuné powerline. Je n&rsquo;ai pas encore totalement fini ma configuration comme je le souhaite, mais c&rsquo;est déjà pleinement utilisable pour le quotidien.
 Vous pouvez récupérer ma configuration Awesome sur mon git. Dans le rc.lua, vous trouverez les packages à installer sur Debian Wheezy, ainsi que les instructions nécessaire à son installation. Une fois la configuration chargée, faites la touche Super (Windows) + F1 pour obtenir toute l&rsquo;aide nécessaire au fonctionnement de ma configuration.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/04/10/awesome-powerlined/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -526,7 +533,9 @@ Vous pouvez récupérer ma configuration Awesome sur mon git. Dans le rc.lua, vo
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Depuis quelques temps, je refais quelques configuration vieillissantes pour les mettre au goût du jour. Entre autre, j&rsquo;ai découvert par un collègue, les polices Powerline. Et j&rsquo;ai kiffé. Comme le montre le screeshot ci dessus, ça nous fait des espèces de flèches jolies. Si je ne dis pas de bêtises, l&rsquo;origine de ceci est un module pour Vim et aujourd&rsquo;hui on commence à voir apparaître plusieurs outils utilisant ces powerlines. Je vous présenterais les miens dans les prochains jours.
+      
+        Depuis quelques temps, je refais quelques configuration vieillissantes pour les mettre au goût du jour. Entre autre, j&rsquo;ai découvert par un collègue, les polices Powerline. Et j&rsquo;ai kiffé. Comme le montre le screeshot ci dessus, ça nous fait des espèces de flèches jolies. Si je ne dis pas de bêtises, l&rsquo;origine de ceci est un module pour Vim et aujourd&rsquo;hui on commence à voir apparaître plusieurs outils utilisant ces powerlines. Je vous présenterais les miens dans les prochains jours.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/04/08/fonts-powerline/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -595,7 +604,9 @@ Vous pouvez récupérer ma configuration Awesome sur mon git. Dans le rc.lua, vo
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Ahhhhh, je crois que je vais enfin pouvoir me poser un moment ! J&rsquo;ai enfin trouvé mon environnement de bureau pour être productif, ça s&rsquo;appelle Awesome et comme son nom l&rsquo;indique ça l&rsquo;est ! Je tourne donc depuis 2 mois maintenant sous Awesome et suis ravis du résultat. C&rsquo;est stable, très léger, embarque plusieurs mode de tilling est prévu pour le mouseless et dépourvu de toutes fioritures inutiles comme on peut trouver sous Ubuntu.
+      
+        Ahhhhh, je crois que je vais enfin pouvoir me poser un moment ! J&rsquo;ai enfin trouvé mon environnement de bureau pour être productif, ça s&rsquo;appelle Awesome et comme son nom l&rsquo;indique ça l&rsquo;est ! Je tourne donc depuis 2 mois maintenant sous Awesome et suis ravis du résultat. C&rsquo;est stable, très léger, embarque plusieurs mode de tilling est prévu pour le mouseless et dépourvu de toutes fioritures inutiles comme on peut trouver sous Ubuntu.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/04/06/awesome-mon-nouvel-environnement-de-bureau/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -656,8 +667,10 @@ Vous pouvez récupérer ma configuration Awesome sur mon git. Dans le rc.lua, vo
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      J&rsquo;ai récemment aidé un ancien collègue qui avait besoin d&rsquo;une solution pour forcer des utilisateurs ayant déjà un shell LDAP à avoir un shell plus restreint de type lshell. La problématique est que si l&rsquo;on change le shell au niveau LDAP, il faudra alors utiliser ce shell sur toutes les machines. Ce n&rsquo;est donc tout simplement pas envisageable.
+      
+        J&rsquo;ai récemment aidé un ancien collègue qui avait besoin d&rsquo;une solution pour forcer des utilisateurs ayant déjà un shell LDAP à avoir un shell plus restreint de type lshell. La problématique est que si l&rsquo;on change le shell au niveau LDAP, il faudra alors utiliser ce shell sur toutes les machines. Ce n&rsquo;est donc tout simplement pas envisageable.
 Par contre, il est possible de modifier les propriétés NSS lors du login :-).
+      
       <p>
         <a href="https://blog.deimos.fr/2013/04/04/forcer-un-shell-lors-de-logins-ldap/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -717,7 +730,7 @@ Par contre, il est possible de modifier les propriétés NSS lors du login :-).
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -725,7 +738,7 @@ Par contre, il est possible de modifier les propriétés NSS lors du login :-).
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -964,6 +977,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -973,6 +988,33 @@ First of all, you may know that an alternative more user friendly to grep exist,
   
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
 

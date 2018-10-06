@@ -1,66 +1,93 @@
-
-
-  
-    
-  
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="I recently wanted to update my Vagrant box running Debian Wheezy. The problem is, the box size is growing on each updates for several reasons. And I prefer to create a new box from scratch on any new Debian release.
+Starting from scratch each time is a little bit boring, that&rsquo;s why I created a preseed file (french). That made the install automatically, however I always had to do other step by hands (or need to write a script for it).">
+
+
+<meta property="og:description" content="I recently wanted to update my Vagrant box running Debian Wheezy. The problem is, the box size is growing on each updates for several reasons. And I prefer to create a new box from scratch on any new Debian release.
+Starting from scratch each time is a little bit boring, that&rsquo;s why I created a preseed file (french). That made the install automatically, however I always had to do other step by hands (or need to write a script for it).">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Packer: 1 command line to create a Debian VirtualBox/Vagrant box">
+<meta name="twitter:title" content="Packer: 1 command line to create a Debian VirtualBox/Vagrant box">
+<meta property="og:url" content="https://blog.deimos.fr/2014/09/04/packer-easily-create-a-debian-virtualboxvagrant-box/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2014/09/04/packer-easily-create-a-debian-virtualboxvagrant-box/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="I recently wanted to update my Vagrant box running Debian Wheezy. The problem is, the box size is growing on each updates for several reasons. And I prefer to create a new box from scratch on any new Debian release.
+Starting from scratch each time is a little bit boring, that&rsquo;s why I created a preseed file (french). That made the install automatically, however I always had to do other step by hands (or need to write a script for it).">
+<meta name="twitter:description" content="I recently wanted to update my Vagrant box running Debian Wheezy. The problem is, the box size is growing on each updates for several reasons. And I prefer to create a new box from scratch on any new Debian release.
+Starting from scratch each time is a little bit boring, that&rsquo;s why I created a preseed file (french). That made the install automatically, however I always had to do other step by hands (or need to write a script for it).">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2014-09-04T10:00:01">
+  
+  
+    <meta property="article:modified_time" content="2014-09-04T10:00:01">
+  
+  
+  
+    
+      <meta property="article:section" content="Debian">
+    
+      <meta property="article:section" content="Hi-Tech">
+    
+      <meta property="article:section" content="Linux">
+    
+      <meta property="article:section" content="Vagrant">
+    
+  
+  
+    
+      <meta property="article:tag" content="Debian">
+    
+      <meta property="article:tag" content="Hi-Tech">
+    
+      <meta property="article:tag" content="Linux">
+    
+      <meta property="article:tag" content="Vagrant">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_packer.png">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_packer.png">
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Packer: 1 command line to create a Debian VirtualBox/Vagrant box</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
 
     
-    <meta name="description" content="I recently wanted to update my Vagrant box running Debian Wheezy. The problem is, the box size is growing on each updates for several reasons. And I prefer to create a new box from scratch on any new Debian release.
-Starting from scratch each time is a little bit boring, that&rsquo;s why I created a preseed file (french). That made the install automatically, however I always had to do other step by hands (or need to write a script for it).">
-    <meta property="og:description" content="I recently wanted to update my Vagrant box running Debian Wheezy. The problem is, the box size is growing on each updates for several reasons. And I prefer to create a new box from scratch on any new Debian release.
-Starting from scratch each time is a little bit boring, that&rsquo;s why I created a preseed file (french). That made the install automatically, however I always had to do other step by hands (or need to write a script for it).">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Packer: 1 command line to create a Debian VirtualBox/Vagrant box">
-    <meta property="og:url" content="/2014/09/04/packer-easily-create-a-debian-virtualboxvagrant-box/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="I recently wanted to update my Vagrant box running Debian Wheezy. The problem is, the box size is growing on each updates for several reasons. And I prefer to create a new box from scratch on any new Debian release.
-Starting from scratch each time is a little bit boring, that&rsquo;s why I created a preseed file (french). That made the install automatically, however I always had to do other step by hands (or need to write a script for it).">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-      <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_packer.png">
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/2014/09/04/packer-easily-create-a-debian-virtualboxvagrant-box/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -68,11 +95,11 @@ Starting from scratch each time is a little bit boring, that&rsquo;s why I creat
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -107,7 +134,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -119,7 +146,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -263,11 +290,11 @@ ga('send', 'pageview');
               <p><img src="https://blog.deimos.fr/images/logo_packer.png" alt="packer_logo" />
 I recently wanted to update my Vagrant box running Debian Wheezy. The problem is, the box size is growing on each updates for several reasons. And <strong>I prefer to create a new box from scratch</strong> on any new Debian release.</p>
 
-<p>Starting from scratch each time is a little bit boring, that&rsquo;s why <a href="https://wiki.deimos.fr/Automatiser_une_installation_de_Debian" target="_blank">I created a preseed file</a> (french). That made the install automatically, however I always had to do other step by hands (or need to write a script for it).</p>
+<p>Starting from scratch each time is a little bit boring, that&rsquo;s why <a href="https://wiki.deimos.fr/Automatiser_une_installation_de_Debian">I created a preseed file</a> (french). That made the install automatically, however I always had to do other step by hands (or need to write a script for it).</p>
 
-<p>I remembered to have <a href="http://blog.deimos.fr/2014/03/18/packer-win-time-by-easily-testing-your-app-on-multiple-platforms/" target="_blank">tested Packer a few times ago</a> and decided to look at the features of the latest version.</p>
+<p>I remembered to have <a href="http://blog.deimos.fr/2014/03/18/packer-win-time-by-easily-testing-your-app-on-multiple-platforms/">tested Packer a few times ago</a> and decided to look at the features of the latest version.</p>
 
-<p>The last one is good enough to make all I needed. So I started to write a <a href="https://github.com/deimosfr/packer-wheezy" target="_blank">Packer configuration file (on GitHub)</a> and <strong>now I can build a Vagrant box ready in a few minutes in only one command!</strong></p>
+<p>The last one is good enough to make all I needed. So I started to write a <a href="https://github.com/deimosfr/packer-wheezy">Packer configuration file (on GitHub)</a> and <strong>now I can build a Vagrant box ready in a few minutes in only one command!</strong></p>
 
 <p>Do you want to see? First clone the repository:</p>
 
@@ -286,7 +313,7 @@ I recently wanted to update my Vagrant box running Debian Wheezy. The problem is
 
 <p>That&rsquo;s it :-)</p>
 
-<p>You can find the result on the vagrantcloud here if you only want to get the version built with it: <a href="https://vagrantcloud.com/deimosfr/debian-wheezy" target="_blank">https://vagrantcloud.com/deimosfr/debian-wheezy</a></p>
+<p>You can find the result on the vagrantcloud here if you only want to get the version built with it: <a href="https://vagrantcloud.com/deimosfr/debian-wheezy">https://vagrantcloud.com/deimosfr/debian-wheezy</a></p>
 
 <p>Thanks HashiCorp for Vagrant and Packer :-)</p>
 
@@ -313,8 +340,8 @@ I recently wanted to update my Vagrant box running Debian Wheezy. The problem is
                 
               
             
-            
-  <div class="post-actions-wrap">
+            <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -379,8 +406,8 @@ I recently wanted to update my Vagrant box running Debian Wheezy. The problem is
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
             
               
@@ -399,8 +426,8 @@ I recently wanted to update my Vagrant box running Debian Wheezy. The problem is
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        
-  <div class="post-actions-wrap">
+        <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -465,8 +492,8 @@ I recently wanted to update my Vagrant box running Debian Wheezy. The problem is
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
       </div>
       <div id="share-options-bar" class="share-options-bar" data-behavior="5">
@@ -502,7 +529,7 @@ I recently wanted to update my Vagrant box running Debian Wheezy. The problem is
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -510,7 +537,7 @@ I recently wanted to update my Vagrant box running Debian Wheezy. The problem is
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -749,6 +776,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -759,6 +788,32 @@ First of all, you may know that an alternative more user friendly to grep exist,
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
 
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
   
@@ -786,6 +841,7 @@ First of all, you may know that an alternative more user friendly to grep exist,
       </script>
     
   
+
 
 
 

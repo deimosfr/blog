@@ -1,26 +1,49 @@
-
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Linux">
+<meta name="twitter:title" content="Linux">
+<meta property="og:url" content="https://blog.deimos.fr/categories/linux/">
+<meta property="twitter:url" content="https://blog.deimos.fr/categories/linux/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Linux</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
@@ -28,32 +51,8 @@
     
 
     
-    <meta name="description" content="Deimos Blog">
-    <meta property="og:description" content="Deimos Blog">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Linux">
-    <meta property="og:url" content="/categories/linux/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Deimos Blog">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/categories/linux/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -61,11 +60,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -100,7 +99,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -112,7 +111,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -265,9 +264,11 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I&rsquo;m currently playing with Ceph and wanted to generate multiple machines (6) on my laptop to perform several tests. I needed :
+      
+        I&rsquo;m currently playing with Ceph and wanted to generate multiple machines (6) on my laptop to perform several tests. I needed :
  1 public network 1 private network Debian wheezy OS Automatically install Ceph Add disk for specific machines (OSD)  It wasn&rsquo;t easy to make it work quickly as the documentation doesn&rsquo;t give a lot of examples. But what a powerful solution when it works !
 If you want to try multiple VM managment, please follow the link.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/12/14/vagrant-one-file-generate-several-machines/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -332,9 +333,11 @@ If you want to try multiple VM managment, please follow the link.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Once again, I&rsquo;ve upgraded my wiki (wiki.deimos.fr) and it was really easy with git.
+      
+        Once again, I&rsquo;ve upgraded my wiki (wiki.deimos.fr) and it was really easy with git.
 We could see some new minor design changes like &ldquo;&lt;pre&gt;&rdquo; banners or the login page. Other interesting features are appearing like load time informations for each page edition or embedding Vector theme in the Core. A new extension manager is used called Composer and will try to look at it&rsquo;s benefits shortly.
 Once again, thanks Mediawiki !
+      
       <p>
         <a href="https://blog.deimos.fr/2013/12/12/mediawiki-1-22-0-upgraded-on-wiki/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -401,8 +404,10 @@ Once again, thanks Mediawiki !
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I think this will be the last post for the Debian installation on MacBook Pro 13&rsquo; late 2013. To resume, here are the previous posts :
+      
+        I think this will be the last post for the Debian installation on MacBook Pro 13&rsquo; late 2013. To resume, here are the previous posts :
  http://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/ http://blog.deimos.fr/2013/11/10/update-1-debian-on-the-111-model-macbook-pro-13/  The majority of the bugs will be resolve in the Linux Kernel 3.13. I&rsquo;ve tested the rc2, but it&rsquo;s too much unstable for the moment and I need to wait. Arch wiki gives a lot of informations to make (most of) everything working :
+      
       <p>
         <a href="https://blog.deimos.fr/2013/12/08/update-2-debian-on-the-111-model-macbook-pro-13/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -467,8 +472,10 @@ Once again, thanks Mediawiki !
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I recently added RAID 1 on my mac mini under Debian. I used mdadm and remembered how easy it is.
+      
+        I recently added RAID 1 on my mac mini under Debian. I used mdadm and remembered how easy it is.
 I&rsquo;ve added some updates to my documentation to create a RAID without waiting a full sync.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/12/06/mdadm-create-a-raid-1/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -535,8 +542,10 @@ I&rsquo;ve added some updates to my documentation to create a RAID without waiti
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Puppetlabs recently made a book con Continuous Delivery and offer that book. Continuous delivery allows you to get new features and capabilities to market quickly and reliably. But what is this methodology, really, and what&rsquo;s required to get started? This new, introductory ebook will share:
+      
+        Puppetlabs recently made a book con Continuous Delivery and offer that book. Continuous delivery allows you to get new features and capabilities to market quickly and reliably. But what is this methodology, really, and what&rsquo;s required to get started? This new, introductory ebook will share:
  What continuous delivery is and isn&rsquo;t Why continuous delivery is important to your business How to get started with the cultural technological changes required to practice continuous delivery  You can download it there
+      
       <p>
         <a href="https://blog.deimos.fr/2013/12/02/continuous-delivery-ebook/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -603,8 +612,10 @@ I&rsquo;ve added some updates to my documentation to create a RAID without waiti
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I&rsquo;ve finally finished my documentation on LXC for Debian Wheezy. I think I&rsquo;ve added the most interesting features.
+      
+        I&rsquo;ve finally finished my documentation on LXC for Debian Wheezy. I think I&rsquo;ve added the most interesting features.
 I&rsquo;m now going to migrate my servers from KVM to LXC as I only POC it for now. I&rsquo;ll keep you up to date when everything will be migrated.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/11/30/lxc-my-documentation-finally-finished/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -669,8 +680,10 @@ I&rsquo;m now going to migrate my servers from KVM to LXC as I only POC it for n
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      LXC is a really good container solution to replace older container solutions like OpenVZ or Vserver for instance. Libvirt is a wonderful tool to manage different hypervisors and containers solutions. Anyway Libvirt is unfortunately not able to fully manage LXC (create, delete&hellip;) today.
+      
+        LXC is a really good container solution to replace older container solutions like OpenVZ or Vserver for instance. Libvirt is a wonderful tool to manage different hypervisors and containers solutions. Anyway Libvirt is unfortunately not able to fully manage LXC (create, delete&hellip;) today.
 That&rsquo;s why it&rsquo;s not necessary to get it running and installed on a server, but it could be useful if you have KVM and LXC working on the same machine to get the same tool to handle start/stop containers/VMs.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/11/28/lxc-use-dnsmasq-instead-of-libvirt/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -730,7 +743,7 @@ That&rsquo;s why it&rsquo;s not necessary to get it running and installed on a s
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -738,7 +751,7 @@ That&rsquo;s why it&rsquo;s not necessary to get it running and installed on a s
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -977,6 +990,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -986,6 +1001,33 @@ First of all, you may know that an alternative more user friendly to grep exist,
   
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
 

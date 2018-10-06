@@ -1,69 +1,89 @@
-
-
-  
-    
-  
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Ça fait des années que je joue avec Git. Pourtant, même en temps que mono utilisateur, je ne me suis pas vraiment penché sur les fonctionnalités avancées de celui ci.
+C&rsquo;est lors d&rsquo;une formation accélérée dans ma boîte que j&rsquo;ai pu découvrir a quel point Git est puissant. Pourtant j&rsquo;ai l&rsquo;impression de n&rsquo;en avoir toujours vu qu&rsquo;une infime partie.
+J&rsquo;ai donc mis a jour ma documentation sur git avec ce que j&rsquo;ai pu voir et tester.">
+
+
+<meta property="og:description" content="Ça fait des années que je joue avec Git. Pourtant, même en temps que mono utilisateur, je ne me suis pas vraiment penché sur les fonctionnalités avancées de celui ci.
+C&rsquo;est lors d&rsquo;une formation accélérée dans ma boîte que j&rsquo;ai pu découvrir a quel point Git est puissant. Pourtant j&rsquo;ai l&rsquo;impression de n&rsquo;en avoir toujours vu qu&rsquo;une infime partie.
+J&rsquo;ai donc mis a jour ma documentation sur git avec ce que j&rsquo;ai pu voir et tester.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git : bien plus qu’un simple outil de versionning">
+<meta name="twitter:title" content="Git : bien plus qu’un simple outil de versionning">
+<meta property="og:url" content="https://blog.deimos.fr/2013/02/19/git-bien-plus-quun-outil-de-versionning/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2013/02/19/git-bien-plus-quun-outil-de-versionning/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Ça fait des années que je joue avec Git. Pourtant, même en temps que mono utilisateur, je ne me suis pas vraiment penché sur les fonctionnalités avancées de celui ci.
+C&rsquo;est lors d&rsquo;une formation accélérée dans ma boîte que j&rsquo;ai pu découvrir a quel point Git est puissant. Pourtant j&rsquo;ai l&rsquo;impression de n&rsquo;en avoir toujours vu qu&rsquo;une infime partie.
+J&rsquo;ai donc mis a jour ma documentation sur git avec ce que j&rsquo;ai pu voir et tester.">
+<meta name="twitter:description" content="Ça fait des années que je joue avec Git. Pourtant, même en temps que mono utilisateur, je ne me suis pas vraiment penché sur les fonctionnalités avancées de celui ci.
+C&rsquo;est lors d&rsquo;une formation accélérée dans ma boîte que j&rsquo;ai pu découvrir a quel point Git est puissant. Pourtant j&rsquo;ai l&rsquo;impression de n&rsquo;en avoir toujours vu qu&rsquo;une infime partie.
+J&rsquo;ai donc mis a jour ma documentation sur git avec ce que j&rsquo;ai pu voir et tester.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2013-02-19T11:00:50">
+  
+  
+    <meta property="article:modified_time" content="2013-02-19T11:00:50">
+  
+  
+  
+    
+      <meta property="article:section" content="Developement">
+    
+      <meta property="article:section" content="Hi-Tech">
+    
+  
+  
+    
+      <meta property="article:tag" content="Developement">
+    
+      <meta property="article:tag" content="Hi-Tech">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_git.png">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_git.png">
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Git : bien plus qu’un simple outil de versionning</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
 
     
-    <meta name="description" content="Ça fait des années que je joue avec Git. Pourtant, même en temps que mono utilisateur, je ne me suis pas vraiment penché sur les fonctionnalités avancées de celui ci.
-C&rsquo;est lors d&rsquo;une formation accélérée dans ma boîte que j&rsquo;ai pu découvrir a quel point Git est puissant. Pourtant j&rsquo;ai l&rsquo;impression de n&rsquo;en avoir toujours vu qu&rsquo;une infime partie.
-J&rsquo;ai donc mis a jour ma documentation sur git avec ce que j&rsquo;ai pu voir et tester.">
-    <meta property="og:description" content="Ça fait des années que je joue avec Git. Pourtant, même en temps que mono utilisateur, je ne me suis pas vraiment penché sur les fonctionnalités avancées de celui ci.
-C&rsquo;est lors d&rsquo;une formation accélérée dans ma boîte que j&rsquo;ai pu découvrir a quel point Git est puissant. Pourtant j&rsquo;ai l&rsquo;impression de n&rsquo;en avoir toujours vu qu&rsquo;une infime partie.
-J&rsquo;ai donc mis a jour ma documentation sur git avec ce que j&rsquo;ai pu voir et tester.">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Git : bien plus qu’un simple outil de versionning">
-    <meta property="og:url" content="/2013/02/19/git-bien-plus-quun-outil-de-versionning/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Ça fait des années que je joue avec Git. Pourtant, même en temps que mono utilisateur, je ne me suis pas vraiment penché sur les fonctionnalités avancées de celui ci.
-C&rsquo;est lors d&rsquo;une formation accélérée dans ma boîte que j&rsquo;ai pu découvrir a quel point Git est puissant. Pourtant j&rsquo;ai l&rsquo;impression de n&rsquo;en avoir toujours vu qu&rsquo;une infime partie.
-J&rsquo;ai donc mis a jour ma documentation sur git avec ce que j&rsquo;ai pu voir et tester.">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-      <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_git.png">
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/2013/02/19/git-bien-plus-quun-outil-de-versionning/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -71,11 +91,11 @@ J&rsquo;ai donc mis a jour ma documentation sur git avec ce que j&rsquo;ai pu vo
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -110,7 +130,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -122,7 +142,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -264,18 +284,18 @@ ga('send', 'pageview');
 
 <p>C&rsquo;est lors d&rsquo;une formation accélérée dans ma boîte que j&rsquo;ai pu découvrir a quel point Git est puissant. Pourtant j&rsquo;ai l&rsquo;impression de n&rsquo;en avoir toujours vu qu&rsquo;une infime partie.</p>
 
-<p>J&rsquo;ai donc mis a jour <a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git" target="_blank">ma documentation sur git</a> avec ce que j&rsquo;ai pu voir et tester.</p>
+<p>J&rsquo;ai donc mis a jour <a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git">ma documentation sur git</a> avec ce que j&rsquo;ai pu voir et tester.</p>
 
 <p>Voici quelques fonctionnalités nouvelles sur ma doc intéressantes :</p>
 
 <ul>
-<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Obtenir_les_logs" target="_blank">Utilisation des logs avancés</a></li>
-<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Faire_une_recherche" target="_blank">Faire une recherche de contenu</a></li>
-<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#S.27assurer_qu.27il_n.27y_a_rien_.C3.A0_commiter" target="_blank">S&rsquo;assurer que plus rien n&rsquo;est a commiter</a></li>
-<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Configurer_des_alias" target="_blank">Configurer des alias</a></li>
-<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Voir_un_fichier_en_particulier_d.27un_commit" target="_blank">Voir les fichiers d&rsquo;un commit</a></li>
-<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Faire_des_diff_entre_diff.C3.A9rentes_versions" target="_blank">Faire des diffs entre 2 commits</a></li>
-<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Rebase_:_Appliquer_un_patch_sur_plusieurs_branches" target="_blank">Appliquer un patch sur plusieurs branches de façon interactive</a></li>
+<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Obtenir_les_logs">Utilisation des logs avancés</a></li>
+<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Faire_une_recherche">Faire une recherche de contenu</a></li>
+<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#S.27assurer_qu.27il_n.27y_a_rien_.C3.A0_commiter">S&rsquo;assurer que plus rien n&rsquo;est a commiter</a></li>
+<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Configurer_des_alias">Configurer des alias</a></li>
+<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Voir_un_fichier_en_particulier_d.27un_commit">Voir les fichiers d&rsquo;un commit</a></li>
+<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Faire_des_diff_entre_diff.C3.A9rentes_versions">Faire des diffs entre 2 commits</a></li>
+<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Rebase_:_Appliquer_un_patch_sur_plusieurs_branches">Appliquer un patch sur plusieurs branches de façon interactive</a></li>
 </ul>
 
 <p>&nbsp;</p>
@@ -283,11 +303,11 @@ ga('send', 'pageview');
 <p>Et pour la partie plus avancée :</p>
 
 <ul>
-<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Les_Tags" target="_blank">La gestion des tags</a></li>
-<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#G.C3.A9rer_les_conflits" target="_blank">La gestion des conflits</a></li>
-<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#R.C3.A9solution_automatique_de_conflits_d.C3.A9j.C3.A0_vu" target="_blank">La gestion des conflits automatique</a> !!!</li>
-<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Utiliser_git_pour_trouver_un_bug" target="_blank">Utiliser git pour retrouver un bug (incroyable)</a> !!!</li>
-<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Conna.C3.AEtre_ligne_par_ligne_les_commits" target="_blank">Afficher ligne par ligne qui a commiter quoi</a> !!!</li>
+<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Les_Tags">La gestion des tags</a></li>
+<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#G.C3.A9rer_les_conflits">La gestion des conflits</a></li>
+<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#R.C3.A9solution_automatique_de_conflits_d.C3.A9j.C3.A0_vu">La gestion des conflits automatique</a> !!!</li>
+<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Utiliser_git_pour_trouver_un_bug">Utiliser git pour retrouver un bug (incroyable)</a> !!!</li>
+<li><a href="http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Conna.C3.AEtre_ligne_par_ligne_les_commits">Afficher ligne par ligne qui a commiter quoi</a> !!!</li>
 </ul>
 
 <p>J&rsquo;espère que vous apprendrez des choses en lisant ma doc et surtout que vous passerez a git si vous n&rsquo;avez pas encore fait le premier pas.</p>
@@ -313,8 +333,8 @@ ga('send', 'pageview');
                 
               
             
-            
-  <div class="post-actions-wrap">
+            <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -379,8 +399,8 @@ ga('send', 'pageview');
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
             
               
@@ -399,8 +419,8 @@ ga('send', 'pageview');
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        
-  <div class="post-actions-wrap">
+        <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -465,8 +485,8 @@ ga('send', 'pageview');
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
       </div>
       <div id="share-options-bar" class="share-options-bar" data-behavior="5">
@@ -502,7 +522,7 @@ ga('send', 'pageview');
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -510,7 +530,7 @@ ga('send', 'pageview');
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -749,6 +769,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -759,6 +781,32 @@ First of all, you may know that an alternative more user friendly to grep exist,
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
 
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
   
@@ -786,6 +834,7 @@ First of all, you may know that an alternative more user friendly to grep exist,
       </script>
     
   
+
 
 
 

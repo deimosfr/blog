@@ -1,64 +1,86 @@
-
-
-  
-    
-  
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Vous l’avez peut être constaté, mais mon serveur était indisponible une partie de la journée. La faute à la mise à jour de ma OpenBSD sur ma Soekris qui a foirée. J’ai voulu upgrader comme j’avais fait à l’époque de la 4.4 vers la 4.5, à savoir en mode manuel http://www.openbsd.org/faq/upgrade46.html#upgrade.
+Même si il est clairement spécifier que ce n&rsquo;est pas la méthode recommandée, je n&rsquo;avais pas rencontrer de problèmes la fois d&rsquo;avant.">
+
+
+<meta property="og:description" content="Vous l’avez peut être constaté, mais mon serveur était indisponible une partie de la journée. La faute à la mise à jour de ma OpenBSD sur ma Soekris qui a foirée. J’ai voulu upgrader comme j’avais fait à l’époque de la 4.4 vers la 4.5, à savoir en mode manuel http://www.openbsd.org/faq/upgrade46.html#upgrade.
+Même si il est clairement spécifier que ce n&rsquo;est pas la méthode recommandée, je n&rsquo;avais pas rencontrer de problèmes la fois d&rsquo;avant.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mise à jour OpenBSD 4.5 -&gt; 4.6 pas sans mal">
+<meta name="twitter:title" content="Mise à jour OpenBSD 4.5 -&gt; 4.6 pas sans mal">
+<meta property="og:url" content="https://blog.deimos.fr/2009/10/25/mise-a-jour-openbsd-4-5-4-6-pas-sans-mal/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2009/10/25/mise-a-jour-openbsd-4-5-4-6-pas-sans-mal/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Vous l’avez peut être constaté, mais mon serveur était indisponible une partie de la journée. La faute à la mise à jour de ma OpenBSD sur ma Soekris qui a foirée. J’ai voulu upgrader comme j’avais fait à l’époque de la 4.4 vers la 4.5, à savoir en mode manuel http://www.openbsd.org/faq/upgrade46.html#upgrade.
+Même si il est clairement spécifier que ce n&rsquo;est pas la méthode recommandée, je n&rsquo;avais pas rencontrer de problèmes la fois d&rsquo;avant.">
+<meta name="twitter:description" content="Vous l’avez peut être constaté, mais mon serveur était indisponible une partie de la journée. La faute à la mise à jour de ma OpenBSD sur ma Soekris qui a foirée. J’ai voulu upgrader comme j’avais fait à l’époque de la 4.4 vers la 4.5, à savoir en mode manuel http://www.openbsd.org/faq/upgrade46.html#upgrade.
+Même si il est clairement spécifier que ce n&rsquo;est pas la méthode recommandée, je n&rsquo;avais pas rencontrer de problèmes la fois d&rsquo;avant.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2009-10-25T19:44:20">
+  
+  
+    <meta property="article:modified_time" content="2009-10-25T19:44:20">
+  
+  
+  
+    
+      <meta property="article:section" content="Hi-Tech">
+    
+      <meta property="article:section" content="OpenBSD">
+    
+      <meta property="article:section" content="Soekris">
+    
+  
+  
+    
+      <meta property="article:tag" content="Hi-Tech">
+    
+      <meta property="article:tag" content="OpenBSD">
+    
+      <meta property="article:tag" content="Soekris">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Mise à jour OpenBSD 4.5 -&gt; 4.6 pas sans mal</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
 
     
-    <meta name="description" content="Vous l’avez peut être constaté, mais mon serveur était indisponible une partie de la journée. La faute à la mise à jour de ma OpenBSD sur ma Soekris qui a foirée. J’ai voulu upgrader comme j’avais fait à l’époque de la 4.4 vers la 4.5, à savoir en mode manuel http://www.openbsd.org/faq/upgrade46.html#upgrade.
-Même si il est clairement spécifier que ce n&rsquo;est pas la méthode recommandée, je n&rsquo;avais pas rencontrer de problèmes la fois d&rsquo;avant.">
-    <meta property="og:description" content="Vous l’avez peut être constaté, mais mon serveur était indisponible une partie de la journée. La faute à la mise à jour de ma OpenBSD sur ma Soekris qui a foirée. J’ai voulu upgrader comme j’avais fait à l’époque de la 4.4 vers la 4.5, à savoir en mode manuel http://www.openbsd.org/faq/upgrade46.html#upgrade.
-Même si il est clairement spécifier que ce n&rsquo;est pas la méthode recommandée, je n&rsquo;avais pas rencontrer de problèmes la fois d&rsquo;avant.">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Mise à jour OpenBSD 4.5 -&gt; 4.6 pas sans mal">
-    <meta property="og:url" content="/2009/10/25/mise-a-jour-openbsd-4-5-4-6-pas-sans-mal/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Vous l’avez peut être constaté, mais mon serveur était indisponible une partie de la journée. La faute à la mise à jour de ma OpenBSD sur ma Soekris qui a foirée. J’ai voulu upgrader comme j’avais fait à l’époque de la 4.4 vers la 4.5, à savoir en mode manuel http://www.openbsd.org/faq/upgrade46.html#upgrade.
-Même si il est clairement spécifier que ce n&rsquo;est pas la méthode recommandée, je n&rsquo;avais pas rencontrer de problèmes la fois d&rsquo;avant.">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/2009/10/25/mise-a-jour-openbsd-4-5-4-6-pas-sans-mal/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -66,11 +88,11 @@ Même si il est clairement spécifier que ce n&rsquo;est pas la méthode recomma
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -105,7 +127,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -117,7 +139,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -256,16 +278,16 @@ ga('send', 'pageview');
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>Vous l’avez peut être constaté, mais mon serveur était indisponible une partie de la journée. La faute à la mise à jour de ma OpenBSD sur ma Soekris qui a foirée. J’ai voulu upgrader comme j’avais fait à l’époque de la 4.4 vers la 4.5, à savoir en mode manuel <a href="http://www.openbsd.org/faq/upgrade46.html#upgrade" target="_blank">http://www.openbsd.org/faq/upgrade46.html#upgrade</a>.</p>
+              <p>Vous l’avez peut être constaté, mais mon serveur était indisponible une partie de la journée. La faute à la mise à jour de ma OpenBSD sur ma Soekris qui a foirée. J’ai voulu upgrader comme j’avais fait à l’époque de la 4.4 vers la 4.5, à savoir en mode manuel <a href="http://www.openbsd.org/faq/upgrade46.html#upgrade">http://www.openbsd.org/faq/upgrade46.html#upgrade</a>.</p>
 
-<p>Même si il est clairement spécifier que ce n&rsquo;est pas la méthode recommandée, je n&rsquo;avais pas rencontrer de problèmes la fois d&rsquo;avant. Et là par contre, impossible de me connecter ! Ni en SSH, ni en port COM. Là tout de suite ça pique, je décide de <a href="http://wiki.deimos.fr/Configuration_et_installation_via_port_s%C3%A9rie_d%27OpenBSD_sur_Soekris" target="_blank">ressortir le kit du docteur</a>.</p>
+<p>Même si il est clairement spécifier que ce n&rsquo;est pas la méthode recommandée, je n&rsquo;avais pas rencontrer de problèmes la fois d&rsquo;avant. Et là par contre, impossible de me connecter ! Ni en SSH, ni en port COM. Là tout de suite ça pique, je décide de <a href="http://wiki.deimos.fr/Configuration_et_installation_via_port_s%C3%A9rie_d%27OpenBSD_sur_Soekris">ressortir le kit du docteur</a>.</p>
 
-<p>Je boot donc via PXE, fait une upgrade par dessus la mienne foireuse. Un reboot et hop ça marche ! Youpi tralala, je fini donc en beautée par récupérer ma belle et m&rsquo;en sort plutôt pas trop mal avec le merveilleux outil appelé <a href="http://wiki.deimos.fr/Configuration_et_installation_via_port_s%C3%A9rie_d%27OpenBSD_sur_Soekris#Mise_.C3.A0_jour_d.27OpenBSD" target="_blank">Sysmerge</a>, que je n&rsquo;avais pas utiliser lors de ma précédente update. Et il est vrai que c&rsquo;est un petit bonheur (ok, ceux qui connaissent les joies d&rsquo;apt, effectivement, on en est loin, mais c&rsquo;est toujours mieux que rien).</p>
+<p>Je boot donc via PXE, fait une upgrade par dessus la mienne foireuse. Un reboot et hop ça marche ! Youpi tralala, je fini donc en beautée par récupérer ma belle et m&rsquo;en sort plutôt pas trop mal avec le merveilleux outil appelé <a href="http://wiki.deimos.fr/Configuration_et_installation_via_port_s%C3%A9rie_d%27OpenBSD_sur_Soekris#Mise_.C3.A0_jour_d.27OpenBSD">Sysmerge</a>, que je n&rsquo;avais pas utiliser lors de ma précédente update. Et il est vrai que c&rsquo;est un petit bonheur (ok, ceux qui connaissent les joies d&rsquo;apt, effectivement, on en est loin, mais c&rsquo;est toujours mieux que rien).</p>
 
 <p>Voici donc un petit listing des galères avec solutions que j&rsquo;ai rencontré :</p>
 
 <ul>
-<li><p>Mon port série, j&rsquo;aurais du noter la conf pour me connecter à la Soekris, <a href="http://wiki.deimos.fr/Configuration_et_installation_via_port_s%C3%A9rie_d%27OpenBSD_sur_Soekris#Connexion_via_Minicom" target="_blank">voici donc chose faite</a>.</p></li>
+<li><p>Mon port série, j&rsquo;aurais du noter la conf pour me connecter à la Soekris, <a href="http://wiki.deimos.fr/Configuration_et_installation_via_port_s%C3%A9rie_d%27OpenBSD_sur_Soekris#Connexion_via_Minicom">voici donc chose faite</a>.</p></li>
 
 <li><p>Dans la documentation de mise à jour, il y a une erreur lors de la création des utilisateurs. Il faut mettre &ldquo;g=uid&rdquo; à la place de &ldquo;g =uid&rdquo; :</p></li>
 </ul>
@@ -275,7 +297,7 @@ useradd -u <span style="color:#ae81ff">95</span> -g<span style="color:#f92672">=
 useradd -u <span style="color:#ae81ff">96</span> -g<span style="color:#f92672">=</span>uid -c <span style="color:#e6db74">&#34;rpc.rwalld&#34;</span> -d /var/empty -s /sbin/nologin _rwalld</code></pre></div>
 
 <ul>
-<li>Packet Filer a aussi eu le droit à son upgrade avec le <a href="http://wiki.deimos.fr/Introduction_%C3%A0_Packet_Filter" target="_blank">remplacement de l&rsquo;entrée &ldquo;scrub in all&rdquo; par &ldquo;match in all scrub (no-df)&rdquo;</a></li>
+<li>Packet Filer a aussi eu le droit à son upgrade avec le <a href="http://wiki.deimos.fr/Introduction_%C3%A0_Packet_Filter">remplacement de l&rsquo;entrée &ldquo;scrub in all&rdquo; par &ldquo;match in all scrub (no-df)&rdquo;</a></li>
 </ul>
 
 <p>Et maintenant tout fonctionne :-)</p>
@@ -301,8 +323,8 @@ useradd -u <span style="color:#ae81ff">96</span> -g<span style="color:#f92672">=
                 
               
             
-            
-  <div class="post-actions-wrap">
+            <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -367,8 +389,8 @@ useradd -u <span style="color:#ae81ff">96</span> -g<span style="color:#f92672">=
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
             
               
@@ -387,8 +409,8 @@ useradd -u <span style="color:#ae81ff">96</span> -g<span style="color:#f92672">=
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        
-  <div class="post-actions-wrap">
+        <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -453,8 +475,8 @@ useradd -u <span style="color:#ae81ff">96</span> -g<span style="color:#f92672">=
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
       </div>
       <div id="share-options-bar" class="share-options-bar" data-behavior="5">
@@ -490,7 +512,7 @@ useradd -u <span style="color:#ae81ff">96</span> -g<span style="color:#f92672">=
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -498,7 +520,7 @@ useradd -u <span style="color:#ae81ff">96</span> -g<span style="color:#f92672">=
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -737,6 +759,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -747,6 +771,32 @@ First of all, you may know that an alternative more user friendly to grep exist,
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
 
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
   
@@ -774,6 +824,7 @@ First of all, you may know that an alternative more user friendly to grep exist,
       </script>
     
   
+
 
 
 

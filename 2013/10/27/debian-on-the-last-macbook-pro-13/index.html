@@ -1,66 +1,93 @@
-
-
-  
-    
-  
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="I tested to install Debian as I love it more than Mac OS X for work on my new MacBook Pro 13 retina. Most of the hardware works out of the box on a Debian Jessie (because of the kernel version &gt; 3.8) but is not really optimal. That&rsquo;s why I&rsquo;m going to explain how I did to make it better.
+First of all, you need an EFI manager. I discovered that Refit is not maintained anymore and let place to rEFInd instead.">
+
+
+<meta property="og:description" content="I tested to install Debian as I love it more than Mac OS X for work on my new MacBook Pro 13 retina. Most of the hardware works out of the box on a Debian Jessie (because of the kernel version &gt; 3.8) but is not really optimal. That&rsquo;s why I&rsquo;m going to explain how I did to make it better.
+First of all, you need an EFI manager. I discovered that Refit is not maintained anymore and let place to rEFInd instead.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Debian on the 11,1 model MacBook Pro 13">
+<meta name="twitter:title" content="Debian on the 11,1 model MacBook Pro 13">
+<meta property="og:url" content="https://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="I tested to install Debian as I love it more than Mac OS X for work on my new MacBook Pro 13 retina. Most of the hardware works out of the box on a Debian Jessie (because of the kernel version &gt; 3.8) but is not really optimal. That&rsquo;s why I&rsquo;m going to explain how I did to make it better.
+First of all, you need an EFI manager. I discovered that Refit is not maintained anymore and let place to rEFInd instead.">
+<meta name="twitter:description" content="I tested to install Debian as I love it more than Mac OS X for work on my new MacBook Pro 13 retina. Most of the hardware works out of the box on a Debian Jessie (because of the kernel version &gt; 3.8) but is not really optimal. That&rsquo;s why I&rsquo;m going to explain how I did to make it better.
+First of all, you need an EFI manager. I discovered that Refit is not maintained anymore and let place to rEFInd instead.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2013-10-27T11:00:06">
+  
+  
+    <meta property="article:modified_time" content="2013-10-27T11:00:06">
+  
+  
+  
+    
+      <meta property="article:section" content="Debian">
+    
+      <meta property="article:section" content="Hi-Tech">
+    
+      <meta property="article:section" content="Linux">
+    
+      <meta property="article:section" content="Mac">
+    
+  
+  
+    
+      <meta property="article:tag" content="Debian">
+    
+      <meta property="article:tag" content="Hi-Tech">
+    
+      <meta property="article:tag" content="Linux">
+    
+      <meta property="article:tag" content="Mac">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_debian.png">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_debian.png">
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Debian on the 11,1 model MacBook Pro 13</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
 
     
-    <meta name="description" content="I tested to install Debian as I love it more than Mac OS X for work on my new MacBook Pro 13 retina. Most of the hardware works out of the box on a Debian Jessie (because of the kernel version &gt; 3.8) but is not really optimal. That&rsquo;s why I&rsquo;m going to explain how I did to make it better.
-First of all, you need an EFI manager. I discovered that Refit is not maintained anymore and let place to rEFInd instead.">
-    <meta property="og:description" content="I tested to install Debian as I love it more than Mac OS X for work on my new MacBook Pro 13 retina. Most of the hardware works out of the box on a Debian Jessie (because of the kernel version &gt; 3.8) but is not really optimal. That&rsquo;s why I&rsquo;m going to explain how I did to make it better.
-First of all, you need an EFI manager. I discovered that Refit is not maintained anymore and let place to rEFInd instead.">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Debian on the 11,1 model MacBook Pro 13">
-    <meta property="og:url" content="/2013/10/27/debian-on-the-last-macbook-pro-13/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="I tested to install Debian as I love it more than Mac OS X for work on my new MacBook Pro 13 retina. Most of the hardware works out of the box on a Debian Jessie (because of the kernel version &gt; 3.8) but is not really optimal. That&rsquo;s why I&rsquo;m going to explain how I did to make it better.
-First of all, you need an EFI manager. I discovered that Refit is not maintained anymore and let place to rEFInd instead.">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-      <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_debian.png">
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -68,11 +95,11 @@ First of all, you need an EFI manager. I discovered that Refit is not maintained
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -107,7 +134,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -119,7 +146,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -263,17 +290,17 @@ ga('send', 'pageview');
               <p><img src="https://blog.deimos.fr/images/logo_debian.png" alt="debian_logo" />
 I tested to install Debian as I love it more than Mac OS X for work on my new MacBook Pro 13 retina. Most of the hardware works out of the box on a Debian Jessie (because of the <strong>kernel version &gt; 3.8</strong>) but is not really optimal. That&rsquo;s why I&rsquo;m going to explain how I did to make it better.</p>
 
-<p>First of all, you need an EFI manager. I discovered that <strong><a href="http://refit.sourceforge.net/" target="_blank">Refit</a> is not maintained anymore and let place to <a href="http://www.rodsbooks.com/refind/" target="_blank">rEFInd</a> instead</strong>. So you need to download and install it. Then you&rsquo;ll be able to see the manager at first reboot. rEFInd will be able to boot from Debian installer on USB key for instance in EFI mode (in fact you don&rsquo;t really need this manager now, but it&rsquo;s better to have it now to manage you future dual boot).</p>
+<p>First of all, you need an EFI manager. I discovered that <strong><a href="http://refit.sourceforge.net/">Refit</a> is not maintained anymore and let place to <a href="http://www.rodsbooks.com/refind/">rEFInd</a> instead</strong>. So you need to download and install it. Then you&rsquo;ll be able to see the manager at first reboot. rEFInd will be able to boot from Debian installer on USB key for instance in EFI mode (in fact you don&rsquo;t really need this manager now, but it&rsquo;s better to have it now to manage you future dual boot).</p>
 
-<p>I needed to use a recent kernel (that&rsquo;s why I recommend Jessie) and have to add the <strong>broadcom wifi drivers</strong> to make it work. I followed those instructions on the <a href="https://wiki.debian.org/wl" target="_blank">official Debian wiki</a> and it worked.</p>
+<p>I needed to use a recent kernel (that&rsquo;s why I recommend Jessie) and have to add the <strong>broadcom wifi drivers</strong> to make it work. I followed those instructions on the <a href="https://wiki.debian.org/wl">official Debian wiki</a> and it worked.</p>
 
-<p>Do not forget to look at <strong>powertop</strong> recommendations to optimize your battery life. You also need to <a href="http://wiki.deimos.fr/Optimiser_les_performances_des_disques_dur_sur_Linux#Optimisations_pour_les_SSDs" target="_blank">activate TRIM</a> to keep as longer as possible your SSD..</p>
+<p>Do not forget to look at <strong>powertop</strong> recommendations to optimize your battery life. You also need to <a href="http://wiki.deimos.fr/Optimiser_les_performances_des_disques_dur_sur_Linux#Optimisations_pour_les_SSDs">activate TRIM</a> to keep as longer as possible your SSD..</p>
 
 <p>I needed to install <strong>acpi-support</strong> to get &ldquo;on lid close&rdquo; sleep feature.</p>
 
-<p>I also needed to have <strong>keyboard backlight</strong> functionality as pommed software does not recognize this Mac version (11,1) yet. So I had to do tricks on /sys and apply them in my Awesome configuration (rc.lua). You can find it as usual <a href="https://git.deimos.fr/?p=git_deimosfr.git;a=tree;f=user_config/awesome" target="_blank">on my git</a>.</p>
+<p>I also needed to have <strong>keyboard backlight</strong> functionality as pommed software does not recognize this Mac version (11,1) yet. So I had to do tricks on /sys and apply them in my Awesome configuration (rc.lua). You can find it as usual <a href="https://git.deimos.fr/?p=git_deimosfr.git;a=tree;f=user_config/awesome">on my git</a>.</p>
 
-<p>After several hours working with Debian on the MacBook Pro, <strong>I discovered several issues</strong> : sound problems, iSight (webcam) not functional, Adobe flash issues, some sec freeze for unknow reasons. I decided to try to <strong>compil the latest kernel version</strong> and package it for Debian to see if it resolves issues. <strong>This corrected nearly all my problems</strong> instead of the iSight. If you want to <a href="https://mega.co.nz/#!ulgwhASC!OfGNsyRoaIcnX4hi0rSyH1BUo9hA-nVBWor_r9YfGnY" target="_blank">download the 3.11.6 kernel for Debian, follow the link</a>.</p>
+<p>After several hours working with Debian on the MacBook Pro, <strong>I discovered several issues</strong> : sound problems, iSight (webcam) not functional, Adobe flash issues, some sec freeze for unknow reasons. I decided to try to <strong>compil the latest kernel version</strong> and package it for Debian to see if it resolves issues. <strong>This corrected nearly all my problems</strong> instead of the iSight. If you want to <a href="https://mega.co.nz/#!ulgwhASC!OfGNsyRoaIcnX4hi0rSyH1BUo9hA-nVBWor_r9YfGnY">download the 3.11.6 kernel for Debian, follow the link</a>.</p>
 
 <p>My 2 remaining problems are the webcam and speaker. I&rsquo;m still investigating and will keep you up to date on that.</p>
 
@@ -302,8 +329,8 @@ I tested to install Debian as I love it more than Mac OS X for work on my new Ma
                 
               
             
-            
-  <div class="post-actions-wrap">
+            <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -368,8 +395,8 @@ I tested to install Debian as I love it more than Mac OS X for work on my new Ma
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
             
               
@@ -388,8 +415,8 @@ I tested to install Debian as I love it more than Mac OS X for work on my new Ma
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        
-  <div class="post-actions-wrap">
+        <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -454,8 +481,8 @@ I tested to install Debian as I love it more than Mac OS X for work on my new Ma
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
       </div>
       <div id="share-options-bar" class="share-options-bar" data-behavior="5">
@@ -491,7 +518,7 @@ I tested to install Debian as I love it more than Mac OS X for work on my new Ma
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -499,7 +526,7 @@ I tested to install Debian as I love it more than Mac OS X for work on my new Ma
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -738,6 +765,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -748,6 +777,32 @@ First of all, you may know that an alternative more user friendly to grep exist,
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
 
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
   
@@ -775,6 +830,7 @@ First of all, you may know that an alternative more user friendly to grep exist,
       </script>
     
   
+
 
 
 

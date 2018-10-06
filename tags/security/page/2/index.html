@@ -1,26 +1,49 @@
-
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Security">
+<meta name="twitter:title" content="Security">
+<meta property="og:url" content="https://blog.deimos.fr/tags/security/">
+<meta property="twitter:url" content="https://blog.deimos.fr/tags/security/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Security</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
@@ -28,32 +51,8 @@
     
 
     
-    <meta name="description" content="Deimos Blog">
-    <meta property="og:description" content="Deimos Blog">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Security">
-    <meta property="og:url" content="/tags/security/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Deimos Blog">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/tags/security/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -61,11 +60,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -100,7 +99,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -112,7 +111,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -269,8 +268,10 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      J&rsquo;ai récemment aider un collègue sur la mise en place d&rsquo;un SSO Apache sur un AD. J&rsquo;ai trouvé ça techniquement joli, donc je vous ai fais une petite documentation que j&rsquo;ai grossièrement pompée sur un autre site tellement je l&rsquo;ai trouvé bien faites, et j&rsquo;y ai fais quelques petites retouches. J&rsquo;en ai profité pour mettre très légèrement à jour la documentation sur la mise en place d&rsquo;un serveur Kerberos.
+      
+        J&rsquo;ai récemment aider un collègue sur la mise en place d&rsquo;un SSO Apache sur un AD. J&rsquo;ai trouvé ça techniquement joli, donc je vous ai fais une petite documentation que j&rsquo;ai grossièrement pompée sur un autre site tellement je l&rsquo;ai trouvé bien faites, et j&rsquo;y ai fais quelques petites retouches. J&rsquo;en ai profité pour mettre très légèrement à jour la documentation sur la mise en place d&rsquo;un serveur Kerberos.
 Pour la documentation sur l&rsquo;Authentification SSO depuis Apache sur backend AD via Kerberos
+      
       <p>
         <a href="https://blog.deimos.fr/2012/10/26/authentification-sso-depuis-apache-sur-backend-ad-kerberos/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -335,8 +336,10 @@ Pour la documentation sur l&rsquo;Authentification SSO depuis Apache sur backend
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      C&rsquo;est un truc con, mais par défaut, Squid donne un peu trop d&rsquo;informations lorsque quelqu&rsquo;un le traverse pour accéder à un site.
+      
+        C&rsquo;est un truc con, mais par défaut, Squid donne un peu trop d&rsquo;informations lorsque quelqu&rsquo;un le traverse pour accéder à un site.
 J&rsquo;ai donc modifier la documentation sur Squid pour y ajouter ces 3 petites lignes : # Be more anonymous # That’s three pieces of information you may not want to give away: # - The host name of your proxy server # - The version of Squid it’s running # - The IP address of the system that’s making the request via the proxy forwarded_for off visible_hostname proxy.
+      
       <p>
         <a href="https://blog.deimos.fr/2011/11/07/securiser-la-sortie-de-squid/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -403,8 +406,10 @@ J&rsquo;ai donc modifier la documentation sur Squid pour y ajouter ces 3 petites
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Voici un petit tuto qui permet de créer un proxy SOCKS avec OpenSSH qui vous permettra de sortir très facilement vers l’extérieur (internet) lorsque vous vous trouvez en zone restreinte (taf).
+      
+        Voici un petit tuto qui permet de créer un proxy SOCKS avec OpenSSH qui vous permettra de sortir très facilement vers l’extérieur (internet) lorsque vous vous trouvez en zone restreinte (taf).
 Pour la documentation, ça se passe ici : OpenSSH Créer un proxy SOCKS
+      
       <p>
         <a href="https://blog.deimos.fr/2011/10/25/you-socks/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -465,8 +470,10 @@ Pour la documentation, ça se passe ici : OpenSSH Créer un proxy SOCKS
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Cela fait longtemps que je crypte mes données avec ENCFS et j’en suis très satisfait, même si les performances ne sont pas au rendez vous (fuse). Il existe Luks (celui qui a dit skywalker sort) qui est intégré au noyau et qui est bien plus performant. Je pense qu’il est tout aussi fiable (pas testé sur du long terme, mais natif à Red Hat).
+      
+        Cela fait longtemps que je crypte mes données avec ENCFS et j’en suis très satisfait, même si les performances ne sont pas au rendez vous (fuse). Il existe Luks (celui qui a dit skywalker sort) qui est intégré au noyau et qui est bien plus performant. Je pense qu’il est tout aussi fiable (pas testé sur du long terme, mais natif à Red Hat).
 Pour ceux que ça intéresse, j&rsquo;ai donc concocté comme à mon habitude une petite documentation sur Luks.
+      
       <p>
         <a href="https://blog.deimos.fr/2011/10/10/crypter-ses-disques-dur/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -525,10 +532,12 @@ Pour ceux que ça intéresse, j&rsquo;ai donc concocté comme à mon habitude un
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Je ne le répèterais jamais assez, vérifiez votre installation et configuration et testez là ensuite !
+      
+        Je ne le répèterais jamais assez, vérifiez votre installation et configuration et testez là ensuite !
 Je suis confronté actuellement à un serveur qui passe son temps à se faire hacker. J&rsquo;ai du auditer la sécurité de celui ci et je me rends compte que beaucoup de personne néglige les aspects de la sécurité. Pourquoi tant d&rsquo;acharnement ? Faut dire aussi :
  Pas de Firewall
  Pas de modules de sécurité
+      
       <p>
         <a href="https://blog.deimos.fr/2011/04/05/verifier-la-securite-de-votre-serveur/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -599,8 +608,10 @@ Je suis confronté actuellement à un serveur qui passe son temps à se faire ha
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Revoilà encore un nouveau projet. Il s&rsquo;agit de Rancid Search.
+      
+        Revoilà encore un nouveau projet. Il s&rsquo;agit de Rancid Search.
 Vous connaissez déjà peut être Rancid qui permet de faire des backups de vos chers équipements Cisco et de les stocker dans un VCS. Au taf, mon équipe réseaux se plaignait de ne pas pouvoir faire de recherche dans tous les équipements cisco d&rsquo;un coup. Imaginez plusieurs équipements avec pour certain plus de 25000 lignes d&rsquo;ACL et autre configuration VPN.
+      
       <p>
         <a href="https://blog.deimos.fr/2011/03/02/projet-rancid-search/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -665,9 +676,11 @@ Vous connaissez déjà peut être Rancid qui permet de faire des backups de vos 
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      SSLH est comme un tour de magie. Il permet par exemple sur une adresse WAN sur le port 443 d’avoir du HTTPS et du SSH. Comment c’est possible ??? On peut mettre un même port d’écoute sur un même port !
+      
+        SSLH est comme un tour de magie. Il permet par exemple sur une adresse WAN sur le port 443 d’avoir du HTTPS et du SSH. Comment c’est possible ??? On peut mettre un même port d’écoute sur un même port !
 Effectivement ! Il faut simplement voir SSLH comme un proxy de couche 7 capable de filtrer et différencier les trames SSL des trames SSH.
 Et voici une petite documentation et un correctif pour OpenBSD.
+      
       <p>
         <a href="https://blog.deimos.fr/2010/05/14/multiplexer-ssh-et-ssl/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -714,7 +727,7 @@ Et voici une petite documentation et un correctif pour OpenBSD.
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -722,7 +735,7 @@ Et voici une petite documentation et un correctif pour OpenBSD.
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -961,6 +974,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -970,6 +985,33 @@ First of all, you may know that an alternative more user friendly to grep exist,
   
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
 

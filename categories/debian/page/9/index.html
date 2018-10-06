@@ -1,26 +1,49 @@
-
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Debian">
+<meta name="twitter:title" content="Debian">
+<meta property="og:url" content="https://blog.deimos.fr/categories/debian/">
+<meta property="twitter:url" content="https://blog.deimos.fr/categories/debian/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Debian</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
@@ -28,32 +51,8 @@
     
 
     
-    <meta name="description" content="Deimos Blog">
-    <meta property="og:description" content="Deimos Blog">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Debian">
-    <meta property="og:url" content="/categories/debian/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Deimos Blog">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/categories/debian/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -61,11 +60,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -100,7 +99,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -112,7 +111,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -265,8 +264,10 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      NAXSI means Nginx Anti Xss &amp; Sql Injection. Technically, it is a third party nginx module, available as a package for many UNIX-like platforms. This module, by default, reads a small subset of simple rules (naxsi_core.rules) containing 99% of known patterns involved in websites vulnerabilities. For example, &lsquo;&lt; &lsquo;, &lsquo;|&rsquo; or &lsquo;drop&rsquo; are not supposed to be part of a URI.
+      
+        NAXSI means Nginx Anti Xss &amp; Sql Injection. Technically, it is a third party nginx module, available as a package for many UNIX-like platforms. This module, by default, reads a small subset of simple rules (naxsi_core.rules) containing 99% of known patterns involved in websites vulnerabilities. For example, &lsquo;&lt; &lsquo;, &lsquo;|&rsquo; or &lsquo;drop&rsquo; are not supposed to be part of a URI.
 It&rsquo;s been a while that I wanted to test NAXSI and it seams working not so bad.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/04/15/naxsi/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -337,8 +338,10 @@ It&rsquo;s been a while that I wanted to test NAXSI and it seams working not so 
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      In France, we have the chance to have an ISP/Mobile Telephony provider called Free. They considerably reduced the market price for the Mobile phone communications in 2012. This was very fine for competition and for French people. Now we can have correct prices for Internet and cell phone data. Thanks to Free.
+      
+        In France, we have the chance to have an ISP/Mobile Telephony provider called Free. They considerably reduced the market price for the Mobile phone communications in 2012. This was very fine for competition and for French people. Now we can have correct prices for Internet and cell phone data. Thanks to Free.
 Ceph is quite the same as Free but for storage systems. Since many years, disks array constructors sold us locked solutions with a very high cost of hardware and licenses&rsquo; software.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/04/11/ceph-why-dont-you-try-ceph-and-stop-disks-array/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -403,10 +406,12 @@ Ceph is quite the same as Free but for storage systems. Since many years, disks 
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      A big and major issue on OpenSSL has been discovered and everybody is talking about it. To get more informations, there&rsquo;s a website.
+      
+        A big and major issue on OpenSSL has been discovered and everybody is talking about it. To get more informations, there&rsquo;s a website.
 How to check the vulnerability, download this file:
 chmod 755 ssltest.py Now launch it:
 ./ssltest.py blog.deimos.fr Connecting... Sending Client Hello... Waiting for Server Hello... ... received message: type = 22, ver = 0302, length = 66 ... received message: type = 22, ver = 0302, length = 5559 .
+      
       <p>
         <a href="https://blog.deimos.fr/2014/04/08/openssl-diagnose-and-correct-the-heartbleed-issue/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -469,8 +474,10 @@ chmod 755 ssltest.py Now launch it:
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Yes once again and for a long time now I think, I moved to i3. It does not make so many thing than Awesome, however working on multiple screen with it, it&rsquo;s better.
+      
+        Yes once again and for a long time now I think, I moved to i3. It does not make so many thing than Awesome, however working on multiple screen with it, it&rsquo;s better.
 That&rsquo;s why I wanted to make a new test with it and it&rsquo;s now adopted. I spent a little bit time on reconfiguring all my needs (workspaces depending my screen configuration, opening app on a defined workspace, keyboard bindings etc&hellip;).
+      
       <p>
         <a href="https://blog.deimos.fr/2014/04/07/i-finally-switched-from-awesome-to-i3/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -535,8 +542,10 @@ That&rsquo;s why I wanted to make a new test with it and it&rsquo;s now adopted.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Some of you will tell me that most utility is doing it as well. And that&rsquo;s right, but with ccze you will be able to colorize everything with a pipe. For example when you play with a verbose service like Pacemaker, you need to get colorization if you want to win time. Here is an example:
+      
+        Some of you will tell me that most utility is doing it as well. And that&rsquo;s right, but with ccze you will be able to colorize everything with a pipe. For example when you play with a verbose service like Pacemaker, you need to get colorization if you want to win time. Here is an example:
 tail -f /var/log/syslog | ccze -A 
+      
       <p>
         <a href="https://blog.deimos.fr/2014/03/28/eccza-easily-colorize-your-logs-output/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -601,8 +610,10 @@ tail -f /var/log/syslog | ccze -A
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      When you manage Postfix and have a trouble with your mail infrastructure, you may want to set in maintenance your Postfix without loosing any mails. Here is a way to hold the queue, giving the time to analyze the problem and then release the queue.
+      
+        When you manage Postfix and have a trouble with your mail infrastructure, you may want to set in maintenance your Postfix without loosing any mails. Here is a way to hold the queue, giving the time to analyze the problem and then release the queue.
 I&rsquo;ve wrote some tips on it. I hope it will help you.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/03/20/postfix-hold-outgoing-mail-transport/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -663,8 +674,10 @@ I&rsquo;ve wrote some tips on it. I hope it will help you.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Packer is a tool for creating identical machine images for multiple platforms from a single source configuration. You can win a lot of time by testing your application on multiple environments (AWS, OpenStack, VirtualBox, Vmware&hellip;).
+      
+        Packer is a tool for creating identical machine images for multiple platforms from a single source configuration. You can win a lot of time by testing your application on multiple environments (AWS, OpenStack, VirtualBox, Vmware&hellip;).
 Let&rsquo;s say you&rsquo;ve got a LAMP environment to deploy in production on OpenStack. However, you can&rsquo;t perform your development/integration on it as you don&rsquo;t have access yet. You can&rsquo;t loose time and wait for it to test.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/03/18/packer-win-time-by-easily-testing-your-app-on-multiple-platforms/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -724,7 +737,7 @@ Let&rsquo;s say you&rsquo;ve got a LAMP environment to deploy in production on O
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -732,7 +745,7 @@ Let&rsquo;s say you&rsquo;ve got a LAMP environment to deploy in production on O
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -971,6 +984,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -980,6 +995,33 @@ First of all, you may know that an alternative more user friendly to grep exist,
   
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
 

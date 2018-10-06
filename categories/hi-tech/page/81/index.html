@@ -1,26 +1,49 @@
-
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hi Tech">
+<meta name="twitter:title" content="Hi Tech">
+<meta property="og:url" content="https://blog.deimos.fr/categories/hi-tech/">
+<meta property="twitter:url" content="https://blog.deimos.fr/categories/hi-tech/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Hi Tech</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
@@ -28,32 +51,8 @@
     
 
     
-    <meta name="description" content="Deimos Blog">
-    <meta property="og:description" content="Deimos Blog">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Hi Tech">
-    <meta property="og:url" content="/categories/hi-tech/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Deimos Blog">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/categories/hi-tech/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -61,11 +60,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -100,7 +99,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -112,7 +111,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -265,11 +264,13 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Ca fait un moment que je me dit qu’il va falloir étudier le cas de la réplication de fichiers temps réel entre mon serveur perso et ma dedibox. J’en avais un peu marre de mon rsync crontabé (oui le verbe existe).
+      
+        Ca fait un moment que je me dit qu’il va falloir étudier le cas de la réplication de fichiers temps réel entre mon serveur perso et ma dedibox. J’en avais un peu marre de mon rsync crontabé (oui le verbe existe).
 J&rsquo;ai donc écris une petite documentation sur GlusterFS sur comment répliquer le /var/www. Dans la pratique c&rsquo;est plutôt bien :
  Rapide à mettre en place
  Simple
  Extensible
+      
       <p>
         <a href="https://blog.deimos.fr/2010/12/29/glusterfs-vs-drbdocfs2-2/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -328,8 +329,10 @@ J&rsquo;ai donc écris une petite documentation sur GlusterFS sur comment répli
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Un ami m&rsquo;a demandé un routeur de bonne qualité pour chez lui et assez simple d&rsquo;utilisation. Au début j&rsquo;ai pensé à des produits commerciaux que l&rsquo;on peut trouver dans n&rsquo;importe quelle grande surface un peu spécialisée. Je connais bien les problématiques, ce n&rsquo;est pas toujours stable, c&rsquo;est pauvre en options&hellip;
+      
+        Un ami m&rsquo;a demandé un routeur de bonne qualité pour chez lui et assez simple d&rsquo;utilisation. Au début j&rsquo;ai pensé à des produits commerciaux que l&rsquo;on peut trouver dans n&rsquo;importe quelle grande surface un peu spécialisée. Je connais bien les problématiques, ce n&rsquo;est pas toujours stable, c&rsquo;est pauvre en options&hellip;
 Je possède une Soekris et j&rsquo;en suis très content. Mais le fait d&rsquo;avoir choisis OpenBSD est un choix personnel qui ne correspond pas vraiment à celui de mon ami car pas très user friendly.
+      
       <p>
         <a href="https://blog.deimos.fr/2010/12/04/pfsense-sur-soekris/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -394,8 +397,10 @@ Je possède une Soekris et j&rsquo;en suis très content. Mais le fait d&rsquo;a
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      La solution s&rsquo;appelle Afilefant qui tourne avec Tomcat. Ça m&rsquo;a donc fait un beau paquet de révision sur Tomcat que j&rsquo;ai documenté évidemment.
+      
+        La solution s&rsquo;appelle Afilefant qui tourne avec Tomcat. Ça m&rsquo;a donc fait un beau paquet de révision sur Tomcat que j&rsquo;ai documenté évidemment.
 Si certains d&rsquo;entre vous ont des retours sur ce soft ou d&rsquo;autres dont les retours sont très positifs, je suis preneur.
+      
       <p>
         <a href="https://blog.deimos.fr/2010/11/09/soft-de-gestion-de-todo-collaborative/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -458,12 +463,14 @@ Si certains d&rsquo;entre vous ont des retours sur ce soft ou d&rsquo;autres don
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      J&rsquo;ai une très mauvaise expérience actuellement avec FreeBSD. J&rsquo;ai effectuer plusieurs tests hard avant de remettre sur FreeBSD.
+      
+        J&rsquo;ai une très mauvaise expérience actuellement avec FreeBSD. J&rsquo;ai effectuer plusieurs tests hard avant de remettre sur FreeBSD.
 Pourquoi avais je pris FreeBSD au lieu de Debian ? :
  Pour le ZFS
  Sa réputation
  Pour essayer
   Seulement voilà, quand on commence à faire du fuse + encfs + sshfs&hellip;bah c&rsquo;est pas aussi stable qu&rsquo;on est en droit de penser. J&rsquo;ai des kernel panic qui ne font même pas rebooter ma machine (alors que c&rsquo;est pourtant le comportement par défaut de FreeBSD) visiblement à cause de Fuse ou SSHfs et c&rsquo;est très handicapant.
+      
       <p>
         <a href="https://blog.deimos.fr/2010/11/01/freebsd-pas-si-stable/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -524,11 +531,13 @@ Pourquoi avais je pris FreeBSD au lieu de Debian ? :
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      J&rsquo;ai récemment mis à jour une baie de disques Sun StorageTek 6140 de la version 6 à la version 7. La tâche n&rsquo;était pas simple, il a fallu tout d&rsquo;abord télécharger des outils spécifique pour effectuer cette upgrade :
+      
+        J&rsquo;ai récemment mis à jour une baie de disques Sun StorageTek 6140 de la version 6 à la version 7. La tâche n&rsquo;était pas simple, il a fallu tout d&rsquo;abord télécharger des outils spécifique pour effectuer cette upgrade :
 http://dlc.sun.com/pdf/820-7197-12&frasl;820-7197-12.pdf
 Ensuite, un collègue m&rsquo;a filé ce lien qui permet d&rsquo;avoir les best practice pour faire du RAID 6 :
 http://www.filibeto.org/sun/lib/blueprints/820-5825.pdf
 Tout ça pour faire du vmware. Il a donc fallu changer le mode de visualisation de la baie par les hosts en vmware et idem encore utiliser les recommandations de Vmware par rapport aux LUN etc&hellip; :
+      
       <p>
         <a href="https://blog.deimos.fr/2010/10/28/storagetek-6140-upgrade-et-best-practices/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -591,8 +600,10 @@ Tout ça pour faire du vmware. Il a donc fallu changer le mode de visualisation 
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Il semblerait que du côté de Debian 6 une nomenclature se fasse pour les interfaces réseaux évoluées. J&rsquo;ai rencontré un problème avec mes interfaces bridgées qui n&rsquo;utilisaient pas des noms &ldquo;génériques&rdquo;. En fait les scripts de base proposés par Debian comportent en dur des noms qu&rsquo;il est préférable d&rsquo;utiliser.
+      
+        Il semblerait que du côté de Debian 6 une nomenclature se fasse pour les interfaces réseaux évoluées. J&rsquo;ai rencontré un problème avec mes interfaces bridgées qui n&rsquo;utilisaient pas des noms &ldquo;génériques&rdquo;. En fait les scripts de base proposés par Debian comportent en dur des noms qu&rsquo;il est préférable d&rsquo;utiliser.
 Pour ceux que ça intéressent voici mes déboires sur OpenVZ.
+      
       <p>
         <a href="https://blog.deimos.fr/2010/09/25/vers-une-simplification-du-network-bridge-sur-debian-6/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -659,8 +670,10 @@ Pour ceux que ça intéressent voici mes déboires sur OpenVZ.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Que de mots pour le néophyte du ZFS. C’est en gros mon raidz2 (~ raid6) qui est parti en cacahuète à cause d’un disque pourave dont FreeBSD est également présent sur ce raid.
+      
+        Que de mots pour le néophyte du ZFS. C’est en gros mon raidz2 (~ raid6) qui est parti en cacahuète à cause d’un disque pourave dont FreeBSD est également présent sur ce raid.
 J&rsquo;explique donc la marche à suivre pour remplacer son disque défectueux :-)
+      
       <p>
         <a href="https://blog.deimos.fr/2010/09/21/raidz2-degarded-sur-freebsd-en-zroot/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -714,7 +727,7 @@ J&rsquo;explique donc la marche à suivre pour remplacer son disque défectueux 
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -722,7 +735,7 @@ J&rsquo;explique donc la marche à suivre pour remplacer son disque défectueux 
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -961,6 +974,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -970,6 +985,33 @@ First of all, you may know that an alternative more user friendly to grep exist,
   
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
 

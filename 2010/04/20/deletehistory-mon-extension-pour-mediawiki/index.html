@@ -1,61 +1,86 @@
-
-
-  
-    
-  
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Et bien me voilà encore en pleine créativité, on ne m’arrête plus !!!! Pour la petite histoire, il y a maintenant peut être 2 ans, je cherchais une extension pour MediaWiki me permettant de supprimer mon historique. J’avais trouvé l’extension parfaite SpecialDeleteOldRevisions, mais lors d’une upgrade, impossible de la faire fonctionner correctement. Toujours pas d’update de cette extension 1 an après. Je m’étais dis que j’en ferais une un de ces 4.">
+
+
+<meta property="og:description" content="Et bien me voilà encore en pleine créativité, on ne m’arrête plus !!!! Pour la petite histoire, il y a maintenant peut être 2 ans, je cherchais une extension pour MediaWiki me permettant de supprimer mon historique. J’avais trouvé l’extension parfaite SpecialDeleteOldRevisions, mais lors d’une upgrade, impossible de la faire fonctionner correctement. Toujours pas d’update de cette extension 1 an après. Je m’étais dis que j’en ferais une un de ces 4.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DeleteHistory : Mon extension pour MediaWiki">
+<meta name="twitter:title" content="DeleteHistory : Mon extension pour MediaWiki">
+<meta property="og:url" content="https://blog.deimos.fr/2010/04/20/deletehistory-mon-extension-pour-mediawiki/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2010/04/20/deletehistory-mon-extension-pour-mediawiki/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Et bien me voilà encore en pleine créativité, on ne m’arrête plus !!!! Pour la petite histoire, il y a maintenant peut être 2 ans, je cherchais une extension pour MediaWiki me permettant de supprimer mon historique. J’avais trouvé l’extension parfaite SpecialDeleteOldRevisions, mais lors d’une upgrade, impossible de la faire fonctionner correctement. Toujours pas d’update de cette extension 1 an après. Je m’étais dis que j’en ferais une un de ces 4.">
+<meta name="twitter:description" content="Et bien me voilà encore en pleine créativité, on ne m’arrête plus !!!! Pour la petite histoire, il y a maintenant peut être 2 ans, je cherchais une extension pour MediaWiki me permettant de supprimer mon historique. J’avais trouvé l’extension parfaite SpecialDeleteOldRevisions, mais lors d’une upgrade, impossible de la faire fonctionner correctement. Toujours pas d’update de cette extension 1 an après. Je m’étais dis que j’en ferais une un de ces 4.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2010-04-20T15:58:24">
+  
+  
+    <meta property="article:modified_time" content="2010-04-20T15:58:24">
+  
+  
+  
+    
+      <meta property="article:section" content="Developement">
+    
+      <meta property="article:section" content="Hi-Tech">
+    
+      <meta property="article:section" content="Web">
+    
+  
+  
+    
+      <meta property="article:tag" content="dev">
+    
+      <meta property="article:tag" content="mysql">
+    
+      <meta property="article:tag" content="php">
+    
+      <meta property="article:tag" content="Web">
+    
+      <meta property="article:tag" content="wiki">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>DeleteHistory : Mon extension pour MediaWiki</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
 
     
-    <meta name="description" content="Et bien me voilà encore en pleine créativité, on ne m’arrête plus !!!! Pour la petite histoire, il y a maintenant peut être 2 ans, je cherchais une extension pour MediaWiki me permettant de supprimer mon historique. J’avais trouvé l’extension parfaite SpecialDeleteOldRevisions, mais lors d’une upgrade, impossible de la faire fonctionner correctement. Toujours pas d’update de cette extension 1 an après. Je m’étais dis que j’en ferais une un de ces 4.">
-    <meta property="og:description" content="Et bien me voilà encore en pleine créativité, on ne m’arrête plus !!!! Pour la petite histoire, il y a maintenant peut être 2 ans, je cherchais une extension pour MediaWiki me permettant de supprimer mon historique. J’avais trouvé l’extension parfaite SpecialDeleteOldRevisions, mais lors d’une upgrade, impossible de la faire fonctionner correctement. Toujours pas d’update de cette extension 1 an après. Je m’étais dis que j’en ferais une un de ces 4.">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="DeleteHistory : Mon extension pour MediaWiki">
-    <meta property="og:url" content="/2010/04/20/deletehistory-mon-extension-pour-mediawiki/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Et bien me voilà encore en pleine créativité, on ne m’arrête plus !!!! Pour la petite histoire, il y a maintenant peut être 2 ans, je cherchais une extension pour MediaWiki me permettant de supprimer mon historique. J’avais trouvé l’extension parfaite SpecialDeleteOldRevisions, mais lors d’une upgrade, impossible de la faire fonctionner correctement. Toujours pas d’update de cette extension 1 an après. Je m’étais dis que j’en ferais une un de ces 4.">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/2010/04/20/deletehistory-mon-extension-pour-mediawiki/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -63,11 +88,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -102,7 +127,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -114,7 +139,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -253,13 +278,13 @@ ga('send', 'pageview');
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>Et bien me voilà encore en pleine créativité, on ne m’arrête plus !!!! Pour la petite histoire, il y a maintenant peut être 2 ans, je cherchais une extension pour MediaWiki me permettant de supprimer mon historique. J’avais trouvé l’extension parfaite <a href="http://www.mediawiki.org/wiki/Extension:SpecialDeleteOldRevisions" target="_blank">SpecialDeleteOldRevisions</a>, mais lors d’une upgrade, impossible de la faire fonctionner correctement. Toujours pas d’update de cette extension 1 an après. Je m’étais dis que j’en ferais une un de ces 4. C’est maintenant chose faire et je la trouve mieux que l’originale. Pourquoi ? Tout simplement car j’utilise des scripts php de maintenance fournit par MediaWiki au lieu de faire moi même le taf dans la base de données.</p>
+              <p>Et bien me voilà encore en pleine créativité, on ne m’arrête plus !!!! Pour la petite histoire, il y a maintenant peut être 2 ans, je cherchais une extension pour MediaWiki me permettant de supprimer mon historique. J’avais trouvé l’extension parfaite <a href="http://www.mediawiki.org/wiki/Extension:SpecialDeleteOldRevisions">SpecialDeleteOldRevisions</a>, mais lors d’une upgrade, impossible de la faire fonctionner correctement. Toujours pas d’update de cette extension 1 an après. Je m’étais dis que j’en ferais une un de ces 4. C’est maintenant chose faire et je la trouve mieux que l’originale. Pourquoi ? Tout simplement car j’utilise des scripts php de maintenance fournit par MediaWiki au lieu de faire moi même le taf dans la base de données.</p>
 
 <p>Comme ça avec les nouvelles versions, je n&rsquo;aurais pas de soucis puisque ce script devrait évoluer également avec les versions. En même temps que je développait, je me suis aperçu qu&rsquo;une nouvelle version de SpecialDeleteOldRevisions était sortie.</p>
 
 <p>Je n&rsquo;ai de toutes façons pas développer pour rien puisque c&rsquo;est mon extension et je peux la maintenir. Elle est pour le moment accessible sur mon Git et je ne vais pas tarder à la mettre sur le site officiel de MediaWiki :</p>
 
-<p><a href="http://git.deimos.fr/?p=mediawiki_GoogleSearch.git;a=summary" target="_blank">http://www.deimos.fr/gitweb/?p=mediawiki_extensions.git;a=summary</a></p>
+<p><a href="http://git.deimos.fr/?p=mediawiki_GoogleSearch.git;a=summary">http://www.deimos.fr/gitweb/?p=mediawiki_extensions.git;a=summary</a></p>
 
               
             </div>
@@ -286,8 +311,8 @@ ga('send', 'pageview');
                 
               
             
-            
-  <div class="post-actions-wrap">
+            <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -352,8 +377,8 @@ ga('send', 'pageview');
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
             
               
@@ -372,8 +397,8 @@ ga('send', 'pageview');
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        
-  <div class="post-actions-wrap">
+        <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -438,8 +463,8 @@ ga('send', 'pageview');
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
       </div>
       <div id="share-options-bar" class="share-options-bar" data-behavior="5">
@@ -475,7 +500,7 @@ ga('send', 'pageview');
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -483,7 +508,7 @@ ga('send', 'pageview');
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -722,6 +747,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -732,6 +759,32 @@ First of all, you may know that an alternative more user friendly to grep exist,
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
 
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
   
@@ -759,6 +812,7 @@ First of all, you may know that an alternative more user friendly to grep exist,
       </script>
     
   
+
 
 
 

@@ -1,26 +1,49 @@
-
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Virtualization">
+<meta name="twitter:title" content="Virtualization">
+<meta property="og:url" content="https://blog.deimos.fr/tags/virtualization/">
+<meta property="twitter:url" content="https://blog.deimos.fr/tags/virtualization/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Virtualization</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
@@ -28,32 +51,8 @@
     
 
     
-    <meta name="description" content="Deimos Blog">
-    <meta property="og:description" content="Deimos Blog">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Virtualization">
-    <meta property="og:url" content="/tags/virtualization/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Deimos Blog">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/tags/virtualization/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -61,11 +60,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -100,7 +99,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -112,7 +111,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -265,9 +264,11 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Titre provocateur ? Oui, c&rsquo;est vrai ! En même temps, Vmware se repose un peu sur ses lauriers et OpenStack prend de l’ampleur. Il fallait bien en match pour les départager.
+      
+        Titre provocateur ? Oui, c&rsquo;est vrai ! En même temps, Vmware se repose un peu sur ses lauriers et OpenStack prend de l’ampleur. Il fallait bien en match pour les départager.
 Je suis récemment tombé sur ce match intéressant entre Vmware et OpenStack.
 Mon avis personnel sur ce match est qu&rsquo;il est très difficile de vraiment les départager. Tout dépends du besoin et de l&rsquo;évolution de celui ci. Néanmoins, cet article est très intéressant car il cite les fonctionnalités majeures de chacun et les compares.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/03/01/vmware-vs-openstack/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -346,8 +347,10 @@ Mon avis personnel sur ce match est qu&rsquo;il est très difficile de vraiment 
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Avant d&rsquo;attaquer le 2 ème jour, je vais finir sur le premier (la suite d&rsquo;hier).
+      
+        Avant d&rsquo;attaquer le 2 ème jour, je vais finir sur le premier (la suite d&rsquo;hier).
 Un des supers sujet était Bind 10 que j&rsquo;attendais avec impatience. Il n&rsquo;y a malheureusement eu d&rsquo;informations sur les nouveautés aidant a la HA. Cependant il a été totalement réécrit pour supporter + de 100 cores alors qu&rsquo;aujourd&rsquo;hui au delà de 6, il y a des problèmes de performances. On a également (et étrangement) un serveur DHCP qui est intégré a Bind.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -410,8 +413,10 @@ Un des supers sujet était Bind 10 que j&rsquo;attendais avec impatience. Il n&r
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Pour migrer une VM avec des disques de type qcow2, c&rsquo;est très simple, il suffit de les copier les fichiers tel quel. Mais lorsqu&rsquo;on utilise du LVM, la migration peut sembler forcément un peu plus complexe, bien qu&rsquo;elle ne le soit pas vraiment.
+      
+        Pour migrer une VM avec des disques de type qcow2, c&rsquo;est très simple, il suffit de les copier les fichiers tel quel. Mais lorsqu&rsquo;on utilise du LVM, la migration peut sembler forcément un peu plus complexe, bien qu&rsquo;elle ne le soit pas vraiment.
 J&rsquo;ai donc fait une petite section sur mon article KVM qui parle de migration de VM sous LVM.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/01/08/kvm-migrer-ses-vms-sous-lvm/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -478,9 +483,11 @@ J&rsquo;ai donc fait une petite section sur mon article KVM qui parle de migrati
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Pour ceux qui se posent encore des questions sur certains outils de virtualisation, de management de serveurs ou autre, voici le résumé lors du meeting aux &ldquo;rencontres mondiales du logiciel libre&rdquo; sur le sujet du cloud made by Google.
+      
+        Pour ceux qui se posent encore des questions sur certains outils de virtualisation, de management de serveurs ou autre, voici le résumé lors du meeting aux &ldquo;rencontres mondiales du logiciel libre&rdquo; sur le sujet du cloud made by Google.
 Ça se passe ici. Et pour ceux qui ne veulent pas s&rsquo;encombrer avec les détails, voici le PDF.
 Bonne lecture :-)
+      
       <p>
         <a href="https://blog.deimos.fr/2012/07/24/larchi-chez-google/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -547,9 +554,11 @@ Bonne lecture :-)
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Derrière ce titre pompeux se cache en fait la méthode pour activer le port série au démarrage d&rsquo;une machine. Cette solution s&rsquo;avère vite pratique lorsque l&rsquo;on souhaites accéder à certaines machines qui ne répondent plus, ou bien via des solutions de virtualisation.
+      
+        Derrière ce titre pompeux se cache en fait la méthode pour activer le port série au démarrage d&rsquo;une machine. Cette solution s&rsquo;avère vite pratique lorsque l&rsquo;on souhaites accéder à certaines machines qui ne répondent plus, ou bien via des solutions de virtualisation.
 C&rsquo;est pourquoi je vous ai concocté :
  Une petite doc sur le port série sous Linux Une petite doc sur le port série sous FreeBSD Une mise à jour de la doc de KVM pour pouvoir y accéder cash (oui comme tabata)  &nbsp;
+      
       <p>
         <a href="https://blog.deimos.fr/2012/05/23/dj-port-serie-a-lancienne-tonight-we-are/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -612,8 +621,10 @@ C&rsquo;est pourquoi je vous ai concocté :
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Quant on commence à vouloir faire beaucoup de réseaux au niveau de KVM, la configuration devient vite casse tête. C&rsquo;est pourquoi je vais en aider certains qui comme moi pensaient qu&rsquo;une configuration VLAN standard suffirait pour faire fonctionner du VLAN bridgé sur KVM.
+      
+        Quant on commence à vouloir faire beaucoup de réseaux au niveau de KVM, la configuration devient vite casse tête. C&rsquo;est pourquoi je vais en aider certains qui comme moi pensaient qu&rsquo;une configuration VLAN standard suffirait pour faire fonctionner du VLAN bridgé sur KVM.
 Si vous voulez gagner du temps, c&rsquo;est ici.
+      
       <p>
         <a href="https://blog.deimos.fr/2012/05/17/interfaces-vlan-bridgees-sur-kvm/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -680,8 +691,10 @@ Si vous voulez gagner du temps, c&rsquo;est ici.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Je suis actuellement en train de refaire un de mes petits serveurs sous KVM et je me suis penché du côté des performances. Il y en a quelques unes indispensable si on veut avoir de bons résultats.
+      
+        Je suis actuellement en train de refaire un de mes petits serveurs sous KVM et je me suis penché du côté des performances. Il y en a quelques unes indispensable si on veut avoir de bons résultats.
 J&rsquo;ai donc retaper ma documentation sur KVM avec des ajouts de perfs, config réseaux avec VLAN et 2&frasl;3 autres babioles. Je vous laisse regarder.
+      
       <p>
         <a href="https://blog.deimos.fr/2012/05/09/kayvillaimme-paiourfourmanncizes/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -734,7 +747,7 @@ J&rsquo;ai donc retaper ma documentation sur KVM avec des ajouts de perfs, confi
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -742,7 +755,7 @@ J&rsquo;ai donc retaper ma documentation sur KVM avec des ajouts de perfs, confi
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -981,6 +994,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -990,6 +1005,33 @@ First of all, you may know that an alternative more user friendly to grep exist,
   
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
 

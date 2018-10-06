@@ -1,26 +1,49 @@
-
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Databases">
+<meta name="twitter:title" content="Databases">
+<meta property="og:url" content="https://blog.deimos.fr/categories/databases/">
+<meta property="twitter:url" content="https://blog.deimos.fr/categories/databases/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Databases</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
@@ -28,32 +51,8 @@
     
 
     
-    <meta name="description" content="Deimos Blog">
-    <meta property="og:description" content="Deimos Blog">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Databases">
-    <meta property="og:url" content="/categories/databases/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Deimos Blog">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/categories/databases/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -61,11 +60,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -100,7 +99,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -112,7 +111,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -265,9 +264,11 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      You may remember the first introduction of that tool here. I&rsquo;ve made changes to support tables&rsquo; partition, to avoid a big lock on huge tables.
+      
+        You may remember the first introduction of that tool here. I&rsquo;ve made changes to support tables&rsquo; partition, to avoid a big lock on huge tables.
 The solution is to rebuild every partition one by one instead of rebuilding the whole table. This is smoother and less stressing Galera. I hope you&rsquo;ll enjoy this new version (v0.2).
 Note: I still got issues on MariaDB 10 with such thing, I&rsquo;m working on it.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/10/08/galera-innoptimizer-now-support-tables-partition/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -340,7 +341,9 @@ Note: I still got issues on MariaDB 10 with such thing, I&rsquo;m working on it.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I recently been faced on a classical problem on InnoDB which is the fragmentation, but on Galera. InnoDB engine doesn&rsquo;t defragment on the fly and requires optimize maintenance sometimes to free disk space. But on Galera, which is a fault tolerance and high availability solution, it&rsquo;s a problem having tables locked by an optimize procedure. Until Galera doesn&rsquo;t support TokuDB and only fully support InnoDB, we had (with a colleague (Kevin aka Vinek)) to find a solution.
+      
+        I recently been faced on a classical problem on InnoDB which is the fragmentation, but on Galera. InnoDB engine doesn&rsquo;t defragment on the fly and requires optimize maintenance sometimes to free disk space. But on Galera, which is a fault tolerance and high availability solution, it&rsquo;s a problem having tables locked by an optimize procedure. Until Galera doesn&rsquo;t support TokuDB and only fully support InnoDB, we had (with a colleague (Kevin aka Vinek)) to find a solution.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/09/30/galera-innoptimizer-optimize-tables-without-stress/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -405,8 +408,10 @@ Note: I still got issues on MariaDB 10 with such thing, I&rsquo;m working on it.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Next Monday will take place a Hadoop meetup. I already heard of it but didn&rsquo;t tested it yet. This meetup can help you more on what it is and technique usages.
+      
+        Next Monday will take place a Hadoop meetup. I already heard of it but didn&rsquo;t tested it yet. This meetup can help you more on what it is and technique usages.
 If you want to know more about this meetup, please follow the link.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/09/20/hadoop-meetup-on-monday-in-paris/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -475,9 +480,11 @@ If you want to know more about this meetup, please follow the link.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I recently played with ElasticSearch Cluster and I totally fall in love! How easy it is, everything is automatic, it works perfectly, wowwww!!!
+      
+        I recently played with ElasticSearch Cluster and I totally fall in love! How easy it is, everything is automatic, it works perfectly, wowwww!!!
 I made a little documentation on how to setup one, you can find it there.
 ElasticSearch is a really powerful solution and I really like working with it. If you&rsquo;re searching a full text search solution, try ElasticSearch, you&rsquo;ll be happy!
+      
       <p>
         <a href="https://blog.deimos.fr/2014/09/10/elasticsearch-setup-ha-and-basic-usages/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -544,8 +551,10 @@ ElasticSearch is a really powerful solution and I really like working with it. I
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I forgot to talk about 1 meetup I&rsquo;ve been regarding Neo4j. A friend (evomusic) talked to me about it and as I&rsquo;m curious, I went to this meetup in July. Neo4j is a highly scalable, robust (fully ACID) native graph database. Neo4j is used in mission-critical apps by thousands of leading startups, enterprises, and governments around the world.
+      
+        I forgot to talk about 1 meetup I&rsquo;ve been regarding Neo4j. A friend (evomusic) talked to me about it and as I&rsquo;m curious, I went to this meetup in July. Neo4j is a highly scalable, robust (fully ACID) native graph database. Neo4j is used in mission-critical apps by thousands of leading startups, enterprises, and governments around the world.
 I you don&rsquo;t know what is a graph database, it&rsquo;s a very good introduction and will help you to understand what it is and how it works.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/09/06/neo4j-a-pretty-graph-database-2/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -614,8 +623,10 @@ I you don&rsquo;t know what is a graph database, it&rsquo;s a very good introduc
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      For several years, I was wondering how to make Mediawiki search case insensitive. I didn&rsquo;t really had time to look at it until I was really fed up. That&rsquo;s why after a few seconds of search, I&rsquo;ve found an extension for Mediawiki which is working perfectly called TitleKey.
+      
+        For several years, I was wondering how to make Mediawiki search case insensitive. I didn&rsquo;t really had time to look at it until I was really fed up. That&rsquo;s why after a few seconds of search, I&rsquo;ve found an extension for Mediawiki which is working perfectly called TitleKey.
  The TitleKey extension provides a case-insensitive title prefix search. It uses a separate table for the keys, so if it works cleanly it can be deployed without an expensive rebuild of core tables, and dumped when Wikimedia gets a nicer backend through Extension:LuceneSearch (pre 1.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/08/31/mediawiki-make-your-search-insensitive/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -680,10 +691,12 @@ I you don&rsquo;t know what is a graph database, it&rsquo;s a very good introduc
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      All, I&rsquo;m proud to announce my first book available for pre-order! I&rsquo;m really happy to have finished it and see after several months of hard work that it will be soon available.
+      
+        All, I&rsquo;m proud to announce my first book available for pre-order! I&rsquo;m really happy to have finished it and see after several months of hard work that it will be soon available.
 Who is this book for?
  MariaDB High Performance is aimed at system administrators/architects or DBAs who want to learn more about how to grow their current infrastructure to support larger traffic.
 Before beginning with this book, we expect you to be well–practised with MySQL/MariaDB for common usage.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/08/23/my-book-mariadb-high-performance-available-for-pre-order/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -743,7 +756,7 @@ Before beginning with this book, we expect you to be well–practised with MySQL
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -751,7 +764,7 @@ Before beginning with this book, we expect you to be well–practised with MySQL
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -990,6 +1003,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -999,6 +1014,33 @@ First of all, you may know that an alternative more user friendly to grep exist,
   
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
 

@@ -1,26 +1,49 @@
-
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hi Tech">
+<meta name="twitter:title" content="Hi Tech">
+<meta property="og:url" content="https://blog.deimos.fr/tags/hi-tech/">
+<meta property="twitter:url" content="https://blog.deimos.fr/tags/hi-tech/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Hi Tech</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
@@ -28,32 +51,8 @@
     
 
     
-    <meta name="description" content="Deimos Blog">
-    <meta property="og:description" content="Deimos Blog">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Hi Tech">
-    <meta property="og:url" content="/tags/hi-tech/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Deimos Blog">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/tags/hi-tech/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -61,11 +60,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -100,7 +99,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -112,7 +111,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -265,8 +264,10 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      To be able to monitor the PHP-FPM service with connections, queue information, process&hellip; you&rsquo;ll need to set the status page. This will give you something like this :
+      
+        To be able to monitor the PHP-FPM service with connections, queue information, process&hellip; you&rsquo;ll need to set the status page. This will give you something like this :
 pool: www process manager: dynamic start time: 18/Dec/2013:19:00:41 +0100 start since: 52972 accepted conn: 5268 listen queue: 0 max listen queue: 0 listen queue len: 0 idle processes: 3 active processes: 1 total processes: 4 max active processes: 4 max children reached: 0 Those informations are important to correctly tune the PHP-FPM service.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/12/22/php-fpm-get-status-information-page-for-monitoring/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -335,8 +336,10 @@ pool: www process manager: dynamic start time: 18/Dec/2013:19:00:41 +0100 start 
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      If you follow me, you should be aware that I use Vagrant every day. I wanted to get a Wheezy version with fr keyboard, up to date, correct locales and configured source.list file. I&rsquo;ve also added Puppet and Chef on it.
+      
+        If you follow me, you should be aware that I use Vagrant every day. I wanted to get a Wheezy version with fr keyboard, up to date, correct locales and configured source.list file. I&rsquo;ve also added Puppet and Chef on it.
 So I&rsquo;ve learned on how to build a box and it&rsquo;s really easy by following the documentations on the website. Here is my Debian Wheezy box based on VirtualBox provider available on DropBox or Mega.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/12/20/my-first-vagrant-box-is-debian-wheezy/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -399,8 +402,10 @@ So I&rsquo;ve learned on how to build a box and it&rsquo;s really easy by follow
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      The SkySQL meeting was really good yesterday ! We&rsquo;ve seen MariaDB 10 new features, had a presentation of Galera cluster and a complicated (but good) explanation of a complex infrastructure that required write scaling.
+      
+        The SkySQL meeting was really good yesterday ! We&rsquo;ve seen MariaDB 10 new features, had a presentation of Galera cluster and a complicated (but good) explanation of a complex infrastructure that required write scaling.
 This was the my first SkySQL Meet-Up and I can&rsquo;t wait until the next one :-). Congratulation SkySQL, one of the best Meet Up I&rsquo;ve seen !
+      
       <p>
         <a href="https://blog.deimos.fr/2013/12/18/skysql-meet-up-was-awesome/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -467,10 +472,12 @@ This was the my first SkySQL Meet-Up and I can&rsquo;t wait until the next one :
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      In those time, security is more and more important. Some vulnerabilities have been discovered and security on your SSL should be added. In fact you need to restrict the possibilities to your SSL server to avoid SSL breaks.
+      
+        In those time, security is more and more important. Some vulnerabilities have been discovered and security on your SSL should be added. In fact you need to restrict the possibilities to your SSL server to avoid SSL breaks.
 I&rsquo;ve updated my documentation to add SSL Resumption and authorized ciphers algorithms.
 Then you can check your SSL server security here : https://www.ssllabs.com/ssltest/index.html.
 I hope this will help you.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/12/16/nginx-add-more-security-to-your-ssl/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -537,9 +544,11 @@ I hope this will help you.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      I&rsquo;m currently playing with Ceph and wanted to generate multiple machines (6) on my laptop to perform several tests. I needed :
+      
+        I&rsquo;m currently playing with Ceph and wanted to generate multiple machines (6) on my laptop to perform several tests. I needed :
  1 public network 1 private network Debian wheezy OS Automatically install Ceph Add disk for specific machines (OSD)  It wasn&rsquo;t easy to make it work quickly as the documentation doesn&rsquo;t give a lot of examples. But what a powerful solution when it works !
 If you want to try multiple VM managment, please follow the link.
+      
       <p>
         <a href="https://blog.deimos.fr/2013/12/14/vagrant-one-file-generate-several-machines/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -604,9 +613,11 @@ If you want to try multiple VM managment, please follow the link.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Once again, I&rsquo;ve upgraded my wiki (wiki.deimos.fr) and it was really easy with git.
+      
+        Once again, I&rsquo;ve upgraded my wiki (wiki.deimos.fr) and it was really easy with git.
 We could see some new minor design changes like &ldquo;&lt;pre&gt;&rdquo; banners or the login page. Other interesting features are appearing like load time informations for each page edition or embedding Vector theme in the Core. A new extension manager is used called Composer and will try to look at it&rsquo;s benefits shortly.
 Once again, thanks Mediawiki !
+      
       <p>
         <a href="https://blog.deimos.fr/2013/12/12/mediawiki-1-22-0-upgraded-on-wiki/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -675,8 +686,10 @@ Once again, thanks Mediawiki !
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Last week, I had a webinar regarding Galera Cluster given by Severalnines. As I found it very interesting, I’m sharing it with you :
+      
+        Last week, I had a webinar regarding Galera Cluster given by Severalnines. As I found it very interesting, I’m sharing it with you :
   Zero Downtime Schema Changes - Galera Cluster - Best Practices  from Severalnines
+      
       <p>
         <a href="https://blog.deimos.fr/2013/12/10/galera-how-to-perform-zero-downtime-schema-changes/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -730,7 +743,7 @@ Once again, thanks Mediawiki !
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -738,7 +751,7 @@ Once again, thanks Mediawiki !
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -977,6 +990,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -986,6 +1001,33 @@ First of all, you may know that an alternative more user friendly to grep exist,
   
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
 

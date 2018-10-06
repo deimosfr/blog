@@ -1,69 +1,93 @@
-
-
-  
-    
-  
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="If you already played with Puppet&rsquo;s environments, you certainly know that the major problem is the static form of them. When you want to test something new (a module for example), it&rsquo;s not quite easy without using environments. r10k bring the dynamic feature and easy module managment !
+It&rsquo;s really easy to maintain your modules without using a lot of git submodules. Simply declare your modules informations like that:
+mod &#39;filemapper&#39;, :git =&gt; &#39;git://github.">
+
+
+<meta property="og:description" content="If you already played with Puppet&rsquo;s environments, you certainly know that the major problem is the static form of them. When you want to test something new (a module for example), it&rsquo;s not quite easy without using environments. r10k bring the dynamic feature and easy module managment !
+It&rsquo;s really easy to maintain your modules without using a lot of git submodules. Simply declare your modules informations like that:
+mod &#39;filemapper&#39;, :git =&gt; &#39;git://github.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="r10k: manage your Puppet environments dynamically">
+<meta name="twitter:title" content="r10k: manage your Puppet environments dynamically">
+<meta property="og:url" content="https://blog.deimos.fr/2014/03/02/r10k-manage-your-puppet-environments-dynamically/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2014/03/02/r10k-manage-your-puppet-environments-dynamically/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="If you already played with Puppet&rsquo;s environments, you certainly know that the major problem is the static form of them. When you want to test something new (a module for example), it&rsquo;s not quite easy without using environments. r10k bring the dynamic feature and easy module managment !
+It&rsquo;s really easy to maintain your modules without using a lot of git submodules. Simply declare your modules informations like that:
+mod &#39;filemapper&#39;, :git =&gt; &#39;git://github.">
+<meta name="twitter:description" content="If you already played with Puppet&rsquo;s environments, you certainly know that the major problem is the static form of them. When you want to test something new (a module for example), it&rsquo;s not quite easy without using environments. r10k bring the dynamic feature and easy module managment !
+It&rsquo;s really easy to maintain your modules without using a lot of git submodules. Simply declare your modules informations like that:
+mod &#39;filemapper&#39;, :git =&gt; &#39;git://github.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2014-03-02T11:00:33">
+  
+  
+    <meta property="article:modified_time" content="2014-03-02T11:00:33">
+  
+  
+  
+    
+      <meta property="article:section" content="Hi-Tech">
+    
+      <meta property="article:section" content="Linux">
+    
+      <meta property="article:section" content="Puppet">
+    
+  
+  
+    
+      <meta property="article:tag" content="Hi-Tech">
+    
+      <meta property="article:tag" content="Linux">
+    
+      <meta property="article:tag" content="Puppet">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/Puppet-short.png">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/Puppet-short.png">
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>r10k: manage your Puppet environments dynamically</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
 
     
-    <meta name="description" content="If you already played with Puppet&rsquo;s environments, you certainly know that the major problem is the static form of them. When you want to test something new (a module for example), it&rsquo;s not quite easy without using environments. r10k bring the dynamic feature and easy module managment !
-It&rsquo;s really easy to maintain your modules without using a lot of git submodules. Simply declare your modules informations like that:
-mod &#39;filemapper&#39;, :git =&gt; &#39;git://github.">
-    <meta property="og:description" content="If you already played with Puppet&rsquo;s environments, you certainly know that the major problem is the static form of them. When you want to test something new (a module for example), it&rsquo;s not quite easy without using environments. r10k bring the dynamic feature and easy module managment !
-It&rsquo;s really easy to maintain your modules without using a lot of git submodules. Simply declare your modules informations like that:
-mod &#39;filemapper&#39;, :git =&gt; &#39;git://github.">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="r10k: manage your Puppet environments dynamically">
-    <meta property="og:url" content="/2014/03/02/r10k-manage-your-puppet-environments-dynamically/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="If you already played with Puppet&rsquo;s environments, you certainly know that the major problem is the static form of them. When you want to test something new (a module for example), it&rsquo;s not quite easy without using environments. r10k bring the dynamic feature and easy module managment !
-It&rsquo;s really easy to maintain your modules without using a lot of git submodules. Simply declare your modules informations like that:
-mod &#39;filemapper&#39;, :git =&gt; &#39;git://github.">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-      <meta property="og:image" content="https://blog.deimos.fr/thumbnails/Puppet-short.png">
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/2014/03/02/r10k-manage-your-puppet-environments-dynamically/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -71,11 +95,11 @@ mod &#39;filemapper&#39;, :git =&gt; &#39;git://github.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -110,7 +134,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -122,7 +146,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -272,7 +296,7 @@ If you already played with Puppet&rsquo;s environments, you certainly know that 
 
 <p>and ask r10k to get informations from a GitHub repository for example, with specific tag etc&hellip; So you can easily build a huge amount list of module there and easily test a new version of something in a new environment. Then when you call your puppet agent for test, <strong>simply add the correct wished environment variable</strong>.</p>
 
-<p>r10k is a gem and easy to install. When you have more and more environments to manage, you should do it dynamically. More informations are available <a href="https://github.com/adrienthebo/r10k" target="_blank">on the official GitHub project</a>.</p>
+<p>r10k is a gem and easy to install. When you have more and more environments to manage, you should do it dynamically. More informations are available <a href="https://github.com/adrienthebo/r10k">on the official GitHub project</a>.</p>
 
               
             </div>
@@ -295,8 +319,8 @@ If you already played with Puppet&rsquo;s environments, you certainly know that 
                 
               
             
-            
-  <div class="post-actions-wrap">
+            <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -361,8 +385,8 @@ If you already played with Puppet&rsquo;s environments, you certainly know that 
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
             
               
@@ -381,8 +405,8 @@ If you already played with Puppet&rsquo;s environments, you certainly know that 
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        
-  <div class="post-actions-wrap">
+        <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -447,8 +471,8 @@ If you already played with Puppet&rsquo;s environments, you certainly know that 
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
       </div>
       <div id="share-options-bar" class="share-options-bar" data-behavior="5">
@@ -484,7 +508,7 @@ If you already played with Puppet&rsquo;s environments, you certainly know that 
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -492,7 +516,7 @@ If you already played with Puppet&rsquo;s environments, you certainly know that 
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -731,6 +755,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -741,6 +767,32 @@ First of all, you may know that an alternative more user friendly to grep exist,
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
 
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
   
@@ -768,6 +820,7 @@ First of all, you may know that an alternative more user friendly to grep exist,
       </script>
     
   
+
 
 
 

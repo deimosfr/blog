@@ -1,70 +1,86 @@
-
-
-  
-    
-  
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Et bien me voilà de retour. Bon tout est loin d’être terminé, mais je sais où je vais maintenant. Voici donc ce qui a été fait :
+ Le serveur tourne maintenant sous Solaris en ZFS sur le disque primaire
+ Sur les 4 autres disques de 1To, il y a un Raidz (ça trace sa maman)
+ OpenBSD sous VirtualBox comme frontal a été abandonné. Pourquoi ? Bein, c&rsquo;est soit disant supporté, mais je me tapes tout le temps des Segmentation Fault.">
+
+
+<meta property="og:description" content="Et bien me voilà de retour. Bon tout est loin d’être terminé, mais je sais où je vais maintenant. Voici donc ce qui a été fait :
+ Le serveur tourne maintenant sous Solaris en ZFS sur le disque primaire
+ Sur les 4 autres disques de 1To, il y a un Raidz (ça trace sa maman)
+ OpenBSD sous VirtualBox comme frontal a été abandonné. Pourquoi ? Bein, c&rsquo;est soit disant supporté, mais je me tapes tout le temps des Segmentation Fault.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Server is back !">
+<meta name="twitter:title" content="Server is back !">
+<meta property="og:url" content="https://blog.deimos.fr/2008/12/23/server-is-back/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2008/12/23/server-is-back/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Et bien me voilà de retour. Bon tout est loin d’être terminé, mais je sais où je vais maintenant. Voici donc ce qui a été fait :
+ Le serveur tourne maintenant sous Solaris en ZFS sur le disque primaire
+ Sur les 4 autres disques de 1To, il y a un Raidz (ça trace sa maman)
+ OpenBSD sous VirtualBox comme frontal a été abandonné. Pourquoi ? Bein, c&rsquo;est soit disant supporté, mais je me tapes tout le temps des Segmentation Fault.">
+<meta name="twitter:description" content="Et bien me voilà de retour. Bon tout est loin d’être terminé, mais je sais où je vais maintenant. Voici donc ce qui a été fait :
+ Le serveur tourne maintenant sous Solaris en ZFS sur le disque primaire
+ Sur les 4 autres disques de 1To, il y a un Raidz (ça trace sa maman)
+ OpenBSD sous VirtualBox comme frontal a été abandonné. Pourquoi ? Bein, c&rsquo;est soit disant supporté, mais je me tapes tout le temps des Segmentation Fault.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2008-12-23T14:24:15">
+  
+  
+    <meta property="article:modified_time" content="2008-12-23T14:24:15">
+  
+  
+  
+    
+      <meta property="article:section" content="Linux">
+    
+  
+  
+    
+      <meta property="article:tag" content="Linux">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Server is back !</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
 
     
-    <meta name="description" content="Et bien me voilà de retour. Bon tout est loin d’être terminé, mais je sais où je vais maintenant. Voici donc ce qui a été fait :
- Le serveur tourne maintenant sous Solaris en ZFS sur le disque primaire
- Sur les 4 autres disques de 1To, il y a un Raidz (ça trace sa maman)
- OpenBSD sous VirtualBox comme frontal a été abandonné. Pourquoi ? Bein, c&rsquo;est soit disant supporté, mais je me tapes tout le temps des Segmentation Fault.">
-    <meta property="og:description" content="Et bien me voilà de retour. Bon tout est loin d’être terminé, mais je sais où je vais maintenant. Voici donc ce qui a été fait :
- Le serveur tourne maintenant sous Solaris en ZFS sur le disque primaire
- Sur les 4 autres disques de 1To, il y a un Raidz (ça trace sa maman)
- OpenBSD sous VirtualBox comme frontal a été abandonné. Pourquoi ? Bein, c&rsquo;est soit disant supporté, mais je me tapes tout le temps des Segmentation Fault.">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Server is back !">
-    <meta property="og:url" content="/2008/12/23/server-is-back/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Et bien me voilà de retour. Bon tout est loin d’être terminé, mais je sais où je vais maintenant. Voici donc ce qui a été fait :
- Le serveur tourne maintenant sous Solaris en ZFS sur le disque primaire
- Sur les 4 autres disques de 1To, il y a un Raidz (ça trace sa maman)
- OpenBSD sous VirtualBox comme frontal a été abandonné. Pourquoi ? Bein, c&rsquo;est soit disant supporté, mais je me tapes tout le temps des Segmentation Fault.">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/2008/12/23/server-is-back/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -72,11 +88,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -111,7 +127,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -123,7 +139,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -268,7 +284,7 @@ ga('send', 'pageview');
 <li><p>OpenBSD sous VirtualBox comme frontal a été abandonné. Pourquoi ? Bein, c&rsquo;est soit disant supporté, mais je me tapes tout le temps des <strong>Segmentation Fault</strong>. Donc là forcément ca bloque, impossible de faire des compilation sans ces putains d&rsquo;erreurs.</p></li>
 </ul>
 
-<p>&ldquo;j&rsquo;ai donc pris la décision, et m&rsquo;y engage personnellement&rdquo; (dixit Sarko) à mettre en place une boiboite avec OpenBSD. Mais comment tu vas faire Pierre ? Mais comment ? Et là youpi tralala, voilà jumping from my hat la <a href="http://www.soekris.com/" target="_blank">Soekris</a>. Pour ceux qui ne connaissent pas, c&rsquo;est tout simplement une archi i386 de 500Mhz (tout du moins la Soekris que j&rsquo;ai prise) avec 512Mo de Ram, j&rsquo;ai pris en + une carte PCI avec 4 emplacements ethernet supplémentaire, ainsi qu&rsquo;une carte CompactFlash de 16Go pour mettre l&rsquo;OS dessus (et oué, ca risque de booter en * de 5 sec). Je vous tiendrais au courant quand je recevrais la bête !</p>
+<p>&ldquo;j&rsquo;ai donc pris la décision, et m&rsquo;y engage personnellement&rdquo; (dixit Sarko) à mettre en place une boiboite avec OpenBSD. Mais comment tu vas faire Pierre ? Mais comment ? Et là youpi tralala, voilà jumping from my hat la <a href="http://www.soekris.com/">Soekris</a>. Pour ceux qui ne connaissent pas, c&rsquo;est tout simplement une archi i386 de 500Mhz (tout du moins la Soekris que j&rsquo;ai prise) avec 512Mo de Ram, j&rsquo;ai pris en + une carte PCI avec 4 emplacements ethernet supplémentaire, ainsi qu&rsquo;une carte CompactFlash de 16Go pour mettre l&rsquo;OS dessus (et oué, ca risque de booter en * de 5 sec). Je vous tiendrais au courant quand je recevrais la bête !</p>
 
 <ul>
 <li>J&rsquo;ai finalement décider de passer sur Ubuntu Server. J&rsquo;ai donc une VM pour toute ma partie multimédia (MediaTomb pour la PS3 etc&hellip;) et une VM de DMZ avec le serveur de mail et web. Tout n&rsquo;est pas encore terminé, j&rsquo;essaye de refaire toutes mes confs pour les paufiner et les optimiser plus.</li>
@@ -279,15 +295,15 @@ ga('send', 'pageview');
 <p>Sinon pour toutes les tuiles sur lesquelles je suis tomber, voici les solutions :</p>
 
 <ul>
-<li><p><a href="http://wiki.deimos.fr/Faire_reconnaitre_des_cartes_r%C3%A9seaux_non_support%C3%A9es_par_Solaris" target="_blank">J&rsquo;ai donc eu un problème de cartes réseaux qui ne voulaient pas être reconnu de base</a></p></li>
+<li><p><a href="http://wiki.deimos.fr/Faire_reconnaitre_des_cartes_r%C3%A9seaux_non_support%C3%A9es_par_Solaris">J&rsquo;ai donc eu un problème de cartes réseaux qui ne voulaient pas être reconnu de base</a></p></li>
 
-<li><p><a href="http://wiki.deimos.fr/ZFS_:_Le_FileSystem_par_excellence" target="_blank">J&rsquo;ai eu besoin de plusieurs options pour le ZFS (raidz, partage NFS etc&hellip;)</a></p></li>
+<li><p><a href="http://wiki.deimos.fr/ZFS_:_Le_FileSystem_par_excellence">J&rsquo;ai eu besoin de plusieurs options pour le ZFS (raidz, partage NFS etc&hellip;)</a></p></li>
 
-<li><p><a href="http://wiki.deimos.fr/NFS_:_Mise_en_place_d%27un_serveur_NFS#Solaris" target="_blank">Activer le NFS sur Solaris</a></p></li>
+<li><p><a href="http://wiki.deimos.fr/NFS_:_Mise_en_place_d%27un_serveur_NFS#Solaris">Activer le NFS sur Solaris</a></p></li>
 
-<li><p><a href="http://wiki.deimos.fr/VirtualBox_:_Alternative_%C3%A0_Vmware#FAQ" target="_blank">Tous les problèmes de merde lié à VirtualBox</a></p></li>
+<li><p><a href="http://wiki.deimos.fr/VirtualBox_:_Alternative_%C3%A0_Vmware#FAQ">Tous les problèmes de merde lié à VirtualBox</a></p></li>
 
-<li><p><a href="http://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sur_Solaris" target="_blank">Un petit point que j&rsquo;avais oublier dans ma doc de la config réseau Solaris. En effet, il ne faut pas oublier nsswitch.conf et une petite astuce pour la détection des cartes réseaux souvent un peu pénible.</a></p></li>
+<li><p><a href="http://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sur_Solaris">Un petit point que j&rsquo;avais oublier dans ma doc de la config réseau Solaris. En effet, il ne faut pas oublier nsswitch.conf et une petite astuce pour la détection des cartes réseaux souvent un peu pénible.</a></p></li>
 </ul>
 
 <p>Enfin voilà. Je ne regrettes pas d&rsquo;avoir fais cette migration. Je suis un peu déçu par VirtualBox :</p>
@@ -319,8 +335,8 @@ ga('send', 'pageview');
                 
               
             
-            
-  <div class="post-actions-wrap">
+            <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -385,8 +401,8 @@ ga('send', 'pageview');
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
             
               
@@ -405,8 +421,8 @@ ga('send', 'pageview');
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        
-  <div class="post-actions-wrap">
+        <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -471,8 +487,8 @@ ga('send', 'pageview');
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
       </div>
       <div id="share-options-bar" class="share-options-bar" data-behavior="5">
@@ -508,7 +524,7 @@ ga('send', 'pageview');
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -516,7 +532,7 @@ ga('send', 'pageview');
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -755,6 +771,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -765,6 +783,32 @@ First of all, you may know that an alternative more user friendly to grep exist,
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
 
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
   
@@ -792,6 +836,7 @@ First of all, you may know that an alternative more user friendly to grep exist,
       </script>
     
   
+
 
 
 

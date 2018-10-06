@@ -1,26 +1,49 @@
-
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Databases">
+<meta name="twitter:title" content="Databases">
+<meta property="og:url" content="https://blog.deimos.fr/categories/databases/">
+<meta property="twitter:url" content="https://blog.deimos.fr/categories/databases/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Databases</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
@@ -28,32 +51,8 @@
     
 
     
-    <meta name="description" content="Deimos Blog">
-    <meta property="og:description" content="Deimos Blog">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Databases">
-    <meta property="og:url" content="/categories/databases/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Deimos Blog">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/categories/databases/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -61,11 +60,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -100,7 +99,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -112,7 +111,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -267,8 +266,10 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      For my own company MySocialApp, I&rsquo;m managing multiple Cassandra clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:
+      
+        For my own company MySocialApp, I&rsquo;m managing multiple Cassandra clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:
  The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data.
+      
       <p>
         <a href="https://blog.deimos.fr/2018/06/24/running-cassandra-on-kubernetes/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -359,13 +360,15 @@ ga('send', 'pageview');
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      The Ansible meetup ended ! That was really nice for my first one.
+      
+        The Ansible meetup ended ! That was really nice for my first one.
 I had really great feedbacks and liked the questions when ended. More than that I met nice people after the meetup and could have interresting discussions :-). I&rsquo;m really happy about it.
 For those who would like to review the slides, you can find them here:
 http://nousmotards.github.io/ansible-meetup-0915/
 If you want to watch the video:
 http://www.infoq.com/fr/presentations/reseau-social-motard
 or view the PDF version here:
+      
       <p>
         <a href="https://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -438,9 +441,11 @@ or view the PDF version here:
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      For a new project (will talk about it later), I needed to use Neo4J (graph database if you don&rsquo;t know it yet).
+      
+        For a new project (will talk about it later), I needed to use Neo4J (graph database if you don&rsquo;t know it yet).
 I tried to cover more features than the current existing Ansible roles available on Ansible Galaxy. More will come in the next weeks. I also tried to make it simple to install it and do not force dependencies at maximum. Here are parameters you can set:
 # Select neo4j version neo4j_package: neo4j # community version #neo4j_package: neo4j-advanced #neo4j_package: neo4j-enterprise  # Neo4j spatial plugin neo4j_install_spatial: false neo4j_spatial_version: &#39;0.
+      
       <p>
         <a href="https://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -511,8 +516,10 @@ I tried to cover more features than the current existing Ansible roles available
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      A few days ago I wanted to play with HAProxy SSL offloading. It was a good experience and alternative to Nginx SSL offloading (I already talked about in this blog). But this is not the topic here&hellip;
+      
+        A few days ago I wanted to play with HAProxy SSL offloading. It was a good experience and alternative to Nginx SSL offloading (I already talked about in this blog). But this is not the topic here&hellip;
 When I was trying to make the offload working on the blog, I modified WordPress options which switched my blog into an infinite loop mode. As it was late and I was tired (bad idea), I just wanted to rollback my changes and needed to recover a SQL backup to do it fast.
+      
       <p>
         <a href="https://blog.deimos.fr/2015/01/29/wordpress-how-i-almost-lost-my-blog-and-want-to-switch/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -579,9 +586,11 @@ When I was trying to make the offload working on the blog, I modified WordPress 
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      For my personal usages, I wanted do use DotDeb and MySQL playbooks. I first looked at the current ones on the Ansible Galaxy. However I did not find a good one for my needs.
+      
+        For my personal usages, I wanted do use DotDeb and MySQL playbooks. I first looked at the current ones on the Ansible Galaxy. However I did not find a good one for my needs.
 I first wanted to try to contribute to an existing one. But I needed to have them quickly and unfortunately didn&rsquo;t have the time to do it.
 That&rsquo;s why I made 2 new Ansible roles and added them to Ansible Galaxy.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/12/26/ansible-dotdeb-and-mysql-roles/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -650,9 +659,11 @@ That&rsquo;s why I made 2 new Ansible roles and added them to Ansible Galaxy.
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      Following the deployment blog post I made on ES/Kibana/Fluentd, I released new version of Fluentd and Kibana playbooks to support the latests versions of themselves and ElasticSearch.
+      
+        Following the deployment blog post I made on ES/Kibana/Fluentd, I released new version of Fluentd and Kibana playbooks to support the latests versions of themselves and ElasticSearch.
 ElasticSearch 1.4 version is ,out which doesn&rsquo;t changed anything for the deployment. However Kibana requires to enable an ElasticSearch configuration option now, to work properly. I updated the Kibana playbook for it.
 On its side, Fluentd has the major release 2.0 out and I updated Ansible playbook for the best integration with Debian Wheezy.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/12/09/ansible-fluentd-and-kibana-playbooks-updated/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -721,8 +732,10 @@ On its side, Fluentd has the major release 2.0 out and I updated Ansible playboo
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      As I do not really have a good blog post for today, here are some things I wanted to talk in a summary. Some good projects have been updated like:
+      
+        As I do not really have a good blog post for today, here are some things I wanted to talk in a summary. Some good projects have been updated like:
  WordPress 4: no big updates at the first view but it&rsquo;s nice to see how this project works and grow (videos, WYSIWYG,&hellip;) HAProxy 1.5: Offlloading SSL embedded, Full HTTP Keepalive, ACL enhancement&hellip; BIG update! MySecureShell 2.0: Using GnuTLS instead of OpenSSL, available in Debian upstream repositories, new doc&hellip; Nginx 1.
+      
       <p>
         <a href="https://blog.deimos.fr/2014/11/07/news-in-bulk-4/" class="postShorten-excerpt_link link">Continue reading</a>
         
@@ -775,7 +788,7 @@ On its side, Fluentd has the major release 2.0 out and I updated Ansible playboo
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -783,7 +796,7 @@ On its side, Fluentd has the major release 2.0 out and I updated Ansible playboo
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -1022,6 +1035,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -1031,6 +1046,33 @@ First of all, you may know that an alternative more user friendly to grep exist,
   
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
 

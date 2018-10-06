@@ -1,63 +1,85 @@
-
-
-  
-    
-  
-
-
-  
-
-
-
-
-  
-
-
-  
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Alors oui je sais, c&rsquo;est vraiment pas propre en prod, mais que voulez vous&hellip;on a pas toujours le choix, surtout quand on a pas la main sur l&rsquo;infrastructure en question. J&rsquo;ai eu besoin de mettre en place un tunnel SSH permanent (ce qui sous entends qu&rsquo;il se reconnecte en cas de déconnexion), ça ne vous rappelle rien ? Un post que j&rsquo;avais fait il y a quelques temps sur AutoSSH.">
+
+
+<meta property="og:description" content="Alors oui je sais, c&rsquo;est vraiment pas propre en prod, mais que voulez vous&hellip;on a pas toujours le choix, surtout quand on a pas la main sur l&rsquo;infrastructure en question. J&rsquo;ai eu besoin de mettre en place un tunnel SSH permanent (ce qui sous entends qu&rsquo;il se reconnecte en cas de déconnexion), ça ne vous rappelle rien ? Un post que j&rsquo;avais fait il y a quelques temps sur AutoSSH.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Autossh sur un serveur de prod">
+<meta name="twitter:title" content="Autossh sur un serveur de prod">
+<meta property="og:url" content="https://blog.deimos.fr/2013/04/16/autossh-sur-un-serveur/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2013/04/16/autossh-sur-un-serveur/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Alors oui je sais, c&rsquo;est vraiment pas propre en prod, mais que voulez vous&hellip;on a pas toujours le choix, surtout quand on a pas la main sur l&rsquo;infrastructure en question. J&rsquo;ai eu besoin de mettre en place un tunnel SSH permanent (ce qui sous entends qu&rsquo;il se reconnecte en cas de déconnexion), ça ne vous rappelle rien ? Un post que j&rsquo;avais fait il y a quelques temps sur AutoSSH.">
+<meta name="twitter:description" content="Alors oui je sais, c&rsquo;est vraiment pas propre en prod, mais que voulez vous&hellip;on a pas toujours le choix, surtout quand on a pas la main sur l&rsquo;infrastructure en question. J&rsquo;ai eu besoin de mettre en place un tunnel SSH permanent (ce qui sous entends qu&rsquo;il se reconnecte en cas de déconnexion), ça ne vous rappelle rien ? Un post que j&rsquo;avais fait il y a quelques temps sur AutoSSH.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2013-04-16T10:00:47">
+  
+  
+    <meta property="article:modified_time" content="2013-04-16T10:00:47">
+  
+  
+  
+    
+      <meta property="article:section" content="Debian">
+    
+      <meta property="article:section" content="Hi-Tech">
+    
+      <meta property="article:section" content="Linux">
+    
+  
+  
+    
+      <meta property="article:tag" content="Debian">
+    
+      <meta property="article:tag" content="Hi-Tech">
+    
+      <meta property="article:tag" content="Linux">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_openssh.png">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_openssh.png">
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
     <title>Autossh sur un serveur de prod</title>
-    <meta name="author" content="Pierre Mavro / Deimosfr">
-    <meta name="keywords" content="">
 
     <link rel="icon" href="https://blog.deimos.fr/favicon.png">
     
 
     
-    <meta name="description" content="Alors oui je sais, c&rsquo;est vraiment pas propre en prod, mais que voulez vous&hellip;on a pas toujours le choix, surtout quand on a pas la main sur l&rsquo;infrastructure en question. J&rsquo;ai eu besoin de mettre en place un tunnel SSH permanent (ce qui sous entends qu&rsquo;il se reconnecte en cas de déconnexion), ça ne vous rappelle rien ? Un post que j&rsquo;avais fait il y a quelques temps sur AutoSSH.">
-    <meta property="og:description" content="Alors oui je sais, c&rsquo;est vraiment pas propre en prod, mais que voulez vous&hellip;on a pas toujours le choix, surtout quand on a pas la main sur l&rsquo;infrastructure en question. J&rsquo;ai eu besoin de mettre en place un tunnel SSH permanent (ce qui sous entends qu&rsquo;il se reconnecte en cas de déconnexion), ça ne vous rappelle rien ? Un post que j&rsquo;avais fait il y a quelques temps sur AutoSSH.">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Autossh sur un serveur de prod">
-    <meta property="og:url" content="/2013/04/16/autossh-sur-un-serveur/">
-    <meta property="og:site_name" content="Deimosfr Blog">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Deimosfr Blog">
-    <meta name="twitter:description" content="Alors oui je sais, c&rsquo;est vraiment pas propre en prod, mais que voulez vous&hellip;on a pas toujours le choix, surtout quand on a pas la main sur l&rsquo;infrastructure en question. J&rsquo;ai eu besoin de mettre en place un tunnel SSH permanent (ce qui sous entends qu&rsquo;il se reconnecte en cas de déconnexion), ça ne vous rappelle rien ? Un post que j&rsquo;avais fait il y a quelques temps sur AutoSSH.">
-    
-      <meta name="twitter:creator" content="@deimosfr">
-    
-    
 
-    
-    
-
-    
-      <meta property="og:image" content="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-    
-
-    
-      <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_openssh.png">
-    
-    
-    
-
-    
+    <link rel="canonical" href="https://blog.deimos.fr/2013/04/16/autossh-sur-un-serveur/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -65,11 +87,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
       
-        <link rel="stylesheet" href="https://blog.deimos.fr/css/custom.css">
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
       
     
 
@@ -104,7 +126,7 @@ ga('send', 'pageview');
     
     
       
-        <img class="header-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
       
     
     </a>
@@ -116,7 +138,7 @@ ga('send', 'pageview');
     
       <div class="sidebar-profile">
         <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
         
@@ -256,9 +278,9 @@ ga('send', 'pageview');
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p><img src="https://blog.deimos.fr/images/logo_openssh.png" alt="Openssh_logo" />
-Alors oui je sais, c&rsquo;est vraiment pas propre en prod, mais que voulez vous&hellip;on a pas toujours le choix, surtout quand on a pas la main sur l&rsquo;infrastructure en question. J&rsquo;ai eu besoin de mettre en place un tunnel SSH permanent (ce qui sous entends qu&rsquo;il se reconnecte en cas de déconnexion), ça ne vous rappelle rien ? Un post que j&rsquo;avais fait il y a quelques temps sur <a href="http://blog.deimos.fr/2012/08/15/autossh-reconnecter-automatiquement-tunnel-ssh/" title="AutoSSH : reconnecter automatiquement un tunnel SSH" target="_blank">AutoSSH</a>.</p>
+Alors oui je sais, c&rsquo;est vraiment pas propre en prod, mais que voulez vous&hellip;on a pas toujours le choix, surtout quand on a pas la main sur l&rsquo;infrastructure en question. J&rsquo;ai eu besoin de mettre en place un tunnel SSH permanent (ce qui sous entends qu&rsquo;il se reconnecte en cas de déconnexion), ça ne vous rappelle rien ? Un post que j&rsquo;avais fait il y a quelques temps sur <a href="http://blog.deimos.fr/2012/08/15/autossh-reconnecter-automatiquement-tunnel-ssh/" title="AutoSSH : reconnecter automatiquement un tunnel SSH">AutoSSH</a>.</p>
 
-<p>J&rsquo;ai remis le couvert et ai eu besoin de mettre cette connexion au boot. J&rsquo;ai donc fait quelques ajustements et a <a href="http://wiki.deimos.fr/Autossh_:_reconnecter_automatiquement_un_tunnel_SSH#Au_boot" target="_blank">ajouté mes modifications sur mon wiki</a>. Je vous laisse jeter un oeil.</p>
+<p>J&rsquo;ai remis le couvert et ai eu besoin de mettre cette connexion au boot. J&rsquo;ai donc fait quelques ajustements et a <a href="http://wiki.deimos.fr/Autossh_:_reconnecter_automatiquement_un_tunnel_SSH#Au_boot">ajouté mes modifications sur mon wiki</a>. Je vous laisse jeter un oeil.</p>
 
               
             </div>
@@ -281,8 +303,8 @@ Alors oui je sais, c&rsquo;est vraiment pas propre en prod, mais que voulez vous
                 
               
             
-            
-  <div class="post-actions-wrap">
+            <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -347,8 +369,8 @@ Alors oui je sais, c&rsquo;est vraiment pas propre en prod, mais que voulez vous
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
             
               
@@ -367,8 +389,8 @@ Alors oui je sais, c&rsquo;est vraiment pas propre en prod, mais que voulez vous
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        
-  <div class="post-actions-wrap">
+        <div class="post-actions-wrap">
+  
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -433,8 +455,8 @@ Alors oui je sais, c&rsquo;est vraiment pas propre en prod, mais que voulez vous
         </a>
       </li>
     </ul>
-  </div>
-
+  
+</div>
 
       </div>
       <div id="share-options-bar" class="share-options-bar" data-behavior="5">
@@ -470,7 +492,7 @@ Alors oui je sais, c&rsquo;est vraiment pas propre en prod, mais que voulez vous
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="//www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
     
@@ -478,7 +500,7 @@ Alors oui je sais, c&rsquo;est vraiment pas propre en prod, mais que voulez vous
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        SRE Lead DevOps at Criteo &nbsp;&bull;&nbsp; MySocialApp Co-Founder
+        MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo
       </div>
     
     
@@ -717,6 +739,8 @@ First of all, you may know that an alternative more user friendly to grep exist,
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -727,6 +751,32 @@ First of all, you may know that an alternative more user friendly to grep exist,
     <script src="https://blog.deimos.fr/js/custom.js"></script>
   
 
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
 
 
   
@@ -754,6 +804,7 @@ First of all, you may know that an alternative more user friendly to grep exist,
       </script>
     
   
+
 
 
 
