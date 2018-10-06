@@ -8,7 +8,8 @@ googleAnalytics = "UA-63927289-1"
 paginate = 7
 canonifyurls = true
 enableEmoji = true
-pygmentsstyle = "monokai"
+pygmentsUseClasses = true
+pygmentsstyle = "monokailight"
 MetaDataFormat = "yaml"
 
 [permalinks]
@@ -194,3 +195,7 @@ MetaDataFormat = "yaml"
   # Customize copyright value "© 2016 <CUSTOMIZATION>. All Rights Reserved"
   # [params.footer]
   #   copyright = "<a href=\"https://github.com/kakawait\">kakawait</a>"
+
+[blackfriday]
+  plainIDAnchors = true
+  hrefTargetBlank = true
