@@ -302,7 +302,7 @@
     <item>
       <title>Linux</title>
       <link>https://blog.deimos.fr/categories/linux/</link>
-      <pubDate>Fri, 30 Sep 2016 21:35:17 +0000</pubDate>
+      <pubDate>Thu, 11 Oct 2018 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/categories/linux/</guid>
       <description></description>
@@ -386,6 +386,15 @@
       <pubDate>Thu, 18 Jan 2018 18:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/categories/perso/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Photo</title>
+      <link>https://blog.deimos.fr/categories/photo/</link>
+      <pubDate>Thu, 11 Oct 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/categories/photo/</guid>
       <description></description>
     </item>
     

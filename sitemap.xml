@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.deimos.fr/2018/10/11/converting-raw-to-jpg-with-nice-rendering/</loc>
+    <lastmod>2018-10-11T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.deimos.fr/2018/06/24/running-cassandra-on-kubernetes/</loc>
     <lastmod>2018-07-16T00:00:00+02:00</lastmod>
   </url>
@@ -4370,7 +4375,7 @@
   
   <url>
     <loc>https://blog.deimos.fr/</loc>
-    <lastmod>2018-07-16T00:00:00+02:00</lastmod>
+    <lastmod>2018-10-11T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4646,13 +4651,13 @@
   
   <url>
     <loc>https://blog.deimos.fr/tags/linux/</loc>
-    <lastmod>2016-06-18T07:44:11+00:00</lastmod>
+    <lastmod>2018-10-11T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/categories/linux/</loc>
-    <lastmod>2016-09-30T21:35:17+00:00</lastmod>
+    <lastmod>2018-10-11T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4825,6 +4830,18 @@
   </url>
   
   <url>
+    <loc>https://blog.deimos.fr/tags/photo/</loc>
+    <lastmod>2018-10-11T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/photo/</loc>
+    <lastmod>2018-10-11T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.deimos.fr/tags/php/</loc>
     <lastmod>2010-04-20T15:58:24+00:00</lastmod>
     <priority>0</priority>
@@ -4850,7 +4867,7 @@
   
   <url>
     <loc>https://blog.deimos.fr/post/</loc>
-    <lastmod>2018-07-16T00:00:00+02:00</lastmod>
+    <lastmod>2018-10-11T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
