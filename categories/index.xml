@@ -302,7 +302,7 @@
     <item>
       <title>Linux</title>
       <link>https://blog.deimos.fr/categories/linux/</link>
-      <pubDate>Thu, 11 Oct 2018 00:00:00 +0200</pubDate>
+      <pubDate>Mon, 12 Nov 2018 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/categories/linux/</guid>
       <description></description>
@@ -323,6 +323,15 @@
       <pubDate>Tue, 28 Apr 2015 10:00:45 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/categories/mac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mediawiki</title>
+      <link>https://blog.deimos.fr/categories/mediawiki/</link>
+      <pubDate>Mon, 12 Nov 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/categories/mediawiki/</guid>
       <description></description>
     </item>
     

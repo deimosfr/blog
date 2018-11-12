@@ -231,6 +231,75 @@ ga('send', 'pageview');
     
     <div class="postShorten-header">
       <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2014/02/20/pagespeed-disable-varnish-by-default-get-both-working-together/">
+          PageSpeed disable Varnish by default ! Get both working together
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2014-02-20T11:00:00Z">
+        
+  
+  
+  
+  
+    20 February 2014
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/web">Web</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        Yesterday a colleague (Dimitri) tested a tool on this blog. He informed me that Varnish was disabled and PageSpeed may be the cause as this is the last modification I&rsquo;ve made on the server.
+After verification he was totally right ! By default, PageSpeed disable cache by serving HTML files with:
+Cache-Control: no-cache, max-age=0 After reading the PageSpeed documentation on that topic, it is clear: PageSpeed needs to know how to purge the cache as it rewrites a lot of elements and it has the control instead of the application.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2014/02/20/pagespeed-disable-varnish-by-default-get-both-working-together/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
         <a class="link-unstyled" href="https://blog.deimos.fr/2014/02/16/deimos-fr-is-now-using-pagespeed-feedbacks/">
           Deimos.fr is now using PageSpeed :-)…feedbacks
         </a>
@@ -630,77 +699,6 @@ I&rsquo;ve made a full documentation to get it working well, follow the link.
 </article>
 
             
-              
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://blog.deimos.fr/2014/01/21/ceph-setup-block-devices-rbd-nodes-on-debian/">
-          Ceph: setup Rados Block Devices (RBD) nodes on Debian
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2014-01-21T11:00:00Z">
-        
-  
-  
-  
-  
-    21 January 2014
-  
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/ceph">Ceph</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        In addition of object storage, Ceph is able to provide block devices. Ceph’s RADOS Block Device (RBD) provides access to block device images that are striped and replicated across the entire storage cluster.
-For example this is used to store Virtual Machines on OpenStack. With that solution, you&rsquo;ve got a real fault tolerance system for your VM and distributed.
-The RBD part is an easy task when you&rsquo;ve already setup a Ceph cluster.
-      
-      <p>
-        <a href="https://blog.deimos.fr/2014/01/21/ceph-setup-block-devices-rbd-nodes-on-debian/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://blog.deimos.fr/2014/01/21/ceph-setup-block-devices-rbd-nodes-on-debian/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_ceph.png"/>
-      </div>
-    </a>
-  
-</article>
-
-            
             
   <div class="pagination-bar">
     <ul class="pagination">
@@ -783,6 +781,25 @@ The RBD part is an easy task when you&rsquo;ve already setup a Ceph cluster.
       <div class="no-result text-color-light text-center">no post found</div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/10/11/bye-bye-mediawiki/">
+                <h3 class="media-heading">Bye bye Mediawiki</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">After more than 10 years using my beloved Mediawiki (wiki.deimos.fr), I decided to convert it into static html files and stop using Mediawiki :(.
+Why? Because maintaining a Mediawiki is a pain when you&rsquo;re using a lot of extensions. In addition, I&rsquo;m not using Mediawiki anymore at work, not really following the evolution, don&rsquo;t want to keep maintaining php/mariadb/nginx and upgrading Mediawiki configuration can be complex as well.
+I really love markdown solutions generating static files like Hugo and I already did it whith my previous Wordpress.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -949,26 +966,6 @@ I was fed up about maintaining Wordpress with its stack (Nginx / php-fpm / Maria
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/">
-                <h3 class="media-heading">Deploy CoreOS with Ansible</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Sep 9, 2016
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">&nbsp;
-CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications.&nbsp;I&rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
-As I&rsquo;m still an Ansible lover, I&rsquo;ve made 2 roles:
- CoreOS Ansible:&nbsp;Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  If you want to quickly look at the result:</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -976,7 +973,7 @@ As I&rsquo;m still an Ansible lover, I&rsquo;ve made 2 roles:
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         841 posts found
+         842 posts found
       </p>
     </div>
   </div>

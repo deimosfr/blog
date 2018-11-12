@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.deimos.fr/2018/10/11/bye-bye-mediawiki/</loc>
+    <lastmod>2018-11-12T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.deimos.fr/2018/10/11/converting-raw-to-jpg-with-nice-rendering/</loc>
     <lastmod>2018-10-11T00:00:00+02:00</lastmod>
   </url>
@@ -4375,7 +4380,7 @@
   
   <url>
     <loc>https://blog.deimos.fr/</loc>
-    <lastmod>2018-10-11T00:00:00+02:00</lastmod>
+    <lastmod>2018-11-12T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4651,13 +4656,13 @@
   
   <url>
     <loc>https://blog.deimos.fr/tags/linux/</loc>
-    <lastmod>2018-10-11T00:00:00+02:00</lastmod>
+    <lastmod>2018-11-12T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/categories/linux/</loc>
-    <lastmod>2018-10-11T00:00:00+02:00</lastmod>
+    <lastmod>2018-11-12T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4688,6 +4693,18 @@
   <url>
     <loc>https://blog.deimos.fr/tags/mariadb/</loc>
     <lastmod>2014-09-30T10:00:13+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/tags/mediawiki/</loc>
+    <lastmod>2018-11-12T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/mediawiki/</loc>
+    <lastmod>2018-11-12T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4867,7 +4884,7 @@
   
   <url>
     <loc>https://blog.deimos.fr/post/</loc>
-    <lastmod>2018-10-11T00:00:00+02:00</lastmod>
+    <lastmod>2018-11-12T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   

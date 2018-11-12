@@ -365,7 +365,7 @@
     <item>
       <title>Linux</title>
       <link>https://blog.deimos.fr/tags/linux/</link>
-      <pubDate>Thu, 11 Oct 2018 00:00:00 +0200</pubDate>
+      <pubDate>Mon, 12 Nov 2018 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/tags/linux/</guid>
       <description></description>
@@ -395,6 +395,15 @@
       <pubDate>Tue, 30 Sep 2014 10:00:13 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/tags/mariadb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mediawiki</title>
+      <link>https://blog.deimos.fr/tags/mediawiki/</link>
+      <pubDate>Mon, 12 Nov 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/tags/mediawiki/</guid>
       <description></description>
     </item>
     
