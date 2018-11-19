@@ -4,8 +4,8 @@ author: Deimos
 type: post
 date: 2014-08-05T10:00:03+00:00
 url: /2014/08/05/ubiquiti-mpower/
-image: /images/logo_ubiquiti.jpg
-thumbnailImage: /thumbnails/logo_ubiquiti.jpg
+image: /images/logo_ubiquiti.png
+thumbnailImage: /thumbnails/logo_ubiquiti.png
 thumbnailImagePosition: left
 categories:
   - Debian
