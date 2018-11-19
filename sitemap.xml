@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.deimos.fr/2018/11/19/post_name_minus/</loc>
+    <lastmod>2018-11-19T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.deimos.fr/2018/10/11/bye-bye-mediawiki/</loc>
     <lastmod>2018-11-12T00:00:00+02:00</lastmod>
   </url>
@@ -4380,7 +4385,7 @@
   
   <url>
     <loc>https://blog.deimos.fr/</loc>
-    <lastmod>2018-11-12T00:00:00+02:00</lastmod>
+    <lastmod>2018-11-19T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4429,6 +4434,18 @@
   <url>
     <loc>https://blog.deimos.fr/tags/dotdeb/</loc>
     <lastmod>2014-12-26T11:00:07+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/tags/edgerouter/</loc>
+    <lastmod>2018-11-19T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/edgerouter/</loc>
+    <lastmod>2018-11-19T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4656,13 +4673,13 @@
   
   <url>
     <loc>https://blog.deimos.fr/tags/linux/</loc>
-    <lastmod>2018-11-12T00:00:00+02:00</lastmod>
+    <lastmod>2018-11-19T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/categories/linux/</loc>
-    <lastmod>2018-11-12T00:00:00+02:00</lastmod>
+    <lastmod>2018-11-19T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4741,6 +4758,18 @@
   <url>
     <loc>https://blog.deimos.fr/tags/netflix/</loc>
     <lastmod>2014-09-28T10:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/tags/network/</loc>
+    <lastmod>2018-11-19T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/network/</loc>
+    <lastmod>2018-11-19T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4884,7 +4913,7 @@
   
   <url>
     <loc>https://blog.deimos.fr/post/</loc>
-    <lastmod>2018-11-12T00:00:00+02:00</lastmod>
+    <lastmod>2018-11-19T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -5077,6 +5106,18 @@
   <url>
     <loc>https://blog.deimos.fr/categories/traefik/</loc>
     <lastmod>2018-01-23T18:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/tags/ubiquiti/</loc>
+    <lastmod>2018-11-19T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/ubiquiti/</loc>
+    <lastmod>2018-11-19T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   

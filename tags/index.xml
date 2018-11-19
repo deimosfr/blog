@@ -192,6 +192,15 @@
     </item>
     
     <item>
+      <title>Edgerouter</title>
+      <link>https://blog.deimos.fr/tags/edgerouter/</link>
+      <pubDate>Mon, 19 Nov 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/tags/edgerouter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Environnement</title>
       <link>https://blog.deimos.fr/tags/environnement/</link>
       <pubDate>Wed, 17 Jun 2009 19:57:31 +0000</pubDate>
@@ -365,7 +374,7 @@
     <item>
       <title>Linux</title>
       <link>https://blog.deimos.fr/tags/linux/</link>
-      <pubDate>Mon, 12 Nov 2018 00:00:00 +0200</pubDate>
+      <pubDate>Mon, 19 Nov 2018 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/tags/linux/</guid>
       <description></description>
@@ -449,6 +458,15 @@
       <pubDate>Sun, 28 Sep 2014 10:00:00 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/tags/netflix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Network</title>
+      <link>https://blog.deimos.fr/tags/network/</link>
+      <pubDate>Mon, 19 Nov 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/tags/network/</guid>
       <description></description>
     </item>
     
@@ -755,6 +773,15 @@
       <pubDate>Tue, 23 Jan 2018 18:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/tags/traefik/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ubiquiti</title>
+      <link>https://blog.deimos.fr/tags/ubiquiti/</link>
+      <pubDate>Mon, 19 Nov 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/tags/ubiquiti/</guid>
       <description></description>
     </item>
     

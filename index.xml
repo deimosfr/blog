@@ -6,10 +6,20 @@
     <description>Recent content on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Nov 2018 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 19 Nov 2018 00:00:00 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.deimos.fr/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Restore EdgeRouter USB drive</title>
+      <link>https://blog.deimos.fr/2018/11/19/post_name_minus/</link>
+      <pubDate>Mon, 19 Nov 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/2018/11/19/post_name_minus/</guid>
+      <description>I&amp;rsquo;ve a Ubiquiti EdgeRouter PoE since several years now and really like it. Fanless, small, running on Debian (unfortunately not really up to date) and powerful.
+However I recently had issues with the disk. Simply dead and obviously a reboot didn&amp;rsquo;t repaired it. I&amp;rsquo;ve been searching solutions on the official forum to replace the disk and I was surprised about the fact it runs on a simple USB stick. I decided to replace it with a Kingston one:</description>
+    </item>
     
     <item>
       <title>Bye bye Mediawiki</title>
