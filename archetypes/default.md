@@ -7,11 +7,11 @@ categories:
 date: DATE_MINUST00:00:00+02:00
 tags:
   - linux
-image: /images/logo_.png
-thumbnailImage: /thumbnails/logo_.png
+image: /images/LOGO_IMAGE
+thumbnailImage: /thumbnails/LOGO_IMAGE
 thumbnailImagePosition: left
 title: TITLE_NORMAL
-url: /DATE_SLASH/post_name_minus/
+url: /DATE_SLASH/TITLE_MINUS/
 
 ---
 
