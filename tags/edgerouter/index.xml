@@ -6,10 +6,20 @@
     <description>Recent content in Edgerouter on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 19 Nov 2018 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 20 Nov 2018 00:00:00 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.deimos.fr/tags/edgerouter/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>WireGuard on Debian and EdgeRouter</title>
+      <link>https://blog.deimos.fr/2018/11/20/wireguard-on-debian-and-edgerouter/</link>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/2018/11/20/wireguard-on-debian-and-edgerouter/</guid>
+      <description>WireGuard is a very good alternative to OpenVPN. I&amp;rsquo;ve been using OpenVPN for more than 10 years now and I was happy until I understand how slow it can be on low energy devices like EdgeRouter.
+To give you an idea, on my Fiber Home connection (200Mbps), I&amp;rsquo;m limited to 18Mbps. With OpenVPN, I&amp;rsquo;m reaching the maximum CPU usage on the EdgeRouter. I&amp;rsquo;ve heard of WireGuard about a year now and it was time for me to test this interresting alternative.</description>
+    </item>
     
     <item>
       <title>Restore EdgeRouter USB drive</title>

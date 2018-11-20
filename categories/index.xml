@@ -104,7 +104,7 @@
     <item>
       <title>Debian</title>
       <link>https://blog.deimos.fr/categories/debian/</link>
-      <pubDate>Sat, 18 Jun 2016 07:44:11 +0000</pubDate>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/categories/debian/</guid>
       <description></description>
@@ -140,7 +140,7 @@
     <item>
       <title>Edgerouter</title>
       <link>https://blog.deimos.fr/categories/edgerouter/</link>
-      <pubDate>Mon, 19 Nov 2018 00:00:00 +0200</pubDate>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/categories/edgerouter/</guid>
       <description></description>
@@ -311,7 +311,7 @@
     <item>
       <title>Linux</title>
       <link>https://blog.deimos.fr/categories/linux/</link>
-      <pubDate>Mon, 19 Nov 2018 00:00:00 +0200</pubDate>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/categories/linux/</guid>
       <description></description>
@@ -356,7 +356,7 @@
     <item>
       <title>Network</title>
       <link>https://blog.deimos.fr/categories/network/</link>
-      <pubDate>Mon, 19 Nov 2018 00:00:00 +0200</pubDate>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/categories/network/</guid>
       <description></description>
@@ -545,7 +545,7 @@
     <item>
       <title>Ubiquiti</title>
       <link>https://blog.deimos.fr/categories/ubiquiti/</link>
-      <pubDate>Mon, 19 Nov 2018 00:00:00 +0200</pubDate>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/categories/ubiquiti/</guid>
       <description></description>
@@ -566,6 +566,15 @@
       <pubDate>Fri, 16 Jan 2015 11:00:52 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/categories/virtualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vpn</title>
+      <link>https://blog.deimos.fr/categories/vpn/</link>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/categories/vpn/</guid>
       <description></description>
     </item>
     
@@ -593,6 +602,15 @@
       <pubDate>Tue, 18 Feb 2014 11:00:38 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/categories/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wireguard</title>
+      <link>https://blog.deimos.fr/categories/wireguard/</link>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/categories/wireguard/</guid>
       <description></description>
     </item>
     

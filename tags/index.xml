@@ -140,7 +140,7 @@
     <item>
       <title>Debian</title>
       <link>https://blog.deimos.fr/tags/debian/</link>
-      <pubDate>Sat, 18 Jun 2016 07:44:11 +0000</pubDate>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/tags/debian/</guid>
       <description></description>
@@ -194,7 +194,7 @@
     <item>
       <title>Edgerouter</title>
       <link>https://blog.deimos.fr/tags/edgerouter/</link>
-      <pubDate>Mon, 19 Nov 2018 00:00:00 +0200</pubDate>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/tags/edgerouter/</guid>
       <description></description>
@@ -374,7 +374,7 @@
     <item>
       <title>Linux</title>
       <link>https://blog.deimos.fr/tags/linux/</link>
-      <pubDate>Mon, 19 Nov 2018 00:00:00 +0200</pubDate>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/tags/linux/</guid>
       <description></description>
@@ -464,7 +464,7 @@
     <item>
       <title>Network</title>
       <link>https://blog.deimos.fr/tags/network/</link>
-      <pubDate>Mon, 19 Nov 2018 00:00:00 +0200</pubDate>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/tags/network/</guid>
       <description></description>
@@ -779,7 +779,7 @@
     <item>
       <title>Ubiquiti</title>
       <link>https://blog.deimos.fr/tags/ubiquiti/</link>
-      <pubDate>Mon, 19 Nov 2018 00:00:00 +0200</pubDate>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/tags/ubiquiti/</guid>
       <description></description>
@@ -840,6 +840,15 @@
     </item>
     
     <item>
+      <title>Vpn</title>
+      <link>https://blog.deimos.fr/tags/vpn/</link>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/tags/vpn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Web</title>
       <link>https://blog.deimos.fr/tags/web/</link>
       <pubDate>Thu, 29 Jan 2015 11:00:01 +0000</pubDate>
@@ -872,6 +881,15 @@
       <pubDate>Tue, 18 Feb 2014 11:00:38 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/tags/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wireguard</title>
+      <link>https://blog.deimos.fr/tags/wireguard/</link>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/tags/wireguard/</guid>
       <description></description>
     </item>
     
