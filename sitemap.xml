@@ -4222,25 +4222,25 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/android/</loc>
-    <lastmod>2014-10-26T11:00:46+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.deimos.fr/tags/android/</loc>
     <lastmod>2014-10-26T11:00:46+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/ansible/</loc>
-    <lastmod>2017-04-18T20:18:07+02:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/android/</loc>
+    <lastmod>2014-10-26T11:00:46+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/tags/ansible/</loc>
+    <lastmod>2017-04-18T20:18:07+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/ansible/</loc>
     <lastmod>2017-04-18T20:18:07+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -4257,25 +4257,25 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/books/</loc>
-    <lastmod>2014-09-24T10:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.deimos.fr/tags/books/</loc>
     <lastmod>2014-08-23T10:00:51+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/cassandra/</loc>
-    <lastmod>2018-07-16T00:00:00+02:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/books/</loc>
+    <lastmod>2014-09-24T10:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/tags/cassandra/</loc>
+    <lastmod>2018-07-16T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/cassandra/</loc>
     <lastmod>2018-07-16T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -4287,20 +4287,14 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/ceph/</loc>
-    <lastmod>2014-10-06T10:00:30+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.deimos.fr/tags/ceph/</loc>
     <lastmod>2014-10-06T10:00:30+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/cinema/</loc>
-    <lastmod>2014-09-28T10:00:00+00:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/ceph/</loc>
+    <lastmod>2014-10-06T10:00:30+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4311,13 +4305,19 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/cloud/</loc>
-    <lastmod>2017-04-18T20:18:07+02:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/cinema/</loc>
+    <lastmod>2014-09-28T10:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/tags/cloud/</loc>
+    <lastmod>2017-04-18T20:18:07+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/cloud/</loc>
     <lastmod>2017-04-18T20:18:07+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -4329,25 +4329,25 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/consul/</loc>
-    <lastmod>2018-01-23T18:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.deimos.fr/tags/consul/</loc>
     <lastmod>2018-01-23T18:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/containers/</loc>
-    <lastmod>2018-07-16T00:00:00+02:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/consul/</loc>
+    <lastmod>2018-01-23T18:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/tags/containers/</loc>
+    <lastmod>2018-07-16T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/containers/</loc>
     <lastmod>2018-07-16T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -4365,25 +4365,25 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/databases/</loc>
-    <lastmod>2018-07-16T00:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.deimos.fr/tags/databases/</loc>
     <lastmod>2018-07-16T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/debian/</loc>
-    <lastmod>2018-11-20T00:00:00+02:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/databases/</loc>
+    <lastmod>2018-07-16T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/tags/debian/</loc>
+    <lastmod>2018-11-20T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/debian/</loc>
     <lastmod>2018-11-20T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -4401,20 +4401,14 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/developement/</loc>
-    <lastmod>2016-01-20T10:00:41+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.deimos.fr/tags/developement/</loc>
     <lastmod>2015-02-11T11:00:22+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/distributed/</loc>
-    <lastmod>2018-07-16T00:00:00+02:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/developement/</loc>
+    <lastmod>2016-01-20T10:00:41+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4425,13 +4419,19 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/docker/</loc>
-    <lastmod>2018-01-31T00:00:00+02:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/distributed/</loc>
+    <lastmod>2018-07-16T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/tags/docker/</loc>
+    <lastmod>2018-01-31T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/docker/</loc>
     <lastmod>2018-01-31T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -4443,20 +4443,14 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/edgerouter/</loc>
-    <lastmod>2018-11-20T00:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.deimos.fr/tags/edgerouter/</loc>
     <lastmod>2018-11-20T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/environnement/</loc>
-    <lastmod>2009-06-17T19:57:31+00:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/edgerouter/</loc>
+    <lastmod>2018-11-20T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4467,8 +4461,8 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/events/</loc>
-    <lastmod>2015-09-15T21:56:06+00:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/environnement/</loc>
+    <lastmod>2009-06-17T19:57:31+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4479,14 +4473,14 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/tags/fosdem/</loc>
-    <lastmod>2015-01-31T06:30:20+00:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/events/</loc>
+    <lastmod>2015-09-15T21:56:06+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/freebsd/</loc>
-    <lastmod>2014-08-03T10:00:25+00:00</lastmod>
+    <loc>https://blog.deimos.fr/tags/fosdem/</loc>
+    <lastmod>2015-01-31T06:30:20+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4497,13 +4491,19 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/funny/</loc>
-    <lastmod>2014-04-27T10:00:20+00:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/freebsd/</loc>
+    <lastmod>2014-08-03T10:00:25+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/tags/funny/</loc>
+    <lastmod>2014-04-27T10:00:20+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/funny/</loc>
     <lastmod>2014-04-27T10:00:20+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -4515,25 +4515,25 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/git/</loc>
-    <lastmod>2015-09-15T21:56:06+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.deimos.fr/tags/git/</loc>
     <lastmod>2015-02-11T11:00:22+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/github/</loc>
-    <lastmod>2017-04-17T21:28:52+02:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/git/</loc>
+    <lastmod>2015-09-15T21:56:06+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/tags/github/</loc>
+    <lastmod>2017-04-17T21:28:52+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/github/</loc>
     <lastmod>2017-04-17T21:28:52+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -4545,13 +4545,13 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/ha/</loc>
+    <loc>https://blog.deimos.fr/tags/ha/</loc>
     <lastmod>2016-01-21T13:00:16+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/tags/ha/</loc>
+    <loc>https://blog.deimos.fr/categories/ha/</loc>
     <lastmod>2016-01-21T13:00:16+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -4563,20 +4563,14 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/helm/</loc>
-    <lastmod>2018-01-23T18:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.deimos.fr/tags/helm/</loc>
     <lastmod>2018-01-23T18:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/hi-tech/</loc>
-    <lastmod>2016-09-30T21:35:17+00:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/helm/</loc>
+    <lastmod>2018-01-23T18:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4587,8 +4581,8 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/high-tech/</loc>
-    <lastmod>2018-01-18T18:00:00+02:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/hi-tech/</loc>
+    <lastmod>2016-09-30T21:35:17+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4599,8 +4593,8 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/home-automation/</loc>
-    <lastmod>2018-01-26T18:00:00+02:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/high-tech/</loc>
+    <lastmod>2018-01-18T18:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4611,8 +4605,8 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/hugo/</loc>
-    <lastmod>2017-04-17T21:28:52+02:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/home-automation/</loc>
+    <lastmod>2018-01-26T18:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4623,8 +4617,8 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/iphone/</loc>
-    <lastmod>2014-11-11T11:00:23+00:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/hugo/</loc>
+    <lastmod>2017-04-17T21:28:52+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4635,13 +4629,19 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/jeedom/</loc>
-    <lastmod>2018-01-26T18:00:00+02:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/iphone/</loc>
+    <lastmod>2014-11-11T11:00:23+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/tags/jeedom/</loc>
+    <lastmod>2018-01-26T18:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/jeedom/</loc>
     <lastmod>2018-01-26T18:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -4653,20 +4653,14 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/kubernetes/</loc>
-    <lastmod>2018-07-16T00:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.deimos.fr/tags/kubernetes/</loc>
     <lastmod>2018-07-16T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/lets-encrypt/</loc>
-    <lastmod>2018-01-23T18:00:00+02:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/kubernetes/</loc>
+    <lastmod>2018-07-16T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4677,8 +4671,8 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/linux/</loc>
-    <lastmod>2018-11-20T00:00:00+02:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/lets-encrypt/</loc>
+    <lastmod>2018-01-23T18:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4689,8 +4683,8 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/lxc/</loc>
-    <lastmod>2015-09-15T21:56:06+00:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/linux/</loc>
+    <lastmod>2018-11-20T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4701,13 +4695,19 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/mac/</loc>
-    <lastmod>2015-04-28T10:00:45+00:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/lxc/</loc>
+    <lastmod>2015-09-15T21:56:06+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/tags/mac/</loc>
+    <lastmod>2015-04-28T10:00:45+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/mac/</loc>
     <lastmod>2015-04-28T10:00:45+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -4719,13 +4719,13 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/mediawiki/</loc>
+    <loc>https://blog.deimos.fr/tags/mediawiki/</loc>
     <lastmod>2018-11-12T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/tags/mediawiki/</loc>
+    <loc>https://blog.deimos.fr/categories/mediawiki/</loc>
     <lastmod>2018-11-12T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -4749,13 +4749,13 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/nagios/</loc>
+    <loc>https://blog.deimos.fr/tags/nagios/</loc>
     <lastmod>2014-09-02T10:00:43+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/tags/nagios/</loc>
+    <loc>https://blog.deimos.fr/categories/nagios/</loc>
     <lastmod>2014-09-02T10:00:43+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -4767,13 +4767,13 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/network/</loc>
+    <loc>https://blog.deimos.fr/tags/network/</loc>
     <lastmod>2018-11-20T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/tags/network/</loc>
+    <loc>https://blog.deimos.fr/categories/network/</loc>
     <lastmod>2018-11-20T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -4785,20 +4785,14 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/nosql/</loc>
-    <lastmod>2016-01-15T10:07:48+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.deimos.fr/tags/nosql/</loc>
     <lastmod>2015-02-27T11:00:01+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/nousmotards/</loc>
-    <lastmod>2016-01-21T13:00:16+00:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/nosql/</loc>
+    <lastmod>2016-01-15T10:07:48+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4809,8 +4803,8 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/openbsd/</loc>
-    <lastmod>2013-07-21T10:00:00+00:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/nousmotards/</loc>
+    <lastmod>2016-01-21T13:00:16+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4821,8 +4815,8 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/openstack/</loc>
-    <lastmod>2014-11-01T11:00:56+00:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/openbsd/</loc>
+    <lastmod>2013-07-21T10:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4833,14 +4827,20 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/others/</loc>
-    <lastmod>2015-09-15T21:56:06+00:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/openstack/</loc>
+    <lastmod>2014-11-01T11:00:56+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/tags/others/</loc>
     <lastmod>2015-03-16T12:00:49+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/others/</loc>
+    <lastmod>2015-09-15T21:56:06+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4869,25 +4869,25 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/perso/</loc>
-    <lastmod>2018-01-18T18:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.deimos.fr/tags/perso/</loc>
     <lastmod>2018-01-18T18:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/photo/</loc>
-    <lastmod>2018-10-11T00:00:00+02:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/perso/</loc>
+    <lastmod>2018-01-18T18:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/tags/photo/</loc>
+    <lastmod>2018-10-11T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/photo/</loc>
     <lastmod>2018-10-11T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -4905,13 +4905,13 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/postfix/</loc>
+    <loc>https://blog.deimos.fr/tags/postfix/</loc>
     <lastmod>2014-03-20T11:00:54+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/tags/postfix/</loc>
+    <loc>https://blog.deimos.fr/categories/postfix/</loc>
     <lastmod>2014-03-20T11:00:54+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -4923,20 +4923,14 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/private-life/</loc>
-    <lastmod>2015-09-15T21:56:06+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.deimos.fr/tags/private-life/</loc>
     <lastmod>2015-03-16T12:00:49+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/ps3/</loc>
-    <lastmod>2010-01-01T21:07:48+00:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/private-life/</loc>
+    <lastmod>2015-09-15T21:56:06+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4947,13 +4941,19 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/puppet/</loc>
-    <lastmod>2014-11-17T11:00:20+00:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/ps3/</loc>
+    <lastmod>2010-01-01T21:07:48+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/tags/puppet/</loc>
+    <lastmod>2014-11-17T11:00:20+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/puppet/</loc>
     <lastmod>2014-11-17T11:00:20+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -4971,13 +4971,13 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/red-hat/</loc>
+    <loc>https://blog.deimos.fr/tags/red-hat/</loc>
     <lastmod>2016-06-18T07:44:11+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/tags/red-hat/</loc>
+    <loc>https://blog.deimos.fr/categories/red-hat/</loc>
     <lastmod>2016-06-18T07:44:11+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -4989,25 +4989,25 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/registry/</loc>
-    <lastmod>2018-01-31T00:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.deimos.fr/tags/registry/</loc>
     <lastmod>2018-01-31T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/security/</loc>
-    <lastmod>2014-09-18T10:00:21+00:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/registry/</loc>
+    <lastmod>2018-01-31T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/tags/security/</loc>
+    <lastmod>2014-09-18T10:00:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/security/</loc>
     <lastmod>2014-09-18T10:00:21+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -5025,25 +5025,25 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/soekris/</loc>
-    <lastmod>2013-04-30T10:00:37+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.deimos.fr/tags/soekris/</loc>
     <lastmod>2013-04-30T10:00:37+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/solaris/</loc>
-    <lastmod>2013-05-24T10:00:30+00:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/soekris/</loc>
+    <lastmod>2013-04-30T10:00:37+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/tags/solaris/</loc>
+    <lastmod>2013-05-24T10:00:30+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/solaris/</loc>
     <lastmod>2013-05-24T10:00:30+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -5055,14 +5055,14 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/sql/</loc>
-    <lastmod>2015-09-15T21:56:06+00:00</lastmod>
+    <loc>https://blog.deimos.fr/tags/sql/</loc>
+    <lastmod>2015-02-27T11:00:01+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/tags/sql/</loc>
-    <lastmod>2015-02-27T11:00:01+00:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/sql/</loc>
+    <lastmod>2015-09-15T21:56:06+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -5073,25 +5073,25 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/ssl/</loc>
-    <lastmod>2018-01-23T18:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.deimos.fr/tags/ssl/</loc>
     <lastmod>2018-01-23T18:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/synology/</loc>
-    <lastmod>2018-01-26T18:00:00+02:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/ssl/</loc>
+    <lastmod>2018-01-23T18:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/tags/synology/</loc>
+    <lastmod>2018-01-26T18:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/synology/</loc>
     <lastmod>2018-01-26T18:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -5103,25 +5103,25 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/traefik/</loc>
-    <lastmod>2018-01-23T18:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.deimos.fr/tags/traefik/</loc>
     <lastmod>2018-01-23T18:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/ubiquiti/</loc>
-    <lastmod>2018-11-20T00:00:00+02:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/traefik/</loc>
+    <lastmod>2018-01-23T18:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/tags/ubiquiti/</loc>
+    <lastmod>2018-11-20T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/ubiquiti/</loc>
     <lastmod>2018-11-20T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -5133,13 +5133,13 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/vagrant/</loc>
+    <loc>https://blog.deimos.fr/tags/vagrant/</loc>
     <lastmod>2015-01-13T11:00:15+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/tags/vagrant/</loc>
+    <loc>https://blog.deimos.fr/categories/vagrant/</loc>
     <lastmod>2015-01-13T11:00:15+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -5163,20 +5163,14 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/virtualization/</loc>
-    <lastmod>2015-01-16T11:00:52+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.deimos.fr/tags/virtualization/</loc>
     <lastmod>2014-11-01T11:00:56+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/vpn/</loc>
-    <lastmod>2018-11-20T00:00:00+02:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/virtualization/</loc>
+    <lastmod>2015-01-16T11:00:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -5187,8 +5181,8 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/web/</loc>
-    <lastmod>2015-01-29T11:00:01+00:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/vpn/</loc>
+    <lastmod>2018-11-20T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -5199,13 +5193,19 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/wifi/</loc>
-    <lastmod>2010-03-12T06:30:02+00:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/web/</loc>
+    <lastmod>2015-01-29T11:00:01+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/tags/wifi/</loc>
+    <lastmod>2010-03-12T06:30:02+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/wifi/</loc>
     <lastmod>2010-03-12T06:30:02+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -5217,25 +5217,25 @@
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/windows/</loc>
-    <lastmod>2014-02-18T11:00:38+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.deimos.fr/tags/windows/</loc>
     <lastmod>2014-02-18T11:00:38+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.deimos.fr/categories/wireguard/</loc>
-    <lastmod>2018-11-20T00:00:00+02:00</lastmod>
+    <loc>https://blog.deimos.fr/categories/windows/</loc>
+    <lastmod>2014-02-18T11:00:38+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/tags/wireguard/</loc>
+    <lastmod>2018-11-20T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/wireguard/</loc>
     <lastmod>2018-11-20T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>

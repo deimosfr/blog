@@ -8,11 +8,11 @@
 <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
-<meta name="description" content="WireGuard is a very good alternative to OpenVPN. I&rsquo;ve been using OpenVPN for more than 10 years now and I was happy until I understand how slow it can be on low energy devices like EdgeRouter.
+<meta name="description" content="WireGuard is a very good alternative to OpenVPN. I&rsquo;ve been using OpenVPN for more than 10 years now and I was happy until I understood how slow it can be on low energy devices like EdgeRouter.
 To give you an idea, on my Fiber Home connection (200Mbps), I&rsquo;m limited to 18Mbps. With OpenVPN, I&rsquo;m reaching the maximum CPU usage on the EdgeRouter. I&rsquo;ve heard of WireGuard about a year now and it was time for me to test this interresting alternative.">
 
 
-<meta property="og:description" content="WireGuard is a very good alternative to OpenVPN. I&rsquo;ve been using OpenVPN for more than 10 years now and I was happy until I understand how slow it can be on low energy devices like EdgeRouter.
+<meta property="og:description" content="WireGuard is a very good alternative to OpenVPN. I&rsquo;ve been using OpenVPN for more than 10 years now and I was happy until I understood how slow it can be on low energy devices like EdgeRouter.
 To give you an idea, on my Fiber Home connection (200Mbps), I&rsquo;m limited to 18Mbps. With OpenVPN, I&rsquo;m reaching the maximum CPU usage on the EdgeRouter. I&rsquo;ve heard of WireGuard about a year now and it was time for me to test this interresting alternative.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WireGuard on Debian and EdgeRouter">
@@ -20,9 +20,9 @@ To give you an idea, on my Fiber Home connection (200Mbps), I&rsquo;m limited to
 <meta property="og:url" content="https://blog.deimos.fr/2018/11/20/wireguard-on-debian-and-edgerouter/">
 <meta property="twitter:url" content="https://blog.deimos.fr/2018/11/20/wireguard-on-debian-and-edgerouter/">
 <meta property="og:site_name" content="Deimosfr Blog">
-<meta property="og:description" content="WireGuard is a very good alternative to OpenVPN. I&rsquo;ve been using OpenVPN for more than 10 years now and I was happy until I understand how slow it can be on low energy devices like EdgeRouter.
+<meta property="og:description" content="WireGuard is a very good alternative to OpenVPN. I&rsquo;ve been using OpenVPN for more than 10 years now and I was happy until I understood how slow it can be on low energy devices like EdgeRouter.
 To give you an idea, on my Fiber Home connection (200Mbps), I&rsquo;m limited to 18Mbps. With OpenVPN, I&rsquo;m reaching the maximum CPU usage on the EdgeRouter. I&rsquo;ve heard of WireGuard about a year now and it was time for me to test this interresting alternative.">
-<meta name="twitter:description" content="WireGuard is a very good alternative to OpenVPN. I&rsquo;ve been using OpenVPN for more than 10 years now and I was happy until I understand how slow it can be on low energy devices like EdgeRouter.
+<meta name="twitter:description" content="WireGuard is a very good alternative to OpenVPN. I&rsquo;ve been using OpenVPN for more than 10 years now and I was happy until I understood how slow it can be on low energy devices like EdgeRouter.
 To give you an idea, on my Fiber Home connection (200Mbps), I&rsquo;m limited to 18Mbps. With OpenVPN, I&rsquo;m reaching the maximum CPU usage on the EdgeRouter. I&rsquo;ve heard of WireGuard about a year now and it was time for me to test this interresting alternative.">
 <meta property="og:locale" content="en-us">
 
@@ -309,13 +309,13 @@ ga('send', 'pageview');
 
 <p><img src="https://blog.deimos.fr/images/wireguard.png" alt="WireGuard" /></p>
 
-<p><a href="https://www.wireguard.com/" target="_blank">WireGuard</a> is a very good alternative to <a href="https://openvpn.net/" target="_blank">OpenVPN</a>. I&rsquo;ve been <a href="https://wiki.deimos.fr/OpenVPN_:_Mise_en_place_d'OpenVPN_sur_diff%C3%A9rentes_plateformes" target="_blank">using OpenVPN</a> for more than 10 years now and I was happy until I understand how slow it can be on low energy devices like EdgeRouter.</p>
+<p><a href="https://www.wireguard.com/" target="_blank">WireGuard</a> is a very good alternative to <a href="https://openvpn.net/" target="_blank">OpenVPN</a>. I&rsquo;ve been <a href="https://wiki.deimos.fr/OpenVPN_:_Mise_en_place_d'OpenVPN_sur_diff%C3%A9rentes_plateformes" target="_blank">using OpenVPN</a> for more than 10 years now and I was happy until I understood how slow it can be on low energy devices like EdgeRouter.</p>
 
 <p>To give you an idea, on my Fiber Home connection (200Mbps), I&rsquo;m limited to 18Mbps. <strong>With OpenVPN, I&rsquo;m reaching the maximum CPU usage on the EdgeRouter</strong>. I&rsquo;ve heard of WireGuard about a year now and it was time for me to test this interresting alternative.</p>
 
-<p>To give you more context, I want to connect in client/server mode 2 servers and a laptop (server(1) &lt;-&gt; server(2) and server(1) &lt;-&gt; laptop(3)). One server is a <a href="https://www.ubnt.com/edgemax/edgerouter-poe/" target="_blank">EdgeRouter</a> and the other one a physical datacenter hosted Debian 9 server.</p>
+<p>To give you more context, I want to connect in client/server mode 2 servers and a laptop (server(1) &lt;-&gt; server(2) and server(1) &lt;-&gt; laptop(3)). One server is a <a href="https://www.ubnt.com/edgemax/edgerouter-poe/" target="_blank">EdgeRouter</a> and the other one a physical Debian 9 server hosted in a datacenter.</p>
 
-<p>First of all, before going ahead on how to do it, let&rsquo;s look at the benchmark tests I&rsquo;ve made with <a href="https://iperf.fr" target="_blank">iperf</a> in the configuration with 2 servers between the EdgeRouter and a Debian server (using wan connection). With OpenVPN:</p>
+<p>First of all, before going ahead on how to do it, let&rsquo;s look at the benchmark tests I&rsquo;ve made with <a href="https://iperf.fr" target="_blank">iperf</a> in the configuration with 2 servers between the EdgeRouter and a Debian server (using wan connection). With WireGuard:</p>
 
 <pre><code class="language-bash">------------------------------------------------------------
 Server listening on TCP port 5001
@@ -326,7 +326,7 @@ TCP window size: 85.3 KByte (default)
 [  4]  0.0-10.1 sec  90.0 MBytes  74.9 Mbits/sec
 </code></pre>
 
-<p>With WireGuard:</p>
+<p>With OpenVPN:</p>
 
 <pre><code class="language-bash">------------------------------------------------------------
 Server listening on TCP port 5001
@@ -337,7 +337,7 @@ TCP window size: 85.3 KByte (default)
 [  5]  0.0-10.4 sec  22.4 MBytes  18.1 Mbits/sec
 </code></pre>
 
-<p>Around <strong>4x faster</strong> !!! Now time to setup WireGuard :)</p>
+<p>Around <strong>4x faster</strong> !!! Now it&rsquo;s time to setup WireGuard :)</p>
 
 <h2 id="on-edgerouter">On EdgeRouter</h2>
 
@@ -364,7 +364,7 @@ chmod 600 wg*
 chmod 700 .
 </code></pre>
 
-<p>Now you can configure via Vyatta your EdgeRouter (not as root):</p>
+<p>Now you can configure via <a href="https://vyos.io/" target="_blank">Vyatta</a> your EdgeRouter (not as root):</p>
 
 <pre><code class="language-bash">$ configure
 
@@ -709,7 +709,7 @@ Here is another <a href="https://wiki.archlinux.org/index.php/WireGuard" target=
                   Nov 11, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">WireGuard is a very good alternative to OpenVPN. I&rsquo;ve been using OpenVPN for more than 10 years now and I was happy until I understand how slow it can be on low energy devices like EdgeRouter.
+              <div class="media-content hide-xs font-merryweather">WireGuard is a very good alternative to OpenVPN. I&rsquo;ve been using OpenVPN for more than 10 years now and I was happy until I understood how slow it can be on low energy devices like EdgeRouter.
 To give you an idea, on my Fiber Home connection (200Mbps), I&rsquo;m limited to 18Mbps. With OpenVPN, I&rsquo;m reaching the maximum CPU usage on the EdgeRouter. I&rsquo;ve heard of WireGuard about a year now and it was time for me to test this interresting alternative.</div>
             </div>
             <div style="clear:both;"></div>
