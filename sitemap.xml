@@ -4431,12 +4431,18 @@
   
   <url>
     <loc>https://blog.deimos.fr/tags/docker/</loc>
-    <lastmod>2018-01-31T00:00:00+02:00</lastmod>
+    <lastmod>2018-12-19T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/categories/docker/</loc>
+    <lastmod>2018-12-19T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/tags/docker-compose/</loc>
     <lastmod>2018-12-19T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -5115,7 +5121,7 @@
   
   <url>
     <loc>https://blog.deimos.fr/tags/traefik/</loc>
-    <lastmod>2018-01-23T18:00:00+02:00</lastmod>
+    <lastmod>2018-12-19T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -5254,6 +5260,12 @@
   <url>
     <loc>https://blog.deimos.fr/tags/wkhtmltopdf/</loc>
     <lastmod>2010-01-13T06:42:49+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/tags/wordpress/</loc>
+    <lastmod>2018-12-19T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   

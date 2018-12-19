@@ -6,10 +6,20 @@
     <description>Recent content in Traefik on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Jan 2018 18:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 19 Dec 2018 00:00:00 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.deimos.fr/tags/traefik/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Running Docker for your home server</title>
+      <link>https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/</link>
+      <pubDate>Wed, 19 Dec 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/</guid>
+      <description>Since several years, I&amp;rsquo;m hosting a lot of things: blog, wiki, emails etc&amp;hellip; I&amp;rsquo;ve played with Vserver, OpenVZ, KVM and finaly LXC. For years, I&amp;rsquo;ve learned how to use all of them but the most known solution during the last years is Docker.
+I even can remeber the first Meetup I&amp;rsquo;ve attended in Paris talking about Docker 5 years ago. Now containers are eveverywhere. I recently changed the server I&amp;rsquo;m running for my own usage and this was the good timing to switch from LXC to Docker.</description>
+    </item>
     
     <item>
       <title>Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes</title>
