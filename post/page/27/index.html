@@ -224,6 +224,77 @@ ga('send', 'pageview');
     
     <div class="postShorten-header">
       <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2014/01/23/offloading-ssl-with-nginx-and-varnish/">
+          Offloading SSL with Nginx and Varnish
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2014-01-23T11:00:47Z">
+        
+  
+  
+  
+  
+    23 January 2014
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/web">Web</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        Varnish is a real powerful cache solution for web servers. He is unfortunately not able to do it over SSL. Anyway, there is a solution by offloading it with Nginx. Here is a schema to get a better understanding :
+Nginx decrypt SSL, pass it in clear to Varnish. If Varnish got it, replies to Nginx which crypt back data to send to user.
+I&rsquo;ve made a full documentation to get it working well, follow the link.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2014/01/23/offloading-ssl-with-nginx-and-varnish/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2014/01/23/offloading-ssl-with-nginx-and-varnish/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_ngnix.png"/>
+      </div>
+    </a>
+  
+</article>
+
+          
+            
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
         <a class="link-unstyled" href="https://blog.deimos.fr/2014/01/21/ceph-setup-block-devices-rbd-nodes-on-debian/">
           Ceph: setup Rados Block Devices (RBD) nodes on Debian
         </a>
@@ -622,74 +693,6 @@ If you want to know more about it : https://france.debian.net/events/minidebconf
 </article>
 
           
-            
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://blog.deimos.fr/2014/01/09/manage-cgroups-with-cgconfig-on-debian/">
-          Manage cgroups with cgconfig on Debian
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2014-01-09T11:00:09Z">
-        
-  
-  
-  
-  
-    9 January 2014
-  
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        Cgroups permit to restrict a process to specific hardware like CPU or limiting IO disk etc&hellip; Managing it manually could be a nightmare and hopefully, a good workaround exists.
-It&rsquo;s called cgconfig and allows you to have a running daemon to apply restrictions on all new running process. I&rsquo;ve made a documentation for it and spent time on it as it&rsquo;s not properly Debian packaged yet :-(
-      
-      <p>
-        <a href="https://blog.deimos.fr/2014/01/09/manage-cgroups-with-cgconfig-on-debian/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://blog.deimos.fr/2014/01/09/manage-cgroups-with-cgconfig-on-debian/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg"/>
-      </div>
-    </a>
-  
-</article>
-
-          
           
   <div class="pagination-bar">
     <ul class="pagination">
@@ -771,6 +774,24 @@ It&rsquo;s called cgconfig and allows you to have a running daemon to apply rest
       <div class="no-result text-color-light text-center">no post found</div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/">
+                <h3 class="media-heading">Running Docker for your home server</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Since several years, I&rsquo;m hosting a lot of things: blog, wiki, emails etc&hellip; I&rsquo;ve played with Vserver, OpenVZ, KVM and finaly LXC. For years, I&rsquo;ve learned how to use all of them but the most known solution during the last years is Docker.
+I even can remeber the first Meetup I&rsquo;ve attended in Paris talking about Docker 5 years ago. Now containers are eveverywhere. I recently changed the server I&rsquo;m running for my own usage and this was the good timing to switch from LXC to Docker.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -936,25 +957,6 @@ Since we launched Nousmotards, several persons asked us: &ldquo;You&rsquo;ve mad
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/">
-                <h3 class="media-heading">Kubernetes with Traefik and Let&#39;s Encrypt</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2017
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
-I wanted to deploy it on Kubernetes for its interesting features like:
- Connect to Kubernetes API to listen changes and perform on the fly updates Automatic SSL management through Let&rsquo;s encrypt (SNI) Prometheus native integration HTTP/2 support  I really like HAProxy, but in a Kubernetes case, it&rsquo;s not the recommended solution because of its lake of features.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -962,7 +964,7 @@ I wanted to deploy it on Kubernetes for its interesting features like:
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         844 posts found
+         845 posts found
       </p>
     </div>
   </div>

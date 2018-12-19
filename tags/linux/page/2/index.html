@@ -227,6 +227,81 @@ ga('send', 'pageview');
     
     <div class="postShorten-header">
       <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/">
+          Upgrading Ansible Consul Template role
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2015-11-27T21:34:03Z">
+        
+  
+  
+  
+  
+    27 November 2015
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/ansible">Ansible</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/cloud">Cloud</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:
+consul_template_version:&#39;0.11.0&#39;consul_template_arch:&#39;linux_amd64&#39;consul_template_http_src:&#34;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&#34; You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
+I hope you&rsquo;ll enjoy this new version :-)
+      
+      <p>
+        <a href="https://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_ansible.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
         <a class="link-unstyled" href="https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/">
           Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4
         </a>
@@ -646,81 +721,6 @@ The good On HAProxy, the good thing is the simplicity to do it. First of all you
 </article>
 
             
-              
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://blog.deimos.fr/2015/01/20/simple-ec2-snapshot-released/">
-          Simple EC2 snapshot released !
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2015-01-20T11:00:12Z">
-        
-  
-  
-  
-  
-    20 January 2015
-  
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/cloud">Cloud</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/developement">Developement</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        For my company, I recently had to find a good solution to make Snapshots from Instance IDs or from tags on AWS. I made several searches but unfortunately didn&rsquo;t find what I was searching for.
-That&rsquo;s why I started to make a tool to do this kind of job. It&rsquo;s written in Python and requires the Boto library. Here is what you can do with Simple EC2 snapshots:
- Hot snapshots (by default) and Cold snapshots   Multiple instances snapshot in one line   Detection of doubles   Filters by tags (allowing wildcards) or by instance IDs   Credentials file multiple with profiles   Limit the number of snapshots   Restrict snapshots to data disks only   The tool is open source and can be downloaded on GitHub :-).
-      
-      <p>
-        <a href="https://blog.deimos.fr/2015/01/20/simple-ec2-snapshot-released/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://blog.deimos.fr/2015/01/20/simple-ec2-snapshot-released/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_amazon-aws.jpg"/>
-      </div>
-    </a>
-  
-</article>
-
-            
             
   <div class="pagination-bar">
     <ul class="pagination">
@@ -742,7 +742,7 @@ That&rsquo;s why I started to make a tool to do this kind of job. It&rsquo;s wri
           </li>
         
       
-      <li class="pagination-number">page 2 of 52</li>
+      <li class="pagination-number">page 2 of 53</li>
     </ul>
   </div>
 
@@ -803,6 +803,24 @@ That&rsquo;s why I started to make a tool to do this kind of job. It&rsquo;s wri
       <div class="no-result text-color-light text-center">no post found</div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/">
+                <h3 class="media-heading">Running Docker for your home server</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Since several years, I&rsquo;m hosting a lot of things: blog, wiki, emails etc&hellip; I&rsquo;ve played with Vserver, OpenVZ, KVM and finaly LXC. For years, I&rsquo;ve learned how to use all of them but the most known solution during the last years is Docker.
+I even can remeber the first Meetup I&rsquo;ve attended in Paris talking about Docker 5 years ago. Now containers are eveverywhere. I recently changed the server I&rsquo;m running for my own usage and this was the good timing to switch from LXC to Docker.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -968,25 +986,6 @@ Since we launched Nousmotards, several persons asked us: &ldquo;You&rsquo;ve mad
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/">
-                <h3 class="media-heading">Kubernetes with Traefik and Let&#39;s Encrypt</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2017
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
-I wanted to deploy it on Kubernetes for its interesting features like:
- Connect to Kubernetes API to listen changes and perform on the fly updates Automatic SSL management through Let&rsquo;s encrypt (SNI) Prometheus native integration HTTP/2 support  I really like HAProxy, but in a Kubernetes case, it&rsquo;s not the recommended solution because of its lake of features.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -994,7 +993,7 @@ I wanted to deploy it on Kubernetes for its interesting features like:
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         844 posts found
+         845 posts found
       </p>
     </div>
   </div>
