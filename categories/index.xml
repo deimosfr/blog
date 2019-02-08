@@ -57,6 +57,15 @@
     </item>
     
     <item>
+      <title>Chart</title>
+      <link>https://blog.deimos.fr/categories/chart/</link>
+      <pubDate>Fri, 08 Feb 2019 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/categories/chart/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Cinema</title>
       <link>https://blog.deimos.fr/categories/cinema/</link>
       <pubDate>Sun, 28 Sep 2014 10:00:00 +0000</pubDate>
@@ -131,7 +140,7 @@
     <item>
       <title>Docker</title>
       <link>https://blog.deimos.fr/categories/docker/</link>
-      <pubDate>Wed, 19 Dec 2018 00:00:00 +0200</pubDate>
+      <pubDate>Fri, 08 Feb 2019 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/categories/docker/</guid>
       <description></description>
@@ -230,7 +239,7 @@
     <item>
       <title>Helm</title>
       <link>https://blog.deimos.fr/categories/helm/</link>
-      <pubDate>Tue, 23 Jan 2018 18:00:00 +0200</pubDate>
+      <pubDate>Fri, 08 Feb 2019 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/categories/helm/</guid>
       <description></description>
@@ -302,7 +311,7 @@
     <item>
       <title>Kubernetes</title>
       <link>https://blog.deimos.fr/categories/kubernetes/</link>
-      <pubDate>Mon, 16 Jul 2018 00:00:00 +0200</pubDate>
+      <pubDate>Fri, 08 Feb 2019 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/categories/kubernetes/</guid>
       <description></description>
@@ -320,7 +329,7 @@
     <item>
       <title>Linux</title>
       <link>https://blog.deimos.fr/categories/linux/</link>
-      <pubDate>Wed, 19 Dec 2018 00:00:00 +0200</pubDate>
+      <pubDate>Fri, 08 Feb 2019 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/categories/linux/</guid>
       <description></description>
@@ -552,6 +561,15 @@
     </item>
     
     <item>
+      <title>Travis</title>
+      <link>https://blog.deimos.fr/categories/travis/</link>
+      <pubDate>Fri, 08 Feb 2019 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/categories/travis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Ubiquiti</title>
       <link>https://blog.deimos.fr/categories/ubiquiti/</link>
       <pubDate>Tue, 20 Nov 2018 00:00:00 +0200</pubDate>
@@ -563,9 +581,18 @@
     <item>
       <title>Vagrant</title>
       <link>https://blog.deimos.fr/categories/vagrant/</link>
-      <pubDate>Tue, 13 Jan 2015 11:00:15 +0000</pubDate>
+      <pubDate>Fri, 08 Feb 2019 00:00:00 +0200</pubDate>
       
       <guid>https://blog.deimos.fr/categories/vagrant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Virtualbox</title>
+      <link>https://blog.deimos.fr/categories/virtualbox/</link>
+      <pubDate>Fri, 08 Feb 2019 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/categories/virtualbox/</guid>
       <description></description>
     </item>
     

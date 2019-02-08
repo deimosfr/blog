@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.deimos.fr/2019/02/08/k8s-euft-run-functional-tests-on-your-helm-charts/</loc>
+    <lastmod>2019-02-08T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/</loc>
     <lastmod>2018-12-19T00:00:00+02:00</lastmod>
   </url>
@@ -4304,6 +4309,18 @@
   </url>
   
   <url>
+    <loc>https://blog.deimos.fr/tags/chart/</loc>
+    <lastmod>2019-02-08T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/chart/</loc>
+    <lastmod>2019-02-08T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.deimos.fr/tags/cinema/</loc>
     <lastmod>2012-09-06T10:00:57+00:00</lastmod>
     <priority>0</priority>
@@ -4395,7 +4412,7 @@
   
   <url>
     <loc>https://blog.deimos.fr/</loc>
-    <lastmod>2018-12-19T00:00:00+02:00</lastmod>
+    <lastmod>2019-02-08T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4431,13 +4448,13 @@
   
   <url>
     <loc>https://blog.deimos.fr/tags/docker/</loc>
-    <lastmod>2018-12-19T00:00:00+02:00</lastmod>
+    <lastmod>2019-02-08T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/categories/docker/</loc>
-    <lastmod>2018-12-19T00:00:00+02:00</lastmod>
+    <lastmod>2019-02-08T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4581,13 +4598,13 @@
   
   <url>
     <loc>https://blog.deimos.fr/tags/helm/</loc>
-    <lastmod>2018-01-23T18:00:00+02:00</lastmod>
+    <lastmod>2019-02-08T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/categories/helm/</loc>
-    <lastmod>2018-01-23T18:00:00+02:00</lastmod>
+    <lastmod>2019-02-08T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4671,13 +4688,13 @@
   
   <url>
     <loc>https://blog.deimos.fr/tags/kubernetes/</loc>
-    <lastmod>2018-07-16T00:00:00+02:00</lastmod>
+    <lastmod>2019-02-08T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/categories/kubernetes/</loc>
-    <lastmod>2018-07-16T00:00:00+02:00</lastmod>
+    <lastmod>2019-02-08T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4695,13 +4712,13 @@
   
   <url>
     <loc>https://blog.deimos.fr/tags/linux/</loc>
-    <lastmod>2018-12-19T00:00:00+02:00</lastmod>
+    <lastmod>2019-02-08T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/categories/linux/</loc>
-    <lastmod>2018-12-19T00:00:00+02:00</lastmod>
+    <lastmod>2019-02-08T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -4935,7 +4952,7 @@
   
   <url>
     <loc>https://blog.deimos.fr/post/</loc>
-    <lastmod>2018-12-19T00:00:00+02:00</lastmod>
+    <lastmod>2019-02-08T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -5132,6 +5149,18 @@
   </url>
   
   <url>
+    <loc>https://blog.deimos.fr/tags/travis/</loc>
+    <lastmod>2019-02-08T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/travis/</loc>
+    <lastmod>2019-02-08T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.deimos.fr/tags/ubiquiti/</loc>
     <lastmod>2018-11-20T00:00:00+02:00</lastmod>
     <priority>0</priority>
@@ -5151,13 +5180,13 @@
   
   <url>
     <loc>https://blog.deimos.fr/tags/vagrant/</loc>
-    <lastmod>2015-01-13T11:00:15+00:00</lastmod>
+    <lastmod>2019-02-08T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.deimos.fr/categories/vagrant/</loc>
-    <lastmod>2015-01-13T11:00:15+00:00</lastmod>
+    <lastmod>2019-02-08T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -5169,7 +5198,13 @@
   
   <url>
     <loc>https://blog.deimos.fr/tags/virtualbox/</loc>
-    <lastmod>2015-01-16T11:00:52+00:00</lastmod>
+    <lastmod>2019-02-08T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.deimos.fr/categories/virtualbox/</loc>
+    <lastmod>2019-02-08T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
