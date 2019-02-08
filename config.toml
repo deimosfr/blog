@@ -31,7 +31,6 @@ MetaDataFormat = "yaml"
   # Overwritten by your gravatar image if `author.gravatarEmail` is filled
   #picture = "https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png"
   twitter = "deimosfr"
-  # googlePlus = "+ThibaudLepretre"
 
 # Menu Configuration
 [[menu.main]]
@@ -177,11 +176,6 @@ MetaDataFormat = "yaml"
     name = "Twitter"
     icon = "fa-twitter"
     url = "https://twitter.com/intent/tweet?text=%s"
-
-  [[params.sharingOptions]]
-    name = "Google+"
-    icon = "fa-google-plus"
-    url = "https://plus.google.com/share?url=%s"
 
   [params.header.rightLink]
     class = ""
