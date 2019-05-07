@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Deimosfr Blog</title>
+    <link>https://blog.deimos.fr/categories/git/</link>
+    <description>Recent content in Git on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 15 Sep 2015 21:56:06 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.deimos.fr/categories/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ansible Meetup done! Watch again the slides</title>
+      <link>https://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/</link>
+      <pubDate>Tue, 15 Sep 2015 21:56:06 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/</guid>
+      <description>The Ansible meetup ended ! That was really nice for my first one.
+I had really great feedbacks and liked the questions when ended. More than that I met nice people after the meetup and could have interresting discussions :-). I&amp;rsquo;m really happy about it.
+For those who would like to review the slides, you can find them here:
+http://nousmotards.github.io/ansible-meetup-0915/
+If you want to watch the video:
+http://www.infoq.com/fr/presentations/reseau-social-motard
+or view the PDF version here:</description>
+    </item>
+    
+    <item>
+      <title>Generate changelog from git commits and integrate with Sphinxdoc</title>
+      <link>https://blog.deimos.fr/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/</link>
+      <pubDate>Wed, 11 Feb 2015 11:00:22 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/</guid>
+      <description>For another personal project (that I can&amp;rsquo;t talk about for the moment ;-)), I wanted to have a Changelog file to get a better following of the infrastructure evolution (configuration management, scripts&amp;hellip;all under git). Of course the documentation is very important, but when you do not write it at the same time you&amp;rsquo;re building the infrastructure, it may be complex to remember each little things you&amp;rsquo;ve done. That&amp;rsquo;s why a Changelog can help to understand how the infrastructure has been built step by step.</description>
+    </item>
+    
+  </channel>
+</rss>

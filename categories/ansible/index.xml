@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ansible on Deimosfr Blog</title>
+    <link>https://blog.deimos.fr/categories/ansible/</link>
+    <description>Recent content in Ansible on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 18 Apr 2017 20:18:07 +0200</lastBuildDate>
+    
+	<atom:link href="https://blog.deimos.fr/categories/ansible/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deploy Kubernetes with Ansible</title>
+      <link>https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/</link>
+      <pubDate>Tue, 18 Apr 2017 20:18:07 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/</guid>
+      <description>Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications. I&amp;rsquo;m using it for Nousmotards and decided to build an Ansible role for it to make it simpler to deploy.
+Why did I built it as other projects like Kargo already exists? I just wanted a simple and maintainable role based on CoreOS official documentation. That&amp;rsquo;s what I did:
+ This role bootstrap a Kubernetes cluster based on CoreOS Container Linux for production usages.</description>
+    </item>
+    
+    <item>
+      <title>Deploy CoreOS with Ansible</title>
+      <link>https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/</link>
+      <pubDate>Fri, 30 Sep 2016 21:35:17 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/</guid>
+      <description>&amp;nbsp;
+CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications.&amp;nbsp;I&amp;rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
+As I&amp;rsquo;m still an Ansible lover, I&amp;rsquo;ve made 2 roles:
+ CoreOS Ansible:&amp;nbsp;Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  If you want to quickly look at the result:</description>
+    </item>
+    
+    <item>
+      <title>Zero downtime upgrade with Ansible and HAProxy</title>
+      <link>https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/</link>
+      <pubDate>Thu, 21 Jan 2016 13:00:16 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/</guid>
+      <description>Some of you may not be familiar with the terms &amp;ldquo;Rolling upgrade&amp;rdquo; or &amp;ldquo;Rolling restart&amp;rdquo;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&amp;rsquo;re managing and the number of active nodes in your cluster.
+At Nousmotards we have several Java Spring Boot applications running. Restarting one application can take up to 1 min.</description>
+    </item>
+    
+    <item>
+      <title>Ansible color and buffer fix on Jenkins</title>
+      <link>https://blog.deimos.fr/2016/01/07/ansible-color-and-buffer-fix-on-jenkins/</link>
+      <pubDate>Thu, 07 Jan 2016 15:28:41 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2016/01/07/ansible-color-and-buffer-fix-on-jenkins/</guid>
+      <description>Hi all ! Long time since last blog post ! I&amp;rsquo;m using Jenkins with Ansible on my Nousmotards project for building docker containers or deploying into production.
+You may noticed that you&amp;rsquo;ve no Ansible color when running it into Jenkins! The simple way to correct it is to export an environment variable in your Jenkins job:
+export ANSIBLE_FORCE_COLOR=true Now that&amp;rsquo;s pretty cool! However, you may also noticed that there&amp;rsquo;s some kind of lags on the console when you want to see a real time console log on Jenkins.</description>
+    </item>
+    
+    <item>
+      <title>Upgrading Ansible Consul Template role</title>
+      <link>https://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/</link>
+      <pubDate>Fri, 27 Nov 2015 21:34:03 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/</guid>
+      <description>As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:
+consul_template_version:&amp;#39;0.11.0&amp;#39;consul_template_arch:&amp;#39;linux_amd64&amp;#39;consul_template_http_src:&amp;#34;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&amp;#34; You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
+I hope you&amp;rsquo;ll enjoy this new version :-)</description>
+    </item>
+    
+    <item>
+      <title>Ansible Meetup done! Watch again the slides</title>
+      <link>https://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/</link>
+      <pubDate>Tue, 15 Sep 2015 21:56:06 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/</guid>
+      <description>The Ansible meetup ended ! That was really nice for my first one.
+I had really great feedbacks and liked the questions when ended. More than that I met nice people after the meetup and could have interresting discussions :-). I&amp;rsquo;m really happy about it.
+For those who would like to review the slides, you can find them here:
+http://nousmotards.github.io/ansible-meetup-0915/
+If you want to watch the video:
+http://www.infoq.com/fr/presentations/reseau-social-motard
+or view the PDF version here:</description>
+    </item>
+    
+    <item>
+      <title>Ansible Meetup with Nousmotards in Paris!!!</title>
+      <link>https://blog.deimos.fr/2015/09/11/ansible-meetup-with-nousmotards-in-paris/</link>
+      <pubDate>Fri, 11 Sep 2015 20:02:01 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2015/09/11/ansible-meetup-with-nousmotards-in-paris/</guid>
+      <description>A long long time since my last blog post ! I didn&amp;rsquo;t had the time to make one because of the time I spent on building Nousmotards infrastructure.
+If you&amp;rsquo;re interested in how I built the infrastructure, come and see us on the Ansible Meetup next Tuesday 😉 The slides and video of the Meetup will be made and available on InfoQ.
+If you&amp;rsquo;re a French biker, do not hesitate anymore!</description>
+    </item>
+    
+    <item>
+      <title>Ansible: Neo4j role available on Ansible Galaxy</title>
+      <link>https://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/</link>
+      <pubDate>Fri, 27 Feb 2015 11:00:01 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/</guid>
+      <description>For a new project (will talk about it later), I needed to use Neo4J (graph database if you don&amp;rsquo;t know it yet).
+I tried to cover more features than the current existing Ansible roles available on Ansible Galaxy. More will come in the next weeks. I also tried to make it simple to install it and do not force dependencies at maximum. Here are parameters you can set:
+# Select neo4j version neo4j_package: neo4j # community version #neo4j_package: neo4j-advanced #neo4j_package: neo4j-enterprise # Neo4j spatial plugin neo4j_install_spatial: false neo4j_spatial_version: &amp;#39;0.</description>
+    </item>
+    
+    <item>
+      <title>Ansible: LXC role updated for Jessie</title>
+      <link>https://blog.deimos.fr/2015/02/25/ansible-lxc-role-updated-for-jessie/</link>
+      <pubDate>Wed, 25 Feb 2015 11:00:40 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2015/02/25/ansible-lxc-role-updated-for-jessie/</guid>
+      <description>Since several weeks, I&amp;rsquo;m playing a lot with Debian Jessie as a server. I discovered some bugs, reported them to Debian, they&amp;rsquo;ve been fixed etc&amp;hellip;good news! I also wanted to test the new version of LXC.
+So I decided to upgrade my 2 personal servers to Jessie. But that wasn&amp;rsquo;t so easy with Systemd. I still encounter non critical issues and going to prepare report bugs for Debian (cgroups issues with systemd).</description>
+    </item>
+    
+    <item>
+      <title>Packer role available on Ansible Galaxy</title>
+      <link>https://blog.deimos.fr/2015/01/22/packer-role-available-on-ansible-galaxy/</link>
+      <pubDate>Thu, 22 Jan 2015 11:00:56 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2015/01/22/packer-role-available-on-ansible-galaxy/</guid>
+      <description>Packer is a really great solution to make an image in several formats (VirtualBox, Docker&amp;hellip;). I recently wanted to deploy it on a Jenkins server to automatically perform image build with the help of Packer.
+That&amp;rsquo;s why I&amp;rsquo;ve wrote a Packer role for Ansible really easy to use. You simply have to set (or let them by defaults) vars:
+# Packer version to install packer_version: &amp;#39;0.7.5&amp;#39; # Packer destination folder packer_destination: &amp;#39;/usr/bin&amp;#39; It will install the desired version :-)</description>
+    </item>
+    
+    <item>
+      <title>Packer: build multiple images easily</title>
+      <link>https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/</link>
+      <pubDate>Fri, 16 Jan 2015 11:00:52 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/</guid>
+      <description>Packer is one of the tools I&amp;rsquo;ve used in the past to build VirtualBox boxes. You can find what I&amp;rsquo;ve done on my GitHub account.
+For Smash project, I wanted to make a packer configuration to manage Docker and VirtualBox. I also wanted to call Ansible to build specific images for each needs. The goal is to be able to build cloud image ready to start, without any special dependencies. This because I need different usages:</description>
+    </item>
+    
+    <item>
+      <title>Vagrant: provision vms and containers with Ansible</title>
+      <link>https://blog.deimos.fr/2015/01/13/vagrant-provision-vms-and-containers-with-ansible/</link>
+      <pubDate>Tue, 13 Jan 2015 11:00:15 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2015/01/13/vagrant-provision-vms-and-containers-with-ansible/</guid>
+      <description>In the last post, I talked about how to manage Docker and VirtualBox with Vagrant. This post follows the last one, with the integration of Ansible as a provisioner. Once again, I&amp;rsquo;m using it for the Smash project.
+With Ansible, I made several &amp;ldquo;group_vars&amp;rdquo; files containing custom and common information related to the used environment (dev, uat, staging&amp;hellip;). This helps to setup different kind of environment easily. Vagrant will help to build images with Ansible deployed inside.</description>
+    </item>
+    
+    <item>
+      <title>Ansible: DotDeb and MySQL roles</title>
+      <link>https://blog.deimos.fr/2014/12/26/ansible-dotdeb-and-mysql-roles/</link>
+      <pubDate>Fri, 26 Dec 2014 11:00:07 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/12/26/ansible-dotdeb-and-mysql-roles/</guid>
+      <description>For my personal usages, I wanted do use DotDeb and MySQL playbooks. I first looked at the current ones on the Ansible Galaxy. However I did not find a good one for my needs.
+I first wanted to try to contribute to an existing one. But I needed to have them quickly and unfortunately didn&amp;rsquo;t have the time to do it.
+That&amp;rsquo;s why I made 2 new Ansible roles and added them to Ansible Galaxy.</description>
+    </item>
+    
+    <item>
+      <title>Maintain your Ansible roles with Galaxy</title>
+      <link>https://blog.deimos.fr/2014/12/18/maintain-your-ansible-roles-with-galaxy/</link>
+      <pubDate>Thu, 18 Dec 2014 11:00:24 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/12/18/maintain-your-ansible-roles-with-galaxy/</guid>
+      <description>If like me, you were using the Ansible Galaxy website to find and download your playbook for your favorite apps, you may missed a feature.
+It happened to me when I had to manage several playbook roles. I first wanted to use Git submodules to do it. However I preferred to search another way to do like like Puppet can do with R10K because I am working on a project with some unfamiliar Git users.</description>
+    </item>
+    
+    <item>
+      <title>Ansible: Fluentd and Kibana playbooks updated</title>
+      <link>https://blog.deimos.fr/2014/12/09/ansible-fluentd-and-kibana-playbooks-updated/</link>
+      <pubDate>Tue, 09 Dec 2014 11:00:51 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/12/09/ansible-fluentd-and-kibana-playbooks-updated/</guid>
+      <description>Following the deployment blog post I made on ES/Kibana/Fluentd, I released new version of Fluentd and Kibana playbooks to support the latests versions of themselves and ElasticSearch.
+ElasticSearch 1.4 version is ,out which doesn&amp;rsquo;t changed anything for the deployment. However Kibana requires to enable an ElasticSearch configuration option now, to work properly. I updated the Kibana playbook for it.
+On its side, Fluentd has the major release 2.0 out and I updated Ansible playbook for the best integration with Debian Wheezy.</description>
+    </item>
+    
+    <item>
+      <title>Which configuration management tool should you use?</title>
+      <link>https://blog.deimos.fr/2014/11/17/which-configuration-management-tool-should-you-use/</link>
+      <pubDate>Mon, 17 Nov 2014 11:00:20 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/11/17/which-configuration-management-tool-should-you-use/</guid>
+      <description>First of all I will only talk about open sources solutions. I don&amp;rsquo;t want to take part of any commercial one. In addition, I will focus on only 4 solutions which seem to me the most used at this time. I will also talk about my history, my level on each one and why I recommend or not that solution.
+Puppet is in my opinion the most known solution. Because of the marketing they were/are doing, because it was a good alternative compared to the old cfengine.</description>
+    </item>
+    
+    <item>
+      <title>Deploy a logs management infrastructure (Elasticsearch&#43;Kibana&#43;Fluentd) with Ansible</title>
+      <link>https://blog.deimos.fr/2014/08/15/deploy-a-logs-managememt-infrastructure-elasticsearchkibanfluentd-with-ansible/</link>
+      <pubDate>Fri, 15 Aug 2014 10:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/08/15/deploy-a-logs-managememt-infrastructure-elasticsearchkibanfluentd-with-ansible/</guid>
+      <description>During the last weeks I started to play with Elasticsearch, Fluentd and Kibana. I made a documentation to help on deploying it easily.
+As you may know, I&amp;rsquo;m an Ansible fan, so I made Ansible playbooks to deploy a complete infrastructure (server and clients). They will deploy this kind of architecture:
+On the client side, Fluentd clients will get syslog and Nginx logs, to send them to the Fluentd server. On the server side, a Fluentd receiver will be there to get data from other Fluentd clients.</description>
+    </item>
+    
+    <item>
+      <title>Ansible: Fluentd playbook</title>
+      <link>https://blog.deimos.fr/2014/08/13/fluentd-ansible-playbook/</link>
+      <pubDate>Wed, 13 Aug 2014 10:00:48 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/08/13/fluentd-ansible-playbook/</guid>
+      <description>In the previous posts, I&amp;rsquo;ve introduced my Ansible playbooks for kibana and Elasticsearch.
+You may now be happy to know that I&amp;rsquo;ve made an Ansible playbook for Fluentd as well. If you still don&amp;rsquo;t see what those tree ansible playbook can do when they are combined together, you&amp;rsquo;ll see in the next post :-)</description>
+    </item>
+    
+    <item>
+      <title>Ansible: Kibana playbook</title>
+      <link>https://blog.deimos.fr/2014/08/11/ansible-kibana-playbook/</link>
+      <pubDate>Mon, 11 Aug 2014 10:00:50 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/08/11/ansible-kibana-playbook/</guid>
+      <description>In my last post you&amp;rsquo;ve seen the Ansible playbook I&amp;rsquo;ve made for ElasticSearch. I&amp;rsquo;ve made a new one, but for Kibana which is able to easily manage version upgrade and of course is easy to install and use.
+You can find my Kibana playbook on GitHub.
+The next once will of course be related to fluentd :-)</description>
+    </item>
+    
+    <item>
+      <title>Ansible: ElasticSearch playbook</title>
+      <link>https://blog.deimos.fr/2014/08/09/ansible-elasticsearch-playbook/</link>
+      <pubDate>Sat, 09 Aug 2014 10:00:18 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/08/09/ansible-elasticsearch-playbook/</guid>
+      <description>As I&amp;rsquo;m an Ansible fan, I&amp;rsquo;ve created a playbook for it available on GitHub and on the Ansible Galaxy. You&amp;rsquo;ll be able to add additional plugins like Head, Curator, Mavel&amp;hellip;
+I hope you&amp;rsquo;ll enjoy it.</description>
+    </item>
+    
+    <item>
+      <title>Migrating from KVM to LXC…feedbacks</title>
+      <link>https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/</link>
+      <pubDate>Tue, 10 Jun 2014 10:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/</guid>
+      <description>I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&amp;hellip;Thanks Online.
+I&amp;rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&amp;rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to migrate my VM from KVM. All my KVM VM are on Debian Wheezy so that was pretty easy.</description>
+    </item>
+    
+    <item>
+      <title>Ansible: LXC role v1.1</title>
+      <link>https://blog.deimos.fr/2014/06/02/ansible-lxc-role-v1-1/</link>
+      <pubDate>Mon, 02 Jun 2014 10:00:08 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/06/02/ansible-lxc-role-v1-1/</guid>
+      <description>I&amp;rsquo;ve recently updated my LXC role for ansible. You can get it like that:
+ansible-galaxy install deimosfr.lxc Here is the change log:
++ Adding new parameters for dnsmasq and interfaces + Adding new prequesite to avoid unwanted modules to load in the latest kernel versions = Corrected networking configuration issue = Templates do not create @LOCALSTATEDIR@ folder anymore It works perfectly on my new Dedibox :-)</description>
+    </item>
+    
+    <item>
+      <title>Ansible: my first playbook is for LXC</title>
+      <link>https://blog.deimos.fr/2014/05/15/ansible-my-first-playbook-is-for-lxc/</link>
+      <pubDate>Thu, 15 May 2014 10:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/05/15/ansible-my-first-playbook-is-for-lxc/</guid>
+      <description>I started to play with Ansible a little bit more than a week ago and I really enjoy it compared to Puppet. I still do not have all my reflex that I can have on Puppet, however what I can say is how easy it is to start making complicated things on Ansible!
+I started to rewrite my Puppet manifests to Ansible playbooks and what I can say is it&amp;rsquo;s really fast and easy.</description>
+    </item>
+    
+    <item>
+      <title>Vagrant and Ansible are out in version 1.6</title>
+      <link>https://blog.deimos.fr/2014/05/07/vagrant-and-ansible-are-out-in-version-1-6/</link>
+      <pubDate>Wed, 07 May 2014 10:00:25 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/05/07/vagrant-and-ansible-are-out-in-version-1-6/</guid>
+      <description>Vagrant and Ansible are out in version 1.6! They are both bringing new super features.
+For Vagrant, each major versions are bringing incredible features, this time they are:
+ Global Status and Control: Global Status shows you the status of all created Vagrant environments on your machine. Global Control lets you control any of these created environments from anywhere on your machine. You unfortunately need to have VM created under 1.</description>
+    </item>
+    
+    <item>
+      <title>Ansible: first french meetup on Monday!</title>
+      <link>https://blog.deimos.fr/2014/03/22/ansible-first-french-meetup-on-monday/</link>
+      <pubDate>Sat, 22 Mar 2014 11:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/03/22/ansible-first-french-meetup-on-monday/</guid>
+      <description>A meetup on Ansible and SaltStack will take place in Paris next Monday. It unfortunately has not been initiated on the traditional meet up website and you may missed it like me.
+So if you&amp;rsquo;re interested by those two configuration tool outsiders, follow the link. Both tools are written in Python, that why it is a Python meetup at first.
+I&amp;rsquo;m happy to participate to the meetup as this is the first one, I&amp;rsquo;m sure I&amp;rsquo;ll learn interesting things on it and meet new faces :-)</description>
+    </item>
+    
+    <item>
+      <title>Easily deploy Ceph Cluster with Ansible</title>
+      <link>https://blog.deimos.fr/2014/03/06/ceph-deploy-it-with-ansible/</link>
+      <pubDate>Thu, 06 Mar 2014 11:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/03/06/ceph-deploy-it-with-ansible/</guid>
+      <description>One of my colleague (Sebastien Han) started to play (like me) with Ansible. As he is a Ceph master, he often deploy Ceph for tests or production. He generally uses Puppet for that purpose.
+But due to some Puppet limitations or big brain fuck it involves, he started to play with Ansible and created a Ceph module for it. He showed me it, when he was writing it and it seamed working like a charm.</description>
+    </item>
+    
+  </channel>
+</rss>

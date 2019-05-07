@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Containers on Deimosfr Blog</title>
+    <link>https://blog.deimos.fr/tags/containers/</link>
+    <description>Recent content in Containers on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 Jul 2018 00:00:00 +0200</lastBuildDate>
+    
+	<atom:link href="https://blog.deimos.fr/tags/containers/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Running Cassandra in Kubernetes</title>
+      <link>https://blog.deimos.fr/2018/06/24/running-cassandra-on-kubernetes/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/2018/06/24/running-cassandra-on-kubernetes/</guid>
+      <description>For my own company MySocialApp, I&amp;rsquo;m managing multiple Cassandra clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:
+ The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data.</description>
+    </item>
+    
+    <item>
+      <title>Integrate GCR in your on premise k8s cluster</title>
+      <link>https://blog.deimos.fr/2018/01/31/integrate-gcr-in-your-on-premise-kubernetes/</link>
+      <pubDate>Wed, 31 Jan 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/2018/01/31/integrate-gcr-in-your-on-premise-kubernetes/</guid>
+      <description>I&amp;rsquo;m using Kubernetes on an on premise cluster for MySocialApp. Today, I&amp;rsquo;m storing MySocialApp public images at Quay.io and I also wanted to store private images. I didn&amp;rsquo;t want to bootstrap a private registry for it to avoid maintaining it, having a distributed storage to maintain for it etc&amp;hellip;but wanted a solution at a lower cost.
+I started to look at DockerHub and Quay.io. As far aas I saw, DockerHub do not provide private registry while Quay does.</description>
+    </item>
+    
+  </channel>
+</rss>

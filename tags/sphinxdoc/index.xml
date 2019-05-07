@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sphinxdoc on Deimosfr Blog</title>
+    <link>https://blog.deimos.fr/tags/sphinxdoc/</link>
+    <description>Recent content in sphinxdoc on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 26 Sep 2014 10:00:53 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.deimos.fr/tags/sphinxdoc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ReadTheDocs: a hosting documentation solution with GitHub</title>
+      <link>https://blog.deimos.fr/2014/09/26/readthedocs-a-hosting-documentation-solution-with-github/</link>
+      <pubDate>Fri, 26 Sep 2014 10:00:53 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/09/26/readthedocs-a-hosting-documentation-solution-with-github/</guid>
+      <description>I recently talked about Sphinxdoc and we wanted (still for MySecureShell project) a solution to host our documentation. ReadTheDocs is a very good, free and pretty solution made for Sphinxdoc :-)
+What we liked in addition of the hosting, is the usage with GitHub. You can configure a webhook to your GitHub account to automatically ask ReadTheDocs to build a newer version each time a commit is pushed on your GitHub account.</description>
+    </item>
+    
+  </channel>
+</rss>

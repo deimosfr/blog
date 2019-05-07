@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nginx on Deimosfr Blog</title>
+    <link>https://blog.deimos.fr/tags/nginx/</link>
+    <description>Recent content in Nginx on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 21 May 2014 10:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.deimos.fr/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nginx: limit flooding and aggressive sniffing</title>
+      <link>https://blog.deimos.fr/2014/05/21/nginx-limit-flood-and-aggressive-sniffer/</link>
+      <pubDate>Wed, 21 May 2014 10:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/05/21/nginx-limit-flood-and-aggressive-sniffer/</guid>
+      <description>Last week, have been faced on a big sniffing issue on my wiki. The guy wanted to download all my wiki content. In reality I do not really care as it is open, free for read and contribution is welcome. However, the current VM where the blog and wiki are running didn&amp;rsquo;t support aggressive sniffing that this guy made. That&amp;rsquo;s why CPUs were at 100% of usage because of PHP requests, PHP-FPM was overloaded (reached my configuration limits).</description>
+    </item>
+    
+  </channel>
+</rss>

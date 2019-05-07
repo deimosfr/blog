@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on Deimosfr Blog</title>
+    <link>https://blog.deimos.fr/tags/docker/</link>
+    <description>Recent content in Docker on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 Feb 2019 00:00:00 +0200</lastBuildDate>
+    
+	<atom:link href="https://blog.deimos.fr/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>k8s-euft: run functional tests on your Helm charts</title>
+      <link>https://blog.deimos.fr/2019/02/08/k8s-euft-run-functional-tests-on-your-helm-charts/</link>
+      <pubDate>Fri, 08 Feb 2019 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/2019/02/08/k8s-euft-run-functional-tests-on-your-helm-charts/</guid>
+      <description>I&amp;rsquo;m managing applications inside Kubernetes for more than 2 years for MySocialApp a social news feed solution and recently Referlab, an impressive referral marketing solution. If you follow me, you certainly know that I&amp;rsquo;ve made multiple Helm charts on distributed technologies like:
+ Cassandra Helm chart Elasticsearch Helm chart Traefik Helm chart  After several years of experience on it, you can trust me when I say managing statefulset on Kubernetes is not the easiest thing to do.</description>
+    </item>
+    
+    <item>
+      <title>Running Docker for your home server</title>
+      <link>https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/</link>
+      <pubDate>Wed, 19 Dec 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/</guid>
+      <description>Since several years, I&amp;rsquo;m hosting a lot of things: blog, wiki, emails etc&amp;hellip; I&amp;rsquo;ve played with Vserver, OpenVZ, KVM and finaly LXC. For years, I&amp;rsquo;ve learned how to use all of them but the most known solution during the last years is Docker.
+I even can remeber the first Meetup I&amp;rsquo;ve attended in Paris talking about Docker 5 years ago. Now containers are eveverywhere. I recently changed the server I&amp;rsquo;m running for my own usage and this was the good timing to switch from LXC to Docker.</description>
+    </item>
+    
+    <item>
+      <title>Integrate GCR in your on premise k8s cluster</title>
+      <link>https://blog.deimos.fr/2018/01/31/integrate-gcr-in-your-on-premise-kubernetes/</link>
+      <pubDate>Wed, 31 Jan 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/2018/01/31/integrate-gcr-in-your-on-premise-kubernetes/</guid>
+      <description>I&amp;rsquo;m using Kubernetes on an on premise cluster for MySocialApp. Today, I&amp;rsquo;m storing MySocialApp public images at Quay.io and I also wanted to store private images. I didn&amp;rsquo;t want to bootstrap a private registry for it to avoid maintaining it, having a distributed storage to maintain for it etc&amp;hellip;but wanted a solution at a lower cost.
+I started to look at DockerHub and Quay.io. As far aas I saw, DockerHub do not provide private registry while Quay does.</description>
+    </item>
+    
+    <item>
+      <title>Install Jeedom on Synology with Docker</title>
+      <link>https://blog.deimos.fr/2018/01/26/install-jeedom-on-synology-with-docker/</link>
+      <pubDate>Fri, 26 Jan 2018 18:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/2018/01/26/install-jeedom-on-synology-with-docker/</guid>
+      <description>The Jeedom software is open source; you have complete access to the software that manages your home automation. Jeedom is compatible with various protocols, like Z-Wave, RFXCOM, RTS SOMFY, EnOcean, xPL, etc.
+Installing Jeedom on Synology with Docker it not a complex task. However for those who are not familiar with those technologies, I summarized here the installation process for a Z-wave network.
+First of all, let&amp;rsquo;s look at the requirements:</description>
+    </item>
+    
+    <item>
+      <title>Zero downtime upgrade with Ansible and HAProxy</title>
+      <link>https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/</link>
+      <pubDate>Thu, 21 Jan 2016 13:00:16 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/</guid>
+      <description>Some of you may not be familiar with the terms &amp;ldquo;Rolling upgrade&amp;rdquo; or &amp;ldquo;Rolling restart&amp;rdquo;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&amp;rsquo;re managing and the number of active nodes in your cluster.
+At Nousmotards we have several Java Spring Boot applications running. Restarting one application can take up to 1 min.</description>
+    </item>
+    
+    <item>
+      <title>Packer: build multiple images easily</title>
+      <link>https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/</link>
+      <pubDate>Fri, 16 Jan 2015 11:00:52 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/</guid>
+      <description>Packer is one of the tools I&amp;rsquo;ve used in the past to build VirtualBox boxes. You can find what I&amp;rsquo;ve done on my GitHub account.
+For Smash project, I wanted to make a packer configuration to manage Docker and VirtualBox. I also wanted to call Ansible to build specific images for each needs. The goal is to be able to build cloud image ready to start, without any special dependencies. This because I need different usages:</description>
+    </item>
+    
+    <item>
+      <title>Vagrant: provision vms and containers with Ansible</title>
+      <link>https://blog.deimos.fr/2015/01/13/vagrant-provision-vms-and-containers-with-ansible/</link>
+      <pubDate>Tue, 13 Jan 2015 11:00:15 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2015/01/13/vagrant-provision-vms-and-containers-with-ansible/</guid>
+      <description>In the last post, I talked about how to manage Docker and VirtualBox with Vagrant. This post follows the last one, with the integration of Ansible as a provisioner. Once again, I&amp;rsquo;m using it for the Smash project.
+With Ansible, I made several &amp;ldquo;group_vars&amp;rdquo; files containing custom and common information related to the used environment (dev, uat, staging&amp;hellip;). This helps to setup different kind of environment easily. Vagrant will help to build images with Ansible deployed inside.</description>
+    </item>
+    
+    <item>
+      <title>Vagrant: manage Docker &#43; VirtualBox easily</title>
+      <link>https://blog.deimos.fr/2015/01/08/vagrant-manage-docker-virtualbox-easily/</link>
+      <pubDate>Thu, 08 Jan 2015 11:00:02 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2015/01/08/vagrant-manage-docker-virtualbox-easily/</guid>
+      <description>As you may know, I&amp;rsquo;m using Vagrant for more than a year now with VirtualBox. Docker is a faster alternative that needs to be taken into consideration. Having the possibility to manage both of them with the same tool can be very interesting. For information, I mainly use it with VirtualBox because it&amp;rsquo;s any platform compatible and Docker because it&amp;rsquo;s perfect for a CI like Jenkins.
+I recently talked about my implication into the Smash project.</description>
+    </item>
+    
+    <item>
+      <title>Fig: use docker to create a containers’ stack</title>
+      <link>https://blog.deimos.fr/2014/10/14/fig-use-docker-to-create-a-containers-stack/</link>
+      <pubDate>Tue, 14 Oct 2014 10:00:03 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/10/14/fig-use-docker-to-create-a-containers-stack/</guid>
+      <description>Fig is a fast, isolated development environments using Docker. For some features, it can be compared to Vagrant where the Dockerfike is not enough powerful to build multiple instances.
+For example, let&amp;rsquo;s say you want to test a new product version of a software like MediaWiki and you want to build the complete stack. So you may need to have several tools categories (depending of the usage):
+ Web: Nginx, PHP-FPM, Varnish App Cahing: Redis Search: ElasticSearch  In Vagrant you can natively build 3 VM and interconnect them without the need of additional tool.</description>
+    </item>
+    
+    <item>
+      <title>Docker 1.0 &amp; RedHat 7</title>
+      <link>https://blog.deimos.fr/2014/06/18/too-many-new-software-versions/</link>
+      <pubDate>Wed, 18 Jun 2014 10:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/06/18/too-many-new-software-versions/</guid>
+      <description>I really like this kind of news, new versions of docker and RedHat:
+ Docker 1.0: this is the first stable version after more than one year of development. This version is production ready and I will start using it asap. RedHat 7: this is a good news as the version 6 started to be a little bit old now. What&amp;rsquo;s new?  MariaDB replace MySQL \o/ Docker integrated systemd XFS by default Kernel 3.</description>
+    </item>
+    
+    <item>
+      <title>Gaudi: graphically manage your docker architecture</title>
+      <link>https://blog.deimos.fr/2014/06/06/gaudi-graphically-manage-your-docker-architecture/</link>
+      <pubDate>Fri, 06 Jun 2014 10:00:22 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/06/06/gaudi-graphically-manage-your-docker-architecture/</guid>
+      <description>Luc (@lstep) informed me about an interesting software that looks like Juju at first and I wanted to share it with you. It&amp;rsquo;s called Gaudi.
+ If you already use Docker to setup your dev box for large applications, don&amp;rsquo;t you suffer to maintain complex Dockerfiles?
+Splitting a service Oriented Architecture into several Docker containers is the solution, except managing links and mounts between them is a pain. gaudi solves that by offering a way to describe a system of Docker containers using a simple DSL.</description>
+    </item>
+    
+    <item>
+      <title>Docker: only 10 min to play with basics</title>
+      <link>https://blog.deimos.fr/2014/05/27/docker-10-min-to-play-with-basics/</link>
+      <pubDate>Tue, 27 May 2014 10:00:12 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/05/27/docker-10-min-to-play-with-basics/</guid>
+      <description>I&amp;rsquo;ve heard of Docker a year ago, started to play with it for some months and really start using it a few days ago. At first, I thought it was more complex than expected and finally I saw how simple it is and how many time I&amp;rsquo;ve lost because I didn&amp;rsquo;t used it.
+Docker is an open-source engine that automates the deployment of any application as a lightweight, portable, self-sufficient container that will run virtually anywhere.</description>
+    </item>
+    
+    <item>
+      <title>Vagrant and Ansible are out in version 1.6</title>
+      <link>https://blog.deimos.fr/2014/05/07/vagrant-and-ansible-are-out-in-version-1-6/</link>
+      <pubDate>Wed, 07 May 2014 10:00:25 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/05/07/vagrant-and-ansible-are-out-in-version-1-6/</guid>
+      <description>Vagrant and Ansible are out in version 1.6! They are both bringing new super features.
+For Vagrant, each major versions are bringing incredible features, this time they are:
+ Global Status and Control: Global Status shows you the status of all created Vagrant environments on your machine. Global Control lets you control any of these created environments from anywhere on your machine. You unfortunately need to have VM created under 1.</description>
+    </item>
+    
+    <item>
+      <title>Docker Meetup 4th edition</title>
+      <link>https://blog.deimos.fr/2014/01/05/docker-meetup-4th-edition/</link>
+      <pubDate>Sun, 05 Jan 2014 11:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/01/05/docker-meetup-4th-edition/</guid>
+      <description>Save the date for January 14th ! There is the 4th Docker Meetup organized in Paris !
+I&amp;rsquo;ll be there, so if you want to meet me, it will be a pleasure !</description>
+    </item>
+    
+    <item>
+      <title>Docker &amp; OpenStack meetup in Paris soon !!!</title>
+      <link>https://blog.deimos.fr/2013/10/01/docker-openstack-meetup-in-paris-soon/</link>
+      <pubDate>Tue, 01 Oct 2013 10:00:56 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/10/01/docker-openstack-meetup-in-paris-soon/</guid>
+      <description>Hi guys, just a reminder for registered people or keep up to date others, tomorrow there is the first docker meetup ! And on Thursday will be the 5th OpenStack Meetup !
+Of course, I&amp;rsquo;ll be at both events and I will enjoy meeting my readers :-)</description>
+    </item>
+    
+  </channel>
+</rss>
