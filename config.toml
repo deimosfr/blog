@@ -23,7 +23,7 @@ MetaDataFormat = "yaml"
 [author]
   name = "Pierre Mavro / Deimosfr"
   #bio = "Super bio with markdown support **COOL**"
-  job = "MySocialApp Co-Founder &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo"
+  job = "BirdSight Co-Founder and CTO &nbsp;&bull;&nbsp; Staff SRE Lead at Criteo"
   location = "Paris - France"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
   gravatarEmail = "deimos@deimos.fr"
