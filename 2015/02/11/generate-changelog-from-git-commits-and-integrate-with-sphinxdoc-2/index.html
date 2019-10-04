@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="For another personal project (that I can&rsquo;t talk about for the moment ;-)), I wanted to have a Changelog file to get a better following of the infrastructure evolution (configuration management, scripts&hellip;all under git). Of course the documentation is very important, but when you do not write it at the same time you&rsquo;re building the infrastructure, it may be complex to remember each little things you&rsquo;ve done. That&rsquo;s why a Changelog can help to understand how the infrastructure has been built step by step.">
+
+
+<meta property="og:description" content="For another personal project (that I can&rsquo;t talk about for the moment ;-)), I wanted to have a Changelog file to get a better following of the infrastructure evolution (configuration management, scripts&hellip;all under git). Of course the documentation is very important, but when you do not write it at the same time you&rsquo;re building the infrastructure, it may be complex to remember each little things you&rsquo;ve done. That&rsquo;s why a Changelog can help to understand how the infrastructure has been built step by step.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Generate changelog from git commits and integrate with Sphinxdoc">
+<meta name="twitter:title" content="Generate changelog from git commits and integrate with Sphinxdoc">
+<meta property="og:url" content="https://blog.deimos.fr/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="For another personal project (that I can&rsquo;t talk about for the moment ;-)), I wanted to have a Changelog file to get a better following of the infrastructure evolution (configuration management, scripts&hellip;all under git). Of course the documentation is very important, but when you do not write it at the same time you&rsquo;re building the infrastructure, it may be complex to remember each little things you&rsquo;ve done. That&rsquo;s why a Changelog can help to understand how the infrastructure has been built step by step.">
+<meta name="twitter:description" content="For another personal project (that I can&rsquo;t talk about for the moment ;-)), I wanted to have a Changelog file to get a better following of the infrastructure evolution (configuration management, scripts&hellip;all under git). Of course the documentation is very important, but when you do not write it at the same time you&rsquo;re building the infrastructure, it may be complex to remember each little things you&rsquo;ve done. That&rsquo;s why a Changelog can help to understand how the infrastructure has been built step by step.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2015-02-11T11:00:22">
+  
+  
+    <meta property="article:modified_time" content="2015-02-11T11:00:22">
+  
+  
+  
+    
+      <meta property="article:section" content="Debian">
+    
+      <meta property="article:section" content="Developement">
+    
+      <meta property="article:section" content="Git">
+    
+      <meta property="article:section" content="Hi-Tech">
+    
+      <meta property="article:section" content="Linux">
+    
+      <meta property="article:section" content="Red Hat">
+    
+  
+  
+    
+      <meta property="article:tag" content="Debian">
+    
+      <meta property="article:tag" content="Developement">
+    
+      <meta property="article:tag" content="Git">
+    
+      <meta property="article:tag" content="Hi-Tech">
+    
+      <meta property="article:tag" content="Linux">
+    
+      <meta property="article:tag" content="Red Hat">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_git.png">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_git.png">
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
+    <title>Generate changelog from git commits and integrate with Sphinxdoc</title>
+
+    <link rel="icon" href="https://blog.deimos.fr/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://blog.deimos.fr/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
+      
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-63927289-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.deimos.fr/">Deimosfr Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://blog.deimos.fr/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.deimos.fr/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.deimos.fr" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-user"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
+      
+      <span class="sidebar-button-desc">Wiki</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Generate changelog from git commits and integrate with Sphinxdoc
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2015-02-11T11:00:22Z">
+        
+  
+  
+  
+  
+    11 February 2015
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/developement">Developement</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/git">Git</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<p><img src="https://blog.deimos.fr/images/logo_git.png" alt="Git-logo" />
+For another personal project (that I can&rsquo;t talk about for the moment ;-)), I wanted to have a Changelog file to get a better following of the infrastructure evolution (configuration management, scripts&hellip;all under git). Of course the documentation is very important, but when you do not write it at the same time you&rsquo;re building the infrastructure, it may be complex to remember each little things you&rsquo;ve done. That&rsquo;s why a Changelog can help to understand how the infrastructure has been built step by step.</p>
+
+<p>I&rsquo;m going to show you how I achieved it. This is not a generic system, but brings you the keys to adapt for your needs.</p>
+
+<h2 id="the-goal">The goal</h2>
+
+<p>That&rsquo;s why I wanted to have a Changelog up to date. But&hellip;have you ever tried to maintain by hand a Changelog? I pretty sure yes and you know this is boring! That&rsquo;s why I wanted something automatic. More than that, I wanted to have direct links to my ticketing system on hashtags detection.</p>
+
+<p>A few weeks ago, I watched <a href="http://www.infoq.com/fr/presentations/git-niveau-superieur-gestion-version" target="_blank">a video on a Meetup about how to level up with git</a> (one of the best practices and why). After adopting and adapting a bit this, I decided to have commits comments format like that:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">##</span>
+<span class="c1">## Format</span>
+<span class="c1">##</span>
+<span class="c1">##   ACTION(TOPIC): COMMIT_MSG #TICKET_NUM [!TAG ...]</span>
+<span class="c1">##</span>
+<span class="c1">## Description</span>
+<span class="c1">##</span>
+<span class="c1">##   ACTION is one of &#39;feat&#39;, &#39;fix&#39;, &#39;refactor&#39;, &#39;chore&#39;, &#39;test&#39;, &#39;style&#39;, &#39;docs&#39;</span>
+<span class="c1">##</span>
+<span class="c1">##       Is WHAT the change is about.</span>
+<span class="c1">##</span>
+<span class="c1">##       &#39;feat&#39; is for new features, big improvement</span>
+<span class="c1">##       &#39;fix&#39; is for bug fixes</span>
+<span class="c1">##       &#39;refactor&#39; is for code refactoring, without any visual user change</span>
+<span class="c1">##       &#39;chore&#39; is for any else but the app</span>
+<span class="c1">##       &#39;test&#39; is for any kind of tests (functionnal, unitary...)</span>
+<span class="c1">##       &#39;style&#39; is for cosmetic changes (spaces vs tab...)</span>
+<span class="c1">##       &#39;docs&#39; is for documentation</span>
+<span class="c1">##</span>
+<span class="c1">##   TOPIC is optional and to specify the part on the app you&#39;re working on</span>
+<span class="c1">##</span>
+<span class="c1">##       Is WHO is concerned by the change.</span>
+<span class="c1">##</span>
+<span class="c1">##       &#39;dev&#39;  is for developpers (API changes, refactors...)</span>
+<span class="c1">##       &#39;usr&#39;  is for final users (UI changes)</span>
+<span class="c1">##       &#39;pkg&#39;  is for packagers   (packaging changes)</span>
+<span class="c1">##       &#39;test&#39; is for testers     (test only related changes)</span>
+<span class="c1">##</span>
+<span class="c1">##   COMMIT_MSG is ... well ... the commit message itself.</span>
+<span class="c1">##</span>
+<span class="c1">##   #TICKET_NUM is the ticket number associated</span>
+<span class="c1">##</span>
+<span class="c1">##      If you don&#39;t want to specify a ticket number, use:</span>
+<span class="c1">##</span>
+<span class="c1">##      &#39;#noticket&#39; or</span>
+<span class="c1">##      &#39;#nt&#39;</span>
+<span class="c1">##</span>
+<span class="c1">##   TAGs are additionnal adjective as &#39;refactor&#39; &#39;minor&#39; &#39;cosmetic&#39;</span>
+<span class="c1">##</span>
+<span class="c1">##       They are preceded with a &#39;!&#39; or a &#39;@&#39; (prefer the former, as the</span>
+<span class="c1">##       latter is wrongly interpreted in github.) Commonly used tags are:</span>
+<span class="c1">##</span>
+<span class="c1">##       &#39;refactor&#39; is obviously for refactoring code only</span>
+<span class="c1">##       &#39;minor&#39; is for a very meaningless change (a typo, adding a comment)</span>
+<span class="c1">##       &#39;cosmetic&#39; is for cosmetic driven change (re-indentation, 80-col...)</span>
+<span class="c1">##       &#39;wip&#39; is for partial functionality but complete subfunctionality.</span>
+<span class="c1">##</span>
+<span class="c1">## Example:</span>
+<span class="c1">##</span>
+<span class="c1">##   feat(ansible): adding configuration with common roles #INF-4</span>
+<span class="c1">##   fix(docker): disabling systemd and installing sysvinit #noticket</span>
+<span class="c1">##   docs(): removing unwanted files on the doc #noticket</span>
+<span class="c1">##</span>
+<span class="c1">##   Please note that multi-line commit message are supported, and only the</span>
+<span class="c1">##   first line will be considered as the &#34;summary&#34; of the commit message. So</span>
+<span class="c1">##   tags, and other rules only applies to the summary.  The body of the commit</span>
+<span class="c1">##   message will be displayed in the changelog without reformatting.</span></code></pre></div>
+
+<p>With this kind of comments, I was able to generate something to help me to build the Changelog. In the same video, they were talking about a custom Ruby script which cloud do the job. However a big part of my tools and infrastructure are written in Python and wanted to have a maintained tool in Python to do it.</p>
+
+<h2 id="the-tool">The tool</h2>
+
+<p>After a little bit of research, I&rsquo;ve found <a href="https://pypi.python.org/pypi/gitchangelog" target="_blank">gitchangelog</a> tool. This is a light Python script installable via pip which will generate a markdown file from git logs. That was exactly what I was searching for. But as you know, it doesn&rsquo;t work out of the box because I already have decided of the format I wanted.</p>
+
+<p>So I adapted the configuration (.gitchangelog.rc) to make it work with the wished log format. The configuration looks like this:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Ignore comments</span>
+<span class="n">ignore_regexps</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="sa">r</span><span class="s1">&#39;@minor&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;!minor&#39;</span><span class="p">,</span>
+        <span class="sa">r</span><span class="s1">&#39;@cosmetic&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;!cosmetic&#39;</span><span class="p">,</span>
+        <span class="sa">r</span><span class="s1">&#39;@refactor&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;!refactor&#39;</span><span class="p">,</span>
+        <span class="sa">r</span><span class="s1">&#39;@wip&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;!wip&#39;</span><span class="p">,</span>
+        <span class="sa">r</span><span class="s1">&#39;^(.{3,3}\s*:)?\s*[fF]irst commit.?\s*$&#39;</span><span class="p">,</span>
+  <span class="p">]</span>
+<span class="c1"># Detect sections</span>
+<span class="n">section_regexps</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;New features&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="sa">r</span><span class="s1">&#39;^[fF]eat(\(.*\)?):.+([^\n]*)$&#39;</span><span class="p">,</span>
+     <span class="p">]),</span>
+    <span class="p">(</span><span class="s1">&#39;Fix&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="sa">r</span><span class="s1">&#39;^[Ff]ix(\(\w*\)?):.+([^\n]*)$&#39;</span><span class="p">,</span>
+     <span class="p">]),</span>
+    <span class="p">(</span><span class="s1">&#39;Refactor&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="sa">r</span><span class="s1">&#39;^[Rr]efactor(\(\w*\)?):.+([^\n]*)$&#39;</span><span class="p">,</span>
+     <span class="p">]),</span>
+    <span class="p">(</span><span class="s1">&#39;Documentation&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="sa">r</span><span class="s1">&#39;^[Dd]ocs?(\(\w*\)?):.+([^\n]*)$&#39;</span><span class="p">,</span>
+     <span class="p">]),</span>
+    <span class="p">(</span><span class="s1">&#39;Other&#39;</span><span class="p">,</span> <span class="bp">None</span> <span class="c1">## Match all lines</span>
+     <span class="p">),</span>
+<span class="p">]</span>
+<span class="c1"># Rewrite body</span>
+<span class="n">body_process</span> <span class="o">=</span> <span class="p">(</span><span class="n">ReSub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.*&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">|</span>
+                <span class="n">ReSub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^(\n|\r)$&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+<span class="c1"># Rewrite subject</span>
+<span class="n">subject_process</span> <span class="o">=</span> <span class="p">(</span><span class="n">strip</span> <span class="o">|</span>
+    <span class="n">ReSub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^(\w+)(\((.*)\):\s?([^\n@]*))(@[a-z]+\s+)*$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;*\3*: \4&#39;</span><span class="p">)</span> <span class="o">|</span>
+    <span class="n">ReSub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^\*\*: &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">|</span>
+    <span class="n">ReSub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;#INF-(\d+)&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;(`#INF-\1 &amp;lt;https://ticketingserver/INF-\1&amp;gt;`_)&#39;</span><span class="p">)</span> <span class="o">|</span>
+    <span class="n">ReSub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\) \(&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="o">|</span>
+    <span class="n">ReSub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39; (#noticket|#nt)&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">|</span>
+    <span class="n">strip</span> <span class="o">|</span> <span class="n">ucfirst</span> <span class="o">|</span> <span class="n">final_dot</span><span class="p">)</span>
+<span class="c1"># Detect tags</span>
+<span class="n">tag_filter_regexp</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;^v[0-9]+\.[0-9]+(\.[0-9]+)?$&#39;</span>
+<span class="n">unreleased_version_label</span> <span class="o">=</span> <span class="s2">&#34;Next version (unreleased yet)&#34;</span>
+<span class="c1"># Generate markdown</span>
+<span class="n">output_engine</span> <span class="o">=</span> <span class="n">rest_py</span>
+<span class="n">include_merges</span> <span class="o">=</span> <span class="bp">True</span></code></pre></div>
+
+<p>As you can see, it&rsquo;s only regex. You can read the full commented lines in the configuration file (shrinked here) for a better understanding of what you can do. Subject is separated from the body, they both have their own regex and a link to the ticketing system is automatically generated with &lsquo;#INF-&rsquo; prefix. I do not wanted the body information appearing in the Changelog, so I substituted the content with nothing.</p>
+
+<p>I was now able to generate markdown by using gitchangelog command. There, I achieved the first step.</p>
+
+<h2 id="integration-with-sphinxdoc">Integration with sphinxdoc</h2>
+
+<p>To make it better, I wanted to have an integration with Sphinxdoc as I&rsquo;m using it for the project. I updated so the Makefile to generate the changelog before making the documentation like that:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># CHANGELOGFILE = changelog.rst</span>
+<span class="n">GENCHANGELOG</span>  <span class="o">=</span> <span class="err">$</span><span class="p">(</span><span class="n">GITCHLOGBIN</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">source</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">CHANGELOGFILE</span><span class="p">)</span> <span class="o">||</span> <span class="nb">exit</span> <span class="mi">1</span>
+<span class="o">...</span>
+<span class="n">html</span><span class="p">:</span>
+    <span class="err">$</span><span class="p">(</span><span class="n">GENCHANGELOG</span><span class="p">)</span>
+    <span class="err">$</span><span class="p">(</span><span class="n">SPHINXBUILD</span><span class="p">)</span> <span class="o">-</span><span class="n">b</span> <span class="n">html</span> <span class="err">$</span><span class="p">(</span><span class="n">ALLSPHINXOPTS</span><span class="p">)</span> <span class="err">$</span><span class="p">(</span><span class="n">BUILDDIR</span><span class="p">)</span><span class="o">/</span><span class="n">html</span>
+    <span class="nd">@echo</span>
+    <span class="nd">@echo</span> <span class="s2">&#34;Build finished. The HTML pages are in $(BUILDDIR)/html.&#34;</span></code></pre></div>
+
+<h2 id="the-result">The result</h2>
+
+<p>The result looks like this:</p>
+
+<p><img src="https://blog.deimos.fr/images/sphinx_changelog-1024x585.png" alt="sphinx_changelog-1024x585" /></p>
+
+<p>Cool isn&rsquo;t it? No more manual Changelog to do and it&rsquo;s nicely integrated in Sphinxdoc :-)</p>
+
+<h2 id="avoid-mistakes-with-hook">Avoid mistakes with hook</h2>
+
+<p>To get a good Changelog without issues, I also needed to have a hook on the server side to check and validate the subject. The git server I&rsquo;m using for the project is Stash and I&rsquo;m using an already existing hook to do the job. This is not perfect but it works with this regex:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-perl" data-lang="perl"><span class="p">(</span><span class="n">feat</span><span class="o">|</span><span class="n">fix</span><span class="o">|</span><span class="n">refactor</span><span class="o">|</span><span class="n">chore</span><span class="o">|</span><span class="n">test</span><span class="o">|</span><span class="n">style</span><span class="o">|</span><span class="n">docs</span><span class="p">)</span><span class="o">\</span><span class="p">(</span><span class="o">.*\</span><span class="p">):</span><span class="o">.*</span><span class="c1">#(INF-\d+|noticket|nt)</span></code></pre></div>
+
+<p>You may need to develop a custom hook on other git server.</p>
+
+<p>Hope you&rsquo;ve enjoyed reading</p>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/debian/">Debian</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/developement/">Developement</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/git/">Git</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/hi-tech/">Hi-Tech</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/linux/">Linux</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/red-hat/">Red Hat</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/02/25/ansible-lxc-role-updated-for-jessie/" data-tooltip="Ansible: LXC role updated for Jessie">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/01/31/fosdem-in-the-road-again-dude/" data-tooltip="FOSDEM…in the road again dude!">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/02/25/ansible-lxc-role-updated-for-jessie/" data-tooltip="Ansible: LXC role updated for Jessie">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/01/31/fosdem-in-the-road-again-dude/" data-tooltip="FOSDEM…in the road again dude!">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2015%2F02%2F11%2Fgenerate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2015%2F02%2F11%2Fgenerate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Qovery Co-Founder and CTO
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Paris - France
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2019/02/08/k8s-euft-run-functional-tests-on-your-helm-charts/">
+                <h3 class="media-heading">k8s-euft: run functional tests on your Helm charts</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">I&rsquo;m managing applications inside Kubernetes for more than 2 years for MySocialApp a social news feed solution and recently Referlab, an impressive referral marketing solution. If you follow me, you certainly know that I&rsquo;ve made multiple Helm charts on distributed technologies like:
+ Cassandra Helm chart Elasticsearch Helm chart Traefik Helm chart  After several years of experience on it, you can trust me when I say managing statefulset on Kubernetes is not the easiest thing to do.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/">
+                <h3 class="media-heading">Running Docker for your home server</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Since several years, I&rsquo;m hosting a lot of things: blog, wiki, emails etc&hellip; I&rsquo;ve played with Vserver, OpenVZ, KVM and finaly LXC. For years, I&rsquo;ve learned how to use all of them but the most known solution during the last years is Docker.
+I even can remeber the first Meetup I&rsquo;ve attended in Paris talking about Docker 5 years ago. Now containers are eveverywhere. I recently changed the server I&rsquo;m running for my own usage and this was the good timing to switch from LXC to Docker.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/11/20/wireguard-on-debian-and-edgerouter/">
+                <h3 class="media-heading">WireGuard on Debian and EdgeRouter</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">WireGuard is a very good alternative to OpenVPN. I&rsquo;ve been using OpenVPN for more than 10 years now and I was happy until I understood how slow it can be on low energy devices like EdgeRouter.
+To give you an idea, on my Fiber Home connection (200Mbps), I&rsquo;m limited to 18Mbps. With OpenVPN, I&rsquo;m reaching the maximum CPU usage on the EdgeRouter. I&rsquo;ve heard of WireGuard about a year now and it was time for me to test this interresting alternative.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/11/19/restore-edgerouter-usb-drive/">
+                <h3 class="media-heading">Restore EdgeRouter USB drive</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">I&rsquo;ve a Ubiquiti EdgeRouter PoE since several years now and really like it. Fanless, small, running on Debian (unfortunately not really up to date) and powerful.
+However I recently had issues with the disk. Simply dead and obviously a reboot didn&rsquo;t repaired it. I&rsquo;ve been searching solutions on the official forum to replace the disk and I was surprised about the fact it runs on a simple USB stick. I decided to replace it with a Kingston one:</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/10/11/bye-bye-mediawiki/">
+                <h3 class="media-heading">Bye bye Mediawiki</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">After more than 10 years using my beloved Mediawiki (wiki.deimos.fr), I decided to convert it into static html files and stop using Mediawiki :(.
+Why? Because maintaining a Mediawiki is a pain when you&rsquo;re using a lot of extensions. In addition, I&rsquo;m not using Mediawiki anymore at work, not really following the evolution, don&rsquo;t want to keep maintaining php/mariadb/nginx and upgrading Mediawiki configuration can be complex as well.
+I really love markdown solutions generating static files like Hugo and I already did it whith my previous Wordpress.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/10/11/converting-raw-to-jpg-with-nice-rendering/">
+                <h3 class="media-heading">Converting RAW to JPG with nice rendering</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">I&rsquo;m an amateur photographer and I&rsquo;m using an Olympus E-M1 Mark II camera. I take photos in RAW mode to be able. For those who know me, my computer is running on Linux and I&rsquo;m using Geeqie to display RAW picture. It&rsquo;s a very fast and powerful solution to display them.
+In addition of displaying them quickly, it enhances the look and I really appreciate the rendering. Here is the original image (the first one) and the redered one by Geeqie (the second one):</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/06/24/running-cassandra-on-kubernetes/">
+                <h3 class="media-heading">Running Cassandra in Kubernetes</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jul 7, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">For my own company MySocialApp, I&rsquo;m managing multiple Cassandra clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:
+ The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/31/integrate-gcr-in-your-on-premise-kubernetes/">
+                <h3 class="media-heading">Integrate GCR in your on premise k8s cluster</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">I&rsquo;m using Kubernetes on an on premise cluster for MySocialApp. Today, I&rsquo;m storing MySocialApp public images at Quay.io and I also wanted to store private images. I didn&rsquo;t want to bootstrap a private registry for it to avoid maintaining it, having a distributed storage to maintain for it etc&hellip;but wanted a solution at a lower cost.
+I started to look at DockerHub and Quay.io. As far aas I saw, DockerHub do not provide private registry while Quay does.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/26/install-jeedom-on-synology-with-docker/">
+                <h3 class="media-heading">Install Jeedom on Synology with Docker</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">The Jeedom software is open source; you have complete access to the software that manages your home automation. Jeedom is compatible with various protocols, like Z-Wave, RFXCOM, RTS SOMFY, EnOcean, xPL, etc.
+Installing Jeedom on Synology with Docker it not a complex task. However for those who are not familiar with those technologies, I summarized here the installation process for a Z-wave network.
+First of all, let&rsquo;s look at the requirements:</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/">
+                <h3 class="media-heading">Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         846 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://blog.deimos.fr/images/fish_background.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://blog.deimos.fr/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+  
+    <script src="https://blog.deimos.fr/js/custom.js"></script>
+  
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/blog.deimos.fr\/2015\/02\/11\/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2\/';
+          
+            this.page.identifier = '\/2015\/02\/11\/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'blog-deimosfr';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
