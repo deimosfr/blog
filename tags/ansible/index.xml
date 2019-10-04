@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ansible on Deimosfr Blog</title>
+    <title>Ansible on Deimosfr Blog</title>
     <link>https://blog.deimos.fr/tags/ansible/</link>
-    <description>Recent content in ansible on Deimosfr Blog</description>
+    <description>Recent content in Ansible on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 18 Apr 2017 20:18:07 +0200</lastBuildDate>
