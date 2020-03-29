@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
@@ -302,19 +302,14 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_traefik.png" alt="Traefik" /></p>
-
-<p><a href="https://traefik.io/" target="_blank">Traefik</a> (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy
+              <p><img src="https://blog.deimos.fr/images/logo_traefik.png" alt="Traefik"></p>
+<p><a href="https://traefik.io/">Traefik</a> (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy
 microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd,
 Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.</p>
-
-<p><a href="https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/" target="_blank">In a previous post</a>, I explained how to manually deploy it in HA mode. For <a href="https://mysocialapp.io/" target="_blank">MySocialApp</a> (iOS and Android social app builder - SaaS), I had to automate it. That&rsquo;s why I used <a href="https://docs.helm.sh/" target="_blank">Helm</a>.</p>
-
+<p><a href="https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/">In a previous post</a>, I explained how to manually deploy it in HA mode. For <a href="https://mysocialapp.io/">MySocialApp</a> (iOS and Android social app builder - SaaS), I had to automate it. That&rsquo;s why I used <a href="https://docs.helm.sh/">Helm</a>.</p>
 <p>Where was the complexity? Bootstraping Traefik in HA mode require to push (only the first time) the configuration you&rsquo;ve made to Consul KV store.
 I wanted to get rid of that manual boostraping part. In addition, all pods are booting at the same time and that make it more difficult.</p>
-
-<p>To avoid multiple bootstrap at the same time, I used the <a href="https://www.consul.io/docs/guides/semaphore.html" target="_blank">distributed lock mechanism in Consul</a>. So when they all start, I randomize the start time and then request a lock. Here is the code:</p>
-
+<p>To avoid multiple bootstrap at the same time, I used the <a href="https://www.consul.io/docs/guides/semaphore.html">distributed lock mechanism in Consul</a>. So when they all start, I randomize the start time and then request a lock. Here is the code:</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="cp">#!/bin/bash
 </span><span class="cp"></span><span class="nv">nodes</span><span class="o">=(</span> consul-0.<span class="o">{{</span> .Values.traefikConsulServiceName <span class="o">}}</span> consul-1.<span class="o">{{</span> .Values.traefikConsulServiceName <span class="o">}}</span> consul-2.<span class="o">{{</span> .Values.traefikConsulServiceName <span class="o">}}</span> <span class="o">{{</span> .Values.traefikConsulServiceName <span class="o">}}</span> <span class="o">)</span>
 <span class="nv">bootstraped</span><span class="o">=</span><span class="m">0</span>
@@ -326,7 +321,7 @@ I wanted to get rid of that manual boostraping part. In addition, all pods are b
   <span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -eq <span class="m">0</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
     <span class="nv">contacted</span><span class="o">=</span><span class="m">1</span>
     <span class="c1"># If acme folder exist, that mean a bootstrap already occured</span>
-    <span class="k">if</span> <span class="o">[</span> <span class="k">$(</span>curl http://<span class="si">${</span><span class="nv">node</span><span class="si">}</span>.<span class="o">{{</span> .Release.Namespace <span class="o">}}</span>.svc.<span class="o">{{</span> .Values.traefikResolvConfDomainNameCluster <span class="o">}}</span>:8500/v1/kv/traefik/acme/ <span class="m">2</span>&gt;/dev/null <span class="p">|</span> wc -c<span class="k">)</span> -ne <span class="m">0</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="k">$(</span>curl http://<span class="si">${</span><span class="nv">node</span><span class="si">}</span>.<span class="o">{{</span> .Release.Namespace <span class="o">}}</span>.svc.<span class="o">{{</span> .Values.traefikResolvConfDomainNameCluster <span class="o">}}</span>:8500/v1/kv/traefik/acme/ 2&gt;/dev/null <span class="p">|</span> wc -c<span class="k">)</span> -ne <span class="m">0</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
       <span class="nv">bootstraped</span><span class="o">=</span><span class="m">1</span>
     <span class="k">fi</span>
   <span class="k">fi</span>
@@ -349,18 +344,18 @@ nc -z consul-0.<span class="o">{{</span> .Values.traefikConsulServiceName <span 
   <span class="nb">exit</span> <span class="m">1</span>
 <span class="k">fi</span>
 <span class="c1"># Get session ID</span>
-<span class="nv">id</span><span class="o">=</span><span class="k">$(</span>curl -XPUT http://consul-0.<span class="o">{{</span> .Values.traefikConsulServiceName <span class="o">}}</span>.<span class="o">{{</span> .Release.Namespace <span class="o">}}</span>.svc.<span class="o">{{</span> .Values.traefikResolvConfDomainNameCluster <span class="o">}}</span>:8500/v1/session/create <span class="m">2</span>&gt;/dev/null <span class="p">|</span> jq -r <span class="s1">&#39;.ID&#39;</span><span class="k">)</span>
+<span class="nv">id</span><span class="o">=</span><span class="k">$(</span>curl -XPUT http://consul-0.<span class="o">{{</span> .Values.traefikConsulServiceName <span class="o">}}</span>.<span class="o">{{</span> .Release.Namespace <span class="o">}}</span>.svc.<span class="o">{{</span> .Values.traefikResolvConfDomainNameCluster <span class="o">}}</span>:8500/v1/session/create 2&gt;/dev/null <span class="p">|</span> jq -r <span class="s1">&#39;.ID&#39;</span><span class="k">)</span>
 <span class="c1"># Check if a lock has been acquired and get one if not the case to bootstrap</span>
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="k">$(</span>curl -XPUT http://consul-0.<span class="o">{{</span> .Values.traefikConsulServiceName <span class="o">}}</span>.<span class="o">{{</span> .Release.Namespace <span class="o">}}</span>.svc.<span class="o">{{</span> .Values.traefikResolvConfDomainNameCluster <span class="o">}}</span>:8500/v1/kv/locks/traefik-bootstrap/.lock<span class="se">\?</span><span class="nv">acquire</span><span class="o">=</span><span class="nv">$id</span> -d <span class="k">$(</span>hostname<span class="k">)</span> <span class="m">2</span>&gt;/dev/null<span class="k">)</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;true&#34;</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="k">$(</span>curl -XPUT http://consul-0.<span class="o">{{</span> .Values.traefikConsulServiceName <span class="o">}}</span>.<span class="o">{{</span> .Release.Namespace <span class="o">}}</span>.svc.<span class="o">{{</span> .Values.traefikResolvConfDomainNameCluster <span class="o">}}</span>:8500/v1/kv/locks/traefik-bootstrap/.lock<span class="se">\?</span><span class="nv">acquire</span><span class="o">=</span><span class="nv">$id</span> -d <span class="k">$(</span>hostname<span class="k">)</span> 2&gt;/dev/null<span class="k">)</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;true&#34;</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
   <span class="nb">echo</span> <span class="s2">&#34;Traefik bootstrap&#34;</span>
   traefik storeconfig --configfile<span class="o">=</span>/etc/traefik/traefik.toml <span class="o">&amp;&amp;</span> <span class="se">\
-</span><span class="se"></span>  curl -XDELETE http://consul-0.<span class="o">{{</span> .Values.traefikConsulServiceName <span class="o">}}</span>.<span class="o">{{</span> .Release.Namespace <span class="o">}}</span>.svc.<span class="o">{{</span> .Values.traefikResolvConfDomainNameCluster <span class="o">}}</span>:8500/v1/kv/traefik/acme/storagefile <span class="m">2</span>&gt;/dev/null
+</span><span class="se"></span>  curl -XDELETE http://consul-0.<span class="o">{{</span> .Values.traefikConsulServiceName <span class="o">}}</span>.<span class="o">{{</span> .Release.Namespace <span class="o">}}</span>.svc.<span class="o">{{</span> .Values.traefikResolvConfDomainNameCluster <span class="o">}}</span>:8500/v1/kv/traefik/acme/storagefile 2&gt;/dev/null
   <span class="c1"># Release lock and delete kv entry</span>
-  curl -XPUT <span class="s2">&#34;http://consul-0.{{ .Values.traefikConsulServiceName }}.{{ .Release.Namespace }}.svc.{{ .Values.traefikResolvConfDomainNameCluster }}:8500/v1/kv/locks/traefik-bootstrap/.lock\?release=</span><span class="nv">$id</span><span class="s2">&#34;</span> <span class="m">2</span>&gt;/dev/null
+  curl -XPUT <span class="s2">&#34;http://consul-0.{{ .Values.traefikConsulServiceName }}.{{ .Release.Namespace }}.svc.{{ .Values.traefikResolvConfDomainNameCluster }}:8500/v1/kv/locks/traefik-bootstrap/.lock\?release=</span><span class="nv">$id</span><span class="s2">&#34;</span> 2&gt;/dev/null
 <span class="k">else</span>
   <span class="c1"># Wait until bootstrap ended</span>
   <span class="nv">counter</span><span class="o">=</span><span class="m">0</span>
-  <span class="k">while</span> <span class="o">[</span> <span class="k">$(</span>curl http://consul-0.<span class="o">{{</span> .Values.traefikConsulServiceName <span class="o">}}</span>.<span class="o">{{</span> .Release.Namespace <span class="o">}}</span>.svc.<span class="o">{{</span> .Values.traefikResolvConfDomainNameCluster <span class="o">}}</span>:8500/v1/kv/traefik/acme/ <span class="m">2</span>&gt;/dev/null <span class="p">|</span> wc -c<span class="k">)</span> -eq <span class="m">0</span> <span class="o">]</span> <span class="p">;</span> <span class="k">do</span>
+  <span class="k">while</span> <span class="o">[</span> <span class="k">$(</span>curl http://consul-0.<span class="o">{{</span> .Values.traefikConsulServiceName <span class="o">}}</span>.<span class="o">{{</span> .Release.Namespace <span class="o">}}</span>.svc.<span class="o">{{</span> .Values.traefikResolvConfDomainNameCluster <span class="o">}}</span>:8500/v1/kv/traefik/acme/ 2&gt;/dev/null <span class="p">|</span> wc -c<span class="k">)</span> -eq <span class="m">0</span> <span class="o">]</span> <span class="p">;</span> <span class="k">do</span>
     <span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$counter</span><span class="s2">&#34;</span> -gt <span class="m">60</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
       <span class="nb">echo</span> <span class="s2">&#34;After 1 min, the traefik bootstrap has not been done, exiting&#34;</span>
       <span class="nb">exit</span> <span class="m">1</span>
@@ -370,15 +365,12 @@ nc -z consul-0.<span class="o">{{</span> .Values.traefikConsulServiceName <span 
   <span class="k">done</span>
 <span class="k">fi</span>
 <span class="c1"># Delete session</span>
-curl -XPUT <span class="s2">&#34;http://consul-0.{{ .Values.traefikConsulServiceName }}.{{ .Release.Namespace }}.svc.{{ .Values.traefikResolvConfDomainNameCluster }}:8500/v1/session/destroy/</span><span class="nv">$id</span><span class="s2">&#34;</span> <span class="m">2</span>&gt;/dev/null
+curl -XPUT <span class="s2">&#34;http://consul-0.{{ .Values.traefikConsulServiceName }}.{{ .Release.Namespace }}.svc.{{ .Values.traefikResolvConfDomainNameCluster }}:8500/v1/session/destroy/</span><span class="nv">$id</span><span class="s2">&#34;</span> 2&gt;/dev/null
 <span class="nb">echo</span> <span class="s2">&#34;Bootstrap has already been done, traefik container will start&#34;</span>
 <span class="nb">exit</span> <span class="m">0</span></code></pre></div>
-
-<p>Now if you deploy <a href="https://github.com/MySocialApp/kubernetes-helm-chart-traefik" target="_blank">this Traefik chart</a> for the first time or not, you won&rsquo;t need any manual intervention anymore :)</p>
-
-<p>Before deploying it, you will need a consul cluster setup and ready. If you&rsquo;re searching for a <a href="https://github.com/MySocialApp/kubernetes-helm-chart-consul" target="_blank">Consul Helm chart</a>, I&rsquo;ve made one also for <a href="https://mysocialapp.io/" target="_blank">MySocialApp</a>. We&rsquo;re using this chart on bare metal with local storage. We recommend that consul servers are used with &ldquo;Node Selector&rdquo; option to stick to specific servers.</p>
-
-<p>Then you have to update &ldquo;values.yaml&rdquo; from the <a href="https://github.com/MySocialApp/kubernetes-helm-chart-traefik" target="_blank">Traefik chart</a> file before deloying. You&rsquo;re now ready to go.</p>
+<p>Now if you deploy <a href="https://github.com/MySocialApp/kubernetes-helm-chart-traefik">this Traefik chart</a> for the first time or not, you won&rsquo;t need any manual intervention anymore :)</p>
+<p>Before deploying it, you will need a consul cluster setup and ready. If you&rsquo;re searching for a <a href="https://github.com/MySocialApp/kubernetes-helm-chart-consul">Consul Helm chart</a>, I&rsquo;ve made one also for <a href="https://mysocialapp.io/">MySocialApp</a>. We&rsquo;re using this chart on bare metal with local storage. We recommend that consul servers are used with &ldquo;Node Selector&rdquo; option to stick to specific servers.</p>
+<p>Then you have to update &ldquo;values.yaml&rdquo; from the <a href="https://github.com/MySocialApp/kubernetes-helm-chart-traefik">Traefik chart</a> file before deloying. You&rsquo;re now ready to go.</p>
 
               
             </div>
@@ -481,7 +473,7 @@ curl -XPUT <span class="s2">&#34;http://consul-0.{{ .Values.traefikConsulService
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

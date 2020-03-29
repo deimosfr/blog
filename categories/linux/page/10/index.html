@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Deimos Blog">
@@ -230,6 +230,77 @@ if (!doNotTrack) {
     
     <div class="postShorten-header">
       <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2014/05/21/nginx-limit-flood-and-aggressive-sniffer/">
+          Nginx: limit flooding and aggressive sniffing
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2014-05-21T10:00:00Z">
+        
+  
+  
+  
+  
+    21 May 2014
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/security">Security</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/web">Web</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        Last week, have been faced on a big sniffing issue on my wiki. The guy wanted to download all my wiki content. In reality I do not really care as it is open, free for read and contribution is welcome. However, the current VM where the blog and wiki are running didn&rsquo;t support aggressive sniffing that this guy made. That&rsquo;s why CPUs were at 100% of usage because of PHP requests, PHP-FPM was overloaded (reached my configuration limits).
+      
+      <p>
+        <a href="https://blog.deimos.fr/2014/05/21/nginx-limit-flood-and-aggressive-sniffer/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2014/05/21/nginx-limit-flood-and-aggressive-sniffer/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_ngnix.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
         <a class="link-unstyled" href="https://blog.deimos.fr/2014/05/17/openzfs-european-conference/">
           OpenZFS: European conference
         </a>
@@ -406,7 +477,7 @@ I started to rewrite my Puppet manifests to Ansible playbooks and what I can say
     <div class="postShorten-excerpt" itemprop="articleBody">
       
         Regarding one of my latest post, talking about Fluentd, some of you asked me why I&rsquo;ve chosen Fluentd instead of Logstash. First of all, I&rsquo;ve looked at this blog post, which kindly resume the current situation. Looking at this and with feedback I got, I could establish this array:
-   Logstash  Fluentd   Concerns  Flexibility/Interoperability  Simplicity/Robustness   Language  JRuby  Cruby   Inputs  More  Fewer   Inputs specs  Basics  Scalables   Plugins  Lot  Lot more   Plugins install  Simple (drop a jar)  Can be complex (dependencies)   Logs send crypt  Yes  Yes   Scalability  Forward to 2 hosts  LB A/A or A/P   Reliability  Can loss messages  No message loss    Logstash and Fluentd are both powerful solutions, they both got pros and cons.
+&lt;td style=&quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #c9daf8; font-weight: bold; text-align: center;&quot; data-sheets-value=&quot;[null,2,&amp;quot;Logstash&amp;quot;]&quot;&gt; Logstash &lt;/td&gt; &lt;td style=&quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #c9daf8; font-weight: bold; text-align: center;&quot; data-sheets-value=&quot;[null,2,&amp;quot;Fluentd&amp;quot;]&quot;&gt; Fluentd &lt;/td&gt;  &lt;td style=&quot;padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: center;&quot; data-sheets-value=&quot;[null,2,&amp;quot;Flexibility/Interoperability&amp;quot;]&quot;&gt; Flexibility/Interoperability &lt;/td&gt; &lt;td style=&quot;padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: center;&quot; data-sheets-value=&quot;[null,2,&amp;quot;Simplicity/Robustness&amp;quot;]&quot;&gt; Simplicity/Robustness &lt;/td&gt;  &lt;td style=&quot;padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: center;&quot; data-sheets-value=&quot;[null,2,&amp;quot;JRuby&amp;quot;]&quot;&gt; JRuby &lt;/td&gt; &lt;td style=&quot;padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: center;&quot; data-sheets-value=&quot;[null,2,&amp;quot;Cruby&amp;quot;]&quot;&gt; Cruby &lt;/td&gt;  &lt;td style=&quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #d9ead3; text-align: center;&quot; data-sheets-value=&quot;[null,2,&amp;quot;More&amp;quot;]&quot;&gt; More &lt;/td&gt; &lt;td style=&quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #f4cccc; text-align: center;&quot; data-sheets-value=&quot;[null,2,&amp;quot;Fewer&amp;quot;]&quot;&gt; Fewer &lt;/td&gt;  &lt;td style=&quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #f4cccc; text-align: center;&quot; data-sheets-value=&quot;[null,2,&amp;quot;Basics&amp;quot;]&quot;&gt; Basics &lt;/td&gt; &lt;td style=&quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #d9ead3; text-align: center;&quot; data-sheets-value=&quot;[null,2,&amp;quot;Scalables&amp;quot;]&quot;&gt; Scalables &lt;/td&gt;  &lt;td style=&quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #f4cccc; text-align: center;&quot; data-sheets-value=&quot;[null,2,&amp;quot;Lot&amp;quot;]&quot;&gt; Lot &lt;/td&gt; &lt;td style=&quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #d9ead3; text-align: center;&quot; data-sheets-value=&quot;[null,2,&amp;quot;Lot more&amp;quot;]&quot;&gt; Lot more &lt;/td&gt;  &lt;td style=&quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #d9ead3; text-align: center;&quot; data-sheets-value=&quot;[null,2,&amp;quot;Simple (drop a jar)&amp;quot;]&quot;&gt; Simple (drop a jar) &lt;/td&gt; &lt;td style=&quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #fff2cc; text-align: center;&quot; data-sheets-value=&quot;[null,2,&amp;quot;Can be complex (dependancies)&amp;quot;]&quot;&gt; Can be complex (dependencies) &lt;/td&gt;  &lt;td style=&quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #d9ead3; text-align: center;&quot; data-sheets-value=&quot;[null,2,&amp;quot;Yes&amp;quot;]&quot;&gt; Yes &lt;/td&gt; &lt;td style=&quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #d9ead3; text-align: center;&quot; data-sheets-value=&quot;[null,2,&amp;quot;Yes&amp;quot;]&quot;&gt; Yes &lt;/td&gt;  &lt;td style=&quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #f4cccc; text-align: center;&quot; data-sheets-value=&quot;[null,2,&amp;quot;Forward to 2 hosts&amp;quot;]&quot;&gt; Forward to 2 hosts &lt;/td&gt; &lt;td style=&quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #d9ead3; text-align: center;&quot; data-sheets-value=&quot;[null,2,&amp;quot;LB A/A or A/P&amp;quot;]&quot;&gt; LB A/A or A/P &lt;/td&gt;  &lt;td style=&quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #f4cccc; text-align: center;&quot; data-sheets-value=&quot;[null,2,&amp;quot;Can loss messages&amp;quot;]&quot;&gt; Can loss messages &lt;/td&gt; &lt;td style=&quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #d9ead3; text-align: center;&quot; data-sheets-value=&quot;[null,2,&amp;quot;No message loss&amp;quot;]&quot;&gt; No message loss &lt;/td&gt;  Logstash and Fluentd are both powerful solutions, they both got pros and cons.
       
       <p>
         <a href="https://blog.deimos.fr/2014/05/13/logstash-vs-fluentd/" class="postShorten-excerpt_link link">Continue reading</a>
@@ -640,79 +711,6 @@ For Vagrant, each major versions are bringing incredible features, this time the
 </article>
 
             
-              
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://blog.deimos.fr/2014/05/03/big-data-meetup-with-twitter-feedbacks/">
-          Big Data meetup with Twitter feedbacks
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2014-05-03T10:00:08Z">
-        
-  
-  
-  
-  
-    3 May 2014
-  
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/databases">Databases</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/events">Events</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        On next Monday, a meetup will take place in Paris concerning Big Data with Twitter feeback. This meetup will be live retransmitted through YouTube.
-The main talk will speak about how Twitter did to scale to millions of users:
- Twitter is one of the most heavily trafficked sites on the internet, with over 240 million active users and serving over 500 million Tweets per day. Twitter, as a company and as a service has seen remarkable growth in its eight years of existence.
-      
-      <p>
-        <a href="https://blog.deimos.fr/2014/05/03/big-data-meetup-with-twitter-feedbacks/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://blog.deimos.fr/2014/05/03/big-data-meetup-with-twitter-feedbacks/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_meetup.png"/>
-      </div>
-    </a>
-  
-</article>
-
-            
             
   <div class="pagination-bar">
     <ul class="pagination">
@@ -743,7 +741,7 @@ The main talk will speak about how Twitter did to scale to millions of users:
         
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

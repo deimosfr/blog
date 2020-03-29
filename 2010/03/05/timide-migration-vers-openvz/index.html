@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="J’ai eu un commentaire disant que les posts se faisaient rare ces temps ci alors en voilà un :-).
@@ -276,16 +276,11 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>J’ai eu un commentaire disant que les posts se faisaient rare ces temps ci alors en voilà un :-).</p>
-
-<p>Actuellement sur mon serveur, je tourne avec <a href="http://wiki.deimos.fr/KVM_:_Mise_en_place_de_KVM" target="_blank">KVM et libvirt</a>. J&rsquo;en suis plutôt très satisfait. Seulement voilà, entre MySecureShell avec lequel on doit compiler sur beaucoup de plateformes et mes autres VM dont j&rsquo;ai besoin au quotidien, les 4Go de RAM de la machine ne suffisent pas forcément et je suis au maximum des capacités RAM sur celle ci.</p>
-
+<p>Actuellement sur mon serveur, je tourne avec <a href="http://wiki.deimos.fr/KVM_:_Mise_en_place_de_KVM">KVM et libvirt</a>. J&rsquo;en suis plutôt très satisfait. Seulement voilà, entre MySecureShell avec lequel on doit compiler sur beaucoup de plateformes et mes autres VM dont j&rsquo;ai besoin au quotidien, les 4Go de RAM de la machine ne suffisent pas forcément et je suis au maximum des capacités RAM sur celle ci.</p>
 <p>Sachant que la plupart de mes VM tournent sur Debian, il est un peu idiot de virtualiser du debian sur du debian alors qu&rsquo;un jail like suffirait. Au début j&rsquo;avais pensé à VServer. Mis à part les problèmes réseaux en grande charge, ça fonctionne plutôt pas mal. Seulement voilà, il y a quelques temps, je lis que pour la prochaine version de Debian, il n&rsquo;est plus possible de compter dessus.</p>
-
-<p>Que reste t&rsquo;il ? OpenVZ ! Ca fait déjà facile 3 ans que j&rsquo;en entends parler, mais son intégration n&rsquo;étant pas aisée dans Debian 4 ne m&rsquo;avait à l&rsquo;époque pas séduit. C&rsquo;est le cas dans Debian 5 et le sera dans Debian 6. Donc je me suis lancé au boulot dans un premier temps et ça marche plutôt très bien et je n&rsquo;ai pas les problèmes réseaux comme j&rsquo;ai pu avoir avec Vserver.</p>
-
+<p>Que reste t&rsquo;il ? OpenVZ ! Ca fait déjà facile 3 ans que j&rsquo;en entends parler, mais son intégration n'étant pas aisée dans Debian 4 ne m&rsquo;avait à l'époque pas séduit. C&rsquo;est le cas dans Debian 5 et le sera dans Debian 6. Donc je me suis lancé au boulot dans un premier temps et ça marche plutôt très bien et je n&rsquo;ai pas les problèmes réseaux comme j&rsquo;ai pu avoir avec Vserver.</p>
 <p>Dommage que l&rsquo;intégration avec libvirt ne se fasse pas encore nativement sur Debian (j&rsquo;imagine dans la prochaine version). Bref donc je pense migrer petit à petit mes VM de KVM sur OpenVZ et garder KVM pour le reste. Sachant que les 2 cohabitent très bien et qu&rsquo;en plus (si je me sort les doigts du ***) on peut manager tout ce petit monde avec libvirt, ça serait royale !</p>
-
-<p>La <a href="http://wiki.deimos.fr/OpenVZ_:_Mise_en_place_d%27OpenVZ" target="_blank">documentation est faite depuis un moment pour OpenVZ</a>, mais c&rsquo;est surtout du côté des derniers ajouts que c&rsquo;est intéressants. <a href="http://wiki.deimos.fr/OpenVZ_:_Mise_en_place_d%27OpenVZ" target="_blank">Je vous laisse jetter un oeil</a>.</p>
+<p>La <a href="http://wiki.deimos.fr/OpenVZ_:_Mise_en_place_d%27OpenVZ">documentation est faite depuis un moment pour OpenVZ</a>, mais c&rsquo;est surtout du côté des derniers ajouts que c&rsquo;est intéressants. <a href="http://wiki.deimos.fr/OpenVZ_:_Mise_en_place_d%27OpenVZ">Je vous laisse jetter un oeil</a>.</p>
 
               
             </div>
@@ -380,7 +375,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

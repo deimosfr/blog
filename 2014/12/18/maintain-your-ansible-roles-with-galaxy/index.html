@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="If like me, you were using the Ansible Galaxy website to find and download your playbook for your favorite apps, you may missed a feature.
@@ -278,24 +278,17 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_ansible.png" alt="ansible_logo" />
-If like me, you were using the <a href="https://galaxy.ansible.com/" target="_blank">Ansible Galaxy website</a> to find and download your playbook for your favorite apps, you may missed a feature.</p>
-
-<p>It happened to me when I had to manage several playbook roles. I first wanted to use Git submodules to do it. However I preferred to search another way to do like like Puppet can do with <a href="https://github.com/adrienthebo/r10k" target="_blank">R10K</a> because I am working on a project with some unfamiliar Git users. And I preferred to make it as simple as possible.</p>
-
-<p>During a short search, I didn&rsquo;t find anything really interesting, and looked at all the informations <a href="https://galaxy.ansible.com/intro" target="_blank">on the Galaxy website</a>. I finally almost find what I was searching for. You can specify a file with role name and version you want to install. The file (galaxy_dep) should looks like this:</p>
-
+              <p><img src="https://blog.deimos.fr/images/logo_ansible.png" alt="ansible_logo">
+If like me, you were using the <a href="https://galaxy.ansible.com/">Ansible Galaxy website</a> to find and download your playbook for your favorite apps, you may missed a feature.</p>
+<p>It happened to me when I had to manage several playbook roles. I first wanted to use Git submodules to do it. However I preferred to search another way to do like like Puppet can do with <a href="https://github.com/adrienthebo/r10k">R10K</a> because I am working on a project with some unfamiliar Git users. And I preferred to make it as simple as possible.</p>
+<p>During a short search, I didn&rsquo;t find anything really interesting, and looked at all the informations <a href="https://galaxy.ansible.com/intro">on the Galaxy website</a>. I finally almost find what I was searching for. You can specify a file with role name and version you want to install. The file (galaxy_dep) should looks like this:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">jdauphant.nginx,v1.1.1
 nbz4live.php-fpm,0.2.0
 deimosfr.mysql,v0.1
 deimosfr.dotdeb,v0.1</code></pre></div>
-
 <p>Then you can launch your ansible-galaxy binary with those options to grab your defined roles:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">ansible-galaxy install -r galaxy_dep -p roles --force</code></pre></div>
-
 <p>This will download them in the &ldquo;roles&rdquo; folder in the current directory. A missing feature in my opinion is the possibility to rename with a specified name the downloaded roles.</p>
-
 <p>This is a simple solution but I hope this could help you too.</p>
 
               
@@ -391,7 +384,7 @@ deimosfr.dotdeb,v0.1</code></pre></div>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

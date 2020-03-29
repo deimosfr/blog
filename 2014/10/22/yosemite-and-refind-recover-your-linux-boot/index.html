@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="You may upgrade your Mac OS X version to Yosemite (10.10) and saw you dual boot with Linux not working anymore :-(.
@@ -296,11 +296,9 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_osx.png" alt="OS_X-Logo" />
+              <p><img src="https://blog.deimos.fr/images/logo_osx.png" alt="OS_X-Logo">
 You may upgrade your Mac OS X version to Yosemite (10.10) and saw you dual boot with Linux not working anymore :-(.</p>
-
-<p>That&rsquo;s because Apple made changes and Refind is not yet ready for it. So here is the solution to get your dual boot half back. It won&rsquo;t fully work as expected, but you&rsquo;ll be able to boot to Linux with Refind and Mac OS X with the alt key. First grab the latest version of <a href="http://sourceforge.net/projects/refind/" target="_blank">Refind here</a>, then:</p>
-
+<p>That&rsquo;s because Apple made changes and Refind is not yet ready for it. So here is the solution to get your dual boot half back. It won&rsquo;t fully work as expected, but you&rsquo;ll be able to boot to Linux with Refind and Mac OS X with the alt key. First grab the latest version of <a href="http://sourceforge.net/projects/refind/">Refind here</a>, then:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> Downloads/
 unzip refind-bin-0.8.3.zip
 <span class="nb">cd</span> refind-bin-0.8.3
@@ -321,18 +319,13 @@ sudo cp -Rf /EFI/boot/drivers .
 sudo cp -Rf /EFI/boot/drivers refind
 <span class="nb">cd</span> refind
 sudo mv refind_x64.efi bootx64.efi</code></pre></div>
-
 <p>Then edit the refind.conf file and adapt those line/uncomment them:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">scan_driver_dirs EFI/boot/drivers
 scan_delay <span class="m">1</span>
 dont_scan_files shim.efi,MokManager.efi</code></pre></div>
-
 <p>Now you can reboot, you&rsquo;ll be able to boot your Linux system. This can take a while for unknow reasons :-(. We&rsquo;re waiting a newer version of Refind to make it working as it should&hellip;</p>
-
-<p>Here is the <a href="http://forums.macrumors.com/showthread.php?t=1740614" target="_blank">source</a> where I found the solution.</p>
-
-<p>UPDATE: To get all working see: <a href="http://www.rodsbooks.com/refind/yosemite.html" target="_blank">http://www.rodsbooks.com/refind/yosemite.html</a></p>
+<p>Here is the <a href="http://forums.macrumors.com/showthread.php?t=1740614">source</a> where I found the solution.</p>
+<p>UPDATE: To get all working see: <a href="http://www.rodsbooks.com/refind/yosemite.html">http://www.rodsbooks.com/refind/yosemite.html</a></p>
 
               
             </div>
@@ -433,7 +426,7 @@ dont_scan_files shim.efi,MokManager.efi</code></pre></div>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

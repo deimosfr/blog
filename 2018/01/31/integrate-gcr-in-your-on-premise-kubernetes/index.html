@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="I&rsquo;m using Kubernetes on an on premise cluster for MySocialApp. Today, I&rsquo;m storing MySocialApp public images at Quay.io and I also wanted to store private images. I didn&rsquo;t want to bootstrap a private registry for it to avoid maintaining it, having a distributed storage to maintain for it etc&hellip;but wanted a solution at a lower cost.
@@ -290,59 +290,42 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_gcr.png" alt="Google Cloud Registry" /></p>
-
-<p>I&rsquo;m using Kubernetes on an on premise cluster for <a href="https://mysocialapp.io" target="_blank">MySocialApp</a>. Today, I&rsquo;m storing <a href="https://quay.io/organization/mysocialapp" target="_blank">MySocialApp public images</a> at Quay.io and I also wanted to store private images. I didn&rsquo;t want to bootstrap a private registry for it to avoid maintaining it, having a distributed storage to maintain for it etc&hellip;but wanted a solution at a lower cost.</p>
-
-<p>I started to look at <a href="https://hub.docker.com/" target="_blank">DockerHub</a> and <a href="https://quay.io/" target="_blank">Quay.io</a>. As far aas I saw, DockerHub do not provide private registry while Quay does. And it could be great as I&rsquo;m already storing public images there. However private repositories are coming with an expensive price (starting at 15$/month for only 5 repos). I really don&rsquo;t like this pricing model.</p>
-
-<p>I then looked at Cloud providers. There is the well known <a href="https://cloud.google.com/container-registry" target="_blank">Google Cloud Registry</a> (aka GCR) and <a href="https://aws.amazon.com/fr/ecr/" target="_blank">Amazon ECR</a>. They are cheaper if you only use them to store images and have a registry (and of course if you don&rsquo;t store Petabytes of containers). Note: If you want them to build your images, you have to add another service, but I didn&rsquo;t dig much into it as I&rsquo;m already using <a href="https://about.gitlab.com/features/gitlab-ci-cd/" target="_blank">Gitlab CI</a> to build images.</p>
-
-<p>What I like in <a href="https://cloud.google.com/container-registry" target="_blank">GCR</a> and <a href="https://aws.amazon.com/fr/ecr/" target="_blank">ECR</a> is you pay what you&rsquo;re consuming. I&rsquo;ve chosen GCR as several public repository related to kubernetes are stored there and it&rsquo;s really cheaper than Quay.io. I have ~20 private repos, here is the bill for 1 month:</p>
-
-<p><img src="https://blog.deimos.fr/images/gcr_pricing.png" alt="GCR pricing" /></p>
-
+              <p><img src="https://blog.deimos.fr/images/logo_gcr.png" alt="Google Cloud Registry"></p>
+<p>I&rsquo;m using Kubernetes on an on premise cluster for <a href="https://mysocialapp.io">MySocialApp</a>. Today, I&rsquo;m storing <a href="https://quay.io/organization/mysocialapp">MySocialApp public images</a> at Quay.io and I also wanted to store private images. I didn&rsquo;t want to bootstrap a private registry for it to avoid maintaining it, having a distributed storage to maintain for it etc&hellip;but wanted a solution at a lower cost.</p>
+<p>I started to look at <a href="https://hub.docker.com/">DockerHub</a> and <a href="https://quay.io/">Quay.io</a>. As far aas I saw, DockerHub do not provide private registry while Quay does. And it could be great as I&rsquo;m already storing public images there. However private repositories are coming with an expensive price (starting at 15$/month for only 5 repos). I really don&rsquo;t like this pricing model.</p>
+<p>I then looked at Cloud providers. There is the well known <a href="https://cloud.google.com/container-registry">Google Cloud Registry</a> (aka GCR) and <a href="https://aws.amazon.com/fr/ecr/">Amazon ECR</a>. They are cheaper if you only use them to store images and have a registry (and of course if you don&rsquo;t store Petabytes of containers). Note: If you want them to build your images, you have to add another service, but I didn&rsquo;t dig much into it as I&rsquo;m already using <a href="https://about.gitlab.com/features/gitlab-ci-cd/">Gitlab CI</a> to build images.</p>
+<p>What I like in <a href="https://cloud.google.com/container-registry">GCR</a> and <a href="https://aws.amazon.com/fr/ecr/">ECR</a> is you pay what you&rsquo;re consuming. I&rsquo;ve chosen GCR as several public repository related to kubernetes are stored there and it&rsquo;s really cheaper than Quay.io. I have ~20 private repos, here is the bill for 1 month:</p>
+<p><img src="https://blog.deimos.fr/images/gcr_pricing.png" alt="GCR pricing"></p>
 <p>Now let&rsquo;s try to set it up! Unfortunately the reality is more complex than what I though, when you do not run your Kubernetes inside a Cloud.</p>
-
-<p>I spent several hours to understand how it works to add a GCR secret key in a namespace and being able to use it. I appears that the Google documentation is not up to date, I found several cases of people encountering the same issue without any long term solution. A working solution is to use temporary access key and renew it regularely. It looks like to be the same mechanism for <a href="https://aws.amazon.com/fr/ecr/" target="_blank">ECR</a>.</p>
-
-<p>Before coding something, I made a quick search and found a nice project called <a href="https://github.com/upmc-enterprises/registry-creds" target="_blank">registry-creds</a> that already do that kind of stuff and in addition, propagate your GCR secrets automatically to all namespaces! More than that, it supports natively GCR and ECR ! Great ! (La cerise sur le McDo!)</p>
-
-<p>So I made a <a href="https://github.com/MySocialApp/kubernetes-helm-chart-registry-creds-gcr" target="_blank">helm chart for it</a>. To use it, you first need to get your default credentials (on your computer) made by installing <a href="https://cloud.google.com/sdk/gcloud/" target="_blank">gcloud</a> the first time you launched it and convert the key into base64:</p>
-
+<p>I spent several hours to understand how it works to add a GCR secret key in a namespace and being able to use it. I appears that the Google documentation is not up to date, I found several cases of people encountering the same issue without any long term solution. A working solution is to use temporary access key and renew it regularely. It looks like to be the same mechanism for <a href="https://aws.amazon.com/fr/ecr/">ECR</a>.</p>
+<p>Before coding something, I made a quick search and found a nice project called <a href="https://github.com/upmc-enterprises/registry-creds">registry-creds</a> that already do that kind of stuff and in addition, propagate your GCR secrets automatically to all namespaces! More than that, it supports natively GCR and ECR ! Great ! (La cerise sur le McDo!)</p>
+<p>So I made a <a href="https://github.com/MySocialApp/kubernetes-helm-chart-registry-creds-gcr">helm chart for it</a>. To use it, you first need to get your default credentials (on your computer) made by installing <a href="https://cloud.google.com/sdk/gcloud/">gcloud</a> the first time you launched it and convert the key into base64:</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">base64 -w <span class="m">0</span> ~/.config/gcloud/application_default_credentials.json</code></pre></div>
-
-<p>Then add the returned content, to the key &ldquo;registryCredsAppDefaultCredsJson&rdquo; inside value.yaml of the <a href="https://github.com/MySocialApp/kubernetes-helm-chart-registry-creds-gcr" target="_blank">registry-creds-gcr chart</a>:</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">registryCredsReplicaCount<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
-</span><span class="w"></span>registryCredsNodeSelector<span class="p">:</span><span class="w">
-</span><span class="w">  </span>node-role.kubernetes.io/node<span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
+<p>Then add the returned content, to the key &ldquo;registryCredsAppDefaultCredsJson&rdquo; inside value.yaml of the <a href="https://github.com/MySocialApp/kubernetes-helm-chart-registry-creds-gcr">registry-creds-gcr chart</a>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">registryCredsReplicaCount</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w"></span><span class="k">registryCredsNodeSelector</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">node-role.kubernetes.io/node</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>registryCredsImageVersion<span class="p">:</span><span class="w"> </span><span class="m">1.8</span><span class="w">
-</span><span class="w"></span>registryCredsAppDefaultCredsJson<span class="p">:</span><span class="w"> </span><span class="s2">&#34;paste here&#34;</span></code></pre></div>
-
+</span><span class="w"></span><span class="k">registryCredsImageVersion</span><span class="p">:</span><span class="w"> </span><span class="m">1.8</span><span class="w">
+</span><span class="w"></span><span class="k">registryCredsAppDefaultCredsJson</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;paste here&#34;</span></code></pre></div>
 <p>Then deploy the chart and all your namespaces will have a new secret (gcr-secret):</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ kubectl get secret
 NAME                  TYPE                                  DATA      AGE
 default-token-qlql9   kubernetes.io/service-account-token   <span class="m">3</span>         37d
 gcr-secret            kubernetes.io/dockercfg               <span class="m">1</span>         21d</code></pre></div>
-
-<p>We&rsquo;re now ready to deploy private images hosted on <a href="https://cloud.google.com/container-registry" target="_blank">GCR</a>! Let&rsquo;s take a basic example of a pod, you just need to add the &ldquo;imagePullSecret&rdquo; information to pass the secret key to the pod:</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">apiVersion<span class="p">:</span><span class="w"> </span>v1<span class="w">
-</span><span class="w"></span>kind<span class="p">:</span><span class="w"> </span>Pod<span class="w">
-</span><span class="w"></span>metadata<span class="p">:</span><span class="w">
-</span><span class="w">  </span>name<span class="p">:</span><span class="w"> </span>nginx<span class="w">
-</span><span class="w"></span>spec<span class="p">:</span><span class="w">
-</span><span class="w">  </span>imagePullSecrets<span class="p">:</span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>gcr-secret<span class="w">
-</span><span class="w">  </span>containers<span class="p">:</span><span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>private-container<span class="w">
-</span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>gcr.io/project_id/image_name<span class="p">:</span>version<span class="w">
-</span><span class="w">    </span>ports<span class="p">:</span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>containerPort<span class="p">:</span><span class="w"> </span><span class="m">80</span></code></pre></div>
-
+<p>We&rsquo;re now ready to deploy private images hosted on <a href="https://cloud.google.com/container-registry">GCR</a>! Let&rsquo;s take a basic example of a pod, you just need to add the &ldquo;imagePullSecret&rdquo; information to pass the secret key to the pod:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">apiVersion</span><span class="p">:</span><span class="w"> </span>v1<span class="w">
+</span><span class="w"></span><span class="k">kind</span><span class="p">:</span><span class="w"> </span>Pod<span class="w">
+</span><span class="w"></span><span class="k">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>nginx<span class="w">
+</span><span class="w"></span><span class="k">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">imagePullSecrets</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>gcr-secret<span class="w">
+</span><span class="w">  </span><span class="k">containers</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>private-container<span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>gcr.io/project_id/image_name<span class="p">:</span>version<span class="w">
+</span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- <span class="k">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span></code></pre></div>
 <p>You can deploy now, it will work :)</p>
 
               
@@ -442,7 +425,7 @@ gcr-secret            kubernetes.io/dockercfg               <span class="m">1</s
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>coreos docker on Deimosfr Blog</title>
@@ -17,7 +17,8 @@
       <pubDate>Thu, 29 May 2014 10:00:00 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2014/05/29/coreos-minimize-your-bare-metal-usage/</guid>
-      <description>&amp;gt; CoreOS is a new Linux distribution that has been rearchitected to provide features needed to run modern infrastructure stacks. The strategies and architectures that influence CoreOS allow companies like Google, Facebook and Twitter to run their services at scale with high resilience. We&amp;rsquo;ve implemented them correctly so you don&amp;rsquo;t have to endure the slow, learn-as-you-go infrastructure building process. &amp;gt; &amp;gt; CoreOS can run on your existing hardware or on most cloud providers.</description>
+      <description>CoreOS is a new Linux distribution that has been rearchitected to provide features needed to run modern infrastructure stacks. The strategies and architectures that influence CoreOS allow companies like Google, Facebook and Twitter to run their services at scale with high resilience. We&amp;rsquo;ve implemented them correctly so you don&amp;rsquo;t have to endure the slow, learn-as-you-go infrastructure building process.
+CoreOS can run on your existing hardware or on most cloud providers.</description>
     </item>
     
   </channel>

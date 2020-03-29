@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Others on Deimosfr Blog</title>
@@ -399,8 +399,8 @@ Good written application embed this kind of features, but if it&amp;rsquo;s not 
       <pubDate>Sat, 04 May 2013 10:00:07 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2013/05/04/prochains-articles-en-anglais/</guid>
-      <description>Je ne pourrais clairement pas assurer le français avec l&amp;rsquo;anglais (problème de temps). C&amp;rsquo;est pourquoi je propose à mes fidèles lecteurs un coup de main si vous êtes parant pour m&amp;rsquo;écrire la partie française, je suis open, ça permettrait de maintenir les 2 en parallèle.
-Je m&amp;rsquo;excuse par avance pour mes lecteurs qui ont votés pour garder la langue française, mais je m&amp;rsquo;étais fixé comme objectif de changer la langue si les non n&amp;rsquo;atteignaient pas la majorité.</description>
+      <description>Je ne pourrais clairement pas assurer le français avec l&amp;rsquo;anglais (problème de temps). C&amp;rsquo;est pourquoi je propose à mes fidèles lecteurs un coup de main si vous êtes parant pour m&#39;écrire la partie française, je suis open, ça permettrait de maintenir les 2 en parallèle.
+Je m&amp;rsquo;excuse par avance pour mes lecteurs qui ont votés pour garder la langue française, mais je m&#39;étais fixé comme objectif de changer la langue si les non n&amp;rsquo;atteignaient pas la majorité.</description>
     </item>
     
     <item>
@@ -463,7 +463,7 @@ Un des supers sujet était Bind 10 que j&amp;rsquo;attendais avec impatience. Il
       <guid>https://blog.deimos.fr/2013/02/03/en-direct-du-fosdem-2013/</guid>
       <description>Et me voilà parti grâce à Linagora au FOSDEM 2013 :-). C&amp;rsquo;est donc mon premier jour et premier FOSDEM.
 Au menu une petite intro Ubuntu sur Juju et MASS mais piètre qualité du représentant de Canonical. Quelque chose a retenir cependant, il faut vraiment tester Ceph :
-Heureusement qu&amp;rsquo;il y a eu une magnifique représentation MediaWiki avec du Jenkins, PhantomJS (incroyable) et d&amp;rsquo;autres produits dont Cucumber (qui est très impressionnant). Le mec de Wikipedia/MediaWiki avait vraiment l&amp;rsquo;air de bien connaître son sujet c&amp;rsquo;était top :</description>
+Heureusement qu&amp;rsquo;il y a eu une magnifique représentation MediaWiki avec du Jenkins, PhantomJS (incroyable) et d&amp;rsquo;autres produits dont Cucumber (qui est très impressionnant). Le mec de Wikipedia/MediaWiki avait vraiment l&amp;rsquo;air de bien connaître son sujet c&#39;était top :</description>
     </item>
     
     <item>
@@ -505,8 +505,8 @@ Déjà pour commencer&amp;hellip;qui utilise cette méthode ?
       
       <guid>https://blog.deimos.fr/2012/12/13/telecharger-de-beaux-fonds-decran/</guid>
       <description>Vous connaissez peut être Interface Lift ! Si vous ne connaissez pas encore, vous allez sûrement apprécier !
-J&amp;rsquo;ai fini par trouver un petit script en Python qui permet de télécharger facilement tous les fonds d&amp;rsquo;écran dans la résolution souhaitée ! Voici le script.
-Bons fonds d&amp;rsquo;écran :-)</description>
+J&amp;rsquo;ai fini par trouver un petit script en Python qui permet de télécharger facilement tous les fonds d&#39;écran dans la résolution souhaitée ! Voici le script.
+Bons fonds d&#39;écran :-)</description>
     </item>
     
     <item>
@@ -594,7 +594,7 @@ Après quelques recherches sur le net, j&amp;rsquo;ai fini par tomber sur des po
       <pubDate>Fri, 28 Sep 2012 10:00:34 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2012/09/28/muuuuuuuse/</guid>
-      <description>Ouiiiiiiii ! C&amp;rsquo;est aujourd&amp;rsquo;hui !!!!! En ce moment&amp;hellip;que de nouveautés ! Ça fait du bien. Ennnnnnfinnnnn un nouvel album ! Bon, ça commence vraiment à trop s&amp;rsquo;éloigner des superbes premiers albums, mais ça reste bien. Un peu plus pêchu ça serait cool :-)</description>
+      <description>Ouiiiiiiii ! C&amp;rsquo;est aujourd&amp;rsquo;hui !!!!! En ce moment&amp;hellip;que de nouveautés ! Ça fait du bien. Ennnnnnfinnnnn un nouvel album ! Bon, ça commence vraiment à trop s&#39;éloigner des superbes premiers albums, mais ça reste bien. Un peu plus pêchu ça serait cool :-)</description>
     </item>
     
     <item>
@@ -634,7 +634,7 @@ Après quelques petites recherches sur Internet, je suis tomber sur ce très bon
       
       <guid>https://blog.deimos.fr/2012/08/23/freebox-le-nas-a-0e/</guid>
       <description>La semaine dernière, j&amp;rsquo;ai commencé à en avoir marre de mon FreeNAS. Non pas que ça ne fonctionne pas bien, mais devoir avoir une machine dédiée, allumée, pour lire les films de famille :-p et stocker mes photos etc&amp;hellip; bref, pénible !
-Je me suis dis : &amp;ldquo;Bon un Nas, ça serait pas mal quand même, mais ça fait cher pour l&amp;rsquo;utilité que je souhaites !&amp;rdquo;. Surtout que je ne souhaites pas des fonctionnalités de fou, je veux un truc en du RAID 1, qui lit tout les formats video et qui ne consomme pas beaucoup lorsque je n&amp;rsquo;utilise pas !</description>
+Je me suis dis : &amp;ldquo;Bon un Nas, ça serait pas mal quand même, mais ça fait cher pour l&amp;rsquo;utilité que je souhaites !&amp;quot;. Surtout que je ne souhaites pas des fonctionnalités de fou, je veux un truc en du RAID 1, qui lit tout les formats video et qui ne consomme pas beaucoup lorsque je n&amp;rsquo;utilise pas !</description>
     </item>
     
     <item>
@@ -653,7 +653,7 @@ Je me suis dis : &amp;ldquo;Bon un Nas, ça serait pas mal quand même, mais ça
       <pubDate>Thu, 26 Jul 2012 10:00:49 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2012/07/26/on-me-cite-dans-linux-pratique/</guid>
-      <description>Ça ça fait très plaisir d&amp;rsquo;être cité quelque part en tant que référence, surtout lorsqu&amp;rsquo;il s&amp;rsquo;agit des Linux Mag :-)
+      <description>Ça ça fait très plaisir d&#39;être cité quelque part en tant que référence, surtout lorsqu&amp;rsquo;il s&amp;rsquo;agit des Linux Mag :-)
 C&amp;rsquo;est Evox qui m&amp;rsquo;apprends que je fais parti des références sur l&amp;rsquo;article Tmux présent dans le numéro 72 du Linux Pratique :-).
 Je tenais à vous faire partager ma joie et vous remercier encore une fois de suivre mon blog :-)</description>
     </item>
@@ -665,7 +665,7 @@ Je tenais à vous faire partager ma joie et vous remercier encore une fois de su
       
       <guid>https://blog.deimos.fr/2012/07/18/en-vacances/</guid>
       <description>Cela fait quelques jours que je suis EN VACANCES !!!!! Je vous ai tout de même préparé des articles avant mon départ, mais il est possible qu&amp;rsquo;il y ai un creux. Car je ne sais pas si vous avez remarqué, mais depuis le début de l&amp;rsquo;année, il y a un post tous les 2 jours, ce qui n&amp;rsquo;est pas facile à tenir.
-Donc je souhaites à tous mes lecteurs de bonnes vacances d&amp;rsquo;été :-)</description>
+Donc je souhaites à tous mes lecteurs de bonnes vacances d&#39;été :-)</description>
     </item>
     
     <item>
@@ -776,7 +776,7 @@ Ni une, ni deux, j&amp;rsquo;ai mis ça en place sur le wiki et le blog. Donc si
       <pubDate>Sun, 01 Apr 2012 11:00:19 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2012/04/01/soekris-migration-dopenbsd-pfsense/</guid>
-      <description>Je m&amp;rsquo;étais fais la main sur la Soekris d&amp;rsquo;un pot il y a un peu plus d&amp;rsquo;un an maintenant et j&amp;rsquo;avais trouvé ça sexy pour l&amp;rsquo;époque. Je trouve que c&amp;rsquo;est aujourd&amp;rsquo;hui vraiment bien abouti et que les fonctionnalités ne manques pas. De plus c&amp;rsquo;est assez scalable, on peut faire a peut prêt tout ce que l&amp;rsquo;on veut dessus, donc j&amp;rsquo;en suis satisfait pour le moment.
+      <description>Je m&#39;étais fais la main sur la Soekris d&amp;rsquo;un pot il y a un peu plus d&amp;rsquo;un an maintenant et j&amp;rsquo;avais trouvé ça sexy pour l&#39;époque. Je trouve que c&amp;rsquo;est aujourd&amp;rsquo;hui vraiment bien abouti et que les fonctionnalités ne manques pas. De plus c&amp;rsquo;est assez scalable, on peut faire a peut prêt tout ce que l&amp;rsquo;on veut dessus, donc j&amp;rsquo;en suis satisfait pour le moment.
 Me voilà donc parti sur une de ces distribs clef en main pour ce qui me sert de routeur/firewall chez moi.</description>
     </item>
     
@@ -844,7 +844,7 @@ Déjà, il faut savoir que même si t&amp;rsquo;es péter de tune, t&amp;rsquo;a
       
       <guid>https://blog.deimos.fr/2012/03/05/hornet-600-sans-pot/</guid>
       <description>J’ai retrouvé une vieille vidéo, de l’époque ou j’avais ma magnifique Honda Hornet 600 (modèle 2004)…je suis super nostalgique, j’aurais vraiment dû la garder cette moto !
-Bref, c&amp;rsquo;était à un moment ou j&amp;rsquo;avais changé de pot d&amp;rsquo;échappement et pendant ce changement justement, je m&amp;rsquo;étais amusé à la démarrée sans pot. La qualité de la vidéo est certe très médiocre, mais à l&amp;rsquo;époque&amp;hellip;j&amp;rsquo;avais pas mieux :
+Bref, c&#39;était à un moment ou j&amp;rsquo;avais changé de pot d&#39;échappement et pendant ce changement justement, je m&#39;étais amusé à la démarrée sans pot. La qualité de la vidéo est certe très médiocre, mais à l&#39;époque&amp;hellip;j&amp;rsquo;avais pas mieux :
   Ce navigateur ne sait pas lire les videos, utilises plutot Firefox</description>
     </item>
     
@@ -864,7 +864,7 @@ Bref, c&amp;rsquo;était à un moment ou j&amp;rsquo;avais changé de pot d&amp;
       
       <guid>https://blog.deimos.fr/2012/02/03/poignees-chauffantes/</guid>
       <description>Et bah voilà ! Papi a posé les poignées chauffantes sur la z1000. Et bah franchement par -4/-8C, même si j’ai le bout des doigts gelés, ça tiens super chaud et c’est trop agréable !
-J&amp;rsquo;étais septique car mon pote Bigboss, lui ça chauffe en 15 min, alors que les miennes en seulement 2min c&amp;rsquo;est déjà bien chaud. Bref le kif&amp;hellip;mais en mode papi</description>
+J&#39;étais septique car mon pote Bigboss, lui ça chauffe en 15 min, alors que les miennes en seulement 2min c&amp;rsquo;est déjà bien chaud. Bref le kif&amp;hellip;mais en mode papi</description>
     </item>
     
     <item>
@@ -892,8 +892,8 @@ Je pensais attendre un peu plus longtemps, mais l&amp;rsquo;envie de passer chez
       <pubDate>Sun, 18 Dec 2011 14:19:20 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2011/12/18/rhce-done/</guid>
-      <description>J&amp;rsquo;ai repassé l&amp;rsquo;examen RHCE et l&amp;rsquo;ai eu cette fois ci. Pour rappel il faut 210 points, j&amp;rsquo;avais fais 208&amp;frasl;300 la dernière fois, et cette fois ci 286&amp;frasl;300.
-J&amp;rsquo;aimerais bien dire : &amp;ldquo;En route vers RHCA maintenant !&amp;rdquo;, mais je dois avouer que la route va être longue, cher et parsemée d’embuches. Il va me falloir 5 autres certifs pour atteindre ce titre. Il y en a 2 que je pense avoir sans trop de difficultés (Cluter + Statellite) tandis que la RH442 (celle dont j&amp;rsquo;ai eu la formation cette semaine) me semble bien complexe.</description>
+      <description>J&amp;rsquo;ai repassé l&amp;rsquo;examen RHCE et l&amp;rsquo;ai eu cette fois ci. Pour rappel il faut 210 points, j&amp;rsquo;avais fais 208/300 la dernière fois, et cette fois ci 286/300.
+J&amp;rsquo;aimerais bien dire : &amp;ldquo;En route vers RHCA maintenant !&amp;quot;, mais je dois avouer que la route va être longue, cher et parsemée d’embuches. Il va me falloir 5 autres certifs pour atteindre ce titre. Il y en a 2 que je pense avoir sans trop de difficultés (Cluter + Statellite) tandis que la RH442 (celle dont j&amp;rsquo;ai eu la formation cette semaine) me semble bien complexe.</description>
     </item>
     
     <item>
@@ -902,7 +902,7 @@ J&amp;rsquo;aimerais bien dire : &amp;ldquo;En route vers RHCA maintenant !&amp;
       <pubDate>Fri, 16 Dec 2011 19:53:58 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2011/12/16/formation-rh442-redhat/</guid>
-      <description>Une fois n&amp;rsquo;est pas coutume, je vais faire un peu de pub pour RedHat. Cette semaine j&amp;rsquo;ai été en formation RH442 (Performance Tuning) et c&amp;rsquo;était très instructif.
+      <description>Une fois n&amp;rsquo;est pas coutume, je vais faire un peu de pub pour RedHat. Cette semaine j&amp;rsquo;ai été en formation RH442 (Performance Tuning) et c&#39;était très instructif.
 Comme à mon habitude je ferais donc quelques petits articles sur certaines choses qui m&amp;rsquo;ont paru très intéressantes. Quoi qu&amp;rsquo;il en soit, je vous recommande fortement cette formation techniquement pointue.</description>
     </item>
     
@@ -943,8 +943,8 @@ Je vais donc tenter de le repasser très prochainement.</description>
       
       <guid>https://blog.deimos.fr/2011/10/02/toujours-lhistoire-du-mec-qua-pas-de-bol/</guid>
       <description>Je fais un petit post car ça faisait un moment qu&amp;rsquo;il n&amp;rsquo;y avait pas eu de news.
-Pour le coup c&amp;rsquo;est une news perso. Il y a 1 mois j&amp;rsquo;ai encore eu un cambriolage (le 3 eme). Heureusement le connard voleur a été appréhender, passé en justice et a pris que des peines avec surcit car il n&amp;rsquo;avait que 18 ans.
-Je tiens a remercier tous mes amis qui nous ont aidé pour déménager en 1 après midi car grâce a eux ont ne stress plus d&amp;rsquo;être chez nous.</description>
+Pour le coup c&amp;rsquo;est une news perso. Il y a 1 mois j&amp;rsquo;ai encore eu un cambriolage (le 3 eme). Heureusement le connardvoleur a été appréhender, passé en justice et a pris que des peines avec surcit car il n&amp;rsquo;avait que 18 ans.
+Je tiens a remercier tous mes amis qui nous ont aidé pour déménager en 1 après midi car grâce a eux ont ne stress plus d&#39;être chez nous.</description>
     </item>
     
     <item>
@@ -954,7 +954,7 @@ Je tiens a remercier tous mes amis qui nous ont aidé pour déménager en 1 apr�
       
       <guid>https://blog.deimos.fr/2011/06/11/je-suis-passe-sur-android/</guid>
       <description>Pourquoi ce smiley ? Et bien tout simplement parce que je ne sais pas quoi en penser !
-Ca fesait 5 ans que j&amp;rsquo;étais sous iOS (iPhone) et je me suis fais controler mon esprit par un ami (encore sur iPhone). Et me voila avec un samsung galaxy s2 sous Android depuis hier soir.
+Ca fesait 5 ans que j&#39;étais sous iOS (iPhone) et je me suis fais controler mon esprit par un ami (encore sur iPhone). Et me voila avec un samsung galaxy s2 sous Android depuis hier soir.
 Android a de bons cotés avec ses fonctionnalité avancées, mais des choses toute conne comme un bon client mail, impossible de mettre la main dessus :-(</description>
     </item>
     
@@ -986,7 +986,7 @@ Donc au final, la poignée de gaz n&amp;rsquo;est plus limitée (le plus gros br
       
       <guid>https://blog.deimos.fr/2011/03/24/zfs-sur-linux/</guid>
       <description>Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur lequel je souhaites la double parité et surtout un OS Linux car c&amp;rsquo;est ce que je connais de mieux pour la partie multimédia.
-Aujourd&amp;rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&amp;rsquo;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.</description>
+Aujourd&amp;rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&#39;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.</description>
     </item>
     
     <item>
@@ -996,10 +996,10 @@ Aujourd&amp;rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les b
       
       <guid>https://blog.deimos.fr/2011/03/02/recherche-des-ingenieurs/</guid>
       <description>Je me permet un petit post sur mon blog car j&amp;rsquo;ai du mal a trouver des bons profils. Je suis actuellement a la recherche de ces postes sur Paris :
- Ingénieur Réseaux Junior
- Ingénieur Système Junior
- Ingénieur Système Linux Senior
- Ingénieur Sécurité / Audit
+  Ingénieur Réseaux Junior
+  Ingénieur Système Junior
+  Ingénieur Système Linux Senior
+  Ingénieur Sécurité / Audit
   Si vous connaissez du monde ou êtes vous même intéressés, n&amp;rsquo;hésitez pas a m&amp;rsquo;envoyer vos CV.</description>
     </item>
     
@@ -1108,7 +1108,7 @@ Il essaye donc d&amp;rsquo;en faire repartir 1 et par miracle il y arrive.</desc
       <pubDate>Fri, 11 Jun 2010 20:20:11 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2010/06/11/muse-cest-reparti/</guid>
-      <description>C&amp;rsquo;était grandiose !</description>
+      <description>C&#39;était grandiose !</description>
     </item>
     
     <item>
@@ -1157,12 +1157,12 @@ Et une super signature :</description>
       
       <guid>https://blog.deimos.fr/2009/12/20/michael-gregorio-au-bataclan-top/</guid>
       <description>Je suis allé voir vendredi soir Michael Gregorio au Bataclan, sont spectacle était vraiment top, je vous le recommande. Parmis les trucs qui m’ont fait rire ou qui m’on impressionnés :
- L&amp;rsquo;opéra rap
- Johnny
- Mylène farmer
- Edith Piaf
- Le foutage de gueule de Christophe Mahé
- La guitare électrique
+  L&amp;rsquo;opéra rap
+  Johnny
+  Mylène farmer
+  Edith Piaf
+  Le foutage de gueule de Christophe Mahé
+  La guitare électrique
   &amp;hellip;
 Franchement il y a des voix qu&amp;rsquo;il maitrise vraiment bien et c&amp;rsquo;est très impressionnant.</description>
     </item>
@@ -1203,7 +1203,7 @@ J&amp;rsquo;ai passé les tests d&amp;rsquo;embauche hier et j&amp;rsquo;ai trou
       
       <guid>https://blog.deimos.fr/2009/09/17/lire-dvd-avec-protection-sur-ubuntu/</guid>
       <description>Je pense qu’ils n’ont pas fini de nous casser inutilement les couilles avec leurs protections à 2 balles cassés en – de 2 jours. Bref, je pousse la gueulante car en bon citoyen j’achète l’album de Muse fraichement sorti lundi. Et dedans il y a un beau DVD. Je le met dans mon lecteur Blueray et aucuns lecteurs multimedia ne sais le lire. Why ?
-Au début je pensais que c&amp;rsquo;était dû à la région qui n&amp;rsquo;avait jamais été mise.</description>
+Au début je pensais que c&#39;était dû à la région qui n&amp;rsquo;avait jamais été mise.</description>
     </item>
     
     <item>
@@ -1234,7 +1234,7 @@ Il me reste iDVD a tester et j&amp;rsquo;avoue avoir quelques appréhensions ave
       
       <guid>https://blog.deimos.fr/2009/06/02/mon-serveur-va-mal-mais-est-sous-linux-alors/</guid>
       <description>Hier soir, je rentre et ma femme me dit : “Tu tombes bien, ça fait 2 min que ton serveur fait un bruit bizzard”. Et franchement entre la musique de ses Sims (dont la maison prenait feu) et le serveur, j’avais du mal à distinguer le bruit du serveur tellement c’était la première fois que j’entendais ce bruit là.
-Une fois le son des Sims coupés (:-p) j&amp;rsquo;étais ennuyé parce que le bruit ne me disait vraiment pas grand chose.</description>
+Une fois le son des Sims coupés (:-p) j&#39;étais ennuyé parce que le bruit ne me disait vraiment pas grand chose.</description>
     </item>
     
     <item>

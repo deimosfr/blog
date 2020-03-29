@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Sachez que vous pouvez faire une recherche dans ce site pour en extraire des exemples grâce à un petit script. Exemple : &gt; fu -a awk 1	# List of commands you use most often history | awk &#39;{a[$2]&#43;&#43;}END{for(i in a){print a[i] &#34; &#34; i}}&#39; | sort -rn | head&lt;/p&gt; 2	# Display a block of text with AWK awk &#39;/start_pattern/,/stop_pattern/&#39; file.txt&lt;/p&gt; 3	# Remove duplicate entries in a file without sorting.">
@@ -315,14 +315,13 @@ if (!doNotTrack) {
             <div class="main-content-wrap">
               <p>Sachez que vous pouvez faire une recherche dans ce site pour en extraire des exemples grâce à un petit script. Exemple :
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">&gt; fu -a awk
- <span class="m">1</span>	<span class="c1">#  List of commands you use most often</span>
+ 1	<span class="c1">#  List of commands you use most often</span>
 	<span class="nb">history</span> <span class="p">|</span> awk <span class="s1">&#39;{a[$2]++}END{for(i in a){print a[i] &#34; &#34; i}}&#39;</span> <span class="p">|</span> sort -rn <span class="p">|</span> head&lt;/p&gt;
- <span class="m">2</span>	<span class="c1">#  Display a block of text with AWK</span>
+ 2	<span class="c1">#  Display a block of text with AWK</span>
 	awk <span class="s1">&#39;/start_pattern/,/stop_pattern/&#39;</span> file.txt&lt;/p&gt;
- <span class="m">3</span>	<span class="c1">#  Remove duplicate entries in a file without sorting.</span>
+ 3	<span class="c1">#  Remove duplicate entries in a file without sorting.</span>
 	awk <span class="s1">&#39;!x[$0]++&#39;</span> &lt;file&gt;</code></pre></div></p>
-
-<p>Et là vous vous dites que c&rsquo;est super pratique :-). <a href="http://wiki.deimos.fr/Fu_:_un_script_pour_récupérer_des_exemples_depuis_commandlinefu.com" target="_blank">Voici comment l&rsquo;installer</a>.</p>
+<p>Et là vous vous dites que c&rsquo;est super pratique :-). <a href="http://wiki.deimos.fr/Fu_:_un_script_pour_r%C3%A9cup%C3%A9rer_des_exemples_depuis_commandlinefu.com">Voici comment l&rsquo;installer</a>.</p>
 
               
             </div>
@@ -431,7 +430,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Deimos Blog">
@@ -231,6 +231,70 @@ if (!doNotTrack) {
     
     <div class="postShorten-header">
       <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2010/06/04/sun-java-sur-ubuntu/">
+          Sun Java sur Ubuntu
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2010-06-04T08:04:47Z">
+        
+  
+  
+  
+  
+    4 June 2010
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        Bref, voilà ce qu&rsquo;il faut faire pour avoir les packages sun java à dispo :
+add-apt-repository &#34;deb http://archive.canonical.com/ lucid partner&#34; 
+      
+      <p>
+        <a href="https://blog.deimos.fr/2010/06/04/sun-java-sur-ubuntu/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+          
+            
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
         <a class="link-unstyled" href="https://blog.deimos.fr/2010/05/28/je-collectionne-des-canard/">
           JE COLLECTIONNE DES CANARD…
         </a>
@@ -265,7 +329,7 @@ if (!doNotTrack) {
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
       
-         
+        
       
       <p>
         <a href="https://blog.deimos.fr/2010/05/28/je-collectionne-des-canard/" class="postShorten-excerpt_link link">Continue reading</a>
@@ -329,7 +393,7 @@ if (!doNotTrack) {
     <div class="postShorten-excerpt" itemprop="articleBody">
       
         J’ai eu une petite mésaventure depuis quelques mois au taf avec ce merveilleux filesystem qu’est ZFS. Le problème est simple, j’ai des machines à 72Go de RAM et ne peut dépasser ~ les 48Go.
-Comment ça se fait ? Tout simplement parce que ZFS se réserve 1&frasl;8 de la mémoire dispo (RAM+SWAP) pour son cache. Sur des petites config ça ne se voit pas mais sur des machines avec autant de RAM, ça ait mal.
+Comment ça se fait ? Tout simplement parce que ZFS se réserve 1/8 de la mémoire dispo (RAM+SWAP) pour son cache. Sur des petites config ça ne se voit pas mais sur des machines avec autant de RAM, ça ait mal.
       
       <p>
         <a href="https://blog.deimos.fr/2010/05/28/zfs-trop-gourmand-en-ram/" class="postShorten-excerpt_link link">Continue reading</a>
@@ -601,75 +665,6 @@ J&rsquo;ai été gentil, vu que j&rsquo;ai un peu galérer pour l&rsquo;installa
 </article>
 
           
-            
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://blog.deimos.fr/2010/05/14/multiplexer-ssh-et-ssl/">
-          Multiplexer SSH et SSL
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2010-05-14T13:13:41Z">
-        
-  
-  
-  
-  
-    14 May 2010
-  
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/openbsd">OpenBSD</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/security">Security</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        SSLH est comme un tour de magie. Il permet par exemple sur une adresse WAN sur le port 443 d’avoir du HTTPS et du SSH. Comment c’est possible ??? On peut mettre un même port d’écoute sur un même port !
-Effectivement ! Il faut simplement voir SSLH comme un proxy de couche 7 capable de filtrer et différencier les trames SSL des trames SSH.
-Et voici une petite documentation et un correctif pour OpenBSD.
-      
-      <p>
-        <a href="https://blog.deimos.fr/2010/05/14/multiplexer-ssh-et-ssl/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
           
   <div class="pagination-bar">
     <ul class="pagination">
@@ -699,7 +694,7 @@ Et voici une petite documentation et un correctif pour OpenBSD.
         </section>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Red Hat on Deimosfr Blog</title>
@@ -17,7 +17,7 @@
       <pubDate>Sat, 18 Jun 2016 07:44:11 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/</guid>
-      <description>Long time since my last post. This one is not very technical post, but it&amp;rsquo;s a nice to have solution if you use grep usually. Are not you fed up to type vim  and search the line after a grep command ? If yes, this post is for you.
+      <description>Long time since my last post. This one is not very technical post, but it&amp;rsquo;s a nice to have solution if you use grep usually. Are not you fed up to type vim and search the line after a grep command ? If yes, this post is for you.
 First of all, you may know that an alternative more user friendly to grep exist, called ag (perf comparison). I really like ag and grep, but something make me loose my time since several years and I&amp;rsquo;m pretty sure it&amp;rsquo;s your case too.</description>
     </item>
     
@@ -27,7 +27,7 @@ First of all, you may know that an alternative more user friendly to grep exist,
       <pubDate>Thu, 21 Jan 2016 13:00:16 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/</guid>
-      <description>Some of you may not be familiar with the terms &amp;ldquo;Rolling upgrade&amp;rdquo; or &amp;ldquo;Rolling restart&amp;rdquo;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&amp;rsquo;re managing and the number of active nodes in your cluster.
+      <description>Some of you may not be familiar with the terms &amp;ldquo;Rolling upgrade&amp;rdquo; or &amp;ldquo;Rolling restart&amp;quot;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&amp;rsquo;re managing and the number of active nodes in your cluster.
 At Nousmotards we have several Java Spring Boot applications running. Restarting one application can take up to 1 min.</description>
     </item>
     
@@ -58,7 +58,8 @@ I hope you&amp;rsquo;ll enjoy this new version :-)</description>
       
       <guid>https://blog.deimos.fr/2015/01/27/offload-ssl-with-haproxy/</guid>
       <description>A few months ago, I already talked about offloading SSL with Nginx. I also wanted to try it with HAProxy which can be more interesting in some cases.
-The good On HAProxy, the good thing is the simplicity to do it. First of all you need to have at least the version 1.5 of HAProxy so to get SSL support. Then you only need those lines to offload SSL:</description>
+The good On HAProxy, the good thing is the simplicity to do it. First of all you need to have at least the version 1.5 of HAProxy so to get SSL support. Then you only need those lines to offload SSL:
+frontend frontend-https bind :443 ssl crt /etc/haproxy/ssl/server-unified.</description>
     </item>
     
     <item>
@@ -69,7 +70,7 @@ The good On HAProxy, the good thing is the simplicity to do it. First of all you
       <guid>https://blog.deimos.fr/2015/01/20/simple-ec2-snapshot-released/</guid>
       <description>For my company, I recently had to find a good solution to make Snapshots from Instance IDs or from tags on AWS. I made several searches but unfortunately didn&amp;rsquo;t find what I was searching for.
 That&amp;rsquo;s why I started to make a tool to do this kind of job. It&amp;rsquo;s written in Python and requires the Boto library. Here is what you can do with Simple EC2 snapshots:
- Hot snapshots (by default) and Cold snapshots   Multiple instances snapshot in one line   Detection of doubles   Filters by tags (allowing wildcards) or by instance IDs   Credentials file multiple with profiles   Limit the number of snapshots   Restrict snapshots to data disks only   The tool is open source and can be downloaded on GitHub :-).</description>
+The tool is open source and can be downloaded on GitHub :-).</description>
     </item>
     
     <item>
@@ -201,8 +202,7 @@ So I started to migrate my personal Puppet to Ansible just to play with. Here ar
       
       <guid>https://blog.deimos.fr/2013/11/24/iptables-is-going-to-be-replaced-by-nftables/</guid>
       <description>If you’re not aware that the next kernel version will replace iptables by nftables, it’s time to learn on how it works, what are the features, why the change and how to use it.
-If like me, you love PF, you&amp;rsquo;ll be pleased to find a similar syntax on NFtables ! To have a good introduction on it, look at those slides :
-  Kernel Recipes 2013 - Nftables, what motivations and what solutions  from Anne Nicolas</description>
+If like me, you love PF, you&amp;rsquo;ll be pleased to find a similar syntax on NFtables ! To have a good introduction on it, look at those slides :</description>
     </item>
     
     <item>
@@ -223,7 +223,6 @@ If you want to see all the possibilities, you can look at the main site project.
       
       <guid>https://blog.deimos.fr/2013/09/09/drbd-advanced-usages/</guid>
       <description>At my work, I taught a DRBD training for advanced usages at work. I produced some slides and I would like to share them :
-  Drbd  from Pierre Mavro 
 I hope it could help&amp;hellip;</description>
     </item>
     
@@ -385,7 +384,7 @@ La présentation est disponible en téléchargement sur slideshare ou Puppet Sli
       
       <guid>https://blog.deimos.fr/2012/12/11/news-en-vrac-6/</guid>
       <description>Voici quelques petites modifications récemment effectuées sur le wiki :
- Kernel : J&amp;rsquo;ai mis à jour la documentation pour la recompilation des kernels. Pas de gros changements, juste un petit rafraîchissement graphique. Bind) : Petits correctifs sur quelques erreurs minimes Nagios : Une petite erreur sur l&amp;rsquo;installation, j&amp;rsquo;avais oublié &amp;lsquo;install&amp;rsquo; dans apt-get (Merci Sandro) Awk : Ajout d&amp;rsquo;un exemple awk Mediawki : J&amp;rsquo;ai mis à jour la page pour quelques petits trucs qui ont changés avec la dernière mouture de Mediawiki  </description>
+ Kernel : J&amp;rsquo;ai mis à jour la documentation pour la recompilation des kernels. Pas de gros changements, juste un petit rafraîchissement graphique. Bind : Petits correctifs sur quelques erreurs minimes Nagios : Une petite erreur sur l&amp;rsquo;installation, j&amp;rsquo;avais oublié &amp;lsquo;install&amp;rsquo; dans apt-get (Merci Sandro) Awk : Ajout d&amp;rsquo;un exemple awk Mediawki : J&amp;rsquo;ai mis à jour la page pour quelques petits trucs qui ont changés avec la dernière mouture de Mediawiki  </description>
     </item>
     
     <item>
@@ -628,7 +627,7 @@ Alors ceci est fait pour toi !!! J&amp;rsquo;ai concocté un petit script (un pe
       
       <guid>https://blog.deimos.fr/2012/05/03/news-en-vrac-4/</guid>
       <description>Voici quelques petites modifications récemment effectuées sur le wiki :
-Netcat : laisser le port d&amp;rsquo;écoute ouvert après une première connection
+Netcat : laisser le port d&#39;écoute ouvert après une première connection
 Bonding : Les options qu&amp;rsquo;il faut utiliser lorsque l&amp;rsquo;on a plusieurs bonding
 Puppet : mise à jour de la documentation pour les versions les plus récentes</description>
     </item>
@@ -670,7 +669,7 @@ Si j&amp;rsquo;ai le temps et le courage, je la poursuivrais pour rentrer un peu
       
       <guid>https://blog.deimos.fr/2012/03/22/fast-and-reboot-18/</guid>
       <description>Reboot de ta machine en quelques secondes ça t’intéresse ? Kexec est fait pour toi mon ptit pot !
-Tu colle des néons, une waste gate et 2 bombes de nitro et biiiiim tu reboot en quelques secondes ! Kexec va t&amp;rsquo;éviter de te taper touuuuuuuute la couche de reboot hardware qui prend toujours 10 piges sur les serveurs. Comment tu met ça en place dans ta caisse man ?</description>
+Tu colle des néons, une waste gate et 2 bombes de nitro et biiiiim tu reboot en quelques secondes ! Kexec va t&#39;éviter de te taper touuuuuuuute la couche de reboot hardware qui prend toujours 10 piges sur les serveurs. Comment tu met ça en place dans ta caisse man ?</description>
     </item>
     
     <item>
@@ -681,7 +680,7 @@ Tu colle des néons, une waste gate et 2 bombes de nitro et biiiiim tu reboot en
       <guid>https://blog.deimos.fr/2012/03/20/le-boundingue/</guid>
       <description>Toua vouloir en saortie dou té carte raizo oune daibi day batouarde y dé la toulayronce dé paoune ? Boua ya lou boundigue paour ça !
 Tou trouvra la doc paour là.
-Note : Cette doc existait déjà, mais je lui ai fait un changement de sexe une cure de jouvance et l&amp;rsquo;ai mise à jour pour Red Hat.</description>
+Note : Cette doc existait déjà, mais je lui ai fait un changement de sexeune cure de jouvance et l&amp;rsquo;ai mise à jour pour Red Hat.</description>
     </item>
     
     <item>
@@ -691,7 +690,7 @@ Note : Cette doc existait déjà, mais je lui ai fait un changement de sexe une 
       
       <guid>https://blog.deimos.fr/2012/03/18/news-en-vrac-2/</guid>
       <description>Quelques news en vrac :
- Mise à jour des confs LDAP clients Générer des UUID Petites mises à jour sur Sed &amp;amp; Awk Voir le contenu des packages RPM  &amp;nbsp;</description>
+ Mise à jour des confs LDAP clients Générer des UUID Petites mises à jour sur Sed &amp;amp; Awk Voir le contenu des packages RPM   </description>
     </item>
     
     <item>
@@ -743,9 +742,9 @@ L&amp;rsquo;intérêt de proxychains est que la configuration ne se fait qu&amp;
       <description>Je ne me suis pas mis au LaTeX pour rien, j’avais pour idée de pondre une Cheat Sheet sur Tmux, vu que je n’en avais trouvé aucune sur le net.
 J&amp;rsquo;ai donc mis à jour la documentation Tmux avec les Cheat Sheet en anglais et français.
 Je les fournis également ici :
- Tmux French Cheat Sheet
- Tmux English Cheat Sheet
-  N&amp;rsquo;hésitez pas à me faire un retour ou des propositions sur d&amp;rsquo;éventuels ajouts.</description>
+  Tmux French Cheat Sheet
+  Tmux English Cheat Sheet
+  N&amp;rsquo;hésitez pas à me faire un retour ou des propositions sur d&#39;éventuels ajouts.</description>
     </item>
     
     <item>
@@ -793,8 +792,8 @@ C&amp;rsquo;est rapide à mettre en place et j&amp;rsquo;ai fais une petite docu
       <pubDate>Sun, 18 Dec 2011 14:19:20 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2011/12/18/rhce-done/</guid>
-      <description>J&amp;rsquo;ai repassé l&amp;rsquo;examen RHCE et l&amp;rsquo;ai eu cette fois ci. Pour rappel il faut 210 points, j&amp;rsquo;avais fais 208&amp;frasl;300 la dernière fois, et cette fois ci 286&amp;frasl;300.
-J&amp;rsquo;aimerais bien dire : &amp;ldquo;En route vers RHCA maintenant !&amp;rdquo;, mais je dois avouer que la route va être longue, cher et parsemée d’embuches. Il va me falloir 5 autres certifs pour atteindre ce titre. Il y en a 2 que je pense avoir sans trop de difficultés (Cluter + Statellite) tandis que la RH442 (celle dont j&amp;rsquo;ai eu la formation cette semaine) me semble bien complexe.</description>
+      <description>J&amp;rsquo;ai repassé l&amp;rsquo;examen RHCE et l&amp;rsquo;ai eu cette fois ci. Pour rappel il faut 210 points, j&amp;rsquo;avais fais 208/300 la dernière fois, et cette fois ci 286/300.
+J&amp;rsquo;aimerais bien dire : &amp;ldquo;En route vers RHCA maintenant !&amp;quot;, mais je dois avouer que la route va être longue, cher et parsemée d’embuches. Il va me falloir 5 autres certifs pour atteindre ce titre. Il y en a 2 que je pense avoir sans trop de difficultés (Cluter + Statellite) tandis que la RH442 (celle dont j&amp;rsquo;ai eu la formation cette semaine) me semble bien complexe.</description>
     </item>
     
   </channel>

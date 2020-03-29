@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cloud on Deimosfr Blog</title>
@@ -19,7 +19,7 @@
       <guid>https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/</guid>
       <description>Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications. I&amp;rsquo;m using it for Nousmotards and decided to build an Ansible role for it to make it simpler to deploy.
 Why did I built it as other projects like Kargo already exists? I just wanted a simple and maintainable role based on CoreOS official documentation. That&amp;rsquo;s what I did:
- This role bootstrap a Kubernetes cluster based on CoreOS Container Linux for production usages.</description>
+This role bootstrap a Kubernetes cluster based on CoreOS Container Linux for production usages.</description>
     </item>
     
     <item>
@@ -28,10 +28,9 @@ Why did I built it as other projects like Kargo already exists? I just wanted a 
       <pubDate>Fri, 30 Sep 2016 21:35:17 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/</guid>
-      <description>&amp;nbsp;
-CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications.&amp;nbsp;I&amp;rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
+      <description>CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications. I&amp;rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
 As I&amp;rsquo;m still an Ansible lover, I&amp;rsquo;ve made 2 roles:
- CoreOS Ansible:&amp;nbsp;Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  If you want to quickly look at the result:</description>
+ CoreOS Ansible: Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  If you want to quickly look at the result:</description>
     </item>
     
     <item>
@@ -67,7 +66,8 @@ or view the PDF version here:</description>
       
       <guid>https://blog.deimos.fr/2015/01/27/offload-ssl-with-haproxy/</guid>
       <description>A few months ago, I already talked about offloading SSL with Nginx. I also wanted to try it with HAProxy which can be more interesting in some cases.
-The good On HAProxy, the good thing is the simplicity to do it. First of all you need to have at least the version 1.5 of HAProxy so to get SSL support. Then you only need those lines to offload SSL:</description>
+The good On HAProxy, the good thing is the simplicity to do it. First of all you need to have at least the version 1.5 of HAProxy so to get SSL support. Then you only need those lines to offload SSL:
+frontend frontend-https bind :443 ssl crt /etc/haproxy/ssl/server-unified.</description>
     </item>
     
     <item>
@@ -89,7 +89,7 @@ That&amp;rsquo;s why I&amp;rsquo;ve wrote a Packer role for Ansible really easy 
       <guid>https://blog.deimos.fr/2015/01/20/simple-ec2-snapshot-released/</guid>
       <description>For my company, I recently had to find a good solution to make Snapshots from Instance IDs or from tags on AWS. I made several searches but unfortunately didn&amp;rsquo;t find what I was searching for.
 That&amp;rsquo;s why I started to make a tool to do this kind of job. It&amp;rsquo;s written in Python and requires the Boto library. Here is what you can do with Simple EC2 snapshots:
- Hot snapshots (by default) and Cold snapshots   Multiple instances snapshot in one line   Detection of doubles   Filters by tags (allowing wildcards) or by instance IDs   Credentials file multiple with profiles   Limit the number of snapshots   Restrict snapshots to data disks only   The tool is open source and can be downloaded on GitHub :-).</description>
+The tool is open source and can be downloaded on GitHub :-).</description>
     </item>
     
   </channel>

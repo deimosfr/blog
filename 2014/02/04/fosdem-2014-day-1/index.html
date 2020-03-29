@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Once again the FOSDEM has given awesome talks ! This years I was more focused to SQL and NOSQL databases. I wanted to also see Puppet related conferences, but they were full like the last year.
@@ -294,60 +294,33 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>Once again the FOSDEM has given awesome talks ! This years I was more focused to SQL and NOSQL databases. I wanted to also see Puppet related conferences, but they were full like the last year.</p>
-
 <p><strong>Getting started with MySQL Performance Schema</strong></p>
-
 <p>First of all, I started with a MySQL Performance Schema presentation :</p>
-
-<p><a href="http://dimitrik.free.fr/mysqltechday_2013_10/MySQL_PFS_2013-dim.pdf" target="_blank">http://dimitrik.free.fr/mysqltechday_2013_10/MySQL_PFS_2013-dim.pdf</a></p>
-
+<p><a href="http://dimitrik.free.fr/mysqltechday_2013_10/MySQL_PFS_2013-dim.pdf">http://dimitrik.free.fr/mysqltechday_2013_10/MySQL_PFS_2013-dim.pdf</a></p>
 <p>I saw that I had underestimated the power of Performance schema ! We can for example see iowaits and waiting time on tables files. We can also have a lot informations on used/unused index&hellip;well need to go ahead on that.</p>
-
 <p><strong>Galera Replicator IRL</strong></p>
-
 <p>Then I&rsquo;ve seen also things about Galera Cluster :</p>
-
 <p>This was a talk on Galera for non initate people mainly. Was interesting because of clear schema explanation and Galera features possibilities.</p>
-
 <p><strong>15 Tips to improve your Galera Cluster</strong></p>
-
 <p>To finish Galera tips were very interesting :</p>
-
 <p><strong>Advanced Fulltext Search with Sphinx</strong></p>
-
 <p>SphinxSearch conference was interesting but too high level for my knowledge on the subject :</p>
-
 <p><strong>Handling failover with MySQL 5.6 and Global Transaction IDs</strong></p>
-
 <p>The GTID is simply the end of boring problems with classical MySQL replications. You got the same ID on all synced nodes. Simple to setup and migrate to it, it&rsquo;s an attended feature since a long time !</p>
-
 <p><strong>Spider Storage Engine</strong></p>
-
 <p>Spider permit horizontal partitioning (sharding). It&rsquo;s very efficient for read access, but not so much on write access.</p>
-
 <p><strong>Sharding and Scale-out using MySQL Fabric</strong></p>
-
 <p>MySQL Fabric is a proxy in Python, that permit to shard to a group of MySQL servers.</p>
-
 <p>It&rsquo;s an Alpha version for the moment, looks interesting but is 100% MySQL (Oracle).</p>
-
 <p><strong>Troubleshooting performance problems in MySQL</strong></p>
-
 <p>This presentation was fine, but the speaker didn&rsquo;t had the time to finish unfortunately.</p>
-
 <p>I liked his presentation as he reviewed a lot of basic things but I felt he knows well about what he was talking and it was interesting then.</p>
-
 <p><strong>ProxySQL : High Availability and High Performance Proxy for MySQL</strong></p>
-
 <p>ProxySQL is a solution to permit splitting write/read access.</p>
-
 <p>It&rsquo;s only made by one person but really looks fine ! We were waiting so long time a good replacement of MySQL Proxy.</p>
-
 <p><strong>MaxScale, the Pluggable Router</strong></p>
-
 <p>MaxScale looks like ProxySQL, is made by SkySQL, not really mature but may be a good solution in the next years :</p>
-
-<p>The first version went out last week and is available on <a href="https://github.com/skysql/MaxScale" target="_blank">GitHub</a>.</p>
+<p>The first version went out last week and is available on <a href="https://github.com/skysql/MaxScale">GitHub</a>.</p>
 
               
             </div>
@@ -444,7 +417,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="For another personal project (that I can&rsquo;t talk about for the moment ;-)), I wanted to have a Changelog file to get a better following of the infrastructure evolution (configuration management, scripts&hellip;all under git). Of course the documentation is very important, but when you do not write it at the same time you&rsquo;re building the infrastructure, it may be complex to remember each little things you&rsquo;ve done. That&rsquo;s why a Changelog can help to understand how the infrastructure has been built step by step.">
@@ -298,19 +298,12 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              
-
-<p><img src="https://blog.deimos.fr/images/logo_git.png" alt="Git-logo" />
+              <p><img src="https://blog.deimos.fr/images/logo_git.png" alt="Git-logo">
 For another personal project (that I can&rsquo;t talk about for the moment ;-)), I wanted to have a Changelog file to get a better following of the infrastructure evolution (configuration management, scripts&hellip;all under git). Of course the documentation is very important, but when you do not write it at the same time you&rsquo;re building the infrastructure, it may be complex to remember each little things you&rsquo;ve done. That&rsquo;s why a Changelog can help to understand how the infrastructure has been built step by step.</p>
-
 <p>I&rsquo;m going to show you how I achieved it. This is not a generic system, but brings you the keys to adapt for your needs.</p>
-
 <h2 id="the-goal">The goal</h2>
-
 <p>That&rsquo;s why I wanted to have a Changelog up to date. But&hellip;have you ever tried to maintain by hand a Changelog? I pretty sure yes and you know this is boring! That&rsquo;s why I wanted something automatic. More than that, I wanted to have direct links to my ticketing system on hashtags detection.</p>
-
-<p>A few weeks ago, I watched <a href="http://www.infoq.com/fr/presentations/git-niveau-superieur-gestion-version" target="_blank">a video on a Meetup about how to level up with git</a> (one of the best practices and why). After adopting and adapting a bit this, I decided to have commits comments format like that:</p>
-
+<p>A few weeks ago, I watched <a href="http://www.infoq.com/fr/presentations/git-niveau-superieur-gestion-version">a video on a Meetup about how to level up with git</a> (one of the best practices and why). After adopting and adapting a bit this, I decided to have commits comments format like that:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">##</span>
 <span class="c1">## Format</span>
 <span class="c1">##</span>
@@ -368,15 +361,10 @@ For another personal project (that I can&rsquo;t talk about for the moment ;-)),
 <span class="c1">##   first line will be considered as the &#34;summary&#34; of the commit message. So</span>
 <span class="c1">##   tags, and other rules only applies to the summary.  The body of the commit</span>
 <span class="c1">##   message will be displayed in the changelog without reformatting.</span></code></pre></div>
-
 <p>With this kind of comments, I was able to generate something to help me to build the Changelog. In the same video, they were talking about a custom Ruby script which cloud do the job. However a big part of my tools and infrastructure are written in Python and wanted to have a maintained tool in Python to do it.</p>
-
 <h2 id="the-tool">The tool</h2>
-
-<p>After a little bit of research, I&rsquo;ve found <a href="https://pypi.python.org/pypi/gitchangelog" target="_blank">gitchangelog</a> tool. This is a light Python script installable via pip which will generate a markdown file from git logs. That was exactly what I was searching for. But as you know, it doesn&rsquo;t work out of the box because I already have decided of the format I wanted.</p>
-
+<p>After a little bit of research, I&rsquo;ve found <a href="https://pypi.python.org/pypi/gitchangelog">gitchangelog</a> tool. This is a light Python script installable via pip which will generate a markdown file from git logs. That was exactly what I was searching for. But as you know, it doesn&rsquo;t work out of the box because I already have decided of the format I wanted.</p>
 <p>So I adapted the configuration (.gitchangelog.rc) to make it work with the wished log format. The configuration looks like this:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Ignore comments</span>
 <span class="n">ignore_regexps</span> <span class="o">=</span> <span class="p">[</span>
         <span class="sa">r</span><span class="s1">&#39;@minor&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;!minor&#39;</span><span class="p">,</span>
@@ -419,15 +407,10 @@ For another personal project (that I can&rsquo;t talk about for the moment ;-)),
 <span class="c1"># Generate markdown</span>
 <span class="n">output_engine</span> <span class="o">=</span> <span class="n">rest_py</span>
 <span class="n">include_merges</span> <span class="o">=</span> <span class="bp">True</span></code></pre></div>
-
 <p>As you can see, it&rsquo;s only regex. You can read the full commented lines in the configuration file (shrinked here) for a better understanding of what you can do. Subject is separated from the body, they both have their own regex and a link to the ticketing system is automatically generated with &lsquo;#INF-&rsquo; prefix. I do not wanted the body information appearing in the Changelog, so I substituted the content with nothing.</p>
-
 <p>I was now able to generate markdown by using gitchangelog command. There, I achieved the first step.</p>
-
 <h2 id="integration-with-sphinxdoc">Integration with sphinxdoc</h2>
-
 <p>To make it better, I wanted to have an integration with Sphinxdoc as I&rsquo;m using it for the project. I updated so the Makefile to generate the changelog before making the documentation like that:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># CHANGELOGFILE = changelog.rst</span>
 <span class="n">GENCHANGELOG</span>  <span class="o">=</span> <span class="err">$</span><span class="p">(</span><span class="n">GITCHLOGBIN</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">source</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">CHANGELOGFILE</span><span class="p">)</span> <span class="o">||</span> <span class="nb">exit</span> <span class="mi">1</span>
 <span class="o">...</span>
@@ -436,23 +419,14 @@ For another personal project (that I can&rsquo;t talk about for the moment ;-)),
     <span class="err">$</span><span class="p">(</span><span class="n">SPHINXBUILD</span><span class="p">)</span> <span class="o">-</span><span class="n">b</span> <span class="n">html</span> <span class="err">$</span><span class="p">(</span><span class="n">ALLSPHINXOPTS</span><span class="p">)</span> <span class="err">$</span><span class="p">(</span><span class="n">BUILDDIR</span><span class="p">)</span><span class="o">/</span><span class="n">html</span>
     <span class="nd">@echo</span>
     <span class="nd">@echo</span> <span class="s2">&#34;Build finished. The HTML pages are in $(BUILDDIR)/html.&#34;</span></code></pre></div>
-
 <h2 id="the-result">The result</h2>
-
 <p>The result looks like this:</p>
-
-<p><img src="https://blog.deimos.fr/images/sphinx_changelog-1024x585.png" alt="sphinx_changelog-1024x585" /></p>
-
+<p><img src="https://blog.deimos.fr/images/sphinx_changelog-1024x585.png" alt="sphinx_changelog-1024x585"></p>
 <p>Cool isn&rsquo;t it? No more manual Changelog to do and it&rsquo;s nicely integrated in Sphinxdoc :-)</p>
-
 <h2 id="avoid-mistakes-with-hook">Avoid mistakes with hook</h2>
-
 <p>To get a good Changelog without issues, I also needed to have a hook on the server side to check and validate the subject. The git server I&rsquo;m using for the project is Stash and I&rsquo;m using an already existing hook to do the job. This is not perfect but it works with this regex:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-perl" data-lang="perl"><span class="p">(</span><span class="n">feat</span><span class="o">|</span><span class="n">fix</span><span class="o">|</span><span class="n">refactor</span><span class="o">|</span><span class="n">chore</span><span class="o">|</span><span class="n">test</span><span class="o">|</span><span class="n">style</span><span class="o">|</span><span class="n">docs</span><span class="p">)</span><span class="o">\</span><span class="p">(</span><span class="o">.*\</span><span class="p">):</span><span class="o">.*</span><span class="c1">#(INF-\d+|noticket|nt)</span></code></pre></div>
-
 <p>You may need to develop a custom hook on other git server.</p>
-
 <p>Hope you&rsquo;ve enjoyed reading</p>
 
               
@@ -556,7 +530,7 @@ For another personal project (that I can&rsquo;t talk about for the moment ;-)),
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

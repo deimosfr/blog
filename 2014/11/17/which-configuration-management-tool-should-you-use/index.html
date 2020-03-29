@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="First of all I will only talk about open sources solutions. I don&rsquo;t want to take part of any commercial one. In addition, I will focus on only 4 solutions which seem to me the most used at this time. I will also talk about my history, my level on each one and why I recommend or not that solution.
@@ -288,13 +288,9 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>First of all I will only talk about open sources solutions. I don&rsquo;t want to take part of any commercial one. In addition, I will focus on only 4 solutions which seem to me the most used at this time. I will also talk about my history, my level on each one and why I recommend or not that solution.</p>
-
-<p><img src="https://wiki.deimos.fr/images/e/ef/Puppet-short.png" alt="Puppet-short" /></p>
-
-<p>Puppet is in my opinion the most known solution. Because of the marketing they were/are doing, because it was a good alternative compared to the old cfengine. I&rsquo;m now using Puppet for about 6 years. I felt in love with that solution when I first used it to configure Solaris servers I had to manage. That simplified my life a lot at this time. Things done were simple, <strong>the DSL was light</strong>, but gave me a solution to avoid forgetting to configure things on a fresh server installation. Puppet needs a lot of time to be familiar with the DSL but once done, you&rsquo;ll win time. I had to rewrite from scratch a Puppet master when I switched to RedHat to make better manifests. I enjoyed doing it and you can find a big part of that job on my <a href="https://wiki.deimos.fr/Puppet_:_Solution_de_gestion_de_fichier_de_configuration" target="_blank">wiki</a>. However there is no Hiera because it wasn&rsquo;t out at this time. I waste time as well because stdlib didn&rsquo;t exist and I had to write my own lib :-/.</p>
-
+<p><img src="https://wiki.deimos.fr/images/e/ef/Puppet-short.png" alt="Puppet-short"></p>
+<p>Puppet is in my opinion the most known solution. Because of the marketing they were/are doing, because it was a good alternative compared to the old cfengine. I&rsquo;m now using Puppet for about 6 years. I felt in love with that solution when I first used it to configure Solaris servers I had to manage. That simplified my life a lot at this time. Things done were simple, <strong>the DSL was light</strong>, but gave me a solution to avoid forgetting to configure things on a fresh server installation. Puppet needs a lot of time to be familiar with the DSL but once done, you&rsquo;ll win time. I had to rewrite from scratch a Puppet master when I switched to RedHat to make better manifests. I enjoyed doing it and you can find a big part of that job on my <a href="https://wiki.deimos.fr/Puppet_:_Solution_de_gestion_de_fichier_de_configuration">wiki</a>. However there is no Hiera because it wasn&rsquo;t out at this time. I waste time as well because stdlib didn&rsquo;t exist and I had to write my own lib :-/.</p>
 <p>I really like Puppet but there are several bad points in my opinion:</p>
-
 <ul>
 <li>You need an <strong>agent on all your servers</strong></li>
 <li>The connexion is between client to server and it can&rsquo;t be reversed. It&rsquo;s a shame for DMZ and it makes things complicated if you&rsquo;re using cloud with the Puppet master out of the cloud.</li>
@@ -303,19 +299,12 @@ if (!doNotTrack) {
 <li>You need to deploy a lot of things and use a lot of tool to get all features (stdlib, PuppetDB, Dashboard, Hiera (now builtin), mcollective&hellip;)</li>
 <li>You&rsquo;re restricted to the DSL and need to do ugly tricks to get out of it.</li>
 </ul>
-
 <p>Puppet is a good solution, but if I had to write something from scratch, I won&rsquo;t choose that solution.</p>
-
-<p><img src="https://blog.deimos.fr/images/logo_chef.png" alt="OC_Chef_Logo-300x236" /></p>
-
+<p><img src="https://blog.deimos.fr/images/logo_chef.png" alt="OC_Chef_Logo-300x236"></p>
 <p>This part won&rsquo;t be longer because I have not a real experience on it. It appeared approximately at the same time of Puppet, it&rsquo;s written in Ruby as well BUT <strong>there is no DSL</strong>! And that&rsquo;s what I like in it. Just write your receipts in ruby and <strong>call Chef methods when you need</strong>. This is a better approach in my opinion.</p>
-
 <p>So today if I had to choose between Puppet and Chef, it would be hard because of the tone of available modules in the Puppet Forge. There are unfortunately more company that invested in Puppet than Chef (like Cisco or VMware). What I recommend in that case is: if you do no need a lot of specific module, use Chef to be more flexible, instead use Puppet if you don&rsquo;t need that flexibility and can satisfy with available modules.</p>
-
-<p><img src="https://blog.deimos.fr/images/logo_saltstack.png" alt="SaltStack-logo-black-on-white-300x187" /></p>
-
+<p><img src="https://blog.deimos.fr/images/logo_saltstack.png" alt="SaltStack-logo-black-on-white-300x187"></p>
 <p>I&rsquo;m not familiar with this one neither but read enough article and met enough familiar users with this technology to know that it&rsquo;s a good outsider. The feedbacks I had are:</p>
-
 <ul>
 <li><strong>More flexible</strong> than Puppet</li>
 <li>Written in Python</li>
@@ -324,13 +313,9 @@ if (!doNotTrack) {
 <li>Connexion way can be from client to server or server to client.</li>
 <li><strong>Orchestration</strong> integrated</li>
 </ul>
-
 <p>This solution looks like very interesting but requires unfortunately a lot of dependencies to install on your client servers. Salt is a new generation configuration management tool with a strong community.</p>
-
-<p><img src="https://blog.deimos.fr/images/logo_ansible.png" alt="ansible_logo-300x300" /></p>
-
+<p><img src="https://blog.deimos.fr/images/logo_ansible.png" alt="ansible_logo-300x300"></p>
 <p>This is my favorite. I love Ansible and totally replaced Puppet with it on my personal infrastructure. Here is what I like:</p>
-
 <ul>
 <li><strong>Very small dependencies</strong></li>
 <li><strong>Agentless</strong> :-)</li>
@@ -341,11 +326,8 @@ if (!doNotTrack) {
 <li><strong>Orchestration</strong> integrated</li>
 <li>Lot of modules by default</li>
 </ul>
-
-<p>Ansible is very easy to use, you&rsquo;ll learn it in a very short time, you can do complicated things without having to write a lot of lines. Ansible is very flexible and I really like that solution. I&rsquo;m using it for about 6 months now, <a href="https://github.com/search?q=user%3Adeimosfr+ansible" target="_blank">wrote several Playbook</a> (for ElasticSearch/Kibana/Fluentd, Naemon&hellip;) and if I have the choice between all those 4 solutions, I use Ansible without any hesitations! I&rsquo;ve recently been to OpenStack summit and a lot of people were talking about using it to deploy OpenStack which sounds the best option. Ansible and SaltStack are the outsiders! Ansible is the youngest solution but the most promising in my humble opinion.</p>
-
+<p>Ansible is very easy to use, you&rsquo;ll learn it in a very short time, you can do complicated things without having to write a lot of lines. Ansible is very flexible and I really like that solution. I&rsquo;m using it for about 6 months now, <a href="https://github.com/search?q=user%3Adeimosfr+ansible">wrote several Playbook</a> (for ElasticSearch/Kibana/Fluentd, Naemon&hellip;) and if I have the choice between all those 4 solutions, I use Ansible without any hesitations! I&rsquo;ve recently been to OpenStack summit and a lot of people were talking about using it to deploy OpenStack which sounds the best option. Ansible and SaltStack are the outsiders! Ansible is the youngest solution but the most promising in my humble opinion.</p>
 <p>My conclusion is, there is no good or bad solution. They all have their pros and cons. Some are old and stable while others outsiders are young, easier and more flexible. You&rsquo;ve understood that I prefer Ansible for several reasons and I really think this will be a major actor in the next years.</p>
-
 <p>I hope this will gives you enough weight to choose the best solution for your needs.</p>
 
               
@@ -445,7 +427,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

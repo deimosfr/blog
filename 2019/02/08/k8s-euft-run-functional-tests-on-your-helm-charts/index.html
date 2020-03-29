@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="I&rsquo;m managing applications inside Kubernetes for more than 2 years for MySocialApp a social news feed solution and recently Referlab, an impressive referral marketing solution. If you follow me, you certainly know that I&rsquo;ve made multiple Helm charts on distributed technologies like:
@@ -314,33 +314,21 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              
-
-<p><img src="https://blog.deimos.fr/images/logo_kubernetes.png" alt="Kubernetes" /></p>
-
-<p>I&rsquo;m managing applications inside <a href="https://kubernetes.io/" target="_blank">Kubernetes</a> for more than 2 years for <a href="https://mysocialapp.io/" target="_blank">MySocialApp</a> a social news feed solution and recently <a href="https://www.referlab.io/" target="_blank">Referlab</a>, an impressive referral marketing solution. If you follow me, you certainly know that I&rsquo;ve made multiple <a href="https://helm.sh/" target="_blank">Helm charts</a> on distributed technologies like:</p>
-
+              <p><img src="https://blog.deimos.fr/images/logo_kubernetes.png" alt="Kubernetes"></p>
+<p>I&rsquo;m managing applications inside <a href="https://kubernetes.io/">Kubernetes</a> for more than 2 years for <a href="https://mysocialapp.io/">MySocialApp</a> a social news feed solution and recently <a href="https://www.referlab.io/">Referlab</a>, an impressive referral marketing solution. If you follow me, you certainly know that I&rsquo;ve made multiple <a href="https://helm.sh/">Helm charts</a> on distributed technologies like:</p>
 <ul>
-<li><a href="https://github.com/MySocialApp/kubernetes-helm-chart-cassandra" target="_blank">Cassandra Helm chart</a></li>
-<li><a href="https://github.com/MySocialApp/kubernetes-helm-chart-elasticsearch/tree/es6" target="_blank">Elasticsearch Helm chart</a></li>
-<li><a href="https://github.com/MySocialApp/kubernetes-helm-chart-traefik" target="_blank">Traefik Helm chart</a></li>
+<li><a href="https://github.com/MySocialApp/kubernetes-helm-chart-cassandra">Cassandra Helm chart</a></li>
+<li><a href="https://github.com/MySocialApp/kubernetes-helm-chart-elasticsearch/tree/es6">Elasticsearch Helm chart</a></li>
+<li><a href="https://github.com/MySocialApp/kubernetes-helm-chart-traefik">Traefik Helm chart</a></li>
 </ul>
-
 <p>After several years of experience on it, you can trust me when I say <strong>managing statefulset on Kubernetes is not the easiest thing to do</strong>. Moreover when you&rsquo;re not on a cloud Kubernetes version with facilities like distributed shared storage. It&rsquo;s one step harder. <strong>If you&rsquo;re not able to test the behavior of your distributed application, you can be sure it&rsquo;s born to fail</strong>.</p>
-
-<p>That&rsquo;s why I started to look at a testing framework made for Kubernetes to test the behavhior of the running applications in some circumstances. Unfortunately, I didn&rsquo;t find anything. That&rsquo;s why I decided to make something simple, maintainable, locally testable. I&rsquo;ve create: <a href="https://github.com/MySocialApp/k8s-euft" target="_blank">K8s End User Funtional Testing, aka k8s-euft</a>. In this blog post I&rsquo;ll explain how it works and why I&rsquo;ve made some choices.</p>
-
+<p>That&rsquo;s why I started to look at a testing framework made for Kubernetes to test the behavhior of the running applications in some circumstances. Unfortunately, I didn&rsquo;t find anything. That&rsquo;s why I decided to make something simple, maintainable, locally testable. I&rsquo;ve create: <a href="https://github.com/MySocialApp/k8s-euft">K8s End User Funtional Testing, aka k8s-euft</a>. In this blog post I&rsquo;ll explain how it works and why I&rsquo;ve made some choices.</p>
 <h1 id="setup">Setup</h1>
-
 <p>Hands on! Next to a chart, simply create a tests folder and add this repository as a submodule (or clone it if you don&rsquo;t want to use submodules):</p>
-
-<pre><code class="language-bash">mkdir tests &amp;&amp; cd tests
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mkdir tests <span class="o">&amp;&amp;</span> <span class="nb">cd</span> tests
 git submodule add https://github.com/MySocialApp/k8s-euft.git
 cat k8s-euft/examples/.gitignore &gt;&gt; ../.gitignore
-</code></pre>
-
-<p>Here is a common example on what the hierarchy of your helm chart with k8s-euft looks like:</p>
-
+</code></pre></div><p>Here is a common example on what the hierarchy of your helm chart with k8s-euft looks like:</p>
 <pre><code>.
 ├── kubernetes
 │   ├── Chart.yaml
@@ -372,116 +360,89 @@ cat k8s-euft/examples/.gitignore &gt;&gt; ../.gitignore
     ├── README.md
     ├── run_tests.sh
     └── Vagrantfile
-</code></pre>
-
-<p>The kubernetes folder contains your helm chart and the test folder is next to it.</p>
-
+</code></pre><p>The kubernetes folder contains your helm chart and the test folder is next to it.</p>
 <h1 id="bats-tests">Bats tests</h1>
-
-<p>As you can see above, there are some <code>*.bats</code> files in the <code>play</code> folder. Most of my tests are in bash for simplicity (but you can chose any other language/solution for it) and I&rsquo;m using <a href="https://github.com/bats-core/bats-core" target="_blank">bats</a> (Bash Automated Testing System) to make it <strong>even more simple</strong>.</p>
-
+<p>As you can see above, there are some <code>*.bats</code> files in the <code>play</code> folder. Most of my tests are in bash for simplicity (but you can chose any other language/solution for it) and I&rsquo;m using <a href="https://github.com/bats-core/bats-core">bats</a> (Bash Automated Testing System) to make it <strong>even more simple</strong>.</p>
 <blockquote>
 <p>Bats is a TAP-compliant testing framework for Bash. It provides a simple way to verify that the UNIX programs you write behave as expected.</p>
 </blockquote>
-
 <p>I&rsquo;ve split bats files regading the functions I want to run. This make it <strong>easily reusable</strong>.</p>
-
 <h1 id="local-and-remote-tests-integration">Local and Remote tests integration</h1>
-
 <p><strong>Being able to quickly test locally and remotely in an isolated and reproductible environment is mandatory</strong>. That&rsquo;s why I&rsquo;ve decided to use:</p>
-
 <ul>
-<li>For remote testing: <a href="https://travis-ci.org/" target="_blank">Travis</a> is one of the most used, free, CI solution. Linked to GitHub, is fast to setup automated tests.</li>
-<li>For local testing: Using <a href="https://www.vagrantup.com/" target="_blank">Vagrant</a> is standard enough to easily launch a VM running all the required tests on your local computer.</li>
+<li>For remote testing: <a href="https://travis-ci.org/">Travis</a> is one of the most used, free, CI solution. Linked to GitHub, is fast to setup automated tests.</li>
+<li>For local testing: Using <a href="https://www.vagrantup.com/">Vagrant</a> is standard enough to easily launch a VM running all the required tests on your local computer.</li>
 </ul>
-
 <p>I&rsquo;ve made a simple Go script for local tests which is in a fact a really basic <code>.travis.yml</code> parser. Its goal is to look at environment variables it has to load and tasks it has to run. This way I don&rsquo;t have to write 2 differents ways to execute the tests (one for local and one for remote) but only: the Travis one.</p>
-
 <p>Taking as an example a Travis configuration file:</p>
-
-<pre><code class="language-yaml">---
-language: go
-sudo: required
-
-env:
-  - K8S_VERSION=1.12 HELM_VERSION=2.12.3 NUM_NODES=3 SKIP_SNAPSHOT=y PATH=&quot;$HOME/.kubeadm-dind-cluster:/tmp/linux-amd64:$PATH&quot;
-  - K8S_VERSION=1.11 HELM_VERSION=2.12.3 NUM_NODES=3 SKIP_SNAPSHOT=y PATH=&quot;$HOME/.kubeadm-dind-cluster:/tmp/linux-amd64:$PATH&quot;
-
-install:
-  - tests/k8s-euft/helm.sh local_install || exit 1
-  - bats tests/k8s-euft/helm_lint.bats || exit 1
-  - tests/k8s-euft/bootstrap_k8s.sh || exit 1
-  - tests/k8s-euft/helm.sh install || exit 1
-
-script:
-  - tests/run_tests.sh
-</code></pre>
-
-<p>Here you can define (in the <code>env</code> section) the version of Kubernetes you want to run, the version of helm that should be installed, the number of kubernetes nodes (workers) you want to run etc&hellip;to finally run the tests script (<code>run_tests.sh</code>).</p>
-
-<p>Not complicated right? How Kubernetes is installed? I&rsquo;m using <a href="https://github.com/kubernetes-sigs/kubeadm-dind-cluster" target="_blank">Kubeadm Dind Cluster</a>, a script launching a quick install of Kubernetes in <a href="https://www.docker.com/" target="_blank">Docker</a>, you get it ready in few min. Note: If you want to install older Kubernetes version, you can pin the Kubeadm Dind Cluster repo to a Tag/Branch/Git commit with <code>GIT_REV</code> variable in the <code>env</code> section.</p>
-
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">---<span class="w">
+</span><span class="w"></span><span class="k">language</span><span class="p">:</span><span class="w"> </span>go<span class="w">
+</span><span class="w"></span><span class="k">sudo</span><span class="p">:</span><span class="w"> </span>required<span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">env</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- K8S_VERSION=<span class="m">1.12</span><span class="w"> </span>HELM_VERSION=<span class="m">2.12.3</span><span class="w"> </span>NUM_NODES=<span class="m">3</span><span class="w"> </span>SKIP_SNAPSHOT=y<span class="w"> </span>PATH=<span class="s2">&#34;$HOME/.kubeadm-dind-cluster:/tmp/linux-amd64:$PATH&#34;</span><span class="w">
+</span><span class="w">  </span>- K8S_VERSION=<span class="m">1.11</span><span class="w"> </span>HELM_VERSION=<span class="m">2.12.3</span><span class="w"> </span>NUM_NODES=<span class="m">3</span><span class="w"> </span>SKIP_SNAPSHOT=y<span class="w"> </span>PATH=<span class="s2">&#34;$HOME/.kubeadm-dind-cluster:/tmp/linux-amd64:$PATH&#34;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">install</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- tests/k8s-euft/helm.sh<span class="w"> </span>local_install<span class="w"> </span>||<span class="w"> </span>exit<span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">  </span>- bats<span class="w"> </span>tests/k8s-euft/helm_lint.bats<span class="w"> </span>||<span class="w"> </span>exit<span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">  </span>- tests/k8s-euft/bootstrap_k8s.sh<span class="w"> </span>||<span class="w"> </span>exit<span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">  </span>- tests/k8s-euft/helm.sh<span class="w"> </span>install<span class="w"> </span>||<span class="w"> </span>exit<span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">script</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- tests/run_tests.sh<span class="w">
+</span></code></pre></div><p>Here you can define (in the <code>env</code> section) the version of Kubernetes you want to run, the version of helm that should be installed, the number of kubernetes nodes (workers) you want to run etc&hellip;to finally run the tests script (<code>run_tests.sh</code>).</p>
+<p>Not complicated right? How Kubernetes is installed? I&rsquo;m using <a href="https://github.com/kubernetes-sigs/kubeadm-dind-cluster">Kubeadm Dind Cluster</a>, a script launching a quick install of Kubernetes in <a href="https://www.docker.com/">Docker</a>, you get it ready in few min. Note: If you want to install older Kubernetes version, you can pin the Kubeadm Dind Cluster repo to a Tag/Branch/Git commit with <code>GIT_REV</code> variable in the <code>env</code> section.</p>
 <h1 id="vagrant">Vagrant</h1>
-
 <p>The Vagrantfile will look like this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&#34;2&#34;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
 
-<pre><code class="language-ruby">Vagrant.configure(&quot;2&quot;) do |config|
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&#34;deimos_fr/debian-stretch&#34;</span>
+  <span class="c1">#config.vm.box = &#34;geerlingguy/centos7&#34;</span>
 
-  config.vm.box = &quot;deimos_fr/debian-stretch&quot;
-  #config.vm.box = &quot;geerlingguy/centos7&quot;
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">synced_folder</span> <span class="s2">&#34;..&#34;</span><span class="p">,</span> <span class="s2">&#34;/vagrant_data&#34;</span>
 
-  config.vm.synced_folder &quot;..&quot;, &quot;/vagrant_data&quot;
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span> <span class="s2">&#34;virtualbox&#34;</span> <span class="k">do</span> <span class="o">|</span><span class="n">vb</span><span class="o">|</span>
+      <span class="n">vb</span><span class="o">.</span><span class="n">cpus</span> <span class="o">=</span> <span class="mi">4</span>
+      <span class="n">vb</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="s2">&#34;4096&#34;</span>
+  <span class="k">end</span>
 
-  config.vm.provider &quot;virtualbox&quot; do |vb|
-      vb.cpus = 4
-      vb.memory = &quot;4096&quot;
-  end
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&#34;private_network&#34;</span><span class="p">,</span> <span class="ss">type</span><span class="p">:</span> <span class="s2">&#34;dhcp&#34;</span>
 
-  config.vm.network &quot;private_network&quot;, type: &quot;dhcp&quot;
-
-  config.vm.provision &quot;shell&quot;, inline: &lt;&lt;-SHELL
-    cd /vagrant_data
-    source tests/k8s-euft/env.bash
-    tests/k8s-euft/prerequisites.sh
-    go run tests/k8s-euft/travis-exec.go .travis.yml
-  SHELL
-end
-</code></pre>
-
-<p>Really basic, not a lot of operation to execute and repeatable. As I&rsquo;m using Vagrant, the most common option to run the VM is <a href="https://www.virtualbox.org/" target="_blank">Virtualbox</a>. But Vagrant is also able to use other providers, so you can easily run those tests in the cloud for instance :)</p>
-
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&#34;shell&#34;</span><span class="p">,</span> <span class="ss">inline</span><span class="p">:</span> <span class="s">&lt;&lt;-SHELL
+</span><span class="s"></span>    <span class="n">cd</span> <span class="sr">/vagrant_data
+</span><span class="sr">    source tests/</span><span class="n">k8s</span><span class="o">-</span><span class="n">euft</span><span class="o">/</span><span class="n">env</span><span class="o">.</span><span class="n">bash</span>
+    <span class="n">tests</span><span class="o">/</span><span class="n">k8s</span><span class="o">-</span><span class="n">euft</span><span class="o">/</span><span class="n">prerequisites</span><span class="o">.</span><span class="n">sh</span>
+    <span class="n">go</span> <span class="n">run</span> <span class="n">tests</span><span class="o">/</span><span class="n">k8s</span><span class="o">-</span><span class="n">euft</span><span class="o">/</span><span class="n">travis</span><span class="o">-</span><span class="nb">exec</span><span class="o">.</span><span class="n">go</span> <span class="o">.</span><span class="n">travis</span><span class="o">.</span><span class="n">yml</span>
+  <span class="no">SHELL</span>
+<span class="k">end</span>
+</code></pre></div><p>Really basic, not a lot of operation to execute and repeatable. As I&rsquo;m using Vagrant, the most common option to run the VM is <a href="https://www.virtualbox.org/">Virtualbox</a>. But Vagrant is also able to use other providers, so you can easily run those tests in the cloud for instance :)</p>
 <h1 id="run-your-tests">Run your tests</h1>
-
 <p>Now you&rsquo;re good to go, let&rsquo;s go inside the <code>tests</code> folder and run vagrant:</p>
-
-<pre><code class="language-bash">$ vagrant up
-Bringing machine 'default' up with 'virtualbox' provider...
-[...]
-    default: [+] Running command: tests/run_tests.sh
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ vagrant up
+Bringing machine <span class="s1">&#39;default&#39;</span> up with <span class="s1">&#39;virtualbox&#39;</span> provider...
+<span class="o">[</span>...<span class="o">]</span>
+    default: <span class="o">[</span>+<span class="o">]</span> Running command: tests/run_tests.sh
     default:
-    default: ########################################
+    default: <span class="c1">########################################</span>
     default: Prepare cluster
-    default: ########################################
+    default: <span class="c1">########################################</span>
     default: 1..2
-    default: ok 1 Ensure number of nodes is set: 3
-    default: ok 2 Ensure nodes has correct labels
+    default: ok <span class="m">1</span> Ensure number of nodes is set: <span class="m">3</span>
+    default: ok <span class="m">2</span> Ensure nodes has correct labels
     default:
-    default: ########################################
+    default: <span class="c1">########################################</span>
     default: Regular Couchbase deploy
-    default: ########################################
+    default: <span class="c1">########################################</span>
     default: 1..4
-[...]
-    default: All tests passed :)
-</code></pre>
-
-<p>To conclude, it&rsquo;s KISS and agile, I&rsquo;m using this on several projects with success. You can find some examples here:</p>
-
+<span class="o">[</span>...<span class="o">]</span>
+    default: All tests passed :<span class="o">)</span>
+</code></pre></div><p>To conclude, it&rsquo;s KISS and agile, I&rsquo;m using this on several projects with success. You can find some examples here:</p>
 <ul>
-<li><a href="https://github.com/MySocialApp/kubernetes-helm-chart-cassandra" target="_blank">Cassandra Helm chart</a></li>
-<li><a href="https://github.com/MySocialApp/kubernetes-helm-chart-elasticsearch/tree/es6" target="_blank">Elasticsearch Helm chart</a></li>
-<li><a href="https://github.com/MySocialApp/kubernetes-helm-chart-traefik" target="_blank">Traefik Helm chart</a></li>
+<li><a href="https://github.com/MySocialApp/kubernetes-helm-chart-cassandra">Cassandra Helm chart</a></li>
+<li><a href="https://github.com/MySocialApp/kubernetes-helm-chart-elasticsearch/tree/es6">Elasticsearch Helm chart</a></li>
+<li><a href="https://github.com/MySocialApp/kubernetes-helm-chart-traefik">Traefik Helm chart</a></li>
 </ul>
-
 <p>I hope you&rsquo;ll be happy to get something as well. Feel free to contribute :)</p>
 
               
@@ -522,7 +483,7 @@ Bringing machine 'default' up with 'virtualbox' provider...
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2020/03/29/arch-linux-install-with-uefi-and-encrypted-disk/" data-tooltip="Arch Linux install with UEFI and encrypted disk">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -589,7 +550,7 @@ Bringing machine 'default' up with 'virtualbox' provider...
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 
@@ -602,7 +563,7 @@ Bringing machine 'default' up with 'virtualbox' provider...
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2020/03/29/arch-linux-install-with-uefi-and-encrypted-disk/" data-tooltip="Arch Linux install with UEFI and encrypted disk">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>

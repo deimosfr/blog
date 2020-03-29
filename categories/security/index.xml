@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Security on Deimosfr Blog</title>
@@ -82,8 +82,7 @@ If you like Packet Filter, you&amp;rsquo;ll be happy. If you&amp;rsquo;re not su
       
       <guid>https://blog.deimos.fr/2013/11/24/iptables-is-going-to-be-replaced-by-nftables/</guid>
       <description>If you’re not aware that the next kernel version will replace iptables by nftables, it’s time to learn on how it works, what are the features, why the change and how to use it.
-If like me, you love PF, you&amp;rsquo;ll be pleased to find a similar syntax on NFtables ! To have a good introduction on it, look at those slides :
-  Kernel Recipes 2013 - Nftables, what motivations and what solutions  from Anne Nicolas</description>
+If like me, you love PF, you&amp;rsquo;ll be pleased to find a similar syntax on NFtables ! To have a good introduction on it, look at those slides :</description>
     </item>
     
     <item>
@@ -155,8 +154,8 @@ Pour ceux que ça intéresse, j&amp;rsquo;ai donc concocté comme à mon habitud
       <guid>https://blog.deimos.fr/2011/04/05/verifier-la-securite-de-votre-serveur/</guid>
       <description>Je ne le répèterais jamais assez, vérifiez votre installation et configuration et testez là ensuite !
 Je suis confronté actuellement à un serveur qui passe son temps à se faire hacker. J&amp;rsquo;ai du auditer la sécurité de celui ci et je me rends compte que beaucoup de personne néglige les aspects de la sécurité. Pourquoi tant d&amp;rsquo;acharnement ? Faut dire aussi :
- Pas de Firewall
- Pas de modules de sécurité</description>
+  Pas de Firewall
+  Pas de modules de sécurité</description>
     </item>
     
     <item>
@@ -166,7 +165,7 @@ Je suis confronté actuellement à un serveur qui passe son temps à se faire ha
       
       <guid>https://blog.deimos.fr/2011/03/02/projet-rancid-search/</guid>
       <description>Revoilà encore un nouveau projet. Il s&amp;rsquo;agit de Rancid Search.
-Vous connaissez déjà peut être Rancid qui permet de faire des backups de vos chers équipements Cisco et de les stocker dans un VCS. Au taf, mon équipe réseaux se plaignait de ne pas pouvoir faire de recherche dans tous les équipements cisco d&amp;rsquo;un coup. Imaginez plusieurs équipements avec pour certain plus de 25000 lignes d&amp;rsquo;ACL et autre configuration VPN.</description>
+Vous connaissez déjà peut être Rancid qui permet de faire des backups de vos chers équipements Cisco et de les stocker dans un VCS. Au taf, mon équipe réseaux se plaignait de ne pas pouvoir faire de recherche dans tous les équipements cisco d&amp;rsquo;un coup. Imaginez plusieurs équipements avec pour certain plus de 25000 lignes d&amp;rsquo;ACL et autre configuration VPN. Pour faire des recherches, il fallait déjà savoir sur quelle équipement se connecter, puis chercher dans la conf.</description>
     </item>
     
     <item>

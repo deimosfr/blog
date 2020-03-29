@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="I&rsquo;m an amateur photographer and I&rsquo;m using an Olympus E-M1 Mark II camera. I take photos in RAW mode to be able. For those who know me, my computer is running on Linux and I&rsquo;m using Geeqie to display RAW picture. It&rsquo;s a very fast and powerful solution to display them.
@@ -278,22 +278,15 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/photo_milkyway.jpg" alt="milkyway" /></p>
-
-<p>I&rsquo;m an amateur photographer and I&rsquo;m using an <a href="https://www.olympus.co.uk/site/en/c/cameras/om_d_system_cameras/om_d/e_m1_mark_ii/index.html" target="_blank">Olympus E-M1 Mark II</a> camera. I take photos in RAW mode to be able. For those who know me, my computer is running on Linux and I&rsquo;m using <a href="http://www.geeqie.org/" target="_blank">Geeqie</a> to display RAW picture. It&rsquo;s a very fast and powerful solution to display them.</p>
-
-<p>In addition of displaying them quickly, it enhances the look and I really appreciate the rendering. Here is the original image (the first one) and the redered one by <a href="http://www.geeqie.org/" target="_blank">Geeqie</a> (the second one):</p>
-
-<p><img src="https://blog.deimos.fr/images/photo_barbecue.jpg" alt="milkyway" />
-<img src="https://blog.deimos.fr/images/photo_barbecue_enhanced.jpg" alt="milkyway" /></p>
-
-<p>My objective was to reproduce it on <a href="https://www.darktable.org/" target="_blank">Darktable</a> and <a href="https://www.adobe.com/products/photoshop-lightroom.html" target="_blank">Lightroom</a> without success. It&rsquo;s really hard to do. I&rsquo;ve made search on the web to find a solution and finaly ask help on the <a href="https://github.com/BestImageViewer/geeqie/issues/635" target="_blank">GitHub project</a>. And finally I got an answer to easily convert RAW to JPG with the same enhancement than Geeqie does ! Here is the command line I&rsquo;m using:</p>
-
+              <p><img src="https://blog.deimos.fr/images/photo_milkyway.jpg" alt="milkyway"></p>
+<p>I&rsquo;m an amateur photographer and I&rsquo;m using an <a href="https://www.olympus.co.uk/site/en/c/cameras/om_d_system_cameras/om_d/e_m1_mark_ii/index.html">Olympus E-M1 Mark II</a> camera. I take photos in RAW mode to be able. For those who know me, my computer is running on Linux and I&rsquo;m using <a href="http://www.geeqie.org/">Geeqie</a> to display RAW picture. It&rsquo;s a very fast and powerful solution to display them.</p>
+<p>In addition of displaying them quickly, it enhances the look and I really appreciate the rendering. Here is the original image (the first one) and the redered one by <a href="http://www.geeqie.org/">Geeqie</a> (the second one):</p>
+<p><img src="https://blog.deimos.fr/images/photo_barbecue.jpg" alt="milkyway">
+<img src="https://blog.deimos.fr/images/photo_barbecue_enhanced.jpg" alt="milkyway"></p>
+<p>My objective was to reproduce it on <a href="https://www.darktable.org/">Darktable</a> and <a href="https://www.adobe.com/products/photoshop-lightroom.html">Lightroom</a> without success. It&rsquo;s really hard to do. I&rsquo;ve made search on the web to find a solution and finaly ask help on the <a href="https://github.com/BestImageViewer/geeqie/issues/635">GitHub project</a>. And finally I got an answer to easily convert RAW to JPG with the same enhancement than Geeqie does ! Here is the command line I&rsquo;m using:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">find . -name <span class="s2">&#34;*.ORF&#34;</span> <span class="p">|</span> parallel -j <span class="k">$(</span>grep -c processor /proc/cpuinfo<span class="k">)</span> --will-cite <span class="se">\
 </span><span class="se"></span><span class="s1">&#39;echo {} ; exiftool -b -PreviewImage -w .jpg {} 1&gt;/dev/null ; exiftool -tagsfromfile {} -all:all -overwrite_original {.}.jpg 1&gt;/dev/null&#39;</span></code></pre></div>
-
 <p>This command will search at all ORF (Olympus RAW files) in the current directory, then use exiftool to export the embedded JPEG inside the RAW file and apply the rendering.</p>
-
 <p>Hope you&rsquo;ll enjoy it like me.</p>
 
               
@@ -389,7 +382,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

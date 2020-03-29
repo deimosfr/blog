@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>FreeBSD on Deimosfr Blog</title>
@@ -102,7 +102,7 @@ Voici la documentation.</description>
       <guid>https://blog.deimos.fr/2012/05/23/dj-port-serie-a-lancienne-tonight-we-are/</guid>
       <description>Derrière ce titre pompeux se cache en fait la méthode pour activer le port série au démarrage d&amp;rsquo;une machine. Cette solution s&amp;rsquo;avère vite pratique lorsque l&amp;rsquo;on souhaites accéder à certaines machines qui ne répondent plus, ou bien via des solutions de virtualisation.
 C&amp;rsquo;est pourquoi je vous ai concocté :
- Une petite doc sur le port série sous Linux Une petite doc sur le port série sous FreeBSD Une mise à jour de la doc de KVM pour pouvoir y accéder cash (oui comme tabata)  &amp;nbsp;</description>
+ Une petite doc sur le port série sous Linux Une petite doc sur le port série sous FreeBSD Une mise à jour de la doc de KVM pour pouvoir y accéder cash (oui comme tabata)   </description>
     </item>
     
     <item>
@@ -144,9 +144,9 @@ Pour ceux que ça intéresse, j&amp;rsquo;ai fais une documentation.</descriptio
       <description>Je ne me suis pas mis au LaTeX pour rien, j’avais pour idée de pondre une Cheat Sheet sur Tmux, vu que je n’en avais trouvé aucune sur le net.
 J&amp;rsquo;ai donc mis à jour la documentation Tmux avec les Cheat Sheet en anglais et français.
 Je les fournis également ici :
- Tmux French Cheat Sheet
- Tmux English Cheat Sheet
-  N&amp;rsquo;hésitez pas à me faire un retour ou des propositions sur d&amp;rsquo;éventuels ajouts.</description>
+  Tmux French Cheat Sheet
+  Tmux English Cheat Sheet
+  N&amp;rsquo;hésitez pas à me faire un retour ou des propositions sur d&#39;éventuels ajouts.</description>
     </item>
     
     <item>
@@ -166,7 +166,7 @@ J&amp;rsquo;ai donc fait une petite documentation dessus. Je vous conseil fortem
       
       <guid>https://blog.deimos.fr/2011/03/24/zfs-sur-linux/</guid>
       <description>Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur lequel je souhaites la double parité et surtout un OS Linux car c&amp;rsquo;est ce que je connais de mieux pour la partie multimédia.
-Aujourd&amp;rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&amp;rsquo;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.</description>
+Aujourd&amp;rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&#39;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.</description>
     </item>
     
     <item>
@@ -187,9 +187,9 @@ Je possède une Soekris et j&amp;rsquo;en suis très content. Mais le fait d&amp
       <guid>https://blog.deimos.fr/2010/11/01/freebsd-pas-si-stable/</guid>
       <description>J&amp;rsquo;ai une très mauvaise expérience actuellement avec FreeBSD. J&amp;rsquo;ai effectuer plusieurs tests hard avant de remettre sur FreeBSD.
 Pourquoi avais je pris FreeBSD au lieu de Debian ? :
- Pour le ZFS
- Sa réputation
- Pour essayer
+  Pour le ZFS
+  Sa réputation
+  Pour essayer
   Seulement voilà, quand on commence à faire du fuse + encfs + sshfs&amp;hellip;bah c&amp;rsquo;est pas aussi stable qu&amp;rsquo;on est en droit de penser. J&amp;rsquo;ai des kernel panic qui ne font même pas rebooter ma machine (alors que c&amp;rsquo;est pourtant le comportement par défaut de FreeBSD) visiblement à cause de Fuse ou SSHfs et c&amp;rsquo;est très handicapant.</description>
     </item>
     

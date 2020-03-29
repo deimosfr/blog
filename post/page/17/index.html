@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Deimos Blog">
@@ -214,6 +214,76 @@ if (!doNotTrack) {
         <section class="postShorten-group main-content-wrap">
           
           
+          
+            
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2014/06/16/lxc-ressources-statistics/">
+          LXC: ressources statistics
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2014-06-16T10:00:00Z">
+        
+  
+  
+  
+  
+    16 June 2014
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/lxc">LXC</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        I wanted to find a way to properly view resources (memory/CPU/IO) usages or configuration. For that I need to use cgroups. But the problem are on free, top, htop or common any tools, as they do not get the real informations of the container.
+We&rsquo;re in fact waiting on a lot of work on the kernel side or systemd side. More information&rsquo;s can be found here. Another solution that permit to bind a socks inside containers exists called CGManager, however classical tools doesn&rsquo;t use it to get informations.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2014/06/16/lxc-ressources-statistics/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2014/06/16/lxc-ressources-statistics/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
           
             
   
@@ -626,79 +696,6 @@ Calamari is composed in 2 elements:
 </article>
 
           
-            
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://blog.deimos.fr/2014/06/02/ansible-lxc-role-v1-1/">
-          Ansible: LXC role v1.1
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2014-06-02T10:00:08Z">
-        
-  
-  
-  
-  
-    2 June 2014
-  
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/ansible">Ansible</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/lxc">LXC</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        I&rsquo;ve recently updated my LXC role for ansible. You can get it like that:
-ansible-galaxy install deimosfr.lxc Here is the change log:
-+ Adding new parameters for dnsmasq and interfaces + Adding new prequesite to avoid unwanted modules to load in the latest kernel versions = Corrected networking configuration issue = Templates do not create @LOCALSTATEDIR@ folder anymore It works perfectly on my new Dedibox :-)
-      
-      <p>
-        <a href="https://blog.deimos.fr/2014/06/02/ansible-lxc-role-v1-1/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://blog.deimos.fr/2014/06/02/ansible-lxc-role-v1-1/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_ansible.png"/>
-      </div>
-    </a>
-  
-</article>
-
-          
           
   <div class="pagination-bar">
     <ul class="pagination">
@@ -728,7 +725,7 @@ ansible-galaxy install deimosfr.lxc Here is the change log:
         </section>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

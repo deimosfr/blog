@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Because of the recent announce from DotDeb about PHP 5.6 availability on Debian, I saw that I totally forgot to move from PHP 5.4 to 5.5.
@@ -284,17 +284,13 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_php.png" alt="php_logo" />
-Because of the <a href="https://twitter.com/dotdeb/status/504994627272056833" target="_blank">recent announce from DotDeb about PHP 5.6 availability on Debian</a>, I saw that I totally forgot to move from PHP 5.4 to 5.5.</p>
-
+              <p><img src="https://blog.deimos.fr/images/logo_php.png" alt="php_logo">
+Because of the <a href="https://twitter.com/dotdeb/status/504994627272056833">recent announce from DotDeb about PHP 5.6 availability on Debian</a>, I saw that I totally forgot to move from PHP 5.4 to 5.5.</p>
 <p>As I&rsquo;m hosting several WordPress, Mediawiki, Piwik and other PHP web software, I was not very comfortable with that migration. I knew that the major change was on PHP cache. I was intensively using APC cache but in PHP 5.5, it is deprecated and Opcache replace it. The advantage of Opcache is it&rsquo;s embedded in PHP 5.5 and maintained by the PHP team.</p>
-
 <p>So I started the package upgrade which was fine and saw that most of my sites didn&rsquo;t answered properly. The 2 reasons where:</p>
-
 <ol>
 <li>Opcode is not activated by default and I needed to enable it in php.ini. Here is my configuration:</li>
 </ol>
-
 <div class="highlight"><pre class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[opcache]</span>
 <span class="na">opcache.enable</span><span class="o">=</span><span class="s">1</span>
 <span class="na">opcache.enable_cli</span><span class="o">=</span><span class="s">1</span>
@@ -304,13 +300,10 @@ Because of the <a href="https://twitter.com/dotdeb/status/504994627272056833" ta
 <span class="na">opcache.revalidate_freq</span><span class="o">=</span><span class="s">60</span>
 <span class="na">opcache.fast_shutdown</span><span class="o">=</span><span class="s">1</span>
 <span class="na">opcache.consistency_checks</span><span class="o">=</span><span class="s">1</span></code></pre></div>
-
-<ol>
+<ol start="2">
 <li>The last thing is I had to install an extra package for the cache to be used by the web applications:</li>
 </ol>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">aptitude install php5-apcu</code></pre></div>
-
 <p>Once done, I restarted PHP-FPM and everything was running as expected without any other changes :-)</p>
 
               
@@ -408,7 +401,7 @@ Because of the <a href="https://twitter.com/dotdeb/status/504994627272056833" ta
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

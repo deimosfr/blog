@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="After more than 10 years using my beloved Mediawiki (wiki.deimos.fr), I decided to convert it into static html files and stop using Mediawiki :(.
@@ -282,23 +282,16 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_mediawiki.png" alt="MediaWiki_logo" /></p>
-
-<p>After more than 10 years using my beloved <a href="https://wiki.deimos.fr" target="_blank">Mediawiki (wiki.deimos.fr)</a>, I decided to convert it into static html files and stop using Mediawiki :(.</p>
-
-<p>Why? Because maintaining a <a href="https://www.mediawiki.org/wiki/MediaWiki" target="_blank">Mediawiki</a> is a pain when you&rsquo;re using a lot of extensions. In addition, I&rsquo;m not using Mediawiki anymore at work, not really following the evolution, don&rsquo;t want to keep maintaining php/mariadb/nginx and upgrading Mediawiki configuration can be complex as well.</p>
-
-<p>I really love markdown solutions generating static files like <a href="https://gohugo.io/" target="_blank">Hugo</a> and I already did it whith my previous <a href="https://blog.deimos.fr/2017/04/18/blog-migrated-to-hugo-on-github/" target="_blank">Wordpress</a>. Unfortunately, I didn&rsquo;t found any solution to convert a Mediawiki instance to another markdown solution, so I prefered stop using it.</p>
-
-<p>I used this <a href="http://camwebb.info/blog/2012-12-20/" target="_blank">script</a> to convert it to html:</p>
-
-<pre><code class="language-bash">wget --recursive --page-requisites --html-extension \
-      --convert-links --no-parent -R &quot;*Special*&quot; -R &quot;Special*&quot; -R &quot;*action=*&quot; \
-      -R &quot;*printable=*&quot;  -R &quot;*oldid=*&quot; -R &quot;*title=Talk:*&quot; \
-      -R &quot;*limit=*&quot; &quot;https://wiki.deimos.fr&quot;
-</code></pre>
-
-<p>Then I added it to GitHub and enabled <a href="https://pages.github.com/" target="_blank">pages</a>. Now all my technical post will be available on my <a href="https://blog.deimos.fr" target="_blank">blog</a>.</p>
+              <p><img src="https://blog.deimos.fr/images/logo_mediawiki.png" alt="MediaWiki_logo"></p>
+<p>After more than 10 years using my beloved <a href="https://wiki.deimos.fr">Mediawiki (wiki.deimos.fr)</a>, I decided to convert it into static html files and stop using Mediawiki :(.</p>
+<p>Why? Because maintaining a <a href="https://www.mediawiki.org/wiki/MediaWiki">Mediawiki</a> is a pain when you&rsquo;re using a lot of extensions. In addition, I&rsquo;m not using Mediawiki anymore at work, not really following the evolution, don&rsquo;t want to keep maintaining php/mariadb/nginx and upgrading Mediawiki configuration can be complex as well.</p>
+<p>I really love markdown solutions generating static files like <a href="https://gohugo.io/">Hugo</a> and I already did it whith my previous <a href="https://blog.deimos.fr/2017/04/18/blog-migrated-to-hugo-on-github/">Wordpress</a>. Unfortunately, I didn&rsquo;t found any solution to convert a Mediawiki instance to another markdown solution, so I prefered stop using it.</p>
+<p>I used this <a href="http://camwebb.info/blog/2012-12-20/">script</a> to convert it to html:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">wget --recursive --page-requisites --html-extension <span class="se">\
+</span><span class="se"></span>      --convert-links --no-parent -R <span class="s2">&#34;*Special*&#34;</span> -R <span class="s2">&#34;Special*&#34;</span> -R <span class="s2">&#34;*action=*&#34;</span> <span class="se">\
+</span><span class="se"></span>      -R <span class="s2">&#34;*printable=*&#34;</span>  -R <span class="s2">&#34;*oldid=*&#34;</span> -R <span class="s2">&#34;*title=Talk:*&#34;</span> <span class="se">\
+</span><span class="se"></span>      -R <span class="s2">&#34;*limit=*&#34;</span> <span class="s2">&#34;https://wiki.deimos.fr&#34;</span>
+</code></pre></div><p>Then I added it to GitHub and enabled <a href="https://pages.github.com/">pages</a>. Now all my technical post will be available on my <a href="https://blog.deimos.fr">blog</a>.</p>
 
               
             </div>
@@ -393,7 +386,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

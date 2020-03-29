@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nagios on Deimosfr Blog</title>
@@ -80,7 +80,7 @@ Même si j&amp;rsquo;aime beaucoup ce que ces magazines proposent, tout ne m&amp
       
       <guid>https://blog.deimos.fr/2012/12/11/news-en-vrac-6/</guid>
       <description>Voici quelques petites modifications récemment effectuées sur le wiki :
- Kernel : J&amp;rsquo;ai mis à jour la documentation pour la recompilation des kernels. Pas de gros changements, juste un petit rafraîchissement graphique. Bind) : Petits correctifs sur quelques erreurs minimes Nagios : Une petite erreur sur l&amp;rsquo;installation, j&amp;rsquo;avais oublié &amp;lsquo;install&amp;rsquo; dans apt-get (Merci Sandro) Awk : Ajout d&amp;rsquo;un exemple awk Mediawki : J&amp;rsquo;ai mis à jour la page pour quelques petits trucs qui ont changés avec la dernière mouture de Mediawiki  </description>
+ Kernel : J&amp;rsquo;ai mis à jour la documentation pour la recompilation des kernels. Pas de gros changements, juste un petit rafraîchissement graphique. Bind : Petits correctifs sur quelques erreurs minimes Nagios : Une petite erreur sur l&amp;rsquo;installation, j&amp;rsquo;avais oublié &amp;lsquo;install&amp;rsquo; dans apt-get (Merci Sandro) Awk : Ajout d&amp;rsquo;un exemple awk Mediawki : J&amp;rsquo;ai mis à jour la page pour quelques petits trucs qui ont changés avec la dernière mouture de Mediawiki  </description>
     </item>
     
     <item>
@@ -109,7 +109,7 @@ C&amp;rsquo;est un script qui va parser l&amp;rsquo;interface web graphique de N
       
       <guid>https://blog.deimos.fr/2012/06/06/check_mk-thruk/</guid>
       <description>J&amp;rsquo;ai mis à jour mes documentations avec quelques petites corrections et les dernières version des softs :
- Doc sur Check_mk Doc sur Thruk  &amp;nbsp;</description>
+ Doc sur Check_mk Doc sur Thruk   </description>
     </item>
     
     <item>
@@ -131,9 +131,9 @@ Bonne lecture</description>
       
       <guid>https://blog.deimos.fr/2012/04/17/oh-quelle-est-bien-foutue-cette-interface/</guid>
       <description>Pour faire suite à l&amp;rsquo;article précédent, voici une interface évoluée pour Nagios (et Shinken) qui permet de se connecter à plusieurs Nagios en même temps et d&amp;rsquo;afficher des informations plus pertinentes par rapport à l&amp;rsquo;interface standard de Nagios.
-J&amp;rsquo;ai également fait de la modification de code pour obtenir une interface minimale afin d&amp;rsquo;être optimisée pour des écrans dédiés au monitoring.
+J&amp;rsquo;ai également fait de la modification de code pour obtenir une interface minimale afin d&#39;être optimisée pour des écrans dédiés au monitoring.
 Suivez le guide :-)
-UPDATE : Le temps que j&amp;rsquo;écrive ce ticket, mes modifications ont été apportées au code principale :-) https://github.</description>
+UPDATE : Le temps que j&#39;écrive ce ticket, mes modifications ont été apportées au code principale :-) https://github.</description>
     </item>
     
     <item>
@@ -192,7 +192,7 @@ On peut donc faire des emails en HTML avec des liens (ouaaa), on peut même mett
       
       <guid>https://blog.deimos.fr/2011/02/25/nagios-encore-une-documentation/</guid>
       <description>Bonjour à tous !
-J&amp;rsquo;ai mis à jour mon wiki avec ma configuration Nagios. Vous allez me dire : &amp;ldquo;Atta&amp;hellip; pouquoi t&amp;rsquo;fais ça, yen a plein sule net, c&amp;rsquo;est po la peine hein !&amp;rdquo;. C&amp;rsquo;est vrai qu&amp;rsquo;il y en a plein sur le net, c&amp;rsquo;est pour ça que la mienne n&amp;rsquo;est pas bourrée d&amp;rsquo;explications et surtout un peu plus particulière que la majorité qu&amp;rsquo;on trouve sur internet.
+J&amp;rsquo;ai mis à jour mon wiki avec ma configuration Nagios. Vous allez me dire : &amp;ldquo;Atta&amp;hellip; pouquoi t&amp;rsquo;fais ça, yen a plein sule net, c&amp;rsquo;est po la peine hein !&amp;quot;. C&amp;rsquo;est vrai qu&amp;rsquo;il y en a plein sur le net, c&amp;rsquo;est pour ça que la mienne n&amp;rsquo;est pas bourrée d&amp;rsquo;explications et surtout un peu plus particulière que la majorité qu&amp;rsquo;on trouve sur internet.
 Etant utilisateur, administrateur et développeur de plugins, ma forte expérience sur Nagios m&amp;rsquo;a permit d&amp;rsquo;apprendre à moduler, simplifier et rendre flexible ma configuration Nagios.</description>
     </item>
     
@@ -224,7 +224,7 @@ Vous pouvez donc maintenant les retrouver sur http://exchange.nagios.org</descri
       
       <guid>https://blog.deimos.fr/2009/12/22/encore-de-nouvelles-contributions-pour-nagios/</guid>
       <description>Oyé oyé, les contributions nagios se suivent mais ne se ressemblent pas. J’ai concocté 2 nouveaux modules nagios :
- check_sun_cluster : qui permet de surveiller l&amp;rsquo;état du cluster sun check_multi_procs : permet de surveiller plusieurs process dans un seul check  Et puis j&amp;rsquo;ai pu en améliorer d&amp;rsquo;autres :
+ check_sun_cluster : qui permet de surveiller l&#39;état du cluster sun check_multi_procs : permet de surveiller plusieurs process dans un seul check  Et puis j&amp;rsquo;ai pu en améliorer d&amp;rsquo;autres :
  check_backuppc_hosts : ajout d&amp;rsquo;une fonctionnalité pour monitorer qu&amp;rsquo;un seuil hôte  Voilà donc mes dernières œuvres.</description>
     </item>
     
@@ -235,8 +235,8 @@ Vous pouvez donc maintenant les retrouver sur http://exchange.nagios.org</descri
       
       <guid>https://blog.deimos.fr/2009/12/13/encore-2-nouveaux-plugins-pour-nagios/</guid>
       <description>Et oui, ça continue. J’ai créer 2 nouveaux plugins pour Nagios :
- Check_ldap_request : Permet d&amp;rsquo;effectuer une requêtes LDAP pour vérifier l&amp;rsquo;existance d&amp;rsquo;un attribut
- Check_rss_mem : Vérifie la mémoire réservée de tous les processus sous Solaris
+  Check_ldap_request : Permet d&amp;rsquo;effectuer une requêtes LDAP pour vérifier l&amp;rsquo;existance d&amp;rsquo;un attribut
+  Check_rss_mem : Vérifie la mémoire réservée de tous les processus sous Solaris
   Quelques nouveaux vont arriver d&amp;rsquo;ici peu et des améliorations pour les existants.</description>
     </item>
     
@@ -247,7 +247,7 @@ Vous pouvez donc maintenant les retrouver sur http://exchange.nagios.org</descri
       
       <guid>https://blog.deimos.fr/2009/05/14/centreon-dans-les-starting-blocks/</guid>
       <description>Oyé oyé !
-Depuis quelques temps, mon ami Momo (pour ceux qui le connaissent) me parle de Centreon par ci, Centreon par là, &amp;ldquo;quand est-ce que tu me le met en place etc&amp;hellip;&amp;rdquo;.
+Depuis quelques temps, mon ami Momo (pour ceux qui le connaissent) me parle de Centreon par ci, Centreon par là, &amp;ldquo;quand est-ce que tu me le met en place etc&amp;hellip;&amp;quot;.
 Chaque chose en son temps ! D&amp;rsquo;abord ca a été Nagios pour lui, et maintenant on aperçoit le bout du nez de Centreon. Pour rappel, il permet de faire une conf tout en graphique de Nagios et permet d&amp;rsquo;avoir des graphs sur l&amp;rsquo;historique (pour résumer vulgairement).</description>
     </item>
     
@@ -258,8 +258,8 @@ Chaque chose en son temps ! D&amp;rsquo;abord ca a été Nagios pour lui, et mai
       
       <guid>https://blog.deimos.fr/2009/04/17/ma-nouvelle-contribution-nagios/</guid>
       <description>Voici ma nouvelle contribution pour Nagios :
- Pour tester vos interfaces IPMP
- Pour tester votre multipathing (utile pour les liens Fibres sur les SAN)
+  Pour tester vos interfaces IPMP
+  Pour tester votre multipathing (utile pour les liens Fibres sur les SAN)
   J&amp;rsquo;espère que ces premières versions vont plaires. Le check de Backuppc a déjà pas mal de downloads :-)</description>
     </item>
     
@@ -270,7 +270,7 @@ Chaque chose en son temps ! D&amp;rsquo;abord ca a été Nagios pour lui, et mai
       
       <guid>https://blog.deimos.fr/2009/04/03/premier-script-nagios-pour-la-communautee/</guid>
       <description>Et voilà, je contribue. C’est rare car je n’ai pas toujours le temps de faire quelque chose de générique, mais là c’est le cas, donc j’en fais profiter tout le monde.
-J&amp;rsquo;ai développer un plugins Nagios pour checker l&amp;rsquo;état de bon fonctionnement de BackupPC. J&amp;rsquo;ai fais avec les moyens du bord et je suis sûr qu&amp;rsquo;il y a moyen de faire plus simple.
+J&amp;rsquo;ai développer un plugins Nagios pour checker l&#39;état de bon fonctionnement de BackupPC. J&amp;rsquo;ai fais avec les moyens du bord et je suis sûr qu&amp;rsquo;il y a moyen de faire plus simple.
 En attendant, voici le lien : http://exchange.nagios.org/directory/Plugins/Backup-and-Recovery/BackupPC/check_backuppc_hosts/details</description>
     </item>
     

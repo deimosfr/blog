@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Deimos Blog">
@@ -214,6 +214,75 @@ if (!doNotTrack) {
         <section class="postShorten-group main-content-wrap">
           
           
+          
+            
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2014/11/25/nfs-recover-your-client-connexion-when-server-was-down/">
+          NFS: recover your client connexion when server was down
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2014-11-25T11:00:26Z">
+        
+  
+  
+  
+  
+    25 November 2014
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        I recently had the case, where I lost connexion of my NFS client connexion because NFS server crashed. The problem I had is simple, some of clients couldn&rsquo;t recover their connexion because the old one was still shown as already connected.
+And when I tried to remount NFS clients connexions, I got:
+mount.nfs: mount(2): Protocol not supported mount.nfs: trying text-based options &#39;udp,sec=sys,rsize=8192,wsize=8192,intr,hard,addr=10.0.0.1&#39; mount.nfs: prog 100003, trying vers=3, prot=17 mount.nfs: trying 10.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2014/11/25/nfs-recover-your-client-connexion-when-server-was-down/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2014/11/25/nfs-recover-your-client-connexion-when-server-was-down/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
           
             
   
@@ -602,8 +671,8 @@ I remembered that there was a very good RSS reader on iOS called Reeder. Unfortu
       
         Jessie is now frozen!!! Here is the news.
 That mean only limited updates can be done:
-  targeted fixes for release critical bugs (i.e., bugs of severity critical, grave, and serious) in all packages (applies during the entire freeze (ok for TPU));
-  fixes for severity: important bugs in packages of priority: optional or extra, only when this can be done via unstable (until the 5th of December 2014);
+   targeted fixes for release critical bugs (i.e., bugs of severity critical, grave, and serious) in all packages (applies during the entire freeze (ok for TPU));
+    fixes for severity: important bugs in packages of priority: optional or extra, only when this can be done via unstable (until the 5th of December 2014);
       
       <p>
         <a href="https://blog.deimos.fr/2014/11/09/debian-jessie-is-freezen/" class="postShorten-excerpt_link link">Continue reading</a>
@@ -611,78 +680,6 @@ That mean only limited updates can be done:
       </p>
     </div>
   </div>
-  
-</article>
-
-          
-            
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://blog.deimos.fr/2014/11/07/news-in-bulk-4/">
-          News in bulk
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2014-11-07T11:11:29Z">
-        
-  
-  
-  
-  
-    7 November 2014
-  
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/databases">Databases</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/ha">HA</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/sql">SQL</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/web">Web</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        As I do not really have a good blog post for today, here are some things I wanted to talk in a summary. Some good projects have been updated like:
- WordPress 4: no big updates at the first view but it&rsquo;s nice to see how this project works and grow (videos, WYSIWYG,&hellip;) HAProxy 1.5: Offlloading SSL embedded, Full HTTP Keepalive, ACL enhancement&hellip; BIG update! MySecureShell 2.0: Using GnuTLS instead of OpenSSL, available in Debian upstream repositories, new doc&hellip; Nginx 1.
-      
-      <p>
-        <a href="https://blog.deimos.fr/2014/11/07/news-in-bulk-4/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://blog.deimos.fr/2014/11/07/news-in-bulk-4/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/postit.jpeg"/>
-      </div>
-    </a>
   
 </article>
 
@@ -716,7 +713,7 @@ That mean only limited updates can be done:
         </section>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

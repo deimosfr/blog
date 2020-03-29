@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
-<meta name="description" content="Long time since my last post. This one is not very technical post, but it&rsquo;s a nice to have solution if you use grep usually. Are not you fed up to type vim  and search the line after a grep command ? If yes, this post is for you.
+<meta name="description" content="Long time since my last post. This one is not very technical post, but it&rsquo;s a nice to have solution if you use grep usually. Are not you fed up to type vim and search the line after a grep command ? If yes, this post is for you.
 First of all, you may know that an alternative more user friendly to grep exist, called ag (perf comparison). I really like ag and grep, but something make me loose my time since several years and I&rsquo;m pretty sure it&rsquo;s your case too.">
 
 
-<meta property="og:description" content="Long time since my last post. This one is not very technical post, but it&rsquo;s a nice to have solution if you use grep usually. Are not you fed up to type vim  and search the line after a grep command ? If yes, this post is for you.
+<meta property="og:description" content="Long time since my last post. This one is not very technical post, but it&rsquo;s a nice to have solution if you use grep usually. Are not you fed up to type vim and search the line after a grep command ? If yes, this post is for you.
 First of all, you may know that an alternative more user friendly to grep exist, called ag (perf comparison). I really like ag and grep, but something make me loose my time since several years and I&rsquo;m pretty sure it&rsquo;s your case too.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Do not waste time with grep anymore, use tag">
@@ -20,9 +20,9 @@ First of all, you may know that an alternative more user friendly to grep exist,
 <meta property="og:url" content="https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/">
 <meta property="twitter:url" content="https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/">
 <meta property="og:site_name" content="Deimosfr Blog">
-<meta property="og:description" content="Long time since my last post. This one is not very technical post, but it&rsquo;s a nice to have solution if you use grep usually. Are not you fed up to type vim  and search the line after a grep command ? If yes, this post is for you.
+<meta property="og:description" content="Long time since my last post. This one is not very technical post, but it&rsquo;s a nice to have solution if you use grep usually. Are not you fed up to type vim and search the line after a grep command ? If yes, this post is for you.
 First of all, you may know that an alternative more user friendly to grep exist, called ag (perf comparison). I really like ag and grep, but something make me loose my time since several years and I&rsquo;m pretty sure it&rsquo;s your case too.">
-<meta name="twitter:description" content="Long time since my last post. This one is not very technical post, but it&rsquo;s a nice to have solution if you use grep usually. Are not you fed up to type vim  and search the line after a grep command ? If yes, this post is for you.
+<meta name="twitter:description" content="Long time since my last post. This one is not very technical post, but it&rsquo;s a nice to have solution if you use grep usually. Are not you fed up to type vim and search the line after a grep command ? If yes, this post is for you.
 First of all, you may know that an alternative more user friendly to grep exist, called ag (perf comparison). I really like ag and grep, but something make me loose my time since several years and I&rsquo;m pretty sure it&rsquo;s your case too.">
 <meta property="og:locale" content="en-us">
 
@@ -290,37 +290,29 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://github.com/aykamko/tag/raw/master/tag.gif" alt="tag" />
-Long time since my last post. This one is not very technical post, but it&rsquo;s a nice to have solution if you use grep usually. Are not you fed up to type vim <file> and search the line after a grep command ? If yes, this post is for you.</p>
-
-<p>First of all, you may know that an alternative more user friendly to grep exist, called ag (<a href="https://www.reddit.com/r/commandline/comments/3wwyvh/ag_vs_grep/" target="_blank">perf comparison</a>). I really like ag and grep, but something make me loose my time since several years and I&rsquo;m pretty sure it&rsquo;s your case too.</p>
-
-<p>Let&rsquo;s say you generally want to parse files, find the information and jump with vim into it. With <a href="https://github.com/aykamko/tag" target="_blank">tag</a> (using ag only) you can do it in only 2 commands. Let say I want to search my username in /etc:</p>
-
+              <p><img src="https://github.com/aykamko/tag/raw/master/tag.gif" alt="tag">
+Long time since my last post. This one is not very technical post, but it&rsquo;s a nice to have solution if you use grep usually. Are not you fed up to type vim <!-- raw HTML omitted --> and search the line after a grep command ? If yes, this post is for you.</p>
+<p>First of all, you may know that an alternative more user friendly to grep exist, called ag (<a href="https://www.reddit.com/r/commandline/comments/3wwyvh/ag_vs_grep/">perf comparison</a>). I really like ag and grep, but something make me loose my time since several years and I&rsquo;m pretty sure it&rsquo;s your case too.</p>
+<p>Let&rsquo;s say you generally want to parse files, find the information and jump with vim into it. With <a href="https://github.com/aykamko/tag">tag</a> (using ag only) you can do it in only 2 commands. Let say I want to search my username in /etc:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo tag pmavro /etc/
 /etc/mailname
-<span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="m">1</span>:mbp-pmavro
+<span class="o">[</span>1<span class="o">]</span> 1:mbp-pmavro
 
 /etc/gshadow
-<span class="o">[</span><span class="m">2</span><span class="o">]</span> <span class="m">18</span>*::pmavro
-<span class="o">[</span><span class="m">3</span><span class="o">]</span> <span class="m">19</span>*::pmavro
-<span class="o">[</span><span class="m">4</span><span class="o">]</span> <span class="m">22</span>*::pmavro,pulse
-<span class="o">[</span><span class="m">5</span><span class="o">]</span> <span class="m">23</span>*::pmavro
-<span class="o">[</span><span class="m">6</span><span class="o">]</span> <span class="m">33</span>*::pmavro
-<span class="o">[</span><span class="m">7</span><span class="o">]</span> <span class="m">35</span>*::pmavro
-<span class="o">[</span><span class="m">8</span><span class="o">]</span> <span class="m">47</span>!::pmavro
-<span class="o">[</span><span class="m">9</span><span class="o">]</span> <span class="m">53</span>!::pmavro
-<span class="o">[</span><span class="m">10</span><span class="o">]</span> <span class="m">54</span>!::
-<span class="o">[</span><span class="m">11</span><span class="o">]</span> <span class="m">60</span>!::pmavro</code></pre></div>
-
+<span class="o">[</span>2<span class="o">]</span> 18:cdrom:*::pmavro
+<span class="o">[</span>3<span class="o">]</span> 19:floppy:*::pmavro
+<span class="o">[</span>4<span class="o">]</span> 22:audio:*::pmavro,pulse
+<span class="o">[</span>5<span class="o">]</span> 23:dip:*::pmavro
+<span class="o">[</span>6<span class="o">]</span> 33:video:*::pmavro
+<span class="o">[</span>7<span class="o">]</span> 35:plugdev:*::pmavro
+<span class="o">[</span>8<span class="o">]</span> 47:netdev:!::pmavro
+<span class="o">[</span>9<span class="o">]</span> 53:bluetooth:!::pmavro
+<span class="o">[</span>10<span class="o">]</span> 54:pmavro:!::
+<span class="o">[</span>11<span class="o">]</span> 60:docker:!::pmavro</code></pre></div>
 <p>Now if I want to edit /etc/gshadow at line 54 with vim, I only have to type in the terminal:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ e10</code></pre></div>
-
 <p>&ldquo;e&rdquo; will read a temporary file containing the result and 10 will ask vim to position in the file to the matching line number.</p>
-
 <p>User friendly and really simple right ?</p>
-
 <p>Hope this will help</p>
 
               
@@ -420,7 +412,7 @@ Long time since my last post. This one is not very technical post, but it&rsquo;
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

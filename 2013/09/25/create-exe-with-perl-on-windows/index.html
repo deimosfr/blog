@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="In the past, I already made an article on how to make exe from a Perl script on Windows. I was using Strawberry or Activesync but have a preference for Strawberry as it&rsquo;s totally free :-).
@@ -288,26 +288,18 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/Perl_icon.png" alt="Perl_icon" />
-In the past, <a href="http://wiki.deimos.fr/Introduction_%C3%A0_Perl#Cr.C3.A9ation_d.27un_exe_sous_Windows" target="_blank">I already made an article on how to make exe from a Perl script on Windows</a>. I was <strong>using Strawberry</strong> or Activesync but have a preference for Strawberry as <strong>it&rsquo;s totally free</strong> :-).</p>
-
+              <p><img src="https://blog.deimos.fr/images/Perl_icon.png" alt="Perl_icon">
+In the past, <a href="http://wiki.deimos.fr/Introduction_%C3%A0_Perl#Cr.C3.A9ation_d.27un_exe_sous_Windows">I already made an article on how to make exe from a Perl script on Windows</a>. I was <strong>using Strawberry</strong> or Activesync but have a preference for Strawberry as <strong>it&rsquo;s totally free</strong> :-).</p>
 <p>This time, I tried to reproduce the tips but encountered several issues. The first one was that error :</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">The locale codeset <span class="o">(</span>cp1252<span class="o">)</span> isn<span class="err">&#39;</span>t one that perl can decode, stopped at Encode/Locale.pm line <span class="m">94</span>.</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">The locale codeset <span class="o">(</span>cp1252<span class="o">)</span> isn<span class="err">&#39;</span>t one that perl can decode, stopped at Encode/Locale.pm line 94.</code></pre></div>
 <p>It could simply be <strong>resolved by addressing &lsquo;-x&rsquo;</strong> parameter to the &lsquo;pp&rsquo; command line.</p>
-
 <p>The other problem was this <strong>compilation error</strong> :</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">SYSTEM ERROR in executing url_service_action.pl: <span class="m">256</span> at C:/strawberry/perl/site/lib/Module/ScanDeps.pm line <span class="m">1302</span>.</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">SYSTEM ERROR in executing url_service_action.pl: <span class="m">256</span> at C:/strawberry/perl/site/lib/Module/ScanDeps.pm line 1302.</code></pre></div>
 <p>To quickly fix that issue, I did a sad thing : commenting those lines in C:\strawberry\perl\site\lib\Module\ScanDeps.pm line 1302 :</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-perl" data-lang="perl"><span class="c1">#die $compile</span>
 <span class="c1"># ? &#34;SYSTEM ERROR in compiling $file: $rc&#34;</span>
 <span class="c1"># : &#34;SYSTEM ERROR in executing $file: $rc&#34;</span>
 <span class="c1"># unless $rc == 0</span></code></pre></div>
-
 <p>This is certainly not the best thing to do but it resolved my issue and my binary works perfectly :-)</p>
 
               
@@ -405,7 +397,7 @@ In the past, <a href="http://wiki.deimos.fr/Introduction_%C3%A0_Perl#Cr.C3.A9ati
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

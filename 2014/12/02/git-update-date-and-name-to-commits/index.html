@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="A lot of time, I had to modify the text of my commit since I&rsquo;m using a versionning system. Modifying the last commit comment is something common:
@@ -280,19 +280,13 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_git.png" alt="Git-logo" />
+              <p><img src="https://blog.deimos.fr/images/logo_git.png" alt="Git-logo">
 A lot of time, I had to modify the text of my commit since I&rsquo;m using a versionning system. Modifying the last commit comment is something common:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git commit --amend</code></pre></div>
-
 <p>However, modifying the date is not so common. You may want to do it for several reasons (stats or similar), here is how to:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">GIT_COMMITTER_DATE</span><span class="o">=</span><span class="s2">&#34;`date`&#34;</span> git commit --amend --date <span class="s2">&#34;`date`&#34;</span></code></pre></div>
-
 <p>This will change the last commit with the current date.</p>
-
 <p>The last thing I wanted to do is modifying the author. Because I&rsquo;ve a personal and professional GitHub account, I made mistake several times using the wrong account. Here is a solution to rename author commits:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git filter-branch --env-filter <span class="s1">&#39;
 </span><span class="s1">oldname=&#34;old username&#34;
 </span><span class="s1">oldemail=&#34;old email address&#34;
@@ -303,9 +297,7 @@ A lot of time, I had to modify the text of my commit since I&rsquo;m using a ver
 </span><span class="s1">[ &#34;$GIT_AUTHOR_NAME&#34;=&#34;$oldname&#34; ] &amp;&amp; GIT_AUTHOR_NAME=&#34;$newname&#34;
 </span><span class="s1">[ &#34;$GIT_COMMITTER_NAME&#34;=&#34;$oldname&#34; ] &amp;&amp; GIT_COMMITTER_NAME=&#34;$newname&#34;
 </span><span class="s1">&#39;</span> HEAD</code></pre></div>
-
-<p>If you want to know more about some git tips, you can look at <a href="https://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Modifier_la_date_du_dernier_commit" target="_blank">my wiki page</a>.</p>
-
+<p>If you want to know more about some git tips, you can look at <a href="https://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Modifier_la_date_du_dernier_commit">my wiki page</a>.</p>
 <p>Hope this will help</p>
 
               
@@ -399,7 +391,7 @@ A lot of time, I had to modify the text of my commit since I&rsquo;m using a ver
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

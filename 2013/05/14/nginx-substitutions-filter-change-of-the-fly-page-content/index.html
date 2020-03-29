@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Nginx Substitutions Filter is a filter module able to do both regular expression and fixed string substitutions on response bodies. This module is quite different from the Nginx&rsquo;s native Substitution Module. It scans the output chains buffer and matches string line by line, just like Apache&rsquo;s mod_substitute.
@@ -290,18 +290,13 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_ngnix.png" alt="Nginx-logo" />
+              <p><img src="https://blog.deimos.fr/images/logo_ngnix.png" alt="Nginx-logo">
 Nginx Substitutions Filter is a filter module able to do both regular expression and fixed string substitutions on response bodies. This module is quite different from the Nginx&rsquo;s native Substitution Module. It scans the output chains buffer and matches string line by line, just like Apache&rsquo;s mod_substitute.</p>
-
 <p>I&rsquo;ve played with the classic substitution module but due to limitations (only one matching pattern and no regex), it wasn&rsquo;t easy to do all I wanted to do. That&rsquo;s why I&rsquo;ve searched a better module to add on my Nginx servers. Unfortunately, this module is not currently available in Nginx packages, on Debian. So I&rsquo;ve created new packages with Substitutions Filter module built in.</p>
-
 <p>To get a quick overview of what this module is able to do, we&rsquo;re going to take an example. Let&rsquo;s say we need to add a CSS style on every pages on our websites. You&rsquo;ve got multiple solutions to do it and most of them need to modify the application code. The problem is, each time you will have an application upgrade, you&rsquo;ll need to think about this modifications. The other solution (if possible) is to create an extension for you application, but it&rsquo;s boring to manage and time consuming.</p>
-
 <p>With that solution, you can change the end of the HTML head banner and add any style or JS banner you want. It works with everything in the HTML code in fact. As described, it&rsquo;s a string replacement solution. This extension is really powerful.</p>
-
-<p>You can find <a href="https://wiki.deimos.fr/Http_substitutions_filter_:_multiple_filters_with_regex_on_response_bodies" target="_blank">my documentation on how to compile and package it for Debian</a>.</p>
-
-<p>Update : this has been added in experimental repository of Debian : <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=706456" target="_blank">706456</a></p>
+<p>You can find <a href="https://wiki.deimos.fr/Http_substitutions_filter_:_multiple_filters_with_regex_on_response_bodies">my documentation on how to compile and package it for Debian</a>.</p>
+<p>Update : this has been added in experimental repository of Debian : <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=706456">706456</a></p>
 
               
             </div>
@@ -400,7 +395,7 @@ Nginx Substitutions Filter is a filter module able to do both regular expression
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

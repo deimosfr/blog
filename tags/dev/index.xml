@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>dev on Deimosfr Blog</title>
@@ -6,7 +6,7 @@
     <description>Recent content in dev on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Apr 2010 15:58:24 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Feb 2015 11:00:22 +0000</lastBuildDate>
     
 	<atom:link href="https://blog.deimos.fr/tags/dev/index.xml" rel="self" type="application/rss+xml" />
     
@@ -69,10 +69,10 @@ Un peu d&amp;rsquo;explication ne fait pas de mal. J&amp;rsquo;utilise depuis de
       <description>La première version de phpCV est sortie :-). Soyez donc indulgent…
 Je prévois de belles améliorations mais pour le moment, ça vous permet de faire simplement un beau CV sans trop se fouler.
 Il me reste un beau README a faire, mais pour l&amp;rsquo;heure voici en gros les quelques fonctionnalités :
- Bi languages
- Partie confidentielle gérée
- Calcul automatique de l&amp;rsquo;age
- Génération des PDF à la volée</description>
+  Bi languages
+  Partie confidentielle gérée
+  Calcul automatique de l&amp;rsquo;age
+  Génération des PDF à la volée</description>
     </item>
     
     <item>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Vous l’avez peut être constaté, mais mon serveur était indisponible une partie de la journée. La faute à la mise à jour de ma OpenBSD sur ma Soekris qui a foirée. J’ai voulu upgrader comme j’avais fait à l’époque de la 4.4 vers la 4.5, à savoir en mode manuel http://www.openbsd.org/faq/upgrade46.html#upgrade.
@@ -281,28 +281,24 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>Vous l’avez peut être constaté, mais mon serveur était indisponible une partie de la journée. La faute à la mise à jour de ma OpenBSD sur ma Soekris qui a foirée. J’ai voulu upgrader comme j’avais fait à l’époque de la 4.4 vers la 4.5, à savoir en mode manuel <a href="http://www.openbsd.org/faq/upgrade46.html#upgrade" target="_blank">http://www.openbsd.org/faq/upgrade46.html#upgrade</a>.</p>
-
-<p>Même si il est clairement spécifier que ce n&rsquo;est pas la méthode recommandée, je n&rsquo;avais pas rencontrer de problèmes la fois d&rsquo;avant. Et là par contre, impossible de me connecter ! Ni en SSH, ni en port COM. Là tout de suite ça pique, je décide de <a href="http://wiki.deimos.fr/Configuration_et_installation_via_port_s%C3%A9rie_d%27OpenBSD_sur_Soekris" target="_blank">ressortir le kit du docteur</a>.</p>
-
-<p>Je boot donc via PXE, fait une upgrade par dessus la mienne foireuse. Un reboot et hop ça marche ! Youpi tralala, je fini donc en beautée par récupérer ma belle et m&rsquo;en sort plutôt pas trop mal avec le merveilleux outil appelé <a href="http://wiki.deimos.fr/Configuration_et_installation_via_port_s%C3%A9rie_d%27OpenBSD_sur_Soekris#Mise_.C3.A0_jour_d.27OpenBSD" target="_blank">Sysmerge</a>, que je n&rsquo;avais pas utiliser lors de ma précédente update. Et il est vrai que c&rsquo;est un petit bonheur (ok, ceux qui connaissent les joies d&rsquo;apt, effectivement, on en est loin, mais c&rsquo;est toujours mieux que rien).</p>
-
+              <p>Vous l’avez peut être constaté, mais mon serveur était indisponible une partie de la journée. La faute à la mise à jour de ma OpenBSD sur ma Soekris qui a foirée. J’ai voulu upgrader comme j’avais fait à l’époque de la 4.4 vers la 4.5, à savoir en mode manuel <a href="http://www.openbsd.org/faq/upgrade46.html#upgrade">http://www.openbsd.org/faq/upgrade46.html#upgrade</a>.</p>
+<p>Même si il est clairement spécifier que ce n&rsquo;est pas la méthode recommandée, je n&rsquo;avais pas rencontrer de problèmes la fois d&rsquo;avant. Et là par contre, impossible de me connecter ! Ni en SSH, ni en port COM. Là tout de suite ça pique, je décide de <a href="http://wiki.deimos.fr/Configuration_et_installation_via_port_s%C3%A9rie_d%27OpenBSD_sur_Soekris">ressortir le kit du docteur</a>.</p>
+<p>Je boot donc via PXE, fait une upgrade par dessus la mienne foireuse. Un reboot et hop ça marche ! Youpi tralala, je fini donc en beautée par récupérer ma belle et m&rsquo;en sort plutôt pas trop mal avec le merveilleux outil appelé <a href="http://wiki.deimos.fr/Configuration_et_installation_via_port_s%C3%A9rie_d%27OpenBSD_sur_Soekris#Mise_.C3.A0_jour_d.27OpenBSD">Sysmerge</a>, que je n&rsquo;avais pas utiliser lors de ma précédente update. Et il est vrai que c&rsquo;est un petit bonheur (ok, ceux qui connaissent les joies d&rsquo;apt, effectivement, on en est loin, mais c&rsquo;est toujours mieux que rien).</p>
 <p>Voici donc un petit listing des galères avec solutions que j&rsquo;ai rencontré :</p>
-
 <ul>
-<li><p>Mon port série, j&rsquo;aurais du noter la conf pour me connecter à la Soekris, <a href="http://wiki.deimos.fr/Configuration_et_installation_via_port_s%C3%A9rie_d%27OpenBSD_sur_Soekris#Connexion_via_Minicom" target="_blank">voici donc chose faite</a>.</p></li>
-
-<li><p>Dans la documentation de mise à jour, il y a une erreur lors de la création des utilisateurs. Il faut mettre &ldquo;g=uid&rdquo; à la place de &ldquo;g =uid&rdquo; :</p></li>
+<li>
+<p>Mon port série, j&rsquo;aurais du noter la conf pour me connecter à la Soekris, <a href="http://wiki.deimos.fr/Configuration_et_installation_via_port_s%C3%A9rie_d%27OpenBSD_sur_Soekris#Connexion_via_Minicom">voici donc chose faite</a>.</p>
+</li>
+<li>
+<p>Dans la documentation de mise à jour, il y a une erreur lors de la création des utilisateurs. Il faut mettre &ldquo;g=uid&rdquo; à la place de &ldquo;g =uid&rdquo; :</p>
+</li>
 </ul>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">  
 useradd -u <span class="m">95</span> -g<span class="o">=</span>uid -c <span class="s2">&#34;SMTP Daemon&#34;</span> -d /var/empty -s /sbin/nologin _smtpd
 useradd -u <span class="m">96</span> -g<span class="o">=</span>uid -c <span class="s2">&#34;rpc.rwalld&#34;</span> -d /var/empty -s /sbin/nologin _rwalld</code></pre></div>
-
 <ul>
-<li>Packet Filer a aussi eu le droit à son upgrade avec le <a href="http://wiki.deimos.fr/Introduction_%C3%A0_Packet_Filter" target="_blank">remplacement de l&rsquo;entrée &ldquo;scrub in all&rdquo; par &ldquo;match in all scrub (no-df)&rdquo;</a></li>
+<li>Packet Filer a aussi eu le droit à son upgrade avec le <a href="http://wiki.deimos.fr/Introduction_%C3%A0_Packet_Filter">remplacement de l&rsquo;entrée &ldquo;scrub in all&rdquo; par &ldquo;match in all scrub (no-df)&quot;</a></li>
 </ul>
-
 <p>Et maintenant tout fonctionne :-)</p>
 
               
@@ -400,7 +396,7 @@ useradd -u <span class="m">96</span> -g<span class="o">=</span>uid -c <span clas
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

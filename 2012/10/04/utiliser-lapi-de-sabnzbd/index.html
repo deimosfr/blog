@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Je trouve qu&rsquo;il ne manque pas grand chose à Sabnzbd pour qu&rsquo;il soit parfait. Cependant certaines options manquent et heureusement l&rsquo;API est là pour compenser. J&rsquo;ai donc écris un script en python permettant de jouer avec l&rsquo;API que délivre Sabnzbd. Je l&rsquo;ai créer dans l&rsquo;idée qu&rsquo;il soit facile de rajouter une fonctionnalité via l&rsquo;API. Ce script permet :
- De voir les éléments que fournit l&rsquo;API XML De supprimer un certain nombre d&rsquo;éléments dans l&rsquo;historique  J&rsquo;espère que ça aidera certains à se plonger dedans, améliorer mon script ou bien utiliser les fonctions déjà existantes.">
+ De voir les éléments que fournit l&rsquo;API XML De supprimer un certain nombre d&#39;éléments dans l&rsquo;historique  J&rsquo;espère que ça aidera certains à se plonger dedans, améliorer mon script ou bien utiliser les fonctions déjà existantes.">
 
 
 <meta property="og:description" content="Je trouve qu&rsquo;il ne manque pas grand chose à Sabnzbd pour qu&rsquo;il soit parfait. Cependant certaines options manquent et heureusement l&rsquo;API est là pour compenser. J&rsquo;ai donc écris un script en python permettant de jouer avec l&rsquo;API que délivre Sabnzbd. Je l&rsquo;ai créer dans l&rsquo;idée qu&rsquo;il soit facile de rajouter une fonctionnalité via l&rsquo;API. Ce script permet :
- De voir les éléments que fournit l&rsquo;API XML De supprimer un certain nombre d&rsquo;éléments dans l&rsquo;historique  J&rsquo;espère que ça aidera certains à se plonger dedans, améliorer mon script ou bien utiliser les fonctions déjà existantes.">
+ De voir les éléments que fournit l&rsquo;API XML De supprimer un certain nombre d&#39;éléments dans l&rsquo;historique  J&rsquo;espère que ça aidera certains à se plonger dedans, améliorer mon script ou bien utiliser les fonctions déjà existantes.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Utiliser l’API de Sabnzbd">
 <meta name="twitter:title" content="Utiliser l’API de Sabnzbd">
@@ -21,9 +21,9 @@
 <meta property="twitter:url" content="https://blog.deimos.fr/2012/10/04/utiliser-lapi-de-sabnzbd/">
 <meta property="og:site_name" content="Deimosfr Blog">
 <meta property="og:description" content="Je trouve qu&rsquo;il ne manque pas grand chose à Sabnzbd pour qu&rsquo;il soit parfait. Cependant certaines options manquent et heureusement l&rsquo;API est là pour compenser. J&rsquo;ai donc écris un script en python permettant de jouer avec l&rsquo;API que délivre Sabnzbd. Je l&rsquo;ai créer dans l&rsquo;idée qu&rsquo;il soit facile de rajouter une fonctionnalité via l&rsquo;API. Ce script permet :
- De voir les éléments que fournit l&rsquo;API XML De supprimer un certain nombre d&rsquo;éléments dans l&rsquo;historique  J&rsquo;espère que ça aidera certains à se plonger dedans, améliorer mon script ou bien utiliser les fonctions déjà existantes.">
+ De voir les éléments que fournit l&rsquo;API XML De supprimer un certain nombre d&#39;éléments dans l&rsquo;historique  J&rsquo;espère que ça aidera certains à se plonger dedans, améliorer mon script ou bien utiliser les fonctions déjà existantes.">
 <meta name="twitter:description" content="Je trouve qu&rsquo;il ne manque pas grand chose à Sabnzbd pour qu&rsquo;il soit parfait. Cependant certaines options manquent et heureusement l&rsquo;API est là pour compenser. J&rsquo;ai donc écris un script en python permettant de jouer avec l&rsquo;API que délivre Sabnzbd. Je l&rsquo;ai créer dans l&rsquo;idée qu&rsquo;il soit facile de rajouter une fonctionnalité via l&rsquo;API. Ce script permet :
- De voir les éléments que fournit l&rsquo;API XML De supprimer un certain nombre d&rsquo;éléments dans l&rsquo;historique  J&rsquo;espère que ça aidera certains à se plonger dedans, améliorer mon script ou bien utiliser les fonctions déjà existantes.">
+ De voir les éléments que fournit l&rsquo;API XML De supprimer un certain nombre d&#39;éléments dans l&rsquo;historique  J&rsquo;espère que ça aidera certains à se plonger dedans, améliorer mon script ou bien utiliser les fonctions déjà existantes.">
 <meta property="og:locale" content="en-us">
 
   
@@ -287,16 +287,13 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="http://wiki.deimos.fr/images/3/3e/Sabnzbd_logo.png" alt="Sabnzbd_logo" /></p>
-
+              <p><img src="http://wiki.deimos.fr/images/3/3e/Sabnzbd_logo.png" alt="Sabnzbd_logo"></p>
 <p>Je trouve qu&rsquo;il ne manque pas grand chose à Sabnzbd pour qu&rsquo;il soit parfait. Cependant certaines options manquent et heureusement l&rsquo;API est là pour compenser. J&rsquo;ai donc écris un script en python permettant de jouer avec l&rsquo;API que délivre Sabnzbd. Je l&rsquo;ai créer dans l&rsquo;idée qu&rsquo;il soit facile de rajouter une fonctionnalité via l&rsquo;API. Ce script permet :</p>
-
 <ul>
 <li>De voir les éléments que fournit l&rsquo;API XML</li>
-<li>De supprimer un certain nombre d&rsquo;éléments dans l&rsquo;historique</li>
+<li>De supprimer un certain nombre d'éléments dans l&rsquo;historique</li>
 </ul>
-
-<p>J&rsquo;espère que ça aidera certains à se plonger dedans, améliorer mon script ou bien utiliser les fonctions déjà existantes. <a href="http://wiki.deimos.fr/SABnzbd_:_Une_interface_web_pour_g%C3%A9rer_les_newsgroups#sabnzbd_api.py" target="_blank">Le script ainsi que les explications sur son fonctionnement se trouvent ici</a>.</p>
+<p>J&rsquo;espère que ça aidera certains à se plonger dedans, améliorer mon script ou bien utiliser les fonctions déjà existantes. <a href="http://wiki.deimos.fr/SABnzbd_:_Une_interface_web_pour_g%C3%A9rer_les_newsgroups#sabnzbd_api.py">Le script ainsi que les explications sur son fonctionnement se trouvent ici</a>.</p>
 
               
             </div>
@@ -395,7 +392,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

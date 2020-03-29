@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="I wanted to find a way to properly view resources (memory/CPU/IO) usages or configuration. For that I need to use cgroups. But the problem are on free, top, htop or common any tools, as they do not get the real informations of the container.
@@ -290,26 +290,21 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/Poweredbylinux.jpg" alt="Poweredbylinux" />
-I wanted to find a way to properly view resources (memory/CPU/IO) usages or configuration. For that I need to use <a href="https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Container_limits_.28cgroups.29" title="cgroups " target="_blank">cgroups</a>. But the problem are on free, top, htop or common any tools, as they do not get the real informations of the container.</p>
-
-<p>We&rsquo;re in fact waiting on a lot of work on the kernel side or systemd side. More information&rsquo;s <a href="http://fabiokung.com/2014/03/13/memory-inside-linux-containers/" target="_blank">can be found here</a>. Another solution that permit to bind a socks inside containers exists called <a href="https://lwn.net/Articles/575683/" target="_blank">CGManager</a>, however classical tools doesn&rsquo;t use it to get informations.</p>
-
+              <p><img src="https://blog.deimos.fr/images/Poweredbylinux.jpg" alt="Poweredbylinux">
+I wanted to find a way to properly view resources (memory/CPU/IO) usages or configuration. For that I need to use <a href="https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Container_limits_.28cgroups.29" title="cgroups ">cgroups</a>. But the problem are on free, top, htop or common any tools, as they do not get the real informations of the container.</p>
+<p>We&rsquo;re in fact waiting on a lot of work on the kernel side or systemd side. More information&rsquo;s <a href="http://fabiokung.com/2014/03/13/memory-inside-linux-containers/">can be found here</a>. Another solution that permit to bind a socks inside containers exists called <a href="https://lwn.net/Articles/575683/">CGManager</a>, however classical tools doesn&rsquo;t use it to get informations.</p>
 <p>In waiting a real solution, I wrote all little script that give information&rsquo;s regarding the container resources. It&rsquo;s quick and dirty but make the job:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">=====</span> <span class="nv">mycontainer</span> <span class="o">=====</span>
-CPU, cap:                <span class="m">3</span>-4,6-7
+CPU, cap:                3-4,6-7
 CPU, shares:             <span class="m">1024</span>
 RAM, limit usage:        2048M
 RAM+SWAP, limit usage:   3072M
-RAM, current usage:      <span class="m">1577</span>.33M
-RAM+SWAP, current usage: <span class="m">1582</span>.79M
+RAM, current usage:      1577.33M
+RAM+SWAP, current usage: 1582.79M
 RAM, max usage:          2048M
-RAM+SWAP, max usage:     <span class="m">2060</span>.5M
+RAM+SWAP, max usage:     2060.5M
 DISK I/O weight:         <span class="m">500</span></code></pre></div>
-
 <p>Regarding the code, here it is&hellip;simply read the cgroups information:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
 </span><span class="cp"></span>
 <span class="nb">cd</span> /sys/fs/cgroup/lxc/
@@ -328,7 +323,6 @@ DISK I/O weight:         <span class="m">500</span></code></pre></div>
         <span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
     <span class="k">fi</span>  
 <span class="k">done</span></code></pre></div>
-
 <p>Hope this help some of you who didn&rsquo;t know where to look at.</p>
 
               
@@ -428,7 +422,7 @@ DISK I/O weight:         <span class="m">500</span></code></pre></div>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

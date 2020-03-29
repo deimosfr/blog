@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="I recently heard of HSTS which is a way to force users to come back to your website in SSL if they&rsquo;ve already be to HTTPS once. It is simple, just add this line:
@@ -302,13 +302,11 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_ngnix.png" alt="Nginx-logo" />
+              <p><img src="https://blog.deimos.fr/images/logo_ngnix.png" alt="Nginx-logo">
 I recently heard of HSTS which is a way to force users to come back to your website in SSL if they&rsquo;ve already be to HTTPS once. It is simple, just add this line:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># HSTS (force users to come in SSL if they&#39;ve already been once)</span>
 add_header Strict-Transport-Security <span class="s2">&#34;max-age=31536000; includeSubdomains&#34;</span><span class="p">;</span></code></pre></div>
-
-<p>If you want to have an overview of a complete configuration with it, <a href="https://wiki.deimos.fr/Nginx_:_Installation_et_configuration_d%27une_alternative_d%27Apache#Configuration_4" target="_blank">look at the my wiki</a>.</p>
+<p>If you want to have an overview of a complete configuration with it, <a href="https://wiki.deimos.fr/Nginx_:_Installation_et_configuration_d%27une_alternative_d%27Apache#Configuration_4">look at the my wiki</a>.</p>
 
               
             </div>
@@ -411,7 +409,7 @@ add_header Strict-Transport-Security <span class="s2">&#34;max-age=31536000; inc
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

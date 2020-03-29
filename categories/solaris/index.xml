@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Solaris on Deimosfr Blog</title>
@@ -40,7 +40,7 @@ WeeChat is:
       <description>Si vous avez des problèmes de temps d’accès et de débit sur votre espace disque temporaire pour MySQL, alors cet article est fait pour vous.
 La solution consiste donc à utiliser le filesystem tmpfs et rediriger ses fichiers temporaires dessus.
 J&amp;rsquo;ai donc créer et mis à jour mes documentations. Vous aurez donc besoin de :
- Tmpfs sous Solaris Tmpfs sous Linux MySQL : augmenter les perfs pour les fichiers temporaires  &amp;nbsp;</description>
+ Tmpfs sous Solaris Tmpfs sous Linux MySQL : augmenter les perfs pour les fichiers temporaires   </description>
     </item>
     
     <item>
@@ -52,9 +52,9 @@ J&amp;rsquo;ai donc créer et mis à jour mes documentations. Vous aurez donc be
       <description>Je ne me suis pas mis au LaTeX pour rien, j’avais pour idée de pondre une Cheat Sheet sur Tmux, vu que je n’en avais trouvé aucune sur le net.
 J&amp;rsquo;ai donc mis à jour la documentation Tmux avec les Cheat Sheet en anglais et français.
 Je les fournis également ici :
- Tmux French Cheat Sheet
- Tmux English Cheat Sheet
-  N&amp;rsquo;hésitez pas à me faire un retour ou des propositions sur d&amp;rsquo;éventuels ajouts.</description>
+  Tmux French Cheat Sheet
+  Tmux English Cheat Sheet
+  N&amp;rsquo;hésitez pas à me faire un retour ou des propositions sur d&#39;éventuels ajouts.</description>
     </item>
     
     <item>
@@ -75,7 +75,7 @@ J&amp;rsquo;ai donc fait une petite documentation dessus. Je vous conseil fortem
       <guid>https://blog.deimos.fr/2012/02/01/1580/</guid>
       <description>Solaris c&amp;rsquo;est bien, sur UFS, c&amp;rsquo;est tout de suite moins bien. J&amp;rsquo;ai eu besoin d&amp;rsquo;ajouter de la swap sur une partition, et quand on fait pas ça tous les 4 matins, se replonger dedans c&amp;rsquo;est vraiment très très chiant.
 C&amp;rsquo;est pourquoi j&amp;rsquo;ai fais une petite documentation pour créer du swap sur UFS/ZFS/Fichiers. J&amp;rsquo;en ai du coup profiter pour mettre à jour mes documentations sur :
- ZFS : Le FileSystem par excellence</description>
+  ZFS : Le FileSystem par excellence</description>
     </item>
     
     <item>
@@ -126,7 +126,7 @@ Je me suis donc intéressé à la chose et suis très satisfait du résultat. C&
       
       <guid>https://blog.deimos.fr/2010/05/28/zfs-trop-gourmand-en-ram/</guid>
       <description>J’ai eu une petite mésaventure depuis quelques mois au taf avec ce merveilleux filesystem qu’est ZFS. Le problème est simple, j’ai des machines à 72Go de RAM et ne peut dépasser ~ les 48Go.
-Comment ça se fait ? Tout simplement parce que ZFS se réserve 1&amp;frasl;8 de la mémoire dispo (RAM+SWAP) pour son cache. Sur des petites config ça ne se voit pas mais sur des machines avec autant de RAM, ça ait mal.</description>
+Comment ça se fait ? Tout simplement parce que ZFS se réserve 1/8 de la mémoire dispo (RAM+SWAP) pour son cache. Sur des petites config ça ne se voit pas mais sur des machines avec autant de RAM, ça ait mal.</description>
     </item>
     
     <item>
@@ -146,7 +146,7 @@ Nous avons eu besoin de lui car c&amp;rsquo;est les pertes de perfs qui nous tro
       
       <guid>https://blog.deimos.fr/2009/12/22/encore-de-nouvelles-contributions-pour-nagios/</guid>
       <description>Oyé oyé, les contributions nagios se suivent mais ne se ressemblent pas. J’ai concocté 2 nouveaux modules nagios :
- check_sun_cluster : qui permet de surveiller l&amp;rsquo;état du cluster sun check_multi_procs : permet de surveiller plusieurs process dans un seul check  Et puis j&amp;rsquo;ai pu en améliorer d&amp;rsquo;autres :
+ check_sun_cluster : qui permet de surveiller l&#39;état du cluster sun check_multi_procs : permet de surveiller plusieurs process dans un seul check  Et puis j&amp;rsquo;ai pu en améliorer d&amp;rsquo;autres :
  check_backuppc_hosts : ajout d&amp;rsquo;une fonctionnalité pour monitorer qu&amp;rsquo;un seuil hôte  Voilà donc mes dernières œuvres.</description>
     </item>
     
@@ -157,8 +157,8 @@ Nous avons eu besoin de lui car c&amp;rsquo;est les pertes de perfs qui nous tro
       
       <guid>https://blog.deimos.fr/2009/12/13/encore-2-nouveaux-plugins-pour-nagios/</guid>
       <description>Et oui, ça continue. J’ai créer 2 nouveaux plugins pour Nagios :
- Check_ldap_request : Permet d&amp;rsquo;effectuer une requêtes LDAP pour vérifier l&amp;rsquo;existance d&amp;rsquo;un attribut
- Check_rss_mem : Vérifie la mémoire réservée de tous les processus sous Solaris
+  Check_ldap_request : Permet d&amp;rsquo;effectuer une requêtes LDAP pour vérifier l&amp;rsquo;existance d&amp;rsquo;un attribut
+  Check_rss_mem : Vérifie la mémoire réservée de tous les processus sous Solaris
   Quelques nouveaux vont arriver d&amp;rsquo;ici peu et des améliorations pour les existants.</description>
     </item>
     
@@ -222,10 +222,10 @@ Ca donne quand même une belle doc du fait que la complexité de la chose. En ef
       
       <guid>https://blog.deimos.fr/2009/10/12/merci-oracle/</guid>
       <description>Je suis trop content, j’avais vraiment peur que de belles technologies tombent dans l’oublie. Ce n’est pas le cas puisqu’Oracle a confirmer son maintient ET investissement dans :
- Solaris
- MySQL
- SPARC
-  MySQL, j&amp;rsquo;y croyais pas du tout, mais c&amp;rsquo;est super, je suis content. J&amp;rsquo;espère qu&amp;rsquo;xVM Server va également sortir rapidement en stable etc&amp;hellip; Je trouve parcontre vraiment dommage qu&amp;rsquo;ils abandonnent OpenSolaris. C&amp;rsquo;était, je pense, une très bonne solution pour améliorer la stabilité de leurs produits finaux et intéresser un plus large publique bien que Solaris soit aujourd&amp;rsquo;hui gratuit.</description>
+  Solaris
+  MySQL
+  SPARC
+  MySQL, j&amp;rsquo;y croyais pas du tout, mais c&amp;rsquo;est super, je suis content. J&amp;rsquo;espère qu&amp;rsquo;xVM Server va également sortir rapidement en stable etc&amp;hellip; Je trouve parcontre vraiment dommage qu&amp;rsquo;ils abandonnent OpenSolaris. C&#39;était, je pense, une très bonne solution pour améliorer la stabilité de leurs produits finaux et intéresser un plus large publique bien que Solaris soit aujourd&amp;rsquo;hui gratuit.</description>
     </item>
     
     <item>
@@ -264,9 +264,9 @@ Voici donc ma configuration ZSH</description>
       
       <guid>https://blog.deimos.fr/2009/09/18/pourquoi-solaris-nameliore-pas-sa-gestion-des-packages-bordel/</guid>
       <description>Solaris est super évolué sur certaines technos, mais alors sur certains trucs comme les packages, c’est une horreur ! Exemple :
- Très mauvaise gestion des dépendances
- Pas de repository (je parle en natif, sinon il existe pkgget)
- Pas d&amp;rsquo;utilisation simple
+  Très mauvaise gestion des dépendances
+  Pas de repository (je parle en natif, sinon il existe pkgget)
+  Pas d&amp;rsquo;utilisation simple
   Bref, un bon coup de pied au cul leur ferait pas de mal à Sun. Espérons que le rachat par Oracle améliorera les points archaïque qui mette à ce bel OS des coups de freins à tous ceux qui voudraient l&amp;rsquo;utiliser.</description>
     </item>
     

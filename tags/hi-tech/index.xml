@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hi-Tech on Deimosfr Blog</title>
@@ -17,7 +17,7 @@
       <pubDate>Sat, 18 Jun 2016 07:44:11 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/</guid>
-      <description>Long time since my last post. This one is not very technical post, but it&amp;rsquo;s a nice to have solution if you use grep usually. Are not you fed up to type vim  and search the line after a grep command ? If yes, this post is for you.
+      <description>Long time since my last post. This one is not very technical post, but it&amp;rsquo;s a nice to have solution if you use grep usually. Are not you fed up to type vim and search the line after a grep command ? If yes, this post is for you.
 First of all, you may know that an alternative more user friendly to grep exist, called ag (perf comparison). I really like ag and grep, but something make me loose my time since several years and I&amp;rsquo;m pretty sure it&amp;rsquo;s your case too.</description>
     </item>
     
@@ -27,7 +27,7 @@ First of all, you may know that an alternative more user friendly to grep exist,
       <pubDate>Thu, 21 Jan 2016 13:00:16 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/</guid>
-      <description>Some of you may not be familiar with the terms &amp;ldquo;Rolling upgrade&amp;rdquo; or &amp;ldquo;Rolling restart&amp;rdquo;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&amp;rsquo;re managing and the number of active nodes in your cluster.
+      <description>Some of you may not be familiar with the terms &amp;ldquo;Rolling upgrade&amp;rdquo; or &amp;ldquo;Rolling restart&amp;quot;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&amp;rsquo;re managing and the number of active nodes in your cluster.
 At Nousmotards we have several Java Spring Boot applications running. Restarting one application can take up to 1 min.</description>
     </item>
     
@@ -130,7 +130,8 @@ When I was trying to make the offload working on the blog, I modified WordPress 
       
       <guid>https://blog.deimos.fr/2015/01/27/offload-ssl-with-haproxy/</guid>
       <description>A few months ago, I already talked about offloading SSL with Nginx. I also wanted to try it with HAProxy which can be more interesting in some cases.
-The good On HAProxy, the good thing is the simplicity to do it. First of all you need to have at least the version 1.5 of HAProxy so to get SSL support. Then you only need those lines to offload SSL:</description>
+The good On HAProxy, the good thing is the simplicity to do it. First of all you need to have at least the version 1.5 of HAProxy so to get SSL support. Then you only need those lines to offload SSL:
+frontend frontend-https bind :443 ssl crt /etc/haproxy/ssl/server-unified.</description>
     </item>
     
     <item>
@@ -152,7 +153,7 @@ That&amp;rsquo;s why I&amp;rsquo;ve wrote a Packer role for Ansible really easy 
       <guid>https://blog.deimos.fr/2015/01/20/simple-ec2-snapshot-released/</guid>
       <description>For my company, I recently had to find a good solution to make Snapshots from Instance IDs or from tags on AWS. I made several searches but unfortunately didn&amp;rsquo;t find what I was searching for.
 That&amp;rsquo;s why I started to make a tool to do this kind of job. It&amp;rsquo;s written in Python and requires the Boto library. Here is what you can do with Simple EC2 snapshots:
- Hot snapshots (by default) and Cold snapshots   Multiple instances snapshot in one line   Detection of doubles   Filters by tags (allowing wildcards) or by instance IDs   Credentials file multiple with profiles   Limit the number of snapshots   Restrict snapshots to data disks only   The tool is open source and can be downloaded on GitHub :-).</description>
+The tool is open source and can be downloaded on GitHub :-).</description>
     </item>
     
     <item>
@@ -257,8 +258,8 @@ I remembered that there was a very good RSS reader on iOS called Reeder. Unfortu
       <guid>https://blog.deimos.fr/2014/11/09/debian-jessie-is-freezen/</guid>
       <description>Jessie is now frozen!!! Here is the news.
 That mean only limited updates can be done:
-  targeted fixes for release critical bugs (i.e., bugs of severity critical, grave, and serious) in all packages (applies during the entire freeze (ok for TPU));
-  fixes for severity: important bugs in packages of priority: optional or extra, only when this can be done via unstable (until the 5th of December 2014);</description>
+   targeted fixes for release critical bugs (i.e., bugs of severity critical, grave, and serious) in all packages (applies during the entire freeze (ok for TPU));
+    fixes for severity: important bugs in packages of priority: optional or extra, only when this can be done via unstable (until the 5th of December 2014);</description>
     </item>
     
     <item>
@@ -725,7 +726,7 @@ Failed to get D-Bus connection: No connection to service manager. And hopefully 
       <description>After 1 month to finish writing my book, it&amp;rsquo;s now done! I will continue to maintain the blog :-)
 A lot of things happened during the last month. I started writing draft blog posts and I need to finish them.
 Have a good weekend
-&amp;nbsp;</description>
+ </description>
     </item>
     
     <item>
@@ -865,7 +866,7 @@ I started to rewrite my Puppet manifests to Ansible playbooks and what I can say
       
       <guid>https://blog.deimos.fr/2014/05/13/logstash-vs-fluentd/</guid>
       <description>Regarding one of my latest post, talking about Fluentd, some of you asked me why I&amp;rsquo;ve chosen Fluentd instead of Logstash. First of all, I&amp;rsquo;ve looked at this blog post, which kindly resume the current situation. Looking at this and with feedback I got, I could establish this array:
-   Logstash  Fluentd   Concerns  Flexibility/Interoperability  Simplicity/Robustness   Language  JRuby  Cruby   Inputs  More  Fewer   Inputs specs  Basics  Scalables   Plugins  Lot  Lot more   Plugins install  Simple (drop a jar)  Can be complex (dependencies)   Logs send crypt  Yes  Yes   Scalability  Forward to 2 hosts  LB A/A or A/P   Reliability  Can loss messages  No message loss    Logstash and Fluentd are both powerful solutions, they both got pros and cons.</description>
+&amp;lt;td style=&amp;quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #c9daf8; font-weight: bold; text-align: center;&amp;quot; data-sheets-value=&amp;quot;[null,2,&amp;amp;quot;Logstash&amp;amp;quot;]&amp;quot;&amp;gt; Logstash &amp;lt;/td&amp;gt; &amp;lt;td style=&amp;quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #c9daf8; font-weight: bold; text-align: center;&amp;quot; data-sheets-value=&amp;quot;[null,2,&amp;amp;quot;Fluentd&amp;amp;quot;]&amp;quot;&amp;gt; Fluentd &amp;lt;/td&amp;gt;  &amp;lt;td style=&amp;quot;padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: center;&amp;quot; data-sheets-value=&amp;quot;[null,2,&amp;amp;quot;Flexibility/Interoperability&amp;amp;quot;]&amp;quot;&amp;gt; Flexibility/Interoperability &amp;lt;/td&amp;gt; &amp;lt;td style=&amp;quot;padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: center;&amp;quot; data-sheets-value=&amp;quot;[null,2,&amp;amp;quot;Simplicity/Robustness&amp;amp;quot;]&amp;quot;&amp;gt; Simplicity/Robustness &amp;lt;/td&amp;gt;  &amp;lt;td style=&amp;quot;padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: center;&amp;quot; data-sheets-value=&amp;quot;[null,2,&amp;amp;quot;JRuby&amp;amp;quot;]&amp;quot;&amp;gt; JRuby &amp;lt;/td&amp;gt; &amp;lt;td style=&amp;quot;padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: center;&amp;quot; data-sheets-value=&amp;quot;[null,2,&amp;amp;quot;Cruby&amp;amp;quot;]&amp;quot;&amp;gt; Cruby &amp;lt;/td&amp;gt;  &amp;lt;td style=&amp;quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #d9ead3; text-align: center;&amp;quot; data-sheets-value=&amp;quot;[null,2,&amp;amp;quot;More&amp;amp;quot;]&amp;quot;&amp;gt; More &amp;lt;/td&amp;gt; &amp;lt;td style=&amp;quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #f4cccc; text-align: center;&amp;quot; data-sheets-value=&amp;quot;[null,2,&amp;amp;quot;Fewer&amp;amp;quot;]&amp;quot;&amp;gt; Fewer &amp;lt;/td&amp;gt;  &amp;lt;td style=&amp;quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #f4cccc; text-align: center;&amp;quot; data-sheets-value=&amp;quot;[null,2,&amp;amp;quot;Basics&amp;amp;quot;]&amp;quot;&amp;gt; Basics &amp;lt;/td&amp;gt; &amp;lt;td style=&amp;quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #d9ead3; text-align: center;&amp;quot; data-sheets-value=&amp;quot;[null,2,&amp;amp;quot;Scalables&amp;amp;quot;]&amp;quot;&amp;gt; Scalables &amp;lt;/td&amp;gt;  &amp;lt;td style=&amp;quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #f4cccc; text-align: center;&amp;quot; data-sheets-value=&amp;quot;[null,2,&amp;amp;quot;Lot&amp;amp;quot;]&amp;quot;&amp;gt; Lot &amp;lt;/td&amp;gt; &amp;lt;td style=&amp;quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #d9ead3; text-align: center;&amp;quot; data-sheets-value=&amp;quot;[null,2,&amp;amp;quot;Lot more&amp;amp;quot;]&amp;quot;&amp;gt; Lot more &amp;lt;/td&amp;gt;  &amp;lt;td style=&amp;quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #d9ead3; text-align: center;&amp;quot; data-sheets-value=&amp;quot;[null,2,&amp;amp;quot;Simple (drop a jar)&amp;amp;quot;]&amp;quot;&amp;gt; Simple (drop a jar) &amp;lt;/td&amp;gt; &amp;lt;td style=&amp;quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #fff2cc; text-align: center;&amp;quot; data-sheets-value=&amp;quot;[null,2,&amp;amp;quot;Can be complex (dependancies)&amp;amp;quot;]&amp;quot;&amp;gt; Can be complex (dependencies) &amp;lt;/td&amp;gt;  &amp;lt;td style=&amp;quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #d9ead3; text-align: center;&amp;quot; data-sheets-value=&amp;quot;[null,2,&amp;amp;quot;Yes&amp;amp;quot;]&amp;quot;&amp;gt; Yes &amp;lt;/td&amp;gt; &amp;lt;td style=&amp;quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #d9ead3; text-align: center;&amp;quot; data-sheets-value=&amp;quot;[null,2,&amp;amp;quot;Yes&amp;amp;quot;]&amp;quot;&amp;gt; Yes &amp;lt;/td&amp;gt;  &amp;lt;td style=&amp;quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #f4cccc; text-align: center;&amp;quot; data-sheets-value=&amp;quot;[null,2,&amp;amp;quot;Forward to 2 hosts&amp;amp;quot;]&amp;quot;&amp;gt; Forward to 2 hosts &amp;lt;/td&amp;gt; &amp;lt;td style=&amp;quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #d9ead3; text-align: center;&amp;quot; data-sheets-value=&amp;quot;[null,2,&amp;amp;quot;LB A/A or A/P&amp;amp;quot;]&amp;quot;&amp;gt; LB A/A or A/P &amp;lt;/td&amp;gt;  &amp;lt;td style=&amp;quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #f4cccc; text-align: center;&amp;quot; data-sheets-value=&amp;quot;[null,2,&amp;amp;quot;Can loss messages&amp;amp;quot;]&amp;quot;&amp;gt; Can loss messages &amp;lt;/td&amp;gt; &amp;lt;td style=&amp;quot;padding: 2px 3px 2px 3px; vertical-align: bottom; background-color: #d9ead3; text-align: center;&amp;quot; data-sheets-value=&amp;quot;[null,2,&amp;amp;quot;No message loss&amp;amp;quot;]&amp;quot;&amp;gt; No message loss &amp;lt;/td&amp;gt;  Logstash and Fluentd are both powerful solutions, they both got pros and cons.</description>
     </item>
     
     <item>
@@ -1104,7 +1105,7 @@ tail -f /var/log/syslog | ccze -A </description>
       <guid>https://blog.deimos.fr/2014/03/26/book-the-hackers-guide-to-python/</guid>
       <description>One of my colleague (Julien Danjou) wrote a book on advanced usage of Python. The book was out today and I strongly recommend buying it. Here is the summary of it:
  Python is a wonderful programming language that is being used more and more in many different industries. It is fast, flexible, and it comes with batteries included.
-Most of the books you read about Python will teach you the language basics – but once you&amp;rsquo;ve learnt them, you’re on your own in designing your application and discovering best practice.</description>
+  Most of the books you read about Python will teach you the language basics – but once you&amp;rsquo;ve learnt them, you’re on your own in designing your application and discovering best practice.</description>
     </item>
     
     <item>
@@ -1560,7 +1561,7 @@ To do it, simply follow the link (in french).</description>
       
       <guid>https://blog.deimos.fr/2013/12/22/php-fpm-get-status-information-page-for-monitoring/</guid>
       <description>To be able to monitor the PHP-FPM service with connections, queue information, process&amp;hellip; you&amp;rsquo;ll need to set the status page. This will give you something like this :
-pool: www process manager: dynamic start time: 18/Dec/201300:41 +0100 start since: 52972 accepted conn: 5268 listen queue: 0 max listen queue: 0 listen queue len: 0 idle processes: 3 active processes: 1 total processes: 4 max active processes: 4 max children reached: 0 Those informations are important to correctly tune the PHP-FPM service.</description>
+pool: www process manager: dynamic start time: 18/Dec/2013:19:00:41 +0100 start since: 52972 accepted conn: 5268 listen queue: 0 max listen queue: 0 listen queue len: 0 idle processes: 3 active processes: 1 total processes: 4 max active processes: 4 max children reached: 0 Those informations are important to correctly tune the PHP-FPM service.</description>
     </item>
     
     <item>
@@ -1623,8 +1624,7 @@ Once again, thanks Mediawiki !</description>
       <pubDate>Tue, 10 Dec 2013 11:00:00 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2013/12/10/galera-how-to-perform-zero-downtime-schema-changes/</guid>
-      <description>Last week, I had a webinar regarding Galera Cluster given by Severalnines. As I found it very interesting, I’m sharing it with you :
-  Zero Downtime Schema Changes - Galera Cluster - Best Practices  from Severalnines</description>
+      <description>Last week, I had a webinar regarding Galera Cluster given by Severalnines. As I found it very interesting, I’m sharing it with you :</description>
     </item>
     
     <item>
@@ -2002,8 +2002,7 @@ Here is my Pootle tutorial.</description>
       <pubDate>Sun, 15 Sep 2013 10:00:19 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2013/09/15/write-puppet-manifests-and-modules-faster-with-vim/</guid>
-      <description>I recently wrote a blog post regarding methods to write Puppet modules/manifests faster. I’ve made presentations for it, here are the slides :
-  Puppet slides  from Pierre Mavro</description>
+      <description>I recently wrote a blog post regarding methods to write Puppet modules/manifests faster. I’ve made presentations for it, here are the slides :</description>
     </item>
     
     <item>
@@ -2033,7 +2032,6 @@ The script will remove unneeded elements in a Debian system, removing folders (d
       
       <guid>https://blog.deimos.fr/2013/09/09/drbd-advanced-usages/</guid>
       <description>At my work, I taught a DRBD training for advanced usages at work. I produced some slides and I would like to share them :
-  Drbd  from Pierre Mavro 
 I hope it could help&amp;hellip;</description>
     </item>
     
@@ -2369,8 +2367,7 @@ You can find my configuration here and modify it if you want :-)</description>
       <guid>https://blog.deimos.fr/2013/06/27/mediawiki-install-and-upgrade-with-git/</guid>
       <description>For several years, I manually managed my MediaWiki instance manually and always upgraded manually, getting diffs, patching files etc&amp;hellip; Now it&amp;rsquo;s over, this method is simply not adapted to my needs.
 Now, as MediaWiki use git, I decided to maintain my instance with the git repository and extensions as well. I&amp;rsquo;ve wrote a documentation on that :
- Installation method Core + extensions Upgrade core + extensions  &amp;nbsp;
-I hope this will help some of you that still manage it by the old way.</description>
+ Installation method Core + extensions Upgrade core + extensions   I hope this will help some of you that still manage it by the old way.</description>
     </item>
     
     <item>
@@ -2609,8 +2606,8 @@ One of my first taks, will be to integrate MySecureShell in the officials Debian
       <pubDate>Sat, 04 May 2013 10:00:07 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2013/05/04/prochains-articles-en-anglais/</guid>
-      <description>Je ne pourrais clairement pas assurer le français avec l&amp;rsquo;anglais (problème de temps). C&amp;rsquo;est pourquoi je propose à mes fidèles lecteurs un coup de main si vous êtes parant pour m&amp;rsquo;écrire la partie française, je suis open, ça permettrait de maintenir les 2 en parallèle.
-Je m&amp;rsquo;excuse par avance pour mes lecteurs qui ont votés pour garder la langue française, mais je m&amp;rsquo;étais fixé comme objectif de changer la langue si les non n&amp;rsquo;atteignaient pas la majorité.</description>
+      <description>Je ne pourrais clairement pas assurer le français avec l&amp;rsquo;anglais (problème de temps). C&amp;rsquo;est pourquoi je propose à mes fidèles lecteurs un coup de main si vous êtes parant pour m&#39;écrire la partie française, je suis open, ça permettrait de maintenir les 2 en parallèle.
+Je m&amp;rsquo;excuse par avance pour mes lecteurs qui ont votés pour garder la langue française, mais je m&#39;étais fixé comme objectif de changer la langue si les non n&amp;rsquo;atteignaient pas la majorité.</description>
     </item>
     
     <item>
@@ -2660,7 +2657,7 @@ Je vous ai fait une doc pour sa mise en place qui n&amp;rsquo;est pas aussi simp
       
       <guid>https://blog.deimos.fr/2013/04/24/au-revoir-mysqloracle-bonjour-mariadbskysql/</guid>
       <description>Et voilà, c&amp;rsquo;est une très bonne nouvelle qui vient de tomber ! SkySQL rachète MariaDB. Les boites frileuses de passer sous MariaDB, sous prétexte qu&amp;rsquo;il n&amp;rsquo;y a pas de boites derrière, vont pouvoir être rassurer et y aller pour de la production. C&amp;rsquo;est donc une excellente nouvelle pour MariaDB dont certains moteurs passent en OpenSource comme tokudb par exemple.
-Je pense qu&amp;rsquo;à terme, un bon paquet de distributions, tel que Mageia (cc Kharec), vont switcher sur MariaDB et abandonner définitivement MySQL.</description>
+Je pense qu&#39;à terme, un bon paquet de distributions, tel que Mageia (cc Kharec), vont switcher sur MariaDB et abandonner définitivement MySQL.</description>
     </item>
     
     <item>
@@ -2807,7 +2804,7 @@ Maintenant, je commence a avoir de nouveaux besoins, nécessitant de plus en plu
       <pubDate>Wed, 27 Mar 2013 11:00:06 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2013/03/27/migration-vers-owncloud-5-reussie/</guid>
-      <description>Et voilà encore une migration de faite. Elle s&amp;rsquo;est plutôt bien passée, alors que c&amp;rsquo;était mal partie. En effet, il a fallut que je change la configuration de mon Nginx pour que cette nouvelle mouture fonctionne. Ces informations n&amp;rsquo;étant pas marquées dans la documentation officielle, j&amp;rsquo;ai perdu un peu de temps en pensant que ma migration avait foirée.
+      <description>Et voilà encore une migration de faite. Elle s&amp;rsquo;est plutôt bien passée, alors que c&#39;était mal partie. En effet, il a fallut que je change la configuration de mon Nginx pour que cette nouvelle mouture fonctionne. Ces informations n&#39;étant pas marquées dans la documentation officielle, j&amp;rsquo;ai perdu un peu de temps en pensant que ma migration avait foirée.
 En montant une autre plateforme from scratch, j&amp;rsquo;avais le même problème. Le soucis était alors rapidement identifiable.</description>
     </item>
     
@@ -2899,7 +2896,7 @@ Vous l&amp;rsquo;aurez compris, à la différence des autres, celui ci est en fr
       <guid>https://blog.deimos.fr/2013/03/05/bootstrap-mettez-vos-site-en-valeur-simplement/</guid>
       <description>Toi lecteur, si comme moi tu es un looser du design et que les sites web que tu créer ressemble a ceux du début de années 2000, alors bootstrap est fait pour toi !
 Concrètement qu&amp;rsquo;est-ce que c&amp;rsquo;est ? Simplement une suite de CSS/JavaScripts/Images pour habiller ton site et en plus responsiveness. Et a mettre en place, c&amp;rsquo;est d&amp;rsquo;une facilité déconcertante.
-Mais qui est l&amp;rsquo;âme charitable a avoir développé et publie ceci me diras tu ?</description>
+Mais qui est l&#39;âme charitable a avoir développé et publie ceci me diras tu ?</description>
     </item>
     
     <item>
@@ -2921,7 +2918,7 @@ Récemment j&amp;rsquo;ai passé tous mes ordinateurs perso sous SSD et par chan
       <guid>https://blog.deimos.fr/2013/03/01/vmware-vs-openstack/</guid>
       <description>Titre provocateur ? Oui, c&amp;rsquo;est vrai ! En même temps, Vmware se repose un peu sur ses lauriers et OpenStack prend de l’ampleur. Il fallait bien en match pour les départager.
 Je suis récemment tombé sur ce match intéressant entre Vmware et OpenStack.
-Mon avis personnel sur ce match est qu&amp;rsquo;il est très difficile de vraiment les départager. Tout dépends du besoin et de l&amp;rsquo;évolution de celui ci. Néanmoins, cet article est très intéressant car il cite les fonctionnalités majeures de chacun et les compares.</description>
+Mon avis personnel sur ce match est qu&amp;rsquo;il est très difficile de vraiment les départager. Tout dépends du besoin et de l&#39;évolution de celui ci. Néanmoins, cet article est très intéressant car il cite les fonctionnalités majeures de chacun et les compares.</description>
     </item>
     
     <item>
@@ -3058,7 +3055,7 @@ Un des supers sujet était Bind 10 que j&amp;rsquo;attendais avec impatience. Il
       <guid>https://blog.deimos.fr/2013/02/03/en-direct-du-fosdem-2013/</guid>
       <description>Et me voilà parti grâce à Linagora au FOSDEM 2013 :-). C&amp;rsquo;est donc mon premier jour et premier FOSDEM.
 Au menu une petite intro Ubuntu sur Juju et MASS mais piètre qualité du représentant de Canonical. Quelque chose a retenir cependant, il faut vraiment tester Ceph :
-Heureusement qu&amp;rsquo;il y a eu une magnifique représentation MediaWiki avec du Jenkins, PhantomJS (incroyable) et d&amp;rsquo;autres produits dont Cucumber (qui est très impressionnant). Le mec de Wikipedia/MediaWiki avait vraiment l&amp;rsquo;air de bien connaître son sujet c&amp;rsquo;était top :</description>
+Heureusement qu&amp;rsquo;il y a eu une magnifique représentation MediaWiki avec du Jenkins, PhantomJS (incroyable) et d&amp;rsquo;autres produits dont Cucumber (qui est très impressionnant). Le mec de Wikipedia/MediaWiki avait vraiment l&amp;rsquo;air de bien connaître son sujet c&#39;était top :</description>
     </item>
     
     <item>
@@ -3077,7 +3074,7 @@ Je vous invite donc à installer Dina, elle est gratuite.</description>
       <pubDate>Wed, 30 Jan 2013 11:00:07 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2013/01/30/2659/</guid>
-      <description>Si vous utilisez MediaWiki, vous n&amp;rsquo;avez pas forcément besoin de toutes les fonctionnalités. Certaines peuvent disparaître via de la configuration, d&amp;rsquo;autres via des Hook ou pire via de l&amp;rsquo;édition de code.
+      <description>Si vous utilisez MediaWiki, vous n&amp;rsquo;avez pas forcément besoin de toutes les fonctionnalités. Certaines peuvent disparaître via de la configuration, d&amp;rsquo;autres via des Hook ou pire via de l&#39;édition de code.
 Bref, voici une solution pour supprimer l&amp;rsquo;onglet &amp;ldquo;Discussion&amp;rdquo; de toutes les pages. C&amp;rsquo;est un Hook pour Mediawiki disponible ici.</description>
     </item>
     
@@ -3129,7 +3126,7 @@ C&amp;rsquo;est pourquoi je vous propose une petite documentation focalisée sur
       
       <guid>https://blog.deimos.fr/2013/01/20/presenter-des-pdf-proprement/</guid>
       <description>Vous connaissez peut être l&amp;rsquo;extension Inpress (LibreOffice) Presenter Console qui permet de présenter un document de type Powerpoint/Inpress sur un dual screen avec visualisation du temps, affichage de la diapo suivante etc&amp;hellip; bref un outil vite indispensable lorsque l&amp;rsquo;on fait des présentations.
-J&amp;rsquo;ai cherché la même chose pour présenter des PDF car j&amp;rsquo;ai donné une formation LPI 101 et j&amp;rsquo;avais besoin d&amp;rsquo;être aussi à l&amp;rsquo;aise qu&amp;rsquo;avec les PPT. Voici ce que j&amp;rsquo;ai trouvé :</description>
+J&amp;rsquo;ai cherché la même chose pour présenter des PDF car j&amp;rsquo;ai donné une formation LPI 101 et j&amp;rsquo;avais besoin d&#39;être aussi à l&amp;rsquo;aise qu&amp;rsquo;avec les PPT. Voici ce que j&amp;rsquo;ai trouvé :</description>
     </item>
     
     <item>
@@ -3211,9 +3208,9 @@ Alors voilà, je suis passé à Nginx et après plusieurs jours dessus, je suis 
       
       <guid>https://blog.deimos.fr/2013/01/04/exchange-sur-gmail-cest-fini/</guid>
       <description>Hello a tous,
-Pour ceux qui ne le savent pas encore, configurer Gmail comme si c&amp;rsquo;était un serveur exchange sur leurs iPhone va bientôt ne plus fonctionner. Le service ferme ses portes pour les comptes gratuits fin janvier.
+Pour ceux qui ne le savent pas encore, configurer Gmail comme si c&#39;était un serveur exchange sur leurs iPhone va bientôt ne plus fonctionner. Le service ferme ses portes pour les comptes gratuits fin janvier.
 Google fait ça pour 2 raisons :
- La licence a payer a Microsoft pour utiliser ActiveSync. Parce que Microsoft n&amp;rsquo;a toujours pas ouvert les standards libre sur ces terminaux.  Pour se passer d&amp;rsquo;Exchange sur son iPhone et le configurer pour avoir l&amp;rsquo;équivalence des services, voici comment faire&amp;hellip;</description>
+ La licence a payer a Microsoft pour utiliser ActiveSync. Parce que Microsoft n&amp;rsquo;a toujours pas ouvert les standards libre sur ces terminaux.  Pour se passer d&amp;rsquo;Exchange sur son iPhone et le configurer pour avoir l&#39;équivalence des services, voici comment faire&amp;hellip;</description>
     </item>
     
     <item>
@@ -3256,7 +3253,7 @@ Je suis trop trop trop content ! Pas facile de faire switcher des gens sur Media
       <guid>https://blog.deimos.fr/2012/12/21/newznab-indexeur-de-usenet/</guid>
       <description>Newznab est un indexeur de newznab. Il sert par exemple à être utilisé avec SABnzbd ou encore Sick-Beard. Il est ensuite très pratique de pouvoir faire des recherche par celui ci pour connaître par exemple les dernières distributions Linux sur les newsgroup ;-).
 Pour sa mise en place, suivez le lien.
-PS : si vous lisez cet article, c&amp;rsquo;est que c&amp;rsquo;était pas aujourd&amp;rsquo;hui la fin du monde :-)</description>
+PS : si vous lisez cet article, c&amp;rsquo;est que c&#39;était pas aujourd&amp;rsquo;hui la fin du monde :-)</description>
     </item>
     
     <item>
@@ -3298,8 +3295,8 @@ La présentation est disponible en téléchargement sur slideshare ou Puppet Sli
       
       <guid>https://blog.deimos.fr/2012/12/13/telecharger-de-beaux-fonds-decran/</guid>
       <description>Vous connaissez peut être Interface Lift ! Si vous ne connaissez pas encore, vous allez sûrement apprécier !
-J&amp;rsquo;ai fini par trouver un petit script en Python qui permet de télécharger facilement tous les fonds d&amp;rsquo;écran dans la résolution souhaitée ! Voici le script.
-Bons fonds d&amp;rsquo;écran :-)</description>
+J&amp;rsquo;ai fini par trouver un petit script en Python qui permet de télécharger facilement tous les fonds d&#39;écran dans la résolution souhaitée ! Voici le script.
+Bons fonds d&#39;écran :-)</description>
     </item>
     
     <item>
@@ -3309,7 +3306,7 @@ Bons fonds d&amp;rsquo;écran :-)</description>
       
       <guid>https://blog.deimos.fr/2012/12/11/news-en-vrac-6/</guid>
       <description>Voici quelques petites modifications récemment effectuées sur le wiki :
- Kernel : J&amp;rsquo;ai mis à jour la documentation pour la recompilation des kernels. Pas de gros changements, juste un petit rafraîchissement graphique. Bind) : Petits correctifs sur quelques erreurs minimes Nagios : Une petite erreur sur l&amp;rsquo;installation, j&amp;rsquo;avais oublié &amp;lsquo;install&amp;rsquo; dans apt-get (Merci Sandro) Awk : Ajout d&amp;rsquo;un exemple awk Mediawki : J&amp;rsquo;ai mis à jour la page pour quelques petits trucs qui ont changés avec la dernière mouture de Mediawiki  </description>
+ Kernel : J&amp;rsquo;ai mis à jour la documentation pour la recompilation des kernels. Pas de gros changements, juste un petit rafraîchissement graphique. Bind : Petits correctifs sur quelques erreurs minimes Nagios : Une petite erreur sur l&amp;rsquo;installation, j&amp;rsquo;avais oublié &amp;lsquo;install&amp;rsquo; dans apt-get (Merci Sandro) Awk : Ajout d&amp;rsquo;un exemple awk Mediawki : J&amp;rsquo;ai mis à jour la page pour quelques petits trucs qui ont changés avec la dernière mouture de Mediawiki  </description>
     </item>
     
     <item>
@@ -3318,7 +3315,7 @@ Bons fonds d&amp;rsquo;écran :-)</description>
       <pubDate>Sun, 09 Dec 2012 11:00:07 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2012/12/09/bye-bye-varwww/</guid>
-      <description>C&amp;rsquo;est avec tristesse que je vous annonce la fin de /var/www. Ca faisait des années que je m&amp;rsquo;étais bien habitué à celà. C&amp;rsquo;est en installant Nginx sur Debian 7 que je me suis rendu compte que /var/www n&amp;rsquo;existait pas. J&amp;rsquo;ai donc regardé la conf et que vois je&amp;hellip;
+      <description>C&amp;rsquo;est avec tristesse que je vous annonce la fin de /var/www. Ca faisait des années que je m&#39;étais bien habitué à celà. C&amp;rsquo;est en installant Nginx sur Debian 7 que je me suis rendu compte que /var/www n&amp;rsquo;existait pas. J&amp;rsquo;ai donc regardé la conf et que vois je&amp;hellip;
 root /usr/share/nginx/www; J&amp;rsquo;ai donc regardé le README.Debian qui me renvoie sur l&amp;rsquo;explication : http://lintian.debian.org/tags/dir-or-file-in-var-www.html
 Debian a tout simplement remis les choses propres en suivant la FHS.</description>
     </item>
@@ -3351,7 +3348,7 @@ Je vous ai fais une petite documentation pour une mise en place éclair de ce ge
       
       <guid>https://blog.deimos.fr/2012/12/03/wordpress-infinite-scrolling-pour-le-theme-yoko/</guid>
       <description>Si certains d&amp;rsquo;entre vous n&amp;rsquo;utilisent pas encore le module Jetpack pour WordPress, je les invite très rapidement le faire. C&amp;rsquo;est un module qui comprends plusieurs sous-modules, tous très facilement activable, d&amp;rsquo;une simplicité déconcertante et pour certains très performants.
-Dans l&amp;rsquo;une des dernières updates de Jetpack, il y a l&amp;rsquo;infinite scrolling que je souhaitais activer. Malheureusement, pour le thème que j&amp;rsquo;utilise (Yoko)&amp;hellip;impossible de l&amp;rsquo;activer, il n&amp;rsquo;est pas supporté :-(. Une petite recherche sur le forum de wordpress m&amp;rsquo;a permit de voir que je n&amp;rsquo;étais pas le seul sur cette demande.</description>
+Dans l&amp;rsquo;une des dernières updates de Jetpack, il y a l&amp;rsquo;infinite scrolling que je souhaitais activer. Malheureusement, pour le thème que j&amp;rsquo;utilise (Yoko)&amp;hellip;impossible de l&amp;rsquo;activer, il n&amp;rsquo;est pas supporté :-(. Une petite recherche sur le forum de wordpress m&amp;rsquo;a permit de voir que je n&#39;étais pas le seul sur cette demande.</description>
     </item>
     
     <item>
@@ -3400,7 +3397,7 @@ Et donc pour ajouter une Application dans la liste des Applications sous Gnome S
       <pubDate>Fri, 23 Nov 2012 11:00:26 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2012/11/23/tomcat-mise-en-place-du-load-balancer/</guid>
-      <description>Toujours dans la continuité des articles sur Tomcat, on commence à rentrer dans du lourd et faire de la répartition de charge. Ça a l&amp;rsquo;avantage d&amp;rsquo;être assez facile et rapide à mettre en place. La mise en place du load balancing est faite au niveau du mod_jk comme ceci :
+      <description>Toujours dans la continuité des articles sur Tomcat, on commence à rentrer dans du lourd et faire de la répartition de charge. Ça a l&amp;rsquo;avantage d&#39;être assez facile et rapide à mettre en place. La mise en place du load balancing est faite au niveau du mod_jk comme ceci :
 Je vous laisse regarder la doc pour sa mise en place.</description>
     </item>
     
@@ -3431,7 +3428,7 @@ Le premier commence avec la mise en place de mod_jk sur Apache afin de servir du
       <pubDate>Thu, 15 Nov 2012 11:00:09 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2012/11/15/perl-oriente-objet/</guid>
-      <description>Je viens de me mettre enfin à faire de l&amp;rsquo;objet. Trop de personnes autour de moi m&amp;rsquo;ont répétées plusieurs fois : l&amp;rsquo;objet, ça change ta vie ! Je pensais la chose un peu exagérée&amp;hellip;et bien non. Effectivement c&amp;rsquo;est super puissant. Vraiment déroutant aux premiers abords, mais ensuite c&amp;rsquo;est top ! Et je n&amp;rsquo;en suis qu&amp;rsquo;à mes débuts !
+      <description>Je viens de me mettre enfin à faire de l&amp;rsquo;objet. Trop de personnes autour de moi m&amp;rsquo;ont répétées plusieurs fois : l&amp;rsquo;objet, ça change ta vie ! Je pensais la chose un peu exagérée&amp;hellip;et bien non. Effectivement c&amp;rsquo;est super puissant. Vraiment déroutant aux premiers abords, mais ensuite c&amp;rsquo;est top ! Et je n&amp;rsquo;en suis qu&#39;à mes débuts !
 J&amp;rsquo;ai donc commencé à alimenter une petite page sur mon wiki pour créer des rapidement de l&amp;rsquo;objet en Perl à travers des exemples.</description>
     </item>
     
@@ -3531,7 +3528,7 @@ Pour la documentation sur l&amp;rsquo;Authentification SSO depuis Apache sur bac
       <pubDate>Sat, 20 Oct 2012 10:00:21 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2012/10/20/html-patientez-svp/</guid>
-      <description>J&amp;rsquo;ai cherché le moyen le plus simple de faire une faire attendre les gens lors d&amp;rsquo;un submit en PHP/HTML. Je suis tombé sur des trucs en Javascript qui n&amp;rsquo;étaient pas terrible, en Ajax compliqué à mettre en œuvre ou en jQuery avec des kilomètres de lignes. Puis je suis tombé sur cette solution, qui avec un simple div et innerHTML permettait de répondre à mon besoin.
+      <description>J&amp;rsquo;ai cherché le moyen le plus simple de faire une faire attendre les gens lors d&amp;rsquo;un submit en PHP/HTML. Je suis tombé sur des trucs en Javascript qui n&#39;étaient pas terrible, en Ajax compliqué à mettre en œuvre ou en jQuery avec des kilomètres de lignes. Puis je suis tombé sur cette solution, qui avec un simple div et innerHTML permettait de répondre à mon besoin.
 Ok, est moche, mais je n&amp;rsquo;ai besoin d&amp;rsquo;aucune librairie en plus et c&amp;rsquo;est extrêmement simple à mettre en place et peu coûteux en lignes de code.</description>
     </item>
     
@@ -3592,7 +3589,7 @@ C&amp;rsquo;est un script qui va parser l&amp;rsquo;interface web graphique de N
       
       <guid>https://blog.deimos.fr/2012/10/04/utiliser-lapi-de-sabnzbd/</guid>
       <description>Je trouve qu&amp;rsquo;il ne manque pas grand chose à Sabnzbd pour qu&amp;rsquo;il soit parfait. Cependant certaines options manquent et heureusement l&amp;rsquo;API est là pour compenser. J&amp;rsquo;ai donc écris un script en python permettant de jouer avec l&amp;rsquo;API que délivre Sabnzbd. Je l&amp;rsquo;ai créer dans l&amp;rsquo;idée qu&amp;rsquo;il soit facile de rajouter une fonctionnalité via l&amp;rsquo;API. Ce script permet :
- De voir les éléments que fournit l&amp;rsquo;API XML De supprimer un certain nombre d&amp;rsquo;éléments dans l&amp;rsquo;historique  J&amp;rsquo;espère que ça aidera certains à se plonger dedans, améliorer mon script ou bien utiliser les fonctions déjà existantes.</description>
+ De voir les éléments que fournit l&amp;rsquo;API XML De supprimer un certain nombre d&#39;éléments dans l&amp;rsquo;historique  J&amp;rsquo;espère que ça aidera certains à se plonger dedans, améliorer mon script ou bien utiliser les fonctions déjà existantes.</description>
     </item>
     
     <item>
@@ -3693,7 +3690,7 @@ Pour lire l&amp;rsquo;article, suivez le lien.</description>
       <pubDate>Sun, 02 Sep 2012 10:00:09 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2012/09/02/les-references-ameliorees-sur-mediawiki/</guid>
-      <description>Comme vous l&amp;rsquo;avez certainement déjà vu sur mon wiki, je cite toujours les références qui m&amp;rsquo;ont servit à faire des articles. Cependant, j&amp;rsquo;ai eu quelques fois des raleurs qui n&amp;rsquo;étaient pas content car la citation n&amp;rsquo;était pas faite exactement à l&amp;rsquo;endroit où je réutilisait certaines informations d&amp;rsquo;un autre site.
+      <description>Comme vous l&amp;rsquo;avez certainement déjà vu sur mon wiki, je cite toujours les références qui m&amp;rsquo;ont servit à faire des articles. Cependant, j&amp;rsquo;ai eu quelques fois des raleurs qui n&#39;étaient pas content car la citation n&#39;était pas faite exactement à l&amp;rsquo;endroit où je réutilisait certaines informations d&amp;rsquo;un autre site.
 Justement ces nouvelles références qui utilisent l’extension Cite, me permettent de faire quelque chose de propre et qui rendra heureuse les plaignants !</description>
     </item>
     
@@ -3744,7 +3741,7 @@ Pour la solution, ça se passe ici.</description>
       
       <guid>https://blog.deimos.fr/2012/08/23/freebox-le-nas-a-0e/</guid>
       <description>La semaine dernière, j&amp;rsquo;ai commencé à en avoir marre de mon FreeNAS. Non pas que ça ne fonctionne pas bien, mais devoir avoir une machine dédiée, allumée, pour lire les films de famille :-p et stocker mes photos etc&amp;hellip; bref, pénible !
-Je me suis dis : &amp;ldquo;Bon un Nas, ça serait pas mal quand même, mais ça fait cher pour l&amp;rsquo;utilité que je souhaites !&amp;rdquo;. Surtout que je ne souhaites pas des fonctionnalités de fou, je veux un truc en du RAID 1, qui lit tout les formats video et qui ne consomme pas beaucoup lorsque je n&amp;rsquo;utilise pas !</description>
+Je me suis dis : &amp;ldquo;Bon un Nas, ça serait pas mal quand même, mais ça fait cher pour l&amp;rsquo;utilité que je souhaites !&amp;quot;. Surtout que je ne souhaites pas des fonctionnalités de fou, je veux un truc en du RAID 1, qui lit tout les formats video et qui ne consomme pas beaucoup lorsque je n&amp;rsquo;utilise pas !</description>
     </item>
     
     <item>
@@ -3832,7 +3829,7 @@ J&amp;rsquo;ai donc fais une doc qui en 5 min vous permettra de faire des packag
       <pubDate>Sun, 05 Aug 2012 10:00:59 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2012/08/05/tinyproxy/</guid>
-      <description>TinyProxy est un proxy, tout comme Squid, mais qui se veut être léger. Je l&amp;rsquo;utilise au travail sur ma machine pour mettre toutes mes applications dessus. L&amp;rsquo;avantage est d&amp;rsquo;avoir la configuration du proxy pour wget, apt, etc&amp;hellip; qui pointe en localhost. Ainsi dans la configuration de TinyProxy, il n&amp;rsquo;y a plus qu&amp;rsquo;à configurer le serveur Proxy sur lequel on veut taper pour que toute mes applications soient redirigées dessus sans avoir à les toucher au moindre changement :-)</description>
+      <description>TinyProxy est un proxy, tout comme Squid, mais qui se veut être léger. Je l&amp;rsquo;utilise au travail sur ma machine pour mettre toutes mes applications dessus. L&amp;rsquo;avantage est d&amp;rsquo;avoir la configuration du proxy pour wget, apt, etc&amp;hellip; qui pointe en localhost. Ainsi dans la configuration de TinyProxy, il n&amp;rsquo;y a plus qu&#39;à configurer le serveur Proxy sur lequel on veut taper pour que toute mes applications soient redirigées dessus sans avoir à les toucher au moindre changement :-)</description>
     </item>
     
     <item>
@@ -3862,7 +3859,7 @@ C&amp;rsquo;est avec beaucoup de recul et plusieurs années d&amp;rsquo;expérie
       
       <guid>https://blog.deimos.fr/2012/07/30/puppet-les-subtilites-du-langage/</guid>
       <description>Toujours dans la lignée de l&amp;rsquo;article sur Puppet (voir articles précédents), je vous propose cette fois ci un deuxième article, qui contient des astuces et des cas d&amp;rsquo;utilisation du langage. Que ce soit pour les manifests, les templates, facter, parser etc&amp;hellip;
-Pour ceux qui se sont arrêter aux manifests et ont trouvé des limitations ou tout simplement ne se sont pas encore posée la question de savoir ce que l&amp;rsquo;on pouvait bien faire de plus que les ressources de base, je vous conseil d&amp;rsquo;aller voir, vous risquez d&amp;rsquo;être surpris par la puissance de Puppet :-)</description>
+Pour ceux qui se sont arrêter aux manifests et ont trouvé des limitations ou tout simplement ne se sont pas encore posée la question de savoir ce que l&amp;rsquo;on pouvait bien faire de plus que les ressources de base, je vous conseil d&amp;rsquo;aller voir, vous risquez d&#39;être surpris par la puissance de Puppet :-)</description>
     </item>
     
     <item>
@@ -3881,7 +3878,7 @@ Voici la mise à jour de l&amp;rsquo;installation et la configuration du puppet 
       <pubDate>Thu, 26 Jul 2012 10:00:49 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2012/07/26/on-me-cite-dans-linux-pratique/</guid>
-      <description>Ça ça fait très plaisir d&amp;rsquo;être cité quelque part en tant que référence, surtout lorsqu&amp;rsquo;il s&amp;rsquo;agit des Linux Mag :-)
+      <description>Ça ça fait très plaisir d&#39;être cité quelque part en tant que référence, surtout lorsqu&amp;rsquo;il s&amp;rsquo;agit des Linux Mag :-)
 C&amp;rsquo;est Evox qui m&amp;rsquo;apprends que je fais parti des références sur l&amp;rsquo;article Tmux présent dans le numéro 72 du Linux Pratique :-).
 Je tenais à vous faire partager ma joie et vous remercier encore une fois de suivre mon blog :-)</description>
     </item>
@@ -4112,7 +4109,7 @@ Voici la doc.</description>
       
       <guid>https://blog.deimos.fr/2012/06/06/check_mk-thruk/</guid>
       <description>J&amp;rsquo;ai mis à jour mes documentations avec quelques petites corrections et les dernières version des softs :
- Doc sur Check_mk Doc sur Thruk  &amp;nbsp;</description>
+ Doc sur Check_mk Doc sur Thruk   </description>
     </item>
     
     <item>
@@ -4184,7 +4181,7 @@ PowerDNS est découpé en plusieurs rôles :
       <guid>https://blog.deimos.fr/2012/05/23/dj-port-serie-a-lancienne-tonight-we-are/</guid>
       <description>Derrière ce titre pompeux se cache en fait la méthode pour activer le port série au démarrage d&amp;rsquo;une machine. Cette solution s&amp;rsquo;avère vite pratique lorsque l&amp;rsquo;on souhaites accéder à certaines machines qui ne répondent plus, ou bien via des solutions de virtualisation.
 C&amp;rsquo;est pourquoi je vous ai concocté :
- Une petite doc sur le port série sous Linux Une petite doc sur le port série sous FreeBSD Une mise à jour de la doc de KVM pour pouvoir y accéder cash (oui comme tabata)  &amp;nbsp;</description>
+ Une petite doc sur le port série sous Linux Une petite doc sur le port série sous FreeBSD Une mise à jour de la doc de KVM pour pouvoir y accéder cash (oui comme tabata)   </description>
     </item>
     
     <item>
@@ -4254,7 +4251,7 @@ J&amp;rsquo;ai mis à jour ma documentation sur le mac mini avec le wake on lan.
       
       <guid>https://blog.deimos.fr/2012/05/09/kayvillaimme-paiourfourmanncizes/</guid>
       <description>Je suis actuellement en train de refaire un de mes petits serveurs sous KVM et je me suis penché du côté des performances. Il y en a quelques unes indispensable si on veut avoir de bons résultats.
-J&amp;rsquo;ai donc retaper ma documentation sur KVM avec des ajouts de perfs, config réseaux avec VLAN et 2&amp;frasl;3 autres babioles. Je vous laisse regarder.</description>
+J&amp;rsquo;ai donc retaper ma documentation sur KVM avec des ajouts de perfs, config réseaux avec VLAN et 2/3 autres babioles. Je vous laisse regarder.</description>
     </item>
     
     <item>
@@ -4264,7 +4261,7 @@ J&amp;rsquo;ai donc retaper ma documentation sur KVM avec des ajouts de perfs, c
       
       <guid>https://blog.deimos.fr/2012/05/03/news-en-vrac-4/</guid>
       <description>Voici quelques petites modifications récemment effectuées sur le wiki :
-Netcat : laisser le port d&amp;rsquo;écoute ouvert après une première connection
+Netcat : laisser le port d&#39;écoute ouvert après une première connection
 Bonding : Les options qu&amp;rsquo;il faut utiliser lorsque l&amp;rsquo;on a plusieurs bonding
 Puppet : mise à jour de la documentation pour les versions les plus récentes</description>
     </item>
@@ -4329,9 +4326,9 @@ Pour la documentation, ça se passe ici.</description>
       
       <guid>https://blog.deimos.fr/2012/04/17/oh-quelle-est-bien-foutue-cette-interface/</guid>
       <description>Pour faire suite à l&amp;rsquo;article précédent, voici une interface évoluée pour Nagios (et Shinken) qui permet de se connecter à plusieurs Nagios en même temps et d&amp;rsquo;afficher des informations plus pertinentes par rapport à l&amp;rsquo;interface standard de Nagios.
-J&amp;rsquo;ai également fait de la modification de code pour obtenir une interface minimale afin d&amp;rsquo;être optimisée pour des écrans dédiés au monitoring.
+J&amp;rsquo;ai également fait de la modification de code pour obtenir une interface minimale afin d&#39;être optimisée pour des écrans dédiés au monitoring.
 Suivez le guide :-)
-UPDATE : Le temps que j&amp;rsquo;écrive ce ticket, mes modifications ont été apportées au code principale :-) https://github.</description>
+UPDATE : Le temps que j&#39;écrive ce ticket, mes modifications ont été apportées au code principale :-) https://github.</description>
     </item>
     
     <item>
@@ -4350,7 +4347,7 @@ Je n&amp;rsquo;aborde pas dans ce tuto toutes les facettes de ce soft tellement 
       <pubDate>Fri, 13 Apr 2012 10:00:39 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2012/04/13/sabnzbd-la-gestion-des-nzb-simple/</guid>
-      <description>Un pote m&amp;rsquo;a parlé il y a quelques temps de ce soft Sabnzbd. Je n&amp;rsquo;y avais pas spécialement prêter attention jusqu&amp;rsquo;à cette semaine. Il dispose d&amp;rsquo;une interface web simple, d&amp;rsquo;options de configuration très bien pensées&amp;hellip;
+      <description>Un pote m&amp;rsquo;a parlé il y a quelques temps de ce soft Sabnzbd. Je n&amp;rsquo;y avais pas spécialement prêter attention jusqu&#39;à cette semaine. Il dispose d&amp;rsquo;une interface web simple, d&amp;rsquo;options de configuration très bien pensées&amp;hellip;
 Le petit hic par rapport à URD que j&amp;rsquo;utilise aujourd&amp;rsquo;hui est le manque du multi utilisateur. A part ça, c&amp;rsquo;est vraiment top et les applications tierces apportent à cet outil un super potentiel. Par exemple on peut gérer entièrement son serveur depuis le mobile, il y a des skins mobile&amp;hellip;</description>
     </item>
     
@@ -4434,7 +4431,7 @@ Déjà, il faut savoir que même si t&amp;rsquo;es péter de tune, t&amp;rsquo;a
       
       <guid>https://blog.deimos.fr/2012/03/22/fast-and-reboot-18/</guid>
       <description>Reboot de ta machine en quelques secondes ça t’intéresse ? Kexec est fait pour toi mon ptit pot !
-Tu colle des néons, une waste gate et 2 bombes de nitro et biiiiim tu reboot en quelques secondes ! Kexec va t&amp;rsquo;éviter de te taper touuuuuuuute la couche de reboot hardware qui prend toujours 10 piges sur les serveurs. Comment tu met ça en place dans ta caisse man ?</description>
+Tu colle des néons, une waste gate et 2 bombes de nitro et biiiiim tu reboot en quelques secondes ! Kexec va t&#39;éviter de te taper touuuuuuuute la couche de reboot hardware qui prend toujours 10 piges sur les serveurs. Comment tu met ça en place dans ta caisse man ?</description>
     </item>
     
     <item>
@@ -4445,7 +4442,7 @@ Tu colle des néons, une waste gate et 2 bombes de nitro et biiiiim tu reboot en
       <guid>https://blog.deimos.fr/2012/03/20/le-boundingue/</guid>
       <description>Toua vouloir en saortie dou té carte raizo oune daibi day batouarde y dé la toulayronce dé paoune ? Boua ya lou boundigue paour ça !
 Tou trouvra la doc paour là.
-Note : Cette doc existait déjà, mais je lui ai fait un changement de sexe une cure de jouvance et l&amp;rsquo;ai mise à jour pour Red Hat.</description>
+Note : Cette doc existait déjà, mais je lui ai fait un changement de sexeune cure de jouvance et l&amp;rsquo;ai mise à jour pour Red Hat.</description>
     </item>
     
     <item>
@@ -4455,7 +4452,7 @@ Note : Cette doc existait déjà, mais je lui ai fait un changement de sexe une 
       
       <guid>https://blog.deimos.fr/2012/03/18/news-en-vrac-2/</guid>
       <description>Quelques news en vrac :
- Mise à jour des confs LDAP clients Générer des UUID Petites mises à jour sur Sed &amp;amp; Awk Voir le contenu des packages RPM  &amp;nbsp;</description>
+ Mise à jour des confs LDAP clients Générer des UUID Petites mises à jour sur Sed &amp;amp; Awk Voir le contenu des packages RPM   </description>
     </item>
     
     <item>
@@ -4507,7 +4504,7 @@ Voici la documentation et merci Fabien.</description>
       <description>Si vous avez des problèmes de temps d’accès et de débit sur votre espace disque temporaire pour MySQL, alors cet article est fait pour vous.
 La solution consiste donc à utiliser le filesystem tmpfs et rediriger ses fichiers temporaires dessus.
 J&amp;rsquo;ai donc créer et mis à jour mes documentations. Vous aurez donc besoin de :
- Tmpfs sous Solaris Tmpfs sous Linux MySQL : augmenter les perfs pour les fichiers temporaires  &amp;nbsp;</description>
+ Tmpfs sous Solaris Tmpfs sous Linux MySQL : augmenter les perfs pour les fichiers temporaires   </description>
     </item>
     
     <item>
@@ -4540,9 +4537,9 @@ L&amp;rsquo;intérêt de proxychains est que la configuration ne se fait qu&amp;
       <description>Je ne me suis pas mis au LaTeX pour rien, j’avais pour idée de pondre une Cheat Sheet sur Tmux, vu que je n’en avais trouvé aucune sur le net.
 J&amp;rsquo;ai donc mis à jour la documentation Tmux avec les Cheat Sheet en anglais et français.
 Je les fournis également ici :
- Tmux French Cheat Sheet
- Tmux English Cheat Sheet
-  N&amp;rsquo;hésitez pas à me faire un retour ou des propositions sur d&amp;rsquo;éventuels ajouts.</description>
+  Tmux French Cheat Sheet
+  Tmux English Cheat Sheet
+  N&amp;rsquo;hésitez pas à me faire un retour ou des propositions sur d&#39;éventuels ajouts.</description>
     </item>
     
     <item>
@@ -4552,7 +4549,7 @@ Je les fournis également ici :
       
       <guid>https://blog.deimos.fr/2012/02/22/creer-des-sheet-cheat-en-latex/</guid>
       <description>Il est parfois bien pratique d&amp;rsquo;avoir des Cheat Sheet lorsque l&amp;rsquo;on apprends un nouveau language ou que l&amp;rsquo;on a a faire face à un nouveau logiciel.
-Pour ma part, je souhaitais en créer et trouver une template n&amp;rsquo;était pas chose aisée.
+Pour ma part, je souhaitais en créer et trouver une template n&#39;était pas chose aisée.
 J&amp;rsquo;ai donc décider de vous faire profiter de la mienne que j&amp;rsquo;ai pu construire en m&amp;rsquo;inspirant d&amp;rsquo;autres que j&amp;rsquo;ai pu trouver sur internet.</description>
     </item>
     
@@ -4563,7 +4560,7 @@ J&amp;rsquo;ai donc décider de vous faire profiter de la mienne que j&amp;rsquo
       
       <guid>https://blog.deimos.fr/2012/02/20/quelques-news-en-vrac/</guid>
       <description>Ca faisait un moment que je n&amp;rsquo;avais pas fait ce genre d&amp;rsquo;article alors voici quelques news en vrac qui ne méritent pas à elle seule un article :
- Sysctl : petites erreurs de ma part maintenant corrigées Netcat : solution du port d&amp;rsquo;écoute pour des versions différentes de netcat Solaris CPU : Voici la manière de connaitre le nombre de Cores sur une Solaris IP : Ajout de la section de suppression d&amp;rsquo;une VIP Linux sur Mac : Rallumer la machine automatiquement après une coupure de courant Solaris : convertir des packages pkg en datastream  &amp;nbsp;</description>
+ Sysctl : petites erreurs de ma part maintenant corrigées Netcat : solution du port d&#39;écoute pour des versions différentes de netcat Solaris CPU : Voici la manière de connaitre le nombre de Cores sur une Solaris IP : Ajout de la section de suppression d&amp;rsquo;une VIP Linux sur Mac : Rallumer la machine automatiquement après une coupure de courant Solaris : convertir des packages pkg en datastream   </description>
     </item>
     
     <item>
@@ -4627,7 +4624,7 @@ Comme à mon habitude, pour les plus curieux, voici la documentation.</descripti
       <guid>https://blog.deimos.fr/2012/02/01/1580/</guid>
       <description>Solaris c&amp;rsquo;est bien, sur UFS, c&amp;rsquo;est tout de suite moins bien. J&amp;rsquo;ai eu besoin d&amp;rsquo;ajouter de la swap sur une partition, et quand on fait pas ça tous les 4 matins, se replonger dedans c&amp;rsquo;est vraiment très très chiant.
 C&amp;rsquo;est pourquoi j&amp;rsquo;ai fais une petite documentation pour créer du swap sur UFS/ZFS/Fichiers. J&amp;rsquo;en ai du coup profiter pour mettre à jour mes documentations sur :
- ZFS : Le FileSystem par excellence</description>
+  ZFS : Le FileSystem par excellence</description>
     </item>
     
     <item>
@@ -4814,8 +4811,8 @@ Update : je viens de sortir la version 0.4.1 qui corrige des failles de sécurit
       <pubDate>Sun, 18 Dec 2011 14:19:20 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2011/12/18/rhce-done/</guid>
-      <description>J&amp;rsquo;ai repassé l&amp;rsquo;examen RHCE et l&amp;rsquo;ai eu cette fois ci. Pour rappel il faut 210 points, j&amp;rsquo;avais fais 208&amp;frasl;300 la dernière fois, et cette fois ci 286&amp;frasl;300.
-J&amp;rsquo;aimerais bien dire : &amp;ldquo;En route vers RHCA maintenant !&amp;rdquo;, mais je dois avouer que la route va être longue, cher et parsemée d’embuches. Il va me falloir 5 autres certifs pour atteindre ce titre. Il y en a 2 que je pense avoir sans trop de difficultés (Cluter + Statellite) tandis que la RH442 (celle dont j&amp;rsquo;ai eu la formation cette semaine) me semble bien complexe.</description>
+      <description>J&amp;rsquo;ai repassé l&amp;rsquo;examen RHCE et l&amp;rsquo;ai eu cette fois ci. Pour rappel il faut 210 points, j&amp;rsquo;avais fais 208/300 la dernière fois, et cette fois ci 286/300.
+J&amp;rsquo;aimerais bien dire : &amp;ldquo;En route vers RHCA maintenant !&amp;quot;, mais je dois avouer que la route va être longue, cher et parsemée d’embuches. Il va me falloir 5 autres certifs pour atteindre ce titre. Il y en a 2 que je pense avoir sans trop de difficultés (Cluter + Statellite) tandis que la RH442 (celle dont j&amp;rsquo;ai eu la formation cette semaine) me semble bien complexe.</description>
     </item>
     
     <item>
@@ -4844,7 +4841,7 @@ La doc pour l&amp;rsquo;utilisation du /proc et /sys est donc ici.</description>
       <pubDate>Fri, 16 Dec 2011 19:53:58 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2011/12/16/formation-rh442-redhat/</guid>
-      <description>Une fois n&amp;rsquo;est pas coutume, je vais faire un peu de pub pour RedHat. Cette semaine j&amp;rsquo;ai été en formation RH442 (Performance Tuning) et c&amp;rsquo;était très instructif.
+      <description>Une fois n&amp;rsquo;est pas coutume, je vais faire un peu de pub pour RedHat. Cette semaine j&amp;rsquo;ai été en formation RH442 (Performance Tuning) et c&#39;était très instructif.
 Comme à mon habitude je ferais donc quelques petits articles sur certaines choses qui m&amp;rsquo;ont paru très intéressantes. Quoi qu&amp;rsquo;il en soit, je vous recommande fortement cette formation techniquement pointue.</description>
     </item>
     
@@ -4855,7 +4852,7 @@ Comme à mon habitude je ferais donc quelques petits articles sur certaines chos
       
       <guid>https://blog.deimos.fr/2011/12/09/ubuntu-out-debian-rox/</guid>
       <description>J&amp;rsquo;en ai marre d&amp;rsquo;Ubuntu !!! Faut qu&amp;rsquo;ils arrêtent leur interface pourrie ! Plus sérieusement, gnome-shell j&amp;rsquo;aime beaucoup. Et devoir refaire ma Ubuntu tous les 6 mois (car je veux upgrader) car la mise à jour c&amp;rsquo;est pas tip top, et bah yen a marre et je dis stop.
-Aujourd&amp;rsquo;hui, un collègue me dit : &amp;ldquo;Mais pourquoi t’utilise pas Debian en unstable ?&amp;rdquo;. La réponse me semblait évidente, mais j&amp;rsquo;ai demandé pourquoi afin d&amp;rsquo;avoir une autre opinion que la mienne.</description>
+Aujourd&amp;rsquo;hui, un collègue me dit : &amp;ldquo;Mais pourquoi t’utilise pas Debian en unstable ?&amp;quot;. La réponse me semblait évidente, mais j&amp;rsquo;ai demandé pourquoi afin d&amp;rsquo;avoir une autre opinion que la mienne.</description>
     </item>
     
     <item>
@@ -4878,7 +4875,7 @@ Même si je n&amp;rsquo;ai pas très bien connu Paolo, il m&amp;rsquo;a marqué.
 Vu que ce n&amp;rsquo;est pas la première fois, j&amp;rsquo;ai décidé de faire un petit article reprenant les échanges de mails que j&amp;rsquo;ai eu avec Mr Thierry Dijoux pour toutes les personnes intéressées.
 Thierry Dijoux
  Bonjour,
-j&amp;rsquo;ai beaucoup apprécier votre note concernant l&amp;rsquo;installation de ZFS sur Debian. Ca marche très bien, et je me demandais si vous aviez assez de recul vis à vis des tests que vous avez fait pour vous demander si l&amp;rsquo;installation de ZFS sur une debian en production était envisageable ou pas ?</description>
+  j&amp;rsquo;ai beaucoup apprécier votre note concernant l&amp;rsquo;installation de ZFS sur Debian. Ca marche très bien, et je me demandais si vous aviez assez de recul vis à vis des tests que vous avez fait pour vous demander si l&amp;rsquo;installation de ZFS sur une debian en production était envisageable ou pas ?</description>
     </item>
     
     <item>
@@ -5110,14 +5107,13 @@ Malheureusement pas de Siri sans iPhone 4GS :-(</description>
       <guid>https://blog.deimos.fr/2011/08/25/linux-a-20-ans/</guid>
       <description>Il y a 20 ans, Linus Torvald écrivait son premier mail sur ce qui est aujourd’hui Linux :
  From: torvalds@klaava.Helsinki.FI (Linus Benedict Torvalds)
-Newsgroups: comp.os.minix
-Subject: What would you like to see most in minix?
-Summary: small poll for my new operating system
-Message-ID:
-Date: 25 Aug 91 20:57:08 GMT
-Organization: University of Helsinki
-Hello everybody out there using minix *
-I’m doing a (free) operating system (just a hobby, won’t be big and</description>
+  Newsgroups: comp.os.minix
+  Subject: What would you like to see most in minix?
+  Summary: small poll for my new operating system
+  Message-ID:
+  Date: 25 Aug 91 20:57:08 GMT
+  Organization: University of Helsinki
+Hello everybody out there using minix *</description>
     </item>
     
     <item>
@@ -5158,7 +5154,7 @@ Android 3 (la version tablette) est tellement plus sexy que la version télépho
       
       <guid>https://blog.deimos.fr/2011/07/18/encfs-sur-mac-os-x-lion/</guid>
       <description>J’ai eu quelques petits soucis en arrivant sur Lion pour avoir Encfs :
- J&amp;rsquo;ai dû chopper une bêta XCode et l&amp;rsquo;installer Ce Xcode m&amp;rsquo;a été nécessaire pour installer MacPort. Qui lui n&amp;rsquo;était pas encore packagé Lion, j&amp;rsquo;ai donc du recompiler les sources depuis le SVN J&amp;rsquo;ai pu mettre à jour tous mes ports dont Encfs et Macfuse  Seulement voilà, même en mettant tout ce petit monde à jour, impossible de monter mon dossier crypté !</description>
+ J&amp;rsquo;ai dû chopper une bêta XCode et l&amp;rsquo;installer Ce Xcode m&amp;rsquo;a été nécessaire pour installer MacPort. Qui lui n&#39;était pas encore packagé Lion, j&amp;rsquo;ai donc du recompiler les sources depuis le SVN J&amp;rsquo;ai pu mettre à jour tous mes ports dont Encfs et Macfuse  Seulement voilà, même en mettant tout ce petit monde à jour, impossible de monter mon dossier crypté !</description>
     </item>
     
     <item>
@@ -5197,7 +5193,7 @@ Il ne se passe pas un jour ou je regrette d&amp;rsquo;avoir laissé mon iphone e
       
       <guid>https://blog.deimos.fr/2011/07/08/google-chrome-vs-firefox-round-2/</guid>
       <description>Round 2, Fight ! Steeves me tannant encore et me montrant les trucs super tip top que Chrome fait…bah j’ai eu envie de renter l’aventure. Et tout comme la première fois… grosse déception !
- Mon blog : Le CSS3 ne s&amp;rsquo;affiche pas correctement WordPress : Créez un article en mode visuel, mettez un lien sur un bout de texte, et tapez sur la touche Entrée pour passer à la ligne&amp;hellip;ça ne fonctionne pas visuellement et pourtant en mode HTML on visualise bien les sauts de ligne L&amp;rsquo;importation depuis Firefox des bookmarks, il a fallu passez par des exports et imports manuel pour éviter le crash de Chrome Firebug moins complet sur Chrome que sur Firefox   Bon, ça commence à faire beaucoup, je n&#39;ai pas envie de perdre trop de temps donc on va garder encore une fois Firefox qui est au dessus de Chrome en terme de stabilité.</description>
+ Mon blog : Le CSS3 ne s&amp;rsquo;affiche pas correctement WordPress : Créez un article en mode visuel, mettez un lien sur un bout de texte, et tapez sur la touche Entrée pour passer à la ligne&amp;hellip;ça ne fonctionne pas visuellement et pourtant en mode HTML on visualise bien les sauts de ligne L&amp;rsquo;importation depuis Firefox des bookmarks, il a fallu passez par des exports et imports manuel pour éviter le crash de Chrome Firebug moins complet sur Chrome que sur Firefox  </description>
     </item>
     
     <item>
@@ -5290,8 +5286,8 @@ Voici les nouveautées :
       <guid>https://blog.deimos.fr/2011/06/06/google-search-pour-mediawiki/</guid>
       <description>Parce qu&amp;rsquo;il y en a marre de cette recherche minable dans MediaWiki, que j&amp;rsquo;ai bougé mes petites fesses et créer une extension pour ajouter à la &amp;ldquo;sidebar&amp;rdquo; : une recherche Google.
 Il vous faudra bien entendu être inscrit au Google CSE ou encore Adsense pour pouvoir profiter de la recherche personnalisée. L&amp;rsquo;extension est bien entendue accessible sur Mediawiki ou mon git :
- http://www.mediawiki.org/wiki/Extension:GoogleSearch
- http://www.deimos.fr/gitweb/?p=mediawiki_extensions.git;a=summary
+  http://www.mediawiki.org/wiki/Extension:GoogleSearch
+  http://www.deimos.fr/gitweb/?p=mediawiki_extensions.git;a=summary
   L&amp;rsquo;installation est vraiment simple, donc n&amp;rsquo;hésitez pas !</description>
     </item>
     
@@ -5403,8 +5399,8 @@ Pour ceux que ça intéresse, la dernière version est donc disponible sur mon g
       <guid>https://blog.deimos.fr/2011/04/06/activer-la-compression-ouaibe/</guid>
       <description>Si vous souhaitez gagner de précieuses secondes sur le chargements de vos pages web, il est fortement recommander d’utiliser la compression. Il faut également choisir les éléments que vous voulez compresser.
 Bref, j&amp;rsquo;ai encore fait un petit article flash éclair pour Lighty et PHP5 :
- Compression pour PHP5/Apache
- Compression pour Lighttpd
+  Compression pour PHP5/Apache
+  Compression pour Lighttpd
   </description>
     </item>
     
@@ -5416,8 +5412,8 @@ Bref, j&amp;rsquo;ai encore fait un petit article flash éclair pour Lighty et P
       <guid>https://blog.deimos.fr/2011/04/05/verifier-la-securite-de-votre-serveur/</guid>
       <description>Je ne le répèterais jamais assez, vérifiez votre installation et configuration et testez là ensuite !
 Je suis confronté actuellement à un serveur qui passe son temps à se faire hacker. J&amp;rsquo;ai du auditer la sécurité de celui ci et je me rends compte que beaucoup de personne néglige les aspects de la sécurité. Pourquoi tant d&amp;rsquo;acharnement ? Faut dire aussi :
- Pas de Firewall
- Pas de modules de sécurité</description>
+  Pas de Firewall
+  Pas de modules de sécurité</description>
     </item>
     
     <item>
@@ -5448,7 +5444,7 @@ Heureusement, d&amp;rsquo;autres gens s&amp;rsquo;y sont pencher pour l&amp;rsqu
       
       <guid>https://blog.deimos.fr/2011/03/24/zfs-sur-linux/</guid>
       <description>Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur lequel je souhaites la double parité et surtout un OS Linux car c&amp;rsquo;est ce que je connais de mieux pour la partie multimédia.
-Aujourd&amp;rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&amp;rsquo;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.</description>
+Aujourd&amp;rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&#39;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.</description>
     </item>
     
     <item>
@@ -5458,7 +5454,7 @@ Aujourd&amp;rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les b
       
       <guid>https://blog.deimos.fr/2011/03/02/projet-rancid-search/</guid>
       <description>Revoilà encore un nouveau projet. Il s&amp;rsquo;agit de Rancid Search.
-Vous connaissez déjà peut être Rancid qui permet de faire des backups de vos chers équipements Cisco et de les stocker dans un VCS. Au taf, mon équipe réseaux se plaignait de ne pas pouvoir faire de recherche dans tous les équipements cisco d&amp;rsquo;un coup. Imaginez plusieurs équipements avec pour certain plus de 25000 lignes d&amp;rsquo;ACL et autre configuration VPN.</description>
+Vous connaissez déjà peut être Rancid qui permet de faire des backups de vos chers équipements Cisco et de les stocker dans un VCS. Au taf, mon équipe réseaux se plaignait de ne pas pouvoir faire de recherche dans tous les équipements cisco d&amp;rsquo;un coup. Imaginez plusieurs équipements avec pour certain plus de 25000 lignes d&amp;rsquo;ACL et autre configuration VPN. Pour faire des recherches, il fallait déjà savoir sur quelle équipement se connecter, puis chercher dans la conf.</description>
     </item>
     
     <item>
@@ -5467,8 +5463,8 @@ Vous connaissez déjà peut être Rancid qui permet de faire des backups de vos 
       <pubDate>Sat, 26 Feb 2011 17:25:18 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2011/02/26/puppet-sur-debian-squeeze/</guid>
-      <description>Pour ceux qui ne connaissent pas Puppet et qui ont une infrastructure conséquente à gérer, je vous suggère vivement de vous tourner vers ce genre de softs. Il vous permet d&amp;rsquo;installer automatiquement des logiciels, faire leur configuration et changer l&amp;rsquo;état d&amp;rsquo;un service.
-Je viens d&amp;rsquo;énumérer même pas 5% de ce que Puppet est capable de faire. Bref, j&amp;rsquo;avais déjà une doc sur mon wiki que je viens d&amp;rsquo;actualiser avec un peu plus d&amp;rsquo;explications et une version squeeze.</description>
+      <description>Pour ceux qui ne connaissent pas Puppet et qui ont une infrastructure conséquente à gérer, je vous suggère vivement de vous tourner vers ce genre de softs. Il vous permet d&amp;rsquo;installer automatiquement des logiciels, faire leur configuration et changer l&#39;état d&amp;rsquo;un service.
+Je viens d&#39;énumérer même pas 5% de ce que Puppet est capable de faire. Bref, j&amp;rsquo;avais déjà une doc sur mon wiki que je viens d&amp;rsquo;actualiser avec un peu plus d&amp;rsquo;explications et une version squeeze.</description>
     </item>
     
     <item>
@@ -5478,7 +5474,7 @@ Je viens d&amp;rsquo;énumérer même pas 5% de ce que Puppet est capable de fai
       
       <guid>https://blog.deimos.fr/2011/02/25/nagios-encore-une-documentation/</guid>
       <description>Bonjour à tous !
-J&amp;rsquo;ai mis à jour mon wiki avec ma configuration Nagios. Vous allez me dire : &amp;ldquo;Atta&amp;hellip; pouquoi t&amp;rsquo;fais ça, yen a plein sule net, c&amp;rsquo;est po la peine hein !&amp;rdquo;. C&amp;rsquo;est vrai qu&amp;rsquo;il y en a plein sur le net, c&amp;rsquo;est pour ça que la mienne n&amp;rsquo;est pas bourrée d&amp;rsquo;explications et surtout un peu plus particulière que la majorité qu&amp;rsquo;on trouve sur internet.
+J&amp;rsquo;ai mis à jour mon wiki avec ma configuration Nagios. Vous allez me dire : &amp;ldquo;Atta&amp;hellip; pouquoi t&amp;rsquo;fais ça, yen a plein sule net, c&amp;rsquo;est po la peine hein !&amp;quot;. C&amp;rsquo;est vrai qu&amp;rsquo;il y en a plein sur le net, c&amp;rsquo;est pour ça que la mienne n&amp;rsquo;est pas bourrée d&amp;rsquo;explications et surtout un peu plus particulière que la majorité qu&amp;rsquo;on trouve sur internet.
 Etant utilisateur, administrateur et développeur de plugins, ma forte expérience sur Nagios m&amp;rsquo;a permit d&amp;rsquo;apprendre à moduler, simplifier et rendre flexible ma configuration Nagios.</description>
     </item>
     
@@ -5531,9 +5527,8 @@ Pourquoi ? Tout simplement parce que je n&amp;rsquo;ai pas tant besoin de puissa
       <guid>https://blog.deimos.fr/2010/12/29/glusterfs-vs-drbdocfs2-2/</guid>
       <description>Ca fait un moment que je me dit qu’il va falloir étudier le cas de la réplication de fichiers temps réel entre mon serveur perso et ma dedibox. J’en avais un peu marre de mon rsync crontabé (oui le verbe existe).
 J&amp;rsquo;ai donc écris une petite documentation sur GlusterFS sur comment répliquer le /var/www. Dans la pratique c&amp;rsquo;est plutôt bien :
- Rapide à mettre en place
- Simple
- Extensible</description>
+  Rapide à mettre en place
+  Simple</description>
     </item>
     
     <item>
@@ -5564,9 +5559,9 @@ Si certains d&amp;rsquo;entre vous ont des retours sur ce soft ou d&amp;rsquo;au
       <guid>https://blog.deimos.fr/2010/11/01/freebsd-pas-si-stable/</guid>
       <description>J&amp;rsquo;ai une très mauvaise expérience actuellement avec FreeBSD. J&amp;rsquo;ai effectuer plusieurs tests hard avant de remettre sur FreeBSD.
 Pourquoi avais je pris FreeBSD au lieu de Debian ? :
- Pour le ZFS
- Sa réputation
- Pour essayer
+  Pour le ZFS
+  Sa réputation
+  Pour essayer
   Seulement voilà, quand on commence à faire du fuse + encfs + sshfs&amp;hellip;bah c&amp;rsquo;est pas aussi stable qu&amp;rsquo;on est en droit de penser. J&amp;rsquo;ai des kernel panic qui ne font même pas rebooter ma machine (alors que c&amp;rsquo;est pourtant le comportement par défaut de FreeBSD) visiblement à cause de Fuse ou SSHfs et c&amp;rsquo;est très handicapant.</description>
     </item>
     
@@ -5576,8 +5571,8 @@ Pourquoi avais je pris FreeBSD au lieu de Debian ? :
       <pubDate>Thu, 28 Oct 2010 06:40:34 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2010/10/28/storagetek-6140-upgrade-et-best-practices/</guid>
-      <description>J&amp;rsquo;ai récemment mis à jour une baie de disques Sun StorageTek 6140 de la version 6 à la version 7. La tâche n&amp;rsquo;était pas simple, il a fallu tout d&amp;rsquo;abord télécharger des outils spécifique pour effectuer cette upgrade :
-http://dlc.sun.com/pdf/820-7197-12&amp;frasl;820-7197-12.pdf
+      <description>J&amp;rsquo;ai récemment mis à jour une baie de disques Sun StorageTek 6140 de la version 6 à la version 7. La tâche n&#39;était pas simple, il a fallu tout d&amp;rsquo;abord télécharger des outils spécifique pour effectuer cette upgrade :
+http://dlc.sun.com/pdf/820-7197-12/820-7197-12.pdf
 Ensuite, un collègue m&amp;rsquo;a filé ce lien qui permet d&amp;rsquo;avoir les best practice pour faire du RAID 6 :
 http://www.filibeto.org/sun/lib/blueprints/820-5825.pdf
 Tout ça pour faire du vmware. Il a donc fallu changer le mode de visualisation de la baie par les hosts en vmware et idem encore utiliser les recommandations de Vmware par rapport aux LUN etc&amp;hellip; :</description>
@@ -5713,7 +5708,7 @@ J&amp;rsquo;ai pour l&amp;rsquo;instant fait une petite doc (qui est plus que tr
       
       <guid>https://blog.deimos.fr/2010/05/28/zfs-trop-gourmand-en-ram/</guid>
       <description>J’ai eu une petite mésaventure depuis quelques mois au taf avec ce merveilleux filesystem qu’est ZFS. Le problème est simple, j’ai des machines à 72Go de RAM et ne peut dépasser ~ les 48Go.
-Comment ça se fait ? Tout simplement parce que ZFS se réserve 1&amp;frasl;8 de la mémoire dispo (RAM+SWAP) pour son cache. Sur des petites config ça ne se voit pas mais sur des machines avec autant de RAM, ça ait mal.</description>
+Comment ça se fait ? Tout simplement parce que ZFS se réserve 1/8 de la mémoire dispo (RAM+SWAP) pour son cache. Sur des petites config ça ne se voit pas mais sur des machines avec autant de RAM, ça ait mal.</description>
     </item>
     
     <item>
@@ -5945,7 +5940,7 @@ Bref heureusement j&amp;rsquo;ai un raid 5 sur 4 disques et je n&amp;rsquo;ai qu
       
       <guid>https://blog.deimos.fr/2009/12/22/encore-de-nouvelles-contributions-pour-nagios/</guid>
       <description>Oyé oyé, les contributions nagios se suivent mais ne se ressemblent pas. J’ai concocté 2 nouveaux modules nagios :
- check_sun_cluster : qui permet de surveiller l&amp;rsquo;état du cluster sun check_multi_procs : permet de surveiller plusieurs process dans un seul check  Et puis j&amp;rsquo;ai pu en améliorer d&amp;rsquo;autres :
+ check_sun_cluster : qui permet de surveiller l&#39;état du cluster sun check_multi_procs : permet de surveiller plusieurs process dans un seul check  Et puis j&amp;rsquo;ai pu en améliorer d&amp;rsquo;autres :
  check_backuppc_hosts : ajout d&amp;rsquo;une fonctionnalité pour monitorer qu&amp;rsquo;un seuil hôte  Voilà donc mes dernières œuvres.</description>
     </item>
     
@@ -5956,8 +5951,8 @@ Bref heureusement j&amp;rsquo;ai un raid 5 sur 4 disques et je n&amp;rsquo;ai qu
       
       <guid>https://blog.deimos.fr/2009/12/13/encore-2-nouveaux-plugins-pour-nagios/</guid>
       <description>Et oui, ça continue. J’ai créer 2 nouveaux plugins pour Nagios :
- Check_ldap_request : Permet d&amp;rsquo;effectuer une requêtes LDAP pour vérifier l&amp;rsquo;existance d&amp;rsquo;un attribut
- Check_rss_mem : Vérifie la mémoire réservée de tous les processus sous Solaris
+  Check_ldap_request : Permet d&amp;rsquo;effectuer une requêtes LDAP pour vérifier l&amp;rsquo;existance d&amp;rsquo;un attribut
+  Check_rss_mem : Vérifie la mémoire réservée de tous les processus sous Solaris
   Quelques nouveaux vont arriver d&amp;rsquo;ici peu et des améliorations pour les existants.</description>
     </item>
     
@@ -6082,10 +6077,10 @@ Ca donne quand même une belle doc du fait que la complexité de la chose. En ef
       
       <guid>https://blog.deimos.fr/2009/10/12/merci-oracle/</guid>
       <description>Je suis trop content, j’avais vraiment peur que de belles technologies tombent dans l’oublie. Ce n’est pas le cas puisqu’Oracle a confirmer son maintient ET investissement dans :
- Solaris
- MySQL
- SPARC
-  MySQL, j&amp;rsquo;y croyais pas du tout, mais c&amp;rsquo;est super, je suis content. J&amp;rsquo;espère qu&amp;rsquo;xVM Server va également sortir rapidement en stable etc&amp;hellip; Je trouve parcontre vraiment dommage qu&amp;rsquo;ils abandonnent OpenSolaris. C&amp;rsquo;était, je pense, une très bonne solution pour améliorer la stabilité de leurs produits finaux et intéresser un plus large publique bien que Solaris soit aujourd&amp;rsquo;hui gratuit.</description>
+  Solaris
+  MySQL
+  SPARC
+  MySQL, j&amp;rsquo;y croyais pas du tout, mais c&amp;rsquo;est super, je suis content. J&amp;rsquo;espère qu&amp;rsquo;xVM Server va également sortir rapidement en stable etc&amp;hellip; Je trouve parcontre vraiment dommage qu&amp;rsquo;ils abandonnent OpenSolaris. C&#39;était, je pense, une très bonne solution pour améliorer la stabilité de leurs produits finaux et intéresser un plus large publique bien que Solaris soit aujourd&amp;rsquo;hui gratuit.</description>
     </item>
     
     <item>
@@ -6105,8 +6100,8 @@ J&amp;rsquo;ai fais une petite doc pour ceux que ça intéressent.</description>
       
       <guid>https://blog.deimos.fr/2009/10/04/wiki-blog-repliques-et-load-balances/</guid>
       <description>Bon, voilà mon blog et mon wiki répliqués entre eux avec :
- Réplication MySQL master to master
- Un simple rsync pour les fichiers (pas encore de DRBD + OCFS2)
+  Réplication MySQL master to master
+  Un simple rsync pour les fichiers (pas encore de DRBD + OCFS2)
   Et pour ce qui est du load balancing, c&amp;rsquo;est qu&amp;rsquo;un simple round robin. Pas encore de Failover non plus. A venir donc.</description>
     </item>
     
@@ -6158,8 +6153,8 @@ C&amp;rsquo;est donc une mode et ça nous replonge encore dans du temps passer �
       <guid>https://blog.deimos.fr/2009/09/23/push-et-multi-calendriers-sur-gmail/</guid>
       <description>Troooooooooop biennnnnnnnnn ! Ca fait trop longtemps que j’attendais ça !!!!
 Depuis hier soir, on peut faire :
- Du push sur les emails :-) (activation dans les réglages, tout simplement)
- Et enfin le multi calendriers (http://m.google.com/sync et mettre la langue en Anglais US, choisissez ensuite les calendriers que vous souhaiter activer (jusqu&amp;rsquo;a 25 :-)))
+  Du push sur les emails :-) (activation dans les réglages, tout simplement)
+  Et enfin le multi calendriers (http://m.google.com/sync et mettre la langue en Anglais US, choisissez ensuite les calendriers que vous souhaiter activer (jusqu&amp;rsquo;a 25 :-)))
   Et là, tu kiffes à mort !</description>
     </item>
     
@@ -6170,9 +6165,9 @@ Depuis hier soir, on peut faire :
       
       <guid>https://blog.deimos.fr/2009/09/18/pourquoi-solaris-nameliore-pas-sa-gestion-des-packages-bordel/</guid>
       <description>Solaris est super évolué sur certaines technos, mais alors sur certains trucs comme les packages, c’est une horreur ! Exemple :
- Très mauvaise gestion des dépendances
- Pas de repository (je parle en natif, sinon il existe pkgget)
- Pas d&amp;rsquo;utilisation simple
+  Très mauvaise gestion des dépendances
+  Pas de repository (je parle en natif, sinon il existe pkgget)
+  Pas d&amp;rsquo;utilisation simple
   Bref, un bon coup de pied au cul leur ferait pas de mal à Sun. Espérons que le rachat par Oracle améliorera les points archaïque qui mette à ce bel OS des coups de freins à tous ceux qui voudraient l&amp;rsquo;utiliser.</description>
     </item>
     
@@ -6183,7 +6178,7 @@ Depuis hier soir, on peut faire :
       
       <guid>https://blog.deimos.fr/2009/09/16/prism-et-alltray-un-beau-mariage/</guid>
       <description>Google tasks, c’est nouveau, c’est beau et c’est il n’existe pas encore grand chose pour le faire tourner dans une appli tel que Lightning (Thunderbird). C’est pourquoi il faut ruser et utiliser Mozilla Prism et Alltray. Je vous laisse ma doc qui je l’espère vous aidera :
-http://wiki.deimos.fr/Alltray_%2BPrism:_cr%C3%A9er_une_application_int%C3%A9gr%C3%A9e_au_bureau_depuis_une_application_web</description>
+http://wiki.deimos.fr/Alltray_%2B_Prism_:_cr%C3%A9er_une_application_int%C3%A9gr%C3%A9e_au_bureau_depuis_une_application_web</description>
     </item>
     
     <item>
@@ -6214,9 +6209,9 @@ http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Client</descrip
       
       <guid>https://blog.deimos.fr/2009/09/03/steeves-est-un-champion-hors-categorie/</guid>
       <description>Steeves que vous connaissez tous a encore une fois été victime d’une agression binaire. En effet après s’être fait déglingué sa dedibox :
- Par open relay
- Par open proxy
- Par modification de clef SSH
+  Par open relay
+  Par open proxy
+  Par modification de clef SSH
   Il nous revient avec un nouveau challenge ! Steeves is back ! Mais pas complètement de sa faute cette fois. Disons qu&amp;rsquo;un de ses potes n&amp;rsquo;a apparemment pas de notions de développement sécurisé.</description>
     </item>
     
@@ -6259,7 +6254,7 @@ Documentation sur mon wiki</description>
       
       <guid>https://blog.deimos.fr/2009/08/06/beaux-graphiques-en-flash/</guid>
       <description>Vous vous êtes peut être à la cherche d’une fonctionnalité pour faire de baux graphs hein ? Comme par exemple sous Centreon.
-J&amp;rsquo;ai le truc qu&amp;rsquo;il vous faut, c&amp;rsquo;est en flash, ça génère des graphs trop classe, bref le kiffe. Ca s&amp;rsquo;appelle Open Flash Chart. Le nom est pas très originale certe, mais au moins ça a le mérite d&amp;rsquo;être beau et efficace.
+J&amp;rsquo;ai le truc qu&amp;rsquo;il vous faut, c&amp;rsquo;est en flash, ça génère des graphs trop classe, bref le kiffe. Ca s&amp;rsquo;appelle Open Flash Chart. Le nom est pas très originale certe, mais au moins ça a le mérite d&#39;être beau et efficace.
 Voici le lien sur le site officiel pour la version 1 et ici pour la version 2.</description>
     </item>
     
@@ -6357,7 +6352,7 @@ phpWOL a pour but de démarrer des machines à distance.</description>
       
       <guid>https://blog.deimos.fr/2009/06/02/mon-serveur-va-mal-mais-est-sous-linux-alors/</guid>
       <description>Hier soir, je rentre et ma femme me dit : “Tu tombes bien, ça fait 2 min que ton serveur fait un bruit bizzard”. Et franchement entre la musique de ses Sims (dont la maison prenait feu) et le serveur, j’avais du mal à distinguer le bruit du serveur tellement c’était la première fois que j’entendais ce bruit là.
-Une fois le son des Sims coupés (:-p) j&amp;rsquo;étais ennuyé parce que le bruit ne me disait vraiment pas grand chose.</description>
+Une fois le son des Sims coupés (:-p) j&#39;étais ennuyé parce que le bruit ne me disait vraiment pas grand chose.</description>
     </item>
     
     <item>
@@ -6378,8 +6373,8 @@ Je commence à faire quelques petites recherches, déjà la mise en place parait
       
       <guid>https://blog.deimos.fr/2009/05/31/mac-mini-upgrade/</guid>
       <description>Et voilà mon Mac mini upgradé :
- 320 Go 7200 trs/min au lieu de 120 Go 5400 trs/min
- 4 Go de ram au lieu de 1 Go
+  320 Go 7200 trs/min au lieu de 120 Go 5400 trs/min
+  4 Go de ram au lieu de 1 Go
   Et bah ça trace ! Je suis impressionné par la vitesse de cette petite boîte.</description>
     </item>
     
@@ -6413,7 +6408,7 @@ Apple en prends un peu pour son grade là avec leur Mobile Me, puisqu&amp;rsquo;
       
       <guid>https://blog.deimos.fr/2009/05/14/centreon-dans-les-starting-blocks/</guid>
       <description>Oyé oyé !
-Depuis quelques temps, mon ami Momo (pour ceux qui le connaissent) me parle de Centreon par ci, Centreon par là, &amp;ldquo;quand est-ce que tu me le met en place etc&amp;hellip;&amp;rdquo;.
+Depuis quelques temps, mon ami Momo (pour ceux qui le connaissent) me parle de Centreon par ci, Centreon par là, &amp;ldquo;quand est-ce que tu me le met en place etc&amp;hellip;&amp;quot;.
 Chaque chose en son temps ! D&amp;rsquo;abord ca a été Nagios pour lui, et maintenant on aperçoit le bout du nez de Centreon. Pour rappel, il permet de faire une conf tout en graphique de Nagios et permet d&amp;rsquo;avoir des graphs sur l&amp;rsquo;historique (pour résumer vulgairement).</description>
     </item>
     
@@ -6424,12 +6419,11 @@ Chaque chose en son temps ! D&amp;rsquo;abord ca a été Nagios pour lui, et mai
       
       <guid>https://blog.deimos.fr/2009/05/10/freenas-jy-croyais-pas/</guid>
       <description>FreeNas est une distribution FreeBSD remodelée pour faire un l’équivalent d’un NAS. Et le résultat est assez bluffant :
- Mis en place en * de 2 min
- Mise à dispo d&amp;rsquo;une interface web belle et simple
- Pleins de protocoles intégrés
- Légère
-  Ca me donne envie de me faire un PC et de dédier à ça (émuler une baie de stockage quoi).
-Il y a une autre solution vieillissante aparement aussi (j&amp;rsquo;ai pas testé) qui s&amp;rsquo;appelle OpenFiler qui a l&amp;rsquo;air d&amp;rsquo;être dans le même goût mais avec une documentation payante (un peu la blague).</description>
+  Mis en place en * de 2 min
+  Mise à dispo d&amp;rsquo;une interface web belle et simple
+  Pleins de protocoles intégrés
+  Légère
+  Ca me donne envie de me faire un PC et de dédier à ça (émuler une baie de stockage quoi).</description>
     </item>
     
     <item>
@@ -6439,8 +6433,8 @@ Il y a une autre solution vieillissante aparement aussi (j&amp;rsquo;ai pas test
       
       <guid>https://blog.deimos.fr/2009/05/10/ubuntu-copier-coller-avec-mx-revolution/</guid>
       <description>Depuis la version 8.10 d’Ubuntu, ma souris Logitech Revolution ne fonctionne plus comme avant. J’essaye donc de retrouver le petit petit à petit ce qui me manque. En gros :
- La sélection de texte qui copie automatiquement dans le presse papier (clipboard)
- Le bouton gauche de la souris qui effectue un coller du clipboard
+  La sélection de texte qui copie automatiquement dans le presse papier (clipboard)
+  Le bouton gauche de la souris qui effectue un coller du clipboard
   Et bien ces 2 trucs là, je galère depuis longtemps à les retrouver et je pensais enfin avoir réussi.</description>
     </item>
     
@@ -6471,7 +6465,7 @@ sudo aptitude install preload </description>
       <guid>https://blog.deimos.fr/2009/04/27/je-choisi-la-solution-offensive-offensive-la-solution/</guid>
       <description>Suite à mon précédent post sur le versionning, j’ai donc décidé en mon âme et conscience, de choisir Git.
 Je dois avoué que je suis assez surpris par les nouvelles fonctionnalités qui changent un peu de SVN, mais c&amp;rsquo;est quand même vraiment pas mal !
-J&amp;rsquo;entends la foule crier au loin &amp;ldquo;la doc, la doc&amp;hellip;&amp;rdquo;, oui oui elle est là et prête : Doc sur Git
+J&amp;rsquo;entends la foule crier au loin &amp;ldquo;la doc, la doc&amp;hellip;&amp;quot;, oui oui elle est là et prête : Doc sur Git
 Ouali oulaou, que ceux qu&amp;rsquo;on des questions n&amp;rsquo;aysyttepeua !</description>
     </item>
     
@@ -6492,9 +6486,9 @@ Ca s&amp;rsquo;appelle screenlets, je vous laisse jouer avec, moi je kiffe !</de
       
       <guid>https://blog.deimos.fr/2009/04/25/versionning-que-choisir-aujourdhui/</guid>
       <description>Je suis tiraillé entre plusieurs trucs. J’aimerais mettre un soft de versionning pour tout ce que je développe. Seulement voilà, je ne sais pas bien quoi mettre au juste :
- CVS : vieux, plus vraiment mis à jour, mais standart
- SVN : plus récent, plus performant que CVS mais qui commence déjà à vieillir, mais standart aussi
- Git : encore plus récent, plus performant, moins gourmand en disque qu&amp;rsquo;SVN ?</description>
+  CVS : vieux, plus vraiment mis à jour, mais standart
+  SVN : plus récent, plus performant que CVS mais qui commence déjà à vieillir, mais standart aussi
+  Git : encore plus récent, plus performant, moins gourmand en disque qu&amp;rsquo;SVN ?</description>
     </item>
     
     <item>
@@ -6516,8 +6510,8 @@ Bref&amp;hellip; le kiff totale !</description>
       
       <guid>https://blog.deimos.fr/2009/04/17/ma-nouvelle-contribution-nagios/</guid>
       <description>Voici ma nouvelle contribution pour Nagios :
- Pour tester vos interfaces IPMP
- Pour tester votre multipathing (utile pour les liens Fibres sur les SAN)
+  Pour tester vos interfaces IPMP
+  Pour tester votre multipathing (utile pour les liens Fibres sur les SAN)
   J&amp;rsquo;espère que ces premières versions vont plaires. Le check de Backuppc a déjà pas mal de downloads :-)</description>
     </item>
     
@@ -6528,8 +6522,8 @@ Bref&amp;hellip; le kiff totale !</description>
       
       <guid>https://blog.deimos.fr/2009/04/14/prends-tes-medocs-janine/</guid>
       <description>Chose promise, voici mes docs pour vous aider si vous aussi vous voulez tatouiller KVM et Lighttpd :
- Documentation KVM
- Documentation Lighttpd
+  Documentation KVM
+  Documentation Lighttpd
   Pour ce qui est de Lighttpd, je rajouterais au fur et à mesure mes ajouts. Mais qu&amp;rsquo;est-ce que c&amp;rsquo;est kiffant putain ! La conf à la perl, les correspondances, les regex, la simplicité ouaaa trop bien !</description>
     </item>
     
@@ -6540,7 +6534,7 @@ Bref&amp;hellip; le kiff totale !</description>
       
       <guid>https://blog.deimos.fr/2009/04/13/serveur-refait-enfinjen-pouvais-plus-de-solaris-et-virtualbox/</guid>
       <description>Bon… allez, je vais vous expliquer déjà pourquoi j’ai refais mon serveur.
-Dans mes précédents posts datant du mois de décembre, vous avez pu lire que j&amp;rsquo;étais passé de mon serveur Debian 32 bits etch (stable de l&amp;rsquo;époque) vers Solaris et adoptant la virtualisation avec VirtualBox le temps de patienter pour xVM Server.
+Dans mes précédents posts datant du mois de décembre, vous avez pu lire que j&#39;étais passé de mon serveur Debian 32 bits etch (stable de l&#39;époque) vers Solaris et adoptant la virtualisation avec VirtualBox le temps de patienter pour xVM Server.
 Aujourd&amp;rsquo;hui, xVM Server n&amp;rsquo;est toujours pas sorti, VirtualBox n&amp;rsquo;est vraiment, vraiment pas fait pour de la pseudo prod (donc imaginez la prod), contrairement à ce qui est dit sur le site officiel de Sun.</description>
     </item>
     
@@ -6551,7 +6545,7 @@ Aujourd&amp;rsquo;hui, xVM Server n&amp;rsquo;est toujours pas sorti, VirtualBox
       
       <guid>https://blog.deimos.fr/2009/04/03/premier-script-nagios-pour-la-communautee/</guid>
       <description>Et voilà, je contribue. C’est rare car je n’ai pas toujours le temps de faire quelque chose de générique, mais là c’est le cas, donc j’en fais profiter tout le monde.
-J&amp;rsquo;ai développer un plugins Nagios pour checker l&amp;rsquo;état de bon fonctionnement de BackupPC. J&amp;rsquo;ai fais avec les moyens du bord et je suis sûr qu&amp;rsquo;il y a moyen de faire plus simple.
+J&amp;rsquo;ai développer un plugins Nagios pour checker l&#39;état de bon fonctionnement de BackupPC. J&amp;rsquo;ai fais avec les moyens du bord et je suis sûr qu&amp;rsquo;il y a moyen de faire plus simple.
 En attendant, voici le lien : http://exchange.nagios.org/directory/Plugins/Backup-and-Recovery/BackupPC/check_backuppc_hosts/details</description>
     </item>
     
@@ -6563,9 +6557,9 @@ En attendant, voici le lien : http://exchange.nagios.org/directory/Plugins/Backu
       <guid>https://blog.deimos.fr/2009/03/24/mon-serveur-est-absolument-a-refaire/</guid>
       <description>Bon là ça y est, j’en peux plus !
 Je viens de vendre mon mac par exemple et voici ce que j&amp;rsquo;ai comme problèmes :
- Les transferts en SSH déconnent (s&amp;rsquo;arrête au bout d&amp;rsquo;un certain temps) avec Cyberduck.
- Sur le serveur, j&amp;rsquo;ai une clef USB branchée dessus, c&amp;rsquo;est ultra lent pour copier un truc.
- Aucunes souplesses avec Solaris.
+  Les transferts en SSH déconnent (s&amp;rsquo;arrête au bout d&amp;rsquo;un certain temps) avec Cyberduck.
+  Sur le serveur, j&amp;rsquo;ai une clef USB branchée dessus, c&amp;rsquo;est ultra lent pour copier un truc.
+  Aucunes souplesses avec Solaris.
   Donc voilà, ça y est, ça fait un moment que j&amp;rsquo;en parle, il me faut du temps pour refaire mon serveur là.</description>
     </item>
     
@@ -6586,12 +6580,12 @@ J&amp;rsquo;essaye de pondre un article aussi bien foutut que pour Perl, enfin j
       
       <guid>https://blog.deimos.fr/2009/02/15/solaris-cest-bienen-abuser-ca-craint/</guid>
       <description>Ca y est, méga gavage entre Solaris et VirtualBox. Entre :
- Les pertes de perfs réseaux
- Les problèmes de paravirtualisation VT sous VirtualBox
- Les perfs en générale
+  Les pertes de perfs réseaux
+  Les problèmes de paravirtualisation VT sous VirtualBox
+  Les perfs en générale
   J&amp;rsquo;en peux plus. C&amp;rsquo;est super décourageant. Alors maintenant on va se poser les vrais questions :
- OS : Debian 5, ya pas à tortiller du cul pour chier droit
- FileSystem + Redondance : LVM+RAID5 Software ou FUSE+ZFS</description>
+  OS : Debian 5, ya pas à tortiller du cul pour chier droit
+  FileSystem + Redondance : LVM+RAID5 Software ou FUSE+ZFS</description>
     </item>
     
     <item>
@@ -6642,10 +6636,9 @@ J&amp;rsquo;ai donc tout installé dans la boiboite et après une soirée de beu
       
       <guid>https://blog.deimos.fr/2008/12/27/ca-vient-po/</guid>
       <description>J’en ai marre d’attendre ma Soekris ! Sans dec, j’ai trop hate que mon serveur soit complètement fini de migré. Dans mon pipe j’ai :
- Mise en place de la Soekris avec VLAN et tout le bordel
- Assainissement de toutes mes confs server + maj wiki pour les potos
- Mise à dispo de VMs à Seb et Stival pour tous les tests Cluster HA
-  J&amp;rsquo;ai envie que ça avance plus vite non di diou</description>
+  Mise en place de la Soekris avec VLAN et tout le bordel
+  Assainissement de toutes mes confs server + maj wiki pour les potos
+  Mise à dispo de VMs à Seb et Stival pour tous les tests Cluster HA</description>
     </item>
     
     <item>
@@ -6656,12 +6649,12 @@ J&amp;rsquo;ai donc tout installé dans la boiboite et après une soirée de beu
       <guid>https://blog.deimos.fr/2008/12/19/demain-grosse-coupure/</guid>
       <description>Oyé oyé,
 Demain je refais mon serveur, voici les modifs :
- Passage de 2To de données en single HDD à 3To en raid5
- Migration Debian etch 32 bits vers Solaris x86_64
- Mise en place de VMs :
- OpenBSD 4.4
- Debian (ou ubuntu server, je ne sais pas trop encore)
-  Il y aura donc des perturbations pendant quelques jours, voir toute la semaine prochaine. Je vous tiens au courant de l&amp;rsquo;évolution&amp;hellip;</description>
+  Passage de 2To de données en single HDD à 3To en raid5
+  Migration Debian etch 32 bits vers Solaris x86_64
+  Mise en place de VMs :
+  OpenBSD 4.4
+  Debian (ou ubuntu server, je ne sais pas trop encore)
+  Il y aura donc des perturbations pendant quelques jours, voir toute la semaine prochaine.</description>
     </item>
     
     <item>
@@ -6671,7 +6664,7 @@ Demain je refais mon serveur, voici les modifs :
       
       <guid>https://blog.deimos.fr/2008/12/19/bon-ca-cest-fait/</guid>
       <description>J’ai enfin terminé de rédiger mon Introduction à Perl.
-J&amp;rsquo;ai commencé à lire le bouquin été 2007, ai dans la foulée commencé à rédiger ce concentré. Bon évidement j&amp;rsquo;ai commencé d&amp;rsquo;autres bouquins tel que le PHP sur lequel je dois finir d&amp;rsquo;écrire également le résumer sur mon wiki. Je serais pas obligé de faire tout ça si la partie de mon cerveau qui stock les informations était un disque dur indexé de plusieurs Go.</description>
+J&amp;rsquo;ai commencé à lire le bouquin été 2007, ai dans la foulée commencé à rédiger ce concentré. Bon évidement j&amp;rsquo;ai commencé d&amp;rsquo;autres bouquins tel que le PHP sur lequel je dois finir d&#39;écrire également le résumer sur mon wiki. Je serais pas obligé de faire tout ça si la partie de mon cerveau qui stock les informations était un disque dur indexé de plusieurs Go.</description>
     </item>
     
   </channel>

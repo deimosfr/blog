@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Moi je connais un mec qui ce week end a fait un petit reboot (pour simplifier la situation) de son serveur qu’il a chez lui. En faisant le reboot 2 disques de sont raid 5 sont endommagés (1 qui fait clic clic et l’autre visiblement le problème de firmware Seagate….il avait pourtant flashé à l’époque pour ne pas que ça arrive).
@@ -282,27 +282,16 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>Moi je connais un mec qui ce week end a fait un petit reboot (pour simplifier la situation) de son serveur qu’il a chez lui. En faisant le reboot 2 disques de sont raid 5 sont endommagés (1 qui fait clic clic et l’autre visiblement le problème de firmware Seagate….il avait pourtant flashé à l’époque pour ne pas que ça arrive).</p>
-
-<p>Il essaye donc d&rsquo;en faire repartir 1 et par miracle il y arrive. 2 h après (le temps d&rsquo;aller acheter des disques), il revient sauf que 5 min avant c&rsquo;était trop tard. Le disque qui était de nouveau down. Au final il perdit toutes ses VMs, avec ses confs et autres babioles&hellip;3To.</p>
-
+<p>Il essaye donc d&rsquo;en faire repartir 1 et par miracle il y arrive. 2 h après (le temps d&rsquo;aller acheter des disques), il revient sauf que 5 min avant c'était trop tard. Le disque qui était de nouveau down. Au final il perdit toutes ses VMs, avec ses confs et autres babioles&hellip;3To.</p>
 <p>Heureux de sa journée, il décide alors d&rsquo;en profiter pour être plus écolo et décide de refaire son serveur sur un mac mini qui ne consomme pas grand chose. L&rsquo;EFI étant l&rsquo;ami de tous, il passe beaucoup de temps pour arriver à un résultat médiocre&hellip;en gros ça fonctionne mais il est obligé de garder une partition hfs+ sinon il ne peut booter sur Linux. Après une journée, il se dit que c&rsquo;est pas la peine, qu&rsquo;il verra plus tard. Que le plus important c&rsquo;est de refaire fonctionner les mails et les sites web.</p>
-
 <p>Il se dit qu&rsquo;il va reconstruire le raid de son ancien serveur et recommencer&hellip;il tente&hellip;mais la courte nuit ne l&rsquo;aide pas et se tape un écran défilant et hurlant que le raid 5 est capoute. N&rsquo;arrivant pas à reprendre facilement la main et après une bonne dose de week-soulage, il décide de passer à sa dedibox.</p>
-
 <p>Il tente alors de faire rapidement un serveur mail. Celui fonctionne visiblement mais est d&rsquo;une belle lenteur. De la fumée commence à sortir de ses oreilles&hellip;</p>
-
 <p>De colère, il décide de faire la gestion de ses DNS sur gandi et se dit &ldquo;vas y fais chier, je passe sur google le temps que je me refasse un serveur digne de ce nom&hellip;et puis avec le déménagement, ça évitera encore un downtime).</p>
-
 <p>Ni une ni deux, il passe sur google apps pour gérer ses domaines. Seulement la petite subtilité, c&rsquo;est qu&rsquo;il ne faut même pas penser à avoir un compte groupé ou encore une gestion multi domaines avec la version standard. De même, il est impossible depuis ces comptes apps faire des transfert.</p>
-
 <p>Cet homme est à ce moment là à 2 doigts de commettre la boulette ! Il tente le tout pour le tout, refait ses DNS chez gandi (gérer donc par gandit) et utilise les redirections standard de gandi. Le lendemain matin après une bonne nuit de sommeille tout fonctionne.</p>
-
 <p>Cet homme est aujourd&rsquo;hui soulé de ce qu&rsquo;il lui est arrivé, réfléchira à une solution de backup de porc pour ne plus que ça lui arrive. Il la communiquera également.</p>
-
 <p>Pour conclure, ce qui le fait plus chier dans l&rsquo;histoire c&rsquo;est d&rsquo;avoir perdu des heures de conf alors que dans la semaine il avait tout préparer pour les envoyer sur amazon S3 mais n&rsquo;avais juste pas eu le temps de mettre la ligne magique dans la crontab.</p>
-
 <p>Cet homme se dit qu&rsquo;une nouvelle semaine commence et qu&rsquo;il va falloir repenser certains trucs.</p>
-
 <p>PS: pour les vifs d&rsquo;esprit qui ne l&rsquo;auraient pas compris, looserman, c&rsquo;est moi</p>
 
               
@@ -400,7 +389,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

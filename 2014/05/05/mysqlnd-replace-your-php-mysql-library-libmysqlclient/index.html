@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="As you may know, I&rsquo;m using and loving MariaDB. A colleague recently introduced me the benefits of the php built-in MySQL/MariaDB library (shame on me, I never heard of it). Here are the informations you can find from it on the MySQL website:
@@ -296,14 +296,11 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_php.png" alt="php_logo" />
+              <p><img src="https://blog.deimos.fr/images/logo_php.png" alt="php_logo">
 As you may know, I&rsquo;m using and loving MariaDB. A colleague recently introduced me the benefits of the php built-in MySQL/MariaDB library (shame on me, I never heard of it). Here are the informations you can find from it on the MySQL website:</p>
-
 <blockquote>
 <p>The mysqlnd library is highly optimized for and tightly integrated into PHP. The MySQL Client Library cannot offer the same optimizations because it is a general-purpose client library.</p>
-
 <p>The mysqlnd library is using PHP internal C infrastructure for seamless integration into PHP. In addition, it is using PHP memory management, PHP Streams (I/O abstraction) and PHP string handling routines. The use of PHP memory management by mysqlnd allows, for example, memory savings by using read-only variables (copy on write) and makes mysqlnd apply to PHP memory limits. Additional advantages include:</p>
-
 <ul>
 <li>Powerful plugin API to extend feature set</li>
 <li>Asynchronous, non-blocking queries</li>
@@ -313,18 +310,13 @@ As you may know, I&rsquo;m using and loving MariaDB. A colleague recently introd
 <li>Powerful plugins.</li>
 </ul>
 </blockquote>
-
-<p>Why did I really changed? Because I was facing to this warning problems after <a href="http://www.dotdeb.org/2014/04/04/about-the-mysql_connect-headers-and-client-library-minor-version-mismatch-warning-2/" target="_blank">an upgrade of PHP library from DotDeb packages</a>:</p>
-
+<p>Why did I really changed? Because I was facing to this warning problems after <a href="http://www.dotdeb.org/2014/04/04/about-the-mysql_connect-headers-and-client-library-minor-version-mismatch-warning-2/">an upgrade of PHP library from DotDeb packages</a>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">PHP Warning: mysql_connect<span class="o">()</span>: Headers and client library minor version mismatch. Headers:50535 Library:50617</code></pre></div>
-
 <p>So I decided to switch to php5-mysqlnd as a replacement of php5-mysql on Wheezy. However, it is not as easy as it could be. <strong>You need to completely remove php5-mysql, loose dependencies and then reinstall everything.</strong> To be more clear:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">apt-get remove php5-mysql
 apt-get install php5-mysqlnd
 apt-get install php-fpm php5-geoip...</code></pre></div>
-
-<p>Now everything is back to normal and I won&rsquo;t be annoyed of it in the future. You can also see the differences on <a href="http://www.php.net/manual/en/mysqlinfo.library.choosing.php" target="_blank">the official PHP website</a>.</p>
+<p>Now everything is back to normal and I won&rsquo;t be annoyed of it in the future. You can also see the differences on <a href="http://www.php.net/manual/en/mysqlinfo.library.choosing.php">the official PHP website</a>.</p>
 
               
             </div>
@@ -425,7 +417,7 @@ apt-get install php-fpm php5-geoip...</code></pre></div>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

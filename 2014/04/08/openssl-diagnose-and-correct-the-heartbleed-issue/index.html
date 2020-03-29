@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="A big and major issue on OpenSSL has been discovered and everybody is talking about it. To get more informations, there&rsquo;s a website.
@@ -295,49 +295,40 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/heartbleed-247x300.png" alt="heartbleed-247x300" /></p>
-
-<p>A big and major issue on OpenSSL has been discovered and everybody is talking about it. To get more informations, <a href="http://heartbleed.com/" target="_blank">there&rsquo;s a website</a>.</p>
-
-<p>How to check the vulnerability, <a href="https://mega.co.nz/#!OpA1DJKC!6Vy7V03TtAL9io41R_-HFQ-8275X3h78Zj87qTs9osI" target="_blank">download this file</a>:</p>
-
+              <p><img src="https://blog.deimos.fr/images/heartbleed-247x300.png" alt="heartbleed-247x300"></p>
+<p>A big and major issue on OpenSSL has been discovered and everybody is talking about it. To get more informations, <a href="http://heartbleed.com/">there&rsquo;s a website</a>.</p>
+<p>How to check the vulnerability, <a href="https://mega.co.nz/#!OpA1DJKC!6Vy7V03TtAL9io41R_-HFQ-8275X3h78Zj87qTs9osI">download this file</a>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">chmod <span class="m">755</span> ssltest.py</code></pre></div>
-
 <p>Now launch it:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">./ssltest.py blog.deimos.fr
 Connecting...
 Sending Client Hello...
 Waiting <span class="k">for</span> Server Hello...
-... received message: <span class="nb">type</span> <span class="o">=</span> <span class="m">22</span>, <span class="nv">ver</span> <span class="o">=</span> <span class="m">0302</span>, <span class="nv">length</span> <span class="o">=</span> <span class="m">66</span>
-... received message: <span class="nb">type</span> <span class="o">=</span> <span class="m">22</span>, <span class="nv">ver</span> <span class="o">=</span> <span class="m">0302</span>, <span class="nv">length</span> <span class="o">=</span> <span class="m">5559</span>
-... received message: <span class="nb">type</span> <span class="o">=</span> <span class="m">22</span>, <span class="nv">ver</span> <span class="o">=</span> <span class="m">0302</span>, <span class="nv">length</span> <span class="o">=</span> <span class="m">587</span>
-... received message: <span class="nb">type</span> <span class="o">=</span> <span class="m">22</span>, <span class="nv">ver</span> <span class="o">=</span> <span class="m">0302</span>, <span class="nv">length</span> <span class="o">=</span> <span class="m">4</span>
+... received message: <span class="nb">type</span> <span class="o">=</span> 22, <span class="nv">ver</span> <span class="o">=</span> 0302, <span class="nv">length</span> <span class="o">=</span> <span class="m">66</span>
+... received message: <span class="nb">type</span> <span class="o">=</span> 22, <span class="nv">ver</span> <span class="o">=</span> 0302, <span class="nv">length</span> <span class="o">=</span> <span class="m">5559</span>
+... received message: <span class="nb">type</span> <span class="o">=</span> 22, <span class="nv">ver</span> <span class="o">=</span> 0302, <span class="nv">length</span> <span class="o">=</span> <span class="m">587</span>
+... received message: <span class="nb">type</span> <span class="o">=</span> 22, <span class="nv">ver</span> <span class="o">=</span> 0302, <span class="nv">length</span> <span class="o">=</span> <span class="m">4</span>
 Sending heartbeat request...
-... received message: <span class="nb">type</span> <span class="o">=</span> <span class="m">24</span>, <span class="nv">ver</span> <span class="o">=</span> <span class="m">0302</span>, <span class="nv">length</span> <span class="o">=</span> <span class="m">16384</span>
+... received message: <span class="nb">type</span> <span class="o">=</span> 24, <span class="nv">ver</span> <span class="o">=</span> 0302, <span class="nv">length</span> <span class="o">=</span> <span class="m">16384</span>
 Received heartbeat response:
-<span class="m">0000</span>: <span class="m">02</span> <span class="m">40</span> <span class="m">00</span> D8 <span class="m">03</span> <span class="m">02</span> <span class="m">53</span> <span class="m">43</span> 5B <span class="m">90</span> 9D 9B <span class="m">72</span> 0B BC 0C .@....SC<span class="o">[</span>...r...
+0000: <span class="m">02</span> <span class="m">40</span> <span class="m">00</span> D8 <span class="m">03</span> <span class="m">02</span> <span class="m">53</span> <span class="m">43</span> 5B <span class="m">90</span> 9D 9B <span class="m">72</span> 0B BC 0C .@....SC<span class="o">[</span>...r...
 <span class="o">[</span>...<span class="o">]</span>
-3ff0: <span class="m">70</span> <span class="m">78</span> <span class="m">20</span> <span class="m">30</span> <span class="m">20</span> <span class="m">33</span> <span class="m">70</span> <span class="m">78</span> <span class="m">20</span> <span class="m">31</span> 2E <span class="m">35</span> <span class="m">65</span> 6D 3B 6D px <span class="m">0</span> 3px <span class="m">1</span>.5em<span class="p">;</span>m
+3ff0: <span class="m">70</span> <span class="m">78</span> <span class="m">20</span> <span class="m">30</span> <span class="m">20</span> <span class="m">33</span> <span class="m">70</span> <span class="m">78</span> <span class="m">20</span> <span class="m">31</span> 2E <span class="m">35</span> <span class="m">65</span> 6D 3B 6D px <span class="m">0</span> 3px 1.5em<span class="p">;</span>m
 
 WARNING: server returned more data than it should - server is vulnerable!</code></pre></div>
-
 <p>I was vulnerable as you can see. I deployed latest Debian OpenSSL packages, restarted Nginx and then relaunched the tool:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">./ssltest.py wiki.deimos.fr -p <span class="m">443</span>
 Connecting...
 Sending Client Hello...
 Waiting <span class="k">for</span> Server Hello...
-... received message: <span class="nb">type</span> <span class="o">=</span> <span class="m">22</span>, <span class="nv">ver</span> <span class="o">=</span> <span class="m">0302</span>, <span class="nv">length</span> <span class="o">=</span> <span class="m">66</span>
-... received message: <span class="nb">type</span> <span class="o">=</span> <span class="m">22</span>, <span class="nv">ver</span> <span class="o">=</span> <span class="m">0302</span>, <span class="nv">length</span> <span class="o">=</span> <span class="m">5559</span>
-... received message: <span class="nb">type</span> <span class="o">=</span> <span class="m">22</span>, <span class="nv">ver</span> <span class="o">=</span> <span class="m">0302</span>, <span class="nv">length</span> <span class="o">=</span> <span class="m">587</span>
-... received message: <span class="nb">type</span> <span class="o">=</span> <span class="m">22</span>, <span class="nv">ver</span> <span class="o">=</span> <span class="m">0302</span>, <span class="nv">length</span> <span class="o">=</span> <span class="m">4</span>
+... received message: <span class="nb">type</span> <span class="o">=</span> 22, <span class="nv">ver</span> <span class="o">=</span> 0302, <span class="nv">length</span> <span class="o">=</span> <span class="m">66</span>
+... received message: <span class="nb">type</span> <span class="o">=</span> 22, <span class="nv">ver</span> <span class="o">=</span> 0302, <span class="nv">length</span> <span class="o">=</span> <span class="m">5559</span>
+... received message: <span class="nb">type</span> <span class="o">=</span> 22, <span class="nv">ver</span> <span class="o">=</span> 0302, <span class="nv">length</span> <span class="o">=</span> <span class="m">587</span>
+... received message: <span class="nb">type</span> <span class="o">=</span> 22, <span class="nv">ver</span> <span class="o">=</span> 0302, <span class="nv">length</span> <span class="o">=</span> <span class="m">4</span>
 Sending heartbeat request...
 Unexpected EOF receiving record header - server closed connection
 No heartbeat response received, server likely not vulnerable</code></pre></div>
-
 <p>Corrected :-). Now I&rsquo;ve to regenerate my SSL certificates as I do not know if someone already stolen my private key :-(</p>
-
 <p>Hope it will help you :-)</p>
 
               
@@ -437,7 +428,7 @@ No heartbeat response received, server likely not vulnerable</code></pre></div>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

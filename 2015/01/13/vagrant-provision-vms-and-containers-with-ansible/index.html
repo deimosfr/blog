@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="In the last post, I talked about how to manage Docker and VirtualBox with Vagrant. This post follows the last one, with the integration of Ansible as a provisioner. Once again, I&rsquo;m using it for the Smash project.
@@ -302,14 +302,10 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_vagrant.png" alt="Vagrant-logo" /></p>
-
-<p>In the last post, I talked about how <a href="https://blog.deimos.fr/?p=5290" target="_blank">to manage Docker and VirtualBox with Vagrant</a>. This post follows the last one, with the integration of Ansible as a provisioner. Once again, I&rsquo;m using it for the <a href="http://www.usmash.me/" target="_blank">Smash</a> project.</p>
-
+              <p><img src="https://blog.deimos.fr/images/logo_vagrant.png" alt="Vagrant-logo"></p>
+<p>In the last post, I talked about how <a href="https://blog.deimos.fr/?p=5290">to manage Docker and VirtualBox with Vagrant</a>. This post follows the last one, with the integration of Ansible as a provisioner. Once again, I&rsquo;m using it for the <a href="http://www.usmash.me/">Smash</a> project.</p>
 <p>With Ansible, I made several &ldquo;group_vars&rdquo; files containing custom and common information related to the used environment (dev, uat, staging&hellip;). This helps to setup different kind of environment easily. Vagrant will help to build images with Ansible deployed inside. Also it will construct on the fly a list of inventory hosts that will be used by Ansible. Let&rsquo;s see what you can get and how!</p>
-
 <p>First, we&rsquo;re taking back the Vagrantfile (like the previous post), but you&rsquo;ll notice some differences due to Ansible:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># -*- mode: ruby -*-</span>
 <span class="c1"># vi: set ft=ruby :</span>
 
@@ -333,11 +329,8 @@ if (!doNotTrack) {
 <span class="c1"># Show used vars</span>
 <span class="nb">puts</span> <span class="s2">&#34;==&amp;gt; Using </span><span class="si">#{</span><span class="n">provider</span><span class="si">}</span><span class="s2"> provider&#34;</span>
 <span class="nb">puts</span> <span class="s2">&#34;==&amp;gt; Deploying Ansible </span><span class="si">#{</span><span class="n">deploy_env</span><span class="si">}</span><span class="s2"> environment&#34;</span></code></pre></div>
-
 <p>This part include the environment I want to deploy, the provider to use and the Vagrant image box I need to use to launch my VM.</p>
-
 <p>The provider part is simple for VirtualBox as nothing has to be done with most of boxes you can find on Atlas (ex Vagrant Cloud). However, for the Docker provider, you have to be sure that an SSH server is present, started and a Vagrant key is present for the root user (as no Vagrant user exist by default). The Vagrant part should looks like this:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="no">VAGRANTFILE_API_VERSION</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
 
     <span class="c1"># Common settings</span>
@@ -360,16 +353,12 @@ if (!doNotTrack) {
             <span class="n">config</span><span class="o">.</span><span class="n">ssh</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="s2">&#34;root&#34;</span>
         <span class="k">end</span>
     <span class="k">end</span></code></pre></div>
-
 <p>For the Docker part, I&rsquo;m using a Dockerfile which looks like this to start SSH server (required for Ansible):</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">FROM debian:wheezy
 <span class="c1"># Start SSHd</span>
 EXPOSE <span class="m">22</span>
 CMD <span class="o">[</span><span class="s2">&#34;/usr/sbin/sshd&#34;</span>, <span class="s2">&#34;-D&#34;</span><span class="o">]</span></code></pre></div>
-
 <p>Regarding the definition of the VM, you need to forward your SSH agent to make it work with Ansible:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># Web servers</span>
     <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s1">&#39;web1&#39;</span> <span class="k">do</span> <span class="o">|</span><span class="n">machine</span><span class="o">|</span>
         <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">host_name</span> <span class="o">=</span> <span class="s1">&#39;web1&#39;</span>
@@ -387,15 +376,11 @@ CMD <span class="o">[</span><span class="s2">&#34;/usr/sbin/sshd&#34;</span>, <s
         <span class="k">end</span>
         <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&#34;public_network&#34;</span><span class="p">,</span> <span class="ss">:bridge</span> <span class="o">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="s1">&#39;wlan0&#39;</span>
     <span class="k">end</span></code></pre></div>
-
 <p>As we&rsquo;re talking about forwarding agent, I had an issue with sudo usage. My goal was to clone a private repository on GitHub. But the agent wasn&rsquo;t forwarded when I was using sudo command. That&rsquo;s why, I got an Ansible playbook rule for it configuring the sudoers file:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">---<span class="w">
-</span><span class="w"></span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>Make<span class="w"> </span>sure<span class="w"> </span>ssh-agent<span class="w"> </span>is<span class="w"> </span>forwarded<span class="w"> </span>via<span class="w"> </span>sudo<span class="w">
-</span><span class="w">  </span>lineinfile<span class="p">:</span><span class="w"> </span>dest=/etc/sudoers<span class="w"> </span>state=present<span class="w"> </span>regexp=<span class="s1">&#39;^Defaults env_keep\+\=SSH_AUTH_SOCK&#39;</span><span class="w"> </span>line=<span class="s1">&#39;Defaults env_keep+=SSH_AUTH_SOCK&#39;</span></code></pre></div>
-
+</span><span class="w"></span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>Make<span class="w"> </span>sure<span class="w"> </span>ssh-agent<span class="w"> </span>is<span class="w"> </span>forwarded<span class="w"> </span>via<span class="w"> </span>sudo<span class="w">
+</span><span class="w">  </span><span class="k">lineinfile</span><span class="p">:</span><span class="w"> </span>dest=/etc/sudoers<span class="w"> </span>state=present<span class="w"> </span>regexp=<span class="s1">&#39;^Defaults env_keep\+\=SSH_AUTH_SOCK&#39;</span><span class="w"> </span>line=<span class="s1">&#39;Defaults env_keep+=SSH_AUTH_SOCK&#39;</span></code></pre></div>
 <p>This line export the environment var &ldquo;SSH_AUTH_SOCK&rdquo; with sudo. That means, my personal SSH key is forwarded to the VM with Vagrant (with vagrant user) and then is used with root user with the help of sudo. And that&rsquo;s not finished! We have to play with the Ansible provisioner as well to force the key forwarding:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&#34;ansible&#34;</span> <span class="k">do</span> <span class="o">|</span><span class="n">ansible</span><span class="o">|</span>
         <span class="n">ansible</span><span class="o">.</span><span class="n">sudo</span> <span class="o">=</span> <span class="kp">true</span>
         <span class="n">ansible</span><span class="o">.</span><span class="n">host_key_checking</span> <span class="o">=</span> <span class="kp">false</span>
@@ -417,23 +402,18 @@ CMD <span class="o">[</span><span class="s2">&#34;/usr/sbin/sshd&#34;</span>, <s
             <span class="ss">set_env</span><span class="p">:</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="n">deploy_env</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">,</span>
         <span class="p">}</span>
     <span class="k">end</span></code></pre></div>
-
 <p>I&rsquo;m using sudo for the VirtualBox part and require a vagrant user for Docker. I also don&rsquo;t want to check the host key. The following things related to Ansible should remind you something if you&rsquo;re familiar with it. Regarding the Ansible groups, here is how to help Vagrant to build on the fly the inventory. You have to define your groups and define which server belongs to which group in your default YAML file. Extra vars are used to force Vagrant user to be used and the ForwardAgent to be used (still to clone private repository requiring your private key).</p>
-
 <p>We also need to activate sudo (even with root user) in the Ansible playbook configuration (site.yml):</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">---<span class="w">
 </span><span class="w"></span><span class="c"># All machines</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>common<span class="w">
-</span><span class="w">  </span>hosts<span class="p">:</span><span class="w"> </span>all<span class="w">
-</span><span class="w">  </span>user<span class="p">:</span><span class="w"> </span>root<span class="w">
-</span><span class="w">  </span>sudo<span class="p">:</span><span class="w"> </span>yes<span class="w">
-</span><span class="w">  </span>roles<span class="p">:</span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>common<span class="w">
+</span><span class="w"></span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>common<span class="w">
+</span><span class="w">  </span><span class="k">hosts</span><span class="p">:</span><span class="w"> </span>all<span class="w">
+</span><span class="w">  </span><span class="k">user</span><span class="p">:</span><span class="w"> </span>root<span class="w">
+</span><span class="w">  </span><span class="k">sudo</span><span class="p">:</span><span class="w"> </span>yes<span class="w">
+</span><span class="w">  </span><span class="k">roles</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- common<span class="w">
 </span><span class="w"></span>...</code></pre></div>
-
 <p>The complete Vagrantfile looks like this:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># -*- mode: ruby -*-</span>
 <span class="c1"># vi: set ft=ruby :</span>
 
@@ -522,7 +502,6 @@ CMD <span class="o">[</span><span class="s2">&#34;/usr/sbin/sshd&#34;</span>, <s
         <span class="p">}</span>
     <span class="k">end</span>
 <span class="k">end</span></code></pre></div>
-
 <p>I hope you&rsquo;ll win a lot of time, because I&rsquo;ll loose too much IMO :-p</p>
 
               
@@ -622,7 +601,7 @@ CMD <span class="o">[</span><span class="s2">&#34;/usr/sbin/sshd&#34;</span>, <s
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

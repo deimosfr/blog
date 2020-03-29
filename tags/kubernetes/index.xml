@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kubernetes on Deimosfr Blog</title>
@@ -70,7 +70,7 @@ I wanted to deploy it on Kubernetes for its interesting features like:
       <guid>https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/</guid>
       <description>Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications. I&amp;rsquo;m using it for Nousmotards and decided to build an Ansible role for it to make it simpler to deploy.
 Why did I built it as other projects like Kargo already exists? I just wanted a simple and maintainable role based on CoreOS official documentation. That&amp;rsquo;s what I did:
- This role bootstrap a Kubernetes cluster based on CoreOS Container Linux for production usages.</description>
+This role bootstrap a Kubernetes cluster based on CoreOS Container Linux for production usages.</description>
     </item>
     
   </channel>

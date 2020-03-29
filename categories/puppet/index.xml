@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Puppet on Deimosfr Blog</title>
@@ -69,8 +69,7 @@ So I&amp;rsquo;ve learned on how to build a box and it&amp;rsquo;s really easy b
       <pubDate>Sun, 15 Sep 2013 10:00:19 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2013/09/15/write-puppet-manifests-and-modules-faster-with-vim/</guid>
-      <description>I recently wrote a blog post regarding methods to write Puppet modules/manifests faster. I’ve made presentations for it, here are the slides :
-  Puppet slides  from Pierre Mavro</description>
+      <description>I recently wrote a blog post regarding methods to write Puppet modules/manifests faster. I’ve made presentations for it, here are the slides :</description>
     </item>
     
     <item>
@@ -202,7 +201,7 @@ C&amp;rsquo;est avec beaucoup de recul et plusieurs années d&amp;rsquo;expérie
       
       <guid>https://blog.deimos.fr/2012/07/30/puppet-les-subtilites-du-langage/</guid>
       <description>Toujours dans la lignée de l&amp;rsquo;article sur Puppet (voir articles précédents), je vous propose cette fois ci un deuxième article, qui contient des astuces et des cas d&amp;rsquo;utilisation du langage. Que ce soit pour les manifests, les templates, facter, parser etc&amp;hellip;
-Pour ceux qui se sont arrêter aux manifests et ont trouvé des limitations ou tout simplement ne se sont pas encore posée la question de savoir ce que l&amp;rsquo;on pouvait bien faire de plus que les ressources de base, je vous conseil d&amp;rsquo;aller voir, vous risquez d&amp;rsquo;être surpris par la puissance de Puppet :-)</description>
+Pour ceux qui se sont arrêter aux manifests et ont trouvé des limitations ou tout simplement ne se sont pas encore posée la question de savoir ce que l&amp;rsquo;on pouvait bien faire de plus que les ressources de base, je vous conseil d&amp;rsquo;aller voir, vous risquez d&#39;être surpris par la puissance de Puppet :-)</description>
     </item>
     
     <item>
@@ -282,8 +281,8 @@ Je testerais peut être plus tard cette interface, mais pour l&amp;rsquo;heure, 
       <pubDate>Sat, 26 Feb 2011 17:25:18 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2011/02/26/puppet-sur-debian-squeeze/</guid>
-      <description>Pour ceux qui ne connaissent pas Puppet et qui ont une infrastructure conséquente à gérer, je vous suggère vivement de vous tourner vers ce genre de softs. Il vous permet d&amp;rsquo;installer automatiquement des logiciels, faire leur configuration et changer l&amp;rsquo;état d&amp;rsquo;un service.
-Je viens d&amp;rsquo;énumérer même pas 5% de ce que Puppet est capable de faire. Bref, j&amp;rsquo;avais déjà une doc sur mon wiki que je viens d&amp;rsquo;actualiser avec un peu plus d&amp;rsquo;explications et une version squeeze.</description>
+      <description>Pour ceux qui ne connaissent pas Puppet et qui ont une infrastructure conséquente à gérer, je vous suggère vivement de vous tourner vers ce genre de softs. Il vous permet d&amp;rsquo;installer automatiquement des logiciels, faire leur configuration et changer l&#39;état d&amp;rsquo;un service.
+Je viens d&#39;énumérer même pas 5% de ce que Puppet est capable de faire. Bref, j&amp;rsquo;avais déjà une doc sur mon wiki que je viens d&amp;rsquo;actualiser avec un peu plus d&amp;rsquo;explications et une version squeeze.</description>
     </item>
     
   </channel>

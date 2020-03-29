@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="A few days ago I wanted to play with HAProxy SSL offloading. It was a good experience and alternative to Nginx SSL offloading (I already talked about in this blog). But this is not the topic here&hellip;
@@ -302,19 +302,13 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/epic_fail_cry.jpg" alt="epic_fail_cry" />
-A few days ago I wanted to play with <a href="https://blog.deimos.fr/2015/01/27/offload-ssl-with-haproxy/" target="_blank">HAProxy SSL offloading</a>. It was a good experience and alternative to <a href="https://blog.deimos.fr/2014/01/23/offloading-ssl-with-nginx-and-varnish/" target="_blank">Nginx SSL offloading</a> (I already talked about in this blog). But this is not the topic here&hellip;</p>
-
-<p>When I was trying to make the offload working on the blog, I modified WordPress options which switched my blog into an infinite loop mode. As it was late and I was tired (bad idea), I just wanted to rollback my changes and needed to recover a SQL backup to do it fast. So I first restored a compressed backup on the host, uncompressed it, didn&rsquo;t checked the size of the backup, dropped the database, created a new one and restored a 0k database! At this time <span id="result_box" class="short_text" lang="en"><span class="hps">my head</span> <span class="hps">wanted</span> <span class="hps">to</span> <span class="hps">throw</span> <span class="hps">against the wall.</span></span></p>
-
+              <p><img src="https://blog.deimos.fr/images/epic_fail_cry.jpg" alt="epic_fail_cry">
+A few days ago I wanted to play with <a href="https://blog.deimos.fr/2015/01/27/offload-ssl-with-haproxy/">HAProxy SSL offloading</a>. It was a good experience and alternative to <a href="https://blog.deimos.fr/2014/01/23/offloading-ssl-with-nginx-and-varnish/">Nginx SSL offloading</a> (I already talked about in this blog). But this is not the topic here&hellip;</p>
+<p>When I was trying to make the offload working on the blog, I modified WordPress options which switched my blog into an infinite loop mode. As it was late and I was tired (bad idea), I just wanted to rollback my changes and needed to recover a SQL backup to do it fast. So I first restored a compressed backup on the host, uncompressed it, didn&rsquo;t checked the size of the backup, dropped the database, created a new one and restored a 0k database! At this time <!-- raw HTML omitted --><!-- raw HTML omitted -->my head<!-- raw HTML omitted --> <!-- raw HTML omitted -->wanted<!-- raw HTML omitted --> <!-- raw HTML omitted -->to<!-- raw HTML omitted --> <!-- raw HTML omitted -->throw<!-- raw HTML omitted --> <!-- raw HTML omitted -->against the wall.<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 <p>When I was searching for a previous backup, I didn&rsquo;t find any correct one, because of an option I changed a few months ago in MariaDB, this is also called a big fail ;-),. At this time I thought having totally lost my blog. My backup script didn&rsquo;t catch the issue I had :-(.</p>
-
-<p>So on the road to find an impossible dump, I decided to deploy a <a href="https://blog.deimos.fr/2013/07/11/vagrant-i-finally-dropped-kvm-for-virtualbox/" target="_blank">Vagrant</a> Debian box running MariaDB and restored the MySQL data folder with tables files (complete /var/lib/mysql) inside this VM. I started MariaDB without any problems and launched a forced repair of all the tables (Thanks MariaDB). That was quite fast because I do not have a big database (only a few hundreds of Mb). Once done I dumped it without errors and could restore the database on my server.</p>
-
+<p>So on the road to find an impossible dump, I decided to deploy a <a href="https://blog.deimos.fr/2013/07/11/vagrant-i-finally-dropped-kvm-for-virtualbox/">Vagrant</a> Debian box running MariaDB and restored the MySQL data folder with tables files (complete /var/lib/mysql) inside this VM. I started MariaDB without any problems and launched a forced repair of all the tables (Thanks MariaDB). That was quite fast because I do not have a big database (only a few hundreds of Mb). Once done I dumped it without errors and could restore the database on my server.</p>
 <p>This is how I recovered it. The funniest thing in that story is I was searching for a WordPress alternative a few hours before. I&rsquo;m a little bit fed up having a database just for blogs with so less interaction. That&rsquo;s why I&rsquo;d like to switch to another one.</p>
-
 <p>My goal is to have a blog:</p>
-
 <ul>
 <li>Faster (ideally static)</li>
 <li>Without database</li>
@@ -324,9 +318,7 @@ A few days ago I wanted to play with <a href="https://blog.deimos.fr/2015/01/27/
 <li>With social publish</li>
 <li>With code syntax color</li>
 </ul>
-
-<p>I&rsquo;ve found <a href="http://www.google.fr/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;uact=8&amp;ved=0CCMQFjAA&amp;url=http%3A%2F%2Fjekyllrb.com%2F&amp;ei=tUvFVOP-GY3sateVgvAB&amp;usg=AFQjCNGs2NPErI0nNoxi8et5v5227blLzQ&amp;bvm=bv.84349003,d.d2s" target="_blank">Jekyll</a> or <a href="http://www.google.fr/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;uact=8&amp;ved=0CCMQFjAA&amp;url=http%3A%2F%2Foctopress.org%2F&amp;ei=yUvFVKOqIdXbas2GgbAN&amp;usg=AFQjCNH5__SGXDyujngHSK0T14xsrnJHOw&amp;bvm=bv.84349003,d.d2s" target="_blank">Octopress</a> as the best alternative. A colleague also talked to me about <a href="http://getgrav.org/" target="_blank">GetGrave</a>. It seems that all of those points can be covered. I would like feedbacks from my readers please :-).</p>
-
+<p>I&rsquo;ve found <a href="http://www.google.fr/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;uact=8&amp;ved=0CCMQFjAA&amp;url=http%3A%2F%2Fjekyllrb.com%2F&amp;ei=tUvFVOP-GY3sateVgvAB&amp;usg=AFQjCNGs2NPErI0nNoxi8et5v5227blLzQ&amp;bvm=bv.84349003,d.d2s">Jekyll</a> or <a href="http://www.google.fr/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;uact=8&amp;ved=0CCMQFjAA&amp;url=http%3A%2F%2Foctopress.org%2F&amp;ei=yUvFVKOqIdXbas2GgbAN&amp;usg=AFQjCNH5__SGXDyujngHSK0T14xsrnJHOw&amp;bvm=bv.84349003,d.d2s">Octopress</a> as the best alternative. A colleague also talked to me about <a href="http://getgrav.org/">GetGrave</a>. It seems that all of those points can be covered. I would like feedbacks from my readers please :-).</p>
 <p>Now the first thing I&rsquo;m going to add in my todo top list, is the implementation of a Jenkins to replay backups and monitoring integration. I can&rsquo;t lost my data because of a such silly thing. The other thing I once again observe is to stop doing things like this when tired.</p>
 
               
@@ -430,7 +422,7 @@ A few days ago I wanted to play with <a href="https://blog.deimos.fr/2015/01/27/
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

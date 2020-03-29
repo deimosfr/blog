@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Un gros travail d&rsquo;optimisation à été effectué et les pages se chargent relativement vite maintenant. On est passé de 18s à 2s dans les meilleurs cas. Je continue encore à essayer de baisser le temps de chargement, mais ça devient difficile. Je pense faire un article sous peu avec tout ce qu&rsquo;il à fallu mettre en œuvre pour arriver à cela. Mais en gros on est passé d&rsquo;un lighttpd à un Apache&#43;Varnish&#43;PHP APC&#43;W3C Total Cache.">
@@ -272,11 +272,8 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>Un gros travail d&rsquo;optimisation à été effectué et les pages se chargent relativement vite maintenant. On est passé de 18s à 2s dans les meilleurs cas. Je continue encore à essayer de baisser le temps de chargement, mais ça devient difficile. Je pense faire un article sous peu avec tout ce qu&rsquo;il à fallu mettre en œuvre pour arriver à cela. Mais en gros on est passé d&rsquo;un lighttpd à un Apache+Varnish+PHP APC+W3C Total Cache. Bref du cache à beaucoup de niveaux. Le wiki en à du coup hérité également :-).</p>
-
 <p>Certains d&rsquo;entre vous me demanderont pourquoi je ne suis pas passé à Nginx. J&rsquo;ai voulu repasser à Apache pour avoir des fonctionnalités que Lighttpd ne m&rsquo;offrait pas. Nginx étant encore un peu jeune, ces mêmes fonctionnalités me manquent aussi (les htaccess entre autre). Je pense qu&rsquo;un jour je finirais par y passer, mais pour le moment l&rsquo;heure est aux serveurs de cache qui remplissent parfaitement leur rôle :-)</p>
-
-<p>Pour ce qui est de l&rsquo;adresse, certains d&rsquo;entre vous auront remarqué qu&rsquo;on y accède via <a href="http://blog.deimos.fr" target="_blank">http://blog.deimos.fr</a>. Bien que j&rsquo;ai fait les redirections, il est possible que l&rsquo;ancien flux RSS soit mort. C&rsquo;est pourquoi je vous recommande le nouveau.</p>
-
+<p>Pour ce qui est de l&rsquo;adresse, certains d&rsquo;entre vous auront remarqué qu&rsquo;on y accède via <a href="http://blog.deimos.fr">http://blog.deimos.fr</a>. Bien que j&rsquo;ai fait les redirections, il est possible que l&rsquo;ancien flux RSS soit mort. C&rsquo;est pourquoi je vous recommande le nouveau.</p>
 <p>N&rsquo;hésitez pas à me dire si cette nouvelle interface vous plaît et si vous sentez que depuis quelques temps, le temps de réactivité du site est plus confortable. Merciiiii :-)</p>
 
               
@@ -372,7 +369,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

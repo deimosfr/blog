@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="I&rsquo;ll talk about things that may frustrate you with Sphinxdoc and ReadTheDocs. ReadTheDocs has a beautiful theme and you certainly want to use it with Sphinxdoc. However the size of the main text may be too small for you. Or you noticed that when you try to generate a version locally you&rsquo;ll see it works like a charm but when it&rsquo;s compiled on Readthedocs, it will fail.
@@ -281,10 +281,8 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>I&rsquo;ll talk about things that may frustrate you with Sphinxdoc and ReadTheDocs. ReadTheDocs <a href="https://github.com/snide/sphinx_rtd_theme" target="_blank">has a beautiful theme</a> and you certainly want to use it with Sphinxdoc. However the size of the main text may be too small for you. Or you noticed that when you try to generate a version locally you&rsquo;ll see it works like a charm but when it&rsquo;s compiled on Readthedocs, it will fail.</p>
-
+              <p>I&rsquo;ll talk about things that may frustrate you with Sphinxdoc and ReadTheDocs. ReadTheDocs <a href="https://github.com/snide/sphinx_rtd_theme">has a beautiful theme</a> and you certainly want to use it with Sphinxdoc. However the size of the main text may be too small for you. Or you noticed that when you try to generate a version locally you&rsquo;ll see it works like a charm but when it&rsquo;s compiled on Readthedocs, it will fail.</p>
 <p>Here is a solution on how to make it work both locally and on Readthedocs:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># on_rtd is whether we are on readthedocs.org, this line of code grabbed from docs.readthedocs.org</span>
 <span class="n">on_rtd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;READTHEDOCS&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;True&#39;</span>                           
                                                                                  
@@ -305,15 +303,11 @@ if (!doNotTrack) {
             <span class="s1">&#39;_static/theme_overrides.css&#39;</span><span class="p">,</span>                                       
         <span class="p">],</span>                                                                       
     <span class="p">}</span></code></pre></div>
-
 <p>You may noticed that I&rsquo;m overriding here CSS files with a custom theme_overrides.css file. This to have a larger width for the main text, here is the css content:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">wy-nav-content</span> <span class="p">{</span>
    <span class="k">max-width</span><span class="p">:</span> <span class="mi">1050</span><span class="kt">px</span>
 <span class="p">}</span></code></pre></div>
-
-<p>The problem with Readthedocs is when you&rsquo;re doing that, you&rsquo;ll loose default CSS. That&rsquo;s why I recall the official CSS themes as well. To see the result, you can check <a href="http://mysecureshell.readthedocs.org" target="_blank">MySecureShell documentation</a>.</p>
-
+<p>The problem with Readthedocs is when you&rsquo;re doing that, you&rsquo;ll loose default CSS. That&rsquo;s why I recall the official CSS themes as well. To see the result, you can check <a href="http://mysecureshell.readthedocs.org">MySecureShell documentation</a>.</p>
 <p>Hope this will help you.</p>
 
               
@@ -411,7 +405,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

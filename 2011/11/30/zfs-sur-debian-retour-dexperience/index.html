@@ -5,21 +5,21 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="J&rsquo;ai reçu dans la semaine un mail sur un retour d&rsquo;expérience pour ZFS sur Debian.
 Vu que ce n&rsquo;est pas la première fois, j&rsquo;ai décidé de faire un petit article reprenant les échanges de mails que j&rsquo;ai eu avec Mr Thierry Dijoux pour toutes les personnes intéressées.
 Thierry Dijoux
  Bonjour,
-j&rsquo;ai beaucoup apprécier votre note concernant l&rsquo;installation de ZFS sur Debian. Ca marche très bien, et je me demandais si vous aviez assez de recul vis à vis des tests que vous avez fait pour vous demander si l&rsquo;installation de ZFS sur une debian en production était envisageable ou pas ?">
+  j&rsquo;ai beaucoup apprécier votre note concernant l&rsquo;installation de ZFS sur Debian. Ca marche très bien, et je me demandais si vous aviez assez de recul vis à vis des tests que vous avez fait pour vous demander si l&rsquo;installation de ZFS sur une debian en production était envisageable ou pas ?">
 
 
 <meta property="og:description" content="J&rsquo;ai reçu dans la semaine un mail sur un retour d&rsquo;expérience pour ZFS sur Debian.
 Vu que ce n&rsquo;est pas la première fois, j&rsquo;ai décidé de faire un petit article reprenant les échanges de mails que j&rsquo;ai eu avec Mr Thierry Dijoux pour toutes les personnes intéressées.
 Thierry Dijoux
  Bonjour,
-j&rsquo;ai beaucoup apprécier votre note concernant l&rsquo;installation de ZFS sur Debian. Ca marche très bien, et je me demandais si vous aviez assez de recul vis à vis des tests que vous avez fait pour vous demander si l&rsquo;installation de ZFS sur une debian en production était envisageable ou pas ?">
+  j&rsquo;ai beaucoup apprécier votre note concernant l&rsquo;installation de ZFS sur Debian. Ca marche très bien, et je me demandais si vous aviez assez de recul vis à vis des tests que vous avez fait pour vous demander si l&rsquo;installation de ZFS sur une debian en production était envisageable ou pas ?">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ZFS sur Debian : Retour d’expérience">
 <meta name="twitter:title" content="ZFS sur Debian : Retour d’expérience">
@@ -30,12 +30,12 @@ j&rsquo;ai beaucoup apprécier votre note concernant l&rsquo;installation de ZFS
 Vu que ce n&rsquo;est pas la première fois, j&rsquo;ai décidé de faire un petit article reprenant les échanges de mails que j&rsquo;ai eu avec Mr Thierry Dijoux pour toutes les personnes intéressées.
 Thierry Dijoux
  Bonjour,
-j&rsquo;ai beaucoup apprécier votre note concernant l&rsquo;installation de ZFS sur Debian. Ca marche très bien, et je me demandais si vous aviez assez de recul vis à vis des tests que vous avez fait pour vous demander si l&rsquo;installation de ZFS sur une debian en production était envisageable ou pas ?">
+  j&rsquo;ai beaucoup apprécier votre note concernant l&rsquo;installation de ZFS sur Debian. Ca marche très bien, et je me demandais si vous aviez assez de recul vis à vis des tests que vous avez fait pour vous demander si l&rsquo;installation de ZFS sur une debian en production était envisageable ou pas ?">
 <meta name="twitter:description" content="J&rsquo;ai reçu dans la semaine un mail sur un retour d&rsquo;expérience pour ZFS sur Debian.
 Vu que ce n&rsquo;est pas la première fois, j&rsquo;ai décidé de faire un petit article reprenant les échanges de mails que j&rsquo;ai eu avec Mr Thierry Dijoux pour toutes les personnes intéressées.
 Thierry Dijoux
  Bonjour,
-j&rsquo;ai beaucoup apprécier votre note concernant l&rsquo;installation de ZFS sur Debian. Ca marche très bien, et je me demandais si vous aviez assez de recul vis à vis des tests que vous avez fait pour vous demander si l&rsquo;installation de ZFS sur une debian en production était envisageable ou pas ?">
+  j&rsquo;ai beaucoup apprécier votre note concernant l&rsquo;installation de ZFS sur Debian. Ca marche très bien, et je me demandais si vous aviez assez de recul vis à vis des tests que vous avez fait pour vous demander si l&rsquo;installation de ZFS sur une debian en production était envisageable ou pas ?">
 <meta property="og:locale" content="en-us">
 
   
@@ -287,52 +287,44 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="http://wiki.deimos.fr/images/d/d1/logo_zfs.jpg" alt="Zfs_logo" /></p>
-
+              <p><img src="http://wiki.deimos.fr/images/d/d1/logo_zfs.jpg" alt="Zfs_logo"></p>
 <p>J&rsquo;ai reçu dans la semaine un mail sur un retour d&rsquo;expérience pour ZFS sur Debian.</p>
-
 <p>Vu que ce n&rsquo;est pas la première fois, j&rsquo;ai décidé de faire un petit article reprenant les échanges de mails que j&rsquo;ai eu avec Mr Thierry Dijoux pour toutes les personnes intéressées.</p>
-
 <p><strong>Thierry Dijoux</strong></p>
-
 <blockquote>
 <p>Bonjour,</p>
-
+</blockquote>
+<blockquote>
 <p>j&rsquo;ai beaucoup apprécier votre note concernant l&rsquo;installation de ZFS sur Debian. Ca marche très bien, et je me demandais si vous aviez assez de recul vis à vis des tests que vous avez fait pour vous demander si l&rsquo;installation de ZFS sur une debian en production était envisageable ou pas ?</p>
-
+</blockquote>
+<blockquote>
 <p>D&rsquo;avance merci pour votre réponse.</p>
 </blockquote>
-
 <p><strong>Moi</strong></p>
-
 <blockquote>
 <p>Bonjour,</p>
-
 <p>J&rsquo;ai aujourd&rsquo;hui toujours ce Debian (plutôt Ubuntu) en fonction pour un besoin personnel. Après 2 pertes de disque (problème hard), je dois avouer que le ZFS fonctionne plutôt bien.</p>
-
 <p>Pour un besoin en production, c&rsquo;est une de mes problématiques aujourd&rsquo;hui. Je ne fais pas assez confiance à la solution ZFS on Linux, même si personnellement j&rsquo;en suis très satisfait. Le manque d&rsquo;intégration de la part des distributions Linux me pose des problèmes sur la pérennité de la solution.</p>
-
+</blockquote>
+<blockquote>
 <p>Je ne connais pas vos besoins, mais si aujourd&rsquo;hui vous voulez absolument du ZFS sur une Debian, je vous recommanderais plutôt kFreebsd. Au moins c&rsquo;est Debian, c&rsquo;est en version stable et je peux vous assurer que le ZFS fonctionne très bien dessus.</p>
-
 <p>Le choix n&rsquo;est pas simple suivant les entreprises par rapport à l’homogénéité que l&rsquo;on souhaites apporter à son parc informatique.</p>
-
+</blockquote>
+<blockquote>
 <p>Pour information, aujourd&rsquo;hui, pour une solution de backup en production, j&rsquo;ai voulu prendre kFreebsd, mais l&rsquo;absence de fonctionnalités (car encore très jeune) m&rsquo;ont fait partir sur du FreeBSD pour avoir du ZFS et des fonctionnalités avancées.</p>
-
 <p>Vous le voyez, il est difficile, même pour mes besoins aujourd&rsquo;hui de répondre avec précision à votre question.</p>
-
 <p>Merci</p>
 </blockquote>
-
 <p><strong>Thierry Dijoux</strong></p>
-
 <blockquote>
 <p>Merci de votre réponse.</p>
-
-<p>Concernant mes besoins, se serait, comme pour vous si j&rsquo;ai bien compris, pour une problématique de stockage de sauvegarde. J&rsquo;ai essayé plusieurs solutions, à savoir sdfs (opendedup), et lessfs, sans être totalement satisfait&hellip; J&rsquo;ai aussi testé KFreeBsd ,et pour le moment, je ne suis pas convaincu&hellip;</p>
-
-<p>Je pensais me tourné vers du freebsd, mais ça veut dire apprentissage et formation de l&rsquo;équipe&hellip; Choix cornélien !</p>
 </blockquote>
-
+<blockquote>
+<p>Concernant mes besoins, se serait, comme pour vous si j&rsquo;ai bien compris, pour une problématique de stockage de sauvegarde. J&rsquo;ai essayé plusieurs solutions, à savoir sdfs (opendedup), et lessfs, sans être totalement satisfait&hellip; J&rsquo;ai aussi testé KFreeBsd ,et pour le moment, je ne suis pas convaincu&hellip;</p>
+</blockquote>
+<blockquote>
+<p>Je pensais me tourné vers du freebsd, mais ça veut dire apprentissage et formation de l'équipe&hellip; Choix cornélien !</p>
+</blockquote>
 <p>Comme vous l&rsquo;avez compris, ZFS est aujourd&rsquo;hui un atout majeur dans des solutions de stockage, mais son manque d&rsquo;adoption (souvent lié à la license) est un problème pour le choix de l&rsquo;OS.</p>
 
               
@@ -428,7 +420,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

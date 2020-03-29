@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="I&rsquo;ve recently updated my LXC role for ansible. You can get it like that:
@@ -296,18 +296,14 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_ansible.png" alt="ansible_logo" />
-I&rsquo;ve recently updated my <a href="https://galaxy.ansible.com/deimosfr/lxc/" target="_blank">LXC role for ansible</a>. You can get it like that:</p>
-
+              <p><img src="https://blog.deimos.fr/images/logo_ansible.png" alt="ansible_logo">
+I&rsquo;ve recently updated my <a href="https://galaxy.ansible.com/deimosfr/lxc/">LXC role for ansible</a>. You can get it like that:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">ansible-galaxy install deimosfr.lxc</code></pre></div>
-
 <p>Here is the change log:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">+ Adding new parameters <span class="k">for</span> dnsmasq and interfaces
 + Adding new prequesite to avoid unwanted modules to load in the latest kernel <span class="nv">versions</span>
 <span class="o">=</span> Corrected networking configuration <span class="nv">issue</span>
 <span class="o">=</span> Templates <span class="k">do</span> not create @LOCALSTATEDIR@ folder anymore</code></pre></div>
-
 <p>It works perfectly on my new Dedibox :-)</p>
 
               
@@ -405,7 +401,7 @@ I&rsquo;ve recently updated my <a href="https://galaxy.ansible.com/deimosfr/lxc/
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

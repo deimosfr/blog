@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="The Jeedom software is open source; you have complete access to the software that manages your home automation. Jeedom is compatible with various protocols, like Z-Wave, RFXCOM, RTS SOMFY, EnOcean, xPL, etc.
@@ -294,51 +294,37 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_jeedom.png" alt="Jeedom" /></p>
-
-<p>The <a href="https://www.jeedom.com/" target="_blank">Jeedom</a> software is open source; you have complete access to the software that manages your home automation.
+              <p><img src="https://blog.deimos.fr/images/logo_jeedom.png" alt="Jeedom"></p>
+<p>The <a href="https://www.jeedom.com/">Jeedom</a> software is open source; you have complete access to the software that manages your home automation.
 Jeedom is compatible with various protocols, like Z-Wave, RFXCOM, RTS SOMFY, EnOcean, xPL, etc.</p>
-
-<p>Installing <a href="https://www.jeedom.com/" target="_blank">Jeedom</a> on <a href="https://www.synology.com" target="_blank">Synology</a> with <a href="https://www.docker.com/" target="_blank">Docker</a> it not a complex task. However for those who are not familiar with those technologies, I summarized here the installation process for a Z-wave network.</p>
-
+<p>Installing <a href="https://www.jeedom.com/">Jeedom</a> on <a href="https://www.synology.com">Synology</a> with <a href="https://www.docker.com/">Docker</a> it not a complex task. However for those who are not familiar with those technologies, I summarized here the installation process for a Z-wave network.</p>
 <p>First of all, let&rsquo;s look at the requirements:</p>
-
 <ul>
-<li>You need to have a <a href="https://www.google.fr/search?q=everspring+z-wave&amp;source=lnms&amp;tbm=shop" target="_blank">Z-wave+ USB key</a> plugged on the Synology</li>
+<li>You need to have a <a href="https://www.google.fr/search?q=everspring+z-wave&amp;source=lnms&amp;tbm=shop">Z-wave+ USB key</a> plugged on the Synology</li>
 <li>You need to have Docker installed</li>
 <li>You need to create folders on your &ldquo;Synology File Station&rdquo;:
-
 <ul>
 <li>/docker/jeedom</li>
 <li>/docker/mariadb</li>
-</ul></li>
 </ul>
-
-<p><img src="https://blog.deimos.fr/images/jeedom_docker_folders.png" alt="Docker folders" /></p>
-
-<p>Once done, we are now going to deploy a dedicated database (<a href="https://mariadb.org/" target="_blank">MariaDB</a>) and Jeedom as Docker containers. For those who wonder why MariaDB instead of MySQL, it&rsquo;s because I&rsquo;ve more affinity with MariaDB but you can use MySQL if you prefer. Anyway I strongly recommend MariaDB :p (by the way here is the <a href="https://www.packtpub.com/application-development/mariadb-high-performance" target="_blank">book I&rsquo;ve wrote on MariaDB</a>).</p>
-
+</li>
+</ul>
+<p><img src="https://blog.deimos.fr/images/jeedom_docker_folders.png" alt="Docker folders"></p>
+<p>Once done, we are now going to deploy a dedicated database (<a href="https://mariadb.org/">MariaDB</a>) and Jeedom as Docker containers. For those who wonder why MariaDB instead of MySQL, it&rsquo;s because I&rsquo;ve more affinity with MariaDB but you can use MySQL if you prefer. Anyway I strongly recommend MariaDB :p (by the way here is the <a href="https://www.packtpub.com/application-development/mariadb-high-performance">book I&rsquo;ve wrote on MariaDB</a>).</p>
 <p>To deploy those containers, open Docker on your Synology then, click on &ldquo;Container&rdquo;, &ldquo;Parameters&rdquo; and finally &ldquo;Import&rdquo;. Then load those files (you need to upload them somewhere on your Synology first):</p>
-
 <ul>
 <li><a href="https://blog.deimos.fr/archives/mariadb.syno.json">MariaDB container</a>: the password for &ldquo;root&rdquo; login is &ldquo;jeedom&rdquo;</li>
 <li><a href="https://blog.deimos.fr/archives/jeedom.syno.json">Jeedom container</a>: the web application (Jeedom) is available on port 9080</li>
 </ul>
-
-<p>First start MariaDB, wait 30 seconds to be sure it has successfuly started, then start jeedom. Now connect to <a href="http://your_NAS_ip:9080" target="_blank">http://your_NAS_ip:9080</a>, you&rsquo;ll be redirected to the setup page:</p>
-
-<p><img src="https://blog.deimos.fr/images/jeedom_db_setup.png" alt="Jeedom setup" /></p>
-
+<p>First start MariaDB, wait 30 seconds to be sure it has successfuly started, then start jeedom. Now connect to http://your_NAS_ip:9080, you&rsquo;ll be redirected to the setup page:</p>
+<p><img src="https://blog.deimos.fr/images/jeedom_db_setup.png" alt="Jeedom setup"></p>
 <p>Fill the fields as described on the screenshot above (use &ldquo;jeedom&rdquo; as password)and click on &ldquo;Proceed&rdquo;. You should see this message:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="s2">&#34;The installation jeedom is ongoing.&#34;</span></code></pre></div>
-
 <p>And then the initialization logs:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>START UPDATE<span class="o">]</span>
-****Install jeedom from <span class="m">3</span>.1.7 <span class="o">(</span><span class="m">2018</span>-01-26 <span class="m">2325</span><span class="o">)</span>****
+****Install jeedom from 3.1.7 <span class="o">(</span>2018-01-26 23:11:25<span class="o">)</span>****
 
-Install of Jeedom <span class="m">3</span>.1.7
+Install of Jeedom 3.1.7
 Install of database...OK
 Post install...
 <span class="o">[</span>START CONSISTENCY<span class="o">]</span>
@@ -362,17 +348,13 @@ Add user <span class="o">(</span>admin,admin<span class="o">)</span>
 OK
 Install duration : 2s
 <span class="o">[</span>END INSTALL SUCCESS<span class="o">]</span></code></pre></div>
-
-<p>When ended, reconnect to <a href="http://your_NAS_ip:9080" target="_blank">http://your_NAS_ip:9080</a>. You can now login with &ldquo;admin&rdquo; as login and password. <strong>Do not forget to change the default password</strong> !</p>
-
+<p>When ended, reconnect to http://your_NAS_ip:9080. You can now login with &ldquo;admin&rdquo; as login and password. <strong>Do not forget to change the default password</strong> !</p>
 <p>Install the offical Z-Wave module and configure it. You should see &ldquo;/dev/ttyACM0&rdquo; device. If it&rsquo;s not the case, reboot your Synology.</p>
-
 <p>Usefull links:</p>
-
 <ul>
-<li><a href="https://www.jeedom.com/forum/viewtopic.php?f=67&amp;t=24776" target="_blank">https://www.jeedom.com/forum/viewtopic.php?f=67&amp;t=24776</a></li>
-<li><a href="https://www.jeedom.com/forum/viewtopic.php?f=67&amp;t=16777" target="_blank">https://www.jeedom.com/forum/viewtopic.php?f=67&amp;t=16777</a></li>
-<li><a href="https://jeedom.github.io/documentation/installation/en_US/" target="_blank">https://jeedom.github.io/documentation/installation/en_US/</a></li>
+<li><a href="https://www.jeedom.com/forum/viewtopic.php?f=67&amp;t=24776">https://www.jeedom.com/forum/viewtopic.php?f=67&amp;t=24776</a></li>
+<li><a href="https://www.jeedom.com/forum/viewtopic.php?f=67&amp;t=16777">https://www.jeedom.com/forum/viewtopic.php?f=67&amp;t=16777</a></li>
+<li><a href="https://jeedom.github.io/documentation/installation/en_US/">https://jeedom.github.io/documentation/installation/en_US/</a></li>
 </ul>
 
               
@@ -472,7 +454,7 @@ Install duration : 2s
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

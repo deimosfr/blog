@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Virtualization on Deimosfr Blog</title>
@@ -162,7 +162,7 @@ J&amp;rsquo;ai donc fais un petit article dessus :-)</description>
       <guid>https://blog.deimos.fr/2013/03/01/vmware-vs-openstack/</guid>
       <description>Titre provocateur ? Oui, c&amp;rsquo;est vrai ! En même temps, Vmware se repose un peu sur ses lauriers et OpenStack prend de l’ampleur. Il fallait bien en match pour les départager.
 Je suis récemment tombé sur ce match intéressant entre Vmware et OpenStack.
-Mon avis personnel sur ce match est qu&amp;rsquo;il est très difficile de vraiment les départager. Tout dépends du besoin et de l&amp;rsquo;évolution de celui ci. Néanmoins, cet article est très intéressant car il cite les fonctionnalités majeures de chacun et les compares.</description>
+Mon avis personnel sur ce match est qu&amp;rsquo;il est très difficile de vraiment les départager. Tout dépends du besoin et de l&#39;évolution de celui ci. Néanmoins, cet article est très intéressant car il cite les fonctionnalités majeures de chacun et les compares.</description>
     </item>
     
     <item>
@@ -204,7 +204,7 @@ Bonne lecture :-)</description>
       <guid>https://blog.deimos.fr/2012/05/23/dj-port-serie-a-lancienne-tonight-we-are/</guid>
       <description>Derrière ce titre pompeux se cache en fait la méthode pour activer le port série au démarrage d&amp;rsquo;une machine. Cette solution s&amp;rsquo;avère vite pratique lorsque l&amp;rsquo;on souhaites accéder à certaines machines qui ne répondent plus, ou bien via des solutions de virtualisation.
 C&amp;rsquo;est pourquoi je vous ai concocté :
- Une petite doc sur le port série sous Linux Une petite doc sur le port série sous FreeBSD Une mise à jour de la doc de KVM pour pouvoir y accéder cash (oui comme tabata)  &amp;nbsp;</description>
+ Une petite doc sur le port série sous Linux Une petite doc sur le port série sous FreeBSD Une mise à jour de la doc de KVM pour pouvoir y accéder cash (oui comme tabata)   </description>
     </item>
     
     <item>
@@ -224,7 +224,7 @@ Si vous voulez gagner du temps, c&amp;rsquo;est ici.</description>
       
       <guid>https://blog.deimos.fr/2012/05/09/kayvillaimme-paiourfourmanncizes/</guid>
       <description>Je suis actuellement en train de refaire un de mes petits serveurs sous KVM et je me suis penché du côté des performances. Il y en a quelques unes indispensable si on veut avoir de bons résultats.
-J&amp;rsquo;ai donc retaper ma documentation sur KVM avec des ajouts de perfs, config réseaux avec VLAN et 2&amp;frasl;3 autres babioles. Je vous laisse regarder.</description>
+J&amp;rsquo;ai donc retaper ma documentation sur KVM avec des ajouts de perfs, config réseaux avec VLAN et 2/3 autres babioles. Je vous laisse regarder.</description>
     </item>
     
   </channel>

@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Bon… allez, je vais vous expliquer déjà pourquoi j’ai refais mon serveur.
-Dans mes précédents posts datant du mois de décembre, vous avez pu lire que j&rsquo;étais passé de mon serveur Debian 32 bits etch (stable de l&rsquo;époque) vers Solaris et adoptant la virtualisation avec VirtualBox le temps de patienter pour xVM Server.
+Dans mes précédents posts datant du mois de décembre, vous avez pu lire que j&#39;étais passé de mon serveur Debian 32 bits etch (stable de l&#39;époque) vers Solaris et adoptant la virtualisation avec VirtualBox le temps de patienter pour xVM Server.
 Aujourd&rsquo;hui, xVM Server n&rsquo;est toujours pas sorti, VirtualBox n&rsquo;est vraiment, vraiment pas fait pour de la pseudo prod (donc imaginez la prod), contrairement à ce qui est dit sur le site officiel de Sun.">
 
 
 <meta property="og:description" content="Bon… allez, je vais vous expliquer déjà pourquoi j’ai refais mon serveur.
-Dans mes précédents posts datant du mois de décembre, vous avez pu lire que j&rsquo;étais passé de mon serveur Debian 32 bits etch (stable de l&rsquo;époque) vers Solaris et adoptant la virtualisation avec VirtualBox le temps de patienter pour xVM Server.
+Dans mes précédents posts datant du mois de décembre, vous avez pu lire que j&#39;étais passé de mon serveur Debian 32 bits etch (stable de l&#39;époque) vers Solaris et adoptant la virtualisation avec VirtualBox le temps de patienter pour xVM Server.
 Aujourd&rsquo;hui, xVM Server n&rsquo;est toujours pas sorti, VirtualBox n&rsquo;est vraiment, vraiment pas fait pour de la pseudo prod (donc imaginez la prod), contrairement à ce qui est dit sur le site officiel de Sun.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Serveur refait !!! Enfin…j’en pouvais plus de Solaris et VirtualBox">
@@ -23,10 +23,10 @@ Aujourd&rsquo;hui, xVM Server n&rsquo;est toujours pas sorti, VirtualBox n&rsquo
 <meta property="twitter:url" content="https://blog.deimos.fr/2009/04/13/serveur-refait-enfinjen-pouvais-plus-de-solaris-et-virtualbox/">
 <meta property="og:site_name" content="Deimosfr Blog">
 <meta property="og:description" content="Bon… allez, je vais vous expliquer déjà pourquoi j’ai refais mon serveur.
-Dans mes précédents posts datant du mois de décembre, vous avez pu lire que j&rsquo;étais passé de mon serveur Debian 32 bits etch (stable de l&rsquo;époque) vers Solaris et adoptant la virtualisation avec VirtualBox le temps de patienter pour xVM Server.
+Dans mes précédents posts datant du mois de décembre, vous avez pu lire que j&#39;étais passé de mon serveur Debian 32 bits etch (stable de l&#39;époque) vers Solaris et adoptant la virtualisation avec VirtualBox le temps de patienter pour xVM Server.
 Aujourd&rsquo;hui, xVM Server n&rsquo;est toujours pas sorti, VirtualBox n&rsquo;est vraiment, vraiment pas fait pour de la pseudo prod (donc imaginez la prod), contrairement à ce qui est dit sur le site officiel de Sun.">
 <meta name="twitter:description" content="Bon… allez, je vais vous expliquer déjà pourquoi j’ai refais mon serveur.
-Dans mes précédents posts datant du mois de décembre, vous avez pu lire que j&rsquo;étais passé de mon serveur Debian 32 bits etch (stable de l&rsquo;époque) vers Solaris et adoptant la virtualisation avec VirtualBox le temps de patienter pour xVM Server.
+Dans mes précédents posts datant du mois de décembre, vous avez pu lire que j&#39;étais passé de mon serveur Debian 32 bits etch (stable de l&#39;époque) vers Solaris et adoptant la virtualisation avec VirtualBox le temps de patienter pour xVM Server.
 Aujourd&rsquo;hui, xVM Server n&rsquo;est toujours pas sorti, VirtualBox n&rsquo;est vraiment, vraiment pas fait pour de la pseudo prod (donc imaginez la prod), contrairement à ce qui est dit sur le site officiel de Sun.">
 <meta property="og:locale" content="en-us">
 
@@ -286,41 +286,30 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>Bon… allez, je vais vous expliquer déjà pourquoi j’ai refais mon serveur.</p>
-
-<p>Dans mes précédents posts datant du mois de décembre, vous avez pu lire que j&rsquo;étais passé de mon serveur Debian 32 bits etch (stable de l&rsquo;époque) vers Solaris et adoptant la virtualisation avec <strong>VirtualBox</strong> le temps de patienter pour <strong>xVM Server</strong>.</p>
-
+<p>Dans mes précédents posts datant du mois de décembre, vous avez pu lire que j'étais passé de mon serveur Debian 32 bits etch (stable de l'époque) vers Solaris et adoptant la virtualisation avec <strong>VirtualBox</strong> le temps de patienter pour <strong>xVM Server</strong>.</p>
 <p>Aujourd&rsquo;hui, <strong>xVM Server n&rsquo;est toujours pas sorti</strong>, VirtualBox n&rsquo;est vraiment, vraiment pas fait pour de la pseudo prod (donc imaginez la prod), contrairement à ce qui est dit sur le site officiel de Sun. <strong>Soyons réaliste, VirtualBox est un bon produit, mais pour rester pour des tests sur les machines de bureau</strong>.</p>
-
-<p>Entre les problèmes de lenteur générale, les problèmes de timer (décalage des Vms dans le temps en permanace), les gros problèmes de perfs réseaux qui ça apporte sur Solaris et au vue de la dernière version (2.2) buggué jusqu&rsquo;à la moile, <em>VirtualBox est définitivement trop jeune</em>.</p>
-
+<p>Entre les problèmes de lenteur générale, les problèmes de timer (décalage des Vms dans le temps en permanace), les gros problèmes de perfs réseaux qui ça apporte sur Solaris et au vue de la dernière version (2.2) buggué jusqu'à la moile, <em>VirtualBox est définitivement trop jeune</em>.</p>
 <p>Je suis donc repassé sous <strong>Debian en 64 bit</strong>s cette fois ci et oh magie, ça trace (mais genre rien à voir) à côté de la version 32 bits. Donc pour la couche de storage, voici ce que j&rsquo;ai adopté :</p>
-
 <p>*** Raid 5 software sur 4 disques de 1To (a la place du ZFS)</p>
-
 <ul>
-<li><p>Un VG sur le Raid5 et donc du LVM (a la place du ZFS)</p></li>
-
-<li><p>De l&rsquo;ext3 sur les LV (a la place du ZFS)</p></li>
-
-<li><p>De l&rsquo;ENCFS avec FUSE (j&rsquo;avais pas encore mis la main sur un truc sympas)**</p></li>
+<li>
+<p>Un VG sur le Raid5 et donc du LVM (a la place du ZFS)</p>
+</li>
+<li>
+<p>De l&rsquo;ext3 sur les LV (a la place du ZFS)</p>
+</li>
+<li>
+<p>De l&rsquo;ENCFS avec FUSE (j&rsquo;avais pas encore mis la main sur un truc sympas)**</p>
+</li>
 </ul>
-
 <p>Donc bon, oui le <strong>ZFS c&rsquo;est quand même nettement plus avancé</strong> que tout le reste. Mais fuser (oui le verbe ;-p) mes 4 disques en ZFS&hellip;mummm je trouve ça un peu cracra. Donc mon installe attendra la <em>stabilisation du BTRFS</em>.</p>
-
 <p>Pour la partie virtualisation, je dirais que les conférences du salon de l&rsquo;OpenSource m&rsquo;ont bien aidée pour mon choix. J&rsquo;allais partir sur du Xen à la base et c&rsquo;est vrai que là bas, ils clamaient haut et fort <strong>KVM</strong>. Et j&rsquo;avoue que 2 ans après, les efforts effectués sont tout simplement <strong>innatendus</strong>. C&rsquo;est stable, c&rsquo;est simple, c&rsquo;est très performant et en plus ça sens bon.</p>
-
 <p>Pour le côté ailleteutek, j&rsquo;ai passé mon serveur web sous Lighttpd histoire de tatouiller un peu et&hellip; ouaouuuuu ça trace ! Bon, les perfs de KVM doivent y faire aussi quand même un chouille, mais c&rsquo;est vrai que ça me fait quelques nouvelles technos d&rsquo;un coup là et je ne suis pour le moment vraiment pas déçu.</p>
-
 <p>Nous verrons plus tard comment les choses se déroule, notamment pour un serveur multimedia (uPnp), va falloir que ça tienne la route sans plantage ni sacades.</p>
-
 <p>A terme, j&rsquo;aimerais passer <strong>mon postfix et mon serveur web sous FreeBSD</strong>. On verra ça dans un second temps. Pour ce qui est des docs, je n&rsquo;ai pas encore eu le temps de les rédiger, mais les liens suivront rapidement.</p>
-
 <p>En bref, pour le moment, c&rsquo;est la joie retrouvée. Debian, c&rsquo;est quand même un putain d&rsquo;OS, le meilleur à mes yeux aujourd&rsquo;hui pour le monde du serveur.</p>
-
 <p>Allez&hellip;Ramone, yé vé mé couché maintenan</p>
-
 <p>é si yé vé étre en fourme démin, yé vé yallé tou dé suite.</p>
-
 <p>Asta maniana</p>
 
               
@@ -418,7 +407,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

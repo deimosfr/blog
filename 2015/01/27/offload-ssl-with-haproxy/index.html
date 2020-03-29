@@ -5,15 +5,17 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="A few months ago, I already talked about offloading SSL with Nginx. I also wanted to try it with HAProxy which can be more interesting in some cases.
-The good On HAProxy, the good thing is the simplicity to do it. First of all you need to have at least the version 1.5 of HAProxy so to get SSL support. Then you only need those lines to offload SSL:">
+The good On HAProxy, the good thing is the simplicity to do it. First of all you need to have at least the version 1.5 of HAProxy so to get SSL support. Then you only need those lines to offload SSL:
+frontend frontend-https bind :443 ssl crt /etc/haproxy/ssl/server-unified.">
 
 
 <meta property="og:description" content="A few months ago, I already talked about offloading SSL with Nginx. I also wanted to try it with HAProxy which can be more interesting in some cases.
-The good On HAProxy, the good thing is the simplicity to do it. First of all you need to have at least the version 1.5 of HAProxy so to get SSL support. Then you only need those lines to offload SSL:">
+The good On HAProxy, the good thing is the simplicity to do it. First of all you need to have at least the version 1.5 of HAProxy so to get SSL support. Then you only need those lines to offload SSL:
+frontend frontend-https bind :443 ssl crt /etc/haproxy/ssl/server-unified.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Offload SSL with HAProxy">
 <meta name="twitter:title" content="Offload SSL with HAProxy">
@@ -21,9 +23,11 @@ The good On HAProxy, the good thing is the simplicity to do it. First of all you
 <meta property="twitter:url" content="https://blog.deimos.fr/2015/01/27/offload-ssl-with-haproxy/">
 <meta property="og:site_name" content="Deimosfr Blog">
 <meta property="og:description" content="A few months ago, I already talked about offloading SSL with Nginx. I also wanted to try it with HAProxy which can be more interesting in some cases.
-The good On HAProxy, the good thing is the simplicity to do it. First of all you need to have at least the version 1.5 of HAProxy so to get SSL support. Then you only need those lines to offload SSL:">
+The good On HAProxy, the good thing is the simplicity to do it. First of all you need to have at least the version 1.5 of HAProxy so to get SSL support. Then you only need those lines to offload SSL:
+frontend frontend-https bind :443 ssl crt /etc/haproxy/ssl/server-unified.">
 <meta name="twitter:description" content="A few months ago, I already talked about offloading SSL with Nginx. I also wanted to try it with HAProxy which can be more interesting in some cases.
-The good On HAProxy, the good thing is the simplicity to do it. First of all you need to have at least the version 1.5 of HAProxy so to get SSL support. Then you only need those lines to offload SSL:">
+The good On HAProxy, the good thing is the simplicity to do it. First of all you need to have at least the version 1.5 of HAProxy so to get SSL support. Then you only need those lines to offload SSL:
+frontend frontend-https bind :443 ssl crt /etc/haproxy/ssl/server-unified.">
 <meta property="og:locale" content="en-us">
 
   
@@ -302,45 +306,29 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              
-
-<p><img src="https://blog.deimos.fr/images/logo_haproxy.png" alt="Haproxy-logo" />
-A few months ago, I already talked about <a href="https://blog.deimos.fr/2014/01/23/offloading-ssl-with-nginx-and-varnish/" target="_blank">offloading SSL with Nginx</a>. I also wanted to try it with HAProxy which can be more interesting in some cases.</p>
-
+              <p><img src="https://blog.deimos.fr/images/logo_haproxy.png" alt="Haproxy-logo">
+A few months ago, I already talked about <a href="https://blog.deimos.fr/2014/01/23/offloading-ssl-with-nginx-and-varnish/">offloading SSL with Nginx</a>. I also wanted to try it with HAProxy which can be more interesting in some cases.</p>
 <h1 id="the-good">The good</h1>
-
 <p>On HAProxy, the good thing is the simplicity to do it. First of all you need to have at least the version 1.5 of HAProxy so to get SSL support. Then you only need those lines to offload SSL:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">frontend frontend-https
     <span class="nb">bind</span> :443 ssl crt /etc/haproxy/ssl/server-unified.pem
     reqadd X-Forwarded-Proto:<span class="se">\ </span>https
     default_backend ssl-backend</code></pre></div>
-
 <p>This is simple, powerful and works quickly.</p>
-
 <p>The other good point is you don&rsquo;t have to update all your vhosts for it on the web server side. You can only run on the 80 port and HAProxy will automatically redirect to the web server.</p>
-
 <p>Theses are the good points.</p>
-
 <h1 id="the-bad">The bad</h1>
-
 <p>The bad ones are :</p>
-
 <ul>
 <li>The server-unified.pem file needs to include all the certificates (ca, crt&hellip;). So if you have multiple domains with multiple certificates, you have to concatenate them all in one file. This could quickly be a nightmare to manage when you have one of those which is going to expire (or you need to script the generation of the server-unified on each update).</li>
 <li>If you don&rsquo;t want to concatenate, you can define a directory and put all of them inside. But this is not a good solution if you have a lot of certs to manage.</li>
 <li>The flexibility. Of course, the main role of HAProxy is to load balance properly. So if you&rsquo;re expecting as flexibility as Nginx, simply forget about it. On the Layer 7, HAProxy adds some great features, but not as many as Nginx. So depending on what is you goal, it may not fit your requirements on that part.</li>
 </ul>
-
 <p>A bad situation would be with URL specifics that need to be passed to the web server and then looping to the HAProxy, etc&hellip; That&rsquo;s why you need to consider where the intelligence should be placed (on top on HAProxy or on top on Nginx).</p>
-
 <h1 id="conclusion">Conclusion</h1>
-
 <p>Nginx and HAProxy are both able to offload SSL. HAProxy setup is lighter than Nginx which permit a faster setup but with less features. Both have their pros and cons, I do not recommend one especially because they both do correctly the job. But you need to think about the complexity of what you are requesting to them.</p>
-
 <p>For example, if you have multiple vhosts to handle, the a good way to address it, would be to have a dedicated HAProxy instance for each domain (things that can be done in Cloud environment with load balancer as a service like on OpenStack). It will be easier to manage and with less risks in problem case.</p>
-
-<p>To finish, <a href="https://wiki.deimos.fr/HAProxy:_load_balance_your_traffic#Offloading_SSL" target="_blank">I made a documentation on how to setup the SSL offload on HAProxy</a>. Hope it will help.</p>
+<p>To finish, <a href="https://wiki.deimos.fr/HAProxy:_load_balance_your_traffic#Offloading_SSL">I made a documentation on how to setup the SSL offload on HAProxy</a>. Hope it will help.</p>
 
               
             </div>
@@ -443,7 +431,7 @@ A few months ago, I already talked about <a href="https://blog.deimos.fr/2014/01
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

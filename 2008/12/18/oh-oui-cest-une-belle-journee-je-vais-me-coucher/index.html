@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="ENFINNNNN, depuis le temps que je me prends la tête avec cette connerie. Mon wiki était super lent sous Firefox et seulement sous Linux. J’avais trouvé la cause qui était le thème Monobook de Mediawiki. Mais pourquoi moi et pas les autres sites ?
@@ -274,26 +274,20 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>ENFINNNNN, depuis le temps que je me prends la tête avec cette connerie. Mon wiki était super lent sous Firefox et seulement sous Linux. J’avais trouvé la cause qui était le thème Monobook de Mediawiki. Mais pourquoi moi et pas les autres sites ?</p>
-
 <p>C&rsquo;est en fait à cause du CSS mis en place pour Monobook. J&rsquo;ai donc changer ceci :</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="err">`</span><span class="c">/* Changer la couleur de fond des articles */</span><span class="o">&lt;</span><span class="nt">br</span> <span class="o">/&gt;</span>
 <span class="p">.</span><span class="nc">ns-0</span> <span class="o">*</span> <span class="p">#</span><span class="nn">content</span><span class="o">,</span> <span class="p">.</span><span class="nc">ns-0</span> <span class="o">*</span> <span class="p">#</span><span class="nn">p-cactions</span> <span class="nt">li</span><span class="o">,</span> <span class="p">.</span><span class="nc">ns-0</span> <span class="o">*</span> <span class="p">#</span><span class="nn">p-cactions</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span><span class="err">&lt;br</span> <span class="err">/&gt;</span>
 <span class="k">filter</span><span class="p">:</span><span class="nf">alpha</span><span class="p">(</span><span class="n">opacity</span><span class="err">=</span><span class="mi">90</span><span class="p">);</span><span class="err">&lt;br</span> <span class="err">/&gt;</span>
 <span class="kp">-moz-</span><span class="k">opacity</span><span class="p">:</span><span class="mf">.90</span><span class="p">;</span><span class="err">&lt;br</span> <span class="err">/&gt;</span>
 <span class="k">opacity</span><span class="p">:</span><span class="mf">.90</span><span class="p">;</span><span class="err">&lt;br</span> <span class="err">/&gt;</span>
 <span class="c">/* Fin de la transparence*/</span><span class="err">`</span></code></pre></div>
-
 <p>En cela :</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="err">`</span><span class="c">/* Changer la couleur de fond des articles */</span><span class="o">&lt;</span><span class="nt">br</span> <span class="o">/&gt;</span>
 <span class="p">.</span><span class="nc">ns-0</span> <span class="o">*</span> <span class="p">#</span><span class="nn">content</span><span class="o">,</span> <span class="p">.</span><span class="nc">ns-0</span> <span class="o">*</span> <span class="p">#</span><span class="nn">p-cactions</span> <span class="nt">li</span><span class="o">,</span> <span class="p">.</span><span class="nc">ns-0</span> <span class="o">*</span> <span class="p">#</span><span class="nn">p-cactions</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span><span class="err">&lt;br</span> <span class="err">/&gt;</span>
 <span class="k">filter</span><span class="p">:</span><span class="nf">alpha</span><span class="p">(</span><span class="n">opacity</span><span class="err">=</span><span class="mi">90</span><span class="p">);</span><span class="err">&lt;br</span> <span class="err">/&gt;</span>
 <span class="p">}</span><span class="err">`</span></code></pre></div>
-
 <p>Et c&rsquo;est fini, ça ne freeze plus firefox. Ahhhhhh enfin&hellip;.</p>
-
-<p><a href="http://wiki.deimos.fr/MediaWiki:Installation_et_configuration#Affichage_Monobook" target="_blank">http://wiki.deimos.fr/MediaWiki:Installation_et_configuration#Affichage_Monobook</a></p>
+<p><a href="http://wiki.deimos.fr/MediaWiki:Installation_et_configuration#Affichage_Monobook">http://wiki.deimos.fr/MediaWiki:Installation_et_configuration#Affichage_Monobook</a></p>
 
               
             </div>
@@ -386,7 +380,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

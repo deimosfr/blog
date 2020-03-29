@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting Nousmotards infrastructure, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.
@@ -280,27 +280,17 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              
-
-<p><img src="https://blog.deimos.fr/images/logo_docker.png" alt="docker-logo" />
-This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting <a href="http://www.meetup.com/fr/Ansible-Paris/events/223572292/" target="_blank">Nousmotards infrastructure</a>, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.</p>
-
+              <p><img src="https://blog.deimos.fr/images/logo_docker.png" alt="docker-logo">
+This title can sounds like a troll, but this is not the case! I&rsquo;m writing this post as a feedback. When I spoke during an Ansible meetup presenting <a href="http://www.meetup.com/fr/Ansible-Paris/events/223572292/">Nousmotards infrastructure</a>, I had several questions regarding why I chose monit as the init system instead of supervisord. That&rsquo;s what encouraged me to write this post and that&rsquo;s why I wanted to clarify here the things.</p>
 <h2 id="introduction">Introduction</h2>
-
-<p>Docker is made to run a process in a confined area. The problem is when you want to run several processes inside a container! <strong>Docker is simply not designed for it by default and that&rsquo;s why a process manager should be considered</strong>. Docker officially recommend to use <a href="https://docs.docker.com/engine/articles/using_supervisord/" target="_blank">supervisord</a> as the init system. This is why I first started with it. However <strong>I encountered several crashes</strong> with supervisord when a failing managed process occurred and were looping. I also wanted to look at the available options and I was very surprised by <strong>the lack of features compared to Monit</strong>.</p>
-
+<p>Docker is made to run a process in a confined area. The problem is when you want to run several processes inside a container! <strong>Docker is simply not designed for it by default and that&rsquo;s why a process manager should be considered</strong>. Docker officially recommend to use <a href="https://docs.docker.com/engine/articles/using_supervisord/">supervisord</a> as the init system. This is why I first started with it. However <strong>I encountered several crashes</strong> with supervisord when a failing managed process occurred and were looping. I also wanted to look at the available options and I was very surprised by <strong>the lack of features compared to Monit</strong>.</p>
 <h2 id="why-supervisord-is-a-bad-idea-for-docker">Why Supervisord is a bad idea for Docker?</h2>
-
 <p>I decided to switch to he well known Monit and got an <strong>unattended behavior</strong> with the Docker usage there. When you&rsquo;re running a Docker container, you need to define the first command that will be launched and will take the PID 1. This is generally where a process manager like Supervisord or Monit enter in the game. <strong>When you decide to stop a docker container, this will kill the process manager and its forked processes.</strong></p>
-
 <p>With <strong>supervisord</strong> it works like a charm as it forks the commands it has to manage and those <strong>should not be run in a daemon mode.</strong></p>
-
 <p><strong>Monit</strong> however <strong>prefers to run services instead as daemon</strong> and check periodically the processes state. This may not be the best method regarding Docker ideology, however this is the best in my opinion. Why ? For several reasons in fact ! Here they are:</p>
-
 <ul>
 <li>Did you already run a packaged java application like elasticsearch, Cassandra, Tomcat, etc&hellip;? Have you already seen the number of arguments passed when you run this kind of service with Sysv or Systemd? If not, here is an example:</li>
 </ul>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">/usr/lib/jvm/java-8-oracle//bin/java -Xms8g -Xmx8g -Djava.awt.headless<span class="o">=</span><span class="nb">true</span> -XX:+UseParNewGC
 -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction<span class="o">=</span><span class="m">75</span> -XX:+UseCMSInitiatingOccupancyOnly
 -XX:+HeapDumpOnOutOfMemoryError -XX:+DisableExplicitGC -Dfile.encoding<span class="o">=</span>UTF-8 -Delasticsearch
@@ -309,19 +299,13 @@ This title can sounds like a troll, but this is not the case! I&rsquo;m writing 
 -Des.default.config<span class="o">=</span>/etc/elasticsearch/elasticsearch.yml -Des.default.path.home<span class="o">=</span>/usr/share/elasticsearch
 -Des.default.path.logs<span class="o">=</span>/var/log/elasticsearch -Des.default.path.data<span class="o">=</span>/var/lib/elasticsearch
 -Des.default.path.work<span class="o">=</span>/tmp/elasticsearch -Des.default.path.conf<span class="o">=</span>/etc/elasticsearch org.elasticsearch.bootstrap.Elasticsearch</code></pre></div>
-
-<p><p style="padding-left: 30px;">
-  <strong>Are you really going to copy/paste all those lines in supervisord to start your process?</strong> What will happen if one of those arguments needs to be changed, as it could be the case during an application life cycle with the package manager of your distribution? Will you always be aware at any changes and update them in consequence? I&rsquo;m not sure and this is typically a <strong>source of potential issues that can be avoided</strong>. So in Docker, using init scripts services is the best solution in my opinion as you don&rsquo;t have to care about them. You just have to let the distribution/editor choose the best arguments for you and override them in the /etc/default folder as usual if needed.</p>
-
+<!-- raw HTML omitted -->
 <ul>
 <li>Now if we just compare them outside the Docker scope, what will happen when supervisord completely crashes? You&rsquo;re just <strong>losing all your forked applications in that case</strong>! And what will happen if one of them is a <strong>database</strong>? <strong>In the best case, a recovery scenario will occur to get your data back and it the worst case they are corrupted</strong>. Regarding Monit, it starts demonized services, you can restart it, upgrade it or doing what you want with the Monit process as it is completely not linked with launched process.</li>
 <li>The <strong>lack of features in supervisord</strong> is a problem as well in my opinion. In Docker, you really need a featured process manager if you want to run several processes. That mean this entry point <strong>should be able to manage boot order, dependencies, retry count, timeout etc&hellip;and only Monit is able to do that</strong>.</li>
 </ul>
-
 <h2 id="avoid-monit-as-pid-1">Avoid Monit as PID 1</h2>
-
 <p>I hope you&rsquo;re now convinced that Monit is a very good candidate to manage processes inside a Docker container. As said, <strong>the first launched command on Docker will take the PID 1</strong>. This is where the main issue is as you may want to restart Monit or upgrade it for an emergency case (because in theory you shouldn&rsquo;t have to touch processes inside your container and deploy a new container instead that will replace the current one). More than that, <strong>when you&rsquo;re going to kill Monit, it won&rsquo;t gracefully shutdown the managed processes</strong>. So <strong>you need to handle the kill signal and perform a stop</strong> on all of them properly. I&rsquo;ve made a basic and simple init script for Docker that permit to do it:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
 </span><span class="cp"></span>
 <span class="c1"># Catch signals</span>
@@ -334,9 +318,7 @@ service monit start
 <span class="k">while</span> <span class="o">[</span> <span class="m">1</span> <span class="o">]</span> <span class="p">;</span> <span class="k">do</span>
    sleep 1d
 <span class="k">done</span></code></pre></div>
-
 <p>The kill signal with call another script that will request monit to stop all managed services and wait for them to be stopped before returning:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
 </span><span class="cp"></span><span class="c1"># Wait for all monit services to be stop before release</span>
 
@@ -345,19 +327,15 @@ service monit start
 <span class="nv">command_return</span><span class="o">=</span><span class="m">1</span>
 <span class="k">while</span> <span class="o">[</span> <span class="nv">$command_return</span> !<span class="o">=</span> <span class="m">0</span> <span class="o">]</span> <span class="p">;</span> <span class="k">do</span>
    sleep <span class="m">1</span>
-   <span class="nv">command_return</span><span class="o">=</span><span class="k">$(</span>/usr/bin/monit stop all <span class="m">2</span><span class="p">&amp;</span>gt<span class="p">;&amp;</span><span class="m">1</span> <span class="p">|</span> grep -c <span class="s2">&#34;Action failed&#34;</span><span class="k">)</span>
+   <span class="nv">command_return</span><span class="o">=</span><span class="k">$(</span>/usr/bin/monit stop all 2<span class="p">&amp;</span>gt<span class="p">;&amp;</span><span class="m">1</span> <span class="p">|</span> grep -c <span class="s2">&#34;Action failed&#34;</span><span class="k">)</span>
 <span class="k">done</span>
 
 <span class="k">while</span> <span class="o">[</span> <span class="nv">$total_services</span> !<span class="o">=</span> <span class="k">$(</span>monit summary <span class="p">|</span> grep <span class="s2">&#34;^Process&#34;</span> <span class="p">|</span> grep -c <span class="s2">&#34;Not monitored&#34;</span><span class="k">)</span> <span class="o">]</span> <span class="p">;</span> <span class="k">do</span>
    sleep <span class="m">1</span>
 <span class="k">done</span></code></pre></div>
-
 <h2 id="conclusion">Conclusion</h2>
-
 <p>With Monit and those basic scripts, you can have a featured and stable launcher, do emergency things on Monit if necessary and keep it simple by using your distribution init scripts.</p>
-
-<p>I recently discovered another solution that nearly do the same thing like <a href="http://engineeringblog.yelp.com/2016/01/dumb-init-an-init-for-docker.html" target="_blank">dumb-init</a>. I personally prefer to keep the most stupid thing but stable.</p>
-
+<p>I recently discovered another solution that nearly do the same thing like <a href="http://engineeringblog.yelp.com/2016/01/dumb-init-an-init-for-docker.html">dumb-init</a>. I personally prefer to keep the most stupid thing but stable.</p>
 <p>To finish, I&rsquo;ve nothing against Supervisord, this is just not the best appropriate solution for Docker.</p>
 
               
@@ -451,7 +429,7 @@ service monit start
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

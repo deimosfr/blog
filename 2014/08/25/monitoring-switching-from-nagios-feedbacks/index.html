@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="I am using Nagios for about 8 years now for personal and professional usage. What I can say is, this is a super product, old and stable but not as scalable as I would like. We&rsquo;re in the age of Cloud computing and in my opinion we shouldn&rsquo;t have to take care about backup and monitoring in now days, this should be automatic.
@@ -290,21 +290,14 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_naemon.png" alt="naemon_logo" />
-I am <strong>using <a href="http://www.nagios.org/" target="_blank">Nagios</a> for about 8 years now for personal and professional usage</strong>. What I can say is, this is a super product, old and stable but <strong>not as scalable</strong> as I would like. We&rsquo;re in the age of Cloud computing and in my opinion we shouldn&rsquo;t have to take care about backup and monitoring in now days, this should be automatic.</p>
-
+              <p><img src="https://blog.deimos.fr/images/logo_naemon.png" alt="naemon_logo">
+I am <strong>using <a href="http://www.nagios.org/">Nagios</a> for about 8 years now for personal and professional usage</strong>. What I can say is, this is a super product, old and stable but <strong>not as scalable</strong> as I would like. We&rsquo;re in the age of Cloud computing and in my opinion we shouldn&rsquo;t have to take care about backup and monitoring in now days, this should be automatic.</p>
 <p>I was searching a solution for my personal usages, that&rsquo;s why I first wanted a lightweight solution but with enough maturity to auto discover my newly created LXC containers. In addition, I do not really agree on the strategic position that Nagios is taking so I wanted to change.</p>
-
-<p>That&rsquo;s why I first tried <a href="http://www.shinken-monitoring.org/" target="_blank">Shinken</a> which was the best solution to fit my vision/needs. Shinken tend to be a powerful, scalable, Nagios configuration file replacement, with advanced features like <strong>auto discovery</strong>. A major version <a href="http://shinkenlab.io/2-0-release/" target="_blank">was recently released</a> and I wanted to test it. But after 2 hours fighting on installation, trying to understand how the configuration work, because of the lack of documentation actually, I finally stopped to work in that direction as I didn&rsquo;t had enough time to dig in it. However I still keep an eye on it as I&rsquo;m pretty sure <strong>this will be the best monitoring solutions in the next months/years</strong>.</p>
-
-<p>I also looked at <a href="http://sensuapp.org/" target="_blank">Sensu</a> as I heard a lot of it since a year and wanted to look ahead. Sensu has <strong>not enough features and maturity</strong> in my opinion to replace Nagios. More than that, <strong>agent is written in Ruby</strong> and I do not agree using with this language in a production environment (because of the required dependencies and resources usage due to this language). Sensu looks like interesting in the way it has been designed (<strong>Redis and RabbitMQ</strong>) but did not convinced me for the previous reasons I mentionned.</p>
-
+<p>That&rsquo;s why I first tried <a href="http://www.shinken-monitoring.org/">Shinken</a> which was the best solution to fit my vision/needs. Shinken tend to be a powerful, scalable, Nagios configuration file replacement, with advanced features like <strong>auto discovery</strong>. A major version <a href="http://shinkenlab.io/2-0-release/">was recently released</a> and I wanted to test it. But after 2 hours fighting on installation, trying to understand how the configuration work, because of the lack of documentation actually, I finally stopped to work in that direction as I didn&rsquo;t had enough time to dig in it. However I still keep an eye on it as I&rsquo;m pretty sure <strong>this will be the best monitoring solutions in the next months/years</strong>.</p>
+<p>I also looked at <a href="http://sensuapp.org/">Sensu</a> as I heard a lot of it since a year and wanted to look ahead. Sensu has <strong>not enough features and maturity</strong> in my opinion to replace Nagios. More than that, <strong>agent is written in Ruby</strong> and I do not agree using with this language in a production environment (because of the required dependencies and resources usage due to this language). Sensu looks like interesting in the way it has been designed (<strong>Redis and RabbitMQ</strong>) but did not convinced me for the previous reasons I mentionned.</p>
 <p>Zabbix is a <strong>complete solution</strong> and I always had good feedback about it. The required consuming resources it requires are a little bit high for my personal usage, but the <strong>auto discovery is not fully implemented yet</strong> and new interesting features are planned for next major release. So I didn&rsquo;t choose that solution.</p>
-
-<p>Naemon, <a href="http://blog.deimos.fr/2013/10/31/omg-nagios-project-is-dead/" target="_blank">I already talked about it</a>, this is a <strong>Nagios 4 fork</strong> and looks very interesting. It <strong>doesn&rsquo;t have auto discovery yet</strong> but this is the lightweight solution I&rsquo;ve found and doesn&rsquo;t change my Nagios configuration files at all. So I&rsquo;ve choose this software for the moment as <strong>no other solution answered more my needs than Naemon</strong>. As there is no auto discovery, I implemented a faked auto discovery feature by automating the integration of new hosts in Naemon with Ansible (better than nothing).</p>
-
-<p>After a few weeks of usage, <strong>Naemon works well, I do not reported any issues</strong>, the installation is really easy and Thruk is the default web interface :-). <strong>Naemon (like Shinken) brings livestatus plugin embedded</strong> with avoid to install all the <a href="https://mathias-kettner.de/check_mk.html" target="_blank">check_Mk</a> stack. I&rsquo;m happy to choose that solution even if all my requirements are not there yet.</p>
-
+<p>Naemon, <a href="http://blog.deimos.fr/2013/10/31/omg-nagios-project-is-dead/">I already talked about it</a>, this is a <strong>Nagios 4 fork</strong> and looks very interesting. It <strong>doesn&rsquo;t have auto discovery yet</strong> but this is the lightweight solution I&rsquo;ve found and doesn&rsquo;t change my Nagios configuration files at all. So I&rsquo;ve choose this software for the moment as <strong>no other solution answered more my needs than Naemon</strong>. As there is no auto discovery, I implemented a faked auto discovery feature by automating the integration of new hosts in Naemon with Ansible (better than nothing).</p>
+<p>After a few weeks of usage, <strong>Naemon works well, I do not reported any issues</strong>, the installation is really easy and Thruk is the default web interface :-). <strong>Naemon (like Shinken) brings livestatus plugin embedded</strong> with avoid to install all the <a href="https://mathias-kettner.de/check_mk.html">check_Mk</a> stack. I&rsquo;m happy to choose that solution even if all my requirements are not there yet.</p>
 <p>Now I am waiting the maturity of Shinken 2 :-)</p>
 
               
@@ -404,7 +397,7 @@ I am <strong>using <a href="http://www.nagios.org/" target="_blank">Nagios</a> f
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Books on Deimosfr Blog</title>
@@ -42,7 +42,7 @@ It will help you to start with ElasticSearch and answer a lot of question you ma
       <description>After 1 month to finish writing my book, it&amp;rsquo;s now done! I will continue to maintain the blog :-)
 A lot of things happened during the last month. I started writing draft blog posts and I need to finish them.
 Have a good weekend
-&amp;nbsp;</description>
+ </description>
     </item>
     
     <item>
@@ -65,7 +65,7 @@ To give the maximum in this book , in the very short delay I have to, I need mor
       <guid>https://blog.deimos.fr/2014/03/26/book-the-hackers-guide-to-python/</guid>
       <description>One of my colleague (Julien Danjou) wrote a book on advanced usage of Python. The book was out today and I strongly recommend buying it. Here is the summary of it:
  Python is a wonderful programming language that is being used more and more in many different industries. It is fast, flexible, and it comes with batteries included.
-Most of the books you read about Python will teach you the language basics – but once you&amp;rsquo;ve learnt them, you’re on your own in designing your application and discovering best practice.</description>
+  Most of the books you read about Python will teach you the language basics – but once you&amp;rsquo;ve learnt them, you’re on your own in designing your application and discovering best practice.</description>
     </item>
     
     <item>

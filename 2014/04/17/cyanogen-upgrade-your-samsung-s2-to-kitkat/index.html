@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="I wanted to upgrade my Android version from Cyanogen 10 to 11M5 on my old Samsung Galaxy S2. I though it would be an easy task, but not at all.
@@ -276,46 +276,29 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>I wanted to upgrade my Android version from Cyanogen 10 to 11M5 on my old Samsung Galaxy S2. I though it would be an easy task, but not at all.</p>
-
 <p>First of all, I had to be in recovery mod (bottom button + vol up + power). Then I wanted to create a /sdcard but it didn&rsquo;t want to mount and I didn&rsquo;t want to format my sdcard. So I mounted a tmpfs onto it:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="p">&amp;</span>gt<span class="p">;</span> adb shell mount -t tmpfs none /sdcard</code></pre></div>
-
 <p>Then the problem was to find a compatible version of clockworkmod. Because of this issue when I wanted to apply Cyanogen:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">set_metadata_recursive: some changes failed</code></pre></div>
-
-<p>I had to find and send a compatible clockworkmod with kitkat (<a href="http://downloadandroidrom.com/file/GalaxyS2/recovery/CWM-KitKatCompatible-i9100.zip" target="_blank">link1</a>, <a href="https://mega.co.nz/#!65xDnDoA!IG9CfqrrirRNJJs-h7rjKVgB2SQQKOKnxBs14u3OB5U" target="_blank">link2</a>) to the phone:</p>
-
+<p>I had to find and send a compatible clockworkmod with kitkat (<a href="http://downloadandroidrom.com/file/GalaxyS2/recovery/CWM-KitKatCompatible-i9100.zip">link1</a>, <a href="https://mega.co.nz/#!65xDnDoA!IG9CfqrrirRNJJs-h7rjKVgB2SQQKOKnxBs14u3OB5U">link2</a>) to the phone:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="p">&amp;</span>gt<span class="p">;</span> adb push recovery-clockwork-4.0.1.5-galaxys2.zip /sdcard/
-<span class="m">3388</span> KB/s <span class="o">(</span><span class="m">1358054</span> bytes in <span class="m">0</span>.391s<span class="o">)</span></code></pre></div>
-
-<p>Afterward, apply the zip from the recovery mode from the phone. Then I had to download the M5 version on <a href="http://download.cyanogenmod.org/?device=i9100" target="_blank">Cyanogen website</a> and push it on the device:</p>
-
+<span class="m">3388</span> KB/s <span class="o">(</span><span class="m">1358054</span> bytes in 0.391s<span class="o">)</span></code></pre></div>
+<p>Afterward, apply the zip from the recovery mode from the phone. Then I had to download the M5 version on <a href="http://download.cyanogenmod.org/?device=i9100">Cyanogen website</a> and push it on the device:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="p">&amp;</span>gt<span class="p">;</span> adb push cm-11-20140405-SNAPSHOT-M5-i9100.zip /storage/sdcard0/
 error: insufficient permissions <span class="k">for</span> device</code></pre></div>
-
 <p>Bad isn&rsquo;t it ? When I looked at the connected devices, I got:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="p">&amp;</span>gt<span class="p">;</span> adb devices
 List of devices attached
 ???????????? no permissions</code></pre></div>
-
 <p>The solution was to restart the server and relaunch it:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="p">&amp;</span>gt<span class="p">;</span> adb kill-server</code></pre></div>
-
 <p>Better now:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="p">&amp;</span>gt<span class="p">;</span> adb devices
 List of devices attached
 0019026e78c75e recovery</code></pre></div>
-
 <p>Finally I could push last cyanogen version :</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">adb push cm-11-20140405-SNAPSHOT-M5-i9100.zip /storage/sdcard0/
-<span class="m">3259</span> KB/s <span class="o">(</span><span class="m">199874044</span> bytes in <span class="m">59</span>.887s<span class="o">)</span></code></pre></div>
-
+<span class="m">3259</span> KB/s <span class="o">(</span><span class="m">199874044</span> bytes in 59.887s<span class="o">)</span></code></pre></div>
 <p>And installed the zip with the method I previously did for clockworkmod !</p>
 
               
@@ -411,7 +394,7 @@ List of devices attached
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

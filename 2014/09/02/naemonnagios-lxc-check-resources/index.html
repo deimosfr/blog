@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="You may know that I really like LXC and the major problem when you want to use that solution in production is: how do you monitor memory and CPU?
@@ -302,11 +302,9 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/Poweredbylinux.jpg" alt="Poweredbylinux" />
+              <p><img src="https://blog.deimos.fr/images/Poweredbylinux.jpg" alt="Poweredbylinux">
 You may know that I really like LXC and the major problem when you want to use that solution in production is: how do you monitor memory and CPU?</p>
-
 <p>Regarding the CPU side, I do not have an easy answer for the moment :-(. However regarding the memory, I&rsquo;ve made a Nagios/Naemon check which will check the memory (RAM) and SWAP of a container. Here is how to use it:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">Usage : check_lxc_resources -h <span class="p">&amp;</span>lt<span class="p">;</span>container<span class="p">&amp;</span>gt<span class="p">;</span> -n <span class="p">&amp;</span>lt<span class="p">;</span>namespace<span class="p">&amp;</span>gt<span class="p">;</span> -w <span class="p">&amp;</span>lt<span class="p">;</span>warning%<span class="p">&amp;</span>gt<span class="p">;</span> -c <span class="p">&amp;</span>lt<span class="p">;</span>critical%<span class="p">&amp;</span>gt<span class="p">;</span> <span class="o">[</span>-d<span class="o">]</span>
     -h : <span class="nb">set</span> container name
     -n : <span class="nb">set</span> container namespace to check <span class="o">(</span>memory<span class="p">|</span>swap<span class="o">)</span>
@@ -314,16 +312,11 @@ You may know that I really like LXC and the major problem when you want to use t
     -c : <span class="nb">set</span> critical percent alert
     -d : debug mode
     -help : print this message</code></pre></div>
-
 <p>Output will looks like this for memory:</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">memory usage is <span class="m">42</span>.95% <span class="o">(</span>219M/512M<span class="o">)</span> / 292M free / 177M cached</code></pre></div>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">memory usage is 42.95% <span class="o">(</span>219M/512M<span class="o">)</span> / 292M free / 177M cached</code></pre></div>
 <p>And like this for swap:</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">swap usage is <span class="m">0</span>.02% <span class="o">(</span>0M/464M<span class="o">)</span> / 463M free</code></pre></div>
-
-<p>If you want to know more about this check or simply use it, <a href="https://github.com/deimosfr/nagios-check_lxc_resources" target="_blank">you can find it on my GitHub</a>. I hope you&rsquo;ll like it.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">swap usage is 0.02% <span class="o">(</span>0M/464M<span class="o">)</span> / 463M free</code></pre></div>
+<p>If you want to know more about this check or simply use it, <a href="https://github.com/deimosfr/nagios-check_lxc_resources">you can find it on my GitHub</a>. I hope you&rsquo;ll like it.</p>
 
               
             </div>
@@ -426,7 +419,7 @@ You may know that I really like LXC and the major problem when you want to use t
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

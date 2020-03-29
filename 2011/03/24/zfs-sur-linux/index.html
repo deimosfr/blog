@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur lequel je souhaites la double parité et surtout un OS Linux car c&rsquo;est ce que je connais de mieux pour la partie multimédia.
-Aujourd&rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&rsquo;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.">
+Aujourd&rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&#39;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.">
 
 
 <meta property="og:description" content="Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur lequel je souhaites la double parité et surtout un OS Linux car c&rsquo;est ce que je connais de mieux pour la partie multimédia.
-Aujourd&rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&rsquo;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.">
+Aujourd&rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&#39;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ZFS sur Linux">
 <meta name="twitter:title" content="ZFS sur Linux">
@@ -21,9 +21,9 @@ Aujourd&rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs 
 <meta property="twitter:url" content="https://blog.deimos.fr/2011/03/24/zfs-sur-linux/">
 <meta property="og:site_name" content="Deimosfr Blog">
 <meta property="og:description" content="Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur lequel je souhaites la double parité et surtout un OS Linux car c&rsquo;est ce que je connais de mieux pour la partie multimédia.
-Aujourd&rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&rsquo;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.">
+Aujourd&rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&#39;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.">
 <meta name="twitter:description" content="Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur lequel je souhaites la double parité et surtout un OS Linux car c&rsquo;est ce que je connais de mieux pour la partie multimédia.
-Aujourd&rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&rsquo;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.">
+Aujourd&rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&#39;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.">
 <meta property="og:locale" content="en-us">
 
   
@@ -296,27 +296,24 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_zfsonlinux.png" alt="Zfs-linux" />
+              <p><img src="https://blog.deimos.fr/images/logo_zfsonlinux.png" alt="Zfs-linux">
 Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur lequel je souhaites la double parité et surtout un OS Linux car c&rsquo;est ce que je connais de mieux pour la partie multimédia.</p>
-
-<p>Aujourd&rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&rsquo;émulation de couches basses Linux). Je me tourne donc vers <a href="http://wiki.deimos.fr/ZFS_On_Linux_:_Mise_en_place_de_ZFS_sous_Linux" target="_blank">ZFS on Linux</a>.</p>
-
-<p>Je rajouterais à ceci une couche d&rsquo;encryption disque avec <a href="http://wiki.deimos.fr/Encfs_:_Mise_en_place_d%27Encfs_avec_FUSE" target="_blank">ENCFS</a>. Je testerais donc la compression ZFS pour minimiser l&rsquo;espace supplémentaire occupé par l&rsquo;encryption des données. Cependant je craint qu&rsquo;avec seulement 5 disques avec du raidz2 je les satures rapidement si j&rsquo;ai beaucoup d&rsquo;activité dessus ou tout du moins si ils sont beaucoup sollicités (ex. la lecture d&rsquo;un film en Full HD).</p>
-
+<p>Aujourd&rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l'émulation de couches basses Linux). Je me tourne donc vers <a href="http://wiki.deimos.fr/ZFS_On_Linux_:_Mise_en_place_de_ZFS_sous_Linux">ZFS on Linux</a>.</p>
+<p>Je rajouterais à ceci une couche d&rsquo;encryption disque avec <a href="http://wiki.deimos.fr/Encfs_:_Mise_en_place_d%27Encfs_avec_FUSE">ENCFS</a>. Je testerais donc la compression ZFS pour minimiser l&rsquo;espace supplémentaire occupé par l&rsquo;encryption des données. Cependant je craint qu&rsquo;avec seulement 5 disques avec du raidz2 je les satures rapidement si j&rsquo;ai beaucoup d&rsquo;activité dessus ou tout du moins si ils sont beaucoup sollicités (ex. la lecture d&rsquo;un film en Full HD).</p>
 <p>Pour ceux qui auraient du mal à se rendre compte de ce que ça donnerais, voici un schéma :</p>
-
-<p><img src="https://blog.deimos.fr/images/zfsonlinux_encfs_deimos-300x174.png" alt="zfsonlinux_encfs_deimos-300x174" /></p>
-
+<p><img src="https://blog.deimos.fr/images/zfsonlinux_encfs_deimos-300x174.png" alt="zfsonlinux_encfs_deimos-300x174"></p>
 <p>Pour le moment, je suis assez satisfait de la maquette que j&rsquo;ai monté. Tout à l&rsquo;air de fonctionner correctement. Je testerais ce vendredi sur mon serveur finale et ferais un petit retour dans quelques temps (si je n&rsquo;oublies pas ;-))</p>
-
 <p>Ceux qui ont quelques retours d&rsquo;expérience avec ZFS on linux, je suis preneur. Et pour les documentations c&rsquo;est ici :</p>
-
 <ul>
-<li><p><a href="http://wiki.deimos.fr/ZFS_On_Linux_:_Mise_en_place_de_ZFS_sous_Linux" target="_blank">ZFS on Linux</a></p></li>
-
-<li><p><a href="http://wiki.deimos.fr/ZFS_:_Le_FileSystem_par_excellence" target="_blank">Utilisation du ZFS</a></p></li>
-
-<li><p><a href="http://wiki.deimos.fr/Encfs_:_Mise_en_place_d%27Encfs_avec_FUSE" target="_blank">Encfs</a></p></li>
+<li>
+<p><a href="http://wiki.deimos.fr/ZFS_On_Linux_:_Mise_en_place_de_ZFS_sous_Linux">ZFS on Linux</a></p>
+</li>
+<li>
+<p><a href="http://wiki.deimos.fr/ZFS_:_Le_FileSystem_par_excellence">Utilisation du ZFS</a></p>
+</li>
+<li>
+<p><a href="http://wiki.deimos.fr/Encfs_:_Mise_en_place_d%27Encfs_avec_FUSE">Encfs</a></p>
+</li>
 </ul>
 
               
@@ -418,7 +415,7 @@ Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

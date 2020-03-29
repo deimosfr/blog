@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Deimos Blog">
@@ -276,7 +276,7 @@ if (!doNotTrack) {
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
       
-        Some of you may not be familiar with the terms &ldquo;Rolling upgrade&rdquo; or &ldquo;Rolling restart&rdquo;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&rsquo;re managing and the number of active nodes in your cluster.
+        Some of you may not be familiar with the terms &ldquo;Rolling upgrade&rdquo; or &ldquo;Rolling restart&quot;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&rsquo;re managing and the number of active nodes in your cluster.
 At Nousmotards we have several Java Spring Boot applications running. Restarting one application can take up to 1 min.
       
       <p>
@@ -451,6 +451,7 @@ or view the PDF version here:
       
         A few months ago, I already talked about offloading SSL with Nginx. I also wanted to try it with HAProxy which can be more interesting in some cases.
 The good On HAProxy, the good thing is the simplicity to do it. First of all you need to have at least the version 1.5 of HAProxy so to get SSL support. Then you only need those lines to offload SSL:
+frontend frontend-https bind :443 ssl crt /etc/haproxy/ssl/server-unified.
       
       <p>
         <a href="https://blog.deimos.fr/2015/01/27/offload-ssl-with-haproxy/" class="postShorten-excerpt_link link">Continue reading</a>
@@ -741,7 +742,6 @@ Here is my documentation.
     <div class="postShorten-excerpt" itemprop="articleBody">
       
         Last week, I had a webinar regarding Galera Cluster given by Severalnines. As I found it very interesting, I’m sharing it with you :
-  Zero Downtime Schema Changes - Galera Cluster - Best Practices  from Severalnines
       
       <p>
         <a href="https://blog.deimos.fr/2013/12/10/galera-how-to-perform-zero-downtime-schema-changes/" class="postShorten-excerpt_link link">Continue reading</a>
@@ -776,7 +776,7 @@ Here is my documentation.
         
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

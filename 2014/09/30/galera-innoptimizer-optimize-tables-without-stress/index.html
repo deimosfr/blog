@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="I recently been faced on a classical problem on InnoDB which is the fragmentation, but on Galera. InnoDB engine doesn&rsquo;t defragment on the fly and requires optimize maintenance sometimes to free disk space. But on Galera, which is a fault tolerance and high availability solution, it&rsquo;s a problem having tables locked by an optimize procedure. Until Galera doesn&rsquo;t support TokuDB and only fully support InnoDB, we had (with a colleague (Kevin aka Vinek)) to find a solution.">
@@ -296,15 +296,11 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_galera.jpg" alt="Galera-Cluster-logo" />
+              <p><img src="https://blog.deimos.fr/images/logo_galera.jpg" alt="Galera-Cluster-logo">
 I recently been faced on a classical problem on InnoDB which is the fragmentation, but on Galera. InnoDB engine doesn&rsquo;t defragment on the fly and requires optimize maintenance sometimes to free disk space. But on Galera, which is a fault tolerance and high availability solution, it&rsquo;s a problem having tables locked by an optimize procedure. Until Galera doesn&rsquo;t support TokuDB and only fully support InnoDB, we had (with a colleague (Kevin aka Vinek)) to find a solution. We found that changing RSU mode is the way to achieve it.</p>
-
 <p>That&rsquo;s why <strong>I made a tool to help you to perform all the necessary actions to optimize tables in the most easy and secure way</strong>. Running an optimize on InnoDB tables in a Galera cluster will launch an optimize on every nodes. This is <strong>usually a big problem when using huge tables</strong>. This tool makes <strong>online InnoDB optimize on a Galera single node without tables lock feeling on the user side.</strong> But do not think this is magical as there is a counterpart: you have to reduce the write queries during that time or the optimize will fail with a &ldquo;dead lock&rdquo; error message.</p>
-
 <p>Galera has an OSU mode called RSU which permit to perform online schema upgrades. This mode is used by Galera Innoptimizer to perform optimize on tables. The advantage of that solution is you can still perform write (and read of course) updates while running . It won&rsquo;t be replicated on any nodes, simply running locally.</p>
-
 <p>Here is how it works:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="p">&amp;</span>gt<span class="p">;</span> ./ginnoptimizer.py -d all
 <span class="o">[</span>+<span class="o">]</span> Trying to connect to MySQL/MariaDB instance...OK
 <span class="o">[</span>+<span class="o">]</span> Getting all databases...OK
@@ -317,21 +313,19 @@ I recently been faced on a classical problem on InnoDB which is the fragmentatio
 <span class="o">[</span>+<span class="o">]</span> Getting list of all tables in database1 database...OK
 <span class="o">[</span>+<span class="o">]</span> Enabling RSU mode...OK
 <span class="o">[</span>+<span class="o">]</span> Starting optimization on database1 database... 
-  -<span class="p">&amp;</span>gt<span class="p">;</span> wsrep_flow_control_paused status <span class="p">&amp;</span>gt<span class="p">;</span> <span class="m">0</span>.3...OK
+  -<span class="p">&amp;</span>gt<span class="p">;</span> wsrep_flow_control_paused status <span class="p">&amp;</span>gt<span class="p">;</span> 0.3...OK
   -<span class="p">&amp;</span>gt<span class="p">;</span> optimizing tablename in progress...OK
 <span class="o">[</span>+<span class="o">]</span> Restoring TOI mode...OK
 <span class="o">[</span>+<span class="o">]</span> Getting list of all tables in database2 database...OK
 <span class="o">[</span>+<span class="o">]</span> Enabling RSU mode...OK
 <span class="o">[</span>+<span class="o">]</span> Starting optimization on database2 database... 
-  -<span class="p">&amp;</span>gt<span class="p">;</span> wsrep_flow_control_paused status <span class="p">&amp;</span>gt<span class="p">;</span> <span class="m">0</span>.3...OK
+  -<span class="p">&amp;</span>gt<span class="p">;</span> wsrep_flow_control_paused status <span class="p">&amp;</span>gt<span class="p">;</span> 0.3...OK
   -<span class="p">&amp;</span>gt<span class="p">;</span> optimizing tablename1 in progress...OK
-  -<span class="p">&amp;</span>gt<span class="p">;</span> wsrep_flow_control_paused status <span class="p">&amp;</span>gt<span class="p">;</span> <span class="m">0</span>.3...OK
+  -<span class="p">&amp;</span>gt<span class="p">;</span> wsrep_flow_control_paused status <span class="p">&amp;</span>gt<span class="p">;</span> 0.3...OK
   -<span class="p">&amp;</span>gt<span class="p">;</span> optimizing tablename2 in progress...OK
 <span class="o">[</span>+<span class="o">]</span> Restoring TOI mode...OK
 Done !</code></pre></div>
-
-<p>To know more about the solution and to get it, please <a href="https://github.com/deimosfr/galera_innoptimizer" target="_blank">follow the link of the project</a>.</p>
-
+<p>To know more about the solution and to get it, please <a href="https://github.com/deimosfr/galera_innoptimizer">follow the link of the project</a>.</p>
 <p>Of course this is the first version, I&rsquo;d like to add more things like database exclude, table include/exclude, percentage of progression etc&hellip;Do not hesitate to give feedbacks on it :-)</p>
 
               
@@ -429,7 +423,7 @@ Done !</code></pre></div>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

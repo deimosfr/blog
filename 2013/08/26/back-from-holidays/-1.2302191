@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="That was once again not an easy task to maintain each 2 days a post on the Blog as I was on holidays for 2 weeks. I spent my holidays in country and Ré Island :
@@ -280,13 +280,9 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>That was once again not an easy task to maintain each 2 days a post on the Blog as I was on holidays for 2 weeks. I spent my holidays in country and Ré Island :</p>
-
-<p><img src="https://blog.deimos.fr/images/wpid-IMG_20130818_213344.jpg" alt="wpid-IMG_20130818_213344" /></p>
-
-<p><img src="https://blog.deimos.fr/images/wpid-1376750173055.jpg" alt="wpid-1376750173055" /></p>
-
+<p><img src="https://blog.deimos.fr/images/wpid-IMG_20130818_213344.jpg" alt="wpid-IMG_20130818_213344"></p>
+<p><img src="https://blog.deimos.fr/images/wpid-1376750173055.jpg" alt="wpid-1376750173055"></p>
 <p>I enjoyed my holidays and had the time to geek on LXC :-)</p>
-
 <p>You&rsquo;ll shortly have news on it :-)</p>
 
               
@@ -382,7 +378,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

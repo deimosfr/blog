@@ -5,25 +5,25 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Ca y est, méga gavage entre Solaris et VirtualBox. Entre :
- Les pertes de perfs réseaux
- Les problèmes de paravirtualisation VT sous VirtualBox
- Les perfs en générale
+  Les pertes de perfs réseaux
+  Les problèmes de paravirtualisation VT sous VirtualBox
+  Les perfs en générale
   J&rsquo;en peux plus. C&rsquo;est super décourageant. Alors maintenant on va se poser les vrais questions :
- OS : Debian 5, ya pas à tortiller du cul pour chier droit
- FileSystem &#43; Redondance : LVM&#43;RAID5 Software ou FUSE&#43;ZFS">
+  OS : Debian 5, ya pas à tortiller du cul pour chier droit
+  FileSystem &#43; Redondance : LVM&#43;RAID5 Software ou FUSE&#43;ZFS">
 
 
 <meta property="og:description" content="Ca y est, méga gavage entre Solaris et VirtualBox. Entre :
- Les pertes de perfs réseaux
- Les problèmes de paravirtualisation VT sous VirtualBox
- Les perfs en générale
+  Les pertes de perfs réseaux
+  Les problèmes de paravirtualisation VT sous VirtualBox
+  Les perfs en générale
   J&rsquo;en peux plus. C&rsquo;est super décourageant. Alors maintenant on va se poser les vrais questions :
- OS : Debian 5, ya pas à tortiller du cul pour chier droit
- FileSystem &#43; Redondance : LVM&#43;RAID5 Software ou FUSE&#43;ZFS">
+  OS : Debian 5, ya pas à tortiller du cul pour chier droit
+  FileSystem &#43; Redondance : LVM&#43;RAID5 Software ou FUSE&#43;ZFS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Solaris c’est bien…en abuser ça craint !">
 <meta name="twitter:title" content="Solaris c’est bien…en abuser ça craint !">
@@ -31,19 +31,19 @@
 <meta property="twitter:url" content="https://blog.deimos.fr/2009/02/15/solaris-cest-bienen-abuser-ca-craint/">
 <meta property="og:site_name" content="Deimosfr Blog">
 <meta property="og:description" content="Ca y est, méga gavage entre Solaris et VirtualBox. Entre :
- Les pertes de perfs réseaux
- Les problèmes de paravirtualisation VT sous VirtualBox
- Les perfs en générale
+  Les pertes de perfs réseaux
+  Les problèmes de paravirtualisation VT sous VirtualBox
+  Les perfs en générale
   J&rsquo;en peux plus. C&rsquo;est super décourageant. Alors maintenant on va se poser les vrais questions :
- OS : Debian 5, ya pas à tortiller du cul pour chier droit
- FileSystem &#43; Redondance : LVM&#43;RAID5 Software ou FUSE&#43;ZFS">
+  OS : Debian 5, ya pas à tortiller du cul pour chier droit
+  FileSystem &#43; Redondance : LVM&#43;RAID5 Software ou FUSE&#43;ZFS">
 <meta name="twitter:description" content="Ca y est, méga gavage entre Solaris et VirtualBox. Entre :
- Les pertes de perfs réseaux
- Les problèmes de paravirtualisation VT sous VirtualBox
- Les perfs en générale
+  Les pertes de perfs réseaux
+  Les problèmes de paravirtualisation VT sous VirtualBox
+  Les perfs en générale
   J&rsquo;en peux plus. C&rsquo;est super décourageant. Alors maintenant on va se poser les vrais questions :
- OS : Debian 5, ya pas à tortiller du cul pour chier droit
- FileSystem &#43; Redondance : LVM&#43;RAID5 Software ou FUSE&#43;ZFS">
+  OS : Debian 5, ya pas à tortiller du cul pour chier droit
+  FileSystem &#43; Redondance : LVM&#43;RAID5 Software ou FUSE&#43;ZFS">
 <meta property="og:locale" content="en-us">
 
   
@@ -290,27 +290,32 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>Ca y est, méga gavage entre Solaris et VirtualBox. Entre :</p>
-
 <ul>
-<li><p>Les pertes de perfs réseaux</p></li>
-
-<li><p>Les problèmes de paravirtualisation VT sous VirtualBox</p></li>
-
-<li><p>Les perfs en générale</p></li>
+<li>
+<p>Les pertes de perfs réseaux</p>
+</li>
+<li>
+<p>Les problèmes de paravirtualisation VT sous VirtualBox</p>
+</li>
+<li>
+<p>Les perfs en générale</p>
+</li>
 </ul>
-
 <p>J&rsquo;en peux plus. C&rsquo;est super décourageant. Alors maintenant on va se poser les vrais questions :</p>
-
 <ul>
-<li><p>OS : Debian 5, ya pas à tortiller du cul pour chier droit</p></li>
-
-<li><p>FileSystem + Redondance : LVM+RAID5 Software ou FUSE+ZFS</p></li>
-
-<li><p>Virtualisation : Xen ou KVM ?</p></li>
-
-<li><p>Xen et VirtualBox sur la même bécane c&rsquo;est possible ?</p></li>
+<li>
+<p>OS : Debian 5, ya pas à tortiller du cul pour chier droit</p>
+</li>
+<li>
+<p>FileSystem + Redondance : LVM+RAID5 Software ou FUSE+ZFS</p>
+</li>
+<li>
+<p>Virtualisation : Xen ou KVM ?</p>
+</li>
+<li>
+<p>Xen et VirtualBox sur la même bécane c&rsquo;est possible ?</p>
+</li>
 </ul>
-
 <p>Si vous avez des réponses pour moi, n&rsquo;hésitez pas !</p>
 
               
@@ -404,7 +409,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

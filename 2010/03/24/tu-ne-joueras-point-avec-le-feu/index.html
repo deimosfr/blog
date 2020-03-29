@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Dans un précédent post, j’expliquais comment faire des exe sous Windows. Je vais donc expliquer pourquoi :
@@ -286,21 +286,15 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>Dans un précédent post, j’expliquais comment faire des exe sous Windows. Je vais donc expliquer pourquoi :</p>
-
 <p>Dans ma boite, j&rsquo;ai des personnes mal intentionnées qui avaient les droits admin de leur machine. Le problème c&rsquo;est qu&rsquo;avec ça ils peuvent en faire des conneries&hellip;</p>
-
 <p>Pour palier à ce problème, on les a mis en utilisateurs. Et pour ne pas que si quelqu&rsquo;un trouve le mot de passe admin, qu&rsquo;il puisse se connecter sur n&rsquo;importe quel ordinateur pour prendre des informations, il faut un mot de passe unique par ordinateur.</p>
-
 <p>J&rsquo;ai donc développé un outil en Perl permettant de récupérer le numéro de série de la machine, de concaténer celui ci avec un mot de passe ou phrase unique (qui ne doit jamais changer), créer un hash de cette concaténation, puis récupérer les x premiers caractères qui correspondront au mot de passe admin de la machine.</p>
-
 <p>Ceci a pour avantage d&rsquo;avoir un mot de passe unique par machine et de pouvoir récupérer ce mot de passe juste en exécutant cet exe sur la machine. Par expérience, je sais que ce .exe arrivera un jour ou l&rsquo;autre a se balader sur le réseau c&rsquo;est pourquoi j&rsquo;y ai ajouté 2 petites sécurités :</p>
-
 <ul>
 <li>Un mot de passe principale pour afficher le mot de passe admin</li>
 <li>Une suppression automatique de ce .exe après exécution.</li>
 </ul>
-
-<p>J&rsquo;ai donc écrit ceci en Perl puis ai compilé un exécutable. Pour ceux que ça intéresse, <a href="http://wiki.deimos.fr/Cr%C3%A9er_des_mots_de_passe_Administrateurs_unique_par_poste" target="_blank">voici la documentation</a>.</p>
+<p>J&rsquo;ai donc écrit ceci en Perl puis ai compilé un exécutable. Pour ceux que ça intéresse, <a href="http://wiki.deimos.fr/Cr%C3%A9er_des_mots_de_passe_Administrateurs_unique_par_poste">voici la documentation</a>.</p>
 
               
             </div>
@@ -397,7 +391,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

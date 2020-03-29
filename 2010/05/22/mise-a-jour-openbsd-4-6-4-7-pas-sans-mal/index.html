@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Encore une fois, ça a été la tannée avec ce Packet Filter ! Ils changent tout le temps pas mal de trucs. Mon serveur était donc inaccessible cette nuit à cause de cette upgrade.
@@ -282,13 +282,9 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>Encore une fois, ça a été la tannée avec ce Packet Filter ! Ils changent tout le temps pas mal de trucs. Mon serveur était donc inaccessible cette nuit à cause de cette upgrade.</p>
-
-<p>J&rsquo;ai déjà encore galérer pour foutre ce putain de PXE. J&rsquo;ai pourtant suivit ma doc que j&rsquo;avais faite précédemment, mais là, rien à faire, le PXE ne voulait pas être reconnu. J&rsquo;ai donc décider d&rsquo;en faire un sous OpenBSD (OpenBSD pour installer OpenBSD, quoi de plus naturelle&hellip;) et vais <a href="http://wiki.deimos.fr/TFTP_:_PXE_Serveur,_d%C3%A9ploiement_d%27OS_sous_Linux" target="_blank">améliorer la doc ici</a>. Et sur OpenBSD, ca a été très vite et très facile.</p>
-
+<p>J&rsquo;ai déjà encore galérer pour foutre ce putain de PXE. J&rsquo;ai pourtant suivit ma doc que j&rsquo;avais faite précédemment, mais là, rien à faire, le PXE ne voulait pas être reconnu. J&rsquo;ai donc décider d&rsquo;en faire un sous OpenBSD (OpenBSD pour installer OpenBSD, quoi de plus naturelle&hellip;) et vais <a href="http://wiki.deimos.fr/TFTP_:_PXE_Serveur,_d%C3%A9ploiement_d%27OS_sous_Linux">améliorer la doc ici</a>. Et sur OpenBSD, ca a été très vite et très facile.</p>
 <p>Ensuite j&rsquo;ai donc gentillement fait mon upgrade comme indiqué sur le site, fait les changements appropriés par rapport aux nouvelles règles de NAT et RDR. Malheureusement toutes mes redirections étaient bloquées par la ligne &ldquo;block in all&rdquo;.</p>
-
-<p>J&rsquo;ai mis un peu de temps à voir (c&rsquo;était écrit dans les notes d&rsquo;upgrades, mais à 2h du mat on a plus forcément les yeux en face des trous) qu&rsquo;en fait ils ont décider de changer l&rsquo;ordre d&rsquo;annonce des lignes de redirections. Elles doivent en effet être après le &ldquo;block in all&rdquo;. Visiblement le NAT n&rsquo;a lui pas besoin de se trouver après.</p>
-
+<p>J&rsquo;ai mis un peu de temps à voir (c'était écrit dans les notes d&rsquo;upgrades, mais à 2h du mat on a plus forcément les yeux en face des trous) qu&rsquo;en fait ils ont décider de changer l&rsquo;ordre d&rsquo;annonce des lignes de redirections. Elles doivent en effet être après le &ldquo;block in all&rdquo;. Visiblement le NAT n&rsquo;a lui pas besoin de se trouver après.</p>
 <p>Voilà, je ne suis pas mécontent d&rsquo;avoir trouver la solutions après quelques heures de repos.</p>
 
               
@@ -386,7 +382,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

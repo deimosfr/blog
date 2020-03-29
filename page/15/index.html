@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Deimos Blog">
@@ -213,6 +213,79 @@ if (!doNotTrack) {
                ">
         <section class="postShorten-group main-content-wrap">
           
+          
+            
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2014/08/15/deploy-a-logs-managememt-infrastructure-elasticsearchkibanfluentd-with-ansible/">
+          Deploy a logs management infrastructure (Elasticsearch&#43;Kibana&#43;Fluentd) with Ansible
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2014-08-15T10:00:00Z">
+        
+  
+  
+  
+  
+    15 August 2014
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/ansible">Ansible</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/databases">Databases</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/nosql">NoSQL</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/web">Web</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        During the last weeks I started to play with Elasticsearch, Fluentd and Kibana. I made a documentation to help on deploying it easily.
+As you may know, I&rsquo;m an Ansible fan, so I made Ansible playbooks to deploy a complete infrastructure (server and clients). They will deploy this kind of architecture:
+On the client side, Fluentd clients will get syslog and Nginx logs, to send them to the Fluentd server. On the server side, a Fluentd receiver will be there to get data from other Fluentd clients.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2014/08/15/deploy-a-logs-managememt-infrastructure-elasticsearchkibanfluentd-with-ansible/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2014/08/15/deploy-a-logs-managememt-infrastructure-elasticsearchkibanfluentd-with-ansible/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_fluentd.png"/>
+      </div>
+    </a>
+  
+</article>
+
           
             
   
@@ -628,77 +701,6 @@ I was surprised by the simplicity of the upgrade and how things happens without 
 </article>
 
           
-            
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://blog.deimos.fr/2014/08/01/seafile-cant-use-client-use-websav-standard/">
-          Seafile: can’t use client? Use webdav standard!
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2014-08-01T10:00:05Z">
-        
-  
-  
-  
-  
-    1 August 2014
-  
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/web">Web</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        Seafile is a Google Drive replacement. If you missed m&rsquo;y previous blog post on it, you can find it here.
-I really like Seafile even if a search feature is missing :-(. Seafile client is unfortunately not an available solution on all software proposing a cloud connection for sharing files.
-Hopefully an alternative exists using Webdav protocol. It is not activated by default on Seafile but can easily be enable. Here is how to do it.
-      
-      <p>
-        <a href="https://blog.deimos.fr/2014/08/01/seafile-cant-use-client-use-websav-standard/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://blog.deimos.fr/2014/08/01/seafile-cant-use-client-use-websav-standard/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_seafile.png"/>
-      </div>
-    </a>
-  
-</article>
-
-          
           
   <div class="pagination-bar">
     <ul class="pagination">
@@ -728,7 +730,7 @@ Hopefully an alternative exists using Webdav protocol. It is not activated by de
         </section>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

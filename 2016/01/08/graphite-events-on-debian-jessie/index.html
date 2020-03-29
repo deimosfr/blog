@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="I&rsquo;m using Graphite at work and for my Nousmotards project. For Nousmotards, I&rsquo;m using the Graphite version available in the default Debian Jessie repositories. This to avoid mismatch django dependencies etc&hellip;
@@ -284,33 +284,25 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>I&rsquo;m using Graphite at work and for my <a href="http://www.nousmotards.com" target="_blank">Nousmotards</a> project. For Nousmotards, I&rsquo;m using the Graphite version available in the default Debian Jessie repositories. This to avoid mismatch django dependencies etc&hellip;</p>
-
-<p>A few days ago, I wanted to try Graphite events to get <a href="http://docs.grafana.org/reference/annotations/" target="_blank">something pretty cool in Grafana</a> :</p>
-
-<p><img src="https://blog.deimos.fr/images/grafana_annotations-1024x278.png" alt="grafana_annotations-1024x278" /></p>
-
+              <p>I&rsquo;m using Graphite at work and for my <a href="http://www.nousmotards.com">Nousmotards</a> project. For Nousmotards, I&rsquo;m using the Graphite version available in the default Debian Jessie repositories. This to avoid mismatch django dependencies etc&hellip;</p>
+<p>A few days ago, I wanted to try Graphite events to get <a href="http://docs.grafana.org/reference/annotations/">something pretty cool in Grafana</a> :</p>
+<p><img src="https://blog.deimos.fr/images/grafana_annotations-1024x278.png" alt="grafana_annotations-1024x278"></p>
 <p>This to be able to know when a new app version is deployed and make it easier to understand when an issue occurs. However I had troubles with curl command when I wanted to</p>
-
 <p>send data, because there is a mismatch dependencies between the Django version and Graphite version in Debian Jessie:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
-  File <span class="p">&amp;</span>quot<span class="p">;</span>/usr/lib/python2.6/site-packages/django/core/handlers/base.py<span class="p">&amp;</span>quot<span class="p">;</span>, line <span class="m">114</span>, in get_response
+  File <span class="p">&amp;</span>quot<span class="p">;</span>/usr/lib/python2.6/site-packages/django/core/handlers/base.py<span class="p">&amp;</span>quot<span class="p">;</span>, line 114, in get_response
     <span class="nv">response</span> <span class="o">=</span> wrapped_callback<span class="o">(</span>request, *callback_args, **callback_kwargs<span class="o">)</span>
-  File <span class="p">&amp;</span>quot<span class="p">;</span>/opt/graphite/webapp/graphite/events/views.py<span class="p">&amp;</span>quot<span class="p">;</span>, line <span class="m">32</span>, in view_events
+  File <span class="p">&amp;</span>quot<span class="p">;</span>/opt/graphite/webapp/graphite/events/views.py<span class="p">&amp;</span>quot<span class="p">;</span>, line 32, in view_events
     <span class="k">return</span> post_event<span class="o">(</span>request<span class="o">)</span>
-  File <span class="p">&amp;</span>quot<span class="p">;</span>/opt/graphite/webapp/graphite/events/views.py<span class="p">&amp;</span>quot<span class="p">;</span>, line <span class="m">44</span>, in post_event
+  File <span class="p">&amp;</span>quot<span class="p">;</span>/opt/graphite/webapp/graphite/events/views.py<span class="p">&amp;</span>quot<span class="p">;</span>, line 44, in post_event
     <span class="nv">event</span> <span class="o">=</span> json.loads<span class="o">(</span>request.raw_post_data<span class="o">)</span>
 AttributeError: <span class="s1">&#39;WSGIRequest&#39;</span> object has no attribute <span class="s1">&#39;raw_post_data&#39;</span></code></pre></div>
-
 <p>I&rsquo;ve found several solution proposing Django upgrade etc&hellip; but the simplest solution I&rsquo;ve found for me is to simply make a replacement directly in a graphite lib. Edit the file /usr/lib/python2.7/dist-packages/graphite/events/views.py and update the event line like this:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">post_event</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
         <span class="c1">#event = json.loads(request.raw_post_data)</span>
         <span class="n">event</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">)</span>
         <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span></code></pre></div>
-
 <p>Then restart uwsgi service and finally it works like a charm :-)</p>
 
               
@@ -404,7 +396,7 @@ AttributeError: <span class="s1">&#39;WSGIRequest&#39;</span> object has no attr
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

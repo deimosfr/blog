@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Yesterday a colleague (Dimitri) tested a tool on this blog. He informed me that Varnish was disabled and PageSpeed may be the cause as this is the last modification I&rsquo;ve made on the server.
@@ -291,21 +291,15 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://wiki.deimos.fr/images/5/50/Pagespeed.png" alt="Pagespeed" /></p>
-
-<p>Yesterday a colleague (Dimitri) tested a tool on this blog. He informed me that Varnish was disabled and PageSpeed may be the cause as this is the last <a href="http://blog.deimos.fr/2014/02/16/deimos-fr-is-now-using-pagespeed-feedbacks/" target="_blank">modification I&rsquo;ve made on the server</a>.</p>
-
+              <p><img src="https://wiki.deimos.fr/images/5/50/Pagespeed.png" alt="Pagespeed"></p>
+<p>Yesterday a colleague (Dimitri) tested a tool on this blog. He informed me that Varnish was disabled and PageSpeed may be the cause as this is the last <a href="http://blog.deimos.fr/2014/02/16/deimos-fr-is-now-using-pagespeed-feedbacks/">modification I&rsquo;ve made on the server</a>.</p>
 <p>After verification he was totally right ! By default, PageSpeed disable cache by serving HTML files with:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-php" data-lang="php">Cache-Control: no-cache, max-age=0</code></pre></div>
-
-<p>After reading the <a href="https://developers.google.com/speed/pagespeed/module/downstream-caching" target="_blank">PageSpeed documentation on that topic</a>, it is clear: PageSpeed needs to know how to purge the cache as it rewrites a lot of elements and it has the control instead of the application. To get Varnish handled by PageSpeed, you need to add and adapt to your configuration those 3 lines for Nginx:</p>
-
+<p>After reading the <a href="https://developers.google.com/speed/pagespeed/module/downstream-caching">PageSpeed documentation on that topic</a>, it is clear: PageSpeed needs to know how to purge the cache as it rewrites a lot of elements and it has the control instead of the application. To get Varnish handled by PageSpeed, you need to add and adapt to your configuration those 3 lines for Nginx:</p>
 <div class="highlight"><pre class="chroma"><code class="language-php" data-lang="php">pagespeed DownstreamCachePurgeLocationPrefix http://127.0.0.1:80/;
 pagespeed DownstreamCachePurgeMethod PURGE;
 pagespeed DownstreamCacheRewrittenPercentageThreshold 95;</code></pre></div>
-
-<p>I <a href="https://wiki.deimos.fr/Page_Speed:_optimize_on_the_fly_your_rendered_code" target="_blank">updated my documentation with those options</a> as well.</p>
+<p>I <a href="https://wiki.deimos.fr/Page_Speed:_optimize_on_the_fly_your_rendered_code">updated my documentation with those options</a> as well.</p>
 
               
             </div>
@@ -404,7 +398,7 @@ pagespeed DownstreamCacheRewrittenPercentageThreshold 95;</code></pre></div>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

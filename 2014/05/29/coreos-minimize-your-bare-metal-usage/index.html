@@ -5,21 +5,25 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
-<meta name="description" content="&gt; CoreOS is a new Linux distribution that has been rearchitected to provide features needed to run modern infrastructure stacks. The strategies and architectures that influence CoreOS allow companies like Google, Facebook and Twitter to run their services at scale with high resilience. We&rsquo;ve implemented them correctly so you don&rsquo;t have to endure the slow, learn-as-you-go infrastructure building process. &gt; &gt; CoreOS can run on your existing hardware or on most cloud providers.">
+<meta name="description" content="CoreOS is a new Linux distribution that has been rearchitected to provide features needed to run modern infrastructure stacks. The strategies and architectures that influence CoreOS allow companies like Google, Facebook and Twitter to run their services at scale with high resilience. We&rsquo;ve implemented them correctly so you don&rsquo;t have to endure the slow, learn-as-you-go infrastructure building process.
+CoreOS can run on your existing hardware or on most cloud providers.">
 
 
-<meta property="og:description" content="&gt; CoreOS is a new Linux distribution that has been rearchitected to provide features needed to run modern infrastructure stacks. The strategies and architectures that influence CoreOS allow companies like Google, Facebook and Twitter to run their services at scale with high resilience. We&rsquo;ve implemented them correctly so you don&rsquo;t have to endure the slow, learn-as-you-go infrastructure building process. &gt; &gt; CoreOS can run on your existing hardware or on most cloud providers.">
+<meta property="og:description" content="CoreOS is a new Linux distribution that has been rearchitected to provide features needed to run modern infrastructure stacks. The strategies and architectures that influence CoreOS allow companies like Google, Facebook and Twitter to run their services at scale with high resilience. We&rsquo;ve implemented them correctly so you don&rsquo;t have to endure the slow, learn-as-you-go infrastructure building process.
+CoreOS can run on your existing hardware or on most cloud providers.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CoreOS: minimize your bare metal usage">
 <meta name="twitter:title" content="CoreOS: minimize your bare metal usage">
 <meta property="og:url" content="https://blog.deimos.fr/2014/05/29/coreos-minimize-your-bare-metal-usage/">
 <meta property="twitter:url" content="https://blog.deimos.fr/2014/05/29/coreos-minimize-your-bare-metal-usage/">
 <meta property="og:site_name" content="Deimosfr Blog">
-<meta property="og:description" content="&gt; CoreOS is a new Linux distribution that has been rearchitected to provide features needed to run modern infrastructure stacks. The strategies and architectures that influence CoreOS allow companies like Google, Facebook and Twitter to run their services at scale with high resilience. We&rsquo;ve implemented them correctly so you don&rsquo;t have to endure the slow, learn-as-you-go infrastructure building process. &gt; &gt; CoreOS can run on your existing hardware or on most cloud providers.">
-<meta name="twitter:description" content="&gt; CoreOS is a new Linux distribution that has been rearchitected to provide features needed to run modern infrastructure stacks. The strategies and architectures that influence CoreOS allow companies like Google, Facebook and Twitter to run their services at scale with high resilience. We&rsquo;ve implemented them correctly so you don&rsquo;t have to endure the slow, learn-as-you-go infrastructure building process. &gt; &gt; CoreOS can run on your existing hardware or on most cloud providers.">
+<meta property="og:description" content="CoreOS is a new Linux distribution that has been rearchitected to provide features needed to run modern infrastructure stacks. The strategies and architectures that influence CoreOS allow companies like Google, Facebook and Twitter to run their services at scale with high resilience. We&rsquo;ve implemented them correctly so you don&rsquo;t have to endure the slow, learn-as-you-go infrastructure building process.
+CoreOS can run on your existing hardware or on most cloud providers.">
+<meta name="twitter:description" content="CoreOS is a new Linux distribution that has been rearchitected to provide features needed to run modern infrastructure stacks. The strategies and architectures that influence CoreOS allow companies like Google, Facebook and Twitter to run their services at scale with high resilience. We&rsquo;ve implemented them correctly so you don&rsquo;t have to endure the slow, learn-as-you-go infrastructure building process.
+CoreOS can run on your existing hardware or on most cloud providers.">
 <meta property="og:locale" content="en-us">
 
   
@@ -276,21 +280,16 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_coreos.png" alt="coreos-logo" />
-&gt; CoreOS is a new Linux distribution that has been rearchitected to provide features needed to run modern infrastructure stacks. The strategies and architectures that influence CoreOS allow companies like Google, Facebook and Twitter to run their services at scale with high resilience. We&rsquo;ve implemented them correctly so you don&rsquo;t have to endure the slow, learn-as-you-go infrastructure building process.
-&gt;
-&gt; CoreOS can run on your existing hardware or on most cloud providers. Clustering works across platforms, making it easy to migrate parts of your gear over to CoreOS, or to switch cloud providers while running CoreOS.</p>
-
+              <p><img src="https://blog.deimos.fr/images/logo_coreos.png" alt="coreos-logo"></p>
+<blockquote>
+<p>CoreOS is a new Linux distribution that has been rearchitected to provide features needed to run modern infrastructure stacks. The strategies and architectures that influence CoreOS allow companies like Google, Facebook and Twitter to run their services at scale with high resilience. We&rsquo;ve implemented them correctly so you don&rsquo;t have to endure the slow, learn-as-you-go infrastructure building process.</p>
+<p>CoreOS can run on your existing hardware or on most cloud providers. Clustering works across platforms, making it easy to migrate parts of your gear over to CoreOS, or to switch cloud providers while running CoreOS.</p>
+</blockquote>
 <p>CoreOS is a volatile distribution with a very small memory footprint. It starts to be very interesting when you combine it with Docker.</p>
-
 <p>A pretty thing of CoreOS is the updates. They are automatically done without interruption (in a cluster) and have an automatic rollback mechanism when it fails! If you configure CoreOS to handle the load balancer (scripts exists for AWS), then it is totally transparent for you and you do not have anything to do.</p>
-
 <p>When CoreOS is rebooted or when a node fails, the containers are going offline and migrated to another node in the cluster.</p>
-
 <p>You can install CoreOS in several different ways like ISO, PXE and use etcd in a clustered environment to keep and deploy your configuration in a centralized way.</p>
-
 <p>You can then use fleetctl to automatically pull docker images after each boot and systemd to automatically start containers. If you need to install compilers or tools, you can use &ldquo;toolbox&rdquo; from Fedora.</p>
-
 <p>If your objective is to use docker on several servers, want HA and scalability, you should consider looking at CoreOS.</p>
 
               
@@ -384,7 +383,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

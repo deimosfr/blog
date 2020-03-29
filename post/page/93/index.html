@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Deimos Blog">
@@ -218,6 +218,72 @@ if (!doNotTrack) {
             
   
     
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2010/12/29/glusterfs-vs-drbdocfs2-2/">
+          GlusterFS vs DRBD&#43;OCFS2
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2010-12-29T13:18:02Z">
+        
+  
+  
+  
+  
+    29 December 2010
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/ha">HA</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        Ca fait un moment que je me dit qu’il va falloir étudier le cas de la réplication de fichiers temps réel entre mon serveur perso et ma dedibox. J’en avais un peu marre de mon rsync crontabé (oui le verbe existe).
+J&rsquo;ai donc écris une petite documentation sur GlusterFS sur comment répliquer le /var/www. Dans la pratique c&rsquo;est plutôt bien :
+  Rapide à mettre en place
+  Simple
+      
+      <p>
+        <a href="https://blog.deimos.fr/2010/12/29/glusterfs-vs-drbdocfs2-2/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+          
+            
+  
+    
   
 
 
@@ -400,9 +466,9 @@ Si certains d&rsquo;entre vous ont des retours sur ce soft ou d&rsquo;autres don
       
         J&rsquo;ai une très mauvaise expérience actuellement avec FreeBSD. J&rsquo;ai effectuer plusieurs tests hard avant de remettre sur FreeBSD.
 Pourquoi avais je pris FreeBSD au lieu de Debian ? :
- Pour le ZFS
- Sa réputation
- Pour essayer
+  Pour le ZFS
+  Sa réputation
+  Pour essayer
   Seulement voilà, quand on commence à faire du fuse + encfs + sshfs&hellip;bah c&rsquo;est pas aussi stable qu&rsquo;on est en droit de penser. J&rsquo;ai des kernel panic qui ne font même pas rebooter ma machine (alors que c&rsquo;est pourtant le comportement par défaut de FreeBSD) visiblement à cause de Fuse ou SSHfs et c&rsquo;est très handicapant.
       
       <p>
@@ -531,8 +597,8 @@ Pourquoi avais je pris FreeBSD au lieu de Debian ? :
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
       
-        J&rsquo;ai récemment mis à jour une baie de disques Sun StorageTek 6140 de la version 6 à la version 7. La tâche n&rsquo;était pas simple, il a fallu tout d&rsquo;abord télécharger des outils spécifique pour effectuer cette upgrade :
-http://dlc.sun.com/pdf/820-7197-12&frasl;820-7197-12.pdf
+        J&rsquo;ai récemment mis à jour une baie de disques Sun StorageTek 6140 de la version 6 à la version 7. La tâche n'était pas simple, il a fallu tout d&rsquo;abord télécharger des outils spécifique pour effectuer cette upgrade :
+http://dlc.sun.com/pdf/820-7197-12/820-7197-12.pdf
 Ensuite, un collègue m&rsquo;a filé ce lien qui permet d&rsquo;avoir les best practice pour faire du RAID 6 :
 http://www.filibeto.org/sun/lib/blueprints/820-5825.pdf
 Tout ça pour faire du vmware. Il a donc fallu changer le mode de visualisation de la baie par les hosts en vmware et idem encore utiliser les recommandations de Vmware par rapport aux LUN etc&hellip; :
@@ -619,70 +685,6 @@ Pour ceux que ça intéressent voici mes déboires sur OpenVZ.
 </article>
 
           
-            
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://blog.deimos.fr/2010/09/21/raidz2-degarded-sur-freebsd-en-zroot/">
-          RAIDZ2 Degarded sur FreeBSD en Zroot
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2010-09-21T21:30:25Z">
-        
-  
-  
-  
-  
-    21 September 2010
-  
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/freebsd">FreeBSD</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        Que de mots pour le néophyte du ZFS. C’est en gros mon raidz2 (~ raid6) qui est parti en cacahuète à cause d’un disque pourave dont FreeBSD est également présent sur ce raid.
-J&rsquo;explique donc la marche à suivre pour remplacer son disque défectueux :-)
-      
-      <p>
-        <a href="https://blog.deimos.fr/2010/09/21/raidz2-degarded-sur-freebsd-en-zroot/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
           
   <div class="pagination-bar">
     <ul class="pagination">
@@ -712,7 +714,7 @@ J&rsquo;explique donc la marche à suivre pour remplacer son disque défectueux 
         </section>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

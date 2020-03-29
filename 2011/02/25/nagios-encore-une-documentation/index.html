@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Bonjour à tous !
-J&rsquo;ai mis à jour mon wiki avec ma configuration Nagios. Vous allez me dire : &ldquo;Atta&hellip; pouquoi t&rsquo;fais ça, yen a plein sule net, c&rsquo;est po la peine hein !&rdquo;. C&rsquo;est vrai qu&rsquo;il y en a plein sur le net, c&rsquo;est pour ça que la mienne n&rsquo;est pas bourrée d&rsquo;explications et surtout un peu plus particulière que la majorité qu&rsquo;on trouve sur internet.
+J&rsquo;ai mis à jour mon wiki avec ma configuration Nagios. Vous allez me dire : &ldquo;Atta&hellip; pouquoi t&rsquo;fais ça, yen a plein sule net, c&rsquo;est po la peine hein !&quot;. C&rsquo;est vrai qu&rsquo;il y en a plein sur le net, c&rsquo;est pour ça que la mienne n&rsquo;est pas bourrée d&rsquo;explications et surtout un peu plus particulière que la majorité qu&rsquo;on trouve sur internet.
 Etant utilisateur, administrateur et développeur de plugins, ma forte expérience sur Nagios m&rsquo;a permit d&rsquo;apprendre à moduler, simplifier et rendre flexible ma configuration Nagios.">
 
 
 <meta property="og:description" content="Bonjour à tous !
-J&rsquo;ai mis à jour mon wiki avec ma configuration Nagios. Vous allez me dire : &ldquo;Atta&hellip; pouquoi t&rsquo;fais ça, yen a plein sule net, c&rsquo;est po la peine hein !&rdquo;. C&rsquo;est vrai qu&rsquo;il y en a plein sur le net, c&rsquo;est pour ça que la mienne n&rsquo;est pas bourrée d&rsquo;explications et surtout un peu plus particulière que la majorité qu&rsquo;on trouve sur internet.
+J&rsquo;ai mis à jour mon wiki avec ma configuration Nagios. Vous allez me dire : &ldquo;Atta&hellip; pouquoi t&rsquo;fais ça, yen a plein sule net, c&rsquo;est po la peine hein !&quot;. C&rsquo;est vrai qu&rsquo;il y en a plein sur le net, c&rsquo;est pour ça que la mienne n&rsquo;est pas bourrée d&rsquo;explications et surtout un peu plus particulière que la majorité qu&rsquo;on trouve sur internet.
 Etant utilisateur, administrateur et développeur de plugins, ma forte expérience sur Nagios m&rsquo;a permit d&rsquo;apprendre à moduler, simplifier et rendre flexible ma configuration Nagios.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nagios : Encore une documentation">
@@ -23,10 +23,10 @@ Etant utilisateur, administrateur et développeur de plugins, ma forte expérien
 <meta property="twitter:url" content="https://blog.deimos.fr/2011/02/25/nagios-encore-une-documentation/">
 <meta property="og:site_name" content="Deimosfr Blog">
 <meta property="og:description" content="Bonjour à tous !
-J&rsquo;ai mis à jour mon wiki avec ma configuration Nagios. Vous allez me dire : &ldquo;Atta&hellip; pouquoi t&rsquo;fais ça, yen a plein sule net, c&rsquo;est po la peine hein !&rdquo;. C&rsquo;est vrai qu&rsquo;il y en a plein sur le net, c&rsquo;est pour ça que la mienne n&rsquo;est pas bourrée d&rsquo;explications et surtout un peu plus particulière que la majorité qu&rsquo;on trouve sur internet.
+J&rsquo;ai mis à jour mon wiki avec ma configuration Nagios. Vous allez me dire : &ldquo;Atta&hellip; pouquoi t&rsquo;fais ça, yen a plein sule net, c&rsquo;est po la peine hein !&quot;. C&rsquo;est vrai qu&rsquo;il y en a plein sur le net, c&rsquo;est pour ça que la mienne n&rsquo;est pas bourrée d&rsquo;explications et surtout un peu plus particulière que la majorité qu&rsquo;on trouve sur internet.
 Etant utilisateur, administrateur et développeur de plugins, ma forte expérience sur Nagios m&rsquo;a permit d&rsquo;apprendre à moduler, simplifier et rendre flexible ma configuration Nagios.">
 <meta name="twitter:description" content="Bonjour à tous !
-J&rsquo;ai mis à jour mon wiki avec ma configuration Nagios. Vous allez me dire : &ldquo;Atta&hellip; pouquoi t&rsquo;fais ça, yen a plein sule net, c&rsquo;est po la peine hein !&rdquo;. C&rsquo;est vrai qu&rsquo;il y en a plein sur le net, c&rsquo;est pour ça que la mienne n&rsquo;est pas bourrée d&rsquo;explications et surtout un peu plus particulière que la majorité qu&rsquo;on trouve sur internet.
+J&rsquo;ai mis à jour mon wiki avec ma configuration Nagios. Vous allez me dire : &ldquo;Atta&hellip; pouquoi t&rsquo;fais ça, yen a plein sule net, c&rsquo;est po la peine hein !&quot;. C&rsquo;est vrai qu&rsquo;il y en a plein sur le net, c&rsquo;est pour ça que la mienne n&rsquo;est pas bourrée d&rsquo;explications et surtout un peu plus particulière que la majorité qu&rsquo;on trouve sur internet.
 Etant utilisateur, administrateur et développeur de plugins, ma forte expérience sur Nagios m&rsquo;a permit d&rsquo;apprendre à moduler, simplifier et rendre flexible ma configuration Nagios.">
 <meta property="og:locale" content="en-us">
 
@@ -280,13 +280,9 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>Bonjour à tous !</p>
-
-<p>J&rsquo;ai mis à jour mon wiki avec ma configuration Nagios. Vous allez me dire : &ldquo;Atta&hellip; pouquoi t&rsquo;fais ça, yen a plein sule net, c&rsquo;est po la peine hein !&rdquo;. C&rsquo;est vrai qu&rsquo;il y en a plein sur le net, c&rsquo;est pour ça que la mienne n&rsquo;est pas bourrée d&rsquo;explications et surtout un peu plus particulière que la majorité qu&rsquo;on trouve sur internet.</p>
-
+<p>J&rsquo;ai mis à jour mon wiki avec ma configuration Nagios. Vous allez me dire : &ldquo;Atta&hellip; pouquoi t&rsquo;fais ça, yen a plein sule net, c&rsquo;est po la peine hein !&quot;. C&rsquo;est vrai qu&rsquo;il y en a plein sur le net, c&rsquo;est pour ça que la mienne n&rsquo;est pas bourrée d&rsquo;explications et surtout un peu plus particulière que la majorité qu&rsquo;on trouve sur internet.</p>
 <p>Etant utilisateur, administrateur et développeur de plugins, ma forte expérience sur Nagios m&rsquo;a permit d&rsquo;apprendre à moduler, simplifier et rendre flexible ma configuration Nagios. Il est par exemple très simple d&rsquo;ajouter d&rsquo;un host avec des checks associés (grossomodo une des choses que l&rsquo;on fait le plus souvent sur Nagios).</p>
-
-<p>C&rsquo;est pourquoi j&rsquo;ai jugé utile de mettre à jour mon wiki et de vous faire profiter de celle ci. La <a href="http://wiki.deimos.fr/Nagios_:_Installation_et_configuration" target="_blank">documentation se trouve donc ici</a> et ma configuration complète est attaché à la page wiki.</p>
-
+<p>C&rsquo;est pourquoi j&rsquo;ai jugé utile de mettre à jour mon wiki et de vous faire profiter de celle ci. La <a href="http://wiki.deimos.fr/Nagios_:_Installation_et_configuration">documentation se trouve donc ici</a> et ma configuration complète est attaché à la page wiki.</p>
 <p>N&rsquo;hésitez pas à me faire des retours. J&rsquo;ai par ailleurs pas vraiment fini de compléter celle ci avec les agents (NRPE/NSCA), mais ça arrivera sous peu.</p>
 
               
@@ -382,7 +378,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

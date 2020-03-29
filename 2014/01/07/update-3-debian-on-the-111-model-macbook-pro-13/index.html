@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="To resume, here are the previous posts :
@@ -272,29 +272,22 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_debian.png" alt="debian_logo" />
+              <p><img src="https://blog.deimos.fr/images/logo_debian.png" alt="debian_logo">
 To resume, here are the previous posts :</p>
-
 <ul>
-<li><a href="http://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/" target="_blank">http://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/</a></li>
-<li><a href="http://blog.deimos.fr/2013/11/10/update-1-debian-on-the-111-model-macbook-pro-13/" target="_blank">http://blog.deimos.fr/2013/11/10/update-1-debian-on-the-111-model-macbook-pro-13/</a></li>
-<li><a href="http://blog.deimos.fr/2013/12/08/update-2-debian-on-the-111-model-macbook-pro-13/" target="_blank">http://blog.deimos.fr/2013/12/08/update-2-debian-on-the-111-model-macbook-pro-13/</a></li>
+<li><a href="http://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/">http://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/</a></li>
+<li><a href="http://blog.deimos.fr/2013/11/10/update-1-debian-on-the-111-model-macbook-pro-13/">http://blog.deimos.fr/2013/11/10/update-1-debian-on-the-111-model-macbook-pro-13/</a></li>
+<li><a href="http://blog.deimos.fr/2013/12/08/update-2-debian-on-the-111-model-macbook-pro-13/">http://blog.deimos.fr/2013/12/08/update-2-debian-on-the-111-model-macbook-pro-13/</a></li>
 </ul>
-
 <p>The last week end, I&rsquo;ve resolved flash problems which were not in fact due to flash as I thought but to the Alsa driver. It wasn&rsquo;t charging the proper the drivers in the correct order. That&rsquo;s why MID card was used before PCH. So I wasn&rsquo;t able to listen anything and that&rsquo;s why Youtube videos didn&rsquo;t worked.</p>
-
 <p>First of all, look at the correct order of your sound card :</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ cat /proc/asound/cards                
  <span class="m">0</span> <span class="o">[</span>PCH            <span class="o">]</span>: HDA-Intel - HDA Intel PCH
                       HDA Intel PCH at 0xb0a14000 irq <span class="m">69</span>
  <span class="m">1</span> <span class="o">[</span>MID            <span class="o">]</span>: HDA-Intel - HDA Intel MID
                       HDA Intel MID at 0xb0a10000 irq <span class="m">68</span></code></pre></div>
-
 <p>Here it&rsquo;s correct as index 0 is my PCH card and 1 is my MID (but it was inverted). To correct it, I&rsquo;ve updated line in /etc/modprobe.d/alsa-base.conf to :</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">options snd-hda-intel <span class="nv">model</span><span class="o">=</span>mbp101 <span class="nv">index</span><span class="o">=</span><span class="m">1</span></code></pre></div>
-
 <p>Then rebooted and now it&rsquo;s ok :-). I hope this will help you too. The remaining things are disabling S/PDIF (should be corrected in 3.13 kernel) and the webcam (no news :-().</p>
 
               
@@ -388,7 +381,7 @@ To resume, here are the previous posts :</p>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

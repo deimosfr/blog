@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HA on Deimosfr Blog</title>
@@ -17,7 +17,7 @@
       <pubDate>Thu, 21 Jan 2016 13:00:16 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/</guid>
-      <description>Some of you may not be familiar with the terms &amp;ldquo;Rolling upgrade&amp;rdquo; or &amp;ldquo;Rolling restart&amp;rdquo;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&amp;rsquo;re managing and the number of active nodes in your cluster.
+      <description>Some of you may not be familiar with the terms &amp;ldquo;Rolling upgrade&amp;rdquo; or &amp;ldquo;Rolling restart&amp;quot;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&amp;rsquo;re managing and the number of active nodes in your cluster.
 At Nousmotards we have several Java Spring Boot applications running. Restarting one application can take up to 1 min.</description>
     </item>
     
@@ -28,7 +28,8 @@ At Nousmotards we have several Java Spring Boot applications running. Restarti
       
       <guid>https://blog.deimos.fr/2015/01/27/offload-ssl-with-haproxy/</guid>
       <description>A few months ago, I already talked about offloading SSL with Nginx. I also wanted to try it with HAProxy which can be more interesting in some cases.
-The good On HAProxy, the good thing is the simplicity to do it. First of all you need to have at least the version 1.5 of HAProxy so to get SSL support. Then you only need those lines to offload SSL:</description>
+The good On HAProxy, the good thing is the simplicity to do it. First of all you need to have at least the version 1.5 of HAProxy so to get SSL support. Then you only need those lines to offload SSL:
+frontend frontend-https bind :443 ssl crt /etc/haproxy/ssl/server-unified.</description>
     </item>
     
     <item>
@@ -68,8 +69,7 @@ Here is my documentation.</description>
       <pubDate>Tue, 10 Dec 2013 11:00:00 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2013/12/10/galera-how-to-perform-zero-downtime-schema-changes/</guid>
-      <description>Last week, I had a webinar regarding Galera Cluster given by Severalnines. As I found it very interesting, I’m sharing it with you :
-  Zero Downtime Schema Changes - Galera Cluster - Best Practices  from Severalnines</description>
+      <description>Last week, I had a webinar regarding Galera Cluster given by Severalnines. As I found it very interesting, I’m sharing it with you :</description>
     </item>
     
     <item>
@@ -100,9 +100,8 @@ Un des supers sujet était Bind 10 que j&amp;rsquo;attendais avec impatience. Il
       <guid>https://blog.deimos.fr/2010/12/29/glusterfs-vs-drbdocfs2-2/</guid>
       <description>Ca fait un moment que je me dit qu’il va falloir étudier le cas de la réplication de fichiers temps réel entre mon serveur perso et ma dedibox. J’en avais un peu marre de mon rsync crontabé (oui le verbe existe).
 J&amp;rsquo;ai donc écris une petite documentation sur GlusterFS sur comment répliquer le /var/www. Dans la pratique c&amp;rsquo;est plutôt bien :
- Rapide à mettre en place
- Simple
- Extensible</description>
+  Rapide à mettre en place
+  Simple</description>
     </item>
     
   </channel>

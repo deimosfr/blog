@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>OpenBSD on Deimosfr Blog</title>
@@ -60,7 +60,7 @@ connect-proxy : j&amp;rsquo;ai rajouté la partie sur l&amp;rsquo;installation s
       <pubDate>Sun, 01 Apr 2012 11:00:19 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2012/04/01/soekris-migration-dopenbsd-pfsense/</guid>
-      <description>Je m&amp;rsquo;étais fais la main sur la Soekris d&amp;rsquo;un pot il y a un peu plus d&amp;rsquo;un an maintenant et j&amp;rsquo;avais trouvé ça sexy pour l&amp;rsquo;époque. Je trouve que c&amp;rsquo;est aujourd&amp;rsquo;hui vraiment bien abouti et que les fonctionnalités ne manques pas. De plus c&amp;rsquo;est assez scalable, on peut faire a peut prêt tout ce que l&amp;rsquo;on veut dessus, donc j&amp;rsquo;en suis satisfait pour le moment.
+      <description>Je m&#39;étais fais la main sur la Soekris d&amp;rsquo;un pot il y a un peu plus d&amp;rsquo;un an maintenant et j&amp;rsquo;avais trouvé ça sexy pour l&#39;époque. Je trouve que c&amp;rsquo;est aujourd&amp;rsquo;hui vraiment bien abouti et que les fonctionnalités ne manques pas. De plus c&amp;rsquo;est assez scalable, on peut faire a peut prêt tout ce que l&amp;rsquo;on veut dessus, donc j&amp;rsquo;en suis satisfait pour le moment.
 Me voilà donc parti sur une de ces distribs clef en main pour ce qui me sert de routeur/firewall chez moi.</description>
     </item>
     
@@ -84,9 +84,9 @@ Me voilà donc parti sur une de ces distribs clef en main pour ce qui me sert de
       <description>Je ne me suis pas mis au LaTeX pour rien, j’avais pour idée de pondre une Cheat Sheet sur Tmux, vu que je n’en avais trouvé aucune sur le net.
 J&amp;rsquo;ai donc mis à jour la documentation Tmux avec les Cheat Sheet en anglais et français.
 Je les fournis également ici :
- Tmux French Cheat Sheet
- Tmux English Cheat Sheet
-  N&amp;rsquo;hésitez pas à me faire un retour ou des propositions sur d&amp;rsquo;éventuels ajouts.</description>
+  Tmux French Cheat Sheet
+  Tmux English Cheat Sheet
+  N&amp;rsquo;hésitez pas à me faire un retour ou des propositions sur d&#39;éventuels ajouts.</description>
     </item>
     
     <item>
@@ -137,7 +137,7 @@ Et voici une petite documentation et un correctif pour OpenBSD.</description>
       
       <guid>https://blog.deimos.fr/2009/12/22/encore-de-nouvelles-contributions-pour-nagios/</guid>
       <description>Oyé oyé, les contributions nagios se suivent mais ne se ressemblent pas. J’ai concocté 2 nouveaux modules nagios :
- check_sun_cluster : qui permet de surveiller l&amp;rsquo;état du cluster sun check_multi_procs : permet de surveiller plusieurs process dans un seul check  Et puis j&amp;rsquo;ai pu en améliorer d&amp;rsquo;autres :
+ check_sun_cluster : qui permet de surveiller l&#39;état du cluster sun check_multi_procs : permet de surveiller plusieurs process dans un seul check  Et puis j&amp;rsquo;ai pu en améliorer d&amp;rsquo;autres :
  check_backuppc_hosts : ajout d&amp;rsquo;une fonctionnalité pour monitorer qu&amp;rsquo;un seuil hôte  Voilà donc mes dernières œuvres.</description>
     </item>
     
@@ -148,8 +148,8 @@ Et voici une petite documentation et un correctif pour OpenBSD.</description>
       
       <guid>https://blog.deimos.fr/2009/12/13/encore-2-nouveaux-plugins-pour-nagios/</guid>
       <description>Et oui, ça continue. J’ai créer 2 nouveaux plugins pour Nagios :
- Check_ldap_request : Permet d&amp;rsquo;effectuer une requêtes LDAP pour vérifier l&amp;rsquo;existance d&amp;rsquo;un attribut
- Check_rss_mem : Vérifie la mémoire réservée de tous les processus sous Solaris
+  Check_ldap_request : Permet d&amp;rsquo;effectuer une requêtes LDAP pour vérifier l&amp;rsquo;existance d&amp;rsquo;un attribut
+  Check_rss_mem : Vérifie la mémoire réservée de tous les processus sous Solaris
   Quelques nouveaux vont arriver d&amp;rsquo;ici peu et des améliorations pour les existants.</description>
     </item>
     

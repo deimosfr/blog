@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Following a previous post, I&rsquo;ve enabled PageSpeed on both wiki and blog deimos.fr.
@@ -291,17 +291,12 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://wiki.deimos.fr/images/5/50/Pagespeed.png" alt="Pagespeed" /></p>
-
-<p><a href="http://blog.deimos.fr/2014/02/12/page-speed-optimize-on-the-fly-your-rendered-code-with-nginx/" target="_blank">Following a previous post</a>, I&rsquo;ve enabled <a href="https://wiki.deimos.fr/Page_Speed:_optimize_on_the_fly_your_rendered_code" target="_blank">PageSpeed</a> on both <a href="http://wiki.deimos.fr" target="_blank">wiki</a> and <a href="http://blog.deimos.fr" target="_blank">blog</a> deimos.fr.</p>
-
+              <p><img src="https://wiki.deimos.fr/images/5/50/Pagespeed.png" alt="Pagespeed"></p>
+<p><a href="http://blog.deimos.fr/2014/02/12/page-speed-optimize-on-the-fly-your-rendered-code-with-nginx/">Following a previous post</a>, I&rsquo;ve enabled <a href="https://wiki.deimos.fr/Page_Speed:_optimize_on_the_fly_your_rendered_code">PageSpeed</a> on both <a href="http://wiki.deimos.fr">wiki</a> and <a href="http://blog.deimos.fr">blog</a> deimos.fr.</p>
 <p>What I can say is, it&rsquo;s very important to take the time to test every optimizations you want to add. I experienced for example issues on silly things like :</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Optimize browser rendering</span>
 pagespeed EnableFilters lazyload_images<span class="p">;</span></code></pre></div>
-
 <p>Some images weren&rsquo;t shown if you didn&rsquo;t refresh once again your page browser. I only had this problem on the blog and not the wiki. That&rsquo;s why you absolutely need to test everything !</p>
-
 <p>This is not a big feedback but what I can say is, PageSpeed is really good, may be not enough mature to avoid tests but does the job quite well.</p>
 
               
@@ -401,7 +396,7 @@ pagespeed EnableFilters lazyload_images<span class="p">;</span></code></pre></di
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

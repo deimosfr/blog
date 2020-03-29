@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cv on Deimosfr Blog</title>
@@ -20,10 +20,10 @@
       <description>La première version de phpCV est sortie :-). Soyez donc indulgent…
 Je prévois de belles améliorations mais pour le moment, ça vous permet de faire simplement un beau CV sans trop se fouler.
 Il me reste un beau README a faire, mais pour l&amp;rsquo;heure voici en gros les quelques fonctionnalités :
- Bi languages
- Partie confidentielle gérée
- Calcul automatique de l&amp;rsquo;age
- Génération des PDF à la volée</description>
+  Bi languages
+  Partie confidentielle gérée
+  Calcul automatique de l&amp;rsquo;age
+  Génération des PDF à la volée</description>
     </item>
     
     <item>

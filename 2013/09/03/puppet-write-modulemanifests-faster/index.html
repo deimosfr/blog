@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="I don&rsquo;t know if you&rsquo;ve write with emacs/vim or any other classical tool editor, a manifest or a Puppet module. If you did it, I&rsquo;m pretty sure you&rsquo;ve made a lot of syntax errors or got errors during catalog compilation. During a long time, I was using Geppetto to help me on writing and suggesting better syntax to my manifest.
@@ -278,35 +278,26 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/Puppet-short.png" alt="Puppet-short" />
-I don&rsquo;t know if you&rsquo;ve write with emacs/vim or any other classical tool editor, a manifest or a Puppet module. If you did it, I&rsquo;m pretty sure you&rsquo;ve made a lot of syntax errors or got errors during catalog compilation. During a long time, I was using <a href="http://blog.deimos.fr/2012/05/15/gepetto-un-ide-pour-puppet/" target="_blank">Geppetto</a> to help me on writing and suggesting better syntax to my manifest.</p>
-
-<p>I took the latest available version of <a href="http://cloudsmith.github.io/geppetto/" target="_blank">Geppetto</a> but it crashes all the time. As I can&rsquo;t work without assistance manifests (because it&rsquo;s a nightmare when you don&rsquo;t do it day to day), I reminded that I saw a <a href="https://github.com/rodjek/vim-puppet" target="_blank">vim puppet</a> plugin. After some little searches, I found it easily on Github.</p>
-
+              <p><img src="https://blog.deimos.fr/images/Puppet-short.png" alt="Puppet-short">
+I don&rsquo;t know if you&rsquo;ve write with emacs/vim or any other classical tool editor, a manifest or a Puppet module. If you did it, I&rsquo;m pretty sure you&rsquo;ve made a lot of syntax errors or got errors during catalog compilation. During a long time, I was using <a href="http://blog.deimos.fr/2012/05/15/gepetto-un-ide-pour-puppet/">Geppetto</a> to help me on writing and suggesting better syntax to my manifest.</p>
+<p>I took the latest available version of <a href="http://cloudsmith.github.io/geppetto/">Geppetto</a> but it crashes all the time. As I can&rsquo;t work without assistance manifests (because it&rsquo;s a nightmare when you don&rsquo;t do it day to day), I reminded that I saw a <a href="https://github.com/rodjek/vim-puppet">vim puppet</a> plugin. After some little searches, I found it easily on Github.</p>
 <p>I tried it and searched on other interesting help with vim to write manifests and here is what I found :</p>
-
 <ul>
-<li><a href="https://github.com/godlygeek/tabular" target="_blank">Tabular</a> : help to get aligned &lsquo;=&gt;&rsquo; chars in manifests. Easy to use and works very well</li>
-<li><a href="https://github.com/rodjek/vim-puppet" target="_blank">vim puppet</a> : syntax color for manifests</li>
-<li><a href="https://github.com/scrooloose/syntastic" target="_blank">Syntastic</a> : help on syntax errors, check errors on each saving file</li>
-<li><a href="https://github.com/SirVer/ultisnips" target="_blank">ultisnips</a> : help to write blocks like file, cron, class&hellip; simply with tab key</li>
+<li><a href="https://github.com/godlygeek/tabular">Tabular</a> : help to get aligned &lsquo;=&gt;&rsquo; chars in manifests. Easy to use and works very well</li>
+<li><a href="https://github.com/rodjek/vim-puppet">vim puppet</a> : syntax color for manifests</li>
+<li><a href="https://github.com/scrooloose/syntastic">Syntastic</a> : help on syntax errors, check errors on each saving file</li>
+<li><a href="https://github.com/SirVer/ultisnips">ultisnips</a> : help to write blocks like file, cron, class&hellip; simply with tab key</li>
 </ul>
-
-<p>With those plugins I&rsquo;ve got everything running easily. To install all of them, I use a tool that I already talk in last posts called <a href="http://blog.deimos.fr/2013/07/01/vim-using-vundle-to-install-your-plugins/" target="_blank">Vundle</a>. So to get this great Puppet environment for vim, add those lines to your ~/.vimrc file :</p>
-
+<p>With those plugins I&rsquo;ve got everything running easily. To install all of them, I use a tool that I already talk in last posts called <a href="http://blog.deimos.fr/2013/07/01/vim-using-vundle-to-install-your-plugins/">Vundle</a>. So to get this great Puppet environment for vim, add those lines to your ~/.vimrc file :</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">gmarik/vundle
 godlygeek/tabular
 rodjek/vim-puppet
 scrooloose/syntastic
 SirVer/ultisnips</code></pre></div>
-
 <p>And now call from the vim to install every additional plugins :</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">vim +BundleInstall +qall</code></pre></div>
-
 <p>You can now edit a .pp and see the result by writing a simple manifest :-)</p>
-
-<p>If you want to see my vim configuration, it&rsquo;s available <a href="https://git.deimos.fr/?p=git_deimosfr.git;a=tree;f=user_config/vim" target="_blank">on my Git</a>.</p>
+<p>If you want to see my vim configuration, it&rsquo;s available <a href="https://git.deimos.fr/?p=git_deimosfr.git;a=tree;f=user_config/vim">on my Git</a>.</p>
 
               
             </div>
@@ -401,7 +392,7 @@ SirVer/ultisnips</code></pre></div>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

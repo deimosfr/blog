@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Developement on Deimosfr Blog</title>
@@ -17,8 +17,7 @@
       <pubDate>Wed, 20 Jan 2016 10:00:41 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2016/01/20/how-we-speed-up-news-feed-and-user-wall-display-using-elasticsearch/</guid>
-      <description>&amp;nbsp;
-In my previous post, I talked about how to speed up reads and writes coupling Redis with Neo4J. Now I want to share with you how it&amp;rsquo;s possible to unload your server and use Elasticsearch to speed up news feed and user wall.
+      <description>In my previous post, I talked about how to speed up reads and writes coupling Redis with Neo4J. Now I want to share with you how it&amp;rsquo;s possible to unload your server and use Elasticsearch to speed up news feed and user wall.
 1/ Show me your news feed A news feed is the main page of traditional social networks. Its main goal is to show you all recents updates from your friends and your interests.</description>
     </item>
     
@@ -39,7 +38,7 @@ In my previous post, I talked about how to speed up reads and writes coupling R
       <guid>https://blog.deimos.fr/2015/01/20/simple-ec2-snapshot-released/</guid>
       <description>For my company, I recently had to find a good solution to make Snapshots from Instance IDs or from tags on AWS. I made several searches but unfortunately didn&amp;rsquo;t find what I was searching for.
 That&amp;rsquo;s why I started to make a tool to do this kind of job. It&amp;rsquo;s written in Python and requires the Boto library. Here is what you can do with Simple EC2 snapshots:
- Hot snapshots (by default) and Cold snapshots   Multiple instances snapshot in one line   Detection of doubles   Filters by tags (allowing wildcards) or by instance IDs   Credentials file multiple with profiles   Limit the number of snapshots   Restrict snapshots to data disks only   The tool is open source and can be downloaded on GitHub :-).</description>
+The tool is open source and can be downloaded on GitHub :-).</description>
     </item>
     
     <item>
@@ -130,7 +129,7 @@ Regarding the CPU side, I do not have an easy answer for the moment :-(. However
       <guid>https://blog.deimos.fr/2014/03/26/book-the-hackers-guide-to-python/</guid>
       <description>One of my colleague (Julien Danjou) wrote a book on advanced usage of Python. The book was out today and I strongly recommend buying it. Here is the summary of it:
  Python is a wonderful programming language that is being used more and more in many different industries. It is fast, flexible, and it comes with batteries included.
-Most of the books you read about Python will teach you the language basics – but once you&amp;rsquo;ve learnt them, you’re on your own in designing your application and discovering best practice.</description>
+  Most of the books you read about Python will teach you the language basics – but once you&amp;rsquo;ve learnt them, you’re on your own in designing your application and discovering best practice.</description>
     </item>
     
     <item>
@@ -225,7 +224,7 @@ That´s why I wrote a tool called deb_reboot that gives the reboot requierement 
       <guid>https://blog.deimos.fr/2013/03/05/bootstrap-mettez-vos-site-en-valeur-simplement/</guid>
       <description>Toi lecteur, si comme moi tu es un looser du design et que les sites web que tu créer ressemble a ceux du début de années 2000, alors bootstrap est fait pour toi !
 Concrètement qu&amp;rsquo;est-ce que c&amp;rsquo;est ? Simplement une suite de CSS/JavaScripts/Images pour habiller ton site et en plus responsiveness. Et a mettre en place, c&amp;rsquo;est d&amp;rsquo;une facilité déconcertante.
-Mais qui est l&amp;rsquo;âme charitable a avoir développé et publie ceci me diras tu ?</description>
+Mais qui est l&#39;âme charitable a avoir développé et publie ceci me diras tu ?</description>
     </item>
     
     <item>
@@ -298,7 +297,7 @@ Voici la version 0.5 de DeleteHistory avec quelques petites nouveautés lorsque 
       
       <guid>https://blog.deimos.fr/2012/12/03/wordpress-infinite-scrolling-pour-le-theme-yoko/</guid>
       <description>Si certains d&amp;rsquo;entre vous n&amp;rsquo;utilisent pas encore le module Jetpack pour WordPress, je les invite très rapidement le faire. C&amp;rsquo;est un module qui comprends plusieurs sous-modules, tous très facilement activable, d&amp;rsquo;une simplicité déconcertante et pour certains très performants.
-Dans l&amp;rsquo;une des dernières updates de Jetpack, il y a l&amp;rsquo;infinite scrolling que je souhaitais activer. Malheureusement, pour le thème que j&amp;rsquo;utilise (Yoko)&amp;hellip;impossible de l&amp;rsquo;activer, il n&amp;rsquo;est pas supporté :-(. Une petite recherche sur le forum de wordpress m&amp;rsquo;a permit de voir que je n&amp;rsquo;étais pas le seul sur cette demande.</description>
+Dans l&amp;rsquo;une des dernières updates de Jetpack, il y a l&amp;rsquo;infinite scrolling que je souhaitais activer. Malheureusement, pour le thème que j&amp;rsquo;utilise (Yoko)&amp;hellip;impossible de l&amp;rsquo;activer, il n&amp;rsquo;est pas supporté :-(. Une petite recherche sur le forum de wordpress m&amp;rsquo;a permit de voir que je n&#39;étais pas le seul sur cette demande.</description>
     </item>
     
     <item>
@@ -307,7 +306,7 @@ Dans l&amp;rsquo;une des dernières updates de Jetpack, il y a l&amp;rsquo;infin
       <pubDate>Thu, 15 Nov 2012 11:00:09 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2012/11/15/perl-oriente-objet/</guid>
-      <description>Je viens de me mettre enfin à faire de l&amp;rsquo;objet. Trop de personnes autour de moi m&amp;rsquo;ont répétées plusieurs fois : l&amp;rsquo;objet, ça change ta vie ! Je pensais la chose un peu exagérée&amp;hellip;et bien non. Effectivement c&amp;rsquo;est super puissant. Vraiment déroutant aux premiers abords, mais ensuite c&amp;rsquo;est top ! Et je n&amp;rsquo;en suis qu&amp;rsquo;à mes débuts !
+      <description>Je viens de me mettre enfin à faire de l&amp;rsquo;objet. Trop de personnes autour de moi m&amp;rsquo;ont répétées plusieurs fois : l&amp;rsquo;objet, ça change ta vie ! Je pensais la chose un peu exagérée&amp;hellip;et bien non. Effectivement c&amp;rsquo;est super puissant. Vraiment déroutant aux premiers abords, mais ensuite c&amp;rsquo;est top ! Et je n&amp;rsquo;en suis qu&#39;à mes débuts !
 J&amp;rsquo;ai donc commencé à alimenter une petite page sur mon wiki pour créer des rapidement de l&amp;rsquo;objet en Perl à travers des exemples.</description>
     </item>
     
@@ -317,7 +316,7 @@ J&amp;rsquo;ai donc commencé à alimenter une petite page sur mon wiki pour cr�
       <pubDate>Sat, 20 Oct 2012 10:00:21 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2012/10/20/html-patientez-svp/</guid>
-      <description>J&amp;rsquo;ai cherché le moyen le plus simple de faire une faire attendre les gens lors d&amp;rsquo;un submit en PHP/HTML. Je suis tombé sur des trucs en Javascript qui n&amp;rsquo;étaient pas terrible, en Ajax compliqué à mettre en œuvre ou en jQuery avec des kilomètres de lignes. Puis je suis tombé sur cette solution, qui avec un simple div et innerHTML permettait de répondre à mon besoin.
+      <description>J&amp;rsquo;ai cherché le moyen le plus simple de faire une faire attendre les gens lors d&amp;rsquo;un submit en PHP/HTML. Je suis tombé sur des trucs en Javascript qui n&#39;étaient pas terrible, en Ajax compliqué à mettre en œuvre ou en jQuery avec des kilomètres de lignes. Puis je suis tombé sur cette solution, qui avec un simple div et innerHTML permettait de répondre à mon besoin.
 Ok, est moche, mais je n&amp;rsquo;ai besoin d&amp;rsquo;aucune librairie en plus et c&amp;rsquo;est extrêmement simple à mettre en place et peu coûteux en lignes de code.</description>
     </item>
     
@@ -338,7 +337,7 @@ J&amp;rsquo;en ai profité également pour ajouter un onglet pour ajouter un fic
       
       <guid>https://blog.deimos.fr/2012/10/04/utiliser-lapi-de-sabnzbd/</guid>
       <description>Je trouve qu&amp;rsquo;il ne manque pas grand chose à Sabnzbd pour qu&amp;rsquo;il soit parfait. Cependant certaines options manquent et heureusement l&amp;rsquo;API est là pour compenser. J&amp;rsquo;ai donc écris un script en python permettant de jouer avec l&amp;rsquo;API que délivre Sabnzbd. Je l&amp;rsquo;ai créer dans l&amp;rsquo;idée qu&amp;rsquo;il soit facile de rajouter une fonctionnalité via l&amp;rsquo;API. Ce script permet :
- De voir les éléments que fournit l&amp;rsquo;API XML De supprimer un certain nombre d&amp;rsquo;éléments dans l&amp;rsquo;historique  J&amp;rsquo;espère que ça aidera certains à se plonger dedans, améliorer mon script ou bien utiliser les fonctions déjà existantes.</description>
+ De voir les éléments que fournit l&amp;rsquo;API XML De supprimer un certain nombre d&#39;éléments dans l&amp;rsquo;historique  J&amp;rsquo;espère que ça aidera certains à se plonger dedans, améliorer mon script ou bien utiliser les fonctions déjà existantes.</description>
     </item>
     
     <item>
@@ -430,8 +429,8 @@ Voici les nouveautées :
       <guid>https://blog.deimos.fr/2011/06/06/google-search-pour-mediawiki/</guid>
       <description>Parce qu&amp;rsquo;il y en a marre de cette recherche minable dans MediaWiki, que j&amp;rsquo;ai bougé mes petites fesses et créer une extension pour ajouter à la &amp;ldquo;sidebar&amp;rdquo; : une recherche Google.
 Il vous faudra bien entendu être inscrit au Google CSE ou encore Adsense pour pouvoir profiter de la recherche personnalisée. L&amp;rsquo;extension est bien entendue accessible sur Mediawiki ou mon git :
- http://www.mediawiki.org/wiki/Extension:GoogleSearch
- http://www.deimos.fr/gitweb/?p=mediawiki_extensions.git;a=summary
+  http://www.mediawiki.org/wiki/Extension:GoogleSearch
+  http://www.deimos.fr/gitweb/?p=mediawiki_extensions.git;a=summary
   L&amp;rsquo;installation est vraiment simple, donc n&amp;rsquo;hésitez pas !</description>
     </item>
     
@@ -454,7 +453,7 @@ Pour ceux que ça intéresse, la dernière version est donc disponible sur mon g
       
       <guid>https://blog.deimos.fr/2011/03/02/projet-rancid-search/</guid>
       <description>Revoilà encore un nouveau projet. Il s&amp;rsquo;agit de Rancid Search.
-Vous connaissez déjà peut être Rancid qui permet de faire des backups de vos chers équipements Cisco et de les stocker dans un VCS. Au taf, mon équipe réseaux se plaignait de ne pas pouvoir faire de recherche dans tous les équipements cisco d&amp;rsquo;un coup. Imaginez plusieurs équipements avec pour certain plus de 25000 lignes d&amp;rsquo;ACL et autre configuration VPN.</description>
+Vous connaissez déjà peut être Rancid qui permet de faire des backups de vos chers équipements Cisco et de les stocker dans un VCS. Au taf, mon équipe réseaux se plaignait de ne pas pouvoir faire de recherche dans tous les équipements cisco d&amp;rsquo;un coup. Imaginez plusieurs équipements avec pour certain plus de 25000 lignes d&amp;rsquo;ACL et autre configuration VPN. Pour faire des recherches, il fallait déjà savoir sur quelle équipement se connecter, puis chercher dans la conf.</description>
     </item>
     
     <item>
@@ -474,7 +473,7 @@ J&amp;rsquo;ai donc prévu une petite doc à cet effet pour ceux que ça intére
       
       <guid>https://blog.deimos.fr/2010/06/10/perl-vs-x/</guid>
       <description>Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C++ étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j’ai la réponse à ma question :
-  Program   Language   time (ms)   Slowdown     add   C++   23       add   Perl   1464   64 x     add   Python   3242   141 x     mult   C++   99       mult   Perl   2686   27 x     mult   Python   5285   53 x     func   C++   43       func   Perl   5143   120 x     func   Python   6413   149 x    Ou encore :</description>
+&amp;lt;th&amp;gt; Language &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; time (ms) &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; Slowdown &amp;lt;/th&amp;gt;  &amp;lt;td&amp;gt; C++ &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 23 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; Perl &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 1464 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 64 x &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; Python &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 3242 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 141 x &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; C++ &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 99 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; Perl &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 2686 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 27 x &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; Python &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 5285 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 53 x &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; C++ &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 43 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; Perl &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 5143 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 120 x &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; Python &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 6413 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 149 x &amp;lt;/td&amp;gt;  Ou encore :</description>
     </item>
     
     <item>
@@ -595,10 +594,10 @@ Le site web principale est hébergé sur Mediawiki, le code sur Git, je ne devra
       <description>La première version de phpCV est sortie :-). Soyez donc indulgent…
 Je prévois de belles améliorations mais pour le moment, ça vous permet de faire simplement un beau CV sans trop se fouler.
 Il me reste un beau README a faire, mais pour l&amp;rsquo;heure voici en gros les quelques fonctionnalités :
- Bi languages
- Partie confidentielle gérée
- Calcul automatique de l&amp;rsquo;age
- Génération des PDF à la volée</description>
+  Bi languages
+  Partie confidentielle gérée
+  Calcul automatique de l&amp;rsquo;age
+  Génération des PDF à la volée</description>
     </item>
     
     <item>
@@ -628,8 +627,8 @@ J&amp;rsquo;avais besoin de montrer l&amp;rsquo;occupation disque par utilisateu
       
       <guid>https://blog.deimos.fr/2009/12/13/encore-2-nouveaux-plugins-pour-nagios/</guid>
       <description>Et oui, ça continue. J’ai créer 2 nouveaux plugins pour Nagios :
- Check_ldap_request : Permet d&amp;rsquo;effectuer une requêtes LDAP pour vérifier l&amp;rsquo;existance d&amp;rsquo;un attribut
- Check_rss_mem : Vérifie la mémoire réservée de tous les processus sous Solaris
+  Check_ldap_request : Permet d&amp;rsquo;effectuer une requêtes LDAP pour vérifier l&amp;rsquo;existance d&amp;rsquo;un attribut
+  Check_rss_mem : Vérifie la mémoire réservée de tous les processus sous Solaris
   Quelques nouveaux vont arriver d&amp;rsquo;ici peu et des améliorations pour les existants.</description>
     </item>
     

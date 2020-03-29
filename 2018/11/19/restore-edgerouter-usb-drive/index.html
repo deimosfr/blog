@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="I&rsquo;ve a Ubiquiti EdgeRouter PoE since several years now and really like it. Fanless, small, running on Debian (unfortunately not really up to date) and powerful.
@@ -290,20 +290,14 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/ubiquiti_big_logo.png" alt="Ubiquiti" /></p>
-
-<p>I&rsquo;ve a <a href="https://www.ubnt.com/edgemax/edgerouter-poe/" target="_blank">Ubiquiti EdgeRouter PoE</a> since several years now and really like it. Fanless, small, running on Debian (unfortunately not really up to date) and powerful.</p>
-
-<p>However I recently had issues with the disk. Simply dead and obviously a reboot didn&rsquo;t repaired it. I&rsquo;ve been searching solutions on the official forum to replace the disk and I was surprised about the fact it runs on a simple USB stick. I decided to replace it with a <a href="https://www.amazon.fr/gp/product/B006YBARCA" target="_blank">Kingston one</a>:</p>
-
-<p><img src="https://blog.deimos.fr/images/edgerouter_poe_open.jpg" alt="EdgeRouter photo" /></p>
-
+              <p><img src="https://blog.deimos.fr/images/ubiquiti_big_logo.png" alt="Ubiquiti"></p>
+<p>I&rsquo;ve a <a href="https://www.ubnt.com/edgemax/edgerouter-poe/">Ubiquiti EdgeRouter PoE</a> since several years now and really like it. Fanless, small, running on Debian (unfortunately not really up to date) and powerful.</p>
+<p>However I recently had issues with the disk. Simply dead and obviously a reboot didn&rsquo;t repaired it. I&rsquo;ve been searching solutions on the official forum to replace the disk and I was surprised about the fact it runs on a simple USB stick. I decided to replace it with a <a href="https://www.amazon.fr/gp/product/B006YBARCA">Kingston one</a>:</p>
+<p><img src="https://blog.deimos.fr/images/edgerouter_poe_open.jpg" alt="EdgeRouter photo"></p>
 <p>That was really simple to open and change the USB stick. However I had to reinstall the OS (EdgeMax) of course. On the forum I mostly found solutions based on DHCP/PXE/TFTP, which is hopefully not the fastest solution to recover it.</p>
-
-<p>Finaly I found a GitHub project (thanks to the creator) called <a href="https://github.com/sowbug/mkeosimg" target="_blank">mkeosimg</a> that build an img file containing the OS. However there is a small bug and I <a href="https://github.com/deimosfr/mkeosimg" target="_blank">forked the project</a> for the moment to fix the issue. To create the image, I had to download the latest version of the firmware and launch the script:</p>
-
-<pre><code class="language-bash">$ git clone https://github.com/deimosfr/mkeosimg
-$ cd mkeosimg
+<p>Finaly I found a GitHub project (thanks to the creator) called <a href="https://github.com/sowbug/mkeosimg">mkeosimg</a> that build an img file containing the OS. However there is a small bug and I <a href="https://github.com/deimosfr/mkeosimg">forked the project</a> for the moment to fix the issue. To create the image, I had to download the latest version of the firmware and launch the script:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ git clone https://github.com/deimosfr/mkeosimg
+$ <span class="nb">cd</span> mkeosimg
 $ wget https://dl.ubnt.com/firmwares/edgemax/v1.10.x/ER-e100.v1.10.7.5127970.tar
 $ sudo ./mkeosimg ER-e100.v1.10.7.5127970.tar
 umount: /mnt/boot: not mounted.
@@ -311,9 +305,9 @@ umount: /mnt/root: not mounted.
 Creating ER-e100.v1.10.7.5127970.img
 2048+0 records in
 2048+0 records out
-2147483648 bytes (2.1 GB, 2.0 GiB) copied, 3.93915 s, 545 MB/s
+<span class="m">2147483648</span> bytes <span class="o">(</span>2.1 GB, 2.0 GiB<span class="o">)</span> copied, 3.93915 s, <span class="m">545</span> MB/s
 Formatting ER-e100.v1.10.7.5127970.img
-mkfs.fat 4.1 (2017-01-24)
+mkfs.fat 4.1 <span class="o">(</span>2017-01-24<span class="o">)</span>
 Unpacking EdgeOS release image
 Verifying EdgeOS kernel
 Copying EdgeOS kernel to boot partition
@@ -322,15 +316,9 @@ Copying EdgeOS system image to root partition
 Copying version file to the root partition
 Creating EdgeOS writable data directories
 Done.
-</code></pre>
-
-<p>Now copy the image to the USB stick:</p>
-
-<pre><code class="language-bash">$ sudo dd if=./ER-e100.v1.10.7.5127970.img of=/dev/sdb bs=1M
-</code></pre>
-
-<p>Once done, I mounted the 2nd partition and restored my scripts, keys and backups (config.boot file) to it. I plugged back to the EdgeRouter the key. It booted with my previous configuration :).</p>
-
+</code></pre></div><p>Now copy the image to the USB stick:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo dd <span class="k">if</span><span class="o">=</span>./ER-e100.v1.10.7.5127970.img <span class="nv">of</span><span class="o">=</span>/dev/sdb <span class="nv">bs</span><span class="o">=</span>1M
+</code></pre></div><p>Once done, I mounted the 2nd partition and restored my scripts, keys and backups (config.boot file) to it. I plugged back to the EdgeRouter the key. It booted with my previous configuration :).</p>
 <p>Really fast and easy !</p>
 
               
@@ -430,7 +418,7 @@ Done.
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

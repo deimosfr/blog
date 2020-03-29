@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="I recently had the case, where I lost connexion of my NFS client connexion because NFS server crashed. The problem I had is simple, some of clients couldn&rsquo;t recover their connexion because the old one was still shown as already connected.
@@ -288,24 +288,18 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/Poweredbylinux.jpg" alt="Poweredbylinux" />
+              <p><img src="https://blog.deimos.fr/images/Poweredbylinux.jpg" alt="Poweredbylinux">
 I recently had the case, where I lost connexion of my NFS client connexion because NFS server crashed. The problem I had is simple, some of clients couldn&rsquo;t recover their connexion because the old one was still shown as already connected.</p>
-
 <p>And when I tried to remount NFS clients connexions, I got:</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mount.nfs: mount<span class="o">(</span><span class="m">2</span><span class="o">)</span>: Protocol not supported
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mount.nfs: mount<span class="o">(</span>2<span class="o">)</span>: Protocol not supported
 mount.nfs: trying text-based options <span class="s1">&#39;udp,sec=sys,rsize=8192,wsize=8192,intr,hard,addr=10.0.0.1&#39;</span>
-mount.nfs: prog <span class="m">100003</span>, trying <span class="nv">vers</span><span class="o">=</span><span class="m">3</span>, <span class="nv">prot</span><span class="o">=</span><span class="m">17</span>
-mount.nfs: trying <span class="m">10</span>.0.0.1 prog <span class="m">100003</span> vers <span class="m">3</span> prot UDP port <span class="m">2049</span>
-mount.nfs: prog <span class="m">100005</span>, trying <span class="nv">vers</span><span class="o">=</span><span class="m">3</span>, <span class="nv">prot</span><span class="o">=</span><span class="m">17</span>
-mount.nfs: trying <span class="m">10</span>.0.0.1 prog <span class="m">100005</span> vers <span class="m">3</span> prot UDP port <span class="m">54874</span></code></pre></div>
-
+mount.nfs: prog 100003, trying <span class="nv">vers</span><span class="o">=</span>3, <span class="nv">prot</span><span class="o">=</span><span class="m">17</span>
+mount.nfs: trying 10.0.0.1 prog <span class="m">100003</span> vers <span class="m">3</span> prot UDP port <span class="m">2049</span>
+mount.nfs: prog 100005, trying <span class="nv">vers</span><span class="o">=</span>3, <span class="nv">prot</span><span class="o">=</span><span class="m">17</span>
+mount.nfs: trying 10.0.0.1 prog <span class="m">100005</span> vers <span class="m">3</span> prot UDP port <span class="m">54874</span></code></pre></div>
 <p>The solution to recover was to unexport connexions from the server:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">exportfs -u <span class="p">&amp;</span>lt<span class="p">;</span>ip&gt;:/mnt/nfs/dev/xmlcache<span class="p">&amp;</span>lt<span class="p">;</span>/ip&gt;</code></pre></div>
-
-<p>If you want to know a little bit more about it, you can <a href="https://wiki.deimos.fr/NFS_:_Mise_en_place_d%27un_serveur_NFS#mount.282.29:_Protocol_not_supported" target="_blank">check my wiki page on NFS</a>. I think this kind of issue may be less present in the version 4 of the NFS protocol, but I didn&rsquo;t try to reproduce it with the 4 version. Any feedback will be appreciated 😉</p>
-
+<p>If you want to know a little bit more about it, you can <a href="https://wiki.deimos.fr/NFS_:_Mise_en_place_d%27un_serveur_NFS#mount.282.29:_Protocol_not_supported">check my wiki page on NFS</a>. I think this kind of issue may be less present in the version 4 of the NFS protocol, but I didn&rsquo;t try to reproduce it with the 4 version. Any feedback will be appreciated 😉</p>
 <p>Hope this will help</p>
 
               
@@ -403,7 +397,7 @@ mount.nfs: trying <span class="m">10</span>.0.0.1 prog <span class="m">100005</s
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

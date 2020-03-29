@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="KVM, quel merveilleux hyperviseur ! Je l&rsquo;utilise depuis plusieurs années sur mes serveurs et je commence a l&rsquo;utiliser sur ma workstation pour plusieurs raisons. Je vais comparer KVM a l&rsquo;outil de virtualisation gratuit, a la mode : VirtualBox. Voici les raisons qui me poussent a passer a KVM :
@@ -290,25 +290,21 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_kvm.png" alt="Kvm-logo" />
+              <p><img src="https://blog.deimos.fr/images/logo_kvm.png" alt="Kvm-logo">
 KVM, quel merveilleux hyperviseur ! Je l&rsquo;utilise depuis plusieurs années sur mes serveurs et je commence a l&rsquo;utiliser sur ma workstation pour plusieurs raisons. Je vais comparer KVM a l&rsquo;outil de virtualisation gratuit, a la mode : VirtualBox. Voici les raisons qui me poussent a passer a KVM :</p>
-
 <ul>
 <li><strong>La licence</strong> : VirtualBox c&rsquo;est bien, mais si je peux éviter toute dépendance avec Oracle, c&rsquo;est mieux ! Je n&rsquo;ai pas envie de connaître a fond une techno propriétaire qui peut d&rsquo;un jour a l&rsquo;autre basculer de gratuite à payante (faut pas oublier que c&rsquo;est Oracle hein !)</li>
 <li><strong>Le mode headless</strong> : sur VirtualBox on peut choisir de faire démarrer une VM avec ou sans fenêtre. Le problème c&rsquo;est que si vous choisissez de démarrer sans fenêtre, il faut prévoir la prise en main via RPC ou de redémarrer la VM avec la prise en charge de la fenêtre. Sur KVM, on s&rsquo;en fout, par défaut, pas besoin de cet artifice. On démarre sans fenêtre et on se connecte dessus quand on veut et sans reboot.</li>
 <li><strong>La prise en main a distance</strong> : les 2 se vallent je trouve, même si j&rsquo;ai une préférence pour KVM qui va utiliser un protocole plus libre (VNC) que l&rsquo;autre (RDP). De plus, il existe Splice sur KVM, qui permet à la manière de citrix d&rsquo;avoir des fenêtre déportées optimisées. Mais là, côté VirtualBox&hellip;rien de ce genre.</li>
-<li><strong>L&rsquo;arrêt des guests</strong> : rebooter votre host sur VirtualBox, vous allez kiffer ! Vos VM s&rsquo;éteignent a l&rsquo;arrache !!! Pas de gentil petit ACPI ou autre solution pour demander a vos guests de s&rsquo;éteindre proprement. KVM est bien packagé et arrive avec tout ce qu&rsquo;il faut en standard pour gérer ceci. Par défaut les VMs ont 5 min pour s&rsquo;éteindre. Cerise sur le MacDo, vous pouvez même demander un suspend a la place.</li>
+<li><strong>L&rsquo;arrêt des guests</strong> : rebooter votre host sur VirtualBox, vous allez kiffer ! Vos VM s'éteignent a l&rsquo;arrache !!! Pas de gentil petit ACPI ou autre solution pour demander a vos guests de s'éteindre proprement. KVM est bien packagé et arrive avec tout ce qu&rsquo;il faut en standard pour gérer ceci. Par défaut les VMs ont 5 min pour s'éteindre. Cerise sur le MacDo, vous pouvez même demander un suspend a la place.</li>
 <li><strong>La portabilité</strong> : le multi OS n&rsquo;est clairement pas le fort de KVM qui n&rsquo;est fait que pour Linux. Mais bon&hellip;un qcow2 ça se converti en n&rsquo;importe quoi, donc&hellip;ça me va quand même, bien que VirtualBox marque des points la dessus.</li>
 <li><strong>Les performances</strong> : virtio explose littéralement VirtualBox. Sous KVM, les VMs ronronnes avec ce genre de drivers paravirtualisés.</li>
-<li><strong>L&rsquo;évolution</strong> <strong>des VMs</strong> : on ne peut pas dire que même si KVM n&rsquo;est pas portable (multi OS nativement), il n&rsquo;a d&rsquo;intérêt que pour sa petite personne. Aujourd&rsquo;hui de nombreux projets (et pas des moindres) utilisent KVM tel que oVirt (RedHat) ou OpenStack. Passer une VM, de son desktop, a ce type de solutions serveurs, devient alors triviale.</li>
+<li><strong>L'évolution</strong> <strong>des VMs</strong> : on ne peut pas dire que même si KVM n&rsquo;est pas portable (multi OS nativement), il n&rsquo;a d&rsquo;intérêt que pour sa petite personne. Aujourd&rsquo;hui de nombreux projets (et pas des moindres) utilisent KVM tel que oVirt (RedHat) ou OpenStack. Passer une VM, de son desktop, a ce type de solutions serveurs, devient alors triviale.</li>
 <li><strong>Les fonctionnalités</strong> : aujourd&rsquo;hui VirtualBox dispose d&rsquo;un peu plus de fonctionnalités que KVM, c&rsquo;est vrai ! Mais pour un desktop, a t&rsquo;on vraiment besoin de tout un tas de features (useless diront certains), je ne pense pas&hellip;en tous cas ça ne m&rsquo;handicape pas au quotidien.</li>
 <li><strong>La taille</strong> : installer VirtualBox c&rsquo;est quand même super lourd comparé a KVM qui est déjà intégré au noyau. C&rsquo;est vrai qu&rsquo;il faut la partie QEMU, mais ça reste tout de même très léger (toujours en comparaison hein, c&rsquo;est un hyperviseur quand même).</li>
 </ul>
-
 <p>J&rsquo;espère avoir pu vous convaincre d&rsquo;y passer ou au moins d&rsquo;essayer. Au boulot j&rsquo;arrive a convertir mes collègues. Il suffit de leurs montrer la prise en mains de VMs avec Virt-Manager sur leurs machines pour les faire cogiter.</p>
-
 <p>Si je ne suis par exemple pas là, juste en allumant ma machine, ils peuvent avoir accès a mon hyperviseur facilement et jouer avec les VMs. Cette souplesse est importante lorsque l&rsquo;on travaille en équipe.</p>
-
 <p>Maintenant&hellip;a vos hyperviseurs :-)</p>
 
               
@@ -408,7 +404,7 @@ KVM, quel merveilleux hyperviseur ! Je l&rsquo;utilise depuis plusieurs années 
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

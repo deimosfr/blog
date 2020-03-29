@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Deimos Blog">
@@ -231,6 +231,75 @@ if (!doNotTrack) {
     
     <div class="postShorten-header">
       <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2012/02/26/1634/">
+          Samba : leurrer l’espace disponible
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2012-02-26T11:00:57Z">
+        
+  
+  
+  
+  
+    26 February 2012
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/freebsd">FreeBSD</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/openbsd">OpenBSD</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        J&rsquo;ai un collègue qui s&rsquo;est retrouvé dans une situation assez délicate. Je vous explique la situation :
+ 2 points de montages dans /mnt dont un imbriqué dans l&rsquo;autre. 1 partage sur le principale  Lorsque le point de montage principale est full, ont ne peut plus rien copier, même si la 2ème imbrication a encore de l&rsquo;espace de libre. Pour ceux qui n&rsquo;ont toujours pas compris :
+ /mnt/ : 30 Mb restant /mnt/disk1 : 10Gb restant share : /mnt/  Le share me dit qu&rsquo;il ne peut pas copier plus de 30 Mb, même dans /share/disk1.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2012/02/26/1634/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+          
+            
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
         <a class="link-unstyled" href="https://blog.deimos.fr/2012/02/24/tmux-cheat-sheet/">
           Tmux Cheat Sheet
         </a>
@@ -278,9 +347,9 @@ if (!doNotTrack) {
         Je ne me suis pas mis au LaTeX pour rien, j’avais pour idée de pondre une Cheat Sheet sur Tmux, vu que je n’en avais trouvé aucune sur le net.
 J&rsquo;ai donc mis à jour la documentation Tmux avec les Cheat Sheet en anglais et français.
 Je les fournis également ici :
- Tmux French Cheat Sheet
- Tmux English Cheat Sheet
-  N&rsquo;hésitez pas à me faire un retour ou des propositions sur d&rsquo;éventuels ajouts.
+  Tmux French Cheat Sheet
+  Tmux English Cheat Sheet
+  N&rsquo;hésitez pas à me faire un retour ou des propositions sur d'éventuels ajouts.
       
       <p>
         <a href="https://blog.deimos.fr/2012/02/24/tmux-cheat-sheet/" class="postShorten-excerpt_link link">Continue reading</a>
@@ -338,7 +407,7 @@ Je les fournis également ici :
     <div class="postShorten-excerpt" itemprop="articleBody">
       
         Il est parfois bien pratique d&rsquo;avoir des Cheat Sheet lorsque l&rsquo;on apprends un nouveau language ou que l&rsquo;on a a faire face à un nouveau logiciel.
-Pour ma part, je souhaitais en créer et trouver une template n&rsquo;était pas chose aisée.
+Pour ma part, je souhaitais en créer et trouver une template n'était pas chose aisée.
 J&rsquo;ai donc décider de vous faire profiter de la mienne que j&rsquo;ai pu construire en m&rsquo;inspirant d&rsquo;autres que j&rsquo;ai pu trouver sur internet.
       
       <p>
@@ -405,7 +474,7 @@ J&rsquo;ai donc décider de vous faire profiter de la mienne que j&rsquo;ai pu c
     <div class="postShorten-excerpt" itemprop="articleBody">
       
         Ca faisait un moment que je n&rsquo;avais pas fait ce genre d&rsquo;article alors voici quelques news en vrac qui ne méritent pas à elle seule un article :
- Sysctl : petites erreurs de ma part maintenant corrigées Netcat : solution du port d&rsquo;écoute pour des versions différentes de netcat Solaris CPU : Voici la manière de connaitre le nombre de Cores sur une Solaris IP : Ajout de la section de suppression d&rsquo;une VIP Linux sur Mac : Rallumer la machine automatiquement après une coupure de courant Solaris : convertir des packages pkg en datastream  &nbsp;
+ Sysctl : petites erreurs de ma part maintenant corrigées Netcat : solution du port d'écoute pour des versions différentes de netcat Solaris CPU : Voici la manière de connaitre le nombre de Cores sur une Solaris IP : Ajout de la section de suppression d&rsquo;une VIP Linux sur Mac : Rallumer la machine automatiquement après une coupure de courant Solaris : convertir des packages pkg en datastream   
       
       <p>
         <a href="https://blog.deimos.fr/2012/02/20/quelques-news-en-vrac/" class="postShorten-excerpt_link link">Continue reading</a>
@@ -621,74 +690,6 @@ J&rsquo;ai donc fait une petite documentation dessus. Je vous conseil fortement 
 </article>
 
           
-            
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://blog.deimos.fr/2012/02/12/varnish-fait-aussi-le-cafe/">
-          Varnish fait aussi le café
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2012-02-12T11:00:12Z">
-        
-  
-  
-  
-  
-    12 February 2012
-  
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/web">Web</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        Je suis tombé sur une bonne doc il y a très peu de temps et je l&rsquo;ai pompée bien comme il faut pour améliorer ma doc existante sur Varnish.
-Pour ceux que ça intéressent, voici l&rsquo;update qui parle de cache, compression, load balancing etc&hellip;
-      
-      <p>
-        <a href="https://blog.deimos.fr/2012/02/12/varnish-fait-aussi-le-cafe/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://blog.deimos.fr/2012/02/12/varnish-fait-aussi-le-cafe/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_varnish.png"/>
-      </div>
-    </a>
-  
-</article>
-
-          
           
   <div class="pagination-bar">
     <ul class="pagination">
@@ -718,7 +719,7 @@ Pour ceux que ça intéressent, voici l&rsquo;update qui parle de cache, compres
         </section>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="During the last weeks I started to play with Elasticsearch, Fluentd and Kibana. I made a documentation to help on deploying it easily.
@@ -300,19 +300,13 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_fluentd.png" alt="Fluentd_logo" />
-During the last weeks I started to play with <a href="http://blog.deimos.fr/2014/08/09/ansible-elasticsearch-playbook/" target="_blank">Elasticsearch</a>, <a href="http://blog.deimos.fr/2014/08/13/fluentd-ansible-playbook/" target="_blank">Fluentd</a> and <a href="http://blog.deimos.fr/2014/08/11/ansible-kibana-playbook/" target="_blank">Kibana</a>. <a href="https://wiki.deimos.fr/Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd" target="_blank">I made a documentation</a> to help on deploying it easily.</p>
-
+              <p><img src="https://blog.deimos.fr/images/logo_fluentd.png" alt="Fluentd_logo">
+During the last weeks I started to play with <a href="http://blog.deimos.fr/2014/08/09/ansible-elasticsearch-playbook/">Elasticsearch</a>, <a href="http://blog.deimos.fr/2014/08/13/fluentd-ansible-playbook/">Fluentd</a> and <a href="http://blog.deimos.fr/2014/08/11/ansible-kibana-playbook/">Kibana</a>. <a href="https://wiki.deimos.fr/Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd">I made a documentation</a> to help on deploying it easily.</p>
 <p>As you may know, I&rsquo;m an Ansible fan, so I made Ansible playbooks to deploy a complete infrastructure (server and clients). They will deploy this kind of architecture:</p>
-
-<p><img src="https://wiki.deimos.fr/images/e/e7/Es_ki_fl.png" alt="Es_ki_fl" /></p>
-
-<p>On the client side, Fluentd clients will get syslog and Nginx logs, to send them to the Fluentd server. On the server side, a Fluentd receiver will be there to get data from other Fluentd clients. It will then push it to the Elasticsearch server. The Elasticsearch server is located on the same server than the Fluentd receiver to make it simpler. An autopurge can be configured directly from the playbook using <a href="https://github.com/elasticsearch/curator" target="_blank">curator</a> tool. To finish, Kibana is installed on the server to make it simpler as well.</p>
-
-<p>You can find <a href="https://github.com/deimosfr" target="_blank">those playbooks on my GitHub</a> or on <a href="https://galaxy.ansible.com/deimosfr/fluentd/" target="_blank">Ansible Galaxy</a>.</p>
-
+<p><img src="https://wiki.deimos.fr/images/e/e7/Es_ki_fl.png" alt="Es_ki_fl"></p>
+<p>On the client side, Fluentd clients will get syslog and Nginx logs, to send them to the Fluentd server. On the server side, a Fluentd receiver will be there to get data from other Fluentd clients. It will then push it to the Elasticsearch server. The Elasticsearch server is located on the same server than the Fluentd receiver to make it simpler. An autopurge can be configured directly from the playbook using <a href="https://github.com/elasticsearch/curator">curator</a> tool. To finish, Kibana is installed on the server to make it simpler as well.</p>
+<p>You can find <a href="https://github.com/deimosfr">those playbooks on my GitHub</a> or on <a href="https://galaxy.ansible.com/deimosfr/fluentd/">Ansible Galaxy</a>.</p>
 <p>Is it complex to configure Ansible playbooks it? I made my best to make it as quick as possible and as customizable as possible (for the context and my needs). What you need to do is first getting playbooks like this (site.yml):</p>
-
 <p>site.yml:
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># All machines</span>
 - name: fluent-clients
@@ -341,9 +335,7 @@ During the last weeks I started to play with <a href="http://blog.deimos.fr/2014
     - fluentd
   vars_files:
     - <span class="s2">&#34;host_vars/kibana.yml&#34;</span></code></pre></div></p>
-
 <p>Then you have to configure/adapt the mandatory options to your needs for fluentd_clients (fluentd_client.yml):</p>
-
 <p>fluentd_client.yml:
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">## Fluentd client</span>
 <span class="c1"># fluentd fqdn used by forwarders to fluentd</span>
@@ -352,11 +344,9 @@ fluentd_server_fqdn: kibana.domain.com
 es_fqdn: localhost
 es_port: <span class="m">9200</span>
 <span class="c1"># Syslog plugin</span>
-fluentd_plugin_syslog_ip: <span class="m">127</span>.0.0.1
+fluentd_plugin_syslog_ip: 127.0.0.1
 fluentd_plugin_syslog_port: <span class="m">5140</span></code></pre></div></p>
-
 <p>And like this for the log server (kibana.yml):</p>
-
 <p>kibana.yml:
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">## Fluentd server</span>
 <span class="c1"># Address of elasticsearch used by fluentd</span>
@@ -384,14 +374,10 @@ kibana_tag_version: v3.1.0
 
 <span class="c1">## Elasticsearch</span>
 <span class="c1"># Elasticsearch version from debian repository</span>
-es_version: <span class="m">1</span>.3</code></pre></div></p>
-
+es_version: 1.3</code></pre></div></p>
 <p>Then launch the Ansible playbook, it will install everything by itself:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ ansible-playbook site.yml</code></pre></div>
-
 <p>At the end, the web interface of kibana will be ready and all your fluentd clients will redirect their syslog and default nginx configuration to ElasticSearch.</p>
-
 <p>Note: I&rsquo;ve used my Nginx playbook, but you can use any other one to setup kibana interface as this is made in AngularJS.</p>
 
               
@@ -493,7 +479,7 @@ es_version: <span class="m">1</span>.3</code></pre></div></p>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

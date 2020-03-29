@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="I recently worked on a client issues because of massive SQL injections. As it wasn&rsquo;t easily for the client to fix on the application side and the request was urgent, I dig into writing fail2ban custom rules and it works quite well.
@@ -276,9 +276,7 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>I recently worked on a client issues because of massive SQL injections. As it wasn&rsquo;t easily for the client to fix on the application side and the request was urgent, I dig into writing fail2ban custom rules and it works quite well.</p>
-
 <p>I decided to adapt those rules to block bruteforce login attack for WordPress. The problem is WordPress is not returning 403 error code when a user fail to logon but return a 200 instead :-/. So to deal with it without modifying WordPress code, I had to to play with requested URL instead which give something like this:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-ini" data-lang="ini"><span class="c1"># WordPress brute force auth filter</span>
 <span class="c1">#</span>
 <span class="c1"># Block IPs trying to auth wp wordpress</span>
@@ -286,10 +284,8 @@ if (!doNotTrack) {
 <span class="k">[Definition]</span>
 <span class="na">failregex</span> <span class="o">=</span> <span class="s">^&amp;lt;HOST&amp;gt; -.*&#34;POST.*(wp-login|xmlrpc)\.php</span>
 <span class="na">ignoreregex</span> <span class="o">=</span></code></pre></div>
-
 <p>The problem here is that I&rsquo;m have to block xmlrpc attacks too which can lead to blocking yourself if you&rsquo;re attempting to update several posts using xmlrpc too. This can generally be the case if you&rsquo;re using WordPress mobile version.</p>
-
-<p>I&rsquo;ve made a complete doc here <a href="https://wiki.deimos.fr/Fail2ban_:_mise_en_place_de_r%C3%A8gles_automatis%C3%A9es_iptables_pour_contrer_les_attaques_par_bruteforce" target="_blank">if you want to setup it for WordPress</a>. Hope this will help.</p>
+<p>I&rsquo;ve made a complete doc here <a href="https://wiki.deimos.fr/Fail2ban_:_mise_en_place_de_r%C3%A8gles_automatis%C3%A9es_iptables_pour_contrer_les_attaques_par_bruteforce">if you want to setup it for WordPress</a>. Hope this will help.</p>
 
               
             </div>
@@ -384,7 +380,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

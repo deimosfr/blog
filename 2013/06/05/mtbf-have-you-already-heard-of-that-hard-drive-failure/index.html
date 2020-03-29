@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="I&rsquo;ve friends that recently encountered a big outage outage on a MySQL database on the top of a ZFS zpool. As this story is not common, I wanted to share it with you.
@@ -272,15 +272,11 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/Time_between_failures.jpg" alt="Time_between_failures" />
+              <p><img src="https://blog.deimos.fr/images/Time_between_failures.jpg" alt="Time_between_failures">
 I&rsquo;ve friends that recently encountered a big outage outage on a MySQL database on the top of a ZFS zpool. As this story is not common, I wanted to share it with you.</p>
-
 <p>The error on MySQL was a table corruption error. MySQL was in maintenance mode and starting in normal mode wasn&rsquo;t possible because of that. MySQL wasn&rsquo;t able to recover it itself. After a few investigation, errors on the zpool shown data&rsquo;s corruption. After longer investigation nothing was found and the last thing to do was to contact Oracle Support. And the answer was amazing !</p>
-
-<p><a href="https://www.google.com/url?q=http://en.m.wikipedia.org/wiki/Mean_time_between_failures&amp;sa=U&amp;ei=8nSeUbGSDZKzhAeE7oG4Dw&amp;ved=0CA4QFjAB&amp;usg=AFQjCNFU6P2J3bICZIWCw1CSIIV3pPDgmg" target="_blank">MTBF : Mean Time Between Failure</a> ! This is the predicted elapsed time between inherent failures of a system during operation. And after verification, those hard drive had more then 5 years old, running 7d/24h and reached their MTBF (given by the hard drive constructor). During several ours it wasn&rsquo;t possible to do any kind of things on that file without having I/O errors. And suddenly this MTBF ended and the table file was reachable but corrupted.</p>
-
+<p><a href="https://www.google.com/url?q=http://en.m.wikipedia.org/wiki/Mean_time_between_failures&amp;sa=U&amp;ei=8nSeUbGSDZKzhAeE7oG4Dw&amp;ved=0CA4QFjAB&amp;usg=AFQjCNFU6P2J3bICZIWCw1CSIIV3pPDgmg">MTBF : Mean Time Between Failure</a> ! This is the predicted elapsed time between inherent failures of a system during operation. And after verification, those hard drive had more then 5 years old, running 7d/24h and reached their MTBF (given by the hard drive constructor). During several ours it wasn&rsquo;t possible to do any kind of things on that file without having I/O errors. And suddenly this MTBF ended and the table file was reachable but corrupted.</p>
 <p>One of my friend says that MTBF means in fact (in French) : Mange Ta Bite Frère (translation : Eat your dick brother) as you can&rsquo;t do anything else during that time. I&rsquo;ve never heard of that before and I will now look at it more often.</p>
-
 <p>I hope I&rsquo;ve share something interesting with you. The conclusion is : check if you have disks older than 3 years to look at their MTBF</p>
 
               
@@ -374,7 +370,7 @@ I&rsquo;ve friends that recently encountered a big outage outage on a MySQL data
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

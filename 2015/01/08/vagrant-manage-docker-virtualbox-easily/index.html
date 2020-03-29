@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="As you may know, I&rsquo;m using Vagrant for more than a year now with VirtualBox. Docker is a faster alternative that needs to be taken into consideration. Having the possibility to manage both of them with the same tool can be very interesting. For information, I mainly use it with VirtualBox because it&rsquo;s any platform compatible and Docker because it&rsquo;s perfect for a CI like Jenkins.
@@ -300,12 +300,9 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_vagrant.png" alt="Vagrant-logo" /></p>
-
-<p>As you may know, I&rsquo;m using <a href="https://wiki.deimos.fr/Vagrant_:_quickly_deploy_virtual_machines" target="_blank">Vagrant</a> for more than a year now with VirtualBox. <a href="https://wiki.deimos.fr/Docker_:_manage_LXC_containers_easily_with_advanced_features" target="_blank">Docker</a> is a faster alternative that needs to be taken into consideration. Having the possibility to manage both of them with the same tool can be very interesting. For information, I mainly use it with VirtualBox because it&rsquo;s any platform compatible and Docker because it&rsquo;s perfect for a CI like <a href="http://jenkins-ci.org/" target="_blank">Jenkins</a>.</p>
-
-<p>I recently talked about my implication into the <a href="http://www.usmash.me/" target="_blank">Smash</a> project. I made a Vagrantfile for it. I encounter several problems and it took time for me to resolve them. I&rsquo;m going to share with you my experience on it. I&rsquo;m going to describe the Vagrantfile and then, I&rsquo;ll give the full version of it. The first part:</p>
-
+              <p><img src="https://blog.deimos.fr/images/logo_vagrant.png" alt="Vagrant-logo"></p>
+<p>As you may know, I&rsquo;m using <a href="https://wiki.deimos.fr/Vagrant_:_quickly_deploy_virtual_machines">Vagrant</a> for more than a year now with VirtualBox. <a href="https://wiki.deimos.fr/Docker_:_manage_LXC_containers_easily_with_advanced_features">Docker</a> is a faster alternative that needs to be taken into consideration. Having the possibility to manage both of them with the same tool can be very interesting. For information, I mainly use it with VirtualBox because it&rsquo;s any platform compatible and Docker because it&rsquo;s perfect for a CI like <a href="http://jenkins-ci.org/">Jenkins</a>.</p>
+<p>I recently talked about my implication into the <a href="http://www.usmash.me/">Smash</a> project. I made a Vagrantfile for it. I encounter several problems and it took time for me to resolve them. I&rsquo;m going to share with you my experience on it. I&rsquo;m going to describe the Vagrantfile and then, I&rsquo;ll give the full version of it. The first part:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># -*- mode: ruby -*-</span>
 <span class="c1"># vi: set ft=ruby :</span>
 
@@ -315,21 +312,16 @@ if (!doNotTrack) {
 <span class="c1"># You can override those vars by using shell environment vars</span> 
 <span class="nv">vb_box</span> <span class="o">=</span> <span class="o">(</span>ENV<span class="o">[</span><span class="s1">&#39;VAGRANT_VB_BOX&#39;</span><span class="o">]</span> <span class="o">||</span> <span class="s1">&#39;deimosfr/debian-wheezy&#39;</span><span class="o">)</span>
 <span class="c1"># Workaround for mitchellh/vagrant#1867 / source: https://groups.google.com/forum/#!topic/vagrant-up/XIxGdm78s4I</span>
-<span class="k">if</span> ARGV<span class="o">[</span><span class="m">1</span><span class="o">]</span> and <span class="se">\
-</span><span class="se"></span>    <span class="o">(</span>ARGV<span class="o">[</span><span class="m">1</span><span class="o">]</span>.split<span class="o">(</span><span class="s1">&#39;=&#39;</span><span class="o">)[</span><span class="m">0</span><span class="o">]</span> <span class="o">==</span> <span class="s2">&#34;--provider&#34;</span> or ARGV<span class="o">[</span><span class="m">2</span><span class="o">])</span>
-    <span class="nv">provider</span> <span class="o">=</span> <span class="o">(</span>ARGV<span class="o">[</span><span class="m">1</span><span class="o">]</span>.split<span class="o">(</span><span class="s1">&#39;=&#39;</span><span class="o">)[</span><span class="m">1</span><span class="o">]</span> <span class="o">||</span> ARGV<span class="o">[</span><span class="m">2</span><span class="o">])</span>
+<span class="k">if</span> ARGV<span class="o">[</span>1<span class="o">]</span> and <span class="se">\
+</span><span class="se"></span>    <span class="o">(</span>ARGV<span class="o">[</span>1<span class="o">]</span>.split<span class="o">(</span><span class="s1">&#39;=&#39;</span><span class="o">)[</span>0<span class="o">]</span> <span class="o">==</span> <span class="s2">&#34;--provider&#34;</span> or ARGV<span class="o">[</span>2<span class="o">])</span>
+    <span class="nv">provider</span> <span class="o">=</span> <span class="o">(</span>ARGV<span class="o">[</span>1<span class="o">]</span>.split<span class="o">(</span><span class="s1">&#39;=&#39;</span><span class="o">)[</span>1<span class="o">]</span> <span class="o">||</span> ARGV<span class="o">[</span>2<span class="o">])</span>
 <span class="k">else</span>
     <span class="nv">provider</span> <span class="o">=</span> <span class="o">(</span>ENV<span class="o">[</span><span class="s1">&#39;VAGRANT_DEFAULT_PROVIDER&#39;</span><span class="o">]</span> <span class="o">||</span> :virtualbox<span class="o">)</span>.to_sym
 end</code></pre></div>
-
 <p>I&rsquo;m using here some vars that can be override with Shell environment vars. For example, before launching Vagrant, you can update a default var like this:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">VAGRANT_VB_BOX</span><span class="o">=</span><span class="s2">&#34;my_atlas_box_name&#34;</span> vagrant up</code></pre></div>
-
 <p>Or you can simply export them to keep them in your current session.</p>
-
 <p>The VAGRANT_DEFAULT_PROVIDER var is a little bit more complex. I needed to do that because of this part:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">Vagrant.configure<span class="o">(</span>VAGRANTFILE_API_VERSION<span class="o">)</span> <span class="k">do</span> <span class="p">|</span>config<span class="p">|</span>
 
     <span class="c1"># VirtualBox settings</span>
@@ -338,11 +330,8 @@ end</code></pre></div>
             config.vm.box <span class="o">=</span> <span class="s2">&#34;#{vb_box}&#34;</span>
         end
     end</code></pre></div>
-
 <p>I encountered a problem with Docker provider, because the &ldquo;config.vm.provider&rdquo; line is not like a if statement (like I thought at the beginning). That mean the Vagrantfile is fully parsed anytime you call it and all options are set. The problem was on the &ldquo;config.vm.box&rdquo; option which was used for Docker provider as well and was overriding the Docker image parameter I was trying to use. This produced a fail resolution of the required image to deploy. That&rsquo;s why I&rsquo;m using the if statement and had to use a specific var for it.</p>
-
 <p>Now regarding the Docker part:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Docker settings</span>
     <span class="k">if</span> <span class="s2">&#34;#{provider}&#34;</span> <span class="o">==</span> <span class="s2">&#34;docker&#34;</span>
         config.vm.provider <span class="s2">&#34;docker&#34;</span> <span class="k">do</span> <span class="p">|</span>d<span class="p">|</span>
@@ -355,19 +344,14 @@ end</code></pre></div>
             <span class="c1">#d.cmd = [&#34;/usr/sbin/sshd&#34;, &#34;-d&#34;]</span>
         end
     end</code></pre></div>
-
 <p>As you can see, some options are commented. That&rsquo;s because I prefer using &ldquo;d.image&rdquo; instead of a Dockerfile (d.build_dir) but can&rsquo;t make it work for the moment. I prefer using the commented lines because I can use a use vars with the Vagrantfile instead of a static Dockerfile. However, for an unknow reason (for the moment), I encounter SSH issue when not using the Dockerfile (I&rsquo;ll dig into it and let you know in future a post). So here is the Dockerfile:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">FROM smash:wheezy_7.7.0-0.1
 MAINTAINER Pierre Mavro <span class="p">&amp;</span>lt<span class="p">;</span>pierre@usmash.me<span class="p">&amp;</span>gt<span class="p">;</span>
 <span class="c1"># Start SSHd</span>
 EXPOSE <span class="m">22</span>
 CMD <span class="o">[</span><span class="s2">&#34;/usr/sbin/sshd&#34;</span>, <span class="s2">&#34;-D&#34;</span><span class="o">]</span></code></pre></div>
-
 <p>You noticed there is nothing very interesting in it, I mean nothing that Vagrant cannot handle. That&rsquo;s why I need to dig into this last issue. You may notice that I&rsquo;m using a custom image. This image has been built with a SSH server of course to start it once Vagrant will boot a Docker container. This is necessary to have it if you want to use a provisioner like Ansible (will talk about it in next posts too).</p>
-
 <p>The last part is talking about the machine declaration:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Web servers</span>
     config.vm.define <span class="s1">&#39;web1&#39;</span> <span class="k">do</span> <span class="p">|</span>machine<span class="p">|</span>
         config.vm.host_name <span class="o">=</span> <span class="s1">&#39;web1&#39;</span>
@@ -377,11 +361,8 @@ CMD <span class="o">[</span><span class="s2">&#34;/usr/sbin/sshd&#34;</span>, <s
         config.vm.network <span class="s2">&#34;public_network&#34;</span>, :bridge <span class="o">=</span><span class="p">&amp;</span>gt<span class="p">;</span> <span class="s1">&#39;wlan0&#39;</span>
         config.ssh.forward_agent <span class="o">=</span> <span class="nb">true</span>
     end</code></pre></div>
-
 <p>Easy to understand, the web1 machine will be used with a bridged connexion and a certain amount of RAM.</p>
-
 <p>To finish, here is the Vagrantfile with all parts:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># -*- mode: ruby -*-</span>
 <span class="c1"># vi: set ft=ruby :</span>
 
@@ -391,9 +372,9 @@ CMD <span class="o">[</span><span class="s2">&#34;/usr/sbin/sshd&#34;</span>, <s
 <span class="c1"># You can override those vars by using shell environment vars</span> 
 <span class="nv">vb_box</span> <span class="o">=</span> <span class="o">(</span>ENV<span class="o">[</span><span class="s1">&#39;VAGRANT_VB_BOX&#39;</span><span class="o">]</span> <span class="o">||</span> <span class="s1">&#39;deimosfr/debian-wheezy&#39;</span><span class="o">)</span>
 <span class="c1"># Workaround for mitchellh/vagrant#1867 / source: https://groups.google.com/forum/#!topic/vagrant-up/XIxGdm78s4I</span>
-<span class="k">if</span> ARGV<span class="o">[</span><span class="m">1</span><span class="o">]</span> and <span class="se">\
-</span><span class="se"></span>    <span class="o">(</span>ARGV<span class="o">[</span><span class="m">1</span><span class="o">]</span>.split<span class="o">(</span><span class="s1">&#39;=&#39;</span><span class="o">)[</span><span class="m">0</span><span class="o">]</span> <span class="o">==</span> <span class="s2">&#34;--provider&#34;</span> or ARGV<span class="o">[</span><span class="m">2</span><span class="o">])</span>
-    <span class="nv">provider</span> <span class="o">=</span> <span class="o">(</span>ARGV<span class="o">[</span><span class="m">1</span><span class="o">]</span>.split<span class="o">(</span><span class="s1">&#39;=&#39;</span><span class="o">)[</span><span class="m">1</span><span class="o">]</span> <span class="o">||</span> ARGV<span class="o">[</span><span class="m">2</span><span class="o">])</span>
+<span class="k">if</span> ARGV<span class="o">[</span>1<span class="o">]</span> and <span class="se">\
+</span><span class="se"></span>    <span class="o">(</span>ARGV<span class="o">[</span>1<span class="o">]</span>.split<span class="o">(</span><span class="s1">&#39;=&#39;</span><span class="o">)[</span>0<span class="o">]</span> <span class="o">==</span> <span class="s2">&#34;--provider&#34;</span> or ARGV<span class="o">[</span>2<span class="o">])</span>
+    <span class="nv">provider</span> <span class="o">=</span> <span class="o">(</span>ARGV<span class="o">[</span>1<span class="o">]</span>.split<span class="o">(</span><span class="s1">&#39;=&#39;</span><span class="o">)[</span>1<span class="o">]</span> <span class="o">||</span> ARGV<span class="o">[</span>2<span class="o">])</span>
 <span class="k">else</span>
     <span class="nv">provider</span> <span class="o">=</span> <span class="o">(</span>ENV<span class="o">[</span><span class="s1">&#39;VAGRANT_DEFAULT_PROVIDER&#39;</span><span class="o">]</span> <span class="o">||</span> :virtualbox<span class="o">)</span>.to_sym
 end
@@ -438,18 +419,12 @@ Vagrant.configure<span class="o">(</span>VAGRANTFILE_API_VERSION<span class="o">
     end
 
 end</code></pre></div>
-
 <p>Now if I want to start a VM (web1) with VirtualBox and a SQL (sql1) with Docker, I can do like this:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">VAGRANT_DEFAULT_PROVIDER</span><span class="o">=</span><span class="s2">&#34;virtualbox&#34;</span> vagrant up web1
 <span class="nv">VAGRANT_DEFAULT_PROVIDER</span><span class="o">=</span><span class="s2">&#34;docker&#34;</span> vagrant up sql1</code></pre></div>
-
 <p>Easy right ?! :-).</p>
-
 <p>Note 1: You do not need to specify this variable for VirtualBox as this is the default one.</p>
-
 <p>Note 2: I did not export all Docker required ports etc&hellip;because this is not the object of the post here.</p>
-
 <p>Hope you&rsquo;ve enjoyed this post. If it&rsquo;s the case, you&rsquo;ll enjoy next ones.</p>
 
               
@@ -547,7 +522,7 @@ end</code></pre></div>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

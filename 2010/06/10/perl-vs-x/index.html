@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C&#43;&#43; étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j’ai la réponse à ma question :
-  Program   Language   time (ms)   Slowdown     add   C&#43;&#43;   23       add   Perl   1464   64 x     add   Python   3242   141 x     mult   C&#43;&#43;   99       mult   Perl   2686   27 x     mult   Python   5285   53 x     func   C&#43;&#43;   43       func   Perl   5143   120 x     func   Python   6413   149 x    Ou encore :">
+&lt;th&gt; Language &lt;/th&gt; &lt;th&gt; time (ms) &lt;/th&gt; &lt;th&gt; Slowdown &lt;/th&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 23 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 1464 &lt;/td&gt; &lt;td&gt; 64 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 3242 &lt;/td&gt; &lt;td&gt; 141 x &lt;/td&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 99 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 2686 &lt;/td&gt; &lt;td&gt; 27 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 5285 &lt;/td&gt; &lt;td&gt; 53 x &lt;/td&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 43 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 5143 &lt;/td&gt; &lt;td&gt; 120 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 6413 &lt;/td&gt; &lt;td&gt; 149 x &lt;/td&gt;  Ou encore :">
 
 
 <meta property="og:description" content="Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C&#43;&#43; étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j’ai la réponse à ma question :
-  Program   Language   time (ms)   Slowdown     add   C&#43;&#43;   23       add   Perl   1464   64 x     add   Python   3242   141 x     mult   C&#43;&#43;   99       mult   Perl   2686   27 x     mult   Python   5285   53 x     func   C&#43;&#43;   43       func   Perl   5143   120 x     func   Python   6413   149 x    Ou encore :">
+&lt;th&gt; Language &lt;/th&gt; &lt;th&gt; time (ms) &lt;/th&gt; &lt;th&gt; Slowdown &lt;/th&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 23 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 1464 &lt;/td&gt; &lt;td&gt; 64 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 3242 &lt;/td&gt; &lt;td&gt; 141 x &lt;/td&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 99 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 2686 &lt;/td&gt; &lt;td&gt; 27 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 5285 &lt;/td&gt; &lt;td&gt; 53 x &lt;/td&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 43 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 5143 &lt;/td&gt; &lt;td&gt; 120 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 6413 &lt;/td&gt; &lt;td&gt; 149 x &lt;/td&gt;  Ou encore :">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Perl vs X">
 <meta name="twitter:title" content="Perl vs X">
@@ -21,9 +21,9 @@
 <meta property="twitter:url" content="https://blog.deimos.fr/2010/06/10/perl-vs-x/">
 <meta property="og:site_name" content="Deimosfr Blog">
 <meta property="og:description" content="Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C&#43;&#43; étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j’ai la réponse à ma question :
-  Program   Language   time (ms)   Slowdown     add   C&#43;&#43;   23       add   Perl   1464   64 x     add   Python   3242   141 x     mult   C&#43;&#43;   99       mult   Perl   2686   27 x     mult   Python   5285   53 x     func   C&#43;&#43;   43       func   Perl   5143   120 x     func   Python   6413   149 x    Ou encore :">
+&lt;th&gt; Language &lt;/th&gt; &lt;th&gt; time (ms) &lt;/th&gt; &lt;th&gt; Slowdown &lt;/th&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 23 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 1464 &lt;/td&gt; &lt;td&gt; 64 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 3242 &lt;/td&gt; &lt;td&gt; 141 x &lt;/td&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 99 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 2686 &lt;/td&gt; &lt;td&gt; 27 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 5285 &lt;/td&gt; &lt;td&gt; 53 x &lt;/td&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 43 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 5143 &lt;/td&gt; &lt;td&gt; 120 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 6413 &lt;/td&gt; &lt;td&gt; 149 x &lt;/td&gt;  Ou encore :">
 <meta name="twitter:description" content="Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C&#43;&#43; étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j’ai la réponse à ma question :
-  Program   Language   time (ms)   Slowdown     add   C&#43;&#43;   23       add   Perl   1464   64 x     add   Python   3242   141 x     mult   C&#43;&#43;   99       mult   Perl   2686   27 x     mult   Python   5285   53 x     func   C&#43;&#43;   43       func   Perl   5143   120 x     func   Python   6413   149 x    Ou encore :">
+&lt;th&gt; Language &lt;/th&gt; &lt;th&gt; time (ms) &lt;/th&gt; &lt;th&gt; Slowdown &lt;/th&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 23 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 1464 &lt;/td&gt; &lt;td&gt; 64 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 3242 &lt;/td&gt; &lt;td&gt; 141 x &lt;/td&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 99 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 2686 &lt;/td&gt; &lt;td&gt; 27 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 5285 &lt;/td&gt; &lt;td&gt; 53 x &lt;/td&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 43 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 5143 &lt;/td&gt; &lt;td&gt; 120 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 6413 &lt;/td&gt; &lt;td&gt; 149 x &lt;/td&gt;  Ou encore :">
 <meta property="og:locale" content="en-us">
 
   
@@ -274,405 +274,310 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C++ étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j’ai la réponse à ma question :</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;th&gt;
+  Language
+&lt;/th&gt;
 
-<table border="1">
-  <tr>
-    <th>
-      Program
-    </th>
-    
-    <th>
-      Language
-    </th>
-    
-    <th>
-      time (ms)
-    </th>
-    
-    <th>
-      Slowdown
-    </th>
-  </tr>
-  
-  <tr>
-    <td>
-      <strong>add</strong>
-    </td>
-    
-    <td>
-      C++
-    </td>
-    
-    <td>
-      23
-    </td>
-    
-    <td>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      <strong>add</strong>
-    </td>
-    
-    <td>
-      Perl
-    </td>
-    
-    <td>
-      1464
-    </td>
-    
-    <td>
-      64 x
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      <strong>add</strong>
-    </td>
-    
-    <td>
-      Python
-    </td>
-    
-    <td>
-      3242
-    </td>
-    
-    <td>
-      141 x
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      <strong>mult</strong>
-    </td>
-    
-    <td>
-      C++
-    </td>
-    
-    <td>
-      99
-    </td>
-    
-    <td>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      <strong>mult</strong>
-    </td>
-    
-    <td>
-      Perl
-    </td>
-    
-    <td>
-      2686
-    </td>
-    
-    <td>
-      27 x
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      <strong>mult</strong>
-    </td>
-    
-    <td>
-      Python
-    </td>
-    
-    <td>
-      5285
-    </td>
-    
-    <td>
-      53 x
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      <strong>func</strong>
-    </td>
-    
-    <td>
-      C++
-    </td>
-    
-    <td>
-      43
-    </td>
-    
-    <td>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      <strong>func</strong>
-    </td>
-    
-    <td>
-      Perl
-    </td>
-    
-    <td>
-      5143
-    </td>
-    
-    <td>
-      120 x
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      <strong>func</strong>
-    </td>
-    
-    <td>
-      Python
-    </td>
-    
-    <td>
-      6413
-    </td>
-    
-    <td>
-      149 x
-    </td>
-  </tr>
-</table>
+&lt;th&gt;
+  time (ms)
+&lt;/th&gt;
 
+&lt;th&gt;
+  Slowdown
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  C++
+&lt;/td&gt;
+
+&lt;td&gt;
+  23
+&lt;/td&gt;
+
+&lt;td&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  Perl
+&lt;/td&gt;
+
+&lt;td&gt;
+  1464
+&lt;/td&gt;
+
+&lt;td&gt;
+  64 x
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  Python
+&lt;/td&gt;
+
+&lt;td&gt;
+  3242
+&lt;/td&gt;
+
+&lt;td&gt;
+  141 x
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  C++
+&lt;/td&gt;
+
+&lt;td&gt;
+  99
+&lt;/td&gt;
+
+&lt;td&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  Perl
+&lt;/td&gt;
+
+&lt;td&gt;
+  2686
+&lt;/td&gt;
+
+&lt;td&gt;
+  27 x
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  Python
+&lt;/td&gt;
+
+&lt;td&gt;
+  5285
+&lt;/td&gt;
+
+&lt;td&gt;
+  53 x
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  C++
+&lt;/td&gt;
+
+&lt;td&gt;
+  43
+&lt;/td&gt;
+
+&lt;td&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  Perl
+&lt;/td&gt;
+
+&lt;td&gt;
+  5143
+&lt;/td&gt;
+
+&lt;td&gt;
+  120 x
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  Python
+&lt;/td&gt;
+
+&lt;td&gt;
+  6413
+&lt;/td&gt;
+
+&lt;td&gt;
+  149 x
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
 <p>Ou encore :</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">time</span> ./split.pl  p.test           <span class="c1"># Perl 5.8.8</span>
 real    0m38.577s
 user    0m33.554s
 sys     0m0.848s<span class="sb">`</span></code></pre></div>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">time</span> ./split.py p.test            <span class="c1"># Python 2.4.4</span>
 real    0m44.895s
 user    0m42.975s
 sys     0m0.900s</code></pre></div>
-
 <p>Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C++ étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j&rsquo;ai la réponse à ma question :</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;th&gt;
+  Language
+&lt;/th&gt;
 
-<table border="1">
-  <tr>
-    <th>
-      Program
-    </th>
-    
-    <th>
-      Language
-    </th>
-    
-    <th>
-      time (ms)
-    </th>
-    
-    <th>
-      Slowdown
-    </th>
-  </tr>
-  
-  <tr>
-    <td>
-      <strong>add</strong>
-    </td>
-    
-    <td>
-      C++
-    </td>
-    
-    <td>
-      23
-    </td>
-    
-    <td>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      <strong>add</strong>
-    </td>
-    
-    <td>
-      Perl
-    </td>
-    
-    <td>
-      1464
-    </td>
-    
-    <td>
-      64 x
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      <strong>add</strong>
-    </td>
-    
-    <td>
-      Python
-    </td>
-    
-    <td>
-      3242
-    </td>
-    
-    <td>
-      141 x
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      <strong>mult</strong>
-    </td>
-    
-    <td>
-      C++
-    </td>
-    
-    <td>
-      99
-    </td>
-    
-    <td>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      <strong>mult</strong>
-    </td>
-    
-    <td>
-      Perl
-    </td>
-    
-    <td>
-      2686
-    </td>
-    
-    <td>
-      27 x
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      <strong>mult</strong>
-    </td>
-    
-    <td>
-      Python
-    </td>
-    
-    <td>
-      5285
-    </td>
-    
-    <td>
-      53 x
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      <strong>func</strong>
-    </td>
-    
-    <td>
-      C++
-    </td>
-    
-    <td>
-      43
-    </td>
-    
-    <td>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      <strong>func</strong>
-    </td>
-    
-    <td>
-      Perl
-    </td>
-    
-    <td>
-      5143
-    </td>
-    
-    <td>
-      120 x
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      <strong>func</strong>
-    </td>
-    
-    <td>
-      Python
-    </td>
-    
-    <td>
-      6413
-    </td>
-    
-    <td>
-      149 x
-    </td>
-  </tr>
-</table>
+&lt;th&gt;
+  time (ms)
+&lt;/th&gt;
 
+&lt;th&gt;
+  Slowdown
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  C++
+&lt;/td&gt;
+
+&lt;td&gt;
+  23
+&lt;/td&gt;
+
+&lt;td&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  Perl
+&lt;/td&gt;
+
+&lt;td&gt;
+  1464
+&lt;/td&gt;
+
+&lt;td&gt;
+  64 x
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  Python
+&lt;/td&gt;
+
+&lt;td&gt;
+  3242
+&lt;/td&gt;
+
+&lt;td&gt;
+  141 x
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  C++
+&lt;/td&gt;
+
+&lt;td&gt;
+  99
+&lt;/td&gt;
+
+&lt;td&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  Perl
+&lt;/td&gt;
+
+&lt;td&gt;
+  2686
+&lt;/td&gt;
+
+&lt;td&gt;
+  27 x
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  Python
+&lt;/td&gt;
+
+&lt;td&gt;
+  5285
+&lt;/td&gt;
+
+&lt;td&gt;
+  53 x
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  C++
+&lt;/td&gt;
+
+&lt;td&gt;
+  43
+&lt;/td&gt;
+
+&lt;td&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  Perl
+&lt;/td&gt;
+
+&lt;td&gt;
+  5143
+&lt;/td&gt;
+
+&lt;td&gt;
+  120 x
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  Python
+&lt;/td&gt;
+
+&lt;td&gt;
+  6413
+&lt;/td&gt;
+
+&lt;td&gt;
+  149 x
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
 <p>Ou encore :
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"> 
 <span class="nb">time</span> ./split.pl  p.test           <span class="c1"># Perl 5.8.8</span>
 real    0m38.577s
 user    0m33.554s
 sys     0m0.848s<span class="sb">`</span></code></pre></div></p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"> 
 $ <span class="nb">time</span> ./split.py p.test            <span class="c1"># Python 2.4.4</span>
 real    0m44.895s
 user    0m42.975s
 sys     0m0.900s</code></pre></div>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"> 
 $ <span class="nb">time</span> php split.php p.test <span class="c1"># PHP 5.2.6RC4</span>
 real 1m10.887s
 user 0m51.251s
 sys 0m18.677s</code></pre></div>
-
 <p>Perl est donc très bien placé :-)</p>
-
 <p>Sources :</p>
-
-<p><a href="http://tenser.typepad.com/tenser_said_the_tensor/2006/08/python_vs_perl_.html" target="_blank">http://tenser.typepad.com/tenser_said_the_tensor/2006/08/python_vs_perl_.html</a></p>
-
-<p><a href="http://www.skitoy.com/p/performance-of-python-php-and-perl/160" target="_blank">http://www.skitoy.com/p/performance-of-python-php-and-perl/160</a></p>
+<p><a href="http://tenser.typepad.com/tenser_said_the_tensor/2006/08/python_vs_perl_.html">http://tenser.typepad.com/tenser_said_the_tensor/2006/08/python_vs_perl_.html</a></p>
+<p><a href="http://www.skitoy.com/p/performance-of-python-php-and-perl/160">http://www.skitoy.com/p/performance-of-python-php-and-perl/160</a></p>
 
               
             </div>
@@ -765,7 +670,7 @@ sys 0m18.677s</code></pre></div>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="To be able to monitor the PHP-FPM service with connections, queue information, process&hellip; you&rsquo;ll need to set the status page. This will give you something like this :
-pool: www process manager: dynamic start time: 18/Dec/201300:41 &#43;0100 start since: 52972 accepted conn: 5268 listen queue: 0 max listen queue: 0 listen queue len: 0 idle processes: 3 active processes: 1 total processes: 4 max active processes: 4 max children reached: 0 Those informations are important to correctly tune the PHP-FPM service.">
+pool: www process manager: dynamic start time: 18/Dec/2013:19:00:41 &#43;0100 start since: 52972 accepted conn: 5268 listen queue: 0 max listen queue: 0 listen queue len: 0 idle processes: 3 active processes: 1 total processes: 4 max active processes: 4 max children reached: 0 Those informations are important to correctly tune the PHP-FPM service.">
 
 
 <meta property="og:description" content="To be able to monitor the PHP-FPM service with connections, queue information, process&hellip; you&rsquo;ll need to set the status page. This will give you something like this :
-pool: www process manager: dynamic start time: 18/Dec/201300:41 &#43;0100 start since: 52972 accepted conn: 5268 listen queue: 0 max listen queue: 0 listen queue len: 0 idle processes: 3 active processes: 1 total processes: 4 max active processes: 4 max children reached: 0 Those informations are important to correctly tune the PHP-FPM service.">
+pool: www process manager: dynamic start time: 18/Dec/2013:19:00:41 &#43;0100 start since: 52972 accepted conn: 5268 listen queue: 0 max listen queue: 0 listen queue len: 0 idle processes: 3 active processes: 1 total processes: 4 max active processes: 4 max children reached: 0 Those informations are important to correctly tune the PHP-FPM service.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP-FPM : get status information page for monitoring">
 <meta name="twitter:title" content="PHP-FPM : get status information page for monitoring">
@@ -21,9 +21,9 @@ pool: www process manager: dynamic start time: 18/Dec/201300:41 &#43;0100 start 
 <meta property="twitter:url" content="https://blog.deimos.fr/2013/12/22/php-fpm-get-status-information-page-for-monitoring/">
 <meta property="og:site_name" content="Deimosfr Blog">
 <meta property="og:description" content="To be able to monitor the PHP-FPM service with connections, queue information, process&hellip; you&rsquo;ll need to set the status page. This will give you something like this :
-pool: www process manager: dynamic start time: 18/Dec/201300:41 &#43;0100 start since: 52972 accepted conn: 5268 listen queue: 0 max listen queue: 0 listen queue len: 0 idle processes: 3 active processes: 1 total processes: 4 max active processes: 4 max children reached: 0 Those informations are important to correctly tune the PHP-FPM service.">
+pool: www process manager: dynamic start time: 18/Dec/2013:19:00:41 &#43;0100 start since: 52972 accepted conn: 5268 listen queue: 0 max listen queue: 0 listen queue len: 0 idle processes: 3 active processes: 1 total processes: 4 max active processes: 4 max children reached: 0 Those informations are important to correctly tune the PHP-FPM service.">
 <meta name="twitter:description" content="To be able to monitor the PHP-FPM service with connections, queue information, process&hellip; you&rsquo;ll need to set the status page. This will give you something like this :
-pool: www process manager: dynamic start time: 18/Dec/201300:41 &#43;0100 start since: 52972 accepted conn: 5268 listen queue: 0 max listen queue: 0 listen queue len: 0 idle processes: 3 active processes: 1 total processes: 4 max active processes: 4 max children reached: 0 Those informations are important to correctly tune the PHP-FPM service.">
+pool: www process manager: dynamic start time: 18/Dec/2013:19:00:41 &#43;0100 start since: 52972 accepted conn: 5268 listen queue: 0 max listen queue: 0 listen queue len: 0 idle processes: 3 active processes: 1 total processes: 4 max active processes: 4 max children reached: 0 Those informations are important to correctly tune the PHP-FPM service.">
 <meta property="og:locale" content="en-us">
 
   
@@ -290,12 +290,11 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_ngnix.png" alt="Nginx-logo" />
+              <p><img src="https://blog.deimos.fr/images/logo_ngnix.png" alt="Nginx-logo">
 To be able to monitor the PHP-FPM service with connections, queue information, process&hellip; you&rsquo;ll need to set the status page. This will give you something like this :</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pool: www
 process manager: dynamic
-start time: <span class="m">18</span>/Dec/201300:41 +0100
+start time: 18/Dec/2013:19:00:41 +0100
 start since: <span class="m">52972</span>
 accepted conn: <span class="m">5268</span>
 listen queue: <span class="m">0</span>
@@ -306,8 +305,7 @@ active processes: <span class="m">1</span>
 total processes: <span class="m">4</span>
 max active processes: <span class="m">4</span>
 max children reached: <span class="m">0</span></code></pre></div>
-
-<p>Those informations are important to correctly tune the PHP-FPM service. To add it with Nginx, you can <a href="https://wiki.deimos.fr/Nginx_:_Installation_et_configuration_d%27une_alternative_d%27Apache#PHP-FPM_Status" target="_blank">follow my tutorial (french)</a>.</p>
+<p>Those informations are important to correctly tune the PHP-FPM service. To add it with Nginx, you can <a href="https://wiki.deimos.fr/Nginx_:_Installation_et_configuration_d%27une_alternative_d%27Apache#PHP-FPM_Status">follow my tutorial (french)</a>.</p>
 
               
             </div>
@@ -406,7 +404,7 @@ max children reached: <span class="m">0</span></code></pre></div>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

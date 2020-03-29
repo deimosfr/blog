@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mac on Deimosfr Blog</title>
@@ -213,7 +213,7 @@ Sauf qu&amp;rsquo;au moment du collé : BIIIIIIIIIIM&amp;hellip;le drâme !</des
       
       <guid>https://blog.deimos.fr/2011/07/18/encfs-sur-mac-os-x-lion/</guid>
       <description>J’ai eu quelques petits soucis en arrivant sur Lion pour avoir Encfs :
- J&amp;rsquo;ai dû chopper une bêta XCode et l&amp;rsquo;installer Ce Xcode m&amp;rsquo;a été nécessaire pour installer MacPort. Qui lui n&amp;rsquo;était pas encore packagé Lion, j&amp;rsquo;ai donc du recompiler les sources depuis le SVN J&amp;rsquo;ai pu mettre à jour tous mes ports dont Encfs et Macfuse  Seulement voilà, même en mettant tout ce petit monde à jour, impossible de monter mon dossier crypté !</description>
+ J&amp;rsquo;ai dû chopper une bêta XCode et l&amp;rsquo;installer Ce Xcode m&amp;rsquo;a été nécessaire pour installer MacPort. Qui lui n&#39;était pas encore packagé Lion, j&amp;rsquo;ai donc du recompiler les sources depuis le SVN J&amp;rsquo;ai pu mettre à jour tous mes ports dont Encfs et Macfuse  Seulement voilà, même en mettant tout ce petit monde à jour, impossible de monter mon dossier crypté !</description>
     </item>
     
     <item>

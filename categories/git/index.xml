@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Git on Deimosfr Blog</title>
@@ -6,7 +6,7 @@
     <description>Recent content in Git on Deimosfr Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 15 Sep 2015 21:56:06 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 17 Apr 2017 21:28:52 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.deimos.fr/categories/git/index.xml" rel="self" type="application/rss+xml" />
     

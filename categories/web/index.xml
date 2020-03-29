@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Web on Deimosfr Blog</title>
@@ -304,7 +304,7 @@ To do it, simply follow the link (in french).</description>
       
       <guid>https://blog.deimos.fr/2013/12/22/php-fpm-get-status-information-page-for-monitoring/</guid>
       <description>To be able to monitor the PHP-FPM service with connections, queue information, process&amp;hellip; you&amp;rsquo;ll need to set the status page. This will give you something like this :
-pool: www process manager: dynamic start time: 18/Dec/201300:41 +0100 start since: 52972 accepted conn: 5268 listen queue: 0 max listen queue: 0 listen queue len: 0 idle processes: 3 active processes: 1 total processes: 4 max active processes: 4 max children reached: 0 Those informations are important to correctly tune the PHP-FPM service.</description>
+pool: www process manager: dynamic start time: 18/Dec/2013:19:00:41 +0100 start since: 52972 accepted conn: 5268 listen queue: 0 max listen queue: 0 listen queue len: 0 idle processes: 3 active processes: 1 total processes: 4 max active processes: 4 max children reached: 0 Those informations are important to correctly tune the PHP-FPM service.</description>
     </item>
     
     <item>
@@ -463,8 +463,7 @@ Fever answered most of them, instead of the mobile client. When I was on iPhone 
       <guid>https://blog.deimos.fr/2013/06/27/mediawiki-install-and-upgrade-with-git/</guid>
       <description>For several years, I manually managed my MediaWiki instance manually and always upgraded manually, getting diffs, patching files etc&amp;hellip; Now it&amp;rsquo;s over, this method is simply not adapted to my needs.
 Now, as MediaWiki use git, I decided to maintain my instance with the git repository and extensions as well. I&amp;rsquo;ve wrote a documentation on that :
- Installation method Core + extensions Upgrade core + extensions  &amp;nbsp;
-I hope this will help some of you that still manage it by the old way.</description>
+ Installation method Core + extensions Upgrade core + extensions   I hope this will help some of you that still manage it by the old way.</description>
     </item>
     
     <item>
@@ -564,7 +563,7 @@ Je vous rassure, je ne vais pas faire une conversion de ce que j&amp;rsquo;ai au
       <pubDate>Wed, 27 Mar 2013 11:00:06 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2013/03/27/migration-vers-owncloud-5-reussie/</guid>
-      <description>Et voilà encore une migration de faite. Elle s&amp;rsquo;est plutôt bien passée, alors que c&amp;rsquo;était mal partie. En effet, il a fallut que je change la configuration de mon Nginx pour que cette nouvelle mouture fonctionne. Ces informations n&amp;rsquo;étant pas marquées dans la documentation officielle, j&amp;rsquo;ai perdu un peu de temps en pensant que ma migration avait foirée.
+      <description>Et voilà encore une migration de faite. Elle s&amp;rsquo;est plutôt bien passée, alors que c&#39;était mal partie. En effet, il a fallut que je change la configuration de mon Nginx pour que cette nouvelle mouture fonctionne. Ces informations n&#39;étant pas marquées dans la documentation officielle, j&amp;rsquo;ai perdu un peu de temps en pensant que ma migration avait foirée.
 En montant une autre plateforme from scratch, j&amp;rsquo;avais le même problème. Le soucis était alors rapidement identifiable.</description>
     </item>
     
@@ -606,7 +605,7 @@ Il y a quelques jours, Google annonçait la date de fermeture du service Google 
       <guid>https://blog.deimos.fr/2013/03/05/bootstrap-mettez-vos-site-en-valeur-simplement/</guid>
       <description>Toi lecteur, si comme moi tu es un looser du design et que les sites web que tu créer ressemble a ceux du début de années 2000, alors bootstrap est fait pour toi !
 Concrètement qu&amp;rsquo;est-ce que c&amp;rsquo;est ? Simplement une suite de CSS/JavaScripts/Images pour habiller ton site et en plus responsiveness. Et a mettre en place, c&amp;rsquo;est d&amp;rsquo;une facilité déconcertante.
-Mais qui est l&amp;rsquo;âme charitable a avoir développé et publie ceci me diras tu ?</description>
+Mais qui est l&#39;âme charitable a avoir développé et publie ceci me diras tu ?</description>
     </item>
     
     <item>
@@ -667,7 +666,7 @@ Un des supers sujet était Bind 10 que j&amp;rsquo;attendais avec impatience. Il
       <pubDate>Wed, 30 Jan 2013 11:00:07 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2013/01/30/2659/</guid>
-      <description>Si vous utilisez MediaWiki, vous n&amp;rsquo;avez pas forcément besoin de toutes les fonctionnalités. Certaines peuvent disparaître via de la configuration, d&amp;rsquo;autres via des Hook ou pire via de l&amp;rsquo;édition de code.
+      <description>Si vous utilisez MediaWiki, vous n&amp;rsquo;avez pas forcément besoin de toutes les fonctionnalités. Certaines peuvent disparaître via de la configuration, d&amp;rsquo;autres via des Hook ou pire via de l&#39;édition de code.
 Bref, voici une solution pour supprimer l&amp;rsquo;onglet &amp;ldquo;Discussion&amp;rdquo; de toutes les pages. C&amp;rsquo;est un Hook pour Mediawiki disponible ici.</description>
     </item>
     
@@ -750,7 +749,7 @@ Je suis trop trop trop content ! Pas facile de faire switcher des gens sur Media
       
       <guid>https://blog.deimos.fr/2012/12/11/news-en-vrac-6/</guid>
       <description>Voici quelques petites modifications récemment effectuées sur le wiki :
- Kernel : J&amp;rsquo;ai mis à jour la documentation pour la recompilation des kernels. Pas de gros changements, juste un petit rafraîchissement graphique. Bind) : Petits correctifs sur quelques erreurs minimes Nagios : Une petite erreur sur l&amp;rsquo;installation, j&amp;rsquo;avais oublié &amp;lsquo;install&amp;rsquo; dans apt-get (Merci Sandro) Awk : Ajout d&amp;rsquo;un exemple awk Mediawki : J&amp;rsquo;ai mis à jour la page pour quelques petits trucs qui ont changés avec la dernière mouture de Mediawiki  </description>
+ Kernel : J&amp;rsquo;ai mis à jour la documentation pour la recompilation des kernels. Pas de gros changements, juste un petit rafraîchissement graphique. Bind : Petits correctifs sur quelques erreurs minimes Nagios : Une petite erreur sur l&amp;rsquo;installation, j&amp;rsquo;avais oublié &amp;lsquo;install&amp;rsquo; dans apt-get (Merci Sandro) Awk : Ajout d&amp;rsquo;un exemple awk Mediawki : J&amp;rsquo;ai mis à jour la page pour quelques petits trucs qui ont changés avec la dernière mouture de Mediawiki  </description>
     </item>
     
     <item>
@@ -781,7 +780,7 @@ Je vous ai fais une petite documentation pour une mise en place éclair de ce ge
       
       <guid>https://blog.deimos.fr/2012/12/03/wordpress-infinite-scrolling-pour-le-theme-yoko/</guid>
       <description>Si certains d&amp;rsquo;entre vous n&amp;rsquo;utilisent pas encore le module Jetpack pour WordPress, je les invite très rapidement le faire. C&amp;rsquo;est un module qui comprends plusieurs sous-modules, tous très facilement activable, d&amp;rsquo;une simplicité déconcertante et pour certains très performants.
-Dans l&amp;rsquo;une des dernières updates de Jetpack, il y a l&amp;rsquo;infinite scrolling que je souhaitais activer. Malheureusement, pour le thème que j&amp;rsquo;utilise (Yoko)&amp;hellip;impossible de l&amp;rsquo;activer, il n&amp;rsquo;est pas supporté :-(. Une petite recherche sur le forum de wordpress m&amp;rsquo;a permit de voir que je n&amp;rsquo;étais pas le seul sur cette demande.</description>
+Dans l&amp;rsquo;une des dernières updates de Jetpack, il y a l&amp;rsquo;infinite scrolling que je souhaitais activer. Malheureusement, pour le thème que j&amp;rsquo;utilise (Yoko)&amp;hellip;impossible de l&amp;rsquo;activer, il n&amp;rsquo;est pas supporté :-(. Une petite recherche sur le forum de wordpress m&amp;rsquo;a permit de voir que je n&#39;étais pas le seul sur cette demande.</description>
     </item>
     
     <item>
@@ -800,7 +799,7 @@ Je vous ai concocté une petite documentation sur sa mise en place, mais pas pou
       <pubDate>Fri, 23 Nov 2012 11:00:26 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2012/11/23/tomcat-mise-en-place-du-load-balancer/</guid>
-      <description>Toujours dans la continuité des articles sur Tomcat, on commence à rentrer dans du lourd et faire de la répartition de charge. Ça a l&amp;rsquo;avantage d&amp;rsquo;être assez facile et rapide à mettre en place. La mise en place du load balancing est faite au niveau du mod_jk comme ceci :
+      <description>Toujours dans la continuité des articles sur Tomcat, on commence à rentrer dans du lourd et faire de la répartition de charge. Ça a l&amp;rsquo;avantage d&#39;être assez facile et rapide à mettre en place. La mise en place du load balancing est faite au niveau du mod_jk comme ceci :
 Je vous laisse regarder la doc pour sa mise en place.</description>
     </item>
     
@@ -841,7 +840,7 @@ Pour la documentation sur l&amp;rsquo;Authentification SSO depuis Apache sur bac
       <pubDate>Sat, 20 Oct 2012 10:00:21 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2012/10/20/html-patientez-svp/</guid>
-      <description>J&amp;rsquo;ai cherché le moyen le plus simple de faire une faire attendre les gens lors d&amp;rsquo;un submit en PHP/HTML. Je suis tombé sur des trucs en Javascript qui n&amp;rsquo;étaient pas terrible, en Ajax compliqué à mettre en œuvre ou en jQuery avec des kilomètres de lignes. Puis je suis tombé sur cette solution, qui avec un simple div et innerHTML permettait de répondre à mon besoin.
+      <description>J&amp;rsquo;ai cherché le moyen le plus simple de faire une faire attendre les gens lors d&amp;rsquo;un submit en PHP/HTML. Je suis tombé sur des trucs en Javascript qui n&#39;étaient pas terrible, en Ajax compliqué à mettre en œuvre ou en jQuery avec des kilomètres de lignes. Puis je suis tombé sur cette solution, qui avec un simple div et innerHTML permettait de répondre à mon besoin.
 Ok, est moche, mais je n&amp;rsquo;ai besoin d&amp;rsquo;aucune librairie en plus et c&amp;rsquo;est extrêmement simple à mettre en place et peu coûteux en lignes de code.</description>
     </item>
     
@@ -871,7 +870,7 @@ J&amp;rsquo;ai fais quelques recherches également sur le net pour voir des benc
       <pubDate>Sun, 02 Sep 2012 10:00:09 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2012/09/02/les-references-ameliorees-sur-mediawiki/</guid>
-      <description>Comme vous l&amp;rsquo;avez certainement déjà vu sur mon wiki, je cite toujours les références qui m&amp;rsquo;ont servit à faire des articles. Cependant, j&amp;rsquo;ai eu quelques fois des raleurs qui n&amp;rsquo;étaient pas content car la citation n&amp;rsquo;était pas faite exactement à l&amp;rsquo;endroit où je réutilisait certaines informations d&amp;rsquo;un autre site.
+      <description>Comme vous l&amp;rsquo;avez certainement déjà vu sur mon wiki, je cite toujours les références qui m&amp;rsquo;ont servit à faire des articles. Cependant, j&amp;rsquo;ai eu quelques fois des raleurs qui n&#39;étaient pas content car la citation n&#39;était pas faite exactement à l&amp;rsquo;endroit où je réutilisait certaines informations d&amp;rsquo;un autre site.
 Justement ces nouvelles références qui utilisent l’extension Cite, me permettent de faire quelque chose de propre et qui rendra heureuse les plaignants !</description>
     </item>
     
@@ -933,7 +932,7 @@ Je vous laisse regarder la doc&amp;hellip;</description>
       
       <guid>https://blog.deimos.fr/2012/06/06/check_mk-thruk/</guid>
       <description>J&amp;rsquo;ai mis à jour mes documentations avec quelques petites corrections et les dernières version des softs :
- Doc sur Check_mk Doc sur Thruk  &amp;nbsp;</description>
+ Doc sur Check_mk Doc sur Thruk   </description>
     </item>
     
     <item>
@@ -1226,8 +1225,8 @@ Pour ceux que ça intéresse, la dernière version est donc disponible sur mon g
       <guid>https://blog.deimos.fr/2011/04/06/activer-la-compression-ouaibe/</guid>
       <description>Si vous souhaitez gagner de précieuses secondes sur le chargements de vos pages web, il est fortement recommander d’utiliser la compression. Il faut également choisir les éléments que vous voulez compresser.
 Bref, j&amp;rsquo;ai encore fait un petit article flash éclair pour Lighty et PHP5 :
- Compression pour PHP5/Apache
- Compression pour Lighttpd
+  Compression pour PHP5/Apache
+  Compression pour Lighttpd
   </description>
     </item>
     
@@ -1239,8 +1238,8 @@ Bref, j&amp;rsquo;ai encore fait un petit article flash éclair pour Lighty et P
       <guid>https://blog.deimos.fr/2011/04/05/verifier-la-securite-de-votre-serveur/</guid>
       <description>Je ne le répèterais jamais assez, vérifiez votre installation et configuration et testez là ensuite !
 Je suis confronté actuellement à un serveur qui passe son temps à se faire hacker. J&amp;rsquo;ai du auditer la sécurité de celui ci et je me rends compte que beaucoup de personne néglige les aspects de la sécurité. Pourquoi tant d&amp;rsquo;acharnement ? Faut dire aussi :
- Pas de Firewall
- Pas de modules de sécurité</description>
+  Pas de Firewall
+  Pas de modules de sécurité</description>
     </item>
     
     <item>
@@ -1250,7 +1249,7 @@ Je suis confronté actuellement à un serveur qui passe son temps à se faire ha
       
       <guid>https://blog.deimos.fr/2011/03/02/projet-rancid-search/</guid>
       <description>Revoilà encore un nouveau projet. Il s&amp;rsquo;agit de Rancid Search.
-Vous connaissez déjà peut être Rancid qui permet de faire des backups de vos chers équipements Cisco et de les stocker dans un VCS. Au taf, mon équipe réseaux se plaignait de ne pas pouvoir faire de recherche dans tous les équipements cisco d&amp;rsquo;un coup. Imaginez plusieurs équipements avec pour certain plus de 25000 lignes d&amp;rsquo;ACL et autre configuration VPN.</description>
+Vous connaissez déjà peut être Rancid qui permet de faire des backups de vos chers équipements Cisco et de les stocker dans un VCS. Au taf, mon équipe réseaux se plaignait de ne pas pouvoir faire de recherche dans tous les équipements cisco d&amp;rsquo;un coup. Imaginez plusieurs équipements avec pour certain plus de 25000 lignes d&amp;rsquo;ACL et autre configuration VPN. Pour faire des recherches, il fallait déjà savoir sur quelle équipement se connecter, puis chercher dans la conf.</description>
     </item>
     
     <item>
@@ -1394,10 +1393,10 @@ Le site web principale est hébergé sur Mediawiki, le code sur Git, je ne devra
       <description>La première version de phpCV est sortie :-). Soyez donc indulgent…
 Je prévois de belles améliorations mais pour le moment, ça vous permet de faire simplement un beau CV sans trop se fouler.
 Il me reste un beau README a faire, mais pour l&amp;rsquo;heure voici en gros les quelques fonctionnalités :
- Bi languages
- Partie confidentielle gérée
- Calcul automatique de l&amp;rsquo;age
- Génération des PDF à la volée</description>
+  Bi languages
+  Partie confidentielle gérée
+  Calcul automatique de l&amp;rsquo;age
+  Génération des PDF à la volée</description>
     </item>
     
     <item>
@@ -1460,7 +1459,7 @@ http://wiki.deimos.fr/Mise_en_place_d%27un_serveur_et_client_Git#Client</descrip
       
       <guid>https://blog.deimos.fr/2009/08/06/beaux-graphiques-en-flash/</guid>
       <description>Vous vous êtes peut être à la cherche d’une fonctionnalité pour faire de baux graphs hein ? Comme par exemple sous Centreon.
-J&amp;rsquo;ai le truc qu&amp;rsquo;il vous faut, c&amp;rsquo;est en flash, ça génère des graphs trop classe, bref le kiffe. Ca s&amp;rsquo;appelle Open Flash Chart. Le nom est pas très originale certe, mais au moins ça a le mérite d&amp;rsquo;être beau et efficace.
+J&amp;rsquo;ai le truc qu&amp;rsquo;il vous faut, c&amp;rsquo;est en flash, ça génère des graphs trop classe, bref le kiffe. Ca s&amp;rsquo;appelle Open Flash Chart. Le nom est pas très originale certe, mais au moins ça a le mérite d&#39;être beau et efficace.
 Voici le lien sur le site officiel pour la version 1 et ici pour la version 2.</description>
     </item>
     
@@ -1482,8 +1481,8 @@ http://wiki.deimos.fr/Les_extentions_pratiques_de_Mediawiki#Syntax_Highlight_GeS
       
       <guid>https://blog.deimos.fr/2009/04/14/prends-tes-medocs-janine/</guid>
       <description>Chose promise, voici mes docs pour vous aider si vous aussi vous voulez tatouiller KVM et Lighttpd :
- Documentation KVM
- Documentation Lighttpd
+  Documentation KVM
+  Documentation Lighttpd
   Pour ce qui est de Lighttpd, je rajouterais au fur et à mesure mes ajouts. Mais qu&amp;rsquo;est-ce que c&amp;rsquo;est kiffant putain ! La conf à la perl, les correspondances, les regex, la simplicité ouaaa trop bien !</description>
     </item>
     
@@ -1494,7 +1493,7 @@ http://wiki.deimos.fr/Les_extentions_pratiques_de_Mediawiki#Syntax_Highlight_GeS
       
       <guid>https://blog.deimos.fr/2009/04/13/serveur-refait-enfinjen-pouvais-plus-de-solaris-et-virtualbox/</guid>
       <description>Bon… allez, je vais vous expliquer déjà pourquoi j’ai refais mon serveur.
-Dans mes précédents posts datant du mois de décembre, vous avez pu lire que j&amp;rsquo;étais passé de mon serveur Debian 32 bits etch (stable de l&amp;rsquo;époque) vers Solaris et adoptant la virtualisation avec VirtualBox le temps de patienter pour xVM Server.
+Dans mes précédents posts datant du mois de décembre, vous avez pu lire que j&#39;étais passé de mon serveur Debian 32 bits etch (stable de l&#39;époque) vers Solaris et adoptant la virtualisation avec VirtualBox le temps de patienter pour xVM Server.
 Aujourd&amp;rsquo;hui, xVM Server n&amp;rsquo;est toujours pas sorti, VirtualBox n&amp;rsquo;est vraiment, vraiment pas fait pour de la pseudo prod (donc imaginez la prod), contrairement à ce qui est dit sur le site officiel de Sun.</description>
     </item>
     

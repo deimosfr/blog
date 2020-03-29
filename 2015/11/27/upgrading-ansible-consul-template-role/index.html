@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.58.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:
@@ -306,15 +306,12 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_ansible.png" alt="ansible_logo" />
+              <p><img src="https://blog.deimos.fr/images/logo_ansible.png" alt="ansible_logo">
 As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">consul_template_version<span class="p">:</span><span class="w"> </span><span class="s1">&#39;0.11.0&#39;</span><span class="w">
-</span><span class="w"></span>consul_template_arch<span class="p">:</span><span class="w"> </span><span class="s1">&#39;linux_amd64&#39;</span><span class="w">
-</span><span class="w"></span>consul_template_http_src<span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&#34;</span></code></pre></div>
-
-<p>You can of course find the role to Ansible Galaxy: <a href="https://galaxy.ansible.com/deimosfr/consul-template/" target="_blank">https://galaxy.ansible.com/deimosfr/consul-template/</a></p>
-
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">consul_template_version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;0.11.0&#39;</span><span class="w">
+</span><span class="w"></span><span class="k">consul_template_arch</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;linux_amd64&#39;</span><span class="w">
+</span><span class="w"></span><span class="k">consul_template_http_src</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&#34;</span></code></pre></div>
+<p>You can of course find the role to Ansible Galaxy: <a href="https://galaxy.ansible.com/deimosfr/consul-template/">https://galaxy.ansible.com/deimosfr/consul-template/</a></p>
 <p>I hope you&rsquo;ll enjoy this new version :-)</p>
 
               
@@ -418,7 +415,7 @@ As I wanted to upgrade it and because it has been asked several time, I upgraded
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Pierre Mavro / Deimosfr. All Rights Reserved
+    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
   </span>
 </footer>
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SQL on Deimosfr Blog</title>
@@ -178,8 +178,7 @@ This was the my first SkySQL Meet-Up and I can&amp;rsquo;t wait until the next o
       <pubDate>Tue, 10 Dec 2013 11:00:00 +0000</pubDate>
       
       <guid>https://blog.deimos.fr/2013/12/10/galera-how-to-perform-zero-downtime-schema-changes/</guid>
-      <description>Last week, I had a webinar regarding Galera Cluster given by Severalnines. As I found it very interesting, I’m sharing it with you :
-  Zero Downtime Schema Changes - Galera Cluster - Best Practices  from Severalnines</description>
+      <description>Last week, I had a webinar regarding Galera Cluster given by Severalnines. As I found it very interesting, I’m sharing it with you :</description>
     </item>
     
     <item>
@@ -250,7 +249,7 @@ MariaDB prends aujourd&amp;rsquo;hui de plus en plus d’essor et nous propose d
       
       <guid>https://blog.deimos.fr/2013/04/24/au-revoir-mysqloracle-bonjour-mariadbskysql/</guid>
       <description>Et voilà, c&amp;rsquo;est une très bonne nouvelle qui vient de tomber ! SkySQL rachète MariaDB. Les boites frileuses de passer sous MariaDB, sous prétexte qu&amp;rsquo;il n&amp;rsquo;y a pas de boites derrière, vont pouvoir être rassurer et y aller pour de la production. C&amp;rsquo;est donc une excellente nouvelle pour MariaDB dont certains moteurs passent en OpenSource comme tokudb par exemple.
-Je pense qu&amp;rsquo;à terme, un bon paquet de distributions, tel que Mageia (cc Kharec), vont switcher sur MariaDB et abandonner définitivement MySQL.</description>
+Je pense qu&#39;à terme, un bon paquet de distributions, tel que Mageia (cc Kharec), vont switcher sur MariaDB et abandonner définitivement MySQL.</description>
     </item>
     
     <item>
