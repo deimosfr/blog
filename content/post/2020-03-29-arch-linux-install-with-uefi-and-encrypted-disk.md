@@ -190,7 +190,7 @@ echo 'options cryptdevice=UUID=ENTER_HERE_THE_UUID:vg0 root=/dev/mapper/vg0-root
 Update the `ENTER_HERE_THE_UUID` section with the one given by this command corresponding to your crypted partition:
 
 ```bash
-blkid | grpe /dev/nvme0n1p2
+blkid | grep /dev/nvme0n1p2
 ```
 
 # Finish
