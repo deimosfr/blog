@@ -370,7 +370,7 @@ locale-gen
 <span class="nb">echo</span> <span class="s1">&#39;initrd /initramfs-linux.img&#39;</span> &gt;&gt; /boot/loader/entries/arch.conf
 <span class="nb">echo</span> <span class="s1">&#39;options cryptdevice=UUID=ENTER_HERE_THE_UUID:vg0 root=/dev/mapper/vg0-root rw intel_pstate=no_hwp&#39;</span> &gt;&gt; /boot/loader/entries/arch.conf
 </code></pre></div><p>Update the <code>ENTER_HERE_THE_UUID</code> section with the one given by this command corresponding to your crypted partition:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">blkid <span class="p">|</span> grpe /dev/nvme0n1p2
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">blkid <span class="p">|</span> grep /dev/nvme0n1p2
 </code></pre></div><h1 id="finish">Finish</h1>
 <p>Before ending, <strong>install Network Manager</strong> or anything you need for the network part.</p>
 <p>To finish, setup a root password and umount all your partitions:</p>
