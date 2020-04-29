@@ -180,17 +180,12 @@ echo 'timeout 3' >> /boot/loader/loader.conf
 And adding this specific configuration to boot on the crypted device:
 
 ```bash
+UUID=$(blkid | grep crypto_LUKS | sed -r 's/.+UUID="(.+)"?.+/\1/')
 echo 'title Arch Linux' > /boot/loader/entries/arch.conf
 echo 'linux /vmlinuz-linux' >> /boot/loader/entries/arch.conf
 echo 'initrd /intel-ucode.img' >> /boot/loader/entries/arch.conf
 echo 'initrd /initramfs-linux.img' >> /boot/loader/entries/arch.conf
-echo 'options cryptdevice=UUID=ENTER_HERE_THE_UUID:vg0 root=/dev/mapper/vg0-root rw intel_pstate=no_hwp' >> /boot/loader/entries/arch.conf
-```
-
-Update the `ENTER_HERE_THE_UUID` section with the one given by this command corresponding to your crypted partition:
-
-```bash
-blkid | grep /dev/nvme0n1p2
+echo "options cryptdevice=UUID=${UUID}:vg0 root=/dev/mapper/vg0-root rw intel_pstate=no_hwp" >> /boot/loader/entries/arch.conf
 ```
 
 # Finish
