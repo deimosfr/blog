@@ -33,7 +33,7 @@ dd if=archlinux.img of=/dev/sdX bs=16M && sync
 
 # Bios configuration
 
-Ensure you've got secure boot disabled.
+Ensure you've got secure boot disabled and boot on the usb key.
 
 # Keyboard setup
 
@@ -111,9 +111,9 @@ mkfs.ext4 -L root /dev/mapper/vg0-home
 To install Arch, I needed to mount the partitions first:
 
 ```bash
-mkdir /mnt/boot //mnt/home
-mount /dev/nvme0n1p1 /mnt/boot
 mount /dev/mapper/vg0-root /mnt
+mkdir /mnt/boot /mnt/home
+mount /dev/nvme0n1p1 /mnt/boot
 mount /dev/mapper/vg0-home /mnt/home
 ```
 
