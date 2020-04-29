@@ -1,716 +1,88 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    
-    <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
-<meta name="author" content="Pierre Mavro / Deimosfr">
-<meta name="keywords" content="">
-<meta name="description" content="Some of you may not be familiar with the terms &ldquo;Rolling upgrade&rdquo; or &ldquo;Rolling restart&quot;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&rsquo;re managing and the number of active nodes in your cluster.
-At Nousmotards we have several Java Spring Boot applications running. Restarting one application can take up to 1 min.">
-
-
-<meta property="og:description" content="Some of you may not be familiar with the terms &ldquo;Rolling upgrade&rdquo; or &ldquo;Rolling restart&quot;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&rsquo;re managing and the number of active nodes in your cluster.
-At Nousmotards we have several Java Spring Boot applications running. Restarting one application can take up to 1 min.">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Zero downtime upgrade with Ansible and HAProxy">
-<meta name="twitter:title" content="Zero downtime upgrade with Ansible and HAProxy">
-<meta property="og:url" content="https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/">
-<meta property="twitter:url" content="https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/">
-<meta property="og:site_name" content="Deimosfr Blog">
-<meta property="og:description" content="Some of you may not be familiar with the terms &ldquo;Rolling upgrade&rdquo; or &ldquo;Rolling restart&quot;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&rsquo;re managing and the number of active nodes in your cluster.
-At Nousmotards we have several Java Spring Boot applications running. Restarting one application can take up to 1 min.">
-<meta name="twitter:description" content="Some of you may not be familiar with the terms &ldquo;Rolling upgrade&rdquo; or &ldquo;Rolling restart&quot;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&rsquo;re managing and the number of active nodes in your cluster.
-At Nousmotards we have several Java Spring Boot applications running. Restarting one application can take up to 1 min.">
-<meta property="og:locale" content="en-us">
-
-  
-    <meta property="article:published_time" content="2016-01-21T13:00:16">
-  
-  
-    <meta property="article:modified_time" content="2016-01-21T13:00:16">
-  
-  
-  
-    
-      <meta property="article:section" content="Ansible">
-    
-      <meta property="article:section" content="Debian">
-    
-      <meta property="article:section" content="Docker">
-    
-      <meta property="article:section" content="HA">
-    
-      <meta property="article:section" content="Hi-Tech">
-    
-      <meta property="article:section" content="Linux">
-    
-      <meta property="article:section" content="Nousmotards">
-    
-      <meta property="article:section" content="Red Hat">
-    
-  
-  
-    
-      <meta property="article:tag" content="Ansible">
-    
-      <meta property="article:tag" content="Debian">
-    
-      <meta property="article:tag" content="Docker">
-    
-      <meta property="article:tag" content="HA">
-    
-      <meta property="article:tag" content="Hi-Tech">
-    
-      <meta property="article:tag" content="Linux">
-    
-      <meta property="article:tag" content="Nousmotards">
-    
-      <meta property="article:tag" content="Red Hat">
-    
-  
-
-
-<meta name="twitter:card" content="summary">
-
-  <meta name="twitter:site" content="@deimosfr">
-
-
-  <meta name="twitter:creator" content="@deimosfr">
-
-
-
-
-
-
-  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_ansible.png">
-  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_ansible.png">
-
-
-
-
-
-  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-
-
-    <title>Zero downtime upgrade with Ansible and HAProxy</title>
-
-    <link rel="icon" href="https://blog.deimos.fr/favicon.png">
-    
-
-    
-
-    <link rel="canonical" href="https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/">
-
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
-    
-    
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
-    
-    
-      
-        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
-      
-    
-
-    
-      
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-63927289-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
-    
-    
-  </head>
-
-  <body>
-    <div id="blog">
-      <header id="header" data-behavior="5">
-  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-  <div class="header-title">
-    <a class="header-title-link" href="https://blog.deimos.fr/">Deimosfr Blog</a>
-  </div>
-  
-    
-      <a class="header-right-picture "
-         href="https://blog.deimos.fr/#about">
-    
-    
-    
-      
-        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
-      
-    
-    </a>
-  
-</header>
-
-      <nav id="sidebar" data-behavior="5">
-  <div class="sidebar-container">
-    
-      <div class="sidebar-profile">
-        <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
-        </a>
-        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
-        
-      </div>
-    
-    <ul class="sidebar-buttons">
-      
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://blog.deimos.fr/">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
-      
-      <span class="sidebar-button-desc">Home</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://blog.deimos.fr/archives">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
-      
-      <span class="sidebar-button-desc">Archives</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://blog.deimos.fr/categories">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
-      
-      <span class="sidebar-button-desc">Categories</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://blog.deimos.fr/tags">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
-      
-      <span class="sidebar-button-desc">Tags</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://blog.deimos.fr/index.xml">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
-      
-      <span class="sidebar-button-desc">RSS</span>
-    </a>
-  </li>
-
-
-    </ul>
-    <ul class="sidebar-buttons">
-      
-
-    </ul>
-    <ul class="sidebar-buttons">
-      
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://www.deimos.fr" target="_blank" rel="noopener">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-user"></i>
-      
-      <span class="sidebar-button-desc">About</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank" rel="noopener">
-    
-      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
-      
-      <span class="sidebar-button-desc">Wiki</span>
-    </a>
-  </li>
-
-
-    </ul>
-  </div>
-</nav>
-
-      
-
-      <div id="main" data-behavior="5"
-        class="
-               hasCoverMetaIn
-               ">
-        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
-          
-          
-            <div class="post-header main-content-wrap text-left">
-  
-    <h1 class="post-title" itemprop="headline">
-      Zero downtime upgrade with Ansible and HAProxy
-    </h1>
-  
-  
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2016-01-21T13:00:16Z">
-        
-  
-  
-  
-  
-    21 January 2016
-  
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/ansible">Ansible</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/docker">Docker</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/ha">HA</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/nousmotards">Nousmotards</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
-    
-  
-
-  </div>
-
-</div>
-          
-          <div class="post-content markdown" itemprop="articleBody">
-            <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_ansible.png" alt="ansible_logo">
-Some of you may not be familiar with the terms &ldquo;<strong>Rolling upgrade</strong>&rdquo; or &ldquo;<strong>Rolling restart</strong>&quot;. This is the action of upgrading or restarting a cluster without service interruption (alias <strong>zero downtime</strong>). In most cases, this is done node by node, but in fact it depends of the technology you&rsquo;re managing and the number of active nodes in your cluster.</p>
-<p>At <a href="http://www.nousmotards.com">Nousmotards</a>  we have several Java <a href="http://www.springbot.com/">Spring Boot</a> applications running. <strong>Restarting one application can take up to 1 min</strong>. During that time, the service was down which is a shame when you make multiple deployments during per day. To avoid this, I&rsquo;ve wrote an <a href="http://www.ansible.com/">Ansible</a> playbook to perform a <strong>rolling upgrade with the help of</strong> <a href="https://wiki.deimos.fr/HAProxy:_load_balance_your_traffic">HAProxy</a>. I&rsquo;m going to share it with you and explain in details how it works.</p>
-<p>First of all, you need to understand our infrastructure. Regarding our Java micro services, each one is running at least two instances and a load balancer is in front in active/active mode. All our applications are stateless which help us to avoid taking care of the data. Here is a simplified example of our infrastructure for a single Java app:</p>
-<p><img src="https://blog.deimos.fr/images/nm_haproxy_all.png" alt="nm_haproxy_all"></p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">---<span class="w">
-</span><span class="w">
-</span><span class="w"></span>- <span class="k">hosts</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{nm_app}}&#34;</span><span class="w">
-</span><span class="w">  </span><span class="k">user</span><span class="p">:</span><span class="w"> </span>root<span class="w">
-</span><span class="w">  </span><span class="k">serial</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
-</span><span class="w">  </span><span class="k">any_errors_fatal</span><span class="p">:</span><span class="w"> </span>True</code></pre></div>
-<p>Here you can see the <em>hosts</em> parameter as a variable (nm_app is the name of the application and the container dns name as well) because I don&rsquo;t want something specific but applicable to any kind of application. This variable is in fact a group of machines pulled out from Consul (it can be from a flat file).</p>
-<p>The <em>serial</em> means that <strong>it should not perform those tasks on several hosts in parallel (limit to 1 host at a time)</strong>. If you&rsquo;ve got a large set of machines, you can define a percentage. <strong>This will stop upgrading/restarting if it fails at some point</strong>.</p>
-<p>The <em>any_errors_fatal</em> parameter <strong>ensures me that it will stop if an issue occur</strong>. I personally prefer to manually repair the issue in case of a failure rather than putting the service down and perform a full restart. It&rsquo;s a security option.</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">pre_tasks</span><span class="p">:</span><span class="w">
-</span><span class="w">
-</span><span class="w">    </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>read<span class="w"> </span>haproxy<span class="w"> </span>config<span class="w"> </span>to<span class="w"> </span>catch<span class="w"> </span>if<span class="w"> </span>nm<span class="w"> </span>app<span class="w"> </span>is<span class="w"> </span>available<span class="w">
-</span><span class="w">      </span><span class="k">shell</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;echo &#34;show stat&#34; | socat {{haproxy_socks}} stdio | grep -c &#34;^{{nm_app}}&#34;&#39;</span><span class="w">
-</span><span class="w">      </span><span class="k">delegate_to</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ srv_role_location[nm_app] }}&#34;</span><span class="w">
-</span><span class="w">      </span><span class="k">ignore_errors</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">      </span><span class="k">register</span><span class="p">:</span><span class="w"> </span>app_in_haproxy</code></pre></div>
-<p>Here I&rsquo;m running <em>pre_tasks</em> to get out the application from Haproxy (meaning setting it in maintenance mode, so no new connections will be established on this application). For this first task, I just want to be sure that the application I&rsquo;m requesting is registered in Haproxy to avoid playbook failure during next steps.</p>
-<p>Of course, Haproxy is not on the same host as the application, that&rsquo;s why I&rsquo;m using the <em>delegate_to</em> parameter pointing to a dictionary with the host information of the application (which, in my case, is running inside a Docker container but can be triggered from anywhere like Consul kv).</p>
-<p>The result is stored in the <em>app_in_haproxy</em> variable. Now the idea is to <strong>set Haproxy for this current host in maintenance mode and stop the service</strong> to get something like this:</p>
-<p><img src="https://blog.deimos.fr/images/nm_haproxy_right.png" alt="nm_haproxy_right"></p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">- <span class="k">name</span><span class="p">:</span><span class="w"> </span>disabling<span class="w"> </span>application<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>load<span class="w"> </span>balancer<span class="w">
-</span><span class="w">      </span><span class="k">haproxy</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">host</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ ansible_nodename }}&#34;</span><span class="w">
-</span><span class="w">        </span><span class="k">socket</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ haproxy_socks }}&#34;</span><span class="w">
-</span><span class="w">        </span><span class="k">state</span><span class="p">:</span><span class="w"> </span>disabled<span class="w">
-</span><span class="w">      </span><span class="k">delegate_to</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ srv_role_location[nm_app] }}&#34;</span><span class="w">
-</span><span class="w">      </span><span class="k">when</span><span class="p">:</span><span class="w"> </span>app_in_haproxy.stdout<span class="w"> </span>!=<span class="w"> </span><span class="s1">&#39;0&#39;</span><span class="w">
-</span><span class="w">
-</span><span class="w">    </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>disabling<span class="w"> </span>application<span class="w"> </span>on<span class="w"> </span>monit<span class="w">
-</span><span class="w">      </span><span class="k">command</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;monit stop {{nm_app}}&#34;</span><span class="w">
-</span><span class="w">      </span><span class="k">register</span><span class="p">:</span><span class="w"> </span>monit_stop_result<span class="w">
-</span><span class="w">      </span><span class="k">until</span><span class="p">:</span><span class="w"> </span>monit_stop_result.rc<span class="w"> </span>==<span class="w"> </span><span class="m">0</span><span class="w">
-</span><span class="w">      </span><span class="k">retries</span><span class="p">:</span><span class="w"> </span><span class="m">120</span><span class="w">
-</span><span class="w">      </span><span class="k">delay</span><span class="p">:</span><span class="w"> </span><span class="m">10</span></code></pre></div>
-<p>I&rsquo;m using <a href="https://blog.deimos.fr/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/">Monit to manage the services inside Docker</a>. That&rsquo;s why I stop the service managed by Monit (Note that I&rsquo;m not using the <em>monit</em> module in Ansible because it&rsquo;s buggy). Then I&rsquo;m waiting for the port application to be closed. That way, I&rsquo;m sure it will be gracefully stopped and no clients will be connected anymore:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">- <span class="k">name</span><span class="p">:</span><span class="w"> </span>Waiting<span class="w"> </span>application<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>stopped<span class="w">
-</span><span class="w">      </span><span class="k">wait_for</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">host</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;127.0.0.1&#39;</span><span class="w">
-</span><span class="w">        </span><span class="k">port</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{nm_java_apps_params[nm_app][&#39;port&#39;]}}&#34;</span><span class="w">
-</span><span class="w">        </span><span class="k">state</span><span class="p">:</span><span class="w"> </span>stopped<span class="w">
-</span><span class="w">        </span><span class="k">delay</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
-</span><span class="w">        </span><span class="k">timeout</span><span class="p">:</span><span class="w"> </span><span class="m">1200</span></code></pre></div>
-<p>Now I&rsquo;m calling a role that will ensure my application is installed with the good version. If it&rsquo;s not the case, it will perform the upgrade:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">roles</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span>- <span class="k">role</span><span class="p">:</span><span class="w"> </span>java-application<span class="w">
-</span><span class="w">      </span><span class="k">app_name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{nm_app}}&#34;</span><span class="w">
-</span><span class="w">      </span><span class="k">enable_monit_restart</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span></code></pre></div>
-<p>When finished, the new application is deployed. We can now <strong>start everything in reverse order</strong>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">post_tasks</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>enabling<span class="w"> </span>application<span class="w"> </span>on<span class="w"> </span>monit<span class="w">
-</span><span class="w">      </span><span class="k">command</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;monit start {{nm_app}}&#34;</span><span class="w">
-</span><span class="w">      </span><span class="k">register</span><span class="p">:</span><span class="w"> </span>monit_start_result<span class="w">
-</span><span class="w">      </span><span class="k">until</span><span class="p">:</span><span class="w"> </span>monit_start_result.rc<span class="w"> </span>==<span class="w"> </span><span class="m">0</span><span class="w">
-</span><span class="w">      </span><span class="k">retries</span><span class="p">:</span><span class="w"> </span><span class="m">120</span><span class="w">
-</span><span class="w">      </span><span class="k">delay</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
-</span><span class="w">
-</span><span class="w">    </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>Waiting<span class="w"> </span>application<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>up<span class="w">
-</span><span class="w">      </span><span class="k">wait_for</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">host</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;127.0.0.1&#39;</span><span class="w">
-</span><span class="w">        </span><span class="k">port</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{nm_java_apps_params[nm_app][&#39;port&#39;]}}&#34;</span><span class="w">
-</span><span class="w">        </span><span class="k">state</span><span class="p">:</span><span class="w"> </span>started<span class="w">
-</span><span class="w">        </span><span class="k">delay</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
-</span><span class="w">        </span><span class="k">timeout</span><span class="p">:</span><span class="w"> </span><span class="m">1200</span><span class="w">
-</span><span class="w">
-</span><span class="w">    </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>enabling<span class="w"> </span>application<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>load<span class="w"> </span>balancer<span class="w">
-</span><span class="w">      </span><span class="k">haproxy</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">host</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ ansible_nodename }}&#34;</span><span class="w">
-</span><span class="w">        </span><span class="k">socket</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ haproxy_socks }}&#34;</span><span class="w">
-</span><span class="w">        </span><span class="k">state</span><span class="p">:</span><span class="w"> </span>enabled<span class="w">
-</span><span class="w">      </span><span class="k">delegate_to</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{srv_role_location.nm_app}}&#34;</span><span class="w">
-</span><span class="w">      </span><span class="k">when</span><span class="p">:</span><span class="w"> </span>app_in_haproxy.stdout<span class="w"> </span>!=<span class="w"> </span><span class="s1">&#39;0&#39;</span></code></pre></div>
-<p>To be sure Haproxy had enough time to switch to the green state, I&rsquo;m triggering the state for 20s and only continue when green. This is normally <strong>not necessary but a useful guaranty tip</strong>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">- <span class="k">name</span><span class="p">:</span><span class="w"> </span>waiting<span class="w"> </span>haproxy<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>green<span class="w">
-</span><span class="w">      </span><span class="k">shell</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;echo &#34;show stat&#34; | socat {{haproxy_socks}} stdio | grep {{ansible_hostname}} | grep -c UP&#39;</span><span class="w">
-</span><span class="w">      </span><span class="k">register</span><span class="p">:</span><span class="w"> </span>haproxy_green<span class="w">
-</span><span class="w">      </span><span class="k">until</span><span class="p">:</span><span class="w"> </span>haproxy_green.stdout<span class="w"> </span>!=<span class="w"> </span><span class="m">1</span><span class="w">
-</span><span class="w">      </span><span class="k">retries</span><span class="p">:</span><span class="w"> </span><span class="m">20</span><span class="w">
-</span><span class="w">      </span><span class="k">delay</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;1&#34;</span><span class="w">
-</span><span class="w">      </span><span class="k">delegate_to</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ srv_role_location[nm_app] }}&#34;</span><span class="w">
-</span><span class="w">      </span><span class="k">when</span><span class="p">:</span><span class="w"> </span>app_in_haproxy.stdout<span class="w"> </span>!=<span class="w"> </span><span class="s1">&#39;0&#39;</span></code></pre></div>
-<p>This host is now delivering the latest version of the application, <strong>Ansible will now continue with the others hosts one by one</strong>:</p>
-<p><img src="https://blog.deimos.fr/images/nm_haproxy_left.png" alt="nm_haproxy_left"></p>
-<p>When finished, <strong>all apps are upgraded without any downtime</strong> and no stress.</p>
-<p>This kind of solution is not new, but with the help of Ansible, it becomes really easy.</p>
-
-              
-            </div>
-          </div>
-          <div id="post-footer" class="post-footer main-content-wrap">
-            
-              
-                
-                
-                  <div class="post-footer-tags">
-                    <span class="text-color-light text-small">TAGGED IN</span><br/>
-                    
-  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/ansible/">Ansible</a>
-
-  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/debian/">Debian</a>
-
-  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/docker/">Docker</a>
-
-  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/ha/">HA</a>
-
-  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/hi-tech/">Hi-Tech</a>
-
-  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/linux/">Linux</a>
-
-  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/nousmotards/">Nousmotards</a>
-
-  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/red-hat/">Red Hat</a>
-
-                  </div>
-                
-              
-            
-            <div class="post-actions-wrap">
-  
-      <nav >
-        <ul class="post-actions post-action-nav">
-          
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/" data-tooltip="Do not waste time with grep anymore, use tag">
-              
-                  <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-                </a>
-            </li>
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2016/01/20/how-we-speed-up-news-feed-and-user-wall-display-using-elasticsearch/" data-tooltip="Elasticsearch: How we speed up news feeds and user walls display">
-              
-                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                  <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-          
-        </ul>
-      </nav>
-    <ul class="post-actions post-action-share" >
-      
-        <li class="post-action hide-lg hide-md hide-sm">
-          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
-            <i class="fa fa-share-alt"></i>
-          </a>
-        </li>
-        
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/">
-              <i class="fa fa-facebook-official"></i>
-            </a>
-          </li>
-        
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
-        
-      
-      
-        <li class="post-action">
-          <a class="post-action-btn btn btn--default" href="#disqus_thread">
-            <i class="fa fa-comment-o"></i>
-          </a>
-        </li>
-      
-      <li class="post-action">
-        
-          <a class="post-action-btn btn btn--default" href="#">
-        
-          <i class="fa fa-list"></i>
-        </a>
-      </li>
-    </ul>
-  
-</div>
-
-            
-              
-                <div id="disqus_thread">
-  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-              
-            
-          </div>
-        </article>
-        <footer id="footer" class="main-content-wrap">
-  <span class="copyrights">
-    &copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved
-  </span>
-</footer>
-
-      </div>
-      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        <div class="post-actions-wrap">
-  
-      <nav >
-        <ul class="post-actions post-action-nav">
-          
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/" data-tooltip="Do not waste time with grep anymore, use tag">
-              
-                  <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-                </a>
-            </li>
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2016/01/20/how-we-speed-up-news-feed-and-user-wall-display-using-elasticsearch/" data-tooltip="Elasticsearch: How we speed up news feeds and user walls display">
-              
-                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                  <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-          
-        </ul>
-      </nav>
-    <ul class="post-actions post-action-share" >
-      
-        <li class="post-action hide-lg hide-md hide-sm">
-          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
-            <i class="fa fa-share-alt"></i>
-          </a>
-        </li>
-        
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/">
-              <i class="fa fa-facebook-official"></i>
-            </a>
-          </li>
-        
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
-        
-      
-      
-        <li class="post-action">
-          <a class="post-action-btn btn btn--default" href="#disqus_thread">
-            <i class="fa fa-comment-o"></i>
-          </a>
-        </li>
-      
-      <li class="post-action">
-        
-          <a class="post-action-btn btn btn--default" href="#">
-        
-          <i class="fa fa-list"></i>
-        </a>
-      </li>
-    </ul>
-  
-</div>
-
-      </div>
-      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
-  <i id="btn-close-shareoptions" class="fa fa-close"></i>
-  <ul class="share-options">
-    
-      <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2016%2F01%2F21%2Fzero-downtime-upgrade-with-ansible-and-haproxy%2F">
-          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
-        </a>
-      </li>
-    
-      <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2016%2F01%2F21%2Fzero-downtime-upgrade-with-ansible-and-haproxy%2F">
-          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
-        </a>
-      </li>
-    
-  </ul>
-</div>
-<div id="share-options-mask" class="share-options-mask"></div>
-    </div>
-    
-    <div id="about">
-  <div id="about-card">
-    <div id="about-btn-close">
-      <i class="fa fa-remove"></i>
-    </div>
-    
-      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
-    
-    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
-    
-    
-      <div id="about-card-job">
-        <i class="fa fa-briefcase"></i>
-        <br/>
-        Qovery Co-Founder and CTO
-      </div>
-    
-    
-      <div id="about-card-location">
-        <i class="fa fa-map-marker"></i>
-        <br/>
-        Paris - France
-      </div>
-    
-  </div>
-</div>
-
-    
-
-    
-  
-    
-      
-      <div id="cover" style="background-image:url('https://blog.deimos.fr/images/fish_background.jpg');"></div>
-    
-  
-
-
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
-
-
-<script src="https://blog.deimos.fr/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
-
-
-  
-    <script src="https://blog.deimos.fr/js/custom.js"></script>
-  
-
-<script lang="javascript">
-window.onload = updateMinWidth;
-window.onresize = updateMinWidth;
-document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
-function updateMinWidth() {
-  var sidebar = document.getElementById("sidebar");
-  var main = document.getElementById("main");
-  main.style.minWidth = "";
-  var w1 = getComputedStyle(main).getPropertyValue("min-width");
-  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
-  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
-  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
-}
-</script>
-
-<script>
-$(document).ready(function() {
-  hljs.configure({ classPrefix: '', useBR: false });
-  $('pre.code-highlight > code, pre > code').each(function(i, block) {
-    if (!$(this).hasClass('codeblock')) {
-      $(this).addClass('codeblock');
-    }
-    hljs.highlightBlock(block);
-  });
-});
-</script>
-
-
-  
-    
-      <script>
-        var disqus_config = function () {
-          this.page.url = 'https:\/\/blog.deimos.fr\/2016\/01\/21\/zero-downtime-upgrade-with-ansible-and-haproxy\/';
-          
-            this.page.identifier = '\/2016\/01\/21\/zero-downtime-upgrade-with-ansible-and-haproxy\/'
-          
-        };
-        (function() {
-          
-          
-          if (window.location.hostname == "localhost") {
-            return;
-          }
-          var d = document, s = d.createElement('script');
-          var disqus_shortname = 'blog-deimosfr';
-          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-
-          s.setAttribute('data-timestamp', +new Date());
-          (d.head || d.body).appendChild(s);
-        })();
-      </script>
-    
-  
-
-
-
-
-    
-  </body>
-</html>
-
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Hugo 0.69.2 with theme Tranquilpeak 0.4.7-BETA"><meta name=author content="Pierre Mavro / Deimosfr"><meta name=keywords content><meta name=description content="Some of you may not be familiar with the terms &ldquo;Rolling upgrade&rdquo; or &ldquo;Rolling restart&#34;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&rsquo;re managing and the number of active nodes in your cluster.
+At Nousmotards we have several Java Spring Boot applications running. Restarting one application can take up to 1 min."><meta property="og:description" content="Some of you may not be familiar with the terms &ldquo;Rolling upgrade&rdquo; or &ldquo;Rolling restart&#34;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&rsquo;re managing and the number of active nodes in your cluster.
+At Nousmotards we have several Java Spring Boot applications running. Restarting one application can take up to 1 min."><meta property="og:type" content="article"><meta property="og:title" content="Zero downtime upgrade with Ansible and HAProxy"><meta name=twitter:title content="Zero downtime upgrade with Ansible and HAProxy"><meta property="og:url" content="https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/"><meta property="twitter:url" content="https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/"><meta property="og:site_name" content="Deimosfr Blog"><meta property="og:description" content="Some of you may not be familiar with the terms &ldquo;Rolling upgrade&rdquo; or &ldquo;Rolling restart&#34;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&rsquo;re managing and the number of active nodes in your cluster.
+At Nousmotards we have several Java Spring Boot applications running. Restarting one application can take up to 1 min."><meta name=twitter:description content="Some of you may not be familiar with the terms &ldquo;Rolling upgrade&rdquo; or &ldquo;Rolling restart&#34;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&rsquo;re managing and the number of active nodes in your cluster.
+At Nousmotards we have several Java Spring Boot applications running. Restarting one application can take up to 1 min."><meta property="og:locale" content="en-us"><meta property="article:published_time" content="2016-01-21T13:00:16"><meta property="article:modified_time" content="2016-01-21T13:00:16"><meta property="article:section" content="Ansible"><meta property="article:section" content="Debian"><meta property="article:section" content="Docker"><meta property="article:section" content="HA"><meta property="article:section" content="Hi-Tech"><meta property="article:section" content="Linux"><meta property="article:section" content="Nousmotards"><meta property="article:section" content="Red Hat"><meta property="article:tag" content="Ansible"><meta property="article:tag" content="Debian"><meta property="article:tag" content="Docker"><meta property="article:tag" content="HA"><meta property="article:tag" content="Hi-Tech"><meta property="article:tag" content="Linux"><meta property="article:tag" content="Nousmotards"><meta property="article:tag" content="Red Hat"><meta name=twitter:card content="summary"><meta name=twitter:site content="@deimosfr"><meta name=twitter:creator content="@deimosfr"><meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_ansible.png"><meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_ansible.png"><meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><title>Zero downtime upgrade with Ansible and HAProxy</title><link rel=icon href=https://blog.deimos.fr/favicon.png><link rel=canonical href=https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin=anonymous><link rel=stylesheet href=https://blog.deimos.fr/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css><link rel=stylesheet href=https://blog.deimos.fr/css/custom.css><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-63927289-1','auto');ga('send','pageview');}</script></head><body><div id=blog><header id=header data-behavior=5><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=https://blog.deimos.fr/>Deimosfr Blog</a></div><a class=header-right-picture href=https://blog.deimos.fr/#about><img class=header-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author's picture"></a></header><nav id=sidebar data-behavior=5><div class=sidebar-container><div class=sidebar-profile><a href=https://blog.deimos.fr/#about><img class=sidebar-profile-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"></a><h4 class=sidebar-profile-name>Pierre Mavro / Deimosfr</h4></div><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/><i class="sidebar-button-icon fa fa-lg fa-home"></i><span class=sidebar-button-desc>Home</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/archives><i class="sidebar-button-icon fa fa-lg fa-archive"></i><span class=sidebar-button-desc>Archives</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/categories><i class="sidebar-button-icon fa fa-lg fa-bookmark"></i><span class=sidebar-button-desc>Categories</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/tags><i class="sidebar-button-icon fa fa-lg fa-tags"></i><span class=sidebar-button-desc>Tags</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/index.xml><i class="sidebar-button-icon fa fa-lg fa-rss"></i><span class=sidebar-button-desc>RSS</span></a></li></ul><ul class=sidebar-buttons></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://www.deimos.fr target=_blank rel=noopener><i class="sidebar-button-icon fa fa-lg fa-user"></i><span class=sidebar-button-desc>About</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://wiki.deimos.fr target=_blank rel=noopener><i class="sidebar-button-icon fa fa-wikipedia-w"></i><span class=sidebar-button-desc>Wiki</span></a></li></ul></div></nav><div id=main data-behavior=5 class=hasCoverMetaIn><article class=post itemscope itemtype=http://schema.org/BlogPosting><div class="post-header main-content-wrap text-left"><h1 class=post-title itemprop=headline>Zero downtime upgrade with Ansible and HAProxy</h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2016-01-21T13:00:16Z>21 January 2016</time>
+<span>in</span>
+<a class=category-link href=https://blog.deimos.fr/categories/ansible>Ansible</a>,
+<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
+<a class=category-link href=https://blog.deimos.fr/categories/docker>Docker</a>,
+<a class=category-link href=https://blog.deimos.fr/categories/ha>HA</a>,
+<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
+<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
+<a class=category-link href=https://blog.deimos.fr/categories/nousmotards>Nousmotards</a>,
+<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a></div></div><div class="post-content markdown" itemprop=articleBody><div class=main-content-wrap><p><img src=https://blog.deimos.fr/images/logo_ansible.png alt=ansible_logo>
+Some of you may not be familiar with the terms &ldquo;<strong>Rolling upgrade</strong>&rdquo; or &ldquo;<strong>Rolling restart</strong>". This is the action of upgrading or restarting a cluster without service interruption (alias <strong>zero downtime</strong>). In most cases, this is done node by node, but in fact it depends of the technology you&rsquo;re managing and the number of active nodes in your cluster.</p><p>At <a href=http://www.nousmotards.com>Nousmotards</a>  we have several Java <a href=http://www.springbot.com/>Spring Boot</a> applications running. <strong>Restarting one application can take up to 1 min</strong>. During that time, the service was down which is a shame when you make multiple deployments during per day. To avoid this, I&rsquo;ve wrote an <a href=http://www.ansible.com/>Ansible</a> playbook to perform a <strong>rolling upgrade with the help of</strong> <a href=https://wiki.deimos.fr/HAProxy:_load_balance_your_traffic>HAProxy</a>. I&rsquo;m going to share it with you and explain in details how it works.</p><p>First of all, you need to understand our infrastructure. Regarding our Java micro services, each one is running at least two instances and a load balancer is in front in active/active mode. All our applications are stateless which help us to avoid taking care of the data. Here is a simplified example of our infrastructure for a single Java app:</p><p><img src=https://blog.deimos.fr/images/nm_haproxy_all.png alt=nm_haproxy_all></p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml>---<span class=w>
+</span><span class=w>
+</span><span class=w></span>- <span class=k>hosts</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{nm_app}}&#34;</span><span class=w>
+</span><span class=w>  </span><span class=k>user</span><span class=p>:</span><span class=w> </span>root<span class=w>
+</span><span class=w>  </span><span class=k>serial</span><span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w>
+</span><span class=w>  </span><span class=k>any_errors_fatal</span><span class=p>:</span><span class=w> </span>True</code></pre></div><p>Here you can see the <em>hosts</em> parameter as a variable (nm_app is the name of the application and the container dns name as well) because I don&rsquo;t want something specific but applicable to any kind of application. This variable is in fact a group of machines pulled out from Consul (it can be from a flat file).</p><p>The <em>serial</em> means that <strong>it should not perform those tasks on several hosts in parallel (limit to 1 host at a time)</strong>. If you&rsquo;ve got a large set of machines, you can define a percentage. <strong>This will stop upgrading/restarting if it fails at some point</strong>.</p><p>The <em>any_errors_fatal</em> parameter <strong>ensures me that it will stop if an issue occur</strong>. I personally prefer to manually repair the issue in case of a failure rather than putting the service down and perform a full restart. It&rsquo;s a security option.</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>pre_tasks</span><span class=p>:</span><span class=w>
+</span><span class=w>
+</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>read<span class=w> </span>haproxy<span class=w> </span>config<span class=w> </span>to<span class=w> </span>catch<span class=w> </span>if<span class=w> </span>nm<span class=w> </span>app<span class=w> </span>is<span class=w> </span>available<span class=w>
+</span><span class=w>      </span><span class=k>shell</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;echo &#34;show stat&#34; | socat {{haproxy_socks}} stdio | grep -c &#34;^{{nm_app}}&#34;&#39;</span><span class=w>
+</span><span class=w>      </span><span class=k>delegate_to</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{ srv_role_location[nm_app] }}&#34;</span><span class=w>
+</span><span class=w>      </span><span class=k>ignore_errors</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>      </span><span class=k>register</span><span class=p>:</span><span class=w> </span>app_in_haproxy</code></pre></div><p>Here I&rsquo;m running <em>pre_tasks</em> to get out the application from Haproxy (meaning setting it in maintenance mode, so no new connections will be established on this application). For this first task, I just want to be sure that the application I&rsquo;m requesting is registered in Haproxy to avoid playbook failure during next steps.</p><p>Of course, Haproxy is not on the same host as the application, that&rsquo;s why I&rsquo;m using the <em>delegate_to</em> parameter pointing to a dictionary with the host information of the application (which, in my case, is running inside a Docker container but can be triggered from anywhere like Consul kv).</p><p>The result is stored in the <em>app_in_haproxy</em> variable. Now the idea is to <strong>set Haproxy for this current host in maintenance mode and stop the service</strong> to get something like this:</p><p><img src=https://blog.deimos.fr/images/nm_haproxy_right.png alt=nm_haproxy_right></p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml>- <span class=k>name</span><span class=p>:</span><span class=w> </span>disabling<span class=w> </span>application<span class=w> </span>on<span class=w> </span>the<span class=w> </span>load<span class=w> </span>balancer<span class=w>
+</span><span class=w>      </span><span class=k>haproxy</span><span class=p>:</span><span class=w>
+</span><span class=w>        </span><span class=k>host</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{ ansible_nodename }}&#34;</span><span class=w>
+</span><span class=w>        </span><span class=k>socket</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{ haproxy_socks }}&#34;</span><span class=w>
+</span><span class=w>        </span><span class=k>state</span><span class=p>:</span><span class=w> </span>disabled<span class=w>
+</span><span class=w>      </span><span class=k>delegate_to</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{ srv_role_location[nm_app] }}&#34;</span><span class=w>
+</span><span class=w>      </span><span class=k>when</span><span class=p>:</span><span class=w> </span>app_in_haproxy.stdout<span class=w> </span>!=<span class=w> </span><span class=s1>&#39;0&#39;</span><span class=w>
+</span><span class=w>
+</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>disabling<span class=w> </span>application<span class=w> </span>on<span class=w> </span>monit<span class=w>
+</span><span class=w>      </span><span class=k>command</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;monit stop {{nm_app}}&#34;</span><span class=w>
+</span><span class=w>      </span><span class=k>register</span><span class=p>:</span><span class=w> </span>monit_stop_result<span class=w>
+</span><span class=w>      </span><span class=k>until</span><span class=p>:</span><span class=w> </span>monit_stop_result.rc<span class=w> </span>==<span class=w> </span><span class=m>0</span><span class=w>
+</span><span class=w>      </span><span class=k>retries</span><span class=p>:</span><span class=w> </span><span class=m>120</span><span class=w>
+</span><span class=w>      </span><span class=k>delay</span><span class=p>:</span><span class=w> </span><span class=m>10</span></code></pre></div><p>I&rsquo;m using <a href=https://blog.deimos.fr/2016/01/13/docker-why-you-should-use-monit-instead-of-supervisord/>Monit to manage the services inside Docker</a>. That&rsquo;s why I stop the service managed by Monit (Note that I&rsquo;m not using the <em>monit</em> module in Ansible because it&rsquo;s buggy). Then I&rsquo;m waiting for the port application to be closed. That way, I&rsquo;m sure it will be gracefully stopped and no clients will be connected anymore:</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml>- <span class=k>name</span><span class=p>:</span><span class=w> </span>Waiting<span class=w> </span>application<span class=w> </span>to<span class=w> </span>be<span class=w> </span>stopped<span class=w>
+</span><span class=w>      </span><span class=k>wait_for</span><span class=p>:</span><span class=w>
+</span><span class=w>        </span><span class=k>host</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;127.0.0.1&#39;</span><span class=w>
+</span><span class=w>        </span><span class=k>port</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{nm_java_apps_params[nm_app][&#39;port&#39;]}}&#34;</span><span class=w>
+</span><span class=w>        </span><span class=k>state</span><span class=p>:</span><span class=w> </span>stopped<span class=w>
+</span><span class=w>        </span><span class=k>delay</span><span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w>
+</span><span class=w>        </span><span class=k>timeout</span><span class=p>:</span><span class=w> </span><span class=m>1200</span></code></pre></div><p>Now I&rsquo;m calling a role that will ensure my application is installed with the good version. If it&rsquo;s not the case, it will perform the upgrade:</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>roles</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span>- <span class=k>role</span><span class=p>:</span><span class=w> </span>java-application<span class=w>
+</span><span class=w>      </span><span class=k>app_name</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{nm_app}}&#34;</span><span class=w>
+</span><span class=w>      </span><span class=k>enable_monit_restart</span><span class=p>:</span><span class=w> </span><span class=kc>false</span></code></pre></div><p>When finished, the new application is deployed. We can now <strong>start everything in reverse order</strong>:</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>post_tasks</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>enabling<span class=w> </span>application<span class=w> </span>on<span class=w> </span>monit<span class=w>
+</span><span class=w>      </span><span class=k>command</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;monit start {{nm_app}}&#34;</span><span class=w>
+</span><span class=w>      </span><span class=k>register</span><span class=p>:</span><span class=w> </span>monit_start_result<span class=w>
+</span><span class=w>      </span><span class=k>until</span><span class=p>:</span><span class=w> </span>monit_start_result.rc<span class=w> </span>==<span class=w> </span><span class=m>0</span><span class=w>
+</span><span class=w>      </span><span class=k>retries</span><span class=p>:</span><span class=w> </span><span class=m>120</span><span class=w>
+</span><span class=w>      </span><span class=k>delay</span><span class=p>:</span><span class=w> </span><span class=m>10</span><span class=w>
+</span><span class=w>
+</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>Waiting<span class=w> </span>application<span class=w> </span>to<span class=w> </span>be<span class=w> </span>up<span class=w>
+</span><span class=w>      </span><span class=k>wait_for</span><span class=p>:</span><span class=w>
+</span><span class=w>        </span><span class=k>host</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;127.0.0.1&#39;</span><span class=w>
+</span><span class=w>        </span><span class=k>port</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{nm_java_apps_params[nm_app][&#39;port&#39;]}}&#34;</span><span class=w>
+</span><span class=w>        </span><span class=k>state</span><span class=p>:</span><span class=w> </span>started<span class=w>
+</span><span class=w>        </span><span class=k>delay</span><span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w>
+</span><span class=w>        </span><span class=k>timeout</span><span class=p>:</span><span class=w> </span><span class=m>1200</span><span class=w>
+</span><span class=w>
+</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>enabling<span class=w> </span>application<span class=w> </span>on<span class=w> </span>the<span class=w> </span>load<span class=w> </span>balancer<span class=w>
+</span><span class=w>      </span><span class=k>haproxy</span><span class=p>:</span><span class=w>
+</span><span class=w>        </span><span class=k>host</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{ ansible_nodename }}&#34;</span><span class=w>
+</span><span class=w>        </span><span class=k>socket</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{ haproxy_socks }}&#34;</span><span class=w>
+</span><span class=w>        </span><span class=k>state</span><span class=p>:</span><span class=w> </span>enabled<span class=w>
+</span><span class=w>      </span><span class=k>delegate_to</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{srv_role_location.nm_app}}&#34;</span><span class=w>
+</span><span class=w>      </span><span class=k>when</span><span class=p>:</span><span class=w> </span>app_in_haproxy.stdout<span class=w> </span>!=<span class=w> </span><span class=s1>&#39;0&#39;</span></code></pre></div><p>To be sure Haproxy had enough time to switch to the green state, I&rsquo;m triggering the state for 20s and only continue when green. This is normally <strong>not necessary but a useful guaranty tip</strong>:</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml>- <span class=k>name</span><span class=p>:</span><span class=w> </span>waiting<span class=w> </span>haproxy<span class=w> </span>to<span class=w> </span>be<span class=w> </span>green<span class=w>
+</span><span class=w>      </span><span class=k>shell</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;echo &#34;show stat&#34; | socat {{haproxy_socks}} stdio | grep {{ansible_hostname}} | grep -c UP&#39;</span><span class=w>
+</span><span class=w>      </span><span class=k>register</span><span class=p>:</span><span class=w> </span>haproxy_green<span class=w>
+</span><span class=w>      </span><span class=k>until</span><span class=p>:</span><span class=w> </span>haproxy_green.stdout<span class=w> </span>!=<span class=w> </span><span class=m>1</span><span class=w>
+</span><span class=w>      </span><span class=k>retries</span><span class=p>:</span><span class=w> </span><span class=m>20</span><span class=w>
+</span><span class=w>      </span><span class=k>delay</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;1&#34;</span><span class=w>
+</span><span class=w>      </span><span class=k>delegate_to</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{ srv_role_location[nm_app] }}&#34;</span><span class=w>
+</span><span class=w>      </span><span class=k>when</span><span class=p>:</span><span class=w> </span>app_in_haproxy.stdout<span class=w> </span>!=<span class=w> </span><span class=s1>&#39;0&#39;</span></code></pre></div><p>This host is now delivering the latest version of the application, <strong>Ansible will now continue with the others hosts one by one</strong>:</p><p><img src=https://blog.deimos.fr/images/nm_haproxy_left.png alt=nm_haproxy_left></p><p>When finished, <strong>all apps are upgraded without any downtime</strong> and no stress.</p><p>This kind of solution is not new, but with the help of Ansible, it becomes really easy.</p></div></div><div id=post-footer class="post-footer main-content-wrap"><div class=post-footer-tags><span class="text-color-light text-small">TAGGED IN</span><br><a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/ansible/>Ansible</a>
+<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/debian/>Debian</a>
+<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/docker/>Docker</a>
+<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/ha/>HA</a>
+<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/hi-tech/>Hi-Tech</a>
+<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/linux/>Linux</a>
+<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/nousmotards/>Nousmotards</a>
+<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/red-hat/>Red Hat</a></div><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/ data-tooltip="Do not waste time with grep anymore, use tag"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2016/01/20/how-we-speed-up-news-feed-and-user-wall-display-using-elasticsearch/ data-tooltip="Elasticsearch: How we speed up news feeds and user walls display"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions><i class="fa fa-share-alt"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/"><i class="fa fa-facebook-official"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/"><i class="fa fa-twitter"></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#disqus_thread><i class="fa fa-comment-o"></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#><i class="fa fa-list"></i></a></li></ul></div><div id=disqus_thread><noscript>Please enable JavaScript to view the <a href=//disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></div></article><footer id=footer class=main-content-wrap><span class=copyrights>&copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved</span></footer></div><div id=bottom-bar class=post-bottom-bar data-behavior=5><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/ data-tooltip="Do not waste time with grep anymore, use tag"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2016/01/20/how-we-speed-up-news-feed-and-user-wall-display-using-elasticsearch/ data-tooltip="Elasticsearch: How we speed up news feeds and user walls display"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions><i class="fa fa-share-alt"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/"><i class="fa fa-facebook-official"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/"><i class="fa fa-twitter"></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#disqus_thread><i class="fa fa-comment-o"></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#><i class="fa fa-list"></i></a></li></ul></div></div><div id=share-options-bar class=share-options-bar data-behavior=5><i id=btn-close-shareoptions class="fa fa-close"></i><ul class=share-options><li class=share-option><a class=share-option-btn target=new href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2016%2F01%2F21%2Fzero-downtime-upgrade-with-ansible-and-haproxy%2F"><i class="fa fa-facebook-official"></i><span>Share on Facebook</span></a></li><li class=share-option><a class=share-option-btn target=new href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2016%2F01%2F21%2Fzero-downtime-upgrade-with-ansible-and-haproxy%2F"><i class="fa fa-twitter"></i><span>Share on Twitter</span></a></li></ul></div><div id=share-options-mask class=share-options-mask></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-remove"></i></div><img id=about-card-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"><h4 id=about-card-name>Pierre Mavro / Deimosfr</h4><div id=about-card-job><i class="fa fa-briefcase"></i><br>Qovery Co-Founder and CTO</div><div id=about-card-location><i class="fa fa-map-marker"></i><br>Paris - France</div></div></div><div id=cover style=background-image:url(https://blog.deimos.fr/images/fish_background.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin=anonymous></script><script src=https://blog.deimos.fr/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js></script><script src=https://blog.deimos.fr/js/custom.js></script><script lang=javascript>window.onload=updateMinWidth;window.onresize=updateMinWidth;document.getElementById("sidebar").addEventListener("transitionend",updateMinWidth);function updateMinWidth(){var sidebar=document.getElementById("sidebar");var main=document.getElementById("main");main.style.minWidth="";var w1=getComputedStyle(main).getPropertyValue("min-width");var w2=getComputedStyle(sidebar).getPropertyValue("width");var w3=getComputedStyle(sidebar).getPropertyValue("left");main.style.minWidth=`calc(${w1} - ${w2} - ${w3})`;}</script><script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:false});$('pre.code-highlight > code, pre > code').each(function(i,block){if(!$(this).hasClass('codeblock')){$(this).addClass('codeblock');}
+hljs.highlightBlock(block);});});</script><script>var disqus_config=function(){this.page.url='https:\/\/blog.deimos.fr\/2016\/01\/21\/zero-downtime-upgrade-with-ansible-and-haproxy\/';this.page.identifier='\/2016\/01\/21\/zero-downtime-upgrade-with-ansible-and-haproxy\/'};(function(){if(window.location.hostname=="localhost"){return;}
+var d=document,s=d.createElement('script');var disqus_shortname='blog-deimosfr';s.src='//'+disqus_shortname+'.disqus.com/embed.js';s.setAttribute('data-timestamp',+new Date());(d.head||d.body).appendChild(s);})();</script></body></html>

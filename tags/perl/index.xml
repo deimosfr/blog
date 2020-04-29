@@ -1,25 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>perl on Deimosfr Blog</title>
-    <link>https://blog.deimos.fr/tags/perl/</link>
-    <description>Recent content in perl on Deimosfr Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 10 Jun 2010 06:58:41 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.deimos.fr/tags/perl/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Perl vs X</title>
-      <link>https://blog.deimos.fr/2010/06/10/perl-vs-x/</link>
-      <pubDate>Thu, 10 Jun 2010 06:58:41 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/06/10/perl-vs-x/</guid>
-      <description>Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C++ étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j’ai la réponse à ma question :
-&amp;lt;th&amp;gt; Language &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; time (ms) &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; Slowdown &amp;lt;/th&amp;gt;  &amp;lt;td&amp;gt; C++ &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 23 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; Perl &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 1464 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 64 x &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; Python &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 3242 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 141 x &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; C++ &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 99 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; Perl &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 2686 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 27 x &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; Python &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 5285 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 53 x &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; C++ &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 43 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; Perl &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 5143 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 120 x &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; Python &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 6413 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 149 x &amp;lt;/td&amp;gt;  Ou encore :</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>perl on Deimosfr Blog</title><link>https://blog.deimos.fr/tags/perl/</link><description>Recent content in perl on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 10 Jun 2010 06:58:41 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/perl/index.xml" rel="self" type="application/rss+xml"/><item><title>Perl vs X</title><link>https://blog.deimos.fr/2010/06/10/perl-vs-x/</link><pubDate>Thu, 10 Jun 2010 06:58:41 +0000</pubDate><guid>https://blog.deimos.fr/2010/06/10/perl-vs-x/</guid><description>Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C++ étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j’ai la réponse à ma question :
+&amp;lt;th&amp;gt; Language &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; time (ms) &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; Slowdown &amp;lt;/th&amp;gt; &amp;lt;td&amp;gt; C++ &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 23 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; Perl &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 1464 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 64 x &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; Python &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 3242 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 141 x &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; C++ &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 99 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; Perl &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 2686 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 27 x &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; Python &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 5285 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 53 x &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; C++ &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 43 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; Perl &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 5143 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 120 x &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; Python &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 6413 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 149 x &amp;lt;/td&amp;gt; Ou encore :</description></item></channel></rss>

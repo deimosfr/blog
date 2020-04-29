@@ -1,25 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>VIrtualisation on Deimosfr Blog</title>
-    <link>https://blog.deimos.fr/tags/virtualisation/</link>
-    <description>Recent content in VIrtualisation on Deimosfr Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 05 Mar 2010 06:41:25 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.deimos.fr/tags/virtualisation/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Timide migration vers OpenVZ</title>
-      <link>https://blog.deimos.fr/2010/03/05/timide-migration-vers-openvz/</link>
-      <pubDate>Fri, 05 Mar 2010 06:41:25 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/03/05/timide-migration-vers-openvz/</guid>
-      <description>J’ai eu un commentaire disant que les posts se faisaient rare ces temps ci alors en voilà un :-).
-Actuellement sur mon serveur, je tourne avec KVM et libvirt. J&amp;rsquo;en suis plutôt très satisfait. Seulement voilà, entre MySecureShell avec lequel on doit compiler sur beaucoup de plateformes et mes autres VM dont j&amp;rsquo;ai besoin au quotidien, les 4Go de RAM de la machine ne suffisent pas forcément et je suis au maximum des capacités RAM sur celle ci.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>VIrtualisation on Deimosfr Blog</title><link>https://blog.deimos.fr/tags/virtualisation/</link><description>Recent content in VIrtualisation on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 05 Mar 2010 06:41:25 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/virtualisation/index.xml" rel="self" type="application/rss+xml"/><item><title>Timide migration vers OpenVZ</title><link>https://blog.deimos.fr/2010/03/05/timide-migration-vers-openvz/</link><pubDate>Fri, 05 Mar 2010 06:41:25 +0000</pubDate><guid>https://blog.deimos.fr/2010/03/05/timide-migration-vers-openvz/</guid><description>J’ai eu un commentaire disant que les posts se faisaient rare ces temps ci alors en voilà un :-).
+Actuellement sur mon serveur, je tourne avec KVM et libvirt. J&amp;rsquo;en suis plutôt très satisfait. Seulement voilà, entre MySecureShell avec lequel on doit compiler sur beaucoup de plateformes et mes autres VM dont j&amp;rsquo;ai besoin au quotidien, les 4Go de RAM de la machine ne suffisent pas forcément et je suis au maximum des capacités RAM sur celle ci.</description></item></channel></rss>

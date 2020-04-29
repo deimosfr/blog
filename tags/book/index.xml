@@ -1,25 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>book on Deimosfr Blog</title>
-    <link>https://blog.deimos.fr/tags/book/</link>
-    <description>Recent content in book on Deimosfr Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 24 Sep 2014 10:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.deimos.fr/tags/book/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>MariaDB book on High Performances is finally out! :-)</title>
-      <link>https://blog.deimos.fr/2014/09/24/my-mariadb-book-on-high-performances-is-finally-out/</link>
-      <pubDate>Wed, 24 Sep 2014 10:00:00 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2014/09/24/my-mariadb-book-on-high-performances-is-finally-out/</guid>
-      <description>The day has finally come! After several months of intensive work (weekends and nights), I&amp;rsquo;m proud to announce that my book on MariaDB High Performance is out!
-In that book, I made my best to make things as simple as possible to test features, test solutions and to explain everything in the simplest way. Of course if you&amp;rsquo;re a beginner on MariaDB (and Linux), it may be hard. But if you&amp;rsquo;re familiar with basics and want to go further with performances and high availability on MariaDB, you&amp;rsquo;ll enjoy it.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>book on Deimosfr Blog</title><link>https://blog.deimos.fr/tags/book/</link><description>Recent content in book on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 24 Sep 2014 10:00:00 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/book/index.xml" rel="self" type="application/rss+xml"/><item><title>MariaDB book on High Performances is finally out! :-)</title><link>https://blog.deimos.fr/2014/09/24/my-mariadb-book-on-high-performances-is-finally-out/</link><pubDate>Wed, 24 Sep 2014 10:00:00 +0000</pubDate><guid>https://blog.deimos.fr/2014/09/24/my-mariadb-book-on-high-performances-is-finally-out/</guid><description>The day has finally come! After several months of intensive work (weekends and nights), I&amp;rsquo;m proud to announce that my book on MariaDB High Performance is out!
+In that book, I made my best to make things as simple as possible to test features, test solutions and to explain everything in the simplest way. Of course if you&amp;rsquo;re a beginner on MariaDB (and Linux), it may be hard. But if you&amp;rsquo;re familiar with basics and want to go further with performances and high availability on MariaDB, you&amp;rsquo;ll enjoy it.</description></item></channel></rss>

@@ -1,657 +1,85 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Developement on Deimosfr Blog</title>
-    <link>https://blog.deimos.fr/categories/developement/</link>
-    <description>Recent content in Developement on Deimosfr Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 20 Jan 2016 10:00:41 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.deimos.fr/categories/developement/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Elasticsearch: How we speed up news feeds and user walls display</title>
-      <link>https://blog.deimos.fr/2016/01/20/how-we-speed-up-news-feed-and-user-wall-display-using-elasticsearch/</link>
-      <pubDate>Wed, 20 Jan 2016 10:00:41 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2016/01/20/how-we-speed-up-news-feed-and-user-wall-display-using-elasticsearch/</guid>
-      <description>In my previous post, I talked about how to speed up reads and writes coupling Redis with Neo4J. Now I want to share with you how it&amp;rsquo;s possible to unload your server and use Elasticsearch to speed up news feed and user wall.
-1/ Show me your news feed A news feed is the main page of traditional social networks. Its main goal is to show you all recents updates from your friends and your interests.</description>
-    </item>
-    
-    <item>
-      <title>Generate changelog from git commits and integrate with Sphinxdoc</title>
-      <link>https://blog.deimos.fr/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/</link>
-      <pubDate>Wed, 11 Feb 2015 11:00:22 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/</guid>
-      <description>For another personal project (that I can&amp;rsquo;t talk about for the moment ;-)), I wanted to have a Changelog file to get a better following of the infrastructure evolution (configuration management, scripts&amp;hellip;all under git). Of course the documentation is very important, but when you do not write it at the same time you&amp;rsquo;re building the infrastructure, it may be complex to remember each little things you&amp;rsquo;ve done. That&amp;rsquo;s why a Changelog can help to understand how the infrastructure has been built step by step.</description>
-    </item>
-    
-    <item>
-      <title>Simple EC2 snapshot released !</title>
-      <link>https://blog.deimos.fr/2015/01/20/simple-ec2-snapshot-released/</link>
-      <pubDate>Tue, 20 Jan 2015 11:00:12 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2015/01/20/simple-ec2-snapshot-released/</guid>
-      <description>For my company, I recently had to find a good solution to make Snapshots from Instance IDs or from tags on AWS. I made several searches but unfortunately didn&amp;rsquo;t find what I was searching for.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Developement on Deimosfr Blog</title><link>https://blog.deimos.fr/categories/developement/</link><description>Recent content in Developement on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 20 Jan 2016 10:00:41 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/categories/developement/index.xml" rel="self" type="application/rss+xml"/><item><title>Elasticsearch: How we speed up news feeds and user walls display</title><link>https://blog.deimos.fr/2016/01/20/how-we-speed-up-news-feed-and-user-wall-display-using-elasticsearch/</link><pubDate>Wed, 20 Jan 2016 10:00:41 +0000</pubDate><guid>https://blog.deimos.fr/2016/01/20/how-we-speed-up-news-feed-and-user-wall-display-using-elasticsearch/</guid><description>In my previous post, I talked about how to speed up reads and writes coupling Redis with Neo4J. Now I want to share with you how it&amp;rsquo;s possible to unload your server and use Elasticsearch to speed up news feed and user wall.
+1/ Show me your news feed A news feed is the main page of traditional social networks. Its main goal is to show you all recents updates from your friends and your interests.</description></item><item><title>Generate changelog from git commits and integrate with Sphinxdoc</title><link>https://blog.deimos.fr/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/</link><pubDate>Wed, 11 Feb 2015 11:00:22 +0000</pubDate><guid>https://blog.deimos.fr/2015/02/11/generate-changelog-from-git-commits-and-integrate-with-sphinxdoc-2/</guid><description>For another personal project (that I can&amp;rsquo;t talk about for the moment ;-)), I wanted to have a Changelog file to get a better following of the infrastructure evolution (configuration management, scripts&amp;hellip;all under git). Of course the documentation is very important, but when you do not write it at the same time you&amp;rsquo;re building the infrastructure, it may be complex to remember each little things you&amp;rsquo;ve done. That&amp;rsquo;s why a Changelog can help to understand how the infrastructure has been built step by step.</description></item><item><title>Simple EC2 snapshot released !</title><link>https://blog.deimos.fr/2015/01/20/simple-ec2-snapshot-released/</link><pubDate>Tue, 20 Jan 2015 11:00:12 +0000</pubDate><guid>https://blog.deimos.fr/2015/01/20/simple-ec2-snapshot-released/</guid><description>For my company, I recently had to find a good solution to make Snapshots from Instance IDs or from tags on AWS. I made several searches but unfortunately didn&amp;rsquo;t find what I was searching for.
 That&amp;rsquo;s why I started to make a tool to do this kind of job. It&amp;rsquo;s written in Python and requires the Boto library. Here is what you can do with Simple EC2 snapshots:
-The tool is open source and can be downloaded on GitHub :-).</description>
-    </item>
-    
-    <item>
-      <title>Vagrant: manage Docker &#43; VirtualBox easily</title>
-      <link>https://blog.deimos.fr/2015/01/08/vagrant-manage-docker-virtualbox-easily/</link>
-      <pubDate>Thu, 08 Jan 2015 11:00:02 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2015/01/08/vagrant-manage-docker-virtualbox-easily/</guid>
-      <description>As you may know, I&amp;rsquo;m using Vagrant for more than a year now with VirtualBox. Docker is a faster alternative that needs to be taken into consideration. Having the possibility to manage both of them with the same tool can be very interesting. For information, I mainly use it with VirtualBox because it&amp;rsquo;s any platform compatible and Docker because it&amp;rsquo;s perfect for a CI like Jenkins.
-I recently talked about my implication into the Smash project.</description>
-    </item>
-    
-    <item>
-      <title>VIM: help coding in Python with plugins</title>
-      <link>https://blog.deimos.fr/2014/10/20/vim-help-coding-in-python-with-plugins/</link>
-      <pubDate>Mon, 20 Oct 2014 10:00:53 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2014/10/20/vim-help-coding-in-python-with-plugins/</guid>
-      <description>In the last blog posts, I talked about Galera Innoptimizer tool I&amp;rsquo;ve made in Python. As a VIM lover, I&amp;rsquo;ve wrote it with that editor and installed additional them with Vundle.
+The tool is open source and can be downloaded on GitHub :-).</description></item><item><title>Vagrant: manage Docker + VirtualBox easily</title><link>https://blog.deimos.fr/2015/01/08/vagrant-manage-docker-virtualbox-easily/</link><pubDate>Thu, 08 Jan 2015 11:00:02 +0000</pubDate><guid>https://blog.deimos.fr/2015/01/08/vagrant-manage-docker-virtualbox-easily/</guid><description>As you may know, I&amp;rsquo;m using Vagrant for more than a year now with VirtualBox. Docker is a faster alternative that needs to be taken into consideration. Having the possibility to manage both of them with the same tool can be very interesting. For information, I mainly use it with VirtualBox because it&amp;rsquo;s any platform compatible and Docker because it&amp;rsquo;s perfect for a CI like Jenkins.
+I recently talked about my implication into the Smash project.</description></item><item><title>VIM: help coding in Python with plugins</title><link>https://blog.deimos.fr/2014/10/20/vim-help-coding-in-python-with-plugins/</link><pubDate>Mon, 20 Oct 2014 10:00:53 +0000</pubDate><guid>https://blog.deimos.fr/2014/10/20/vim-help-coding-in-python-with-plugins/</guid><description>In the last blog posts, I talked about Galera Innoptimizer tool I&amp;rsquo;ve made in Python. As a VIM lover, I&amp;rsquo;ve wrote it with that editor and installed additional them with Vundle.
 Here are the one I&amp;rsquo;m using (to my .vimrc file):
-&amp;#34; Python completionPlugin &amp;#39;klen/python-mode&amp;#39;&amp;#34; TabularPlugin &amp;#39;godlygeek/tabular&amp;#39;&amp;#34; Git GutterPlugin &amp;#39;airblade/vim-gitgutter&amp;#39; Python completion helps to autocomplete some Python functions automatically. Tabular helps on correctly aligning multiple lines and gitguuter helps you with git to see a live gitdiff !</description>
-    </item>
-    
-    <item>
-      <title>Coursera: freely learn new stuff from High School</title>
-      <link>https://blog.deimos.fr/2014/10/10/coursera-freely-learn-new-stuff-from-high-school/</link>
-      <pubDate>Fri, 10 Oct 2014 10:00:29 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2014/10/10/coursera-freely-learn-new-stuff-from-high-school/</guid>
-      <description>One of my ex-boss talked to me about Coursera a year ago. It&amp;rsquo;s a website where you can freely learn several things from high graduated school. Most ofter, it&amp;rsquo;s technology related and I wanted to test it to learn Java.
-I subscribed to 2 sessions. One for the java basics and the other one for the object oriented aspect (in french). I&amp;rsquo;ve started it a few weeks ago the first part and what I can say is, it&amp;rsquo;s very good.</description>
-    </item>
-    
-    <item>
-      <title>Galera Innoptimizer: now support tables’ partition</title>
-      <link>https://blog.deimos.fr/2014/10/08/galera-innoptimizer-now-support-tables-partition/</link>
-      <pubDate>Wed, 08 Oct 2014 10:00:33 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2014/10/08/galera-innoptimizer-now-support-tables-partition/</guid>
-      <description>You may remember the first introduction of that tool here. I&amp;rsquo;ve made changes to support tables&amp;rsquo; partition, to avoid a big lock on huge tables.
+&amp;#34; Python completionPlugin &amp;#39;klen/python-mode&amp;#39;&amp;#34; TabularPlugin &amp;#39;godlygeek/tabular&amp;#39;&amp;#34; Git GutterPlugin &amp;#39;airblade/vim-gitgutter&amp;#39; Python completion helps to autocomplete some Python functions automatically. Tabular helps on correctly aligning multiple lines and gitguuter helps you with git to see a live gitdiff !</description></item><item><title>Coursera: freely learn new stuff from High School</title><link>https://blog.deimos.fr/2014/10/10/coursera-freely-learn-new-stuff-from-high-school/</link><pubDate>Fri, 10 Oct 2014 10:00:29 +0000</pubDate><guid>https://blog.deimos.fr/2014/10/10/coursera-freely-learn-new-stuff-from-high-school/</guid><description>One of my ex-boss talked to me about Coursera a year ago. It&amp;rsquo;s a website where you can freely learn several things from high graduated school. Most ofter, it&amp;rsquo;s technology related and I wanted to test it to learn Java.
+I subscribed to 2 sessions. One for the java basics and the other one for the object oriented aspect (in french). I&amp;rsquo;ve started it a few weeks ago the first part and what I can say is, it&amp;rsquo;s very good.</description></item><item><title>Galera Innoptimizer: now support tables’ partition</title><link>https://blog.deimos.fr/2014/10/08/galera-innoptimizer-now-support-tables-partition/</link><pubDate>Wed, 08 Oct 2014 10:00:33 +0000</pubDate><guid>https://blog.deimos.fr/2014/10/08/galera-innoptimizer-now-support-tables-partition/</guid><description>You may remember the first introduction of that tool here. I&amp;rsquo;ve made changes to support tables&amp;rsquo; partition, to avoid a big lock on huge tables.
 The solution is to rebuild every partition one by one instead of rebuilding the whole table. This is smoother and less stressing Galera. I hope you&amp;rsquo;ll enjoy this new version (v0.2).
-Note: I still got issues on MariaDB 10 with such thing, I&amp;rsquo;m working on it.</description>
-    </item>
-    
-    <item>
-      <title>Sphinxdoc and ReadTheDocs theme tricks</title>
-      <link>https://blog.deimos.fr/2014/10/02/sphinxdoc-and-readthedocs-theme-tricks-2/</link>
-      <pubDate>Thu, 02 Oct 2014 10:00:14 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2014/10/02/sphinxdoc-and-readthedocs-theme-tricks-2/</guid>
-      <description>I&amp;rsquo;ll talk about things that may frustrate you with Sphinxdoc and ReadTheDocs. ReadTheDocs has a beautiful theme and you certainly want to use it with Sphinxdoc. However the size of the main text may be too small for you. Or you noticed that when you try to generate a version locally you&amp;rsquo;ll see it works like a charm but when it&amp;rsquo;s compiled on Readthedocs, it will fail.
-Here is a solution on how to make it work both locally and on Readthedocs:</description>
-    </item>
-    
-    <item>
-      <title>Galera Innoptimizer: optimize tables without stress</title>
-      <link>https://blog.deimos.fr/2014/09/30/galera-innoptimizer-optimize-tables-without-stress/</link>
-      <pubDate>Tue, 30 Sep 2014 10:00:13 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2014/09/30/galera-innoptimizer-optimize-tables-without-stress/</guid>
-      <description>I recently been faced on a classical problem on InnoDB which is the fragmentation, but on Galera. InnoDB engine doesn&amp;rsquo;t defragment on the fly and requires optimize maintenance sometimes to free disk space. But on Galera, which is a fault tolerance and high availability solution, it&amp;rsquo;s a problem having tables locked by an optimize procedure. Until Galera doesn&amp;rsquo;t support TokuDB and only fully support InnoDB, we had (with a colleague (Kevin aka Vinek)) to find a solution.</description>
-    </item>
-    
-    <item>
-      <title>Sphinxdoc: easily make a documentation</title>
-      <link>https://blog.deimos.fr/2014/09/22/sphinxdoc-easily-make-a-documentation/</link>
-      <pubDate>Mon, 22 Sep 2014 10:00:57 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2014/09/22/sphinxdoc-easily-make-a-documentation/</guid>
-      <description>I already heard of Sphinxdoc a year ago and see some of my colleges are using it for professional or personal usages. With my friend Sebastien Tardif (Teka101), we decided to rebuild a complete documentation for MySecureShell in a more fashion way as the old doculentation starts looking ugly. Even if it&amp;rsquo;s more an oriented Python solution, it can be used for any other kind of project and we decided to use SphinxDoc to make a newer documentation.</description>
-    </item>
-    
-    <item>
-      <title>Naemon/Nagios: LXC check resources</title>
-      <link>https://blog.deimos.fr/2014/09/02/naemonnagios-lxc-check-resources/</link>
-      <pubDate>Tue, 02 Sep 2014 10:00:43 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2014/09/02/naemonnagios-lxc-check-resources/</guid>
-      <description>You may know that I really like LXC and the major problem when you want to use that solution in production is: how do you monitor memory and CPU?
-Regarding the CPU side, I do not have an easy answer for the moment :-(. However regarding the memory, I&amp;rsquo;ve made a Nagios/Naemon check which will check the memory (RAM) and SWAP of a container. Here is how to use it:</description>
-    </item>
-    
-    <item>
-      <title>Book: The Hacker’s Guide to Python</title>
-      <link>https://blog.deimos.fr/2014/03/26/book-the-hackers-guide-to-python/</link>
-      <pubDate>Wed, 26 Mar 2014 11:00:43 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2014/03/26/book-the-hackers-guide-to-python/</guid>
-      <description>One of my colleague (Julien Danjou) wrote a book on advanced usage of Python. The book was out today and I strongly recommend buying it. Here is the summary of it:
- Python is a wonderful programming language that is being used more and more in many different industries. It is fast, flexible, and it comes with batteries included.
-  Most of the books you read about Python will teach you the language basics – but once you&amp;rsquo;ve learnt them, you’re on your own in designing your application and discovering best practice.</description>
-    </item>
-    
-    <item>
-      <title>DevDocs : all in one development documentations</title>
-      <link>https://blog.deimos.fr/2014/01/29/devdocs-all-in-one-development-documentation/</link>
-      <pubDate>Wed, 29 Jan 2014 11:00:59 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2014/01/29/devdocs-all-in-one-development-documentation/</guid>
-      <description>I recently discovered DevDocs website. It&amp;rsquo;s an easy way to get a lot of informations on many different developments languages.
-I hope you&amp;rsquo;ll enjoy that site as well : http://devdocs.io</description>
-    </item>
-    
-    <item>
-      <title>Mediawiki : DeleteHistory v0.8 is out</title>
-      <link>https://blog.deimos.fr/2013/12/28/mediawiki-deletehistory-v0-8-is-out/</link>
-      <pubDate>Sat, 28 Dec 2013 11:00:52 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2013/12/28/mediawiki-deletehistory-v0-8-is-out/</guid>
-      <description>I&amp;rsquo;ve updated DeleteHistory extension to :
- Add Brazilian Portuguese language Fix minor bug on reporting array  You can easily install the new version with Git as described in the official Mediawiki webpage.
-Hope you&amp;rsquo;ll enjoy this update</description>
-    </item>
-    
-    <item>
-      <title>Windows : service action on a website pattern</title>
-      <link>https://blog.deimos.fr/2013/09/27/windows-service-action-on-a-website-pattern/</link>
-      <pubDate>Fri, 27 Sep 2013 10:00:26 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2013/09/27/windows-service-action-on-a-website-pattern/</guid>
-      <description>I recently made a script at work to act as a service when a pattern is found (or not) on a website. You can also run pre and post script if you want.
+Note: I still got issues on MariaDB 10 with such thing, I&amp;rsquo;m working on it.</description></item><item><title>Sphinxdoc and ReadTheDocs theme tricks</title><link>https://blog.deimos.fr/2014/10/02/sphinxdoc-and-readthedocs-theme-tricks-2/</link><pubDate>Thu, 02 Oct 2014 10:00:14 +0000</pubDate><guid>https://blog.deimos.fr/2014/10/02/sphinxdoc-and-readthedocs-theme-tricks-2/</guid><description>I&amp;rsquo;ll talk about things that may frustrate you with Sphinxdoc and ReadTheDocs. ReadTheDocs has a beautiful theme and you certainly want to use it with Sphinxdoc. However the size of the main text may be too small for you. Or you noticed that when you try to generate a version locally you&amp;rsquo;ll see it works like a charm but when it&amp;rsquo;s compiled on Readthedocs, it will fail.
+Here is a solution on how to make it work both locally and on Readthedocs:</description></item><item><title>Galera Innoptimizer: optimize tables without stress</title><link>https://blog.deimos.fr/2014/09/30/galera-innoptimizer-optimize-tables-without-stress/</link><pubDate>Tue, 30 Sep 2014 10:00:13 +0000</pubDate><guid>https://blog.deimos.fr/2014/09/30/galera-innoptimizer-optimize-tables-without-stress/</guid><description>I recently been faced on a classical problem on InnoDB which is the fragmentation, but on Galera. InnoDB engine doesn&amp;rsquo;t defragment on the fly and requires optimize maintenance sometimes to free disk space. But on Galera, which is a fault tolerance and high availability solution, it&amp;rsquo;s a problem having tables locked by an optimize procedure. Until Galera doesn&amp;rsquo;t support TokuDB and only fully support InnoDB, we had (with a colleague (Kevin aka Vinek)) to find a solution.</description></item><item><title>Sphinxdoc: easily make a documentation</title><link>https://blog.deimos.fr/2014/09/22/sphinxdoc-easily-make-a-documentation/</link><pubDate>Mon, 22 Sep 2014 10:00:57 +0000</pubDate><guid>https://blog.deimos.fr/2014/09/22/sphinxdoc-easily-make-a-documentation/</guid><description>I already heard of Sphinxdoc a year ago and see some of my colleges are using it for professional or personal usages. With my friend Sebastien Tardif (Teka101), we decided to rebuild a complete documentation for MySecureShell in a more fashion way as the old doculentation starts looking ugly. Even if it&amp;rsquo;s more an oriented Python solution, it can be used for any other kind of project and we decided to use SphinxDoc to make a newer documentation.</description></item><item><title>Naemon/Nagios: LXC check resources</title><link>https://blog.deimos.fr/2014/09/02/naemonnagios-lxc-check-resources/</link><pubDate>Tue, 02 Sep 2014 10:00:43 +0000</pubDate><guid>https://blog.deimos.fr/2014/09/02/naemonnagios-lxc-check-resources/</guid><description>You may know that I really like LXC and the major problem when you want to use that solution in production is: how do you monitor memory and CPU?
+Regarding the CPU side, I do not have an easy answer for the moment :-(. However regarding the memory, I&amp;rsquo;ve made a Nagios/Naemon check which will check the memory (RAM) and SWAP of a container. Here is how to use it:</description></item><item><title>Book: The Hacker’s Guide to Python</title><link>https://blog.deimos.fr/2014/03/26/book-the-hackers-guide-to-python/</link><pubDate>Wed, 26 Mar 2014 11:00:43 +0000</pubDate><guid>https://blog.deimos.fr/2014/03/26/book-the-hackers-guide-to-python/</guid><description>One of my colleague (Julien Danjou) wrote a book on advanced usage of Python. The book was out today and I strongly recommend buying it. Here is the summary of it:
+Python is a wonderful programming language that is being used more and more in many different industries. It is fast, flexible, and it comes with batteries included.
+Most of the books you read about Python will teach you the language basics – but once you&amp;rsquo;ve learnt them, you’re on your own in designing your application and discovering best practice.</description></item><item><title>DevDocs : all in one development documentations</title><link>https://blog.deimos.fr/2014/01/29/devdocs-all-in-one-development-documentation/</link><pubDate>Wed, 29 Jan 2014 11:00:59 +0000</pubDate><guid>https://blog.deimos.fr/2014/01/29/devdocs-all-in-one-development-documentation/</guid><description>I recently discovered DevDocs website. It&amp;rsquo;s an easy way to get a lot of informations on many different developments languages.
+I hope you&amp;rsquo;ll enjoy that site as well : http://devdocs.io</description></item><item><title>Mediawiki : DeleteHistory v0.8 is out</title><link>https://blog.deimos.fr/2013/12/28/mediawiki-deletehistory-v0-8-is-out/</link><pubDate>Sat, 28 Dec 2013 11:00:52 +0000</pubDate><guid>https://blog.deimos.fr/2013/12/28/mediawiki-deletehistory-v0-8-is-out/</guid><description>I&amp;rsquo;ve updated DeleteHistory extension to :
+Add Brazilian Portuguese language Fix minor bug on reporting array You can easily install the new version with Git as described in the official Mediawiki webpage.
+Hope you&amp;rsquo;ll enjoy this update</description></item><item><title>Windows : service action on a website pattern</title><link>https://blog.deimos.fr/2013/09/27/windows-service-action-on-a-website-pattern/</link><pubDate>Fri, 27 Sep 2013 10:00:26 +0000</pubDate><guid>https://blog.deimos.fr/2013/09/27/windows-service-action-on-a-website-pattern/</guid><description>I recently made a script at work to act as a service when a pattern is found (or not) on a website. You can also run pre and post script if you want.
 It&amp;rsquo;s a Windows binary that you can find on my GitHub or on my Git.
-I did it in Perl. As described in the last post as I needed to have the interpreter embedded in the binary. I&amp;rsquo;m so bad to find good application name that I called it url_service_action.</description>
-    </item>
-    
-    <item>
-      <title>Create exe with Perl on Windows</title>
-      <link>https://blog.deimos.fr/2013/09/25/create-exe-with-perl-on-windows/</link>
-      <pubDate>Wed, 25 Sep 2013 10:00:29 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2013/09/25/create-exe-with-perl-on-windows/</guid>
-      <description>In the past, I already made an article on how to make exe from a Perl script on Windows. I was using Strawberry or Activesync but have a preference for Strawberry as it&amp;rsquo;s totally free :-).
+I did it in Perl. As described in the last post as I needed to have the interpreter embedded in the binary. I&amp;rsquo;m so bad to find good application name that I called it url_service_action.</description></item><item><title>Create exe with Perl on Windows</title><link>https://blog.deimos.fr/2013/09/25/create-exe-with-perl-on-windows/</link><pubDate>Wed, 25 Sep 2013 10:00:29 +0000</pubDate><guid>https://blog.deimos.fr/2013/09/25/create-exe-with-perl-on-windows/</guid><description>In the past, I already made an article on how to make exe from a Perl script on Windows. I was using Strawberry or Activesync but have a preference for Strawberry as it&amp;rsquo;s totally free :-).
 This time, I tried to reproduce the tips but encountered several issues. The first one was that error :
-The locale codeset (cp1252) isn&amp;#39;t one that perl can decode, stopped at Encode/Locale.pm line 94. It could simply be resolved by addressing &amp;lsquo;-x&amp;rsquo; parameter to the &amp;lsquo;pp&amp;rsquo; command line.</description>
-    </item>
-    
-    <item>
-      <title>Do you want to try my desktop configuration ?</title>
-      <link>https://blog.deimos.fr/2013/08/04/do-you-want-to-try-my-dektop-configuration/</link>
-      <pubDate>Sun, 04 Aug 2013 10:00:37 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2013/08/04/do-you-want-to-try-my-dektop-configuration/</guid>
-      <description>Some of you already told me how complicated the setup of my software configurations could be. Depending on which configuration you&amp;rsquo;re talking about, it may be more or less complicated to install in the good folders, launching the good commands etc&amp;hellip;
-In addition, sometimes I need to set up a quick desktop environment with my preferences and deploy all I need may take a while. That&amp;rsquo;s why I&amp;rsquo;ve written some scripts (in Python and shell script) to help on deploying all my configuration and all the packages I wish.</description>
-    </item>
-    
-    <item>
-      <title>MediaWiki DeleteHistory and GoogleSearch updated !</title>
-      <link>https://blog.deimos.fr/2013/06/25/mediawiki-deletehistory-and-googlesearch-updated/</link>
-      <pubDate>Tue, 25 Jun 2013 10:00:20 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2013/06/25/mediawiki-deletehistory-and-googlesearch-updated/</guid>
-      <description>I saw a little bit late that MediaWiki 1.21 was out. After a quick migration I discovered errors with my plugins because of deprecated and removed functions in this new version.
+The locale codeset (cp1252) isn&amp;#39;t one that perl can decode, stopped at Encode/Locale.pm line 94. It could simply be resolved by addressing &amp;lsquo;-x&amp;rsquo; parameter to the &amp;lsquo;pp&amp;rsquo; command line.</description></item><item><title>Do you want to try my desktop configuration ?</title><link>https://blog.deimos.fr/2013/08/04/do-you-want-to-try-my-dektop-configuration/</link><pubDate>Sun, 04 Aug 2013 10:00:37 +0000</pubDate><guid>https://blog.deimos.fr/2013/08/04/do-you-want-to-try-my-dektop-configuration/</guid><description>Some of you already told me how complicated the setup of my software configurations could be. Depending on which configuration you&amp;rsquo;re talking about, it may be more or less complicated to install in the good folders, launching the good commands etc&amp;hellip;
+In addition, sometimes I need to set up a quick desktop environment with my preferences and deploy all I need may take a while. That&amp;rsquo;s why I&amp;rsquo;ve written some scripts (in Python and shell script) to help on deploying all my configuration and all the packages I wish.</description></item><item><title>MediaWiki DeleteHistory and GoogleSearch updated !</title><link>https://blog.deimos.fr/2013/06/25/mediawiki-deletehistory-and-googlesearch-updated/</link><pubDate>Tue, 25 Jun 2013 10:00:20 +0000</pubDate><guid>https://blog.deimos.fr/2013/06/25/mediawiki-deletehistory-and-googlesearch-updated/</guid><description>I saw a little bit late that MediaWiki 1.21 was out. After a quick migration I discovered errors with my plugins because of deprecated and removed functions in this new version.
 I&amp;rsquo;ve updated them to recover the compatibility on MediaWiki with the latest version. You can find updated version here :
- DeleteHistory : http://www.mediawiki.org/wiki/Extension:DeleteHistory GoogleSearch : http://www.mediawiki.org/wiki/Extension:GoogleSearch  I hope you&amp;rsquo;ll enjoy it :-)</description>
-    </item>
-    
-    <item>
-      <title>PHP : convert you php sources to binaries</title>
-      <link>https://blog.deimos.fr/2013/05/28/php-convert-you-php-sources-to-binaries/</link>
-      <pubDate>Tue, 28 May 2013 10:00:06 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2013/05/28/php-convert-you-php-sources-to-binaries/</guid>
-      <description>Like in most of programming languages, even if it&amp;rsquo;s not a compiled one, there is always a solution to make binaries from your sources. To make is quick and easy I&amp;rsquo;ve wrote a little documentation on it. It&amp;rsquo;s in french sorry, but you should be able to understand even if you don&amp;rsquo;t speak french (or use the translate plugin in the left bar).
-Documentation is here.</description>
-    </item>
-    
-    <item>
-      <title>Deb_reboot : tells you if you need to reboot your Debian</title>
-      <link>https://blog.deimos.fr/2013/05/12/deb_reboot-it-tells-you-if-you-need-to-reboot-your-debian-or-not/</link>
-      <pubDate>Sun, 12 May 2013 10:00:57 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2013/05/12/deb_reboot-it-tells-you-if-you-need-to-reboot-your-debian-or-not/</guid>
-      <description>It´s been a while that I was waiting for a tool that tells me if my Debian server is requesting a reboot or not. Of course GUI tools exists (like Ubuntu update-manager), but on a server machine, where there is no X server installed (thankfuly), this kind of CLI tools can be quickly interesting.
-That´s why I wrote a tool called deb_reboot that gives the reboot requierement information in parsing postinstall scripts of installed packages.</description>
-    </item>
-    
-    <item>
-      <title>Bootstrap : mettez vos site en valeur simplement</title>
-      <link>https://blog.deimos.fr/2013/03/05/bootstrap-mettez-vos-site-en-valeur-simplement/</link>
-      <pubDate>Tue, 05 Mar 2013 11:00:00 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2013/03/05/bootstrap-mettez-vos-site-en-valeur-simplement/</guid>
-      <description>Toi lecteur, si comme moi tu es un looser du design et que les sites web que tu créer ressemble a ceux du début de années 2000, alors bootstrap est fait pour toi !
+DeleteHistory : http://www.mediawiki.org/wiki/Extension:DeleteHistory GoogleSearch : http://www.mediawiki.org/wiki/Extension:GoogleSearch I hope you&amp;rsquo;ll enjoy it :-)</description></item><item><title>PHP : convert you php sources to binaries</title><link>https://blog.deimos.fr/2013/05/28/php-convert-you-php-sources-to-binaries/</link><pubDate>Tue, 28 May 2013 10:00:06 +0000</pubDate><guid>https://blog.deimos.fr/2013/05/28/php-convert-you-php-sources-to-binaries/</guid><description>Like in most of programming languages, even if it&amp;rsquo;s not a compiled one, there is always a solution to make binaries from your sources. To make is quick and easy I&amp;rsquo;ve wrote a little documentation on it. It&amp;rsquo;s in french sorry, but you should be able to understand even if you don&amp;rsquo;t speak french (or use the translate plugin in the left bar).
+Documentation is here.</description></item><item><title>Deb_reboot : tells you if you need to reboot your Debian</title><link>https://blog.deimos.fr/2013/05/12/deb_reboot-it-tells-you-if-you-need-to-reboot-your-debian-or-not/</link><pubDate>Sun, 12 May 2013 10:00:57 +0000</pubDate><guid>https://blog.deimos.fr/2013/05/12/deb_reboot-it-tells-you-if-you-need-to-reboot-your-debian-or-not/</guid><description>It´s been a while that I was waiting for a tool that tells me if my Debian server is requesting a reboot or not. Of course GUI tools exists (like Ubuntu update-manager), but on a server machine, where there is no X server installed (thankfuly), this kind of CLI tools can be quickly interesting.
+That´s why I wrote a tool called deb_reboot that gives the reboot requierement information in parsing postinstall scripts of installed packages.</description></item><item><title>Bootstrap : mettez vos site en valeur simplement</title><link>https://blog.deimos.fr/2013/03/05/bootstrap-mettez-vos-site-en-valeur-simplement/</link><pubDate>Tue, 05 Mar 2013 11:00:00 +0000</pubDate><guid>https://blog.deimos.fr/2013/03/05/bootstrap-mettez-vos-site-en-valeur-simplement/</guid><description>Toi lecteur, si comme moi tu es un looser du design et que les sites web que tu créer ressemble a ceux du début de années 2000, alors bootstrap est fait pour toi !
 Concrètement qu&amp;rsquo;est-ce que c&amp;rsquo;est ? Simplement une suite de CSS/JavaScripts/Images pour habiller ton site et en plus responsiveness. Et a mettre en place, c&amp;rsquo;est d&amp;rsquo;une facilité déconcertante.
-Mais qui est l&#39;âme charitable a avoir développé et publie ceci me diras tu ?</description>
-    </item>
-    
-    <item>
-      <title>DevOps : Quelques outils intéressants</title>
-      <link>https://blog.deimos.fr/2013/02/23/devops-quelques-outils-interessants/</link>
-      <pubDate>Sat, 23 Feb 2013 11:00:46 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2013/02/23/devops-quelques-outils-interessants/</guid>
-      <description>Lorsque j’étais au FOSDEM de cette année, j’ai eu un sacré personnage qui est venu me voir au Stand Puppet, que j’ai eu à côté de moi dans diverses présentations et qui est du genre a a voir une grande g…. Bref, même s’il l’ouvre un peu beaucoup à mon goût, il ne dit pas que des bêtises.
-Je suis tombé sur un slide qu&amp;rsquo;il a fait et que je trouve assez pertinent, j&amp;rsquo;ai donc décidé de vous le faire partager :</description>
-    </item>
-    
-    <item>
-      <title>Impress.js : faites des présentations 3D impressionnantes !</title>
-      <link>https://blog.deimos.fr/2013/02/21/impress-js-faites-des-presentations-3d-impressionnantes/</link>
-      <pubDate>Thu, 21 Feb 2013 11:00:01 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2013/02/21/impress-js-faites-des-presentations-3d-impressionnantes/</guid>
-      <description>Vous êtes peut être sous Impress (LibreOffice) ou PowerPoint (Microsoft), rêvez en voyant les présentations Keynote (Apple) ou Prezi ? Il est possible de faire mieux, plus classe et surtout : tout OS confondus (à condition que son navigateur supporte HTML 5 sur), ça s&amp;rsquo;appelle Impress.js !
+Mais qui est l&amp;rsquo;âme charitable a avoir développé et publie ceci me diras tu ?</description></item><item><title>DevOps : Quelques outils intéressants</title><link>https://blog.deimos.fr/2013/02/23/devops-quelques-outils-interessants/</link><pubDate>Sat, 23 Feb 2013 11:00:46 +0000</pubDate><guid>https://blog.deimos.fr/2013/02/23/devops-quelques-outils-interessants/</guid><description>Lorsque j’étais au FOSDEM de cette année, j’ai eu un sacré personnage qui est venu me voir au Stand Puppet, que j’ai eu à côté de moi dans diverses présentations et qui est du genre a a voir une grande g…. Bref, même s’il l’ouvre un peu beaucoup à mon goût, il ne dit pas que des bêtises.
+Je suis tombé sur un slide qu&amp;rsquo;il a fait et que je trouve assez pertinent, j&amp;rsquo;ai donc décidé de vous le faire partager :</description></item><item><title>Impress.js : faites des présentations 3D impressionnantes !</title><link>https://blog.deimos.fr/2013/02/21/impress-js-faites-des-presentations-3d-impressionnantes/</link><pubDate>Thu, 21 Feb 2013 11:00:01 +0000</pubDate><guid>https://blog.deimos.fr/2013/02/21/impress-js-faites-des-presentations-3d-impressionnantes/</guid><description>Vous êtes peut être sous Impress (LibreOffice) ou PowerPoint (Microsoft), rêvez en voyant les présentations Keynote (Apple) ou Prezi ? Il est possible de faire mieux, plus classe et surtout : tout OS confondus (à condition que son navigateur supporte HTML 5 sur), ça s&amp;rsquo;appelle Impress.js !
 Comment ? Regardez une démo d&amp;rsquo;Impress.js http://bartaz.github.com/impress.js/
-C&amp;rsquo;est donc en Javascript, c&amp;rsquo;est beau, simple à utiliser (quand on code un peu). Et pour les moins codeurs d&amp;rsquo;entre nous, voici un autre lien qui devrait vous plaire, c&amp;rsquo;est une interface pour Impress.</description>
-    </item>
-    
-    <item>
-      <title>Git : bien plus qu’un simple outil de versionning</title>
-      <link>https://blog.deimos.fr/2013/02/19/git-bien-plus-quun-outil-de-versionning/</link>
-      <pubDate>Tue, 19 Feb 2013 11:00:50 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2013/02/19/git-bien-plus-quun-outil-de-versionning/</guid>
-      <description>Ça fait des années que je joue avec Git. Pourtant, même en temps que mono utilisateur, je ne me suis pas vraiment penché sur les fonctionnalités avancées de celui ci.
+C&amp;rsquo;est donc en Javascript, c&amp;rsquo;est beau, simple à utiliser (quand on code un peu). Et pour les moins codeurs d&amp;rsquo;entre nous, voici un autre lien qui devrait vous plaire, c&amp;rsquo;est une interface pour Impress.</description></item><item><title>Git : bien plus qu’un simple outil de versionning</title><link>https://blog.deimos.fr/2013/02/19/git-bien-plus-quun-outil-de-versionning/</link><pubDate>Tue, 19 Feb 2013 11:00:50 +0000</pubDate><guid>https://blog.deimos.fr/2013/02/19/git-bien-plus-quun-outil-de-versionning/</guid><description>Ça fait des années que je joue avec Git. Pourtant, même en temps que mono utilisateur, je ne me suis pas vraiment penché sur les fonctionnalités avancées de celui ci.
 C&amp;rsquo;est lors d&amp;rsquo;une formation accélérée dans ma boîte que j&amp;rsquo;ai pu découvrir a quel point Git est puissant. Pourtant j&amp;rsquo;ai l&amp;rsquo;impression de n&amp;rsquo;en avoir toujours vu qu&amp;rsquo;une infime partie.
-J&amp;rsquo;ai donc mis a jour ma documentation sur git avec ce que j&amp;rsquo;ai pu voir et tester.</description>
-    </item>
-    
-    <item>
-      <title>2ème et dernier jour au FOSDEM !</title>
-      <link>https://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/</link>
-      <pubDate>Tue, 05 Feb 2013 11:00:24 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/</guid>
-      <description>Avant d&amp;rsquo;attaquer le 2 ème jour, je vais finir sur le premier (la suite d&amp;rsquo;hier).
-Un des supers sujet était Bind 10 que j&amp;rsquo;attendais avec impatience. Il n&amp;rsquo;y a malheureusement eu d&amp;rsquo;informations sur les nouveautés aidant a la HA. Cependant il a été totalement réécrit pour supporter + de 100 cores alors qu&amp;rsquo;aujourd&amp;rsquo;hui au delà de 6, il y a des problèmes de performances. On a également (et étrangement) un serveur DHCP qui est intégré a Bind.</description>
-    </item>
-    
-    <item>
-      <title>Dina : une police lisible pour développer</title>
-      <link>https://blog.deimos.fr/2013/02/01/dina-une-police-pour-developper/</link>
-      <pubDate>Fri, 01 Feb 2013 11:00:43 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2013/02/01/dina-une-police-pour-developper/</guid>
-      <description>Vous avez peut être entendu parler de cette police ? Elle permet d&amp;rsquo;avoir une aisance de lecture pour faire du développement. Pas toujours facile de distinguer les 0 des O, les I des l etc&amp;hellip; Avec cette police, c&amp;rsquo;est très simple.
-Je vous invite donc à installer Dina, elle est gratuite.</description>
-    </item>
-    
-    <item>
-      <title>Extension DeleteHistory v0.5 et v0.6</title>
-      <link>https://blog.deimos.fr/2013/01/16/extension-deletehistory-v0-5/</link>
-      <pubDate>Wed, 16 Jan 2013 11:00:59 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2013/01/16/extension-deletehistory-v0-5/</guid>
-      <description>Cela faisait un moment que je n&amp;rsquo;avais pas développer pour Mediawiki.
+J&amp;rsquo;ai donc mis a jour ma documentation sur git avec ce que j&amp;rsquo;ai pu voir et tester.</description></item><item><title>2ème et dernier jour au FOSDEM !</title><link>https://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/</link><pubDate>Tue, 05 Feb 2013 11:00:24 +0000</pubDate><guid>https://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/</guid><description>Avant d&amp;rsquo;attaquer le 2 ème jour, je vais finir sur le premier (la suite d&amp;rsquo;hier).
+Un des supers sujet était Bind 10 que j&amp;rsquo;attendais avec impatience. Il n&amp;rsquo;y a malheureusement eu d&amp;rsquo;informations sur les nouveautés aidant a la HA. Cependant il a été totalement réécrit pour supporter + de 100 cores alors qu&amp;rsquo;aujourd&amp;rsquo;hui au delà de 6, il y a des problèmes de performances. On a également (et étrangement) un serveur DHCP qui est intégré a Bind.</description></item><item><title>Dina : une police lisible pour développer</title><link>https://blog.deimos.fr/2013/02/01/dina-une-police-pour-developper/</link><pubDate>Fri, 01 Feb 2013 11:00:43 +0000</pubDate><guid>https://blog.deimos.fr/2013/02/01/dina-une-police-pour-developper/</guid><description>Vous avez peut être entendu parler de cette police ? Elle permet d&amp;rsquo;avoir une aisance de lecture pour faire du développement. Pas toujours facile de distinguer les 0 des O, les I des l etc&amp;hellip; Avec cette police, c&amp;rsquo;est très simple.
+Je vous invite donc à installer Dina, elle est gratuite.</description></item><item><title>Extension DeleteHistory v0.5 et v0.6</title><link>https://blog.deimos.fr/2013/01/16/extension-deletehistory-v0-5/</link><pubDate>Wed, 16 Jan 2013 11:00:59 +0000</pubDate><guid>https://blog.deimos.fr/2013/01/16/extension-deletehistory-v0-5/</guid><description>Cela faisait un moment que je n&amp;rsquo;avais pas développer pour Mediawiki.
 Voici la version 0.5 de DeleteHistory avec quelques petites nouveautés lorsque l&amp;rsquo;on demande une optimisation des tables MySQL :
- L&amp;rsquo;ajout du moteur utilisé pour chacune des tables. L&amp;rsquo;ajout de la collation utilisée pour chacune des tables. L&amp;rsquo;ajout de la traduction en Allemand  Ce n&amp;rsquo;est pas grand chose, mais ça aide grandement a voir pourquoi certaines tables ne sont pas optimisées.</description>
-    </item>
-    
-    <item>
-      <title>WordPress : Infinite Scrolling pour le theme Yoko</title>
-      <link>https://blog.deimos.fr/2012/12/03/wordpress-infinite-scrolling-pour-le-theme-yoko/</link>
-      <pubDate>Mon, 03 Dec 2012 11:00:10 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2012/12/03/wordpress-infinite-scrolling-pour-le-theme-yoko/</guid>
-      <description>Si certains d&amp;rsquo;entre vous n&amp;rsquo;utilisent pas encore le module Jetpack pour WordPress, je les invite très rapidement le faire. C&amp;rsquo;est un module qui comprends plusieurs sous-modules, tous très facilement activable, d&amp;rsquo;une simplicité déconcertante et pour certains très performants.
-Dans l&amp;rsquo;une des dernières updates de Jetpack, il y a l&amp;rsquo;infinite scrolling que je souhaitais activer. Malheureusement, pour le thème que j&amp;rsquo;utilise (Yoko)&amp;hellip;impossible de l&amp;rsquo;activer, il n&amp;rsquo;est pas supporté :-(. Une petite recherche sur le forum de wordpress m&amp;rsquo;a permit de voir que je n&#39;étais pas le seul sur cette demande.</description>
-    </item>
-    
-    <item>
-      <title>Perl Orienté Objet</title>
-      <link>https://blog.deimos.fr/2012/11/15/perl-oriente-objet/</link>
-      <pubDate>Thu, 15 Nov 2012 11:00:09 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2012/11/15/perl-oriente-objet/</guid>
-      <description>Je viens de me mettre enfin à faire de l&amp;rsquo;objet. Trop de personnes autour de moi m&amp;rsquo;ont répétées plusieurs fois : l&amp;rsquo;objet, ça change ta vie ! Je pensais la chose un peu exagérée&amp;hellip;et bien non. Effectivement c&amp;rsquo;est super puissant. Vraiment déroutant aux premiers abords, mais ensuite c&amp;rsquo;est top ! Et je n&amp;rsquo;en suis qu&#39;à mes débuts !
-J&amp;rsquo;ai donc commencé à alimenter une petite page sur mon wiki pour créer des rapidement de l&amp;rsquo;objet en Perl à travers des exemples.</description>
-    </item>
-    
-    <item>
-      <title>HTML : patientez svp</title>
-      <link>https://blog.deimos.fr/2012/10/20/html-patientez-svp/</link>
-      <pubDate>Sat, 20 Oct 2012 10:00:21 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2012/10/20/html-patientez-svp/</guid>
-      <description>J&amp;rsquo;ai cherché le moyen le plus simple de faire une faire attendre les gens lors d&amp;rsquo;un submit en PHP/HTML. Je suis tombé sur des trucs en Javascript qui n&#39;étaient pas terrible, en Ajax compliqué à mettre en œuvre ou en jQuery avec des kilomètres de lignes. Puis je suis tombé sur cette solution, qui avec un simple div et innerHTML permettait de répondre à mon besoin.
-Ok, est moche, mais je n&amp;rsquo;ai besoin d&amp;rsquo;aucune librairie en plus et c&amp;rsquo;est extrêmement simple à mettre en place et peu coûteux en lignes de code.</description>
-    </item>
-    
-    <item>
-      <title>Mediawiki : Cacher la sidebar</title>
-      <link>https://blog.deimos.fr/2012/10/18/mediawiki-cacher-la-sidebar/</link>
-      <pubDate>Thu, 18 Oct 2012 10:00:36 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2012/10/18/mediawiki-cacher-la-sidebar/</guid>
-      <description>Avec l&amp;rsquo;apparition des Notebook et portables de plus en plus petits avec des résolutions assez faible, il peut être vite pénible de faire du Mediawiki sur ce genre de matériels. C&amp;rsquo;est pourquoi j&amp;rsquo;ai planché un peu sur le sujet et j&amp;rsquo;ai finalement trouver une solution pour cacher la sidebar lorsqu&amp;rsquo;un utilisateur connecté fait des modifications. On gagne du coup pas mal de place !
-J&amp;rsquo;en ai profité également pour ajouter un onglet pour ajouter un fichier plus rapidement lorsque l&amp;rsquo;on a la sidebar cachée.</description>
-    </item>
-    
-    <item>
-      <title>Utiliser l’API de Sabnzbd</title>
-      <link>https://blog.deimos.fr/2012/10/04/utiliser-lapi-de-sabnzbd/</link>
-      <pubDate>Thu, 04 Oct 2012 10:00:40 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2012/10/04/utiliser-lapi-de-sabnzbd/</guid>
-      <description>Je trouve qu&amp;rsquo;il ne manque pas grand chose à Sabnzbd pour qu&amp;rsquo;il soit parfait. Cependant certaines options manquent et heureusement l&amp;rsquo;API est là pour compenser. J&amp;rsquo;ai donc écris un script en python permettant de jouer avec l&amp;rsquo;API que délivre Sabnzbd. Je l&amp;rsquo;ai créer dans l&amp;rsquo;idée qu&amp;rsquo;il soit facile de rajouter une fonctionnalité via l&amp;rsquo;API. Ce script permet :
- De voir les éléments que fournit l&amp;rsquo;API XML De supprimer un certain nombre d&#39;éléments dans l&amp;rsquo;historique  J&amp;rsquo;espère que ça aidera certains à se plonger dedans, améliorer mon script ou bien utiliser les fonctions déjà existantes.</description>
-    </item>
-    
-    <item>
-      <title>Livre : Apprendre à programmer</title>
-      <link>https://blog.deimos.fr/2012/08/19/test/</link>
-      <pubDate>Sun, 19 Aug 2012 10:00:08 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2012/08/19/test/</guid>
-      <description>Peut être avez vous eu très peu de cours de programmation comme moi ou bien n&amp;rsquo;avez vous tout simplement jamais apprit a programmer.
+L&amp;rsquo;ajout du moteur utilisé pour chacune des tables. L&amp;rsquo;ajout de la collation utilisée pour chacune des tables. L&amp;rsquo;ajout de la traduction en Allemand Ce n&amp;rsquo;est pas grand chose, mais ça aide grandement a voir pourquoi certaines tables ne sont pas optimisées.</description></item><item><title>WordPress : Infinite Scrolling pour le theme Yoko</title><link>https://blog.deimos.fr/2012/12/03/wordpress-infinite-scrolling-pour-le-theme-yoko/</link><pubDate>Mon, 03 Dec 2012 11:00:10 +0000</pubDate><guid>https://blog.deimos.fr/2012/12/03/wordpress-infinite-scrolling-pour-le-theme-yoko/</guid><description>Si certains d&amp;rsquo;entre vous n&amp;rsquo;utilisent pas encore le module Jetpack pour WordPress, je les invite très rapidement le faire. C&amp;rsquo;est un module qui comprends plusieurs sous-modules, tous très facilement activable, d&amp;rsquo;une simplicité déconcertante et pour certains très performants.
+Dans l&amp;rsquo;une des dernières updates de Jetpack, il y a l&amp;rsquo;infinite scrolling que je souhaitais activer. Malheureusement, pour le thème que j&amp;rsquo;utilise (Yoko)&amp;hellip;impossible de l&amp;rsquo;activer, il n&amp;rsquo;est pas supporté :-(. Une petite recherche sur le forum de wordpress m&amp;rsquo;a permit de voir que je n&amp;rsquo;étais pas le seul sur cette demande.</description></item><item><title>Perl Orienté Objet</title><link>https://blog.deimos.fr/2012/11/15/perl-oriente-objet/</link><pubDate>Thu, 15 Nov 2012 11:00:09 +0000</pubDate><guid>https://blog.deimos.fr/2012/11/15/perl-oriente-objet/</guid><description>Je viens de me mettre enfin à faire de l&amp;rsquo;objet. Trop de personnes autour de moi m&amp;rsquo;ont répétées plusieurs fois : l&amp;rsquo;objet, ça change ta vie ! Je pensais la chose un peu exagérée&amp;hellip;et bien non. Effectivement c&amp;rsquo;est super puissant. Vraiment déroutant aux premiers abords, mais ensuite c&amp;rsquo;est top ! Et je n&amp;rsquo;en suis qu&amp;rsquo;à mes débuts !
+J&amp;rsquo;ai donc commencé à alimenter une petite page sur mon wiki pour créer des rapidement de l&amp;rsquo;objet en Perl à travers des exemples.</description></item><item><title>HTML : patientez svp</title><link>https://blog.deimos.fr/2012/10/20/html-patientez-svp/</link><pubDate>Sat, 20 Oct 2012 10:00:21 +0000</pubDate><guid>https://blog.deimos.fr/2012/10/20/html-patientez-svp/</guid><description>J&amp;rsquo;ai cherché le moyen le plus simple de faire une faire attendre les gens lors d&amp;rsquo;un submit en PHP/HTML. Je suis tombé sur des trucs en Javascript qui n&amp;rsquo;étaient pas terrible, en Ajax compliqué à mettre en œuvre ou en jQuery avec des kilomètres de lignes. Puis je suis tombé sur cette solution, qui avec un simple div et innerHTML permettait de répondre à mon besoin.
+Ok, est moche, mais je n&amp;rsquo;ai besoin d&amp;rsquo;aucune librairie en plus et c&amp;rsquo;est extrêmement simple à mettre en place et peu coûteux en lignes de code.</description></item><item><title>Mediawiki : Cacher la sidebar</title><link>https://blog.deimos.fr/2012/10/18/mediawiki-cacher-la-sidebar/</link><pubDate>Thu, 18 Oct 2012 10:00:36 +0000</pubDate><guid>https://blog.deimos.fr/2012/10/18/mediawiki-cacher-la-sidebar/</guid><description>Avec l&amp;rsquo;apparition des Notebook et portables de plus en plus petits avec des résolutions assez faible, il peut être vite pénible de faire du Mediawiki sur ce genre de matériels. C&amp;rsquo;est pourquoi j&amp;rsquo;ai planché un peu sur le sujet et j&amp;rsquo;ai finalement trouver une solution pour cacher la sidebar lorsqu&amp;rsquo;un utilisateur connecté fait des modifications. On gagne du coup pas mal de place !
+J&amp;rsquo;en ai profité également pour ajouter un onglet pour ajouter un fichier plus rapidement lorsque l&amp;rsquo;on a la sidebar cachée.</description></item><item><title>Utiliser l’API de Sabnzbd</title><link>https://blog.deimos.fr/2012/10/04/utiliser-lapi-de-sabnzbd/</link><pubDate>Thu, 04 Oct 2012 10:00:40 +0000</pubDate><guid>https://blog.deimos.fr/2012/10/04/utiliser-lapi-de-sabnzbd/</guid><description>Je trouve qu&amp;rsquo;il ne manque pas grand chose à Sabnzbd pour qu&amp;rsquo;il soit parfait. Cependant certaines options manquent et heureusement l&amp;rsquo;API est là pour compenser. J&amp;rsquo;ai donc écris un script en python permettant de jouer avec l&amp;rsquo;API que délivre Sabnzbd. Je l&amp;rsquo;ai créer dans l&amp;rsquo;idée qu&amp;rsquo;il soit facile de rajouter une fonctionnalité via l&amp;rsquo;API. Ce script permet :
+De voir les éléments que fournit l&amp;rsquo;API XML De supprimer un certain nombre d&amp;rsquo;éléments dans l&amp;rsquo;historique J&amp;rsquo;espère que ça aidera certains à se plonger dedans, améliorer mon script ou bien utiliser les fonctions déjà existantes.</description></item><item><title>Livre : Apprendre à programmer</title><link>https://blog.deimos.fr/2012/08/19/test/</link><pubDate>Sun, 19 Aug 2012 10:00:08 +0000</pubDate><guid>https://blog.deimos.fr/2012/08/19/test/</guid><description>Peut être avez vous eu très peu de cours de programmation comme moi ou bien n&amp;rsquo;avez vous tout simplement jamais apprit a programmer.
 Vous êtes un sysadmin et souhaitez apprendre à faire des petits programmes pour automatiser vos tâches quotidienne ou tout simplement pour créer des softs. Perl est fait pour vous.
-Si vos connaissances en programmation sont en plus limitées, je vous conseil fortement ce livre sur Perl. Je l&amp;rsquo;ai lu il y a des années et c&amp;rsquo;est aujourd&amp;rsquo;hui grâce à lui que j&amp;rsquo;ai de bonnes bases.</description>
-    </item>
-    
-    <item>
-      <title>Python encore…</title>
-      <link>https://blog.deimos.fr/2012/06/14/python-encore/</link>
-      <pubDate>Thu, 14 Jun 2012 10:00:07 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2012/06/14/python-encore/</guid>
-      <description>Suite au précédent article, j&amp;rsquo;ai fais une page avec quelques exemples Python que j&amp;rsquo;ai réalisé. Je vous laisse regarder les exemples.</description>
-    </item>
-    
-    <item>
-      <title>Introduction au Python</title>
-      <link>https://blog.deimos.fr/2012/06/12/introduction-au-python/</link>
-      <pubDate>Tue, 12 Jun 2012 10:00:58 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2012/06/12/introduction-au-python/</guid>
-      <description>Bon ça y est, je commence à bien maitriser Python&amp;hellip;presque aussi bien que Perl. Tout comme l&amp;rsquo;introduction au Perl que j&amp;rsquo;avais fait il y a quelques temps, j&amp;rsquo;ai fais de même pour Python.
-Si vous avez déjà quelques notions en Python, ça devrait aller. C&amp;rsquo;est plus un aide mémoire qu&amp;rsquo;un Tutoriel complet pour apprendre Python. Je pense qu&amp;rsquo;il y en a suffisament sur le net pour que je tombe dans ce genre de travers.</description>
-    </item>
-    
-    <item>
-      <title>DeleteHistory v0.4 is out</title>
-      <link>https://blog.deimos.fr/2011/12/21/deletehistory-v0-4-is-out/</link>
-      <pubDate>Tue, 20 Dec 2011 23:04:26 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2011/12/21/deletehistory-v0-4-is-out/</guid>
-      <description>Voici une nouvelle version de DeleteHistory ! Pas de nouvelles fonctionnalités, mais une correction de bug sur la dernière version de Mediawiki.
+Si vos connaissances en programmation sont en plus limitées, je vous conseil fortement ce livre sur Perl. Je l&amp;rsquo;ai lu il y a des années et c&amp;rsquo;est aujourd&amp;rsquo;hui grâce à lui que j&amp;rsquo;ai de bonnes bases.</description></item><item><title>Python encore…</title><link>https://blog.deimos.fr/2012/06/14/python-encore/</link><pubDate>Thu, 14 Jun 2012 10:00:07 +0000</pubDate><guid>https://blog.deimos.fr/2012/06/14/python-encore/</guid><description>Suite au précédent article, j&amp;rsquo;ai fais une page avec quelques exemples Python que j&amp;rsquo;ai réalisé. Je vous laisse regarder les exemples.</description></item><item><title>Introduction au Python</title><link>https://blog.deimos.fr/2012/06/12/introduction-au-python/</link><pubDate>Tue, 12 Jun 2012 10:00:58 +0000</pubDate><guid>https://blog.deimos.fr/2012/06/12/introduction-au-python/</guid><description>Bon ça y est, je commence à bien maitriser Python&amp;hellip;presque aussi bien que Perl. Tout comme l&amp;rsquo;introduction au Perl que j&amp;rsquo;avais fait il y a quelques temps, j&amp;rsquo;ai fais de même pour Python.
+Si vous avez déjà quelques notions en Python, ça devrait aller. C&amp;rsquo;est plus un aide mémoire qu&amp;rsquo;un Tutoriel complet pour apprendre Python. Je pense qu&amp;rsquo;il y en a suffisament sur le net pour que je tombe dans ce genre de travers.</description></item><item><title>DeleteHistory v0.4 is out</title><link>https://blog.deimos.fr/2011/12/21/deletehistory-v0-4-is-out/</link><pubDate>Tue, 20 Dec 2011 23:04:26 +0000</pubDate><guid>https://blog.deimos.fr/2011/12/21/deletehistory-v0-4-is-out/</guid><description>Voici une nouvelle version de DeleteHistory ! Pas de nouvelles fonctionnalités, mais une correction de bug sur la dernière version de Mediawiki.
 La nouvelle version est comme d&amp;rsquo;habitude disponible sur mon git ou sur le site de Mediawiki.
-Update : je viens de sortir la version 0.4.1 qui corrige des failles de sécurité mineur.</description>
-    </item>
-    
-    <item>
-      <title>Perl : Création de sockets sous Perl</title>
-      <link>https://blog.deimos.fr/2011/10/18/perl-creation-de-sockets-sous-perl/</link>
-      <pubDate>Tue, 18 Oct 2011 11:00:03 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2011/10/18/perl-creation-de-sockets-sous-perl/</guid>
-      <description>Perl, c&amp;rsquo;est moulte bien, et la partie réseaux c&amp;rsquo;est &amp;ldquo;easy move&amp;rdquo;. Voici donc une petite documentation sur la partie création de socket avec Perl</description>
-    </item>
-    
-    <item>
-      <title>OpenVZ Auto Management User Beancounters</title>
-      <link>https://blog.deimos.fr/2011/06/24/openvz-auto-management-user-beancounters/</link>
-      <pubDate>Fri, 24 Jun 2011 21:03:30 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2011/06/24/openvz-auto-management-user-beancounters/</guid>
-      <description>Cette semaine j’ai appris à faire du Python pour voir un peu ce que ça donne comme langage. C’est pas mal du tout, il y a plein de built-in assez sympas. Je n’ai pas encore eu le temps de mettre à jour la doc de mon wiki par rapport à mes acquis, mais j’espère pouvoir le faire très prochainement.
-Bref, j&amp;rsquo;en ai profité pour faire un truc qui sous OpenVZ est super relou : les User Beancounters.</description>
-    </item>
-    
-    <item>
-      <title>DeleteHistory version 0.3</title>
-      <link>https://blog.deimos.fr/2011/06/14/deletehistory-version-0-3/</link>
-      <pubDate>Tue, 14 Jun 2011 21:22:33 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2011/06/14/deletehistory-version-0-3/</guid>
-      <description>Je viens de mettre à disposition la version 0.3 de DeleteHistory. Pas de grandes nouveautés, juste un relookage. Cette version est disponible comme d’habitude sur mon Git.
+Update : je viens de sortir la version 0.4.1 qui corrige des failles de sécurité mineur.</description></item><item><title>Perl : Création de sockets sous Perl</title><link>https://blog.deimos.fr/2011/10/18/perl-creation-de-sockets-sous-perl/</link><pubDate>Tue, 18 Oct 2011 11:00:03 +0000</pubDate><guid>https://blog.deimos.fr/2011/10/18/perl-creation-de-sockets-sous-perl/</guid><description>Perl, c&amp;rsquo;est moulte bien, et la partie réseaux c&amp;rsquo;est &amp;ldquo;easy move&amp;rdquo;. Voici donc une petite documentation sur la partie création de socket avec Perl</description></item><item><title>OpenVZ Auto Management User Beancounters</title><link>https://blog.deimos.fr/2011/06/24/openvz-auto-management-user-beancounters/</link><pubDate>Fri, 24 Jun 2011 21:03:30 +0000</pubDate><guid>https://blog.deimos.fr/2011/06/24/openvz-auto-management-user-beancounters/</guid><description>Cette semaine j’ai appris à faire du Python pour voir un peu ce que ça donne comme langage. C’est pas mal du tout, il y a plein de built-in assez sympas. Je n’ai pas encore eu le temps de mettre à jour la doc de mon wiki par rapport à mes acquis, mais j’espère pouvoir le faire très prochainement.
+Bref, j&amp;rsquo;en ai profité pour faire un truc qui sous OpenVZ est super relou : les User Beancounters.</description></item><item><title>DeleteHistory version 0.3</title><link>https://blog.deimos.fr/2011/06/14/deletehistory-version-0-3/</link><pubDate>Tue, 14 Jun 2011 21:22:33 +0000</pubDate><guid>https://blog.deimos.fr/2011/06/14/deletehistory-version-0-3/</guid><description>Je viens de mettre à disposition la version 0.3 de DeleteHistory. Pas de grandes nouveautés, juste un relookage. Cette version est disponible comme d’habitude sur mon Git.
 Voici les nouveautées :
- Show in KB or MB in the database space won when an optimize runs Changed shown order (Result,Optimisation Status,Logs) Added arrays style to results  </description>
-    </item>
-    
-    <item>
-      <title>News en vrac</title>
-      <link>https://blog.deimos.fr/2011/06/08/news-en-vrac/</link>
-      <pubDate>Wed, 08 Jun 2011 21:21:09 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2011/06/08/news-en-vrac/</guid>
-      <description>Voici quelques news en vrac que j&amp;rsquo;ai ajouté sur mon wiki :
- Une section Packages vient de voir le jour dans la partie Linux (il était temps !) Une petite documentation sur comment utiliser un DVD Redhat comme repository Une autre sur comment compiler et créer un RPM depuis des sources (exemple avec le projet Openonload) Une petite modification sur l&amp;rsquo;utilisation sur ZFS ARC Cache avec ZFS on Linux Et enfin un petit script pour updater automatiquement les hosts sur Visage (Collectd)  </description>
-    </item>
-    
-    <item>
-      <title>Google Search pour Mediawiki</title>
-      <link>https://blog.deimos.fr/2011/06/06/google-search-pour-mediawiki/</link>
-      <pubDate>Mon, 06 Jun 2011 03:04:07 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2011/06/06/google-search-pour-mediawiki/</guid>
-      <description>Parce qu&amp;rsquo;il y en a marre de cette recherche minable dans MediaWiki, que j&amp;rsquo;ai bougé mes petites fesses et créer une extension pour ajouter à la &amp;ldquo;sidebar&amp;rdquo; : une recherche Google.
+Show in KB or MB in the database space won when an optimize runs Changed shown order (Result,Optimisation Status,Logs) Added arrays style to results</description></item><item><title>News en vrac</title><link>https://blog.deimos.fr/2011/06/08/news-en-vrac/</link><pubDate>Wed, 08 Jun 2011 21:21:09 +0000</pubDate><guid>https://blog.deimos.fr/2011/06/08/news-en-vrac/</guid><description>Voici quelques news en vrac que j&amp;rsquo;ai ajouté sur mon wiki :
+Une section Packages vient de voir le jour dans la partie Linux (il était temps !) Une petite documentation sur comment utiliser un DVD Redhat comme repository Une autre sur comment compiler et créer un RPM depuis des sources (exemple avec le projet Openonload) Une petite modification sur l&amp;rsquo;utilisation sur ZFS ARC Cache avec ZFS on Linux Et enfin un petit script pour updater automatiquement les hosts sur Visage (Collectd)</description></item><item><title>Google Search pour Mediawiki</title><link>https://blog.deimos.fr/2011/06/06/google-search-pour-mediawiki/</link><pubDate>Mon, 06 Jun 2011 03:04:07 +0000</pubDate><guid>https://blog.deimos.fr/2011/06/06/google-search-pour-mediawiki/</guid><description>Parce qu&amp;rsquo;il y en a marre de cette recherche minable dans MediaWiki, que j&amp;rsquo;ai bougé mes petites fesses et créer une extension pour ajouter à la &amp;ldquo;sidebar&amp;rdquo; : une recherche Google.
 Il vous faudra bien entendu être inscrit au Google CSE ou encore Adsense pour pouvoir profiter de la recherche personnalisée. L&amp;rsquo;extension est bien entendue accessible sur Mediawiki ou mon git :
-  http://www.mediawiki.org/wiki/Extension:GoogleSearch
-  http://www.deimos.fr/gitweb/?p=mediawiki_extensions.git;a=summary
-  L&amp;rsquo;installation est vraiment simple, donc n&amp;rsquo;hésitez pas !</description>
-    </item>
-    
-    <item>
-      <title>DeleteHistory v0.2 is out !</title>
-      <link>https://blog.deimos.fr/2011/04/08/deletehistory-v0-2-is-out/</link>
-      <pubDate>Fri, 08 Apr 2011 12:52:31 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2011/04/08/deletehistory-v0-2-is-out/</guid>
-      <description>Je viens de commiter la version 0.2 de DeleteHistory qui est compatible avec MediaWiki 1.16.
+http://www.mediawiki.org/wiki/Extension:GoogleSearch
+http://www.deimos.fr/gitweb/?p=mediawiki_extensions.git;a=summary
+L&amp;rsquo;installation est vraiment simple, donc n&amp;rsquo;hésitez pas !</description></item><item><title>DeleteHistory v0.2 is out !</title><link>https://blog.deimos.fr/2011/04/08/deletehistory-v0-2-is-out/</link><pubDate>Fri, 08 Apr 2011 12:52:31 +0000</pubDate><guid>https://blog.deimos.fr/2011/04/08/deletehistory-v0-2-is-out/</guid><description>Je viens de commiter la version 0.2 de DeleteHistory qui est compatible avec MediaWiki 1.16.
 Ça fait des mois que je suis en test chez moi, ça fonctionne plutôt bien. La semaine dernière j&amp;rsquo;ai reçu un mail d&amp;rsquo;un certain David qui me demandait une version qui fonctionnait sur MediaWiki 1.16.
 Il l&amp;rsquo;a donc mis à jour avec succès et ça fonctionne très bien :-)
-Pour ceux que ça intéresse, la dernière version est donc disponible sur mon git.</description>
-    </item>
-    
-    <item>
-      <title>Projet : Rancid Search</title>
-      <link>https://blog.deimos.fr/2011/03/02/projet-rancid-search/</link>
-      <pubDate>Wed, 02 Mar 2011 06:30:47 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2011/03/02/projet-rancid-search/</guid>
-      <description>Revoilà encore un nouveau projet. Il s&amp;rsquo;agit de Rancid Search.
-Vous connaissez déjà peut être Rancid qui permet de faire des backups de vos chers équipements Cisco et de les stocker dans un VCS. Au taf, mon équipe réseaux se plaignait de ne pas pouvoir faire de recherche dans tous les équipements cisco d&amp;rsquo;un coup. Imaginez plusieurs équipements avec pour certain plus de 25000 lignes d&amp;rsquo;ACL et autre configuration VPN. Pour faire des recherches, il fallait déjà savoir sur quelle équipement se connecter, puis chercher dans la conf.</description>
-    </item>
-    
-    <item>
-      <title>Puppet ça pête !</title>
-      <link>https://blog.deimos.fr/2010/06/24/puppet-ca-pete/</link>
-      <pubDate>Thu, 24 Jun 2010 14:50:45 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/06/24/puppet-ca-pete/</guid>
-      <description>Et bah voilà ! Ca y est je vais passer mon puppet en prod au taf. Franchement c&amp;rsquo;est vraiment bien. Très long à mettre en place mais pour après arrêter les taches répétitives sur les serveurs ! Ça vaut le coup surtout si on a une belle ferme de machines.
-J&amp;rsquo;ai donc prévu une petite doc à cet effet pour ceux que ça intéresse. J&amp;rsquo;ai été aidé de Luc (un presta qui depuis a fait quelques commentaires sur le blog) et ai enrichi un peu le tout.</description>
-    </item>
-    
-    <item>
-      <title>Perl vs X</title>
-      <link>https://blog.deimos.fr/2010/06/10/perl-vs-x/</link>
-      <pubDate>Thu, 10 Jun 2010 06:58:41 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/06/10/perl-vs-x/</guid>
-      <description>Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C++ étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j’ai la réponse à ma question :
-&amp;lt;th&amp;gt; Language &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; time (ms) &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; Slowdown &amp;lt;/th&amp;gt;  &amp;lt;td&amp;gt; C++ &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 23 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; Perl &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 1464 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 64 x &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; Python &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 3242 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 141 x &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; C++ &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 99 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; Perl &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 2686 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 27 x &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; Python &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 5285 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 53 x &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; C++ &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 43 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; Perl &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 5143 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 120 x &amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt; Python &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 6413 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 149 x &amp;lt;/td&amp;gt;  Ou encore :</description>
-    </item>
-    
-    <item>
-      <title>Check_file_content : encore un plugin Nagios</title>
-      <link>https://blog.deimos.fr/2010/05/10/check_file_content-encore-un-plugin-nagios/</link>
-      <pubDate>Mon, 10 May 2010 19:46:46 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/05/10/check_file_content-encore-un-plugin-nagios/</guid>
-      <description>Me voilà reparti dans mes plugins nagios. J’ai dû développer ça pour le taf à la base et je me suis dis que j’allais le rendre générique et le présenter à la communauté :-)
-Voilà donc un plugin qui permet de parser un fichier, et de garder ou non les lignes qui nous intéressent. En plus de celà on peut spécifier, s&amp;rsquo;il faut un certain nombre de lignes pour que le plugin retourne une valeur positive.</description>
-    </item>
-    
-    <item>
-      <title>Geekerie…quant tu nous tiens…</title>
-      <link>https://blog.deimos.fr/2010/05/01/geekerie-quant-tu-nous-tiens/</link>
-      <pubDate>Sat, 01 May 2010 00:31:01 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/05/01/geekerie-quant-tu-nous-tiens/</guid>
-      <description>Deimos vient encore de frapper ! Cette semaine, en parlant avec des amis du taf, je me suis rappeler de l’époque ou j’avais BluePhoneElite sur Mac. C’est un soft qui me permettait d’être (entre autre car il a beaucoup plus de fonctionnalités que ça) connecté avec mon téléphone portable en bluetooth à mon mac et lorsque je m’éloignais, l’ordi se vérouillait.
-Je regrette que cette fonctionnalité là n&amp;rsquo;existe pas sur Linux.</description>
-    </item>
-    
-    <item>
-      <title>DeleteHistory : Mon extension pour MediaWiki</title>
-      <link>https://blog.deimos.fr/2010/04/20/deletehistory-mon-extension-pour-mediawiki/</link>
-      <pubDate>Tue, 20 Apr 2010 15:58:24 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/04/20/deletehistory-mon-extension-pour-mediawiki/</guid>
-      <description>Et bien me voilà encore en pleine créativité, on ne m’arrête plus !!!! Pour la petite histoire, il y a maintenant peut être 2 ans, je cherchais une extension pour MediaWiki me permettant de supprimer mon historique. J’avais trouvé l’extension parfaite SpecialDeleteOldRevisions, mais lors d’une upgrade, impossible de la faire fonctionner correctement. Toujours pas d’update de cette extension 1 an après. Je m’étais dis que j’en ferais une un de ces 4.</description>
-    </item>
-    
-    <item>
-      <title>GeSHi : Quelques modifs sur mon wiki</title>
-      <link>https://blog.deimos.fr/2010/04/11/geshi-quelques-modifs-sur-mon-wiki/</link>
-      <pubDate>Sun, 11 Apr 2010 00:38:04 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/04/11/geshi-quelques-modifs-sur-mon-wiki/</guid>
-      <description>J’en ai eu marre de taper toujours et encore du code pour avoir de la numérotation de ligne commençant par 0 sur ma colorisation syntaxique de code avec GeSHi. En l’absence de documentation sur l’extension SyntaxHighlight_GeSHi j’ai du me farcir le code à la mainet trouver comment setter des valeurs par défaut. J’ai donc maintenant “line=1 start=0” à tous mes codes sur mon wiki sans me prendre la tête à l’écrire à chaque fois.</description>
-    </item>
-    
-    <item>
-      <title>Automatiser l’optimisation de ses tables MySQL</title>
-      <link>https://blog.deimos.fr/2010/04/08/automatiser-loptimisation-de-ses-tables-mysql/</link>
-      <pubDate>Thu, 08 Apr 2010 00:47:06 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/04/08/automatiser-loptimisation-de-ses-tables-mysql/</guid>
-      <description>J’ai concocté un petit script permettant d’optimiser toutes les tables de ses bases MySQL. Mon petit script récupère les noms des bases de données, liste les tables et optimise tout ce petit monde pour gagner de l’espace sur le disque :-). Bref, je ne vais pas expliquer de long en large ce que fait la fonction ‘OPTIMIZE’ de MySQL mais en gros l’idée est là.
-Pour trouver ce petit script, je vous invite à suivre ce liens.</description>
-    </item>
-    
-    <item>
-      <title>Tu ne joueras point avec le feu !</title>
-      <link>https://blog.deimos.fr/2010/03/24/tu-ne-joueras-point-avec-le-feu/</link>
-      <pubDate>Wed, 24 Mar 2010 11:05:15 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/03/24/tu-ne-joueras-point-avec-le-feu/</guid>
-      <description>Dans un précédent post, j’expliquais comment faire des exe sous Windows. Je vais donc expliquer pourquoi :
+Pour ceux que ça intéresse, la dernière version est donc disponible sur mon git.</description></item><item><title>Projet : Rancid Search</title><link>https://blog.deimos.fr/2011/03/02/projet-rancid-search/</link><pubDate>Wed, 02 Mar 2011 06:30:47 +0000</pubDate><guid>https://blog.deimos.fr/2011/03/02/projet-rancid-search/</guid><description>Revoilà encore un nouveau projet. Il s&amp;rsquo;agit de Rancid Search.
+Vous connaissez déjà peut être Rancid qui permet de faire des backups de vos chers équipements Cisco et de les stocker dans un VCS. Au taf, mon équipe réseaux se plaignait de ne pas pouvoir faire de recherche dans tous les équipements cisco d&amp;rsquo;un coup. Imaginez plusieurs équipements avec pour certain plus de 25000 lignes d&amp;rsquo;ACL et autre configuration VPN. Pour faire des recherches, il fallait déjà savoir sur quelle équipement se connecter, puis chercher dans la conf.</description></item><item><title>Puppet ça pête !</title><link>https://blog.deimos.fr/2010/06/24/puppet-ca-pete/</link><pubDate>Thu, 24 Jun 2010 14:50:45 +0000</pubDate><guid>https://blog.deimos.fr/2010/06/24/puppet-ca-pete/</guid><description>Et bah voilà ! Ca y est je vais passer mon puppet en prod au taf. Franchement c&amp;rsquo;est vraiment bien. Très long à mettre en place mais pour après arrêter les taches répétitives sur les serveurs ! Ça vaut le coup surtout si on a une belle ferme de machines.
+J&amp;rsquo;ai donc prévu une petite doc à cet effet pour ceux que ça intéresse. J&amp;rsquo;ai été aidé de Luc (un presta qui depuis a fait quelques commentaires sur le blog) et ai enrichi un peu le tout.</description></item><item><title>Perl vs X</title><link>https://blog.deimos.fr/2010/06/10/perl-vs-x/</link><pubDate>Thu, 10 Jun 2010 06:58:41 +0000</pubDate><guid>https://blog.deimos.fr/2010/06/10/perl-vs-x/</guid><description>Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C++ étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j’ai la réponse à ma question :
+&amp;lt;th&amp;gt; Language &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; time (ms) &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; Slowdown &amp;lt;/th&amp;gt; &amp;lt;td&amp;gt; C++ &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 23 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; Perl &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 1464 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 64 x &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; Python &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 3242 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 141 x &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; C++ &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 99 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; Perl &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 2686 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 27 x &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; Python &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 5285 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 53 x &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; C++ &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 43 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; Perl &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 5143 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 120 x &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; Python &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 6413 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 149 x &amp;lt;/td&amp;gt; Ou encore :</description></item><item><title>Check_file_content : encore un plugin Nagios</title><link>https://blog.deimos.fr/2010/05/10/check_file_content-encore-un-plugin-nagios/</link><pubDate>Mon, 10 May 2010 19:46:46 +0000</pubDate><guid>https://blog.deimos.fr/2010/05/10/check_file_content-encore-un-plugin-nagios/</guid><description>Me voilà reparti dans mes plugins nagios. J’ai dû développer ça pour le taf à la base et je me suis dis que j’allais le rendre générique et le présenter à la communauté :-)
+Voilà donc un plugin qui permet de parser un fichier, et de garder ou non les lignes qui nous intéressent. En plus de celà on peut spécifier, s&amp;rsquo;il faut un certain nombre de lignes pour que le plugin retourne une valeur positive.</description></item><item><title>Geekerie…quant tu nous tiens…</title><link>https://blog.deimos.fr/2010/05/01/geekerie-quant-tu-nous-tiens/</link><pubDate>Sat, 01 May 2010 00:31:01 +0000</pubDate><guid>https://blog.deimos.fr/2010/05/01/geekerie-quant-tu-nous-tiens/</guid><description>Deimos vient encore de frapper ! Cette semaine, en parlant avec des amis du taf, je me suis rappeler de l’époque ou j’avais BluePhoneElite sur Mac. C’est un soft qui me permettait d’être (entre autre car il a beaucoup plus de fonctionnalités que ça) connecté avec mon téléphone portable en bluetooth à mon mac et lorsque je m’éloignais, l’ordi se vérouillait.
+Je regrette que cette fonctionnalité là n&amp;rsquo;existe pas sur Linux.</description></item><item><title>DeleteHistory : Mon extension pour MediaWiki</title><link>https://blog.deimos.fr/2010/04/20/deletehistory-mon-extension-pour-mediawiki/</link><pubDate>Tue, 20 Apr 2010 15:58:24 +0000</pubDate><guid>https://blog.deimos.fr/2010/04/20/deletehistory-mon-extension-pour-mediawiki/</guid><description>Et bien me voilà encore en pleine créativité, on ne m’arrête plus !!!! Pour la petite histoire, il y a maintenant peut être 2 ans, je cherchais une extension pour MediaWiki me permettant de supprimer mon historique. J’avais trouvé l’extension parfaite SpecialDeleteOldRevisions, mais lors d’une upgrade, impossible de la faire fonctionner correctement. Toujours pas d’update de cette extension 1 an après. Je m’étais dis que j’en ferais une un de ces 4.</description></item><item><title>GeSHi : Quelques modifs sur mon wiki</title><link>https://blog.deimos.fr/2010/04/11/geshi-quelques-modifs-sur-mon-wiki/</link><pubDate>Sun, 11 Apr 2010 00:38:04 +0000</pubDate><guid>https://blog.deimos.fr/2010/04/11/geshi-quelques-modifs-sur-mon-wiki/</guid><description>J’en ai eu marre de taper toujours et encore du code pour avoir de la numérotation de ligne commençant par 0 sur ma colorisation syntaxique de code avec GeSHi. En l’absence de documentation sur l’extension SyntaxHighlight_GeSHi j’ai du me farcir le code à la mainet trouver comment setter des valeurs par défaut. J’ai donc maintenant “line=1 start=0” à tous mes codes sur mon wiki sans me prendre la tête à l’écrire à chaque fois.</description></item><item><title>Automatiser l’optimisation de ses tables MySQL</title><link>https://blog.deimos.fr/2010/04/08/automatiser-loptimisation-de-ses-tables-mysql/</link><pubDate>Thu, 08 Apr 2010 00:47:06 +0000</pubDate><guid>https://blog.deimos.fr/2010/04/08/automatiser-loptimisation-de-ses-tables-mysql/</guid><description>J’ai concocté un petit script permettant d’optimiser toutes les tables de ses bases MySQL. Mon petit script récupère les noms des bases de données, liste les tables et optimise tout ce petit monde pour gagner de l’espace sur le disque :-). Bref, je ne vais pas expliquer de long en large ce que fait la fonction ‘OPTIMIZE’ de MySQL mais en gros l’idée est là.
+Pour trouver ce petit script, je vous invite à suivre ce liens.</description></item><item><title>Tu ne joueras point avec le feu !</title><link>https://blog.deimos.fr/2010/03/24/tu-ne-joueras-point-avec-le-feu/</link><pubDate>Wed, 24 Mar 2010 11:05:15 +0000</pubDate><guid>https://blog.deimos.fr/2010/03/24/tu-ne-joueras-point-avec-le-feu/</guid><description>Dans un précédent post, j’expliquais comment faire des exe sous Windows. Je vais donc expliquer pourquoi :
 Dans ma boite, j&amp;rsquo;ai des personnes mal intentionnées qui avaient les droits admin de leur machine. Le problème c&amp;rsquo;est qu&amp;rsquo;avec ça ils peuvent en faire des conneries&amp;hellip;
-Pour palier à ce problème, on les a mis en utilisateurs. Et pour ne pas que si quelqu&amp;rsquo;un trouve le mot de passe admin, qu&amp;rsquo;il puisse se connecter sur n&amp;rsquo;importe quel ordinateur pour prendre des informations, il faut un mot de passe unique par ordinateur.</description>
-    </item>
-    
-    <item>
-      <title>Créer un exe avec Perl</title>
-      <link>https://blog.deimos.fr/2010/03/21/creer-un-exe-avec-perl/</link>
-      <pubDate>Sun, 21 Mar 2010 09:26:39 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/03/21/creer-un-exe-avec-perl/</guid>
-      <description>J’ai fais mes débuts en Perl sous Windows fin de cette semaine et j’avoue que c’est quand même vachement bien ce que Monsieur Larry et sa Team a fait. Le portage de Perl sur Windows est vraiment très bien fait et ça fonctionne quasiment pareil que sur les *nix. Biensure, il y a quelques petites différences comme les chemins des dossiers etc…, mais franchement, du fait qu’on puisse utiliser les API Windows, c’est vraiment balaise.</description>
-    </item>
-    
-    <item>
-      <title>media2conflu: version 0.3</title>
-      <link>https://blog.deimos.fr/2010/03/05/media2conflu-version-0-3/</link>
-      <pubDate>Fri, 05 Mar 2010 06:19:20 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/03/05/media2conflu-version-0-3/</guid>
-      <description>Je reviens sur ce projet car j’ai sortit hier la version 0.3.
+Pour palier à ce problème, on les a mis en utilisateurs. Et pour ne pas que si quelqu&amp;rsquo;un trouve le mot de passe admin, qu&amp;rsquo;il puisse se connecter sur n&amp;rsquo;importe quel ordinateur pour prendre des informations, il faut un mot de passe unique par ordinateur.</description></item><item><title>Créer un exe avec Perl</title><link>https://blog.deimos.fr/2010/03/21/creer-un-exe-avec-perl/</link><pubDate>Sun, 21 Mar 2010 09:26:39 +0000</pubDate><guid>https://blog.deimos.fr/2010/03/21/creer-un-exe-avec-perl/</guid><description>J’ai fais mes débuts en Perl sous Windows fin de cette semaine et j’avoue que c’est quand même vachement bien ce que Monsieur Larry et sa Team a fait. Le portage de Perl sur Windows est vraiment très bien fait et ça fonctionne quasiment pareil que sur les *nix. Biensure, il y a quelques petites différences comme les chemins des dossiers etc…, mais franchement, du fait qu’on puisse utiliser les API Windows, c’est vraiment balaise.</description></item><item><title>media2conflu: version 0.3</title><link>https://blog.deimos.fr/2010/03/05/media2conflu-version-0-3/</link><pubDate>Fri, 05 Mar 2010 06:19:20 +0000</pubDate><guid>https://blog.deimos.fr/2010/03/05/media2conflu-version-0-3/</guid><description>Je reviens sur ce projet car j’ai sortit hier la version 0.3.
 Pas mal de nouveautés et évidemment une grande amélioration quant aux conversions effectuées. Il y a encore quelques trucs que je ne gère pas comme les images ou ce genre de chose, mais n&amp;rsquo;hésitez pas à me faire savoir si vous voulez voir d&amp;rsquo;autres choses.
-Comme d&amp;rsquo;habitude, cette nouvelle mouture est disponible sur mon git.</description>
-    </item>
-    
-    <item>
-      <title>media2conflu : encore un nouveau projet</title>
-      <link>https://blog.deimos.fr/2010/02/10/media2conflu-encore-un-nouveau-projet/</link>
-      <pubDate>Wed, 10 Feb 2010 21:05:57 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/02/10/media2conflu-encore-un-nouveau-projet/</guid>
-      <description>Décidément, je n’arrête pas ces temps ci ! Là c’est un petit projet par rapport aux autres, mais c’est peut être pour le moment un de ceux que je vais utiliser le plus souvent car très utile pour mon boulot.
-Un peu d&amp;rsquo;explication ne fait pas de mal. J&amp;rsquo;utilise depuis des années MediaWiki et en suis pleinement satisfait ! Au boulot, il y a quelques années aussi, je n&amp;rsquo;ai pas réussi à faire appliquer MediaWiki car il ne prenait pas en charge le WIZIWIG et une gestion des ACLs simple.</description>
-    </item>
-    
-    <item>
-      <title>RRDtool : Oh qu’ils sont beaux les graphs</title>
-      <link>https://blog.deimos.fr/2010/01/21/rrdtool-oh-quils-sont-beaux-les-graphs/</link>
-      <pubDate>Thu, 21 Jan 2010 12:54:27 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/01/21/rrdtool-oh-quils-sont-beaux-les-graphs/</guid>
-      <description>Depuis quelques temps je me suis mis à faire toute sorte de graphs. Vous l’avez vu dans un de mes précédents posts avec OpenChart et maintenant RRDtool. Je ne vous cacherais pas que c’est un peu complexe a prendre en main, mais une fois fait, on peut vraiment tout faire et on comprends aisément pourquoi il est utilisé partout.
-Le mécanisme de base de donnée est extrêment bien pensé et surtout autonome, ce qui le rends très pratique et facile anticiper les éventuels problèmes de place liés à de multiples bases de données RRD (puisque maitrisée).</description>
-    </item>
-    
-    <item>
-      <title>phpCV sur SourceForge</title>
-      <link>https://blog.deimos.fr/2010/01/19/phpcv-sur-sourceforge/</link>
-      <pubDate>Tue, 19 Jan 2010 13:03:51 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/01/19/phpcv-sur-sourceforge/</guid>
-      <description>phpCV a son logo et son site web hébergé chez SourceForge : http://phpcv.sourceforge.net
-Le site web principale est hébergé sur Mediawiki, le code sur Git, je ne devrais donc pas être trop dépaysé. Dites moi ce que vous en pensez</description>
-    </item>
-    
-    <item>
-      <title>phpCV 0.1 est sortie :-)</title>
-      <link>https://blog.deimos.fr/2010/01/17/phpcv-0-1-est-sortie/</link>
-      <pubDate>Sun, 17 Jan 2010 22:54:03 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/01/17/phpcv-0-1-est-sortie/</guid>
-      <description>La première version de phpCV est sortie :-). Soyez donc indulgent…
+Comme d&amp;rsquo;habitude, cette nouvelle mouture est disponible sur mon git.</description></item><item><title>media2conflu : encore un nouveau projet</title><link>https://blog.deimos.fr/2010/02/10/media2conflu-encore-un-nouveau-projet/</link><pubDate>Wed, 10 Feb 2010 21:05:57 +0000</pubDate><guid>https://blog.deimos.fr/2010/02/10/media2conflu-encore-un-nouveau-projet/</guid><description>Décidément, je n’arrête pas ces temps ci ! Là c’est un petit projet par rapport aux autres, mais c’est peut être pour le moment un de ceux que je vais utiliser le plus souvent car très utile pour mon boulot.
+Un peu d&amp;rsquo;explication ne fait pas de mal. J&amp;rsquo;utilise depuis des années MediaWiki et en suis pleinement satisfait ! Au boulot, il y a quelques années aussi, je n&amp;rsquo;ai pas réussi à faire appliquer MediaWiki car il ne prenait pas en charge le WIZIWIG et une gestion des ACLs simple.</description></item><item><title>RRDtool : Oh qu’ils sont beaux les graphs</title><link>https://blog.deimos.fr/2010/01/21/rrdtool-oh-quils-sont-beaux-les-graphs/</link><pubDate>Thu, 21 Jan 2010 12:54:27 +0000</pubDate><guid>https://blog.deimos.fr/2010/01/21/rrdtool-oh-quils-sont-beaux-les-graphs/</guid><description>Depuis quelques temps je me suis mis à faire toute sorte de graphs. Vous l’avez vu dans un de mes précédents posts avec OpenChart et maintenant RRDtool. Je ne vous cacherais pas que c’est un peu complexe a prendre en main, mais une fois fait, on peut vraiment tout faire et on comprends aisément pourquoi il est utilisé partout.
+Le mécanisme de base de donnée est extrêment bien pensé et surtout autonome, ce qui le rends très pratique et facile anticiper les éventuels problèmes de place liés à de multiples bases de données RRD (puisque maitrisée).</description></item><item><title>phpCV sur SourceForge</title><link>https://blog.deimos.fr/2010/01/19/phpcv-sur-sourceforge/</link><pubDate>Tue, 19 Jan 2010 13:03:51 +0000</pubDate><guid>https://blog.deimos.fr/2010/01/19/phpcv-sur-sourceforge/</guid><description>phpCV a son logo et son site web hébergé chez SourceForge : http://phpcv.sourceforge.net
+Le site web principale est hébergé sur Mediawiki, le code sur Git, je ne devrais donc pas être trop dépaysé. Dites moi ce que vous en pensez</description></item><item><title>phpCV 0.1 est sortie :-)</title><link>https://blog.deimos.fr/2010/01/17/phpcv-0-1-est-sortie/</link><pubDate>Sun, 17 Jan 2010 22:54:03 +0000</pubDate><guid>https://blog.deimos.fr/2010/01/17/phpcv-0-1-est-sortie/</guid><description>La première version de phpCV est sortie :-). Soyez donc indulgent…
 Je prévois de belles améliorations mais pour le moment, ça vous permet de faire simplement un beau CV sans trop se fouler.
 Il me reste un beau README a faire, mais pour l&amp;rsquo;heure voici en gros les quelques fonctionnalités :
-  Bi languages
-  Partie confidentielle gérée
-  Calcul automatique de l&amp;rsquo;age
-  Génération des PDF à la volée</description>
-    </item>
-    
-    <item>
-      <title>phpCV : Un de mes nouveaux projets</title>
-      <link>https://blog.deimos.fr/2010/01/13/phpcv-un-de-mes-nouveaux-projets/</link>
-      <pubDate>Wed, 13 Jan 2010 06:42:49 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/01/13/phpcv-un-de-mes-nouveaux-projets/</guid>
-      <description>J’ai récemment décidé de passer un VAE pour me faire valider un BTS. Pour ça, on me demande un CV. CV que j’ai mis à jour il y a quelques temps déjà et j’en avais parlé dans des billets précédents sur ce blog (-&amp;gt; http://www.mavro.fr).
-J&amp;rsquo;utilise donc le superbe Sample Resume Template qui en fait est une template HTML. Il faut donc faire pas mal de changements pour arriver à un résultat convenable.</description>
-    </item>
-    
-    <item>
-      <title>Coeur de lion</title>
-      <link>https://blog.deimos.fr/2009/12/29/coeur-de-lion/</link>
-      <pubDate>Tue, 29 Dec 2009 13:54:47 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2009/12/29/coeur-de-lion/</guid>
-      <description>J’ai parlé il y a quelques temps d’Open Flash Chart qui permet de faire de beaux graphs animés en flash. Je l’ai donc utilisé pour mes besoins personnels et ai fait une petite doc qui va bien pour faire un camebert (d’ou le titre).
-J&amp;rsquo;avais besoin de montrer l&amp;rsquo;occupation disque par utilisateurs dans un dossier donné. Ce qui donne quelque chose comme ça :</description>
-    </item>
-    
-    <item>
-      <title>Encore 2 nouveaux plugins pour Nagios</title>
-      <link>https://blog.deimos.fr/2009/12/13/encore-2-nouveaux-plugins-pour-nagios/</link>
-      <pubDate>Sun, 13 Dec 2009 00:29:02 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2009/12/13/encore-2-nouveaux-plugins-pour-nagios/</guid>
-      <description>Et oui, ça continue. J’ai créer 2 nouveaux plugins pour Nagios :
-  Check_ldap_request : Permet d&amp;rsquo;effectuer une requêtes LDAP pour vérifier l&amp;rsquo;existance d&amp;rsquo;un attribut
-  Check_rss_mem : Vérifie la mémoire réservée de tous les processus sous Solaris
-  Quelques nouveaux vont arriver d&amp;rsquo;ici peu et des améliorations pour les existants.</description>
-    </item>
-    
-    <item>
-      <title>VIM pour Eclipse</title>
-      <link>https://blog.deimos.fr/2009/12/06/vim-pour-eclipse/</link>
-      <pubDate>Sun, 06 Dec 2009 10:37:19 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2009/12/06/vim-pour-eclipse/</guid>
-      <description>Je pense avoir trouvé le plugin Eclipse qu’il me fallait. Il utilise en fait gvim. Mon problème était donc d’adapter gvim pour qu’il puisse utiliser ma conf de vim. Tout ne passait pas correctement, j’ai donc adapter comme il fallait mon .vimrc afin qu’il se rapproche au mieux de vim.
+Bi languages
+Partie confidentielle gérée
+Calcul automatique de l&amp;rsquo;age
+Génération des PDF à la volée</description></item><item><title>phpCV : Un de mes nouveaux projets</title><link>https://blog.deimos.fr/2010/01/13/phpcv-un-de-mes-nouveaux-projets/</link><pubDate>Wed, 13 Jan 2010 06:42:49 +0000</pubDate><guid>https://blog.deimos.fr/2010/01/13/phpcv-un-de-mes-nouveaux-projets/</guid><description>J’ai récemment décidé de passer un VAE pour me faire valider un BTS. Pour ça, on me demande un CV. CV que j’ai mis à jour il y a quelques temps déjà et j’en avais parlé dans des billets précédents sur ce blog (-&amp;gt; http://www.mavro.fr).
+J&amp;rsquo;utilise donc le superbe Sample Resume Template qui en fait est une template HTML. Il faut donc faire pas mal de changements pour arriver à un résultat convenable.</description></item><item><title>Coeur de lion</title><link>https://blog.deimos.fr/2009/12/29/coeur-de-lion/</link><pubDate>Tue, 29 Dec 2009 13:54:47 +0000</pubDate><guid>https://blog.deimos.fr/2009/12/29/coeur-de-lion/</guid><description>J’ai parlé il y a quelques temps d’Open Flash Chart qui permet de faire de beaux graphs animés en flash. Je l’ai donc utilisé pour mes besoins personnels et ai fait une petite doc qui va bien pour faire un camebert (d’ou le titre).
+J&amp;rsquo;avais besoin de montrer l&amp;rsquo;occupation disque par utilisateurs dans un dossier donné. Ce qui donne quelque chose comme ça :</description></item><item><title>Encore 2 nouveaux plugins pour Nagios</title><link>https://blog.deimos.fr/2009/12/13/encore-2-nouveaux-plugins-pour-nagios/</link><pubDate>Sun, 13 Dec 2009 00:29:02 +0000</pubDate><guid>https://blog.deimos.fr/2009/12/13/encore-2-nouveaux-plugins-pour-nagios/</guid><description>Et oui, ça continue. J’ai créer 2 nouveaux plugins pour Nagios :
+Check_ldap_request : Permet d&amp;rsquo;effectuer une requêtes LDAP pour vérifier l&amp;rsquo;existance d&amp;rsquo;un attribut
+Check_rss_mem : Vérifie la mémoire réservée de tous les processus sous Solaris
+Quelques nouveaux vont arriver d&amp;rsquo;ici peu et des améliorations pour les existants.</description></item><item><title>VIM pour Eclipse</title><link>https://blog.deimos.fr/2009/12/06/vim-pour-eclipse/</link><pubDate>Sun, 06 Dec 2009 10:37:19 +0000</pubDate><guid>https://blog.deimos.fr/2009/12/06/vim-pour-eclipse/</guid><description>Je pense avoir trouvé le plugin Eclipse qu’il me fallait. Il utilise en fait gvim. Mon problème était donc d’adapter gvim pour qu’il puisse utiliser ma conf de vim. Tout ne passait pas correctement, j’ai donc adapter comme il fallait mon .vimrc afin qu’il se rapproche au mieux de vim.
 Il faut donc installer le plugin à l&amp;rsquo;adresse suivante : http://vimplugin.sourceforge.net/.
-Un une fois installé, il faut l&amp;rsquo;activer dans les préférences gvim, puis l&amp;rsquo;associer aux extensions de fichier souhaité.</description>
-    </item>
-    
-    <item>
-      <title>Eclipse : nouvelle méthode de dev</title>
-      <link>https://blog.deimos.fr/2009/12/05/eclipse-certainement-ma-nouvelle-methode-de-dev/</link>
-      <pubDate>Sat, 05 Dec 2009 17:53:29 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2009/12/05/eclipse-certainement-ma-nouvelle-methode-de-dev/</guid>
-      <description>Sur les conseils de mon ami Seb (Teka), je me suis mis à utiliser un IDE pour développer dans toute sorte de language afin de gagner en souplesse et en rapidité.
-Du coup, j&amp;rsquo;utilise Eclipse. Cependant, de base, il n&amp;rsquo;y a pas grand chose qui m&amp;rsquo;intéresse puisque c&amp;rsquo;est assez spécifique à Java et je ne développe pas en Java. Il existe donc tout un tas d&amp;rsquo;addons et j&amp;rsquo;ai donc mis sur mon wiki ceux que j&amp;rsquo;utilise.</description>
-    </item>
-    
-  </channel>
-</rss>
+Un une fois installé, il faut l&amp;rsquo;activer dans les préférences gvim, puis l&amp;rsquo;associer aux extensions de fichier souhaité.</description></item><item><title>Eclipse : nouvelle méthode de dev</title><link>https://blog.deimos.fr/2009/12/05/eclipse-certainement-ma-nouvelle-methode-de-dev/</link><pubDate>Sat, 05 Dec 2009 17:53:29 +0000</pubDate><guid>https://blog.deimos.fr/2009/12/05/eclipse-certainement-ma-nouvelle-methode-de-dev/</guid><description>Sur les conseils de mon ami Seb (Teka), je me suis mis à utiliser un IDE pour développer dans toute sorte de language afin de gagner en souplesse et en rapidité.
+Du coup, j&amp;rsquo;utilise Eclipse. Cependant, de base, il n&amp;rsquo;y a pas grand chose qui m&amp;rsquo;intéresse puisque c&amp;rsquo;est assez spécifique à Java et je ne développe pas en Java. Il existe donc tout un tas d&amp;rsquo;addons et j&amp;rsquo;ai donc mis sur mon wiki ceux que j&amp;rsquo;utilise.</description></item></channel></rss>

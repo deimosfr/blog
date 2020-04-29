@@ -1,98 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Windows on Deimosfr Blog</title>
-    <link>https://blog.deimos.fr/categories/windows/</link>
-    <description>Recent content in Windows on Deimosfr Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 18 Feb 2014 11:00:38 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.deimos.fr/categories/windows/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>WinDbg: analyze crash dump</title>
-      <link>https://blog.deimos.fr/2014/02/18/windbg-analyze-crash-dump/</link>
-      <pubDate>Tue, 18 Feb 2014 11:00:38 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2014/02/18/windbg-analyze-crash-dump/</guid>
-      <description>It&amp;rsquo;s not really common, but here is a tutorial I&amp;rsquo;ve made to analyze of a crash dump on Windows. I&amp;rsquo;ve only talked about how to setup the tools and how to use them but do not talk about the analyze itself. May be in another post if I have enough time.
-Once again, I hope it could help some of you</description>
-    </item>
-    
-    <item>
-      <title>Windows : service action on a website pattern</title>
-      <link>https://blog.deimos.fr/2013/09/27/windows-service-action-on-a-website-pattern/</link>
-      <pubDate>Fri, 27 Sep 2013 10:00:26 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2013/09/27/windows-service-action-on-a-website-pattern/</guid>
-      <description>I recently made a script at work to act as a service when a pattern is found (or not) on a website. You can also run pre and post script if you want.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windows on Deimosfr Blog</title><link>https://blog.deimos.fr/categories/windows/</link><description>Recent content in Windows on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 18 Feb 2014 11:00:38 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/categories/windows/index.xml" rel="self" type="application/rss+xml"/><item><title>WinDbg: analyze crash dump</title><link>https://blog.deimos.fr/2014/02/18/windbg-analyze-crash-dump/</link><pubDate>Tue, 18 Feb 2014 11:00:38 +0000</pubDate><guid>https://blog.deimos.fr/2014/02/18/windbg-analyze-crash-dump/</guid><description>It&amp;rsquo;s not really common, but here is a tutorial I&amp;rsquo;ve made to analyze of a crash dump on Windows. I&amp;rsquo;ve only talked about how to setup the tools and how to use them but do not talk about the analyze itself. May be in another post if I have enough time.
+Once again, I hope it could help some of you</description></item><item><title>Windows : service action on a website pattern</title><link>https://blog.deimos.fr/2013/09/27/windows-service-action-on-a-website-pattern/</link><pubDate>Fri, 27 Sep 2013 10:00:26 +0000</pubDate><guid>https://blog.deimos.fr/2013/09/27/windows-service-action-on-a-website-pattern/</guid><description>I recently made a script at work to act as a service when a pattern is found (or not) on a website. You can also run pre and post script if you want.
 It&amp;rsquo;s a Windows binary that you can find on my GitHub or on my Git.
-I did it in Perl. As described in the last post as I needed to have the interpreter embedded in the binary. I&amp;rsquo;m so bad to find good application name that I called it url_service_action.</description>
-    </item>
-    
-    <item>
-      <title>Create exe with Perl on Windows</title>
-      <link>https://blog.deimos.fr/2013/09/25/create-exe-with-perl-on-windows/</link>
-      <pubDate>Wed, 25 Sep 2013 10:00:29 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2013/09/25/create-exe-with-perl-on-windows/</guid>
-      <description>In the past, I already made an article on how to make exe from a Perl script on Windows. I was using Strawberry or Activesync but have a preference for Strawberry as it&amp;rsquo;s totally free :-).
+I did it in Perl. As described in the last post as I needed to have the interpreter embedded in the binary. I&amp;rsquo;m so bad to find good application name that I called it url_service_action.</description></item><item><title>Create exe with Perl on Windows</title><link>https://blog.deimos.fr/2013/09/25/create-exe-with-perl-on-windows/</link><pubDate>Wed, 25 Sep 2013 10:00:29 +0000</pubDate><guid>https://blog.deimos.fr/2013/09/25/create-exe-with-perl-on-windows/</guid><description>In the past, I already made an article on how to make exe from a Perl script on Windows. I was using Strawberry or Activesync but have a preference for Strawberry as it&amp;rsquo;s totally free :-).
 This time, I tried to reproduce the tips but encountered several issues. The first one was that error :
-The locale codeset (cp1252) isn&amp;#39;t one that perl can decode, stopped at Encode/Locale.pm line 94. It could simply be resolved by addressing &amp;lsquo;-x&amp;rsquo; parameter to the &amp;lsquo;pp&amp;rsquo; command line.</description>
-    </item>
-    
-    <item>
-      <title>Book : Pro Git</title>
-      <link>https://blog.deimos.fr/2013/07/21/book-pro-git/</link>
-      <pubDate>Sun, 21 Jul 2013 10:00:00 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2013/07/21/book-pro-git/</guid>
-      <description>Git : have you ever tried to play with it ? For several years I&amp;rsquo;m working with that fantastic tool. Anyway the biggest problem is : if you don&amp;rsquo;t work day to day with Git, you need a memento or something similar (like my wiki 😉).
-Also, if you use it for your personal usage, you&amp;rsquo;ll be lost when you will work with complex workflows. As I&amp;rsquo;m not a developer, I use Git to manage my etc configuration, my puppet manifests, my custom scripts&amp;hellip;so many basic usage that really help me to win time as a sysadmin.</description>
-    </item>
-    
-    <item>
-      <title>Gérer Firefox via GPO</title>
-      <link>https://blog.deimos.fr/2013/01/22/gerer-firefox-gpo/</link>
-      <pubDate>Tue, 22 Jan 2013 11:00:49 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2013/01/22/gerer-firefox-gpo/</guid>
-      <description>Ce titre est aguicheur non ? En effet Firefox commence de plus en plus à vouloir attirer les entreprise. Et pour bien commencer, quoi de mieux qu&amp;rsquo;une gestion contrôlée de son parc informatique ?
-C&amp;rsquo;est pourquoi je vous propose une petite documentation focalisée sur Firefox et son déploiement en masse en entreprise dans un environnement Windows.</description>
-    </item>
-    
-    <item>
-      <title>Quelle merde ces blackberry</title>
-      <link>https://blog.deimos.fr/2010/05/26/quel-merde-ces-blackberry/</link>
-      <pubDate>Wed, 26 May 2010 21:28:52 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/05/26/quel-merde-ces-blackberry/</guid>
-      <description>Sans parler des terminaux qui sont à des années lumières des téléphones portables classiques, le serveur c’est vraiment une merde. Ca s’améliore d’année en année, mais quand même… quelle merde !
+The locale codeset (cp1252) isn&amp;#39;t one that perl can decode, stopped at Encode/Locale.pm line 94. It could simply be resolved by addressing &amp;lsquo;-x&amp;rsquo; parameter to the &amp;lsquo;pp&amp;rsquo; command line.</description></item><item><title>Book : Pro Git</title><link>https://blog.deimos.fr/2013/07/21/book-pro-git/</link><pubDate>Sun, 21 Jul 2013 10:00:00 +0000</pubDate><guid>https://blog.deimos.fr/2013/07/21/book-pro-git/</guid><description>Git : have you ever tried to play with it ? For several years I&amp;rsquo;m working with that fantastic tool. Anyway the biggest problem is : if you don&amp;rsquo;t work day to day with Git, you need a memento or something similar (like my wiki 😉).
+Also, if you use it for your personal usage, you&amp;rsquo;ll be lost when you will work with complex workflows. As I&amp;rsquo;m not a developer, I use Git to manage my etc configuration, my puppet manifests, my custom scripts&amp;hellip;so many basic usage that really help me to win time as a sysadmin.</description></item><item><title>Gérer Firefox via GPO</title><link>https://blog.deimos.fr/2013/01/22/gerer-firefox-gpo/</link><pubDate>Tue, 22 Jan 2013 11:00:49 +0000</pubDate><guid>https://blog.deimos.fr/2013/01/22/gerer-firefox-gpo/</guid><description>Ce titre est aguicheur non ? En effet Firefox commence de plus en plus à vouloir attirer les entreprise. Et pour bien commencer, quoi de mieux qu&amp;rsquo;une gestion contrôlée de son parc informatique ?
+C&amp;rsquo;est pourquoi je vous propose une petite documentation focalisée sur Firefox et son déploiement en masse en entreprise dans un environnement Windows.</description></item><item><title>Quelle merde ces blackberry</title><link>https://blog.deimos.fr/2010/05/26/quel-merde-ces-blackberry/</link><pubDate>Wed, 26 May 2010 21:28:52 +0000</pubDate><guid>https://blog.deimos.fr/2010/05/26/quel-merde-ces-blackberry/</guid><description>Sans parler des terminaux qui sont à des années lumières des téléphones portables classiques, le serveur c’est vraiment une merde. Ca s’améliore d’année en année, mais quand même… quelle merde !
 C&amp;rsquo;est buggé a mort. Tous les outils de diagnostiques disent que tout fonctionne, et pourtant, aucuns mails relayé. J&amp;rsquo;ai donc fait une petite doc avec tous les prérequis, les check à faire&amp;hellip;
-Pour ma part, tous les checks disaient que tout fonctionnaient bien mais il m&amp;rsquo;a fallu appliquer un Service Pack pour que tout refonctionne.</description>
-    </item>
-    
-    <item>
-      <title>Tu ne joueras point avec le feu !</title>
-      <link>https://blog.deimos.fr/2010/03/24/tu-ne-joueras-point-avec-le-feu/</link>
-      <pubDate>Wed, 24 Mar 2010 11:05:15 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/03/24/tu-ne-joueras-point-avec-le-feu/</guid>
-      <description>Dans un précédent post, j’expliquais comment faire des exe sous Windows. Je vais donc expliquer pourquoi :
+Pour ma part, tous les checks disaient que tout fonctionnaient bien mais il m&amp;rsquo;a fallu appliquer un Service Pack pour que tout refonctionne.</description></item><item><title>Tu ne joueras point avec le feu !</title><link>https://blog.deimos.fr/2010/03/24/tu-ne-joueras-point-avec-le-feu/</link><pubDate>Wed, 24 Mar 2010 11:05:15 +0000</pubDate><guid>https://blog.deimos.fr/2010/03/24/tu-ne-joueras-point-avec-le-feu/</guid><description>Dans un précédent post, j’expliquais comment faire des exe sous Windows. Je vais donc expliquer pourquoi :
 Dans ma boite, j&amp;rsquo;ai des personnes mal intentionnées qui avaient les droits admin de leur machine. Le problème c&amp;rsquo;est qu&amp;rsquo;avec ça ils peuvent en faire des conneries&amp;hellip;
-Pour palier à ce problème, on les a mis en utilisateurs. Et pour ne pas que si quelqu&amp;rsquo;un trouve le mot de passe admin, qu&amp;rsquo;il puisse se connecter sur n&amp;rsquo;importe quel ordinateur pour prendre des informations, il faut un mot de passe unique par ordinateur.</description>
-    </item>
-    
-    <item>
-      <title>Créer un exe avec Perl</title>
-      <link>https://blog.deimos.fr/2010/03/21/creer-un-exe-avec-perl/</link>
-      <pubDate>Sun, 21 Mar 2010 09:26:39 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/03/21/creer-un-exe-avec-perl/</guid>
-      <description>J’ai fais mes débuts en Perl sous Windows fin de cette semaine et j’avoue que c’est quand même vachement bien ce que Monsieur Larry et sa Team a fait. Le portage de Perl sur Windows est vraiment très bien fait et ça fonctionne quasiment pareil que sur les *nix. Biensure, il y a quelques petites différences comme les chemins des dossiers etc…, mais franchement, du fait qu’on puisse utiliser les API Windows, c’est vraiment balaise.</description>
-    </item>
-    
-  </channel>
-</rss>
+Pour palier à ce problème, on les a mis en utilisateurs. Et pour ne pas que si quelqu&amp;rsquo;un trouve le mot de passe admin, qu&amp;rsquo;il puisse se connecter sur n&amp;rsquo;importe quel ordinateur pour prendre des informations, il faut un mot de passe unique par ordinateur.</description></item><item><title>Créer un exe avec Perl</title><link>https://blog.deimos.fr/2010/03/21/creer-un-exe-avec-perl/</link><pubDate>Sun, 21 Mar 2010 09:26:39 +0000</pubDate><guid>https://blog.deimos.fr/2010/03/21/creer-un-exe-avec-perl/</guid><description>J’ai fais mes débuts en Perl sous Windows fin de cette semaine et j’avoue que c’est quand même vachement bien ce que Monsieur Larry et sa Team a fait. Le portage de Perl sur Windows est vraiment très bien fait et ça fonctionne quasiment pareil que sur les *nix. Biensure, il y a quelques petites différences comme les chemins des dossiers etc…, mais franchement, du fait qu’on puisse utiliser les API Windows, c’est vraiment balaise.</description></item></channel></rss>

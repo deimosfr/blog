@@ -1,25 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>PS3 on Deimosfr Blog</title>
-    <link>https://blog.deimos.fr/categories/ps3/</link>
-    <description>Recent content in PS3 on Deimosfr Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 01 Jan 2010 21:07:48 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.deimos.fr/categories/ps3/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Du multimedia sur votre PS3</title>
-      <link>https://blog.deimos.fr/2010/01/01/du-multimedia-sur-votre-ps3/</link>
-      <pubDate>Fri, 01 Jan 2010 21:07:48 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/01/01/du-multimedia-sur-votre-ps3/</guid>
-      <description>Après avoir tenter plusieurs serveurs uPNP (MediaTomb et PS3 Media Server) pour la Playstation 3, j’ai eu besoin de tester la lecture d’éléments multimedia à partir d’une clef USB.
-Je copie donc mon contenu à l&amp;rsquo;arrache en me disant que la PS3 va automatiquement détecter en fonction des extensions des fichiers si c&amp;rsquo;est des photos, musiques ou films&amp;hellip;et bah non ! Quedal ! Ca marche pas vraiment comme ça. Réencoder les films ?</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PS3 on Deimosfr Blog</title><link>https://blog.deimos.fr/categories/ps3/</link><description>Recent content in PS3 on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 01 Jan 2010 21:07:48 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/categories/ps3/index.xml" rel="self" type="application/rss+xml"/><item><title>Du multimedia sur votre PS3</title><link>https://blog.deimos.fr/2010/01/01/du-multimedia-sur-votre-ps3/</link><pubDate>Fri, 01 Jan 2010 21:07:48 +0000</pubDate><guid>https://blog.deimos.fr/2010/01/01/du-multimedia-sur-votre-ps3/</guid><description>Après avoir tenter plusieurs serveurs uPNP (MediaTomb et PS3 Media Server) pour la Playstation 3, j’ai eu besoin de tester la lecture d’éléments multimedia à partir d’une clef USB.
+Je copie donc mon contenu à l&amp;rsquo;arrache en me disant que la PS3 va automatiquement détecter en fonction des extensions des fichiers si c&amp;rsquo;est des photos, musiques ou films&amp;hellip;et bah non ! Quedal ! Ca marche pas vraiment comme ça. Réencoder les films ?</description></item></channel></rss>

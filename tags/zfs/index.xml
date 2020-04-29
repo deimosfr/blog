@@ -1,26 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>ZFS on Deimosfr Blog</title>
-    <link>https://blog.deimos.fr/tags/zfs/</link>
-    <description>Recent content in ZFS on Deimosfr Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 17 May 2014 10:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.deimos.fr/tags/zfs/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>OpenZFS: European conference</title>
-      <link>https://blog.deimos.fr/2014/05/17/openzfs-european-conference/</link>
-      <pubDate>Sat, 17 May 2014 10:00:00 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2014/05/17/openzfs-european-conference/</guid>
-      <description>Next Tuesday, an OpenZFS conference will take place in Paris. I would like to assist as I&amp;rsquo;m a ZFS fan, however I couldn&amp;rsquo;t so easily.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ZFS on Deimosfr Blog</title><link>https://blog.deimos.fr/tags/zfs/</link><description>Recent content in ZFS on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 17 May 2014 10:00:00 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/zfs/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenZFS: European conference</title><link>https://blog.deimos.fr/2014/05/17/openzfs-european-conference/</link><pubDate>Sat, 17 May 2014 10:00:00 +0000</pubDate><guid>https://blog.deimos.fr/2014/05/17/openzfs-european-conference/</guid><description>Next Tuesday, an OpenZFS conference will take place in Paris. I would like to assist as I&amp;rsquo;m a ZFS fan, however I couldn&amp;rsquo;t so easily.
 I didn&amp;rsquo;t really follow OpenZFS and hope we could see videos when the event will be finished. If you don&amp;rsquo;t really know about ZFS and can have the chance to assist, I strongly recommend it to you.
-To get more informations on the event, follow the link.</description>
-    </item>
-    
-  </channel>
-</rss>
+To get more informations on the event, follow the link.</description></item></channel></rss>

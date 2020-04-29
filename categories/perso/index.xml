@@ -1,25 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Perso on Deimosfr Blog</title>
-    <link>https://blog.deimos.fr/categories/perso/</link>
-    <description>Recent content in Perso on Deimosfr Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jan 2018 18:00:00 +0200</lastBuildDate>
-    
-	<atom:link href="https://blog.deimos.fr/categories/perso/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>MySocialApp Create your own social network</title>
-      <link>https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/</link>
-      <pubDate>Thu, 18 Jan 2018 18:00:00 +0200</pubDate>
-      
-      <guid>https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/</guid>
-      <description>If you follow me, you may know that I launched with friends Nousmotards social application a few years ago. The solution continue to grow in France with more than 70k bikers and that&amp;rsquo;s a good point for all those riders :)
-Since we launched Nousmotards, several persons asked us: &amp;ldquo;You&amp;rsquo;ve made an amazing job for bikers, do you provide your social solution to any other communities or for enterprises?&amp;quot;. The answer was: No we didn&amp;rsquo;t.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Perso on Deimosfr Blog</title><link>https://blog.deimos.fr/categories/perso/</link><description>Recent content in Perso on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 18 Jan 2018 18:00:00 +0200</lastBuildDate><atom:link href="https://blog.deimos.fr/categories/perso/index.xml" rel="self" type="application/rss+xml"/><item><title>MySocialApp Create your own social network</title><link>https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/</link><pubDate>Thu, 18 Jan 2018 18:00:00 +0200</pubDate><guid>https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/</guid><description>If you follow me, you may know that I launched with friends Nousmotards social application a few years ago. The solution continue to grow in France with more than 70k bikers and that&amp;rsquo;s a good point for all those riders :)
+Since we launched Nousmotards, several persons asked us: &amp;ldquo;You&amp;rsquo;ve made an amazing job for bikers, do you provide your social solution to any other communities or for enterprises?&amp;quot;. The answer was: No we didn&amp;rsquo;t.</description></item></channel></rss>
