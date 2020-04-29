@@ -6,7 +6,7 @@ I never did a how to and once again I wasted my time on reading the doc etc&mldr
 <span>in</span>
 <a class=category-link href=https://blog.deimos.fr/categories/linux>linux</a>,
 <a class=category-link href=https://blog.deimos.fr/categories/arch>arch</a></div></div><div class="post-content markdown" itemprop=articleBody><div class=main-content-wrap><p><img src=https://blog.deimos.fr/images/logo_arch.png alt=Name_logo></p><p>Several times I had to install <a href=https://www.archlinux.org/>Arch Linux</a> those 8 past years. Not because it&rsquo;s not stable but because I changed hardware. Any time it was a pain to remind me how to do stuff during the <a href=https://wiki.archlinux.org/index.php/Installation_guide>install process</a>. I really love this Linux distribution, but I have to admit the install process is far complex that what we found on other distribution.</p><p>I never did a how to and once again I wasted my time on reading the doc etc&mldr;but I just wanted to go fast. So I&rsquo;m pasting here my configuration for people like me who wants to go fast or for me for future installs.</p><h1 id=boot-form-usb>Boot form USB</h1><p>Take a USB key or external drive, download the ISO image from <a href=https://www.archlinux.org/>Arch website</a> and make it bootable (with root user):</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>dd <span class=k>if</span><span class=o>=</span>archlinux.img <span class=nv>of</span><span class=o>=</span>/dev/sdX <span class=nv>bs</span><span class=o>=</span>16M <span class=o>&amp;&amp;</span> sync
-</code></pre></div><h1 id=bios-configuration>Bios configuration</h1><p>Ensure you&rsquo;ve got secure boot disabled.</p><h1 id=keyboard-setup>Keyboard setup</h1><p>I&rsquo;m french and familiar with french keyboards:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>loadkeys fr-latin9
+</code></pre></div><h1 id=bios-configuration>Bios configuration</h1><p>Ensure you&rsquo;ve got secure boot disabled and boot on the usb key.</p><h1 id=keyboard-setup>Keyboard setup</h1><p>I&rsquo;m french and familiar with french keyboards:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>loadkeys fr-latin9
 </code></pre></div><h1 id=setup-network>Setup network</h1><p>Connect to the wifi and setup time:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>wifi_menu
 timedatectl set-ntp <span class=nb>true</span>
 </code></pre></div><h1 id=create-partitions>Create partitions</h1><p>I needed to have:</p><ul><li><code>/boot</code>: as my EFI boot partition</li><li>LUKS crypted disk:<ul><li><code>/</code>: arch linux install</li><li><code>/home</code>: home directory</li></ul></li></ul><p>I used parted to make partitions on my NVMe drive :</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>parted /dev/nvme0n1
@@ -22,9 +22,9 @@ lvcreate -s 384G vg0 -n root
 lvcreate -l +100%FREE vg0 -n home
 </code></pre></div><p>Then format to ext4:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>mkfs.ext4 -L root /dev/mapper/vg0-root
 mkfs.ext4 -L root /dev/mapper/vg0-home
-</code></pre></div><h1 id=install-arch-base>Install Arch base</h1><p>To install Arch, I needed to mount the partitions first:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>mkdir /mnt/boot //mnt/home
+</code></pre></div><h1 id=install-arch-base>Install Arch base</h1><p>To install Arch, I needed to mount the partitions first:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>mount /dev/mapper/vg0-root /mnt
+mkdir /mnt/boot /mnt/home
 mount /dev/nvme0n1p1 /mnt/boot
-mount /dev/mapper/vg0-root /mnt
 mount /dev/mapper/vg0-home /mnt/home
 </code></pre></div><p>Install the packages:</p><pre><code>pacstrap /mnt base linux linux-firmware lvm2 intel-ucode
 genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
