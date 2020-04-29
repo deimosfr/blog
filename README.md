@@ -17,3 +17,5 @@ ln -s ../../scripts/pre_ci_hook.sh ./pre-commit
 ```
 ./scripts/create_post.sh
 ```
+
+To publish it, simply push changes to master

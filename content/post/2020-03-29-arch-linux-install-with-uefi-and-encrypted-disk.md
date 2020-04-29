@@ -125,7 +125,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 echo 'tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0' >> /mnt/etc/fstab
 ```
 
-**Important: update the fstab file by changing reltime to noatime non-boot partitions in order to preserve NVMe lifetime**
+**Important: update the fstab file by changing 'relatime' to 'noatime' on non-boot partitions in order to preserve NVMe lifetime**
 
 # Basic configuration
 
@@ -205,6 +205,8 @@ exit
 umount /mnt/home /mnt/boot
 umount /mnt
 ```
+
+Reboot and you're done :)
 
 Hope this will help others to speed up their install like me :)
 
