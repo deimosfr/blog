@@ -48,7 +48,30 @@ loadkeys fr-latin9
 Connect to the wifi and setup time:
 
 ```bash
-wifi_menu
+device list
+```
+
+You should get the name of your network interface like `wlan0`.
+
+Now, run a scan, look at the wished network name and connect to it:
+
+```
+station wlan0 scan
+station wlan0 get-networks
+station wlan0 connect <SSID wifi name>
+```
+
+If there is a secret, you should be prompted for it. You can then validate with:
+
+```
+station wlan0 show
+```
+
+
+# Configure NTP
+
+To enable ntp:
+```bash
 timedatectl set-ntp true
 ```
 
@@ -103,7 +126,7 @@ Then format to ext4:
 
 ```bash
 mkfs.ext4 -L root /dev/mapper/vg0-root
-mkfs.ext4 -L root /dev/mapper/vg0-home
+mkfs.ext4 -L home /dev/mapper/vg0-home
 ```
 
 # Install Arch base
@@ -192,10 +215,14 @@ echo "options cryptdevice=UUID=${UUID}:vg0 root=/dev/mapper/vg0-root rw intel_ps
 
 Before ending, **install Network Manager** or anything you need for the network part.
 
-To finish, setup a root password and umount all your partitions:
-
+To finish, setup a root password:
 ```bash
 passwd
+```
+
+And exist properly by unmounting partitions:
+
+```bash
 exit
 umount /mnt/home /mnt/boot
 umount /mnt
