@@ -1,365 +1,987 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Hugo 0.69.2 with theme Tranquilpeak 0.4.7-BETA"><meta name=author content="Pierre Mavro / Deimosfr"><meta name=keywords content><meta name=description content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.83.1 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
 I wanted to deploy it on Kubernetes for its interesting features like:
- Connect to Kubernetes API to listen changes and perform on the fly updates Automatic SSL management through Let&rsquo;s encrypt (SNI) Prometheus native integration HTTP/2 support  I really like HAProxy, but in a Kubernetes case, it&rsquo;s not the recommended solution because of its lake of features."><meta property="og:description" content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+ Connect to Kubernetes API to listen changes and perform on the fly updates Automatic SSL management through Let&rsquo;s encrypt (SNI) Prometheus native integration HTTP/2 support  I really like HAProxy, but in a Kubernetes case, it&rsquo;s not the recommended solution because of its lake of features.">
+
+
+<meta property="og:description" content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
 I wanted to deploy it on Kubernetes for its interesting features like:
- Connect to Kubernetes API to listen changes and perform on the fly updates Automatic SSL management through Let&rsquo;s encrypt (SNI) Prometheus native integration HTTP/2 support  I really like HAProxy, but in a Kubernetes case, it&rsquo;s not the recommended solution because of its lake of features."><meta property="og:type" content="article"><meta property="og:title" content="Kubernetes with Traefik and Let's Encrypt"><meta name=twitter:title content="Kubernetes with Traefik and Let's Encrypt"><meta property="og:url" content="https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/"><meta property="twitter:url" content="https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/"><meta property="og:site_name" content="Deimosfr Blog"><meta property="og:description" content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+ Connect to Kubernetes API to listen changes and perform on the fly updates Automatic SSL management through Let&rsquo;s encrypt (SNI) Prometheus native integration HTTP/2 support  I really like HAProxy, but in a Kubernetes case, it&rsquo;s not the recommended solution because of its lake of features.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes with Traefik and Let&#39;s Encrypt">
+<meta name="twitter:title" content="Kubernetes with Traefik and Let&#39;s Encrypt">
+<meta property="og:url" content="https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
 I wanted to deploy it on Kubernetes for its interesting features like:
- Connect to Kubernetes API to listen changes and perform on the fly updates Automatic SSL management through Let&rsquo;s encrypt (SNI) Prometheus native integration HTTP/2 support  I really like HAProxy, but in a Kubernetes case, it&rsquo;s not the recommended solution because of its lake of features."><meta name=twitter:description content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+ Connect to Kubernetes API to listen changes and perform on the fly updates Automatic SSL management through Let&rsquo;s encrypt (SNI) Prometheus native integration HTTP/2 support  I really like HAProxy, but in a Kubernetes case, it&rsquo;s not the recommended solution because of its lake of features.">
+<meta name="twitter:description" content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
 I wanted to deploy it on Kubernetes for its interesting features like:
- Connect to Kubernetes API to listen changes and perform on the fly updates Automatic SSL management through Let&rsquo;s encrypt (SNI) Prometheus native integration HTTP/2 support  I really like HAProxy, but in a Kubernetes case, it&rsquo;s not the recommended solution because of its lake of features."><meta property="og:locale" content="en-us"><meta property="article:published_time" content="2017-08-20T14:58:07"><meta property="article:modified_time" content="2017-08-20T14:58:07"><meta property="article:section" content="Kubernetes"><meta property="article:section" content="SSL"><meta property="article:section" content="Let's Encrypt"><meta property="article:section" content="Consul"><meta property="article:section" content="Traefik"><meta property="article:tag" content="Kubernetes"><meta property="article:tag" content="SSL"><meta property="article:tag" content="Let's Encrypt"><meta property="article:tag" content="Consul"><meta property="article:tag" content="Traefik"><meta name=twitter:card content="summary"><meta name=twitter:site content="@deimosfr"><meta name=twitter:creator content="@deimosfr"><meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_traefik.png"><meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_traefik.png"><meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><title>Kubernetes with Traefik and Let's Encrypt</title><link rel=icon href=https://blog.deimos.fr/favicon.png><link rel=canonical href=https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin=anonymous><link rel=stylesheet href=https://blog.deimos.fr/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css><link rel=stylesheet href=https://blog.deimos.fr/css/custom.css><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-63927289-1','auto');ga('send','pageview');}</script></head><body><div id=blog><header id=header data-behavior=5><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=https://blog.deimos.fr/>Deimosfr Blog</a></div><a class=header-right-picture href=https://blog.deimos.fr/#about><img class=header-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author's picture"></a></header><nav id=sidebar data-behavior=5><div class=sidebar-container><div class=sidebar-profile><a href=https://blog.deimos.fr/#about><img class=sidebar-profile-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"></a><h4 class=sidebar-profile-name>Pierre Mavro / Deimosfr</h4></div><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/><i class="sidebar-button-icon fa fa-lg fa-home"></i><span class=sidebar-button-desc>Home</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/archives><i class="sidebar-button-icon fa fa-lg fa-archive"></i><span class=sidebar-button-desc>Archives</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/categories><i class="sidebar-button-icon fa fa-lg fa-bookmark"></i><span class=sidebar-button-desc>Categories</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/tags><i class="sidebar-button-icon fa fa-lg fa-tags"></i><span class=sidebar-button-desc>Tags</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/index.xml><i class="sidebar-button-icon fa fa-lg fa-rss"></i><span class=sidebar-button-desc>RSS</span></a></li></ul><ul class=sidebar-buttons></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://www.deimos.fr target=_blank rel=noopener><i class="sidebar-button-icon fa fa-lg fa-user"></i><span class=sidebar-button-desc>About</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://wiki.deimos.fr target=_blank rel=noopener><i class="sidebar-button-icon fa fa-wikipedia-w"></i><span class=sidebar-button-desc>Wiki</span></a></li></ul></div></nav><div id=main data-behavior=5 class=hasCoverMetaIn><article class=post itemscope itemtype=http://schema.org/BlogPosting><div class="post-header main-content-wrap text-left"><h1 class=post-title itemprop=headline>Kubernetes with Traefik and Let's Encrypt</h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2017-08-20T14:58:07+02:00>20 August 2017</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/kubernetes>Kubernetes</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/ssl>SSL</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/lets-encrypt>Let's Encrypt</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/consul>Consul</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/traefik>Traefik</a></div></div><div class="post-content markdown" itemprop=articleBody><div class=main-content-wrap><p><img src=https://blog.deimos.fr/images/logo_traefik.png alt=Traefik></p><p><a href=https://traefik.io/>Traefik</a> (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy
+ Connect to Kubernetes API to listen changes and perform on the fly updates Automatic SSL management through Let&rsquo;s encrypt (SNI) Prometheus native integration HTTP/2 support  I really like HAProxy, but in a Kubernetes case, it&rsquo;s not the recommended solution because of its lake of features.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2017-08-20T14:58:07">
+  
+  
+    <meta property="article:modified_time" content="2017-08-20T14:58:07">
+  
+  
+  
+    
+      <meta property="article:section" content="Kubernetes">
+    
+      <meta property="article:section" content="SSL">
+    
+      <meta property="article:section" content="Let&#39;s Encrypt">
+    
+      <meta property="article:section" content="Consul">
+    
+      <meta property="article:section" content="Traefik">
+    
+  
+  
+    
+      <meta property="article:tag" content="Kubernetes">
+    
+      <meta property="article:tag" content="SSL">
+    
+      <meta property="article:tag" content="Let&#39;s Encrypt">
+    
+      <meta property="article:tag" content="Consul">
+    
+      <meta property="article:tag" content="Traefik">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_traefik.png">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_traefik.png">
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
+    <title>Kubernetes with Traefik and Let&#39;s Encrypt</title>
+
+    <link rel="icon" href="https://blog.deimos.fr/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
+      
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-63927289-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.deimos.fr/">Deimosfr Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://blog.deimos.fr/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.deimos.fr/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.deimos.fr" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-user"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
+      
+      <span class="sidebar-button-desc">Wiki</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Kubernetes with Traefik and Let&#39;s Encrypt
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-08-20T14:58:07&#43;02:00">
+        
+  
+  
+  
+  
+    20 August 2017
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/kubernetes">Kubernetes</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/ssl">SSL</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/lets-encrypt">Let&#39;s Encrypt</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/consul">Consul</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/traefik">Traefik</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p><img src="https://blog.deimos.fr/images/logo_traefik.png" alt="Traefik"></p>
+<p><a href="https://traefik.io/">Traefik</a> (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy
 microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd,
-Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.</p><p>I wanted to deploy it on Kubernetes for its interesting features like:</p><ul><li>Connect to Kubernetes API to listen changes and perform on the fly updates</li><li>Automatic SSL management through Let&rsquo;s encrypt (SNI)</li><li>Prometheus native integration</li><li>HTTP/2 support</li></ul><p>I really like HAProxy, but in a Kubernetes case, it&rsquo;s not the recommended solution because of its lake of features.
-Traefik should be get less performance, but the features it provides really match Kubernetes integration.</p><p>First of all, I wanted to use Etcd as the backend to store SSL certificates and configuration.
-However, there&rsquo;s <a href=https://github.com/containous/traefik/issues/926>an issue in progress</a> on the Go libkv and etcd v3.
+Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.</p>
+<p>I wanted to deploy it on Kubernetes for its interesting features like:</p>
+<ul>
+<li>Connect to Kubernetes API to listen changes and perform on the fly updates</li>
+<li>Automatic SSL management through Let&rsquo;s encrypt (SNI)</li>
+<li>Prometheus native integration</li>
+<li>HTTP/2 support</li>
+</ul>
+<p>I really like HAProxy, but in a Kubernetes case, it&rsquo;s not the recommended solution because of its lake of features.
+Traefik should be get less performance, but the features it provides really match Kubernetes integration.</p>
+<p>First of all, I wanted to use Etcd as the backend to store SSL certificates and configuration.
+However, there&rsquo;s <a href="https://github.com/containous/traefik/issues/926">an issue in progress</a> on the Go libkv and etcd v3.
 As I&rsquo;m using Kubernetes 1.7 and etcd v3, I had to find another backend. The one I know well is consul and I decided to
-switch to it while waiting the fix.</p><p>I&rsquo;ll show in that post how I did, to make it works. If you&rsquo;re following me, you&rsquo;ll remind that I&rsquo;m not using a cloud but
+switch to it while waiting the fix.</p>
+<p>I&rsquo;ll show in that post how I did, to make it works. If you&rsquo;re following me, you&rsquo;ll remind that I&rsquo;m not using a cloud but
 a bare metal installation of Kubernetes. As I&rsquo;m not using a shared storage for the moment, I&rsquo;m storing data locally on a
-specific servers labeled:<div class=highlight><pre class=chroma><code class=language-shell data-lang=shell>kubectl label nodes srv1 srv2 srv3 <span class=nv>consul</span><span class=o>=</span>server</code></pre></div></p><p>Then I&rsquo;ll need a headless (&lsquo;clusterIP: None&rsquo;) service to be used by a StatefulSet Consul type:<div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>apiVersion</span><span class=p>:</span><span class=w> </span>v1<span class=w>
-</span><span class=w></span><span class=k>kind</span><span class=p>:</span><span class=w> </span>Service<span class=w>
-</span><span class=w></span><span class=k>metadata</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>name</span><span class=p>:</span><span class=w> </span>consul<span class=w>
-</span><span class=w>  </span><span class=k>namespace</span><span class=p>:</span><span class=w> </span>kube-system<span class=w>
-</span><span class=w>  </span><span class=k>labels</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=k>consul</span><span class=p>:</span><span class=w> </span>server<span class=w>
-</span><span class=w></span><span class=k>spec</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>clusterIP</span><span class=p>:</span><span class=w> </span>None<span class=w>
-</span><span class=w>  </span><span class=k>ports</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>http<span class=w>
-</span><span class=w>      </span><span class=k>port</span><span class=p>:</span><span class=w> </span><span class=m>8500</span><span class=w>
-</span><span class=w>      </span><span class=k>targetPort</span><span class=p>:</span><span class=w> </span><span class=m>8500</span><span class=w>
-</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>https<span class=w>
-</span><span class=w>      </span><span class=k>port</span><span class=p>:</span><span class=w> </span><span class=m>8443</span><span class=w>
-</span><span class=w>      </span><span class=k>targetPort</span><span class=p>:</span><span class=w> </span><span class=m>8443</span><span class=w>
-</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>rpc<span class=w>
-</span><span class=w>      </span><span class=k>port</span><span class=p>:</span><span class=w> </span><span class=m>8400</span><span class=w>
-</span><span class=w>      </span><span class=k>targetPort</span><span class=p>:</span><span class=w> </span><span class=m>8400</span><span class=w>
-</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>serflan-tcp<span class=w>
-</span><span class=w>      </span><span class=k>protocol</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;TCP&#34;</span><span class=w>
-</span><span class=w>      </span><span class=k>port</span><span class=p>:</span><span class=w> </span><span class=m>8301</span><span class=w>
-</span><span class=w>      </span><span class=k>targetPort</span><span class=p>:</span><span class=w> </span><span class=m>8301</span><span class=w>
-</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>serflan-udp<span class=w>
-</span><span class=w>      </span><span class=k>protocol</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;UDP&#34;</span><span class=w>
-</span><span class=w>      </span><span class=k>port</span><span class=p>:</span><span class=w> </span><span class=m>8301</span><span class=w>
-</span><span class=w>      </span><span class=k>targetPort</span><span class=p>:</span><span class=w> </span><span class=m>8301</span><span class=w>
-</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>serfwan-tcp<span class=w>
-</span><span class=w>      </span><span class=k>protocol</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;TCP&#34;</span><span class=w>
-</span><span class=w>      </span><span class=k>port</span><span class=p>:</span><span class=w> </span><span class=m>8302</span><span class=w>
-</span><span class=w>      </span><span class=k>targetPort</span><span class=p>:</span><span class=w> </span><span class=m>8302</span><span class=w>
-</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>serfwan-udp<span class=w>
-</span><span class=w>      </span><span class=k>protocol</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;UDP&#34;</span><span class=w>
-</span><span class=w>      </span><span class=k>port</span><span class=p>:</span><span class=w> </span><span class=m>8302</span><span class=w>
-</span><span class=w>      </span><span class=k>targetPort</span><span class=p>:</span><span class=w> </span><span class=m>8302</span><span class=w>
-</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>server<span class=w>
-</span><span class=w>      </span><span class=k>port</span><span class=p>:</span><span class=w> </span><span class=m>8300</span><span class=w>
-</span><span class=w>      </span><span class=k>targetPort</span><span class=p>:</span><span class=w> </span><span class=m>8300</span><span class=w>
-</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>consuldns<span class=w>
-</span><span class=w>      </span><span class=k>port</span><span class=p>:</span><span class=w> </span><span class=m>8600</span><span class=w>
-</span><span class=w>      </span><span class=k>targetPort</span><span class=p>:</span><span class=w> </span><span class=m>8600</span><span class=w>
-</span><span class=w>  </span><span class=k>selector</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=k>consul</span><span class=p>:</span><span class=w> </span>server</code></pre></div>This is needed to be able to access with the help of DNS to the wished instance name (ex: consul-0.consul.kube-system.svc.cluster.local).</p><p>Now I&rsquo;m ready to bootstrap the Consul cluster. To do so, I&rsquo;m using this StatefulSet configuration:<div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>apiVersion</span><span class=p>:</span><span class=w> </span>apps/v1beta1<span class=w>
-</span><span class=w></span><span class=k>kind</span><span class=p>:</span><span class=w> </span>StatefulSet<span class=w>
-</span><span class=w></span><span class=k>metadata</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>name</span><span class=p>:</span><span class=w> </span>consul<span class=w>
-</span><span class=w>  </span><span class=k>namespace</span><span class=p>:</span><span class=w> </span>kube-system<span class=w>
-</span><span class=w></span><span class=k>spec</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>serviceName</span><span class=p>:</span><span class=w> </span>consul<span class=w>
-</span><span class=w>  </span><span class=k>replicas</span><span class=p>:</span><span class=w> </span><span class=m>3</span><span class=w>
-</span><span class=w>  </span><span class=k>template</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=k>metadata</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=k>labels</span><span class=p>:</span><span class=w>
-</span><span class=w>        </span><span class=k>consul</span><span class=p>:</span><span class=w> </span>server<span class=w>
-</span><span class=w>    </span><span class=k>spec</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=k>nodeSelector</span><span class=p>:</span><span class=w>
-</span><span class=w>        </span><span class=k>consul</span><span class=p>:</span><span class=w> </span>server<span class=w>
-</span><span class=w>      </span><span class=k>affinity</span><span class=p>:</span><span class=w>
-</span><span class=w>        </span><span class=k>podAntiAffinity</span><span class=p>:</span><span class=w>
-</span><span class=w>          </span><span class=k>requiredDuringSchedulingIgnoredDuringExecution</span><span class=p>:</span><span class=w>
-</span><span class=w>            </span>- <span class=k>labelSelector</span><span class=p>:</span><span class=w>
-</span><span class=w>                </span><span class=k>matchExpressions</span><span class=p>:</span><span class=w>
-</span><span class=w>                  </span>- <span class=k>key</span><span class=p>:</span><span class=w> </span>consul<span class=w>
-</span><span class=w>                    </span><span class=k>operator</span><span class=p>:</span><span class=w> </span>In<span class=w>
-</span><span class=w>                    </span><span class=k>values</span><span class=p>:</span><span class=w>
-</span><span class=w>                      </span>- server<span class=w>
-</span><span class=w>              </span><span class=k>topologyKey</span><span class=p>:</span><span class=w> </span>kubernetes.io/hostname<span class=w>
-</span><span class=w>      </span><span class=k>terminationGracePeriodSeconds</span><span class=p>:</span><span class=w> </span><span class=m>10</span><span class=w>
-</span><span class=w>      </span><span class=k>securityContext</span><span class=p>:</span><span class=w>
-</span><span class=w>        </span><span class=k>fsGroup</span><span class=p>:</span><span class=w> </span><span class=m>1000</span><span class=w>
-</span><span class=w>      </span><span class=k>containers</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>consul<span class=w>
-</span><span class=w>        </span><span class=k>image</span><span class=p>:</span><span class=w> </span>consul<span class=p>:</span><span class=m>0.9.2</span><span class=w>
-</span><span class=w>        </span><span class=k>args</span><span class=p>:</span><span class=w>
-</span><span class=w>        </span>- <span class=s2>&#34;agent&#34;</span><span class=w>
-</span><span class=w>        </span>- <span class=s2>&#34;-advertise=$(POD_IP)&#34;</span><span class=w>
-</span><span class=w>        </span>- <span class=s2>&#34;-bind=0.0.0.0&#34;</span><span class=w>
-</span><span class=w>        </span>- <span class=s2>&#34;-bootstrap-expect=3&#34;</span><span class=w>
-</span><span class=w>        </span>- <span class=s2>&#34;-retry-join=consul-0.consul.$(NAMESPACE).svc.cluster.local&#34;</span><span class=w>
-</span><span class=w>        </span>- <span class=s2>&#34;-retry-join=consul-1.consul.$(NAMESPACE).svc.cluster.local&#34;</span><span class=w>
-</span><span class=w>        </span>- <span class=s2>&#34;-retry-join=consul-2.consul.$(NAMESPACE).svc.cluster.local&#34;</span><span class=w>
-</span><span class=w>        </span>- <span class=s2>&#34;-client=0.0.0.0&#34;</span><span class=w>
-</span><span class=w>        </span>- <span class=s2>&#34;-datacenter=fr&#34;</span><span class=w>
-</span><span class=w>        </span>- <span class=s2>&#34;-data-dir=/consul/data&#34;</span><span class=w>
-</span><span class=w>        </span>- <span class=s2>&#34;-domain=cluster.local&#34;</span><span class=w>
-</span><span class=w>        </span>- <span class=s2>&#34;-server&#34;</span><span class=w>
-</span><span class=w>        </span>- <span class=s2>&#34;-ui&#34;</span><span class=w>
-</span><span class=w>        </span>- <span class=s2>&#34;-disable-host-node-id&#34;</span><span class=w>
-</span><span class=w>        </span><span class=k>ports</span><span class=p>:</span><span class=w>
-</span><span class=w>        </span>- <span class=k>containerPort</span><span class=p>:</span><span class=w> </span><span class=m>8500</span><span class=w>
-</span><span class=w>          </span><span class=k>name</span><span class=p>:</span><span class=w> </span>ui-port<span class=w>
-</span><span class=w>        </span>- <span class=k>containerPort</span><span class=p>:</span><span class=w> </span><span class=m>8400</span><span class=w>
-</span><span class=w>          </span><span class=k>name</span><span class=p>:</span><span class=w> </span>alt-port<span class=w>
-</span><span class=w>        </span>- <span class=k>containerPort</span><span class=p>:</span><span class=w> </span><span class=m>53</span><span class=w>
-</span><span class=w>          </span><span class=k>name</span><span class=p>:</span><span class=w> </span>udp-port<span class=w>
-</span><span class=w>        </span>- <span class=k>containerPort</span><span class=p>:</span><span class=w> </span><span class=m>8443</span><span class=w>
-</span><span class=w>          </span><span class=k>name</span><span class=p>:</span><span class=w> </span>https-port<span class=w>
-</span><span class=w>        </span>- <span class=k>containerPort</span><span class=p>:</span><span class=w> </span><span class=m>8080</span><span class=w>
-</span><span class=w>          </span><span class=k>name</span><span class=p>:</span><span class=w> </span>http-port<span class=w>
-</span><span class=w>        </span>- <span class=k>containerPort</span><span class=p>:</span><span class=w> </span><span class=m>8301</span><span class=w>
-</span><span class=w>          </span><span class=k>name</span><span class=p>:</span><span class=w> </span>serflan<span class=w>
-</span><span class=w>        </span>- <span class=k>containerPort</span><span class=p>:</span><span class=w> </span><span class=m>8302</span><span class=w>
-</span><span class=w>          </span><span class=k>name</span><span class=p>:</span><span class=w> </span>serfwan<span class=w>
-</span><span class=w>        </span>- <span class=k>containerPort</span><span class=p>:</span><span class=w> </span><span class=m>8600</span><span class=w>
-</span><span class=w>          </span><span class=k>name</span><span class=p>:</span><span class=w> </span>consuldns<span class=w>
-</span><span class=w>        </span>- <span class=k>containerPort</span><span class=p>:</span><span class=w> </span><span class=m>8300</span><span class=w>
-</span><span class=w>          </span><span class=k>name</span><span class=p>:</span><span class=w> </span>server<span class=w>
-</span><span class=w>        </span><span class=k>env</span><span class=p>:</span><span class=w>
-</span><span class=w>        </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>POD_IP<span class=w>
-</span><span class=w>          </span><span class=k>valueFrom</span><span class=p>:</span><span class=w>
-</span><span class=w>            </span><span class=k>fieldRef</span><span class=p>:</span><span class=w>
-</span><span class=w>              </span><span class=k>fieldPath</span><span class=p>:</span><span class=w> </span>status.podIP<span class=w>
-</span><span class=w>        </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>NAMESPACE<span class=w>
-</span><span class=w>          </span><span class=k>valueFrom</span><span class=p>:</span><span class=w>
-</span><span class=w>            </span><span class=k>fieldRef</span><span class=p>:</span><span class=w>
-</span><span class=w>              </span><span class=k>fieldPath</span><span class=p>:</span><span class=w> </span>metadata.namespace<span class=w>
-</span><span class=w>        </span><span class=k>lifecycle</span><span class=p>:</span><span class=w>
-</span><span class=w>          </span><span class=k>preStop</span><span class=p>:</span><span class=w>
-</span><span class=w>            </span><span class=k>exec</span><span class=p>:</span><span class=w>
-</span><span class=w>              </span><span class=k>command</span><span class=p>:</span><span class=w>
-</span><span class=w>              </span>- /bin/sh<span class=w>
-</span><span class=w>              </span>- -c<span class=w>
-</span><span class=w>              </span>- consul<span class=w> </span>leave<span class=w>
-</span><span class=w>        </span><span class=k>volumeMounts</span><span class=p>:</span><span class=w>
-</span><span class=w>        </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>ca-certificates<span class=w>
-</span><span class=w>          </span><span class=k>mountPath</span><span class=p>:</span><span class=w> </span>/etc/ssl/certs<span class=w>
-</span><span class=w>        </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>consul-data<span class=w>
-</span><span class=w>          </span><span class=k>mountPath</span><span class=p>:</span><span class=w> </span>/consul/data<span class=w>
-</span><span class=w>      </span><span class=k>volumes</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>ca-certificates<span class=w>
-</span><span class=w>        </span><span class=k>hostPath</span><span class=p>:</span><span class=w>
-</span><span class=w>          </span><span class=k>path</span><span class=p>:</span><span class=w> </span>/usr/share/ca-certificates/<span class=w>
-</span><span class=w>      </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>consul-data<span class=w>
-</span><span class=w>        </span><span class=k>hostPath</span><span class=p>:</span><span class=w>
-</span><span class=w>          </span><span class=k>path</span><span class=p>:</span><span class=w> </span>/mnt/consul</code></pre></div></p><p>After a few seconds (look at the logs), your cluster should be ready.</p><p>It&rsquo;s time to prepare your Traefik configuration which we will push into Consul (Traefik is unfortunately not able to
-read Kubernetes configmaps for the moment).</p><p>My Traefik configmap looks like this:<div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>apiVersion</span><span class=p>:</span><span class=w> </span>v1<span class=w>
-</span><span class=w></span><span class=k>kind</span><span class=p>:</span><span class=w> </span>ConfigMap<span class=w>
-</span><span class=w></span><span class=k>metadata</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>name</span><span class=p>:</span><span class=w> </span>traefik<span class=w>
-</span><span class=w>  </span><span class=k>namespace</span><span class=p>:</span><span class=w> </span>kube-system<span class=w>
-</span><span class=w></span><span class=k>data</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>traefik.toml</span><span class=p>:</span><span class=w> </span>|<span class=sd>-
-</span><span class=sd>    checkNewVersion = false</span><span class=w>
-</span><span class=w>    </span>IdleTimeout<span class=w> </span>=<span class=w> </span><span class=s2>&#34;180s&#34;</span><span class=w>
-</span><span class=w>    </span>MaxIdleConnsPerHost<span class=w> </span>=<span class=w> </span><span class=m>500</span><span class=w>
-</span><span class=w>    </span>logLevel<span class=w> </span>=<span class=w> </span><span class=s2>&#34;INFO&#34;</span><span class=w>
-</span><span class=w>    </span>defaultEntryPoints<span class=w> </span>=<span class=w> </span><span class=p>[</span><span class=s2>&#34;http&#34;</span><span class=p>,</span><span class=w> </span><span class=s2>&#34;https&#34;</span><span class=p>]</span><span class=w>
-</span><span class=w>
-</span><span class=w>    </span><span class=p>[</span>retry<span class=p>]</span><span class=w>
-</span><span class=w>    </span>attempts<span class=w> </span>=<span class=w> </span><span class=m>3</span><span class=w>
-</span><span class=w>
-</span><span class=w>    </span><span class=p>[</span>web<span class=p>]</span><span class=w>
-</span><span class=w>    </span>address<span class=w> </span>=<span class=w> </span><span class=s2>&#34;:8081&#34;</span><span class=w>
-</span><span class=w>
-</span><span class=w>    </span><span class=p>[</span>kubernetes<span class=p>]</span><span class=w>
-</span><span class=w>    </span>endpoint<span class=w> </span>=<span class=w> </span><span class=s2>&#34;http://localhost:8080&#34;</span><span class=w>
-</span><span class=w>    </span>namespaces<span class=w> </span>=<span class=w> </span><span class=p>[</span><span class=s2>&#34;default&#34;</span><span class=p>]</span><span class=w>
-</span><span class=w>
-</span><span class=w>    </span><span class=p>[</span>consul<span class=p>]</span><span class=w>
-</span><span class=w>    </span>endpoint<span class=w> </span>=<span class=w> </span><span class=s2>&#34;consul:8500&#34;</span><span class=w>
-</span><span class=w>    </span>watch<span class=w> </span>=<span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>    </span>prefix<span class=w> </span>=<span class=w> </span><span class=s2>&#34;traefik&#34;</span><span class=w>
-</span><span class=w>
-</span><span class=w>    </span><span class=p>[</span>acme<span class=p>]</span><span class=w>
-</span><span class=w>    </span>email<span class=w> </span>=<span class=w> </span><span class=s2>&#34;my@email.here&#34;</span><span class=w>
-</span><span class=w>    </span>storage<span class=w> </span>=<span class=w> </span><span class=s2>&#34;traefik/acme/account&#34;</span><span class=w>
-</span><span class=w>    </span>entryPoint<span class=w> </span>=<span class=w> </span><span class=s2>&#34;https&#34;</span><span class=w>
-</span><span class=w>    </span>OnHostRule<span class=w> </span>=<span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>    </span>onDemand<span class=w> </span>=<span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>    </span>acmeLogging<span class=w> </span>=<span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>    </span><span class=c>#caServer = &#34;https://acme-staging.api.letsencrypt.org/directory&#34;</span><span class=w>
-</span><span class=w>
-</span><span class=w>    </span><span class=p>[[</span>acme.domains<span class=p>]]</span><span class=w>
-</span><span class=w>       </span>main<span class=w> </span>=<span class=w> </span><span class=s2>&#34;mydomain.fqdn&#34;</span><span class=w>
-</span><span class=w>
-</span><span class=w>    </span><span class=p>[</span>entryPoints<span class=p>]</span><span class=w>
-</span><span class=w>      </span><span class=p>[</span>entryPoints.http<span class=p>]</span><span class=w>
-</span><span class=w>      </span>address<span class=w> </span>=<span class=w> </span><span class=s2>&#34;:80&#34;</span><span class=w>
-</span><span class=w>      </span>compress<span class=w> </span>=<span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>        </span><span class=p>[</span>entryPoints.http.redirect<span class=p>]</span><span class=w>
-</span><span class=w>        </span>entryPoint<span class=w> </span>=<span class=w> </span><span class=s2>&#34;https&#34;</span><span class=w>
-</span><span class=w>      </span><span class=p>[</span>entryPoints.https<span class=p>]</span><span class=w>
-</span><span class=w>      </span>address<span class=w> </span>=<span class=w> </span><span class=s2>&#34;:443&#34;</span><span class=w>
-</span><span class=w>        </span><span class=p>[</span>entryPoints.https.tls<span class=p>]</span><span class=w>
-</span><span class=w>  </span><span class=k>resolv.conf</span><span class=p>:</span><span class=w> </span>|<span class=sd>-
-</span><span class=sd>    nameserver 10.3.0.10</span><span class=w>
-</span><span class=w>    </span>search<span class=w> </span>kube-system.svc.cluster.local<span class=w> </span>svc.cluster.local<span class=w> </span>cluster.local<span class=w>
-</span><span class=w>    </span>options<span class=w> </span>ndots<span class=p>:</span><span class=m>5</span></code></pre></div>To get more information on it, please look at the <a href=http://docs.traefik.io/toml/>good Traefik documentation</a>. You&rsquo;ll see why there is resolv.conf
+specific servers labeled:
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">kubectl label nodes srv1 srv2 srv3 <span class="nv">consul</span><span class="o">=</span>server</code></pre></div></p>
+<p>Then I&rsquo;ll need a headless (&lsquo;clusterIP: None&rsquo;) service to be used by a StatefulSet Consul type:
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
+</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">consul</span><span class="w">
+</span><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">kube-system</span><span class="w">
+</span><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">consul</span><span class="p">:</span><span class="w"> </span><span class="l">server</span><span class="w">
+</span><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">clusterIP</span><span class="p">:</span><span class="w"> </span><span class="l">None</span><span class="w">
+</span><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
+</span><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8500</span><span class="w">
+</span><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">8500</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">https</span><span class="w">
+</span><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8443</span><span class="w">
+</span><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">8443</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">rpc</span><span class="w">
+</span><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8400</span><span class="w">
+</span><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">8400</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">serflan-tcp</span><span class="w">
+</span><span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;TCP&#34;</span><span class="w">
+</span><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8301</span><span class="w">
+</span><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">8301</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">serflan-udp</span><span class="w">
+</span><span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;UDP&#34;</span><span class="w">
+</span><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8301</span><span class="w">
+</span><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">8301</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">serfwan-tcp</span><span class="w">
+</span><span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;TCP&#34;</span><span class="w">
+</span><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8302</span><span class="w">
+</span><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">8302</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">serfwan-udp</span><span class="w">
+</span><span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;UDP&#34;</span><span class="w">
+</span><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8302</span><span class="w">
+</span><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">8302</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">server</span><span class="w">
+</span><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8300</span><span class="w">
+</span><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">8300</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">consuldns</span><span class="w">
+</span><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8600</span><span class="w">
+</span><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">8600</span><span class="w">
+</span><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">consul</span><span class="p">:</span><span class="w"> </span><span class="l">server</span></code></pre></div>
+This is needed to be able to access with the help of DNS to the wished instance name (ex: consul-0.consul.kube-system.svc.cluster.local).</p>
+<p>Now I&rsquo;m ready to bootstrap the Consul cluster. To do so, I&rsquo;m using this StatefulSet configuration:
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1beta1</span><span class="w">
+</span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">StatefulSet</span><span class="w">
+</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">consul</span><span class="w">
+</span><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">kube-system</span><span class="w">
+</span><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">serviceName</span><span class="p">:</span><span class="w"> </span><span class="l">consul</span><span class="w">
+</span><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">consul</span><span class="p">:</span><span class="w"> </span><span class="l">server</span><span class="w">
+</span><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">nodeSelector</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">consul</span><span class="p">:</span><span class="w"> </span><span class="l">server</span><span class="w">
+</span><span class="w">      </span><span class="nt">affinity</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">podAntiAffinity</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">requiredDuringSchedulingIgnoredDuringExecution</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span>- <span class="nt">labelSelector</span><span class="p">:</span><span class="w">
+</span><span class="w">                </span><span class="nt">matchExpressions</span><span class="p">:</span><span class="w">
+</span><span class="w">                  </span>- <span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l">consul</span><span class="w">
+</span><span class="w">                    </span><span class="nt">operator</span><span class="p">:</span><span class="w"> </span><span class="l">In</span><span class="w">
+</span><span class="w">                    </span><span class="nt">values</span><span class="p">:</span><span class="w">
+</span><span class="w">                      </span>- <span class="l">server</span><span class="w">
+</span><span class="w">              </span><span class="nt">topologyKey</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes.io/hostname</span><span class="w">
+</span><span class="w">      </span><span class="nt">terminationGracePeriodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
+</span><span class="w">      </span><span class="nt">securityContext</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">fsGroup</span><span class="p">:</span><span class="w"> </span><span class="m">1000</span><span class="w">
+</span><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">consul</span><span class="w">
+</span><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">consul:0.9.2</span><span class="w">
+</span><span class="w">        </span><span class="nt">args</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span>- <span class="s2">&#34;agent&#34;</span><span class="w">
+</span><span class="w">        </span>- <span class="s2">&#34;-advertise=$(POD_IP)&#34;</span><span class="w">
+</span><span class="w">        </span>- <span class="s2">&#34;-bind=0.0.0.0&#34;</span><span class="w">
+</span><span class="w">        </span>- <span class="s2">&#34;-bootstrap-expect=3&#34;</span><span class="w">
+</span><span class="w">        </span>- <span class="s2">&#34;-retry-join=consul-0.consul.$(NAMESPACE).svc.cluster.local&#34;</span><span class="w">
+</span><span class="w">        </span>- <span class="s2">&#34;-retry-join=consul-1.consul.$(NAMESPACE).svc.cluster.local&#34;</span><span class="w">
+</span><span class="w">        </span>- <span class="s2">&#34;-retry-join=consul-2.consul.$(NAMESPACE).svc.cluster.local&#34;</span><span class="w">
+</span><span class="w">        </span>- <span class="s2">&#34;-client=0.0.0.0&#34;</span><span class="w">
+</span><span class="w">        </span>- <span class="s2">&#34;-datacenter=fr&#34;</span><span class="w">
+</span><span class="w">        </span>- <span class="s2">&#34;-data-dir=/consul/data&#34;</span><span class="w">
+</span><span class="w">        </span>- <span class="s2">&#34;-domain=cluster.local&#34;</span><span class="w">
+</span><span class="w">        </span>- <span class="s2">&#34;-server&#34;</span><span class="w">
+</span><span class="w">        </span>- <span class="s2">&#34;-ui&#34;</span><span class="w">
+</span><span class="w">        </span>- <span class="s2">&#34;-disable-host-node-id&#34;</span><span class="w">
+</span><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">8500</span><span class="w">
+</span><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ui-port</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">8400</span><span class="w">
+</span><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">alt-port</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">53</span><span class="w">
+</span><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">udp-port</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">8443</span><span class="w">
+</span><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">https-port</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
+</span><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">http-port</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">8301</span><span class="w">
+</span><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">serflan</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">8302</span><span class="w">
+</span><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">serfwan</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">8600</span><span class="w">
+</span><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">consuldns</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">8300</span><span class="w">
+</span><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">server</span><span class="w">
+</span><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">POD_IP</span><span class="w">
+</span><span class="w">          </span><span class="nt">valueFrom</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="nt">fieldRef</span><span class="p">:</span><span class="w">
+</span><span class="w">              </span><span class="nt">fieldPath</span><span class="p">:</span><span class="w"> </span><span class="l">status.podIP</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">NAMESPACE</span><span class="w">
+</span><span class="w">          </span><span class="nt">valueFrom</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="nt">fieldRef</span><span class="p">:</span><span class="w">
+</span><span class="w">              </span><span class="nt">fieldPath</span><span class="p">:</span><span class="w"> </span><span class="l">metadata.namespace</span><span class="w">
+</span><span class="w">        </span><span class="nt">lifecycle</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">preStop</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="nt">exec</span><span class="p">:</span><span class="w">
+</span><span class="w">              </span><span class="nt">command</span><span class="p">:</span><span class="w">
+</span><span class="w">              </span>- <span class="l">/bin/sh</span><span class="w">
+</span><span class="w">              </span>- -<span class="l">c</span><span class="w">
+</span><span class="w">              </span>- <span class="l">consul leave</span><span class="w">
+</span><span class="w">        </span><span class="nt">volumeMounts</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ca-certificates</span><span class="w">
+</span><span class="w">          </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l">/etc/ssl/certs</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">consul-data</span><span class="w">
+</span><span class="w">          </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l">/consul/data</span><span class="w">
+</span><span class="w">      </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ca-certificates</span><span class="w">
+</span><span class="w">        </span><span class="nt">hostPath</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/usr/share/ca-certificates/</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">consul-data</span><span class="w">
+</span><span class="w">        </span><span class="nt">hostPath</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/mnt/consul</span></code></pre></div></p>
+<p>After a few seconds (look at the logs), your cluster should be ready.</p>
+<p>It&rsquo;s time to prepare your Traefik configuration which we will push into Consul (Traefik is unfortunately not able to
+read Kubernetes configmaps for the moment).</p>
+<p>My Traefik configmap looks like this:
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ConfigMap</span><span class="w">
+</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span><span class="w">
+</span><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">kube-system</span><span class="w">
+</span><span class="w"></span><span class="nt">data</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">traefik.toml</span><span class="p">:</span><span class="w"> </span><span class="p">|-</span><span class="sd">
+</span><span class="sd">    checkNewVersion = false
+</span><span class="sd">    IdleTimeout = &#34;180s&#34;
+</span><span class="sd">    MaxIdleConnsPerHost = 500
+</span><span class="sd">    logLevel = &#34;INFO&#34;
+</span><span class="sd">    defaultEntryPoints = [&#34;http&#34;, &#34;https&#34;]
+</span><span class="sd">
+</span><span class="sd">    [retry]
+</span><span class="sd">    attempts = 3
+</span><span class="sd">
+</span><span class="sd">    [web]
+</span><span class="sd">    address = &#34;:8081&#34;
+</span><span class="sd">
+</span><span class="sd">    [kubernetes]
+</span><span class="sd">    endpoint = &#34;http://localhost:8080&#34;
+</span><span class="sd">    namespaces = [&#34;default&#34;]
+</span><span class="sd">
+</span><span class="sd">    [consul]
+</span><span class="sd">    endpoint = &#34;consul:8500&#34;
+</span><span class="sd">    watch = true
+</span><span class="sd">    prefix = &#34;traefik&#34;
+</span><span class="sd">
+</span><span class="sd">    [acme]
+</span><span class="sd">    email = &#34;my@email.here&#34;
+</span><span class="sd">    storage = &#34;traefik/acme/account&#34;
+</span><span class="sd">    entryPoint = &#34;https&#34;
+</span><span class="sd">    OnHostRule = true
+</span><span class="sd">    onDemand = true
+</span><span class="sd">    acmeLogging = true
+</span><span class="sd">    #caServer = &#34;https://acme-staging.api.letsencrypt.org/directory&#34;
+</span><span class="sd">
+</span><span class="sd">    [[acme.domains]]
+</span><span class="sd">       main = &#34;mydomain.fqdn&#34;
+</span><span class="sd">
+</span><span class="sd">    [entryPoints]
+</span><span class="sd">      [entryPoints.http]
+</span><span class="sd">      address = &#34;:80&#34;
+</span><span class="sd">      compress = true
+</span><span class="sd">        [entryPoints.http.redirect]
+</span><span class="sd">        entryPoint = &#34;https&#34;
+</span><span class="sd">      [entryPoints.https]
+</span><span class="sd">      address = &#34;:443&#34;
+</span><span class="sd">        [entryPoints.https.tls]</span><span class="w">    
+</span><span class="w">  </span><span class="nt">resolv.conf</span><span class="p">:</span><span class="w"> </span><span class="p">|-</span><span class="sd">
+</span><span class="sd">    nameserver 10.3.0.10
+</span><span class="sd">    search kube-system.svc.cluster.local svc.cluster.local cluster.local
+</span><span class="sd">    options ndots:5</span><span class="w">    </span></code></pre></div>
+To get more information on it, please look at the <a href="http://docs.traefik.io/toml/">good Traefik documentation</a>. You&rsquo;ll see why there is resolv.conf
 later in this post. This Traefik configuration give the Traefik we interface on port 8081, connects to Kubernetes on
 localhost and port 8080, connects to Consul using the headless service, manages let&rsquo;s encrypt certificates and redirect
-http to https.</p><p>Note: if you just want to test, you can uncomment the caServer line. But you&rsquo;ll need to remove completely the imported
-traefik configuration in Consul when you&rsquo;ll be ready to go prod (and of course remove this line).</p><p>Now let&rsquo;s run the job which will push this configuration into the Consul KV:<div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>apiVersion</span><span class=p>:</span><span class=w> </span>batch/v1<span class=w>
-</span><span class=w></span><span class=k>kind</span><span class=p>:</span><span class=w> </span>Job<span class=w>
-</span><span class=w></span><span class=k>metadata</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>name</span><span class=p>:</span><span class=w> </span>traefik-boostrap<span class=w>
-</span><span class=w>  </span><span class=k>namespace</span><span class=p>:</span><span class=w> </span>kube-system<span class=w>
-</span><span class=w></span><span class=k>spec</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>template</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=k>metadata</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=k>name</span><span class=p>:</span><span class=w> </span>traefik-boostrap<span class=w>
-</span><span class=w>    </span><span class=k>spec</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=k>containers</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=k>image</span><span class=p>:</span><span class=w> </span>traefik<span class=p>:</span>v1<span class=m>.3</span>-alpine<span class=w>
-</span><span class=w>        </span><span class=k>name</span><span class=p>:</span><span class=w> </span>traefik-bootstrap<span class=w>
-</span><span class=w>        </span><span class=k>args</span><span class=p>:</span><span class=w>
-</span><span class=w>        </span>- storeconfig<span class=w>
-</span><span class=w>        </span>- --configfile=/etc/traefik/traefik.toml<span class=w>
-</span><span class=w>        </span><span class=k>volumeMounts</span><span class=p>:</span><span class=w>
-</span><span class=w>        </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>traefik-config<span class=w>
-</span><span class=w>          </span><span class=k>mountPath</span><span class=p>:</span><span class=w> </span>/etc/traefik<span class=w>
-</span><span class=w>      </span><span class=k>restartPolicy</span><span class=p>:</span><span class=w> </span>Never<span class=w>
-</span><span class=w>      </span><span class=k>volumes</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>traefik-config<span class=w>
-</span><span class=w>        </span><span class=k>configMap</span><span class=p>:</span><span class=w>
-</span><span class=w>          </span><span class=k>name</span><span class=p>:</span><span class=w> </span>traefik</code></pre></div></p><p>Traefik is now ready to be deployed. We need a service account:<div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>apiVersion</span><span class=p>:</span><span class=w> </span>v1<span class=w>
-</span><span class=w></span><span class=k>kind</span><span class=p>:</span><span class=w> </span>ServiceAccount<span class=w>
-</span><span class=w></span><span class=k>metadata</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>name</span><span class=p>:</span><span class=w> </span>traefik-ingress-controller<span class=w>
-</span><span class=w>  </span><span class=k>namespace</span><span class=p>:</span><span class=w> </span>kube-system</code></pre></div></p><p>And the service for the web admin interface:<div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>apiVersion</span><span class=p>:</span><span class=w> </span>v1<span class=w>
-</span><span class=w></span><span class=k>kind</span><span class=p>:</span><span class=w> </span>Service<span class=w>
-</span><span class=w></span><span class=k>metadata</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>name</span><span class=p>:</span><span class=w> </span>traefik-web-ui<span class=w>
-</span><span class=w>  </span><span class=k>namespace</span><span class=p>:</span><span class=w> </span>kube-system<span class=w>
-</span><span class=w></span><span class=k>spec</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>selector</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=k>k8s-app</span><span class=p>:</span><span class=w> </span>traefik-ingress-lb<span class=w>
-</span><span class=w>  </span><span class=k>ports</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>web<span class=w>
-</span><span class=w>    </span><span class=k>port</span><span class=p>:</span><span class=w> </span><span class=m>80</span><span class=w>
-</span><span class=w>    </span><span class=k>targetPort</span><span class=p>:</span><span class=w> </span><span class=m>8081</span></code></pre></div></p><p>Just before deploying Traefik, there is a small bug to workaround before going ahead. A key in the Consul KV store should be
-deleted:<div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>kubectl --namespace kube-system <span class=nb>exec</span> -it consul-0 consul kv delete traefik/acme/storagefile</code></pre></div></p><p>I&rsquo;m using a daemonset for Traefik as I want it to run on a ll my Kubernetes nodes:<div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>kind</span><span class=p>:</span><span class=w> </span>DaemonSet<span class=w>
-</span><span class=w></span><span class=k>apiVersion</span><span class=p>:</span><span class=w> </span>extensions/v1beta1<span class=w>
-</span><span class=w></span><span class=k>metadata</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>name</span><span class=p>:</span><span class=w> </span>traefik-ingress-controller<span class=w>
-</span><span class=w>  </span><span class=k>namespace</span><span class=p>:</span><span class=w> </span>kube-system<span class=w>
-</span><span class=w>  </span><span class=k>labels</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=k>k8s-app</span><span class=p>:</span><span class=w> </span>traefik-ingress-lb<span class=w>
-</span><span class=w></span><span class=k>spec</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>template</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=k>metadata</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=k>labels</span><span class=p>:</span><span class=w>
-</span><span class=w>        </span><span class=k>k8s-app</span><span class=p>:</span><span class=w> </span>traefik-ingress-lb<span class=w>
-</span><span class=w>        </span><span class=k>name</span><span class=p>:</span><span class=w> </span>traefik-ingress-lb<span class=w>
-</span><span class=w>    </span><span class=k>spec</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=k>serviceAccountName</span><span class=p>:</span><span class=w> </span>traefik-ingress-controller<span class=w>
-</span><span class=w>      </span><span class=k>terminationGracePeriodSeconds</span><span class=p>:</span><span class=w> </span><span class=m>60</span><span class=w>
-</span><span class=w>      </span><span class=k>hostNetwork</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>      </span><span class=k>containers</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=k>image</span><span class=p>:</span><span class=w> </span>traefik<span class=p>:</span>v1<span class=m>.3</span>-alpine<span class=w>
-</span><span class=w>        </span><span class=k>name</span><span class=p>:</span><span class=w> </span>traefik-ingress-lb<span class=w>
-</span><span class=w>        </span><span class=k>command</span><span class=p>:</span><span class=w>
-</span><span class=w>          </span>- <span class=s2>&#34;/bin/sh&#34;</span><span class=w>
-</span><span class=w>          </span>- <span class=s2>&#34;-c&#34;</span><span class=w>
-</span><span class=w>          </span>- <span class=s2>&#34;cat /etc/resolvconf/resolv.conf &gt; /etc/resolv.conf ; /entrypoint.sh --consul --consul.endpoint=consul:8500&#34;</span><span class=w>
-</span><span class=w>        </span><span class=k>resources</span><span class=p>:</span><span class=w>
-</span><span class=w>          </span><span class=k>limits</span><span class=p>:</span><span class=w>
-</span><span class=w>            </span><span class=k>cpu</span><span class=p>:</span><span class=w> </span>200m<span class=w>
-</span><span class=w>            </span><span class=k>memory</span><span class=p>:</span><span class=w> </span>30Mi<span class=w>
-</span><span class=w>          </span><span class=k>requests</span><span class=p>:</span><span class=w>
-</span><span class=w>            </span><span class=k>cpu</span><span class=p>:</span><span class=w> </span>100m<span class=w>
-</span><span class=w>            </span><span class=k>memory</span><span class=p>:</span><span class=w> </span>20Mi<span class=w>
-</span><span class=w>        </span><span class=k>ports</span><span class=p>:</span><span class=w>
-</span><span class=w>        </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>http<span class=w>
-</span><span class=w>          </span><span class=k>hostPort</span><span class=p>:</span><span class=w> </span><span class=m>80</span><span class=w>
-</span><span class=w>          </span><span class=k>containerPort</span><span class=p>:</span><span class=w> </span><span class=m>80</span><span class=w>
-</span><span class=w>        </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>https<span class=w>
-</span><span class=w>          </span><span class=k>hostPort</span><span class=p>:</span><span class=w> </span><span class=m>443</span><span class=w>
-</span><span class=w>          </span><span class=k>containerPort</span><span class=p>:</span><span class=w> </span><span class=m>443</span><span class=w>
-</span><span class=w>        </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>admin<span class=w>
-</span><span class=w>          </span><span class=k>containerPort</span><span class=p>:</span><span class=w> </span><span class=m>8081</span><span class=w>
-</span><span class=w>        </span><span class=k>securityContext</span><span class=p>:</span><span class=w>
-</span><span class=w>          </span><span class=k>privileged</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>        </span><span class=k>volumeMounts</span><span class=p>:</span><span class=w>
-</span><span class=w>        </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>traefik-config<span class=w>
-</span><span class=w>          </span><span class=k>mountPath</span><span class=p>:</span><span class=w> </span>/etc/resolvconf<span class=w>
-</span><span class=w>      </span><span class=k>volumes</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>traefik-config<span class=w>
-</span><span class=w>        </span><span class=k>configMap</span><span class=p>:</span><span class=w>
-</span><span class=w>          </span><span class=k>name</span><span class=p>:</span><span class=w> </span>traefik<span class=w>
-</span><span class=w>          </span><span class=k>items</span><span class=p>:</span><span class=w>
-</span><span class=w>          </span>- <span class=k>key</span><span class=p>:</span><span class=w> </span>resolv.conf<span class=w>
-</span><span class=w>            </span><span class=k>path</span><span class=p>:</span><span class=w> </span>resolv.conf</code></pre></div>If you&rsquo;re encountering an issue with port 443 already in use, you&rsquo;ll have to update the Kubernetes API default port to
-another one.</p><p>You can see the resolv.conf override here because when we&rsquo;re using &ldquo;hostNetwork: true&rdquo;, we&rsquo;ll get back resolv.conf from
-the host and not the one generated by Kubernetes. Without this, you won&rsquo;t be able to contact Consul endpoint.</p><p>Now you&rsquo;re done ! You can create ingress services :-). Here is an example of a full service:<div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>apiVersion</span><span class=p>:</span><span class=w> </span>extensions/v1beta1<span class=w>
-</span><span class=w></span><span class=k>kind</span><span class=p>:</span><span class=w> </span>Deployment<span class=w>
-</span><span class=w></span><span class=k>metadata</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>name</span><span class=p>:</span><span class=w> </span>hostnames<span class=w>
-</span><span class=w>  </span><span class=k>namespace</span><span class=p>:</span><span class=w> </span>default<span class=w>
-</span><span class=w>  </span><span class=k>labels</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=k>app</span><span class=p>:</span><span class=w> </span>hostnames<span class=w>
-</span><span class=w></span><span class=k>spec</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>replicas</span><span class=p>:</span><span class=w> </span><span class=m>3</span><span class=w>
-</span><span class=w>  </span><span class=k>template</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=k>metadata</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=k>labels</span><span class=p>:</span><span class=w>
-</span><span class=w>        </span><span class=k>app</span><span class=p>:</span><span class=w> </span>hostnames<span class=w>
-</span><span class=w>    </span><span class=k>spec</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=k>hostNetwork</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>      </span><span class=k>containers</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>hostnames<span class=w>
-</span><span class=w>        </span><span class=k>image</span><span class=p>:</span><span class=w> </span>gcr.io/google_containers/serve_hostname<span class=w>
-</span><span class=w>        </span><span class=k>ports</span><span class=p>:</span><span class=w>
-</span><span class=w>        </span>- <span class=k>containerPort</span><span class=p>:</span><span class=w> </span><span class=m>9376</span><span class=w>
-</span><span class=w>          </span><span class=k>hostPort</span><span class=p>:</span><span class=w> </span><span class=m>9376</span><span class=w>
-</span><span class=w></span>---<span class=w>
-</span><span class=w></span><span class=k>apiVersion</span><span class=p>:</span><span class=w> </span>v1<span class=w>
-</span><span class=w></span><span class=k>kind</span><span class=p>:</span><span class=w> </span>Service<span class=w>
-</span><span class=w></span><span class=k>metadata</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>name</span><span class=p>:</span><span class=w> </span>hostnames<span class=w>
-</span><span class=w>  </span><span class=k>namespace</span><span class=p>:</span><span class=w> </span>default<span class=w>
-</span><span class=w></span><span class=k>spec</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>selector</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=k>app</span><span class=p>:</span><span class=w> </span>hostnames<span class=w>
-</span><span class=w>  </span><span class=k>ports</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>default<span class=w>
-</span><span class=w>    </span><span class=k>port</span><span class=p>:</span><span class=w> </span><span class=m>80</span><span class=w>
-</span><span class=w>    </span><span class=k>targetPort</span><span class=p>:</span><span class=w> </span><span class=m>9376</span><span class=w>
-</span><span class=w></span>---<span class=w>
-</span><span class=w></span><span class=k>apiVersion</span><span class=p>:</span><span class=w> </span>extensions/v1beta1<span class=w>
-</span><span class=w></span><span class=k>kind</span><span class=p>:</span><span class=w> </span>Ingress<span class=w>
-</span><span class=w></span><span class=k>metadata</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>name</span><span class=p>:</span><span class=w> </span>hostnames<span class=w>
-</span><span class=w>  </span><span class=k>namespace</span><span class=p>:</span><span class=w> </span>default<span class=w>
-</span><span class=w>  </span><span class=k>annotations</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=k>kubernetes.io/ingress.class</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;traefik&#34;</span><span class=w>
-</span><span class=w></span><span class=k>spec</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>rules</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span>- <span class=k>host</span><span class=p>:</span><span class=w> </span>test.mydomain.fqdn<span class=w>
-</span><span class=w>    </span><span class=k>http</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=k>paths</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=k>path</span><span class=p>:</span><span class=w> </span>/<span class=w>
-</span><span class=w>        </span><span class=k>backend</span><span class=p>:</span><span class=w>
-</span><span class=w>          </span><span class=k>serviceName</span><span class=p>:</span><span class=w> </span>hostnames<span class=w>
-</span><span class=w>          </span><span class=k>servicePort</span><span class=p>:</span><span class=w> </span><span class=m>80</span></code></pre></div></p><p>Connect to <a href=http://test.mydomain.fqdn>http://test.mydomain.fqdn</a>, you will be redirected to <a href=https://test.mydomain.fqdn>https://test.mydomain.fqdn</a>. The first connexion may take
-some seconds because of the generation of the SSL certificate.</p></div></div><div id=post-footer class="post-footer main-content-wrap"><div class=post-footer-tags><span class="text-color-light text-small">TAGGED IN</span><br><a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/kubernetes/>Kubernetes</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/ssl/>SSL</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/lets-encrypt/>Let's Encrypt</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/consul/>Consul</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/traefik/>Traefik</a></div><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/ data-tooltip="MySocialApp Create your own social network"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/ data-tooltip="Deploy Kubernetes with Ansible"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions><i class="fa fa-share-alt"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/"><i class="fa fa-facebook-official"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/"><i class="fa fa-twitter"></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#disqus_thread><i class="fa fa-comment-o"></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#><i class="fa fa-list"></i></a></li></ul></div><div id=disqus_thread><noscript>Please enable JavaScript to view the <a href=//disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></div></article><footer id=footer class=main-content-wrap><span class=copyrights>&copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved</span></footer></div><div id=bottom-bar class=post-bottom-bar data-behavior=5><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/ data-tooltip="MySocialApp Create your own social network"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/ data-tooltip="Deploy Kubernetes with Ansible"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions><i class="fa fa-share-alt"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/"><i class="fa fa-facebook-official"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/"><i class="fa fa-twitter"></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#disqus_thread><i class="fa fa-comment-o"></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#><i class="fa fa-list"></i></a></li></ul></div></div><div id=share-options-bar class=share-options-bar data-behavior=5><i id=btn-close-shareoptions class="fa fa-close"></i><ul class=share-options><li class=share-option><a class=share-option-btn target=new href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2017%2F08%2F20%2Fkubernetes-with-traefik-and-lets-encrypt%2F"><i class="fa fa-facebook-official"></i><span>Share on Facebook</span></a></li><li class=share-option><a class=share-option-btn target=new href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2017%2F08%2F20%2Fkubernetes-with-traefik-and-lets-encrypt%2F"><i class="fa fa-twitter"></i><span>Share on Twitter</span></a></li></ul></div><div id=share-options-mask class=share-options-mask></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-remove"></i></div><img id=about-card-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"><h4 id=about-card-name>Pierre Mavro / Deimosfr</h4><div id=about-card-job><i class="fa fa-briefcase"></i><br>Qovery Co-Founder and CTO</div><div id=about-card-location><i class="fa fa-map-marker"></i><br>Paris - France</div></div></div><div id=cover style=background-image:url(https://blog.deimos.fr/images/fish_background.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin=anonymous></script><script src=https://blog.deimos.fr/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js></script><script src=https://blog.deimos.fr/js/custom.js></script><script lang=javascript>window.onload=updateMinWidth;window.onresize=updateMinWidth;document.getElementById("sidebar").addEventListener("transitionend",updateMinWidth);function updateMinWidth(){var sidebar=document.getElementById("sidebar");var main=document.getElementById("main");main.style.minWidth="";var w1=getComputedStyle(main).getPropertyValue("min-width");var w2=getComputedStyle(sidebar).getPropertyValue("width");var w3=getComputedStyle(sidebar).getPropertyValue("left");main.style.minWidth=`calc(${w1} - ${w2} - ${w3})`;}</script><script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:false});$('pre.code-highlight > code, pre > code').each(function(i,block){if(!$(this).hasClass('codeblock')){$(this).addClass('codeblock');}
-hljs.highlightBlock(block);});});</script><script>var disqus_config=function(){this.page.url='https:\/\/blog.deimos.fr\/2017\/08\/20\/kubernetes-with-traefik-and-lets-encrypt\/';this.page.identifier='\/2017\/08\/20\/kubernetes-with-traefik-and-lets-encrypt\/'};(function(){if(window.location.hostname=="localhost"){return;}
-var d=document,s=d.createElement('script');var disqus_shortname='blog-deimosfr';s.src='//'+disqus_shortname+'.disqus.com/embed.js';s.setAttribute('data-timestamp',+new Date());(d.head||d.body).appendChild(s);})();</script></body></html>
+http to https.</p>
+<p>Note: if you just want to test, you can uncomment the caServer line. But you&rsquo;ll need to remove completely the imported
+traefik configuration in Consul when you&rsquo;ll be ready to go prod (and of course remove this line).</p>
+<p>Now let&rsquo;s run the job which will push this configuration into the Consul KV:
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">batch/v1</span><span class="w">
+</span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Job</span><span class="w">
+</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik-boostrap</span><span class="w">
+</span><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">kube-system</span><span class="w">
+</span><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik-boostrap</span><span class="w">
+</span><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">traefik:v1.3-alpine</span><span class="w">
+</span><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik-bootstrap</span><span class="w">
+</span><span class="w">        </span><span class="nt">args</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span>- <span class="l">storeconfig</span><span class="w">
+</span><span class="w">        </span>- --<span class="l">configfile=/etc/traefik/traefik.toml</span><span class="w">
+</span><span class="w">        </span><span class="nt">volumeMounts</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik-config</span><span class="w">
+</span><span class="w">          </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l">/etc/traefik</span><span class="w">
+</span><span class="w">      </span><span class="nt">restartPolicy</span><span class="p">:</span><span class="w"> </span><span class="l">Never</span><span class="w">
+</span><span class="w">      </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik-config</span><span class="w">
+</span><span class="w">        </span><span class="nt">configMap</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span></code></pre></div></p>
+<p>Traefik is now ready to be deployed. We need a service account:
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ServiceAccount</span><span class="w">
+</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik-ingress-controller</span><span class="w">
+</span><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">kube-system</span></code></pre></div></p>
+<p>And the service for the web admin interface:
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
+</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik-web-ui</span><span class="w">
+</span><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">kube-system</span><span class="w">
+</span><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">k8s-app</span><span class="p">:</span><span class="w"> </span><span class="l">traefik-ingress-lb</span><span class="w">
+</span><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">web</span><span class="w">
+</span><span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span><span class="w">    </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">8081</span></code></pre></div></p>
+<p>Just before deploying Traefik, there is a small bug to workaround before going ahead. A key in the Consul KV store should be
+deleted:
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">kubectl --namespace kube-system <span class="nb">exec</span> -it consul-0 consul kv delete traefik/acme/storagefile</code></pre></div></p>
+<p>I&rsquo;m using a daemonset for Traefik as I want it to run on a ll my Kubernetes nodes:
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">DaemonSet</span><span class="w">
+</span><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">extensions/v1beta1</span><span class="w">
+</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik-ingress-controller</span><span class="w">
+</span><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">kube-system</span><span class="w">
+</span><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">k8s-app</span><span class="p">:</span><span class="w"> </span><span class="l">traefik-ingress-lb</span><span class="w">
+</span><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">k8s-app</span><span class="p">:</span><span class="w"> </span><span class="l">traefik-ingress-lb</span><span class="w">
+</span><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik-ingress-lb</span><span class="w">
+</span><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">serviceAccountName</span><span class="p">:</span><span class="w"> </span><span class="l">traefik-ingress-controller</span><span class="w">
+</span><span class="w">      </span><span class="nt">terminationGracePeriodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">60</span><span class="w">
+</span><span class="w">      </span><span class="nt">hostNetwork</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">traefik:v1.3-alpine</span><span class="w">
+</span><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik-ingress-lb</span><span class="w">
+</span><span class="w">        </span><span class="nt">command</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span>- <span class="s2">&#34;/bin/sh&#34;</span><span class="w">
+</span><span class="w">          </span>- <span class="s2">&#34;-c&#34;</span><span class="w">
+</span><span class="w">          </span>- <span class="s2">&#34;cat /etc/resolvconf/resolv.conf &gt; /etc/resolv.conf ; /entrypoint.sh --consul --consul.endpoint=consul:8500&#34;</span><span class="w">
+</span><span class="w">        </span><span class="nt">resources</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">limits</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l">200m</span><span class="w">
+</span><span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l">30Mi</span><span class="w">
+</span><span class="w">          </span><span class="nt">requests</span><span class="p">:</span><span class="w">
+</span><span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l">100m</span><span class="w">
+</span><span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l">20Mi</span><span class="w">
+</span><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
+</span><span class="w">          </span><span class="nt">hostPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span><span class="w">          </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">https</span><span class="w">
+</span><span class="w">          </span><span class="nt">hostPort</span><span class="p">:</span><span class="w"> </span><span class="m">443</span><span class="w">
+</span><span class="w">          </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">443</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">admin</span><span class="w">
+</span><span class="w">          </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">8081</span><span class="w">
+</span><span class="w">        </span><span class="nt">securityContext</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">privileged</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">        </span><span class="nt">volumeMounts</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik-config</span><span class="w">
+</span><span class="w">          </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l">/etc/resolvconf</span><span class="w">
+</span><span class="w">      </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik-config</span><span class="w">
+</span><span class="w">        </span><span class="nt">configMap</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span><span class="w">
+</span><span class="w">          </span><span class="nt">items</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span>- <span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l">resolv.conf</span><span class="w">
+</span><span class="w">            </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">resolv.conf</span></code></pre></div>
+If you&rsquo;re encountering an issue with port 443 already in use, you&rsquo;ll have to update the Kubernetes API default port to
+another one.</p>
+<p>You can see the resolv.conf override here because when we&rsquo;re using &ldquo;hostNetwork: true&rdquo;, we&rsquo;ll get back resolv.conf from
+the host and not the one generated by Kubernetes. Without this, you won&rsquo;t be able to contact Consul endpoint.</p>
+<p>Now you&rsquo;re done ! You can create ingress services :-). Here is an example of a full service:
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">extensions/v1beta1</span><span class="w">
+</span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
+</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">hostnames</span><span class="w">
+</span><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">default</span><span class="w">
+</span><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">hostnames</span><span class="w">
+</span><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">hostnames</span><span class="w">
+</span><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">hostNetwork</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">hostnames</span><span class="w">
+</span><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">gcr.io/google_containers/serve_hostname</span><span class="w">
+</span><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">9376</span><span class="w">
+</span><span class="w">          </span><span class="nt">hostPort</span><span class="p">:</span><span class="w"> </span><span class="m">9376</span><span class="w">
+</span><span class="w"></span><span class="nn">---</span><span class="w">
+</span><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
+</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">hostnames</span><span class="w">
+</span><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">default</span><span class="w">
+</span><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">hostnames</span><span class="w">
+</span><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">default</span><span class="w">
+</span><span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span><span class="w">    </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">9376</span><span class="w">
+</span><span class="w"></span><span class="nn">---</span><span class="w">
+</span><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">extensions/v1beta1</span><span class="w">
+</span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Ingress</span><span class="w">
+</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">hostnames</span><span class="w">
+</span><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">default</span><span class="w">
+</span><span class="w">  </span><span class="nt">annotations</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">kubernetes.io/ingress.class</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;traefik&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">rules</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l">test.mydomain.fqdn</span><span class="w">
+</span><span class="w">    </span><span class="nt">http</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">paths</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/</span><span class="w">
+</span><span class="w">        </span><span class="nt">backend</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">serviceName</span><span class="p">:</span><span class="w"> </span><span class="l">hostnames</span><span class="w">
+</span><span class="w">          </span><span class="nt">servicePort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span></code></pre></div></p>
+<p>Connect to <a href="http://test.mydomain.fqdn">http://test.mydomain.fqdn</a>, you will be redirected to <a href="https://test.mydomain.fqdn">https://test.mydomain.fqdn</a>. The first connexion may take
+some seconds because of the generation of the SSL certificate.</p>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/kubernetes/">Kubernetes</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/ssl/">SSL</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/lets-encrypt/">Let&#39;s Encrypt</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/consul/">Consul</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/traefik/">Traefik</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/" data-tooltip="MySocialApp Create your own social network">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/" data-tooltip="Deploy Kubernetes with Ansible">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/" data-tooltip="MySocialApp Create your own social network">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2017/04/18/deploy-kubernetes-with-ansible/" data-tooltip="Deploy Kubernetes with Ansible">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2017%2F08%2F20%2Fkubernetes-with-traefik-and-lets-encrypt%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2017%2F08%2F20%2Fkubernetes-with-traefik-and-lets-encrypt%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Qovery Co-Founder and CTO
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Paris - France
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      
+      <div id="cover" style="background-image:url('https://blog.deimos.fr/images/fish_background.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://blog.deimos.fr/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+  
+    <script src="https://blog.deimos.fr/js/custom.js"></script>
+  
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/blog.deimos.fr\/2017\/08\/20\/kubernetes-with-traefik-and-lets-encrypt\/';
+          
+            this.page.identifier = '\/2017\/08\/20\/kubernetes-with-traefik-and-lets-encrypt\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'blog-deimosfr';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

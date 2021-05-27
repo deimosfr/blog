@@ -1,61 +1,850 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Hugo 0.69.2 with theme Tranquilpeak 0.4.7-BETA"><meta name=author content="Pierre Mavro / Deimosfr"><meta name=keywords content><meta name=description content="Deimos Blog"><meta property="og:description" content="Deimos Blog"><meta property="og:type" content="website"><meta property="og:title" content="SQL"><meta name=twitter:title content="SQL"><meta property="og:url" content="https://blog.deimos.fr/tags/sql/"><meta property="twitter:url" content="https://blog.deimos.fr/tags/sql/"><meta property="og:site_name" content="Deimosfr Blog"><meta property="og:description" content="Deimos Blog"><meta name=twitter:description content="Deimos Blog"><meta property="og:locale" content="en-us"><meta name=twitter:card content="summary"><meta name=twitter:site content="@deimosfr"><meta name=twitter:creator content="@deimosfr"><meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><title>SQL</title><link rel=icon href=https://blog.deimos.fr/favicon.png><link rel=alternate type=application/rss+xml title=RSS href=https://blog.deimos.fr/tags/sql/index.xml><link rel=canonical href=https://blog.deimos.fr/tags/sql/><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin=anonymous><link rel=stylesheet href=https://blog.deimos.fr/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css><link rel=stylesheet href=https://blog.deimos.fr/css/custom.css><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-63927289-1','auto');ga('send','pageview');}</script></head><body><div id=blog><header id=header data-behavior=2><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=https://blog.deimos.fr/>Deimosfr Blog</a></div><a class=header-right-picture href=https://blog.deimos.fr/#about><img class=header-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author's picture"></a></header><nav id=sidebar data-behavior=2><div class=sidebar-container><div class=sidebar-profile><a href=https://blog.deimos.fr/#about><img class=sidebar-profile-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"></a><h4 class=sidebar-profile-name>Pierre Mavro / Deimosfr</h4></div><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/><i class="sidebar-button-icon fa fa-lg fa-home"></i><span class=sidebar-button-desc>Home</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/archives><i class="sidebar-button-icon fa fa-lg fa-archive"></i><span class=sidebar-button-desc>Archives</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/categories><i class="sidebar-button-icon fa fa-lg fa-bookmark"></i><span class=sidebar-button-desc>Categories</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/tags><i class="sidebar-button-icon fa fa-lg fa-tags"></i><span class=sidebar-button-desc>Tags</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/index.xml><i class="sidebar-button-icon fa fa-lg fa-rss"></i><span class=sidebar-button-desc>RSS</span></a></li></ul><ul class=sidebar-buttons></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://www.deimos.fr target=_blank rel=noopener><i class="sidebar-button-icon fa fa-lg fa-user"></i><span class=sidebar-button-desc>About</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://wiki.deimos.fr target=_blank rel=noopener><i class="sidebar-button-icon fa fa-wikipedia-w"></i><span class=sidebar-button-desc>Wiki</span></a></li></ul></div></nav><div id=main data-behavior=2 class=hasCoverMetaIn><section class="postShorten-group main-content-wrap"><article class="postShorten postShorten--thumbnailimg-left" itemscope itemtype=http://schema.org/BlogPosting><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title itemprop=headline><a class=link-unstyled href=https://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/>Ansible: Neo4j role available on Ansible Galaxy</a></h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2015-02-27T11:00:01Z>27 February 2015</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/ansible>Ansible</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/databases>Databases</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/nosql>NoSQL</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/sql>SQL</a></div></div><div class=postShorten-excerpt itemprop=articleBody>For a new project (will talk about it later), I needed to use Neo4J (graph database if you don&rsquo;t know it yet).
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.83.1 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SQL">
+<meta name="twitter:title" content="SQL">
+<meta property="og:url" content="https://blog.deimos.fr/tags/sql/">
+<meta property="twitter:url" content="https://blog.deimos.fr/tags/sql/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
+    <title>SQL</title>
+
+    <link rel="icon" href="https://blog.deimos.fr/favicon.png">
+    
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://blog.deimos.fr/tags/sql/index.xml">
+    
+
+    
+
+    <link rel="canonical" href="https://blog.deimos.fr/tags/sql/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
+      
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-63927289-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="2">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.deimos.fr/">Deimosfr Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://blog.deimos.fr/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="2">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.deimos.fr/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.deimos.fr" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-user"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
+      
+      <span class="sidebar-button-desc">Wiki</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+        
+
+      
+      <div id="main" data-behavior="2"
+        class="
+               hasCoverMetaIn
+               ">
+        
+          <section class="postShorten-group main-content-wrap">
+            
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/">
+          Ansible: Neo4j role available on Ansible Galaxy
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2015-02-27T11:00:01Z">
+        
+  
+  
+  
+  
+    27 February 2015
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/ansible">Ansible</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/databases">Databases</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/nosql">NoSQL</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/sql">SQL</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        For a new project (will talk about it later), I needed to use Neo4J (graph database if you don&rsquo;t know it yet).
 I tried to cover more features than the current existing Ansible roles available on Ansible Galaxy. More will come in the next weeks. I also tried to make it simple to install it and do not force dependencies at maximum. Here are parameters you can set:
-# Select neo4j version neo4j_package: neo4j # community version #neo4j_package: neo4j-advanced #neo4j_package: neo4j-enterprise # Neo4j spatial plugin neo4j_install_spatial: false neo4j_spatial_version: '0.<p><a href=https://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/ class="postShorten-excerpt_link link">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/><div class=postShorten-thumbnailimg><img alt itemprop=image src=https://blog.deimos.fr/thumbnails/logo_neo4j.png></div></a></article><article class="postShorten postShorten--thumbnailimg-left" itemscope itemtype=http://schema.org/BlogPosting><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title itemprop=headline><a class=link-unstyled href=https://blog.deimos.fr/2015/01/29/wordpress-how-i-almost-lost-my-blog-and-want-to-switch/>WordPress: how I almost lost my blog and want to switch</a></h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2015-01-29T11:00:01Z>29 January 2015</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/databases>Databases</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/others>Others</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/private-life>Private life</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/sql>SQL</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/web>Web</a></div></div><div class=postShorten-excerpt itemprop=articleBody>A few days ago I wanted to play with HAProxy SSL offloading. It was a good experience and alternative to Nginx SSL offloading (I already talked about in this blog). But this is not the topic here&mldr;
-When I was trying to make the offload working on the blog, I modified WordPress options which switched my blog into an infinite loop mode. As it was late and I was tired (bad idea), I just wanted to rollback my changes and needed to recover a SQL backup to do it fast.<p><a href=https://blog.deimos.fr/2015/01/29/wordpress-how-i-almost-lost-my-blog-and-want-to-switch/ class="postShorten-excerpt_link link">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2015/01/29/wordpress-how-i-almost-lost-my-blog-and-want-to-switch/><div class=postShorten-thumbnailimg><img alt itemprop=image src=https://blog.deimos.fr/thumbnails/epic_fail_cry.jpg></div></a></article><article class="postShorten postShorten--thumbnailimg-left" itemscope itemtype=http://schema.org/BlogPosting><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title itemprop=headline><a class=link-unstyled href=https://blog.deimos.fr/2014/11/07/news-in-bulk-4/>News in bulk</a></h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2014-11-07T11:11:29Z>7 November 2014</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/databases>Databases</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/ha>HA</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/sql>SQL</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/web>Web</a></div></div><div class=postShorten-excerpt itemprop=articleBody>As I do not really have a good blog post for today, here are some things I wanted to talk in a summary. Some good projects have been updated like:
-WordPress 4: no big updates at the first view but it&rsquo;s nice to see how this project works and grow (videos, WYSIWYG,&mldr;) HAProxy 1.5: Offlloading SSL embedded, Full HTTP Keepalive, ACL enhancement&mldr; BIG update! MySecureShell 2.0: Using GnuTLS instead of OpenSSL, available in Debian upstream repositories, new doc&mldr; Nginx 1.<p><a href=https://blog.deimos.fr/2014/11/07/news-in-bulk-4/ class="postShorten-excerpt_link link">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2014/11/07/news-in-bulk-4/><div class=postShorten-thumbnailimg><img alt itemprop=image src=https://blog.deimos.fr/thumbnails/postit.jpeg></div></a></article><article class="postShorten postShorten--thumbnailimg-left" itemscope itemtype=http://schema.org/BlogPosting><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title itemprop=headline><a class=link-unstyled href=https://blog.deimos.fr/2014/10/08/galera-innoptimizer-now-support-tables-partition/>Galera Innoptimizer: now support tables’ partition</a></h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2014-10-08T10:00:33Z>8 October 2014</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/databases>Databases</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/developement>Developement</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/sql>SQL</a></div></div><div class=postShorten-excerpt itemprop=articleBody>You may remember the first introduction of that tool here. I&rsquo;ve made changes to support tables&rsquo; partition, to avoid a big lock on huge tables.
+# Select neo4j version neo4j_package: neo4j # community version #neo4j_package: neo4j-advanced #neo4j_package: neo4j-enterprise # Neo4j spatial plugin neo4j_install_spatial: false neo4j_spatial_version: &#39;0.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_neo4j.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2015/01/29/wordpress-how-i-almost-lost-my-blog-and-want-to-switch/">
+          WordPress: how I almost lost my blog and want to switch
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2015-01-29T11:00:01Z">
+        
+  
+  
+  
+  
+    29 January 2015
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/databases">Databases</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/others">Others</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/private-life">Private life</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/sql">SQL</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/web">Web</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        A few days ago I wanted to play with HAProxy SSL offloading. It was a good experience and alternative to Nginx SSL offloading (I already talked about in this blog). But this is not the topic here&hellip;
+When I was trying to make the offload working on the blog, I modified WordPress options which switched my blog into an infinite loop mode. As it was late and I was tired (bad idea), I just wanted to rollback my changes and needed to recover a SQL backup to do it fast.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2015/01/29/wordpress-how-i-almost-lost-my-blog-and-want-to-switch/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2015/01/29/wordpress-how-i-almost-lost-my-blog-and-want-to-switch/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/epic_fail_cry.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2014/11/07/news-in-bulk-4/">
+          News in bulk
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2014-11-07T11:11:29Z">
+        
+  
+  
+  
+  
+    7 November 2014
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/databases">Databases</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/ha">HA</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/sql">SQL</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/web">Web</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        As I do not really have a good blog post for today, here are some things I wanted to talk in a summary. Some good projects have been updated like:
+ WordPress 4: no big updates at the first view but it&rsquo;s nice to see how this project works and grow (videos, WYSIWYG,&hellip;) HAProxy 1.5: Offlloading SSL embedded, Full HTTP Keepalive, ACL enhancement&hellip; BIG update! MySecureShell 2.0: Using GnuTLS instead of OpenSSL, available in Debian upstream repositories, new doc&hellip; Nginx 1.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2014/11/07/news-in-bulk-4/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2014/11/07/news-in-bulk-4/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/postit.jpeg"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2014/10/08/galera-innoptimizer-now-support-tables-partition/">
+          Galera Innoptimizer: now support tables’ partition
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2014-10-08T10:00:33Z">
+        
+  
+  
+  
+  
+    8 October 2014
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/databases">Databases</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/developement">Developement</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/sql">SQL</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        You may remember the first introduction of that tool here. I&rsquo;ve made changes to support tables' partition, to avoid a big lock on huge tables.
 The solution is to rebuild every partition one by one instead of rebuilding the whole table. This is smoother and less stressing Galera. I hope you&rsquo;ll enjoy this new version (v0.2).
-Note: I still got issues on MariaDB 10 with such thing, I&rsquo;m working on it.<p><a href=https://blog.deimos.fr/2014/10/08/galera-innoptimizer-now-support-tables-partition/ class="postShorten-excerpt_link link">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2014/10/08/galera-innoptimizer-now-support-tables-partition/><div class=postShorten-thumbnailimg><img alt itemprop=image src=https://blog.deimos.fr/thumbnails/logo_galera.jpg></div></a></article><article class="postShorten postShorten--thumbnailimg-left" itemscope itemtype=http://schema.org/BlogPosting><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title itemprop=headline><a class=link-unstyled href=https://blog.deimos.fr/2014/09/06/neo4j-a-pretty-graph-database-2/>Neo4j: a pretty graph database</a></h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2014-09-06T10:00:18Z>6 September 2014</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/databases>Databases</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/events>Events</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/sql>SQL</a></div></div><div class=postShorten-excerpt itemprop=articleBody>I forgot to talk about 1 meetup I&rsquo;ve been regarding Neo4j. A friend (evomusic) talked to me about it and as I&rsquo;m curious, I went to this meetup in July. Neo4j is a highly scalable, robust (fully ACID) native graph database. Neo4j is used in mission-critical apps by thousands of leading startups, enterprises, and governments around the world.
-I you don&rsquo;t know what is a graph database, it&rsquo;s a very good introduction and will help you to understand what it is and how it works.<p><a href=https://blog.deimos.fr/2014/09/06/neo4j-a-pretty-graph-database-2/ class="postShorten-excerpt_link link">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2014/09/06/neo4j-a-pretty-graph-database-2/><div class=postShorten-thumbnailimg><img alt itemprop=image src=https://blog.deimos.fr/thumbnails/logo_neo4j.png></div></a></article><article class="postShorten postShorten--thumbnailimg-left" itemscope itemtype=http://schema.org/BlogPosting><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title itemprop=headline><a class=link-unstyled href=https://blog.deimos.fr/2014/08/23/my-book-mariadb-high-performance-available-for-pre-order/>My Book: MariaDB High Performance available for pre-order</a></h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2014-08-23T10:00:51Z>23 August 2014</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/books>Books</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/databases>Databases</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/sql>SQL</a></div></div><div class=postShorten-excerpt itemprop=articleBody>All, I&rsquo;m proud to announce my first book available for pre-order! I&rsquo;m really happy to have finished it and see after several months of hard work that it will be soon available.
+Note: I still got issues on MariaDB 10 with such thing, I&rsquo;m working on it.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2014/10/08/galera-innoptimizer-now-support-tables-partition/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2014/10/08/galera-innoptimizer-now-support-tables-partition/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_galera.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2014/09/06/neo4j-a-pretty-graph-database-2/">
+          Neo4j: a pretty graph database
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2014-09-06T10:00:18Z">
+        
+  
+  
+  
+  
+    6 September 2014
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/databases">Databases</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/events">Events</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/sql">SQL</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        I forgot to talk about 1 meetup I&rsquo;ve been regarding Neo4j. A friend (evomusic) talked to me about it and as I&rsquo;m curious, I went to this meetup in July. Neo4j is a highly scalable, robust (fully ACID) native graph database. Neo4j is used in mission-critical apps by thousands of leading startups, enterprises, and governments around the world.
+I you don&rsquo;t know what is a graph database, it&rsquo;s a very good introduction and will help you to understand what it is and how it works.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2014/09/06/neo4j-a-pretty-graph-database-2/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2014/09/06/neo4j-a-pretty-graph-database-2/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_neo4j.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2014/08/23/my-book-mariadb-high-performance-available-for-pre-order/">
+          My Book: MariaDB High Performance available for pre-order
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2014-08-23T10:00:51Z">
+        
+  
+  
+  
+  
+    23 August 2014
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/books">Books</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/databases">Databases</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/sql">SQL</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        All, I&rsquo;m proud to announce my first book available for pre-order! I&rsquo;m really happy to have finished it and see after several months of hard work that it will be soon available.
 Who is this book for?
-MariaDB High Performance is aimed at system administrators/architects or DBAs who want to learn more about how to grow their current infrastructure to support larger traffic.
-Before beginning with this book, we expect you to be well–practised with MySQL/MariaDB for common usage.<p><a href=https://blog.deimos.fr/2014/08/23/my-book-mariadb-high-performance-available-for-pre-order/ class="postShorten-excerpt_link link">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2014/08/23/my-book-mariadb-high-performance-available-for-pre-order/><div class=postShorten-thumbnailimg><img alt itemprop=image src=https://blog.deimos.fr/thumbnails/1601OS.jpg></div></a></article><article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemtype=http://schema.org/BlogPosting><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title itemprop=headline><a class=link-unstyled href=https://blog.deimos.fr/2014/06/22/blog-posts-slowdown-for-some-weeks/>Blog posts slowdown for some weeks</a></h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2014-06-22T10:00:00Z>22 June 2014</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/books>Books</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/databases>Databases</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/others>Others</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/private-life>Private life</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/sql>SQL</a></div></div><div class=postShorten-excerpt itemprop=articleBody>Hello readers!
+ MariaDB High Performance is aimed at system administrators/architects or DBAs who want to learn more about how to grow their current infrastructure to support larger traffic.
+Before beginning with this book, we expect you to be well–practised with MySQL/MariaDB for common usage.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2014/08/23/my-book-mariadb-high-performance-available-for-pre-order/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2014/08/23/my-book-mariadb-high-performance-available-for-pre-order/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/1601OS.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2014/06/22/blog-posts-slowdown-for-some-weeks/">
+          Blog posts slowdown for some weeks
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2014-06-22T10:00:00Z">
+        
+  
+  
+  
+  
+    22 June 2014
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/books">Books</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/databases">Databases</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/others">Others</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/private-life">Private life</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/sql">SQL</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        Hello readers!
 The numbers of readers keeps growing and I really appreciate it :-). Thanks to all followers!
 You may know that I&rsquo;m currently writing a book on MariaDB performances/high availability. I&rsquo;m almost finish and this is the last run before the publication in September.
-To give the maximum in this book , in the very short delay I have to, I need more time. The current blog post flow is: one blog post every 2 days.<p><a href=https://blog.deimos.fr/2014/06/22/blog-posts-slowdown-for-some-weeks/ class="postShorten-excerpt_link link">Continue reading</a></p></div></div></article><div class=pagination-bar><ul class=pagination><li class=pagination-next><a class="btn btn--default btn--small" href=https://blog.deimos.fr/tags/sql/page/2/><span>OLDER POSTS</span>
-<i class="fa fa-angle-right text-base icon-ml"></i></a></li><li class=pagination-number>page 1 of 5</li></ul></div></section><footer id=footer class=main-content-wrap><span class=copyrights>&copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved</span></footer></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-remove"></i></div><img id=about-card-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"><h4 id=about-card-name>Pierre Mavro / Deimosfr</h4><div id=about-card-job><i class="fa fa-briefcase"></i><br>Qovery Co-Founder and CTO</div><div id=about-card-location><i class="fa fa-map-marker"></i><br>Paris - France</div></div></div><div id=cover style=background-image:url(https://blog.deimos.fr/images/fish_background.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin=anonymous></script><script src=https://blog.deimos.fr/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js></script><script src=https://blog.deimos.fr/js/custom.js></script><script lang=javascript>window.onload=updateMinWidth;window.onresize=updateMinWidth;document.getElementById("sidebar").addEventListener("transitionend",updateMinWidth);function updateMinWidth(){var sidebar=document.getElementById("sidebar");var main=document.getElementById("main");main.style.minWidth="";var w1=getComputedStyle(main).getPropertyValue("min-width");var w2=getComputedStyle(sidebar).getPropertyValue("width");var w3=getComputedStyle(sidebar).getPropertyValue("left");main.style.minWidth=`calc(${w1} - ${w2} - ${w3})`;}</script><script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:false});$('pre.code-highlight > code, pre > code').each(function(i,block){if(!$(this).hasClass('codeblock')){$(this).addClass('codeblock');}
-hljs.highlightBlock(block);});});</script></body></html>
+To give the maximum in this book , in the very short delay I have to, I need more time. The current blog post flow is: one blog post every 2 days.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2014/06/22/blog-posts-slowdown-for-some-weeks/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+            
+  <div class="pagination-bar">
+    <ul class="pagination">
+      
+        
+        
+          <li class="pagination-next">
+            <a class="btn btn--default btn--small" href="https://blog.deimos.fr/tags/sql/page/2/">
+              <span>OLDER POSTS</span>
+              <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+          </li>
+        
+      
+      <li class="pagination-number">page 1 of 5</li>
+    </ul>
+  </div>
+
+
+          </section>
+        
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Qovery Co-Founder and CTO
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Paris - France
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      
+      <div id="cover" style="background-image:url('https://blog.deimos.fr/images/fish_background.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://blog.deimos.fr/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+  
+    <script src="https://blog.deimos.fr/js/custom.js"></script>
+  
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+
+    
+  </body>
+</html>
+

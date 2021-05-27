@@ -1,46 +1,832 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Hugo 0.69.2 with theme Tranquilpeak 0.4.7-BETA"><meta name=author content="Pierre Mavro / Deimosfr"><meta name=keywords content><meta name=description content="Deimos Blog"><meta property="og:description" content="Deimos Blog"><meta property="og:type" content="website"><meta property="og:title" content="Red Hat"><meta name=twitter:title content="Red Hat"><meta property="og:url" content="https://blog.deimos.fr/tags/red-hat/"><meta property="twitter:url" content="https://blog.deimos.fr/tags/red-hat/"><meta property="og:site_name" content="Deimosfr Blog"><meta property="og:description" content="Deimos Blog"><meta name=twitter:description content="Deimos Blog"><meta property="og:locale" content="en-us"><meta name=twitter:card content="summary"><meta name=twitter:site content="@deimosfr"><meta name=twitter:creator content="@deimosfr"><meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><title>Red Hat</title><link rel=icon href=https://blog.deimos.fr/favicon.png><link rel=alternate type=application/rss+xml title=RSS href=https://blog.deimos.fr/tags/red-hat/index.xml><link rel=canonical href=https://blog.deimos.fr/tags/red-hat/><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin=anonymous><link rel=stylesheet href=https://blog.deimos.fr/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css><link rel=stylesheet href=https://blog.deimos.fr/css/custom.css><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-63927289-1','auto');ga('send','pageview');}</script></head><body><div id=blog><header id=header data-behavior=2><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=https://blog.deimos.fr/>Deimosfr Blog</a></div><a class=header-right-picture href=https://blog.deimos.fr/#about><img class=header-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author's picture"></a></header><nav id=sidebar data-behavior=2><div class=sidebar-container><div class=sidebar-profile><a href=https://blog.deimos.fr/#about><img class=sidebar-profile-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"></a><h4 class=sidebar-profile-name>Pierre Mavro / Deimosfr</h4></div><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/><i class="sidebar-button-icon fa fa-lg fa-home"></i><span class=sidebar-button-desc>Home</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/archives><i class="sidebar-button-icon fa fa-lg fa-archive"></i><span class=sidebar-button-desc>Archives</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/categories><i class="sidebar-button-icon fa fa-lg fa-bookmark"></i><span class=sidebar-button-desc>Categories</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/tags><i class="sidebar-button-icon fa fa-lg fa-tags"></i><span class=sidebar-button-desc>Tags</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/index.xml><i class="sidebar-button-icon fa fa-lg fa-rss"></i><span class=sidebar-button-desc>RSS</span></a></li></ul><ul class=sidebar-buttons></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://www.deimos.fr target=_blank rel=noopener><i class="sidebar-button-icon fa fa-lg fa-user"></i><span class=sidebar-button-desc>About</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://wiki.deimos.fr target=_blank rel=noopener><i class="sidebar-button-icon fa fa-wikipedia-w"></i><span class=sidebar-button-desc>Wiki</span></a></li></ul></div></nav><div id=main data-behavior=2 class=hasCoverMetaIn><section class="postShorten-group main-content-wrap"><article class="postShorten postShorten--thumbnailimg-left" itemscope itemtype=http://schema.org/BlogPosting><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title itemprop=headline><a class=link-unstyled href=https://blog.deimos.fr/2012/09/08/optimisation-des-filesystems-extx-du-raid-sous-linux/>Optimisation des filesystems extX et du RAID sous Linux</a></h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2012-09-08T10:00:34Z>8 September 2012</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a></div></div><div class=postShorten-excerpt itemprop=articleBody>Pour continuer sur le précédent article d&rsquo;optimisation des disques dur, en voici un autre sur le filesystem extX et le RAID logiciel sous Linux.
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.83.1 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Red Hat">
+<meta name="twitter:title" content="Red Hat">
+<meta property="og:url" content="https://blog.deimos.fr/tags/red-hat/">
+<meta property="twitter:url" content="https://blog.deimos.fr/tags/red-hat/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
+    <title>Red Hat</title>
+
+    <link rel="icon" href="https://blog.deimos.fr/favicon.png">
+    
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://blog.deimos.fr/tags/red-hat/index.xml">
+    
+
+    
+
+    <link rel="canonical" href="https://blog.deimos.fr/tags/red-hat/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
+      
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-63927289-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="2">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.deimos.fr/">Deimosfr Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://blog.deimos.fr/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="2">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.deimos.fr/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.deimos.fr" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-user"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
+      
+      <span class="sidebar-button-desc">Wiki</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+        
+
+      
+      <div id="main" data-behavior="2"
+        class="
+               hasCoverMetaIn
+               ">
+        
+          <section class="postShorten-group main-content-wrap">
+            
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2012/09/08/optimisation-des-filesystems-extx-du-raid-sous-linux/">
+          Optimisation des filesystems extX et du RAID sous Linux
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2012-09-08T10:00:34Z">
+        
+  
+  
+  
+  
+    8 September 2012
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        Pour continuer sur le précédent article d&rsquo;optimisation des disques dur, en voici un autre sur le filesystem extX et le RAID logiciel sous Linux.
 J&rsquo;explique comment gagner en performance sur les filesystems et plonge un peu dans les méchanismes de la gestion des différents filesystems avec le kernel.
-Pour lire l&rsquo;article, suivez le lien.<p><a href=https://blog.deimos.fr/2012/09/08/optimisation-des-filesystems-extx-du-raid-sous-linux/ class="postShorten-excerpt_link link">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2012/09/08/optimisation-des-filesystems-extx-du-raid-sous-linux/><div class=postShorten-thumbnailimg><img alt itemprop=image src=https://blog.deimos.fr/thumbnails/Vfs.png></div></a></article><article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemtype=http://schema.org/BlogPosting><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title itemprop=headline><a class=link-unstyled href=https://blog.deimos.fr/2012/08/31/optimiser-les-performances-des-disques-dur-sur-linux/>Optimiser les performances des disques dur sur Linux</a></h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2012-08-31T10:00:47Z>31 August 2012</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a></div></div><div class=postShorten-excerpt itemprop=articleBody>Les disques dur physiques sont aujourd&rsquo;hui ce qu&rsquo;il y a de plus lent dans nos machines. Que ce soit les disques dur physique à plateaux ou bien même les SSD ! Mais il y a moyen d&rsquo;optimiser selon les besoins des performances de ceux ci.
-C&rsquo;est pourquoi j&rsquo;ai fais un article qui parle des bus, caches, elevators et options de queues. Pour le lire, c&rsquo;est comme d&rsquo;habitude sur le wiki.<p><a href=https://blog.deimos.fr/2012/08/31/optimiser-les-performances-des-disques-dur-sur-linux/ class="postShorten-excerpt_link link">Continue reading</a></p></div></div></article><article class="postShorten postShorten--thumbnailimg-left" itemscope itemtype=http://schema.org/BlogPosting><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title itemprop=headline><a class=link-unstyled href=https://blog.deimos.fr/2012/08/15/autossh-reconnecter-automatiquement-tunnel-ssh/>AutoSSH : reconnecter automatiquement un tunnel SSH</a></h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2012-08-15T10:00:11Z>15 August 2012</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a></div></div><div class=postShorten-excerpt itemprop=articleBody>Si comme moi vous avez un tunnel à maintenir en permanence, qu&rsquo;en cas de déconnexion vous souhaitez une reconnexion automatique, il vous faut utiliser alors un outil tel que AutoSSH.
-Allez voici la doc pour mettre rapidement ça en place pour ceux que ça intéresse.<p><a href=https://blog.deimos.fr/2012/08/15/autossh-reconnecter-automatiquement-tunnel-ssh/ class="postShorten-excerpt_link link">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2012/08/15/autossh-reconnecter-automatiquement-tunnel-ssh/><div class=postShorten-thumbnailimg><img alt itemprop=image src=https://blog.deimos.fr/thumbnails/logo_openssh.png></div></a></article><article class="postShorten postShorten--thumbnailimg-left" itemscope itemtype=http://schema.org/BlogPosting><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title itemprop=headline><a class=link-unstyled href=https://blog.deimos.fr/2012/08/13/mcollective/>Mcollective : gérer une ferme de noeuds</a></h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2012-08-13T10:00:51Z>13 August 2012</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/puppet>Puppet</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a></div></div><div class=postShorten-excerpt itemprop=articleBody>Vous vous rappelez peut être de mon fameux Puppet Push qui me permettait d&rsquo;exécuter des puppet client sur des hosts choisis.
-Mcollective fait la même chose, mais en mieux et propose pleins de fonctionnalités en plus. Bref, il vous permet de contrôler tout un tas de machines très facilement et s&rsquo;intègre très bien à Puppet. C&rsquo;est d&rsquo;ailleurs aujourd&rsquo;hui ce que j&rsquo;utilise en production. Plutôt qu&rsquo;un long discourt, je vous laisse voir ma doc sur Mcollective.<p><a href=https://blog.deimos.fr/2012/08/13/mcollective/ class="postShorten-excerpt_link link">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2012/08/13/mcollective/><div class=postShorten-thumbnailimg><img alt itemprop=image src=https://blog.deimos.fr/thumbnails/logo_mcollective.png></div></a></article><article class="postShorten postShorten--thumbnailimg-left" itemscope itemtype=http://schema.org/BlogPosting><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title itemprop=headline><a class=link-unstyled href=https://blog.deimos.fr/2012/08/11/creer-package-rpm-depuis-tar/>Créer un package RPM depuis un tar</a></h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2012-08-11T10:00:33Z>11 August 2012</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a></div></div><div class=postShorten-excerpt itemprop=articleBody>Je sais que beaucoup d&rsquo;entre vous auront déjà vu maintes et maintes fois ce genre de doc, mais sur le net je n&rsquo;ai trouvé que des choses vieilles ou obsolète. Il a fallu fouiller pas mal pour trouver des infos plus ou moins à jour et jongler entre elles pour ce rendre compte vraiment de ce qu&rsquo;il faut faire pour s&rsquo;en sortir proprement.
-J&rsquo;ai donc fais une doc qui en 5 min vous permettra de faire des packages Red Hat.<p><a href=https://blog.deimos.fr/2012/08/11/creer-package-rpm-depuis-tar/ class="postShorten-excerpt_link link">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2012/08/11/creer-package-rpm-depuis-tar/><div class=postShorten-thumbnailimg><img alt itemprop=image src=https://blog.deimos.fr/thumbnails/logo_redhat.png></div></a></article><article class="postShorten postShorten--thumbnailimg-left" itemscope itemtype=http://schema.org/BlogPosting><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title itemprop=headline><a class=link-unstyled href=https://blog.deimos.fr/2012/07/28/puppet-installation-du-serveur/>Puppet : installation du serveur (Master)</a></h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2012-07-28T10:00:14Z>28 July 2012</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/puppet>Puppet</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a></div></div><div class=postShorten-excerpt itemprop=articleBody>J&rsquo;ai mis à jour la documentation sur Puppet sur la partie installation et la configuration du serveur. Je prépare quelques autres mises à jour de cet article qui vous aideront j&rsquo;espère, à mettre en place ce type de solution qui devient très très vite indispensable :-)
-Voici la mise à jour de l&rsquo;installation et la configuration du puppet master.<p><a href=https://blog.deimos.fr/2012/07/28/puppet-installation-du-serveur/ class="postShorten-excerpt_link link">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2012/07/28/puppet-installation-du-serveur/><div class=postShorten-thumbnailimg><img alt itemprop=image src=https://blog.deimos.fr/thumbnails/Puppet-short.png></div></a></article><article class="postShorten postShorten--thumbnailimg-left" itemscope itemtype=http://schema.org/BlogPosting><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title itemprop=headline><a class=link-unstyled href=https://blog.deimos.fr/2012/07/16/parted-mon-amour/>Parted mon amour</a></h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2012-07-16T10:00:54Z>16 July 2012</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a></div></div><div class=postShorten-excerpt itemprop=articleBody>Oh oui parted c&rsquo;est bien, ça gère l&rsquo;alignement des disques, c&rsquo;est scriptable, ça gère les volumes supérieur à 2Tb&mldr;bref le kiffe !
-Donc cooooooomme d&rsquo;habitude, j&rsquo;ai mis à jour le petit article sur Parted.<p><a href=https://blog.deimos.fr/2012/07/16/parted-mon-amour/ class="postShorten-excerpt_link link">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2012/07/16/parted-mon-amour/><div class=postShorten-thumbnailimg><img alt itemprop=image src=https://blog.deimos.fr/thumbnails/logo_parted.png></div></a></article><div class=pagination-bar><ul class=pagination><li class=pagination-prev><a class="btn btn--default btn--small" href=https://blog.deimos.fr/tags/red-hat/page/7/><i class="fa fa-angle-left text-base icon-mr"></i><span>NEWER POSTS</span></a></li><li class=pagination-next><a class="btn btn--default btn--small" href=https://blog.deimos.fr/tags/red-hat/page/9/><span>OLDER POSTS</span>
-<i class="fa fa-angle-right text-base icon-ml"></i></a></li><li class=pagination-number>page 8 of 11</li></ul></div></section><footer id=footer class=main-content-wrap><span class=copyrights>&copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved</span></footer></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-remove"></i></div><img id=about-card-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"><h4 id=about-card-name>Pierre Mavro / Deimosfr</h4><div id=about-card-job><i class="fa fa-briefcase"></i><br>Qovery Co-Founder and CTO</div><div id=about-card-location><i class="fa fa-map-marker"></i><br>Paris - France</div></div></div><div id=cover style=background-image:url(https://blog.deimos.fr/images/fish_background.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin=anonymous></script><script src=https://blog.deimos.fr/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js></script><script src=https://blog.deimos.fr/js/custom.js></script><script lang=javascript>window.onload=updateMinWidth;window.onresize=updateMinWidth;document.getElementById("sidebar").addEventListener("transitionend",updateMinWidth);function updateMinWidth(){var sidebar=document.getElementById("sidebar");var main=document.getElementById("main");main.style.minWidth="";var w1=getComputedStyle(main).getPropertyValue("min-width");var w2=getComputedStyle(sidebar).getPropertyValue("width");var w3=getComputedStyle(sidebar).getPropertyValue("left");main.style.minWidth=`calc(${w1} - ${w2} - ${w3})`;}</script><script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:false});$('pre.code-highlight > code, pre > code').each(function(i,block){if(!$(this).hasClass('codeblock')){$(this).addClass('codeblock');}
-hljs.highlightBlock(block);});});</script></body></html>
+Pour lire l&rsquo;article, suivez le lien.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2012/09/08/optimisation-des-filesystems-extx-du-raid-sous-linux/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2012/09/08/optimisation-des-filesystems-extx-du-raid-sous-linux/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/Vfs.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2012/08/31/optimiser-les-performances-des-disques-dur-sur-linux/">
+          Optimiser les performances des disques dur sur Linux
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2012-08-31T10:00:47Z">
+        
+  
+  
+  
+  
+    31 August 2012
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        Les disques dur physiques sont aujourd&rsquo;hui ce qu&rsquo;il y a de plus lent dans nos machines. Que ce soit les disques dur physique à plateaux ou bien même les SSD ! Mais il y a moyen d&rsquo;optimiser selon les besoins des performances de ceux ci.
+C&rsquo;est pourquoi j&rsquo;ai fais un article qui parle des bus, caches, elevators et options de queues. Pour le lire, c&rsquo;est comme d&rsquo;habitude sur le wiki.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2012/08/31/optimiser-les-performances-des-disques-dur-sur-linux/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2012/08/15/autossh-reconnecter-automatiquement-tunnel-ssh/">
+          AutoSSH : reconnecter automatiquement un tunnel SSH
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2012-08-15T10:00:11Z">
+        
+  
+  
+  
+  
+    15 August 2012
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        Si comme moi vous avez un tunnel à maintenir en permanence, qu&rsquo;en cas de déconnexion vous souhaitez une reconnexion automatique, il vous faut utiliser alors un outil tel que AutoSSH.
+Allez voici la doc pour mettre rapidement ça en place pour ceux que ça intéresse.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2012/08/15/autossh-reconnecter-automatiquement-tunnel-ssh/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2012/08/15/autossh-reconnecter-automatiquement-tunnel-ssh/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_openssh.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2012/08/13/mcollective/">
+          Mcollective : gérer une ferme de noeuds
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2012-08-13T10:00:51Z">
+        
+  
+  
+  
+  
+    13 August 2012
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/puppet">Puppet</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        Vous vous rappelez peut être de mon fameux Puppet Push qui me permettait d&rsquo;exécuter des puppet client sur des hosts choisis.
+Mcollective fait la même chose, mais en mieux et propose pleins de fonctionnalités en plus. Bref, il vous permet de contrôler tout un tas de machines très facilement et s&rsquo;intègre très bien à Puppet. C&rsquo;est d&rsquo;ailleurs aujourd&rsquo;hui ce que j&rsquo;utilise en production. Plutôt qu&rsquo;un long discourt, je vous laisse voir ma doc sur Mcollective.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2012/08/13/mcollective/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2012/08/13/mcollective/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_mcollective.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2012/08/11/creer-package-rpm-depuis-tar/">
+          Créer un package RPM depuis un tar
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2012-08-11T10:00:33Z">
+        
+  
+  
+  
+  
+    11 August 2012
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        Je sais que beaucoup d&rsquo;entre vous auront déjà vu maintes et maintes fois ce genre de doc, mais sur le net je n&rsquo;ai trouvé que des choses vieilles ou obsolète. Il a fallu fouiller pas mal pour trouver des infos plus ou moins à jour et jongler entre elles pour ce rendre compte vraiment de ce qu&rsquo;il faut faire pour s&rsquo;en sortir proprement.
+J&rsquo;ai donc fais une doc qui en 5 min vous permettra de faire des packages Red Hat.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2012/08/11/creer-package-rpm-depuis-tar/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2012/08/11/creer-package-rpm-depuis-tar/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_redhat.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2012/07/28/puppet-installation-du-serveur/">
+          Puppet : installation du serveur (Master)
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2012-07-28T10:00:14Z">
+        
+  
+  
+  
+  
+    28 July 2012
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/puppet">Puppet</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        J&rsquo;ai mis à jour la documentation sur Puppet sur la partie installation et la configuration du serveur. Je prépare quelques autres mises à jour de cet article qui vous aideront j&rsquo;espère, à mettre en place ce type de solution qui devient très très vite indispensable :-)
+Voici la mise à jour de l&rsquo;installation et la configuration du puppet master.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2012/07/28/puppet-installation-du-serveur/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2012/07/28/puppet-installation-du-serveur/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/Puppet-short.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2012/07/16/parted-mon-amour/">
+          Parted mon amour
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2012-07-16T10:00:54Z">
+        
+  
+  
+  
+  
+    16 July 2012
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        Oh oui parted c&rsquo;est bien, ça gère l&rsquo;alignement des disques, c&rsquo;est scriptable, ça gère les volumes supérieur à 2Tb&hellip;bref le kiffe !
+Donc cooooooomme d&rsquo;habitude, j&rsquo;ai mis à jour le petit article sur Parted.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2012/07/16/parted-mon-amour/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2012/07/16/parted-mon-amour/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_parted.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+            
+  <div class="pagination-bar">
+    <ul class="pagination">
+      
+        
+          <li class="pagination-prev">
+            <a class="btn btn--default btn--small" href="https://blog.deimos.fr/tags/red-hat/page/7/">
+              <i class="fa fa-angle-left text-base icon-mr"></i>
+              <span>NEWER POSTS</span>
+            </a>
+          </li>
+        
+        
+          <li class="pagination-next">
+            <a class="btn btn--default btn--small" href="https://blog.deimos.fr/tags/red-hat/page/9/">
+              <span>OLDER POSTS</span>
+              <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+          </li>
+        
+      
+      <li class="pagination-number">page 8 of 11</li>
+    </ul>
+  </div>
+
+
+          </section>
+        
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Qovery Co-Founder and CTO
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Paris - France
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      
+      <div id="cover" style="background-image:url('https://blog.deimos.fr/images/fish_background.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://blog.deimos.fr/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+  
+    <script src="https://blog.deimos.fr/js/custom.js"></script>
+  
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+
+    
+  </body>
+</html>
+

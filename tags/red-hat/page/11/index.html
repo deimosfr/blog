@@ -1,50 +1,823 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Hugo 0.69.2 with theme Tranquilpeak 0.4.7-BETA"><meta name=author content="Pierre Mavro / Deimosfr"><meta name=keywords content><meta name=description content="Deimos Blog"><meta property="og:description" content="Deimos Blog"><meta property="og:type" content="website"><meta property="og:title" content="Red Hat"><meta name=twitter:title content="Red Hat"><meta property="og:url" content="https://blog.deimos.fr/tags/red-hat/"><meta property="twitter:url" content="https://blog.deimos.fr/tags/red-hat/"><meta property="og:site_name" content="Deimosfr Blog"><meta property="og:description" content="Deimos Blog"><meta name=twitter:description content="Deimos Blog"><meta property="og:locale" content="en-us"><meta name=twitter:card content="summary"><meta name=twitter:site content="@deimosfr"><meta name=twitter:creator content="@deimosfr"><meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><title>Red Hat</title><link rel=icon href=https://blog.deimos.fr/favicon.png><link rel=alternate type=application/rss+xml title=RSS href=https://blog.deimos.fr/tags/red-hat/index.xml><link rel=canonical href=https://blog.deimos.fr/tags/red-hat/><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin=anonymous><link rel=stylesheet href=https://blog.deimos.fr/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css><link rel=stylesheet href=https://blog.deimos.fr/css/custom.css><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-63927289-1','auto');ga('send','pageview');}</script></head><body><div id=blog><header id=header data-behavior=2><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=https://blog.deimos.fr/>Deimosfr Blog</a></div><a class=header-right-picture href=https://blog.deimos.fr/#about><img class=header-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author's picture"></a></header><nav id=sidebar data-behavior=2><div class=sidebar-container><div class=sidebar-profile><a href=https://blog.deimos.fr/#about><img class=sidebar-profile-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"></a><h4 class=sidebar-profile-name>Pierre Mavro / Deimosfr</h4></div><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/><i class="sidebar-button-icon fa fa-lg fa-home"></i><span class=sidebar-button-desc>Home</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/archives><i class="sidebar-button-icon fa fa-lg fa-archive"></i><span class=sidebar-button-desc>Archives</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/categories><i class="sidebar-button-icon fa fa-lg fa-bookmark"></i><span class=sidebar-button-desc>Categories</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/tags><i class="sidebar-button-icon fa fa-lg fa-tags"></i><span class=sidebar-button-desc>Tags</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/index.xml><i class="sidebar-button-icon fa fa-lg fa-rss"></i><span class=sidebar-button-desc>RSS</span></a></li></ul><ul class=sidebar-buttons></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://www.deimos.fr target=_blank rel=noopener><i class="sidebar-button-icon fa fa-lg fa-user"></i><span class=sidebar-button-desc>About</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://wiki.deimos.fr target=_blank rel=noopener><i class="sidebar-button-icon fa fa-wikipedia-w"></i><span class=sidebar-button-desc>Wiki</span></a></li></ul></div></nav><div id=main data-behavior=2 class=hasCoverMetaIn><section class="postShorten-group main-content-wrap"><article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemtype=http://schema.org/BlogPosting><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title itemprop=headline><a class=link-unstyled href=https://blog.deimos.fr/2012/02/28/proxychains-laissez-moi-sortir/>Proxychains : laissez moi sortir !!!</a></h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2012-02-28T11:00:28Z>28 February 2012</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a></div></div><div class=postShorten-excerpt itemprop=articleBody>Ahhhh les proxy au taf ou à l’école !!! C’est pénible ! Bref, il arrive parfois que l’on souhaites vraiment avoir accès temporairement à l’extérieur. Quelles que soient les commandes que vous utilisez vous aurez ou non la possibilité de configurer l’utilisation d’un proxy en modifiant un fichier de configuration, une variable de d’environnement etc…
-L&rsquo;intérêt de proxychains est que la configuration ne se fait qu&rsquo;une seule fois, dans son propre fichier de configuration.<p><a href=https://blog.deimos.fr/2012/02/28/proxychains-laissez-moi-sortir/ class="postShorten-excerpt_link link">Continue reading</a></p></div></div></article><article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemtype=http://schema.org/BlogPosting><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title itemprop=headline><a class=link-unstyled href=https://blog.deimos.fr/2012/02/24/tmux-cheat-sheet/>Tmux Cheat Sheet</a></h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2012-02-24T11:00:40Z>24 February 2012</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/freebsd>FreeBSD</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/openbsd>OpenBSD</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/solaris>Solaris</a></div></div><div class=postShorten-excerpt itemprop=articleBody>Je ne me suis pas mis au LaTeX pour rien, j’avais pour idée de pondre une Cheat Sheet sur Tmux, vu que je n’en avais trouvé aucune sur le net.
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.83.1 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Red Hat">
+<meta name="twitter:title" content="Red Hat">
+<meta property="og:url" content="https://blog.deimos.fr/tags/red-hat/">
+<meta property="twitter:url" content="https://blog.deimos.fr/tags/red-hat/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
+    <title>Red Hat</title>
+
+    <link rel="icon" href="https://blog.deimos.fr/favicon.png">
+    
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://blog.deimos.fr/tags/red-hat/index.xml">
+    
+
+    
+
+    <link rel="canonical" href="https://blog.deimos.fr/tags/red-hat/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
+      
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-63927289-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="2">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.deimos.fr/">Deimosfr Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://blog.deimos.fr/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="2">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.deimos.fr/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.deimos.fr" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-user"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
+      
+      <span class="sidebar-button-desc">Wiki</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+        
+
+      
+      <div id="main" data-behavior="2"
+        class="
+               hasCoverMetaIn
+               ">
+        
+          <section class="postShorten-group main-content-wrap">
+            
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2012/02/28/proxychains-laissez-moi-sortir/">
+          Proxychains : laissez moi sortir !!!
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2012-02-28T11:00:28Z">
+        
+  
+  
+  
+  
+    28 February 2012
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        Ahhhh les proxy au taf ou à l’école !!! C’est pénible ! Bref, il arrive parfois que l’on souhaites vraiment avoir accès temporairement à l’extérieur. Quelles que soient les commandes que vous utilisez vous aurez ou non la possibilité de configurer l’utilisation d’un proxy en modifiant un fichier de configuration, une variable de d’environnement etc…
+L&rsquo;intérêt de proxychains est que la configuration ne se fait qu&rsquo;une seule fois, dans son propre fichier de configuration.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2012/02/28/proxychains-laissez-moi-sortir/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2012/02/24/tmux-cheat-sheet/">
+          Tmux Cheat Sheet
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2012-02-24T11:00:40Z">
+        
+  
+  
+  
+  
+    24 February 2012
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/freebsd">FreeBSD</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/openbsd">OpenBSD</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/solaris">Solaris</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        Je ne me suis pas mis au LaTeX pour rien, j’avais pour idée de pondre une Cheat Sheet sur Tmux, vu que je n’en avais trouvé aucune sur le net.
 J&rsquo;ai donc mis à jour la documentation Tmux avec les Cheat Sheet en anglais et français.
 Je les fournis également ici :
-Tmux French Cheat Sheet
-Tmux English Cheat Sheet
-N&rsquo;hésitez pas à me faire un retour ou des propositions sur d&rsquo;éventuels ajouts.<p><a href=https://blog.deimos.fr/2012/02/24/tmux-cheat-sheet/ class="postShorten-excerpt_link link">Continue reading</a></p></div></div></article><article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemtype=http://schema.org/BlogPosting><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title itemprop=headline><a class=link-unstyled href=https://blog.deimos.fr/2012/02/10/a-tout-casse-pani-pwoblem/>A tout cassé ? Pani pwoblem !</a></h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2012-02-10T11:00:39Z>10 February 2012</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a></div></div><div class=postShorten-excerpt itemprop=articleBody>J’ai un collègue qui a fait une belle boulette (un chown -Rf mysql sur / !). Du coup la merde, il a fallu trouver une solution pour restaurer les droits.
+  Tmux French Cheat Sheet
+  Tmux English Cheat Sheet
+  N&rsquo;hésitez pas à me faire un retour ou des propositions sur d&rsquo;éventuels ajouts.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2012/02/24/tmux-cheat-sheet/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2012/02/10/a-tout-casse-pani-pwoblem/">
+          A tout cassé ? Pani pwoblem !
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2012-02-10T11:00:39Z">
+        
+  
+  
+  
+  
+    10 February 2012
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        J’ai un collègue qui a fait une belle boulette (un chown -Rf mysql sur / !). Du coup la merde, il a fallu trouver une solution pour restaurer les droits.
 Heureusement Red Hat à penser aux têtes en l&rsquo;air et a mis dans la commande rpm les options *setperms et *setugids pour réparer les droits sur les packages installés. Bref de quoi réparer votre machine.
-Donc si vous aussi vous avez boulétiser, sachez qu&rsquo;une solution existe sur Red Hat.<p><a href=https://blog.deimos.fr/2012/02/10/a-tout-casse-pani-pwoblem/ class="postShorten-excerpt_link link">Continue reading</a></p></div></div></article><article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemtype=http://schema.org/BlogPosting><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title itemprop=headline><a class=link-unstyled href=https://blog.deimos.fr/2012/01/30/pam-access-sur-red-hat/>PAM access sur Red Hat</a></h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2012-01-30T11:00:58Z>30 January 2012</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a></div></div><div class=postShorten-excerpt itemprop=articleBody>J’ai mis à jour la documentation sur PAM access pour Red Hat. Je n’avais que la version Debian, et la doc sur Red Hat étant un peu mince là dessus, je l’ai ajouter à ma documentation déjà présente.<p><a href=https://blog.deimos.fr/2012/01/30/pam-access-sur-red-hat/ class="postShorten-excerpt_link link">Continue reading</a></p></div></div></article><article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemtype=http://schema.org/BlogPosting><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title itemprop=headline><a class=link-unstyled href=https://blog.deimos.fr/2012/01/26/vous-prendrez-bien-une-adresse-ip/>Vous prendrez bien une adresse IP ?!</a></h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2012-01-26T11:00:14Z>26 January 2012</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a></div></div><div class=postShorten-excerpt itemprop=articleBody>J’ai mis à jour la documentation sur les serveurs DHCP. Pas de grosses modifs mais plutôt un ajout des confs Red Hat.<p><a href=https://blog.deimos.fr/2012/01/26/vous-prendrez-bien-une-adresse-ip/ class="postShorten-excerpt_link link">Continue reading</a></p></div></div></article><article class="postShorten postShorten--thumbnailimg-left" itemscope itemtype=http://schema.org/BlogPosting><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title itemprop=headline><a class=link-unstyled href=https://blog.deimos.fr/2012/01/14/varnish-accelerez-vos-serveurs-web/>Varnish : accélérez vos serveurs web</a></h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2012-01-14T11:00:53Z>14 January 2012</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/web>Web</a></div></div><div class=postShorten-excerpt itemprop=articleBody>Varnish est un serveur de cache très connu et utilisé pour accélérer les serveurs web. Je l&rsquo;ai mis en place pour le blog et le wiki alors n&rsquo;hésitez pas à me dire si vous trouvez que c&rsquo;est plus rapide.
-C&rsquo;est rapide à mettre en place et j&rsquo;ai fais une petite documentation comme à mon habitude.<p><a href=https://blog.deimos.fr/2012/01/14/varnish-accelerez-vos-serveurs-web/ class="postShorten-excerpt_link link">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2012/01/14/varnish-accelerez-vos-serveurs-web/><div class=postShorten-thumbnailimg><img alt itemprop=image src=https://blog.deimos.fr/thumbnails/logo_varnish.png></div></a></article><article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemtype=http://schema.org/BlogPosting><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title itemprop=headline><a class=link-unstyled href=https://blog.deimos.fr/2011/12/18/rhce-done/>RHCE done :-)</a></h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2011-12-18T14:19:20Z>18 December 2011</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/others>Others</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/private-life>Private life</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a></div></div><div class=postShorten-excerpt itemprop=articleBody>J&rsquo;ai repassé l&rsquo;examen RHCE et l&rsquo;ai eu cette fois ci. Pour rappel il faut 210 points, j&rsquo;avais fais 208/300 la dernière fois, et cette fois ci 286/300.
-J&rsquo;aimerais bien dire : &ldquo;En route vers RHCA maintenant !", mais je dois avouer que la route va être longue, cher et parsemée d’embuches. Il va me falloir 5 autres certifs pour atteindre ce titre. Il y en a 2 que je pense avoir sans trop de difficultés (Cluter + Statellite) tandis que la RH442 (celle dont j&rsquo;ai eu la formation cette semaine) me semble bien complexe.<p><a href=https://blog.deimos.fr/2011/12/18/rhce-done/ class="postShorten-excerpt_link link">Continue reading</a></p></div></div></article><div class=pagination-bar><ul class=pagination><li class=pagination-prev><a class="btn btn--default btn--small" href=https://blog.deimos.fr/tags/red-hat/page/10/><i class="fa fa-angle-left text-base icon-mr"></i><span>NEWER POSTS</span></a></li><li class=pagination-number>page 11 of 11</li></ul></div></section><footer id=footer class=main-content-wrap><span class=copyrights>&copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved</span></footer></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-remove"></i></div><img id=about-card-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"><h4 id=about-card-name>Pierre Mavro / Deimosfr</h4><div id=about-card-job><i class="fa fa-briefcase"></i><br>Qovery Co-Founder and CTO</div><div id=about-card-location><i class="fa fa-map-marker"></i><br>Paris - France</div></div></div><div id=cover style=background-image:url(https://blog.deimos.fr/images/fish_background.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin=anonymous></script><script src=https://blog.deimos.fr/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js></script><script src=https://blog.deimos.fr/js/custom.js></script><script lang=javascript>window.onload=updateMinWidth;window.onresize=updateMinWidth;document.getElementById("sidebar").addEventListener("transitionend",updateMinWidth);function updateMinWidth(){var sidebar=document.getElementById("sidebar");var main=document.getElementById("main");main.style.minWidth="";var w1=getComputedStyle(main).getPropertyValue("min-width");var w2=getComputedStyle(sidebar).getPropertyValue("width");var w3=getComputedStyle(sidebar).getPropertyValue("left");main.style.minWidth=`calc(${w1} - ${w2} - ${w3})`;}</script><script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:false});$('pre.code-highlight > code, pre > code').each(function(i,block){if(!$(this).hasClass('codeblock')){$(this).addClass('codeblock');}
-hljs.highlightBlock(block);});});</script></body></html>
+Donc si vous aussi vous avez boulétiser, sachez qu&rsquo;une solution existe sur Red Hat.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2012/02/10/a-tout-casse-pani-pwoblem/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2012/01/30/pam-access-sur-red-hat/">
+          PAM access sur Red Hat
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2012-01-30T11:00:58Z">
+        
+  
+  
+  
+  
+    30 January 2012
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        J’ai mis à jour la documentation sur PAM access pour Red Hat. Je n’avais que la version Debian, et la doc sur Red Hat étant un peu mince là dessus, je l’ai ajouter à ma documentation déjà présente.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2012/01/30/pam-access-sur-red-hat/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2012/01/26/vous-prendrez-bien-une-adresse-ip/">
+          Vous prendrez bien une adresse IP ?!
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2012-01-26T11:00:14Z">
+        
+  
+  
+  
+  
+    26 January 2012
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        J’ai mis à jour la documentation sur les serveurs DHCP. Pas de grosses modifs mais plutôt un ajout des confs Red Hat.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2012/01/26/vous-prendrez-bien-une-adresse-ip/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2012/01/14/varnish-accelerez-vos-serveurs-web/">
+          Varnish : accélérez vos serveurs web
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2012-01-14T11:00:53Z">
+        
+  
+  
+  
+  
+    14 January 2012
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/web">Web</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        Varnish est un serveur de cache très connu et utilisé pour accélérer les serveurs web. Je l&rsquo;ai mis en place pour le blog et le wiki alors n&rsquo;hésitez pas à me dire si vous trouvez que c&rsquo;est plus rapide.
+C&rsquo;est rapide à mettre en place et j&rsquo;ai fais une petite documentation comme à mon habitude.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2012/01/14/varnish-accelerez-vos-serveurs-web/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2012/01/14/varnish-accelerez-vos-serveurs-web/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://blog.deimos.fr/thumbnails/logo_varnish.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.deimos.fr/2011/12/18/rhce-done/">
+          RHCE done :-)
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2011-12-18T14:19:20Z">
+        
+  
+  
+  
+  
+    18 December 2011
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/others">Others</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/private-life">Private life</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        J&rsquo;ai repassé l&rsquo;examen RHCE et l&rsquo;ai eu cette fois ci. Pour rappel il faut 210 points, j&rsquo;avais fais 208/300 la dernière fois, et cette fois ci 286/300.
+J&rsquo;aimerais bien dire : &ldquo;En route vers RHCA maintenant !&rdquo;, mais je dois avouer que la route va être longue, cher et parsemée d’embuches. Il va me falloir 5 autres certifs pour atteindre ce titre. Il y en a 2 que je pense avoir sans trop de difficultés (Cluter + Statellite) tandis que la RH442 (celle dont j&rsquo;ai eu la formation cette semaine) me semble bien complexe.
+      
+      <p>
+        <a href="https://blog.deimos.fr/2011/12/18/rhce-done/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+            
+  <div class="pagination-bar">
+    <ul class="pagination">
+      
+        
+          <li class="pagination-prev">
+            <a class="btn btn--default btn--small" href="https://blog.deimos.fr/tags/red-hat/page/10/">
+              <i class="fa fa-angle-left text-base icon-mr"></i>
+              <span>NEWER POSTS</span>
+            </a>
+          </li>
+        
+        
+      
+      <li class="pagination-number">page 11 of 11</li>
+    </ul>
+  </div>
+
+
+          </section>
+        
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Qovery Co-Founder and CTO
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Paris - France
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      
+      <div id="cover" style="background-image:url('https://blog.deimos.fr/images/fish_background.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://blog.deimos.fr/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+  
+    <script src="https://blog.deimos.fr/js/custom.js"></script>
+  
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+
+    
+  </body>
+</html>
+

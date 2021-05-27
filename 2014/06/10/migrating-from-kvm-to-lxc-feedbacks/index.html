@@ -1,22 +1,626 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Hugo 0.69.2 with theme Tranquilpeak 0.4.7-BETA"><meta name=author content="Pierre Mavro / Deimosfr"><meta name=keywords content><meta name=description content="I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&mldr;Thanks Online.
-I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to migrate my VM from KVM. All my KVM VM are on Debian Wheezy so that was pretty easy."><meta property="og:description" content="I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&mldr;Thanks Online.
-I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to migrate my VM from KVM. All my KVM VM are on Debian Wheezy so that was pretty easy."><meta property="og:type" content="article"><meta property="og:title" content="Migrating from KVM to LXC…feedbacks"><meta name=twitter:title content="Migrating from KVM to LXC…feedbacks"><meta property="og:url" content="https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/"><meta property="twitter:url" content="https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/"><meta property="og:site_name" content="Deimosfr Blog"><meta property="og:description" content="I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&mldr;Thanks Online.
-I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to migrate my VM from KVM. All my KVM VM are on Debian Wheezy so that was pretty easy."><meta name=twitter:description content="I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&mldr;Thanks Online.
-I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to migrate my VM from KVM. All my KVM VM are on Debian Wheezy so that was pretty easy."><meta property="og:locale" content="en-us"><meta property="article:published_time" content="2014-06-10T10:00:00"><meta property="article:modified_time" content="2014-06-10T10:00:00"><meta property="article:section" content="Ansible"><meta property="article:section" content="Debian"><meta property="article:section" content="Hi-Tech"><meta property="article:section" content="Linux"><meta property="article:section" content="LXC"><meta property="article:section" content="Virtualization"><meta property="article:tag" content="Ansible"><meta property="article:tag" content="Debian"><meta property="article:tag" content="Hi-Tech"><meta property="article:tag" content="Linux"><meta property="article:tag" content="LXC"><meta property="article:tag" content="Virtualization"><meta name=twitter:card content="summary"><meta name=twitter:site content="@deimosfr"><meta name=twitter:creator content="@deimosfr"><meta property="og:image" content="https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg"><meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg"><meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><title>Migrating from KVM to LXC…feedbacks</title><link rel=icon href=https://blog.deimos.fr/favicon.png><link rel=canonical href=https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin=anonymous><link rel=stylesheet href=https://blog.deimos.fr/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css><link rel=stylesheet href=https://blog.deimos.fr/css/custom.css><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-63927289-1','auto');ga('send','pageview');}</script></head><body><div id=blog><header id=header data-behavior=5><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=https://blog.deimos.fr/>Deimosfr Blog</a></div><a class=header-right-picture href=https://blog.deimos.fr/#about><img class=header-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author's picture"></a></header><nav id=sidebar data-behavior=5><div class=sidebar-container><div class=sidebar-profile><a href=https://blog.deimos.fr/#about><img class=sidebar-profile-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"></a><h4 class=sidebar-profile-name>Pierre Mavro / Deimosfr</h4></div><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/><i class="sidebar-button-icon fa fa-lg fa-home"></i><span class=sidebar-button-desc>Home</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/archives><i class="sidebar-button-icon fa fa-lg fa-archive"></i><span class=sidebar-button-desc>Archives</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/categories><i class="sidebar-button-icon fa fa-lg fa-bookmark"></i><span class=sidebar-button-desc>Categories</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/tags><i class="sidebar-button-icon fa fa-lg fa-tags"></i><span class=sidebar-button-desc>Tags</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/index.xml><i class="sidebar-button-icon fa fa-lg fa-rss"></i><span class=sidebar-button-desc>RSS</span></a></li></ul><ul class=sidebar-buttons></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://www.deimos.fr target=_blank rel=noopener><i class="sidebar-button-icon fa fa-lg fa-user"></i><span class=sidebar-button-desc>About</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://wiki.deimos.fr target=_blank rel=noopener><i class="sidebar-button-icon fa fa-wikipedia-w"></i><span class=sidebar-button-desc>Wiki</span></a></li></ul></div></nav><div id=main data-behavior=5 class=hasCoverMetaIn><article class=post itemscope itemtype=http://schema.org/BlogPosting><div class="post-header main-content-wrap text-left"><h1 class=post-title itemprop=headline>Migrating from KVM to LXC…feedbacks</h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2014-06-10T10:00:00Z>10 June 2014</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/ansible>Ansible</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/lxc>LXC</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/virtualization>Virtualization</a></div></div><div class="post-content markdown" itemprop=articleBody><div class=main-content-wrap><p><img src=https://blog.deimos.fr/images/Poweredbylinux.jpg alt=Poweredbylinux>
-I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&mldr;Thanks <a href=http://www.online.net/fr>Online</a>.</p><p>I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to <strong>migrate my VM from KVM</strong>. All my <a href=https://wiki.deimos.fr/KVM_:_Mise_en_place_de_KVM>KVM</a> VM are on Debian Wheezy so that was pretty easy.</p><p>First of all I used <a href=https://wiki.deimos.fr/Automatiser_une_installation_de_Debian>Preseed to quickly deploy Debian</a> on the host&mldr;as minimal as possible. Then I&rsquo;ve made an <a href=https://galaxy.ansible.com/deimosfr/lxc/>LXC Ansible playbook (available on Ansible Galaxy)</a> to be able to quickly deploy the server. I encountered several little issues and <a href=https://github.com/deimosfr/ansible-lxc>pushed the fixes to my repository on GitHub</a> (linked to my Ansible Galaxy account).</p><p>I had to make the iptables configuration to forward incoming connections to my NATed containers. This is not managed by the LXC playbook as it doesn&rsquo;t have to in my opinion. <a href=https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Network>But you could find examples on my documentation if you need</a>.</p><p>I wanted to manage the deployment of my LXC containers with Ansible, however I didn&rsquo;t had the time to do it. So I concentrated more on migrating my running KVM VMs to the LXC server.</p><p>Then <a href=https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Convert.2FMigrate_a_VM.2FHost_to_a_LXC_container>I&rsquo;ve followed the doc I&rsquo;ve made to convert an existing system to an LXC container</a>. Was working like a charm. To resume:</p><ol><li>I made an rsync copy to the remote rootfs destination</li><li>Stopped all running services on the KVM VM and returned an rsync. This to avoid issues with a running MariaDB for example.</li><li>Launched my lxc-convert script</li></ol><p>Migration finished! Really easy to do it isn&rsquo;t it ? <strong>Only 3 easy steps</strong>.</p><p>To finish, <a href=https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Container_limits_.28cgroups.29>I setup cgroups configuration for my containers</a>. That gave me the possibility to restrict CPU, RAM, DISK I/O and SWAP usage for all my containers.</p><p>I strongly encourage you to test LXC!</p><p>In the next months/years, I think I will start looking at <a href=https://wiki.deimos.fr/Docker_:_manage_LXC_containers_easily_with_advanced_features>Docker</a> (which uses LXC) in a production and will <a href=http://docs.ansible.com/docker_module.html>deploy all my containers with Ansible as a module already exist</a>. I do not really know yet the maturity of Docker in production but I&rsquo;m sure this will be one of the most used cloud solutions with OpenStack and Ceph in the next years.</p></div></div><div id=post-footer class="post-footer main-content-wrap"><div class=post-footer-tags><span class="text-color-light text-small">TAGGED IN</span><br><a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/ansible/>Ansible</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/debian/>Debian</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/hi-tech/>Hi-Tech</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/linux/>Linux</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/lxc/>LXC</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/virtualization/>Virtualization</a></div><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2014/06/12/wiki-updated-ro-mediawiki-1-23/ data-tooltip="Wiki upgraded to MediaWiki 1.23 + GoogleSearch extension"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2014/06/08/elasticsearch-meetup-7-un-paris-next-thuesday/ data-tooltip="ElasticSearch: meetup 7 in Paris next Tuesday"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions><i class="fa fa-share-alt"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/"><i class="fa fa-facebook-official"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/"><i class="fa fa-twitter"></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#disqus_thread><i class="fa fa-comment-o"></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#><i class="fa fa-list"></i></a></li></ul></div><div id=disqus_thread><noscript>Please enable JavaScript to view the <a href=//disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></div></article><footer id=footer class=main-content-wrap><span class=copyrights>&copy; 2020 Pierre Mavro / Deimosfr. All Rights Reserved</span></footer></div><div id=bottom-bar class=post-bottom-bar data-behavior=5><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2014/06/12/wiki-updated-ro-mediawiki-1-23/ data-tooltip="Wiki upgraded to MediaWiki 1.23 + GoogleSearch extension"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2014/06/08/elasticsearch-meetup-7-un-paris-next-thuesday/ data-tooltip="ElasticSearch: meetup 7 in Paris next Tuesday"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions><i class="fa fa-share-alt"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/"><i class="fa fa-facebook-official"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/"><i class="fa fa-twitter"></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#disqus_thread><i class="fa fa-comment-o"></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#><i class="fa fa-list"></i></a></li></ul></div></div><div id=share-options-bar class=share-options-bar data-behavior=5><i id=btn-close-shareoptions class="fa fa-close"></i><ul class=share-options><li class=share-option><a class=share-option-btn target=new href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2014%2F06%2F10%2Fmigrating-from-kvm-to-lxc-feedbacks%2F"><i class="fa fa-facebook-official"></i><span>Share on Facebook</span></a></li><li class=share-option><a class=share-option-btn target=new href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2014%2F06%2F10%2Fmigrating-from-kvm-to-lxc-feedbacks%2F"><i class="fa fa-twitter"></i><span>Share on Twitter</span></a></li></ul></div><div id=share-options-mask class=share-options-mask></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-remove"></i></div><img id=about-card-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"><h4 id=about-card-name>Pierre Mavro / Deimosfr</h4><div id=about-card-job><i class="fa fa-briefcase"></i><br>Qovery Co-Founder and CTO</div><div id=about-card-location><i class="fa fa-map-marker"></i><br>Paris - France</div></div></div><div id=cover style=background-image:url(https://blog.deimos.fr/images/fish_background.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin=anonymous></script><script src=https://blog.deimos.fr/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js></script><script src=https://blog.deimos.fr/js/custom.js></script><script lang=javascript>window.onload=updateMinWidth;window.onresize=updateMinWidth;document.getElementById("sidebar").addEventListener("transitionend",updateMinWidth);function updateMinWidth(){var sidebar=document.getElementById("sidebar");var main=document.getElementById("main");main.style.minWidth="";var w1=getComputedStyle(main).getPropertyValue("min-width");var w2=getComputedStyle(sidebar).getPropertyValue("width");var w3=getComputedStyle(sidebar).getPropertyValue("left");main.style.minWidth=`calc(${w1} - ${w2} - ${w3})`;}</script><script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:false});$('pre.code-highlight > code, pre > code').each(function(i,block){if(!$(this).hasClass('codeblock')){$(this).addClass('codeblock');}
-hljs.highlightBlock(block);});});</script><script>var disqus_config=function(){this.page.url='https:\/\/blog.deimos.fr\/2014\/06\/10\/migrating-from-kvm-to-lxc-feedbacks\/';this.page.identifier='\/2014\/06\/10\/migrating-from-kvm-to-lxc-feedbacks\/'};(function(){if(window.location.hostname=="localhost"){return;}
-var d=document,s=d.createElement('script');var disqus_shortname='blog-deimosfr';s.src='//'+disqus_shortname+'.disqus.com/embed.js';s.setAttribute('data-timestamp',+new Date());(d.head||d.body).appendChild(s);})();</script></body></html>
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.83.1 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&hellip;Thanks Online.
+I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to migrate my VM from KVM. All my KVM VM are on Debian Wheezy so that was pretty easy.">
+
+
+<meta property="og:description" content="I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&hellip;Thanks Online.
+I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to migrate my VM from KVM. All my KVM VM are on Debian Wheezy so that was pretty easy.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Migrating from KVM to LXC…feedbacks">
+<meta name="twitter:title" content="Migrating from KVM to LXC…feedbacks">
+<meta property="og:url" content="https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&hellip;Thanks Online.
+I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to migrate my VM from KVM. All my KVM VM are on Debian Wheezy so that was pretty easy.">
+<meta name="twitter:description" content="I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&hellip;Thanks Online.
+I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to migrate my VM from KVM. All my KVM VM are on Debian Wheezy so that was pretty easy.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2014-06-10T10:00:00">
+  
+  
+    <meta property="article:modified_time" content="2014-06-10T10:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="Ansible">
+    
+      <meta property="article:section" content="Debian">
+    
+      <meta property="article:section" content="Hi-Tech">
+    
+      <meta property="article:section" content="Linux">
+    
+      <meta property="article:section" content="LXC">
+    
+      <meta property="article:section" content="Virtualization">
+    
+  
+  
+    
+      <meta property="article:tag" content="Ansible">
+    
+      <meta property="article:tag" content="Debian">
+    
+      <meta property="article:tag" content="Hi-Tech">
+    
+      <meta property="article:tag" content="Linux">
+    
+      <meta property="article:tag" content="LXC">
+    
+      <meta property="article:tag" content="Virtualization">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg">
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
+    <title>Migrating from KVM to LXC…feedbacks</title>
+
+    <link rel="icon" href="https://blog.deimos.fr/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
+      
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-63927289-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.deimos.fr/">Deimosfr Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://blog.deimos.fr/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.deimos.fr/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.deimos.fr" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-user"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
+      
+      <span class="sidebar-button-desc">Wiki</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Migrating from KVM to LXC…feedbacks
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2014-06-10T10:00:00Z">
+        
+  
+  
+  
+  
+    10 June 2014
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/ansible">Ansible</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/lxc">LXC</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/virtualization">Virtualization</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p><img src="https://blog.deimos.fr/images/Poweredbylinux.jpg" alt="Poweredbylinux">
+I recently migrated this server to a new one. New hardware, better performance, less power consumption etc&hellip;Thanks <a href="http://www.online.net/fr">Online</a>.</p>
+<p>I&rsquo;m already using LXC on my home server and see the benefits for 8 months ago. That&rsquo;s why I decided to migrate this server to LXC as well. The difference here is that I wanted to <strong>migrate my VM from KVM</strong>. All my <a href="https://wiki.deimos.fr/KVM_:_Mise_en_place_de_KVM">KVM</a> VM are on Debian Wheezy so that was pretty easy.</p>
+<p>First of all I used <a href="https://wiki.deimos.fr/Automatiser_une_installation_de_Debian">Preseed to quickly deploy Debian</a> on the host&hellip;as minimal as possible. Then I&rsquo;ve made an <a href="https://galaxy.ansible.com/deimosfr/lxc/">LXC Ansible playbook (available on Ansible Galaxy)</a> to be able to quickly deploy the server. I encountered several little issues and <a href="https://github.com/deimosfr/ansible-lxc">pushed the fixes to my repository on GitHub</a> (linked to my Ansible Galaxy account).</p>
+<p>I had to make the iptables configuration to forward incoming connections to my NATed containers. This is not managed by the LXC playbook as it doesn&rsquo;t have to in my opinion. <a href="https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Network">But you could find examples on my documentation if you need</a>.</p>
+<p>I wanted to manage the deployment of my LXC containers with Ansible, however I didn&rsquo;t had the time to do it. So I concentrated more on migrating my running KVM VMs to the LXC server.</p>
+<p>Then <a href="https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Convert.2FMigrate_a_VM.2FHost_to_a_LXC_container">I&rsquo;ve followed the doc I&rsquo;ve made to convert an existing system to an LXC container</a>. Was working like a charm. To resume:</p>
+<ol>
+<li>I made an rsync copy to the remote rootfs destination</li>
+<li>Stopped all running services on the KVM VM and returned an rsync. This to avoid issues with a running MariaDB for example.</li>
+<li>Launched my lxc-convert script</li>
+</ol>
+<p>Migration finished! Really easy to do it isn&rsquo;t it ? <strong>Only 3 easy steps</strong>.</p>
+<p>To finish, <a href="https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers#Container_limits_.28cgroups.29">I setup cgroups configuration for my containers</a>. That gave me the possibility to restrict CPU, RAM, DISK I/O and SWAP usage for all my containers.</p>
+<p>I strongly encourage you to test LXC!</p>
+<p>In the next months/years, I think I will start looking at <a href="https://wiki.deimos.fr/Docker_:_manage_LXC_containers_easily_with_advanced_features">Docker</a> (which uses LXC) in a production and will <a href="http://docs.ansible.com/docker_module.html">deploy all my containers with Ansible as a module already exist</a>. I do not really know yet the maturity of Docker in production but I&rsquo;m sure this will be one of the most used cloud solutions with OpenStack and Ceph in the next years.</p>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/ansible/">Ansible</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/debian/">Debian</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/hi-tech/">Hi-Tech</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/linux/">Linux</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/lxc/">LXC</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/virtualization/">Virtualization</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2014/06/12/wiki-updated-ro-mediawiki-1-23/" data-tooltip="Wiki upgraded to MediaWiki 1.23 &#43; GoogleSearch extension">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2014/06/08/elasticsearch-meetup-7-un-paris-next-thuesday/" data-tooltip="ElasticSearch: meetup 7 in Paris next Tuesday">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2014/06/12/wiki-updated-ro-mediawiki-1-23/" data-tooltip="Wiki upgraded to MediaWiki 1.23 &#43; GoogleSearch extension">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2014/06/08/elasticsearch-meetup-7-un-paris-next-thuesday/" data-tooltip="ElasticSearch: meetup 7 in Paris next Tuesday">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2014/06/10/migrating-from-kvm-to-lxc-feedbacks/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2014%2F06%2F10%2Fmigrating-from-kvm-to-lxc-feedbacks%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2014%2F06%2F10%2Fmigrating-from-kvm-to-lxc-feedbacks%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Qovery Co-Founder and CTO
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Paris - France
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      
+      <div id="cover" style="background-image:url('https://blog.deimos.fr/images/fish_background.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://blog.deimos.fr/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+  
+    <script src="https://blog.deimos.fr/js/custom.js"></script>
+  
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/blog.deimos.fr\/2014\/06\/10\/migrating-from-kvm-to-lxc-feedbacks\/';
+          
+            this.page.identifier = '\/2014\/06\/10\/migrating-from-kvm-to-lxc-feedbacks\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'blog-deimosfr';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
