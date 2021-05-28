@@ -1,280 +1,11 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    
-    <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.83.1 with theme Tranquilpeak 0.4.8-BETA">
-<meta name="author" content="Pierre Mavro / Deimosfr">
-<meta name="keywords" content="">
-<meta name="description" content="Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C&#43;&#43; étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j’ai la réponse à ma question :
-&lt;th&gt; Language &lt;/th&gt; &lt;th&gt; time (ms) &lt;/th&gt; &lt;th&gt; Slowdown &lt;/th&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 23 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 1464 &lt;/td&gt; &lt;td&gt; 64 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 3242 &lt;/td&gt; &lt;td&gt; 141 x &lt;/td&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 99 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 2686 &lt;/td&gt; &lt;td&gt; 27 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 5285 &lt;/td&gt; &lt;td&gt; 53 x &lt;/td&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 43 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 5143 &lt;/td&gt; &lt;td&gt; 120 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 6413 &lt;/td&gt; &lt;td&gt; 149 x &lt;/td&gt;  Ou encore :">
-
-
-<meta property="og:description" content="Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C&#43;&#43; étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j’ai la réponse à ma question :
-&lt;th&gt; Language &lt;/th&gt; &lt;th&gt; time (ms) &lt;/th&gt; &lt;th&gt; Slowdown &lt;/th&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 23 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 1464 &lt;/td&gt; &lt;td&gt; 64 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 3242 &lt;/td&gt; &lt;td&gt; 141 x &lt;/td&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 99 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 2686 &lt;/td&gt; &lt;td&gt; 27 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 5285 &lt;/td&gt; &lt;td&gt; 53 x &lt;/td&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 43 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 5143 &lt;/td&gt; &lt;td&gt; 120 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 6413 &lt;/td&gt; &lt;td&gt; 149 x &lt;/td&gt;  Ou encore :">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Perl vs X">
-<meta name="twitter:title" content="Perl vs X">
-<meta property="og:url" content="https://blog.deimos.fr/2010/06/10/perl-vs-x/">
-<meta property="twitter:url" content="https://blog.deimos.fr/2010/06/10/perl-vs-x/">
-<meta property="og:site_name" content="Deimosfr Blog">
-<meta property="og:description" content="Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C&#43;&#43; étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j’ai la réponse à ma question :
-&lt;th&gt; Language &lt;/th&gt; &lt;th&gt; time (ms) &lt;/th&gt; &lt;th&gt; Slowdown &lt;/th&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 23 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 1464 &lt;/td&gt; &lt;td&gt; 64 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 3242 &lt;/td&gt; &lt;td&gt; 141 x &lt;/td&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 99 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 2686 &lt;/td&gt; &lt;td&gt; 27 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 5285 &lt;/td&gt; &lt;td&gt; 53 x &lt;/td&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 43 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 5143 &lt;/td&gt; &lt;td&gt; 120 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 6413 &lt;/td&gt; &lt;td&gt; 149 x &lt;/td&gt;  Ou encore :">
-<meta name="twitter:description" content="Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C&#43;&#43; étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j’ai la réponse à ma question :
-&lt;th&gt; Language &lt;/th&gt; &lt;th&gt; time (ms) &lt;/th&gt; &lt;th&gt; Slowdown &lt;/th&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 23 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 1464 &lt;/td&gt; &lt;td&gt; 64 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 3242 &lt;/td&gt; &lt;td&gt; 141 x &lt;/td&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 99 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 2686 &lt;/td&gt; &lt;td&gt; 27 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 5285 &lt;/td&gt; &lt;td&gt; 53 x &lt;/td&gt;  &lt;td&gt; C&#43;&#43; &lt;/td&gt; &lt;td&gt; 43 &lt;/td&gt; &lt;td&gt; &lt;/td&gt;  &lt;td&gt; Perl &lt;/td&gt; &lt;td&gt; 5143 &lt;/td&gt; &lt;td&gt; 120 x &lt;/td&gt;  &lt;td&gt; Python &lt;/td&gt; &lt;td&gt; 6413 &lt;/td&gt; &lt;td&gt; 149 x &lt;/td&gt;  Ou encore :">
-<meta property="og:locale" content="en-us">
-
-  
-    <meta property="article:published_time" content="2010-06-10T06:58:41">
-  
-  
-    <meta property="article:modified_time" content="2010-06-10T06:58:41">
-  
-  
-  
-    
-      <meta property="article:section" content="Developement">
-    
-      <meta property="article:section" content="Hi-Tech">
-    
-  
-  
-    
-      <meta property="article:tag" content="perl">
-    
-  
-
-
-<meta name="twitter:card" content="summary">
-
-  <meta name="twitter:site" content="@deimosfr">
-
-
-  <meta name="twitter:creator" content="@deimosfr">
-
-
-
-
-
-
-
-
-
-
-  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-
-
-    <title>Perl vs X</title>
-
-    <link rel="icon" href="https://blog.deimos.fr/favicon.png">
-    
-
-    
-
-    <link rel="canonical" href="https://blog.deimos.fr/2010/06/10/perl-vs-x/">
-
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
-    
-    
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
-    
-    
-      
-        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
-      
-    
-
-    
-      
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-63927289-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-    
-    
-  </head>
-
-  <body>
-    <div id="blog">
-      <header id="header" data-behavior="5">
-  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-  <div class="header-title">
-    <a class="header-title-link" href="https://blog.deimos.fr/">Deimosfr Blog</a>
-  </div>
-  
-    
-      <a class="header-right-picture "
-         href="https://blog.deimos.fr/#about">
-    
-    
-    
-      
-        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
-      
-    
-    </a>
-  
-</header>
-
-      <nav id="sidebar" data-behavior="5">
-  <div class="sidebar-container">
-    
-      <div class="sidebar-profile">
-        <a href="https://blog.deimos.fr/#about">
-          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
-        </a>
-        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
-        
-      </div>
-    
-    <ul class="sidebar-buttons">
-      
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://blog.deimos.fr/">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
-      
-      <span class="sidebar-button-desc">Home</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://blog.deimos.fr/archives">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
-      
-      <span class="sidebar-button-desc">Archives</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://blog.deimos.fr/categories">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
-      
-      <span class="sidebar-button-desc">Categories</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://blog.deimos.fr/tags">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
-      
-      <span class="sidebar-button-desc">Tags</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://blog.deimos.fr/index.xml">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
-      
-      <span class="sidebar-button-desc">RSS</span>
-    </a>
-  </li>
-
-
-    </ul>
-    <ul class="sidebar-buttons">
-      
-
-    </ul>
-    <ul class="sidebar-buttons">
-      
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://www.deimos.fr" target="_blank" rel="noopener">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-user"></i>
-      
-      <span class="sidebar-button-desc">About</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank" rel="noopener">
-    
-      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
-      
-      <span class="sidebar-button-desc">Wiki</span>
-    </a>
-  </li>
-
-
-    </ul>
-  </div>
-</nav>
-
-      
-
-      <div id="main" data-behavior="5"
-        class="
-               hasCoverMetaIn
-               ">
-        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
-          
-          
-            <div class="post-header main-content-wrap text-left">
-  
-    <h1 class="post-title" itemprop="headline">
-      Perl vs X
-    </h1>
-  
-  
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2010-06-10T06:58:41Z">
-        
-  
-  
-  
-  
-    10 June 2010
-  
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/developement">Developement</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>
-    
-  
-
-  </div>
-
-</div>
-          
-          <div class="post-content markdown" itemprop="articleBody">
-            <div class="main-content-wrap">
-              <p>Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C++ étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j’ai la réponse à ma question :</p>
-<!-- raw HTML omitted -->
-<pre><code>&lt;th&gt;
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Hugo 0.69.2 with theme Tranquilpeak 0.4.8-BETA"><meta name=author content="Pierre Mavro / Deimosfr"><meta name=keywords content><meta name=description content="Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C++ étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j’ai la réponse à ma question :
+<th> Language </th> <th> time (ms) </th> <th> Slowdown </th>  <td> C++ </td> <td> 23 </td> <td> </td>  <td> Perl </td> <td> 1464 </td> <td> 64 x </td>  <td> Python </td> <td> 3242 </td> <td> 141 x </td>  <td> C++ </td> <td> 99 </td> <td> </td>  <td> Perl </td> <td> 2686 </td> <td> 27 x </td>  <td> Python </td> <td> 5285 </td> <td> 53 x </td>  <td> C++ </td> <td> 43 </td> <td> </td>  <td> Perl </td> <td> 5143 </td> <td> 120 x </td>  <td> Python </td> <td> 6413 </td> <td> 149 x </td>  Ou encore :"><meta property="og:description" content="Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C++ étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j’ai la réponse à ma question :
+<th> Language </th> <th> time (ms) </th> <th> Slowdown </th>  <td> C++ </td> <td> 23 </td> <td> </td>  <td> Perl </td> <td> 1464 </td> <td> 64 x </td>  <td> Python </td> <td> 3242 </td> <td> 141 x </td>  <td> C++ </td> <td> 99 </td> <td> </td>  <td> Perl </td> <td> 2686 </td> <td> 27 x </td>  <td> Python </td> <td> 5285 </td> <td> 53 x </td>  <td> C++ </td> <td> 43 </td> <td> </td>  <td> Perl </td> <td> 5143 </td> <td> 120 x </td>  <td> Python </td> <td> 6413 </td> <td> 149 x </td>  Ou encore :"><meta property="og:type" content="article"><meta property="og:title" content="Perl vs X"><meta name=twitter:title content="Perl vs X"><meta property="og:url" content="https://blog.deimos.fr/2010/06/10/perl-vs-x/"><meta property="twitter:url" content="https://blog.deimos.fr/2010/06/10/perl-vs-x/"><meta property="og:site_name" content="Deimosfr Blog"><meta property="og:description" content="Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C++ étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j’ai la réponse à ma question :
+<th> Language </th> <th> time (ms) </th> <th> Slowdown </th>  <td> C++ </td> <td> 23 </td> <td> </td>  <td> Perl </td> <td> 1464 </td> <td> 64 x </td>  <td> Python </td> <td> 3242 </td> <td> 141 x </td>  <td> C++ </td> <td> 99 </td> <td> </td>  <td> Perl </td> <td> 2686 </td> <td> 27 x </td>  <td> Python </td> <td> 5285 </td> <td> 53 x </td>  <td> C++ </td> <td> 43 </td> <td> </td>  <td> Perl </td> <td> 5143 </td> <td> 120 x </td>  <td> Python </td> <td> 6413 </td> <td> 149 x </td>  Ou encore :"><meta name=twitter:description content="Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C++ étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j’ai la réponse à ma question :
+<th> Language </th> <th> time (ms) </th> <th> Slowdown </th>  <td> C++ </td> <td> 23 </td> <td> </td>  <td> Perl </td> <td> 1464 </td> <td> 64 x </td>  <td> Python </td> <td> 3242 </td> <td> 141 x </td>  <td> C++ </td> <td> 99 </td> <td> </td>  <td> Perl </td> <td> 2686 </td> <td> 27 x </td>  <td> Python </td> <td> 5285 </td> <td> 53 x </td>  <td> C++ </td> <td> 43 </td> <td> </td>  <td> Perl </td> <td> 5143 </td> <td> 120 x </td>  <td> Python </td> <td> 6413 </td> <td> 149 x </td>  Ou encore :"><meta property="og:locale" content="en-us"><meta property="article:published_time" content="2010-06-10T06:58:41"><meta property="article:modified_time" content="2010-06-10T06:58:41"><meta property="article:section" content="Developement"><meta property="article:section" content="Hi-Tech"><meta property="article:tag" content="perl"><meta name=twitter:card content="summary"><meta name=twitter:site content="@deimosfr"><meta name=twitter:creator content="@deimosfr"><meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><title>Perl vs X</title><link rel=icon href=https://blog.deimos.fr/favicon.png><link rel=canonical href=https://blog.deimos.fr/2010/06/10/perl-vs-x/><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin=anonymous><link rel=stylesheet href=https://blog.deimos.fr/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css><link rel=stylesheet href=https://blog.deimos.fr/css/custom.css><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-63927289-1','auto');ga('send','pageview');}</script></head><body><div id=blog><header id=header data-behavior=5><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=https://blog.deimos.fr/>Deimosfr Blog</a></div><a class=header-right-picture href=https://blog.deimos.fr/#about><img class=header-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author's picture"></a></header><nav id=sidebar data-behavior=5><div class=sidebar-container><div class=sidebar-profile><a href=https://blog.deimos.fr/#about><img class=sidebar-profile-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"></a><h4 class=sidebar-profile-name>Pierre Mavro / Deimosfr</h4></div><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/><i class="sidebar-button-icon fa fa-lg fa-home"></i><span class=sidebar-button-desc>Home</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/archives><i class="sidebar-button-icon fa fa-lg fa-archive"></i><span class=sidebar-button-desc>Archives</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/categories><i class="sidebar-button-icon fa fa-lg fa-bookmark"></i><span class=sidebar-button-desc>Categories</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/tags><i class="sidebar-button-icon fa fa-lg fa-tags"></i><span class=sidebar-button-desc>Tags</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/index.xml><i class="sidebar-button-icon fa fa-lg fa-rss"></i><span class=sidebar-button-desc>RSS</span></a></li></ul><ul class=sidebar-buttons></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://www.deimos.fr target=_blank rel=noopener><i class="sidebar-button-icon fa fa-lg fa-user"></i><span class=sidebar-button-desc>About</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://wiki.deimos.fr target=_blank rel=noopener><i class="sidebar-button-icon fa fa-wikipedia-w"></i><span class=sidebar-button-desc>Wiki</span></a></li></ul></div></nav><div id=main data-behavior=5 class=hasCoverMetaIn><article class=post itemscope itemtype=http://schema.org/BlogPosting><div class="post-header main-content-wrap text-left"><h1 class=post-title itemprop=headline>Perl vs X</h1><div class="postShorten-meta post-meta"><time itemprop=datePublished datetime=2010-06-10T06:58:41Z>10 June 2010</time>
+<span>in</span>
+<a class=category-link href=https://blog.deimos.fr/categories/developement>Developement</a>,
+<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a></div></div><div class="post-content markdown" itemprop=articleBody><div class=main-content-wrap><p>Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C++ étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j’ai la réponse à ma question :</p><pre><code>&lt;th&gt;
   Language
 &lt;/th&gt;
 
@@ -285,10 +16,7 @@ if (!doNotTrack) {
 &lt;th&gt;
   Slowdown
 &lt;/th&gt;
-</code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<pre><code>&lt;td&gt;
+</code></pre><pre><code>&lt;td&gt;
   C++
 &lt;/td&gt;
 
@@ -298,10 +26,7 @@ if (!doNotTrack) {
 
 &lt;td&gt;
 &lt;/td&gt;
-</code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<pre><code>&lt;td&gt;
+</code></pre><pre><code>&lt;td&gt;
   Perl
 &lt;/td&gt;
 
@@ -312,10 +37,7 @@ if (!doNotTrack) {
 &lt;td&gt;
   64 x
 &lt;/td&gt;
-</code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<pre><code>&lt;td&gt;
+</code></pre><pre><code>&lt;td&gt;
   Python
 &lt;/td&gt;
 
@@ -326,10 +48,7 @@ if (!doNotTrack) {
 &lt;td&gt;
   141 x
 &lt;/td&gt;
-</code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<pre><code>&lt;td&gt;
+</code></pre><pre><code>&lt;td&gt;
   C++
 &lt;/td&gt;
 
@@ -339,10 +58,7 @@ if (!doNotTrack) {
 
 &lt;td&gt;
 &lt;/td&gt;
-</code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<pre><code>&lt;td&gt;
+</code></pre><pre><code>&lt;td&gt;
   Perl
 &lt;/td&gt;
 
@@ -353,10 +69,7 @@ if (!doNotTrack) {
 &lt;td&gt;
   27 x
 &lt;/td&gt;
-</code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<pre><code>&lt;td&gt;
+</code></pre><pre><code>&lt;td&gt;
   Python
 &lt;/td&gt;
 
@@ -367,10 +80,7 @@ if (!doNotTrack) {
 &lt;td&gt;
   53 x
 &lt;/td&gt;
-</code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<pre><code>&lt;td&gt;
+</code></pre><pre><code>&lt;td&gt;
   C++
 &lt;/td&gt;
 
@@ -380,10 +90,7 @@ if (!doNotTrack) {
 
 &lt;td&gt;
 &lt;/td&gt;
-</code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<pre><code>&lt;td&gt;
+</code></pre><pre><code>&lt;td&gt;
   Perl
 &lt;/td&gt;
 
@@ -394,10 +101,7 @@ if (!doNotTrack) {
 &lt;td&gt;
   120 x
 &lt;/td&gt;
-</code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<pre><code>&lt;td&gt;
+</code></pre><pre><code>&lt;td&gt;
   Python
 &lt;/td&gt;
 
@@ -408,20 +112,13 @@ if (!doNotTrack) {
 &lt;td&gt;
   149 x
 &lt;/td&gt;
-</code></pre>
-<!-- raw HTML omitted -->
-<p>Ou encore :</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">time</span> ./split.pl  p.test           <span class="c1"># Perl 5.8.8</span>
+</code></pre><p>Ou encore :</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=nb>time</span> ./split.pl  p.test           <span class=c1># Perl 5.8.8</span>
 real    0m38.577s
 user    0m33.554s
-sys     0m0.848s<span class="sb">`</span></code></pre></div>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">time</span> ./split.py p.test            <span class="c1"># Python 2.4.4</span>
+sys     0m0.848s<span class=sb>`</span></code></pre></div><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>$ <span class=nb>time</span> ./split.py p.test            <span class=c1># Python 2.4.4</span>
 real    0m44.895s
 user    0m42.975s
-sys     0m0.900s</code></pre></div>
-<p>Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C++ étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j&rsquo;ai la réponse à ma question :</p>
-<!-- raw HTML omitted -->
-<pre><code>&lt;th&gt;
+sys     0m0.900s</code></pre></div><p>Cela fait un moment que je me demandais quels étaient les différences de performances entre Perl et les autres langages. Je savais pertinemment que le C ou le C++ étaient plus rapide, mais par rapports aux autre langages plus ou moins interprétés, je ne savais pas. Après une très rapide recherche, j&rsquo;ai la réponse à ma question :</p><pre><code>&lt;th&gt;
   Language
 &lt;/th&gt;
 
@@ -432,10 +129,7 @@ sys     0m0.900s</code></pre></div>
 &lt;th&gt;
   Slowdown
 &lt;/th&gt;
-</code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<pre><code>&lt;td&gt;
+</code></pre><pre><code>&lt;td&gt;
   C++
 &lt;/td&gt;
 
@@ -445,10 +139,7 @@ sys     0m0.900s</code></pre></div>
 
 &lt;td&gt;
 &lt;/td&gt;
-</code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<pre><code>&lt;td&gt;
+</code></pre><pre><code>&lt;td&gt;
   Perl
 &lt;/td&gt;
 
@@ -459,10 +150,7 @@ sys     0m0.900s</code></pre></div>
 &lt;td&gt;
   64 x
 &lt;/td&gt;
-</code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<pre><code>&lt;td&gt;
+</code></pre><pre><code>&lt;td&gt;
   Python
 &lt;/td&gt;
 
@@ -473,10 +161,7 @@ sys     0m0.900s</code></pre></div>
 &lt;td&gt;
   141 x
 &lt;/td&gt;
-</code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<pre><code>&lt;td&gt;
+</code></pre><pre><code>&lt;td&gt;
   C++
 &lt;/td&gt;
 
@@ -486,10 +171,7 @@ sys     0m0.900s</code></pre></div>
 
 &lt;td&gt;
 &lt;/td&gt;
-</code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<pre><code>&lt;td&gt;
+</code></pre><pre><code>&lt;td&gt;
   Perl
 &lt;/td&gt;
 
@@ -500,10 +182,7 @@ sys     0m0.900s</code></pre></div>
 &lt;td&gt;
   27 x
 &lt;/td&gt;
-</code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<pre><code>&lt;td&gt;
+</code></pre><pre><code>&lt;td&gt;
   Python
 &lt;/td&gt;
 
@@ -514,10 +193,7 @@ sys     0m0.900s</code></pre></div>
 &lt;td&gt;
   53 x
 &lt;/td&gt;
-</code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<pre><code>&lt;td&gt;
+</code></pre><pre><code>&lt;td&gt;
   C++
 &lt;/td&gt;
 
@@ -527,10 +203,7 @@ sys     0m0.900s</code></pre></div>
 
 &lt;td&gt;
 &lt;/td&gt;
-</code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<pre><code>&lt;td&gt;
+</code></pre><pre><code>&lt;td&gt;
   Perl
 &lt;/td&gt;
 
@@ -541,10 +214,7 @@ sys     0m0.900s</code></pre></div>
 &lt;td&gt;
   120 x
 &lt;/td&gt;
-</code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<pre><code>&lt;td&gt;
+</code></pre><pre><code>&lt;td&gt;
   Python
 &lt;/td&gt;
 
@@ -555,322 +225,20 @@ sys     0m0.900s</code></pre></div>
 &lt;td&gt;
   149 x
 &lt;/td&gt;
-</code></pre>
-<!-- raw HTML omitted -->
-<p>Ou encore :
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"> 
-<span class="nb">time</span> ./split.pl  p.test           <span class="c1"># Perl 5.8.8</span>
+</code></pre><p>Ou encore :<div class=highlight><pre class=chroma><code class=language-bash data-lang=bash> 
+<span class=nb>time</span> ./split.pl  p.test           <span class=c1># Perl 5.8.8</span>
 real    0m38.577s
 user    0m33.554s
-sys     0m0.848s<span class="sb">`</span></code></pre></div></p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"> 
-$ <span class="nb">time</span> ./split.py p.test            <span class="c1"># Python 2.4.4</span>
+sys     0m0.848s<span class=sb>`</span></code></pre></div></p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash> 
+$ <span class=nb>time</span> ./split.py p.test            <span class=c1># Python 2.4.4</span>
 real    0m44.895s
 user    0m42.975s
-sys     0m0.900s</code></pre></div>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"> 
-$ <span class="nb">time</span> php split.php p.test <span class="c1"># PHP 5.2.6RC4</span>
+sys     0m0.900s</code></pre></div><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash> 
+$ <span class=nb>time</span> php split.php p.test <span class=c1># PHP 5.2.6RC4</span>
 real 1m10.887s
 user 0m51.251s
-sys 0m18.677s</code></pre></div>
-<p>Perl est donc très bien placé :-)</p>
-<p>Sources :</p>
-<p><a href="http://tenser.typepad.com/tenser_said_the_tensor/2006/08/python_vs_perl_.html">http://tenser.typepad.com/tenser_said_the_tensor/2006/08/python_vs_perl_.html</a></p>
-<p><a href="http://www.skitoy.com/p/performance-of-python-php-and-perl/160">http://www.skitoy.com/p/performance-of-python-php-and-perl/160</a></p>
-
-              
-            </div>
-          </div>
-          <div id="post-footer" class="post-footer main-content-wrap">
-            
-              
-                
-                
-                  <div class="post-footer-tags">
-                    <span class="text-color-light text-small">TAGGED IN</span><br/>
-                    
-  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/perl/">perl</a>
-
-                  </div>
-                
-              
-            
-            <div class="post-actions-wrap">
-  
-      <nav >
-        <ul class="post-actions post-action-nav">
-          
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2010/06/10/certificats-ssl-gratos/" data-tooltip="Certificats SSL gratos">
-              
-                  <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-                </a>
-            </li>
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2010/06/09/collectd-pour-remplacer-munin/" data-tooltip="Collectd pour remplacer Munin">
-              
-                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                  <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-          
-        </ul>
-      </nav>
-    <ul class="post-actions post-action-share" >
-      
-        <li class="post-action hide-lg hide-md hide-sm">
-          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
-            <i class="fa fa-share-alt"></i>
-          </a>
-        </li>
-        
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2010/06/10/perl-vs-x/">
-              <i class="fa fa-facebook-official"></i>
-            </a>
-          </li>
-        
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2010/06/10/perl-vs-x/">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
-        
-      
-      
-        <li class="post-action">
-          <a class="post-action-btn btn btn--default" href="#disqus_thread">
-            <i class="fa fa-comment-o"></i>
-          </a>
-        </li>
-      
-      <li class="post-action">
-        
-          <a class="post-action-btn btn btn--default" href="#">
-        
-          <i class="fa fa-list"></i>
-        </a>
-      </li>
-    </ul>
-  
-</div>
-
-            
-              
-                <div id="disqus_thread">
-  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-              
-            
-          </div>
-        </article>
-        <footer id="footer" class="main-content-wrap">
-  <span class="copyrights">
-    &copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved
-  </span>
-</footer>
-
-      </div>
-      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        <div class="post-actions-wrap">
-  
-      <nav >
-        <ul class="post-actions post-action-nav">
-          
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2010/06/10/certificats-ssl-gratos/" data-tooltip="Certificats SSL gratos">
-              
-                  <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-                </a>
-            </li>
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2010/06/09/collectd-pour-remplacer-munin/" data-tooltip="Collectd pour remplacer Munin">
-              
-                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                  <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-          
-        </ul>
-      </nav>
-    <ul class="post-actions post-action-share" >
-      
-        <li class="post-action hide-lg hide-md hide-sm">
-          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
-            <i class="fa fa-share-alt"></i>
-          </a>
-        </li>
-        
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2010/06/10/perl-vs-x/">
-              <i class="fa fa-facebook-official"></i>
-            </a>
-          </li>
-        
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2010/06/10/perl-vs-x/">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
-        
-      
-      
-        <li class="post-action">
-          <a class="post-action-btn btn btn--default" href="#disqus_thread">
-            <i class="fa fa-comment-o"></i>
-          </a>
-        </li>
-      
-      <li class="post-action">
-        
-          <a class="post-action-btn btn btn--default" href="#">
-        
-          <i class="fa fa-list"></i>
-        </a>
-      </li>
-    </ul>
-  
-</div>
-
-      </div>
-      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
-  <i id="btn-close-shareoptions" class="fa fa-close"></i>
-  <ul class="share-options">
-    
-      <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2010%2F06%2F10%2Fperl-vs-x%2F">
-          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
-        </a>
-      </li>
-    
-      <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2010%2F06%2F10%2Fperl-vs-x%2F">
-          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
-        </a>
-      </li>
-    
-  </ul>
-</div>
-<div id="share-options-mask" class="share-options-mask"></div>
-    </div>
-    
-    <div id="about">
-  <div id="about-card">
-    <div id="about-btn-close">
-      <i class="fa fa-remove"></i>
-    </div>
-    
-      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
-    
-    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
-    
-    
-      <div id="about-card-job">
-        <i class="fa fa-briefcase"></i>
-        <br/>
-        Qovery Co-Founder and CTO
-      </div>
-    
-    
-      <div id="about-card-location">
-        <i class="fa fa-map-marker"></i>
-        <br/>
-        Paris - France
-      </div>
-    
-  </div>
-</div>
-
-    
-
-    
-  
-    
-      
-      <div id="cover" style="background-image:url('https://blog.deimos.fr/images/fish_background.jpg');"></div>
-    
-  
-
-
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
-
-
-<script src="https://blog.deimos.fr/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
-
-
-  
-    <script src="https://blog.deimos.fr/js/custom.js"></script>
-  
-
-<script lang="javascript">
-window.onload = updateMinWidth;
-window.onresize = updateMinWidth;
-document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
-function updateMinWidth() {
-  var sidebar = document.getElementById("sidebar");
-  var main = document.getElementById("main");
-  main.style.minWidth = "";
-  var w1 = getComputedStyle(main).getPropertyValue("min-width");
-  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
-  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
-  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
-}
-</script>
-
-<script>
-$(document).ready(function() {
-  hljs.configure({ classPrefix: '', useBR: false });
-  $('pre.code-highlight > code, pre > code').each(function(i, block) {
-    if (!$(this).hasClass('codeblock')) {
-      $(this).addClass('codeblock');
-    }
-    hljs.highlightBlock(block);
-  });
-});
-</script>
-
-
-  
-    
-      <script>
-        var disqus_config = function () {
-          this.page.url = 'https:\/\/blog.deimos.fr\/2010\/06\/10\/perl-vs-x\/';
-          
-            this.page.identifier = '\/2010\/06\/10\/perl-vs-x\/'
-          
-        };
-        (function() {
-          
-          
-          if (window.location.hostname == "localhost") {
-            return;
-          }
-          var d = document, s = d.createElement('script');
-          var disqus_shortname = 'blog-deimosfr';
-          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-
-          s.setAttribute('data-timestamp', +new Date());
-          (d.head || d.body).appendChild(s);
-        })();
-      </script>
-    
-  
-
-
-
-
-    
-  </body>
-</html>
-
+sys 0m18.677s</code></pre></div><p>Perl est donc très bien placé :-)</p><p>Sources :</p><p><a href=http://tenser.typepad.com/tenser_said_the_tensor/2006/08/python_vs_perl_.html>http://tenser.typepad.com/tenser_said_the_tensor/2006/08/python_vs_perl_.html</a></p><p><a href=http://www.skitoy.com/p/performance-of-python-php-and-perl/160>http://www.skitoy.com/p/performance-of-python-php-and-perl/160</a></p></div></div><div id=post-footer class="post-footer main-content-wrap"><div class=post-footer-tags><span class="text-color-light text-small">TAGGED IN</span><br><a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/perl/>perl</a></div><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2010/06/10/certificats-ssl-gratos/ data-tooltip="Certificats SSL gratos"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2010/06/09/collectd-pour-remplacer-munin/ data-tooltip="Collectd pour remplacer Munin"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions><i class="fa fa-share-alt"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2010/06/10/perl-vs-x/"><i class="fa fa-facebook-official"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2010/06/10/perl-vs-x/"><i class="fa fa-twitter"></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#disqus_thread><i class="fa fa-comment-o"></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#><i class="fa fa-list"></i></a></li></ul></div><div id=disqus_thread><noscript>Please enable JavaScript to view the <a href=//disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></div></article><footer id=footer class=main-content-wrap><span class=copyrights>&copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved</span></footer></div><div id=bottom-bar class=post-bottom-bar data-behavior=5><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2010/06/10/certificats-ssl-gratos/ data-tooltip="Certificats SSL gratos"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2010/06/09/collectd-pour-remplacer-munin/ data-tooltip="Collectd pour remplacer Munin"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions><i class="fa fa-share-alt"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2010/06/10/perl-vs-x/"><i class="fa fa-facebook-official"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2010/06/10/perl-vs-x/"><i class="fa fa-twitter"></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#disqus_thread><i class="fa fa-comment-o"></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#><i class="fa fa-list"></i></a></li></ul></div></div><div id=share-options-bar class=share-options-bar data-behavior=5><i id=btn-close-shareoptions class="fa fa-close"></i><ul class=share-options><li class=share-option><a class=share-option-btn target=new href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2010%2F06%2F10%2Fperl-vs-x%2F"><i class="fa fa-facebook-official"></i><span>Share on Facebook</span></a></li><li class=share-option><a class=share-option-btn target=new href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2010%2F06%2F10%2Fperl-vs-x%2F"><i class="fa fa-twitter"></i><span>Share on Twitter</span></a></li></ul></div><div id=share-options-mask class=share-options-mask></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-remove"></i></div><img id=about-card-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"><h4 id=about-card-name>Pierre Mavro / Deimosfr</h4><div id=about-card-job><i class="fa fa-briefcase"></i><br>Qovery Co-Founder and CTO</div><div id=about-card-location><i class="fa fa-map-marker"></i><br>Paris - France</div></div></div><div id=cover style=background-image:url(https://blog.deimos.fr/images/fish_background.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin=anonymous></script><script src=https://blog.deimos.fr/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js></script><script src=https://blog.deimos.fr/js/custom.js></script><script lang=javascript>window.onload=updateMinWidth;window.onresize=updateMinWidth;document.getElementById("sidebar").addEventListener("transitionend",updateMinWidth);function updateMinWidth(){var sidebar=document.getElementById("sidebar");var main=document.getElementById("main");main.style.minWidth="";var w1=getComputedStyle(main).getPropertyValue("min-width");var w2=getComputedStyle(sidebar).getPropertyValue("width");var w3=getComputedStyle(sidebar).getPropertyValue("left");main.style.minWidth=`calc(${w1} - ${w2} - ${w3})`;}</script><script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:false});$('pre.code-highlight > code, pre > code').each(function(i,block){if(!$(this).hasClass('codeblock')){$(this).addClass('codeblock');}
+hljs.highlightBlock(block);});});</script><script>var disqus_config=function(){this.page.url='https:\/\/blog.deimos.fr\/2010\/06\/10\/perl-vs-x\/';this.page.identifier='\/2010\/06\/10\/perl-vs-x\/'};(function(){if(window.location.hostname=="localhost"){return;}
+var d=document,s=d.createElement('script');var disqus_shortname='blog-deimosfr';s.src='//'+disqus_shortname+'.disqus.com/embed.js';s.setAttribute('data-timestamp',+new Date());(d.head||d.body).appendChild(s);})();</script></body></html>
