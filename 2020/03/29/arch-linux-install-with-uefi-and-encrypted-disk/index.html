@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.83.1 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.83.1 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Several times I had to install Arch Linux those 8 past years. Not because it&rsquo;s not stable but because I changed hardware. Any time it was a pain to remind me how to do stuff during the install process. I really love this Linux distribution, but I have to admit the install process is far complex that what we found on other distribution.
@@ -289,7 +289,7 @@ if (!doNotTrack) {
 <p>I&rsquo;m french and familiar with french keyboards:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">loadkeys fr-latin9
 </code></pre></div><h1 id="setup-network">Setup network</h1>
-<p>Connect to the wifi and setup time:</p>
+<p>Connect to the wifi:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">device list
 </code></pre></div><p>You should get the name of your network interface like <code>wlan0</code>.</p>
 <p>Now, run a scan, look at the wished network name and connect to it:</p>
@@ -299,7 +299,7 @@ station wlan0 connect &lt;SSID wifi name&gt;
 </code></pre><p>If there is a secret, you should be prompted for it. You can then validate with:</p>
 <pre><code>station wlan0 show
 </code></pre><h1 id="configure-ntp">Configure NTP</h1>
-<p>To enable ntp:</p>
+<p>Setup time with NTP:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">timedatectl set-ntp <span class="nb">true</span>
 </code></pre></div><h1 id="create-partitions">Create partitions</h1>
 <p>I needed to have:</p>
@@ -318,7 +318,7 @@ station wlan0 connect &lt;SSID wifi name&gt;
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">Number  Start   End     Size    File system  Name  Flags
  <span class="m">1</span>      1049kB  512MB   511MB   fat32        efi   boot, esp
  <span class="m">2</span>      512MB   1024GB  1024GB               arch
-</code></pre></div><p>Note: the used flags, do not forget to add them. Also for optimized partition, use multiples of 2 (logic) and percentages to let parted do the optimization. Also I&rsquo;m not using swap to optimize my laptop performances.</p>
+</code></pre></div><p>Note: the used flags, do not forget to add them. Also for optimized partition, use multiples of 2 (logic) and percentages to let parted do the optimization. Finally, I&rsquo;m not using swap to optimize my laptop performances.</p>
 <h1 id="format-partitions">Format partitions</h1>
 <p>Initialize <code>/boot</code> device:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mkfs.vfat -F32 -n EFI /dev/nvme0n1p1
@@ -378,7 +378,7 @@ locale-gen
 <span class="nb">echo</span> <span class="s1">&#39;initrd /intel-ucode.img&#39;</span> &gt;&gt; /boot/loader/entries/arch.conf
 <span class="nb">echo</span> <span class="s1">&#39;initrd /initramfs-linux.img&#39;</span> &gt;&gt; /boot/loader/entries/arch.conf
 <span class="nb">echo</span> <span class="s2">&#34;options cryptdevice=UUID=</span><span class="si">${</span><span class="nv">UUID</span><span class="si">}</span><span class="s2">:vg0 root=/dev/mapper/vg0-root rw intel_pstate=no_hwp&#34;</span> &gt;&gt; /boot/loader/entries/arch.conf
-</code></pre></div><h1 id="finish">Finish</h1>
+</code></pre></div><h1 id="end-install">End install</h1>
 <p>Before ending, <strong>install Network Manager</strong> or anything you need for the network part.</p>
 <p>To finish, setup a root password:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">passwd
@@ -387,6 +387,14 @@ locale-gen
 umount /mnt/home /mnt/boot
 umount /mnt
 </code></pre></div><p>Reboot and you&rsquo;re done :)</p>
+<h1 id="restore">Restore</h1>
+<p>If you want to restore from a previous install, here are some advises I can give to you:</p>
+<ol>
+<li>Get a packages list from your old workstation: <code>pacman -Qqe &gt; ~/pacman_packages</code></li>
+<li>On your new workstation, re-inject them (with fish shell): <code>for i in (cat pacman_packages) ; yay -Sy $i ; end</code></li>
+<li>Finally move current <code>/etc</code> to <code>/etc.old</code> and restore your /etc backup</li>
+</ol>
+<p>Steps order is important because if you restore <code>/etc</code> before the 2nd step, some packages install will fail because of already existing files in <code>/etc</code>.</p>
 <p>Hope this will help others to speed up their install like me :)</p>
 
               
