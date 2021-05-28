@@ -45,7 +45,7 @@ loadkeys fr-latin9
 
 # Setup network
 
-Connect to the wifi and setup time:
+Connect to the wifi:
 
 ```bash
 device list
@@ -70,7 +70,7 @@ station wlan0 show
 
 # Configure NTP
 
-To enable ntp:
+Setup time with NTP:
 ```bash
 timedatectl set-ntp true
 ```
@@ -96,7 +96,7 @@ Number  Start   End     Size    File system  Name  Flags
  2      512MB   1024GB  1024GB               arch
 ```
 
-Note: the used flags, do not forget to add them. Also for optimized partition, use multiples of 2 (logic) and percentages to let parted do the optimization. Also I'm not using swap to optimize my laptop performances.
+Note: the used flags, do not forget to add them. Also for optimized partition, use multiples of 2 (logic) and percentages to let parted do the optimization. Finally, I'm not using swap to optimize my laptop performances.
 
 # Format partitions
 
@@ -211,7 +211,7 @@ echo 'initrd /initramfs-linux.img' >> /boot/loader/entries/arch.conf
 echo "options cryptdevice=UUID=${UUID}:vg0 root=/dev/mapper/vg0-root rw intel_pstate=no_hwp" >> /boot/loader/entries/arch.conf
 ```
 
-# Finish
+# End install
 
 Before ending, **install Network Manager** or anything you need for the network part.
 
@@ -229,6 +229,16 @@ umount /mnt
 ```
 
 Reboot and you're done :)
+
+# Restore
+
+If you want to restore from a previous install, here are some advises I can give to you:
+
+1. Get a packages list from your old workstation: `pacman -Qqe > ~/pacman_packages`
+2. On your new workstation, re-inject them (with fish shell): `for i in (cat pacman_packages) ; yay -Sy $i ; end`
+3. Finally move current `/etc` to `/etc.old` and restore your /etc backup
+
+Steps order is important because if you restore `/etc` before the 2nd step, some packages install will fail because of already existing files in `/etc`.
 
 Hope this will help others to speed up their install like me :)
 
