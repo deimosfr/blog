@@ -167,6 +167,14 @@ systemctl start wg-quick@wg0.service
 You can add as many peers as you want on the EdgeRouter from Vyatta command line.
 Here is another [useful link][7] for Arch users.
 
+### With Network Manager
+
+It's so easy to import a configuration in Network Manager:
+
+```bash
+nmcli connection import type wireguard file "wg0.conf"
+```
+
 Hope you enjoyed reading
 
  [1]: https://www.wireguard.com/
