@@ -1,50 +1,357 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SQL on Deimosfr Blog</title><link>https://blog.deimos.fr/categories/sql/</link><description>Recent content in SQL on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 15 Sep 2015 21:56:06 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/categories/sql/index.xml" rel="self" type="application/rss+xml"/><item><title>Ansible Meetup done! Watch again the slides</title><link>https://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/</link><pubDate>Tue, 15 Sep 2015 21:56:06 +0000</pubDate><guid>https://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/</guid><description>The Ansible meetup ended ! That was really nice for my first one.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SQL on Deimosfr Blog</title>
+    <link>https://blog.deimos.fr/categories/sql/</link>
+    <description>Recent content in SQL on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 15 Sep 2015 21:56:06 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/categories/sql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ansible Meetup done! Watch again the slides</title>
+      <link>https://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/</link>
+      <pubDate>Tue, 15 Sep 2015 21:56:06 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/</guid>
+      <description>The Ansible meetup ended ! That was really nice for my first one.
 I had really great feedbacks and liked the questions when ended. More than that I met nice people after the meetup and could have interresting discussions :-). I&amp;rsquo;m really happy about it.
 For those who would like to review the slides, you can find them here:
 http://nousmotards.github.io/ansible-meetup-0915/
 If you want to watch the video:
 http://www.infoq.com/fr/presentations/reseau-social-motard
-or view the PDF version here:</description></item><item><title>Ansible: Neo4j role available on Ansible Galaxy</title><link>https://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/</link><pubDate>Fri, 27 Feb 2015 11:00:01 +0000</pubDate><guid>https://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/</guid><description>For a new project (will talk about it later), I needed to use Neo4J (graph database if you don&amp;rsquo;t know it yet).
+or view the PDF version here:</description>
+    </item>
+    
+    <item>
+      <title>Ansible: Neo4j role available on Ansible Galaxy</title>
+      <link>https://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/</link>
+      <pubDate>Fri, 27 Feb 2015 11:00:01 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2015/02/27/ansible-neo4j-role-available-on-ansible-galaxy/</guid>
+      <description>For a new project (will talk about it later), I needed to use Neo4J (graph database if you don&amp;rsquo;t know it yet).
 I tried to cover more features than the current existing Ansible roles available on Ansible Galaxy. More will come in the next weeks. I also tried to make it simple to install it and do not force dependencies at maximum. Here are parameters you can set:
-# Select neo4j version neo4j_package: neo4j # community version #neo4j_package: neo4j-advanced #neo4j_package: neo4j-enterprise # Neo4j spatial plugin neo4j_install_spatial: false neo4j_spatial_version: &amp;#39;0.</description></item><item><title>WordPress: how I almost lost my blog and want to switch</title><link>https://blog.deimos.fr/2015/01/29/wordpress-how-i-almost-lost-my-blog-and-want-to-switch/</link><pubDate>Thu, 29 Jan 2015 11:00:01 +0000</pubDate><guid>https://blog.deimos.fr/2015/01/29/wordpress-how-i-almost-lost-my-blog-and-want-to-switch/</guid><description>A few days ago I wanted to play with HAProxy SSL offloading. It was a good experience and alternative to Nginx SSL offloading (I already talked about in this blog). But this is not the topic here&amp;hellip;
-When I was trying to make the offload working on the blog, I modified WordPress options which switched my blog into an infinite loop mode. As it was late and I was tired (bad idea), I just wanted to rollback my changes and needed to recover a SQL backup to do it fast.</description></item><item><title>Ansible: DotDeb and MySQL roles</title><link>https://blog.deimos.fr/2014/12/26/ansible-dotdeb-and-mysql-roles/</link><pubDate>Fri, 26 Dec 2014 11:00:07 +0000</pubDate><guid>https://blog.deimos.fr/2014/12/26/ansible-dotdeb-and-mysql-roles/</guid><description>For my personal usages, I wanted do use DotDeb and MySQL playbooks. I first looked at the current ones on the Ansible Galaxy. However I did not find a good one for my needs.
+# Select neo4j version neo4j_package: neo4j # community version #neo4j_package: neo4j-advanced #neo4j_package: neo4j-enterprise # Neo4j spatial plugin neo4j_install_spatial: false neo4j_spatial_version: &amp;#39;0.</description>
+    </item>
+    
+    <item>
+      <title>WordPress: how I almost lost my blog and want to switch</title>
+      <link>https://blog.deimos.fr/2015/01/29/wordpress-how-i-almost-lost-my-blog-and-want-to-switch/</link>
+      <pubDate>Thu, 29 Jan 2015 11:00:01 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2015/01/29/wordpress-how-i-almost-lost-my-blog-and-want-to-switch/</guid>
+      <description>A few days ago I wanted to play with HAProxy SSL offloading. It was a good experience and alternative to Nginx SSL offloading (I already talked about in this blog). But this is not the topic here&amp;hellip;
+When I was trying to make the offload working on the blog, I modified WordPress options which switched my blog into an infinite loop mode. As it was late and I was tired (bad idea), I just wanted to rollback my changes and needed to recover a SQL backup to do it fast.</description>
+    </item>
+    
+    <item>
+      <title>Ansible: DotDeb and MySQL roles</title>
+      <link>https://blog.deimos.fr/2014/12/26/ansible-dotdeb-and-mysql-roles/</link>
+      <pubDate>Fri, 26 Dec 2014 11:00:07 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/12/26/ansible-dotdeb-and-mysql-roles/</guid>
+      <description>For my personal usages, I wanted do use DotDeb and MySQL playbooks. I first looked at the current ones on the Ansible Galaxy. However I did not find a good one for my needs.
 I first wanted to try to contribute to an existing one. But I needed to have them quickly and unfortunately didn&amp;rsquo;t have the time to do it.
-That&amp;rsquo;s why I made 2 new Ansible roles and added them to Ansible Galaxy.</description></item><item><title>News in bulk</title><link>https://blog.deimos.fr/2014/11/07/news-in-bulk-4/</link><pubDate>Fri, 07 Nov 2014 11:11:29 +0000</pubDate><guid>https://blog.deimos.fr/2014/11/07/news-in-bulk-4/</guid><description>As I do not really have a good blog post for today, here are some things I wanted to talk in a summary. Some good projects have been updated like:
-WordPress 4: no big updates at the first view but it&amp;rsquo;s nice to see how this project works and grow (videos, WYSIWYG,&amp;hellip;) HAProxy 1.5: Offlloading SSL embedded, Full HTTP Keepalive, ACL enhancement&amp;hellip; BIG update! MySecureShell 2.0: Using GnuTLS instead of OpenSSL, available in Debian upstream repositories, new doc&amp;hellip; Nginx 1.</description></item><item><title>Galera Innoptimizer: now support tables’ partition</title><link>https://blog.deimos.fr/2014/10/08/galera-innoptimizer-now-support-tables-partition/</link><pubDate>Wed, 08 Oct 2014 10:00:33 +0000</pubDate><guid>https://blog.deimos.fr/2014/10/08/galera-innoptimizer-now-support-tables-partition/</guid><description>You may remember the first introduction of that tool here. I&amp;rsquo;ve made changes to support tables&amp;rsquo; partition, to avoid a big lock on huge tables.
+That&amp;rsquo;s why I made 2 new Ansible roles and added them to Ansible Galaxy.</description>
+    </item>
+    
+    <item>
+      <title>News in bulk</title>
+      <link>https://blog.deimos.fr/2014/11/07/news-in-bulk-4/</link>
+      <pubDate>Fri, 07 Nov 2014 11:11:29 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/11/07/news-in-bulk-4/</guid>
+      <description>As I do not really have a good blog post for today, here are some things I wanted to talk in a summary. Some good projects have been updated like:
+ WordPress 4: no big updates at the first view but it&amp;rsquo;s nice to see how this project works and grow (videos, WYSIWYG,&amp;hellip;) HAProxy 1.5: Offlloading SSL embedded, Full HTTP Keepalive, ACL enhancement&amp;hellip; BIG update! MySecureShell 2.0: Using GnuTLS instead of OpenSSL, available in Debian upstream repositories, new doc&amp;hellip; Nginx 1.</description>
+    </item>
+    
+    <item>
+      <title>Galera Innoptimizer: now support tables’ partition</title>
+      <link>https://blog.deimos.fr/2014/10/08/galera-innoptimizer-now-support-tables-partition/</link>
+      <pubDate>Wed, 08 Oct 2014 10:00:33 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/10/08/galera-innoptimizer-now-support-tables-partition/</guid>
+      <description>You may remember the first introduction of that tool here. I&amp;rsquo;ve made changes to support tables&#39; partition, to avoid a big lock on huge tables.
 The solution is to rebuild every partition one by one instead of rebuilding the whole table. This is smoother and less stressing Galera. I hope you&amp;rsquo;ll enjoy this new version (v0.2).
-Note: I still got issues on MariaDB 10 with such thing, I&amp;rsquo;m working on it.</description></item><item><title>Galera Innoptimizer: optimize tables without stress</title><link>https://blog.deimos.fr/2014/09/30/galera-innoptimizer-optimize-tables-without-stress/</link><pubDate>Tue, 30 Sep 2014 10:00:13 +0000</pubDate><guid>https://blog.deimos.fr/2014/09/30/galera-innoptimizer-optimize-tables-without-stress/</guid><description>I recently been faced on a classical problem on InnoDB which is the fragmentation, but on Galera. InnoDB engine doesn&amp;rsquo;t defragment on the fly and requires optimize maintenance sometimes to free disk space. But on Galera, which is a fault tolerance and high availability solution, it&amp;rsquo;s a problem having tables locked by an optimize procedure. Until Galera doesn&amp;rsquo;t support TokuDB and only fully support InnoDB, we had (with a colleague (Kevin aka Vinek)) to find a solution.</description></item><item><title>Neo4j: a pretty graph database</title><link>https://blog.deimos.fr/2014/09/06/neo4j-a-pretty-graph-database-2/</link><pubDate>Sat, 06 Sep 2014 10:00:18 +0000</pubDate><guid>https://blog.deimos.fr/2014/09/06/neo4j-a-pretty-graph-database-2/</guid><description>I forgot to talk about 1 meetup I&amp;rsquo;ve been regarding Neo4j. A friend (evomusic) talked to me about it and as I&amp;rsquo;m curious, I went to this meetup in July. Neo4j is a highly scalable, robust (fully ACID) native graph database. Neo4j is used in mission-critical apps by thousands of leading startups, enterprises, and governments around the world.
-I you don&amp;rsquo;t know what is a graph database, it&amp;rsquo;s a very good introduction and will help you to understand what it is and how it works.</description></item><item><title>My Book: MariaDB High Performance available for pre-order</title><link>https://blog.deimos.fr/2014/08/23/my-book-mariadb-high-performance-available-for-pre-order/</link><pubDate>Sat, 23 Aug 2014 10:00:51 +0000</pubDate><guid>https://blog.deimos.fr/2014/08/23/my-book-mariadb-high-performance-available-for-pre-order/</guid><description>All, I&amp;rsquo;m proud to announce my first book available for pre-order! I&amp;rsquo;m really happy to have finished it and see after several months of hard work that it will be soon available.
+Note: I still got issues on MariaDB 10 with such thing, I&amp;rsquo;m working on it.</description>
+    </item>
+    
+    <item>
+      <title>Galera Innoptimizer: optimize tables without stress</title>
+      <link>https://blog.deimos.fr/2014/09/30/galera-innoptimizer-optimize-tables-without-stress/</link>
+      <pubDate>Tue, 30 Sep 2014 10:00:13 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/09/30/galera-innoptimizer-optimize-tables-without-stress/</guid>
+      <description>I recently been faced on a classical problem on InnoDB which is the fragmentation, but on Galera. InnoDB engine doesn&amp;rsquo;t defragment on the fly and requires optimize maintenance sometimes to free disk space. But on Galera, which is a fault tolerance and high availability solution, it&amp;rsquo;s a problem having tables locked by an optimize procedure. Until Galera doesn&amp;rsquo;t support TokuDB and only fully support InnoDB, we had (with a colleague (Kevin aka Vinek)) to find a solution.</description>
+    </item>
+    
+    <item>
+      <title>Neo4j: a pretty graph database</title>
+      <link>https://blog.deimos.fr/2014/09/06/neo4j-a-pretty-graph-database-2/</link>
+      <pubDate>Sat, 06 Sep 2014 10:00:18 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/09/06/neo4j-a-pretty-graph-database-2/</guid>
+      <description>I forgot to talk about 1 meetup I&amp;rsquo;ve been regarding Neo4j. A friend (evomusic) talked to me about it and as I&amp;rsquo;m curious, I went to this meetup in July. Neo4j is a highly scalable, robust (fully ACID) native graph database. Neo4j is used in mission-critical apps by thousands of leading startups, enterprises, and governments around the world.
+I you don&amp;rsquo;t know what is a graph database, it&amp;rsquo;s a very good introduction and will help you to understand what it is and how it works.</description>
+    </item>
+    
+    <item>
+      <title>My Book: MariaDB High Performance available for pre-order</title>
+      <link>https://blog.deimos.fr/2014/08/23/my-book-mariadb-high-performance-available-for-pre-order/</link>
+      <pubDate>Sat, 23 Aug 2014 10:00:51 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/08/23/my-book-mariadb-high-performance-available-for-pre-order/</guid>
+      <description>All, I&amp;rsquo;m proud to announce my first book available for pre-order! I&amp;rsquo;m really happy to have finished it and see after several months of hard work that it will be soon available.
 Who is this book for?
-MariaDB High Performance is aimed at system administrators/architects or DBAs who want to learn more about how to grow their current infrastructure to support larger traffic.
-Before beginning with this book, we expect you to be well–practised with MySQL/MariaDB for common usage.</description></item><item><title>Blog posts slowdown for some weeks</title><link>https://blog.deimos.fr/2014/06/22/blog-posts-slowdown-for-some-weeks/</link><pubDate>Sun, 22 Jun 2014 10:00:00 +0000</pubDate><guid>https://blog.deimos.fr/2014/06/22/blog-posts-slowdown-for-some-weeks/</guid><description>Hello readers!
+ MariaDB High Performance is aimed at system administrators/architects or DBAs who want to learn more about how to grow their current infrastructure to support larger traffic.
+Before beginning with this book, we expect you to be well–practised with MySQL/MariaDB for common usage.</description>
+    </item>
+    
+    <item>
+      <title>Blog posts slowdown for some weeks</title>
+      <link>https://blog.deimos.fr/2014/06/22/blog-posts-slowdown-for-some-weeks/</link>
+      <pubDate>Sun, 22 Jun 2014 10:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/06/22/blog-posts-slowdown-for-some-weeks/</guid>
+      <description>Hello readers!
 The numbers of readers keeps growing and I really appreciate it :-). Thanks to all followers!
 You may know that I&amp;rsquo;m currently writing a book on MariaDB performances/high availability. I&amp;rsquo;m almost finish and this is the last run before the publication in September.
-To give the maximum in this book , in the very short delay I have to, I need more time. The current blog post flow is: one blog post every 2 days.</description></item><item><title>Docker 1.0 &amp; RedHat 7</title><link>https://blog.deimos.fr/2014/06/18/too-many-new-software-versions/</link><pubDate>Wed, 18 Jun 2014 10:00:00 +0000</pubDate><guid>https://blog.deimos.fr/2014/06/18/too-many-new-software-versions/</guid><description>I really like this kind of news, new versions of docker and RedHat:
-Docker 1.0: this is the first stable version after more than one year of development. This version is production ready and I will start using it asap. RedHat 7: this is a good news as the version 6 started to be a little bit old now. What&amp;rsquo;s new? MariaDB replace MySQL \o/ Docker integrated systemd XFS by default Kernel 3.</description></item><item><title>Mysqlnd: replace your old php mysql client library by mysqlnd</title><link>https://blog.deimos.fr/2014/05/05/mysqlnd-replace-your-php-mysql-library-libmysqlclient/</link><pubDate>Mon, 05 May 2014 10:00:52 +0000</pubDate><guid>https://blog.deimos.fr/2014/05/05/mysqlnd-replace-your-php-mysql-library-libmysqlclient/</guid><description>As you may know, I&amp;rsquo;m using and loving MariaDB. A colleague recently introduced me the benefits of the php built-in MySQL/MariaDB library (shame on me, I never heard of it). Here are the informations you can find from it on the MySQL website:
-The mysqlnd library is highly optimized for and tightly integrated into PHP. The MySQL Client Library cannot offer the same optimizations because it is a general-purpose client library.</description></item><item><title>PRM: automatic MySQL/MariaDB replication managment</title><link>https://blog.deimos.fr/2014/04/25/prm-automatic-mysqlmariadb-replication-managment/</link><pubDate>Fri, 25 Apr 2014 10:00:38 +0000</pubDate><guid>https://blog.deimos.fr/2014/04/25/prm-automatic-mysqlmariadb-replication-managment/</guid><description>The Percona replication manager (PRM) is a framework using the Linux HA resource agent Pacemaker that manages replication and provides automatic failover. This covers the installation of the framework on a set of servers. The PRM framework is made of 4 components: Corosync, Pacemaker, the mysql resource agent and MySQL itself.
-It&amp;rsquo;s easy to setup, better if you already know how to use Pacemaker and it works like a charm. In fact it setup a master and x slaves.</description></item><item><title>MariaDB 10 is out!</title><link>https://blog.deimos.fr/2014/04/01/mariadb-10-is-out/</link><pubDate>Tue, 01 Apr 2014 10:00:11 +0000</pubDate><guid>https://blog.deimos.fr/2014/04/01/mariadb-10-is-out/</guid><description>And finally MariaDB 10 is out! I&amp;rsquo;m exited to finish my book about it. Here are the news:
-Replication MariaDB 10 sets a new standard in performance. It is many times faster than previous generations of MariaDB and especially legacy database MySQL thanks to new features including parallel replication and a further advanced group commit. Also, the replication slaves are now crash-safe. It’s also now possible to replicate data from multiple master servers giving a complete view of the distributed data across big datasets for real-time analytical purposes via the multi-source replication feature.</description></item><item><title>HAProxy: a powerful load balancer</title><link>https://blog.deimos.fr/2014/03/10/haproxy-a-powerful-load-balancer/</link><pubDate>Mon, 10 Mar 2014 11:00:00 +0000</pubDate><guid>https://blog.deimos.fr/2014/03/10/haproxy-a-powerful-load-balancer/</guid><description>I recently played with HAProxy and discovered that I&amp;rsquo;ve never made a documentation regarding this fantastic software. So if you don&amp;rsquo;t know what HAProxy is, it&amp;rsquo;s a load balancer working on layer 7 and specialized for http protocol.
+To give the maximum in this book , in the very short delay I have to, I need more time. The current blog post flow is: one blog post every 2 days.</description>
+    </item>
+    
+    <item>
+      <title>Docker 1.0 &amp; RedHat 7</title>
+      <link>https://blog.deimos.fr/2014/06/18/too-many-new-software-versions/</link>
+      <pubDate>Wed, 18 Jun 2014 10:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/06/18/too-many-new-software-versions/</guid>
+      <description>I really like this kind of news, new versions of docker and RedHat:
+ Docker 1.0: this is the first stable version after more than one year of development. This version is production ready and I will start using it asap. RedHat 7: this is a good news as the version 6 started to be a little bit old now. What&amp;rsquo;s new?  MariaDB replace MySQL \o/ Docker integrated systemd XFS by default Kernel 3.</description>
+    </item>
+    
+    <item>
+      <title>Mysqlnd: replace your old php mysql client library by mysqlnd</title>
+      <link>https://blog.deimos.fr/2014/05/05/mysqlnd-replace-your-php-mysql-library-libmysqlclient/</link>
+      <pubDate>Mon, 05 May 2014 10:00:52 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/05/05/mysqlnd-replace-your-php-mysql-library-libmysqlclient/</guid>
+      <description>As you may know, I&amp;rsquo;m using and loving MariaDB. A colleague recently introduced me the benefits of the php built-in MySQL/MariaDB library (shame on me, I never heard of it). Here are the informations you can find from it on the MySQL website:
+ The mysqlnd library is highly optimized for and tightly integrated into PHP. The MySQL Client Library cannot offer the same optimizations because it is a general-purpose client library.</description>
+    </item>
+    
+    <item>
+      <title>PRM: automatic MySQL/MariaDB replication managment</title>
+      <link>https://blog.deimos.fr/2014/04/25/prm-automatic-mysqlmariadb-replication-managment/</link>
+      <pubDate>Fri, 25 Apr 2014 10:00:38 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/04/25/prm-automatic-mysqlmariadb-replication-managment/</guid>
+      <description>The Percona replication manager (PRM) is a framework using the Linux HA resource agent Pacemaker that manages replication and provides automatic failover. This covers the installation of the framework on a set of servers. The PRM framework is made of 4 components: Corosync, Pacemaker, the mysql resource agent and MySQL itself.
+It&amp;rsquo;s easy to setup, better if you already know how to use Pacemaker and it works like a charm. In fact it setup a master and x slaves.</description>
+    </item>
+    
+    <item>
+      <title>MariaDB 10 is out!</title>
+      <link>https://blog.deimos.fr/2014/04/01/mariadb-10-is-out/</link>
+      <pubDate>Tue, 01 Apr 2014 10:00:11 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/04/01/mariadb-10-is-out/</guid>
+      <description>And finally MariaDB 10 is out! I&amp;rsquo;m exited to finish my book about it. Here are the news:
+ Replication  MariaDB 10 sets a new standard in performance. It is many times faster than previous generations of MariaDB and especially legacy database MySQL thanks to new features including parallel replication and a further advanced group commit. Also, the replication slaves are now crash-safe. It’s also now possible to replicate data from multiple master servers giving a complete view of the distributed data across big datasets for real-time analytical purposes via the multi-source replication feature.</description>
+    </item>
+    
+    <item>
+      <title>HAProxy: a powerful load balancer</title>
+      <link>https://blog.deimos.fr/2014/03/10/haproxy-a-powerful-load-balancer/</link>
+      <pubDate>Mon, 10 Mar 2014 11:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/03/10/haproxy-a-powerful-load-balancer/</guid>
+      <description>I recently played with HAProxy and discovered that I&amp;rsquo;ve never made a documentation regarding this fantastic software. So if you don&amp;rsquo;t know what HAProxy is, it&amp;rsquo;s a load balancer working on layer 7 and specialized for http protocol.
 It is able to handle sticky sessions which is really powerful. More than that, it has a small footprint and can work under a high load traffic.
-Here is my documentation.</description></item><item><title>FOSDEM 2014: day 1</title><link>https://blog.deimos.fr/2014/02/04/fosdem-2014-day-1/</link><pubDate>Tue, 04 Feb 2014 11:00:05 +0000</pubDate><guid>https://blog.deimos.fr/2014/02/04/fosdem-2014-day-1/</guid><description>Once again the FOSDEM has given awesome talks ! This years I was more focused to SQL and NOSQL databases. I wanted to also see Puppet related conferences, but they were full like the last year.
+Here is my documentation.</description>
+    </item>
+    
+    <item>
+      <title>FOSDEM 2014: day 1</title>
+      <link>https://blog.deimos.fr/2014/02/04/fosdem-2014-day-1/</link>
+      <pubDate>Tue, 04 Feb 2014 11:00:05 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/02/04/fosdem-2014-day-1/</guid>
+      <description>Once again the FOSDEM has given awesome talks ! This years I was more focused to SQL and NOSQL databases. I wanted to also see Puppet related conferences, but they were full like the last year.
 Getting started with MySQL Performance Schema
 First of all, I started with a MySQL Performance Schema presentation :
 http://dimitrik.free.fr/mysqltechday_2013_10/MySQL_PFS_2013-dim.pdf
-I saw that I had underestimated the power of Performance schema ! We can for example see iowaits and waiting time on tables files.</description></item><item><title>MariaDB: Writing my first book</title><link>https://blog.deimos.fr/2014/01/31/writing-my-first-book-on-mariadb/</link><pubDate>Fri, 31 Jan 2014 11:00:00 +0000</pubDate><guid>https://blog.deimos.fr/2014/01/31/writing-my-first-book-on-mariadb/</guid><description>Some of you may already know that I&amp;rsquo;ve been contacted by Packt Publishing to write a book.
+I saw that I had underestimated the power of Performance schema ! We can for example see iowaits and waiting time on tables files.</description>
+    </item>
+    
+    <item>
+      <title>MariaDB: Writing my first book</title>
+      <link>https://blog.deimos.fr/2014/01/31/writing-my-first-book-on-mariadb/</link>
+      <pubDate>Fri, 31 Jan 2014 11:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/01/31/writing-my-first-book-on-mariadb/</guid>
+      <description>Some of you may already know that I&amp;rsquo;ve been contacted by Packt Publishing to write a book.
 As every aware persons asked me why I was contacted, here is the story :
-When I was working for Linagora, I gave a training on advanced usage on MySQL/MariaDB. Unfortunately there weren&amp;rsquo;t slides on that subject at this moment and I had to make them all. That&amp;rsquo;s what I did and made an unbranded version for me as well.</description></item><item><title>SkySQL Meet-Up was awesome !</title><link>https://blog.deimos.fr/2013/12/18/skysql-meet-up-was-awesome/</link><pubDate>Wed, 18 Dec 2013 11:00:41 +0000</pubDate><guid>https://blog.deimos.fr/2013/12/18/skysql-meet-up-was-awesome/</guid><description>The SkySQL meeting was really good yesterday ! We&amp;rsquo;ve seen MariaDB 10 new features, had a presentation of Galera cluster and a complicated (but good) explanation of a complex infrastructure that required write scaling.
-This was the my first SkySQL Meet-Up and I can&amp;rsquo;t wait until the next one :-). Congratulation SkySQL, one of the best Meet Up I&amp;rsquo;ve seen !</description></item><item><title>Galera : How to perform Zero Downtime Schema Changes</title><link>https://blog.deimos.fr/2013/12/10/galera-how-to-perform-zero-downtime-schema-changes/</link><pubDate>Tue, 10 Dec 2013 11:00:00 +0000</pubDate><guid>https://blog.deimos.fr/2013/12/10/galera-how-to-perform-zero-downtime-schema-changes/</guid><description>Last week, I had a webinar regarding Galera Cluster given by Severalnines. As I found it very interesting, I’m sharing it with you :</description></item><item><title>MariaDB : restore on database from a single full dbs backup</title><link>https://blog.deimos.fr/2013/11/18/mariadb-restore-on-database-from-a-single-full-dbs-backup/</link><pubDate>Mon, 18 Nov 2013 11:00:58 +0000</pubDate><guid>https://blog.deimos.fr/2013/11/18/mariadb-restore-on-database-from-a-single-full-dbs-backup/</guid><description>I recently discovered how to restore only one database from a huge sql dump containing more than 1 database and wanted to share it with you :
+When I was working for Linagora, I gave a training on advanced usage on MySQL/MariaDB. Unfortunately there weren&amp;rsquo;t slides on that subject at this moment and I had to make them all. That&amp;rsquo;s what I did and made an unbranded version for me as well.</description>
+    </item>
+    
+    <item>
+      <title>SkySQL Meet-Up was awesome !</title>
+      <link>https://blog.deimos.fr/2013/12/18/skysql-meet-up-was-awesome/</link>
+      <pubDate>Wed, 18 Dec 2013 11:00:41 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/12/18/skysql-meet-up-was-awesome/</guid>
+      <description>The SkySQL meeting was really good yesterday ! We&amp;rsquo;ve seen MariaDB 10 new features, had a presentation of Galera cluster and a complicated (but good) explanation of a complex infrastructure that required write scaling.
+This was the my first SkySQL Meet-Up and I can&amp;rsquo;t wait until the next one :-). Congratulation SkySQL, one of the best Meet Up I&amp;rsquo;ve seen !</description>
+    </item>
+    
+    <item>
+      <title>Galera : How to perform Zero Downtime Schema Changes</title>
+      <link>https://blog.deimos.fr/2013/12/10/galera-how-to-perform-zero-downtime-schema-changes/</link>
+      <pubDate>Tue, 10 Dec 2013 11:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/12/10/galera-how-to-perform-zero-downtime-schema-changes/</guid>
+      <description>Last week, I had a webinar regarding Galera Cluster given by Severalnines. As I found it very interesting, I’m sharing it with you :</description>
+    </item>
+    
+    <item>
+      <title>MariaDB : restore on database from a single full dbs backup</title>
+      <link>https://blog.deimos.fr/2013/11/18/mariadb-restore-on-database-from-a-single-full-dbs-backup/</link>
+      <pubDate>Mon, 18 Nov 2013 11:00:58 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/11/18/mariadb-restore-on-database-from-a-single-full-dbs-backup/</guid>
+      <description>I recently discovered how to restore only one database from a huge sql dump containing more than 1 database and wanted to share it with you :
 mysql -u&amp;amp;lt;user&amp;amp;gt; -p&amp;amp;lt;password&amp;amp;gt; --one-database &amp;amp;lt;database_name&amp;amp;gt; &amp;amp;lt; backup-`date +%y%m%d`.sql I&amp;rsquo;ve added it to my wiki as well.
-Source : System Linux</description></item><item><title>Galera : Enlarge your gcache</title><link>https://blog.deimos.fr/2013/11/02/galera-enlarge-your-galera-gcache/</link><pubDate>Sat, 02 Nov 2013 11:00:19 +0000</pubDate><guid>https://blog.deimos.fr/2013/11/02/galera-enlarge-your-galera-gcache/</guid><description>Galera uses a preallocated file with a specific size called gcache, used to store the writesets in circular buffer style. By default, its size is 128MB and it&amp;rsquo;s a good idea to upgrade it to a higher value.
-I&amp;rsquo;ve updated my documentation on that if you want to check. In addition, you can find more informations, I suggest a Severalnines link.</description></item><item><title>PuPHPet : speed up your Vagrant deployment</title><link>https://blog.deimos.fr/2013/08/06/puphpet-speed-up-your-vagrant-deployment/</link><pubDate>Tue, 06 Aug 2013 10:00:00 +0000</pubDate><guid>https://blog.deimos.fr/2013/08/06/puphpet-speed-up-your-vagrant-deployment/</guid><description>Vagrant is a fast solution build on top of VirtualBox. I already talked about it in a previous post.
-The thing is, you could do really more with Vagrant by adding Puppet manifests or Chef recipes in your Vagrant configuration file. For those who don&amp;rsquo;t often use one of those 2 softwares, it quickly could transform into a nightmare when they want to deploy softwares in addition of the OS.</description></item><item><title>Galera Cluster : How to do maintenance and recover</title><link>https://blog.deimos.fr/2013/07/29/galera-cluster-how-to-do-maintenance-and-recover/</link><pubDate>Mon, 29 Jul 2013 10:00:32 +0000</pubDate><guid>https://blog.deimos.fr/2013/07/29/galera-cluster-how-to-do-maintenance-and-recover/</guid><description>To finish my Galera&amp;rsquo;s posts, I&amp;rsquo;ve wrote tips to help on maintenance and recover for the Galera Cluster (in french). As most of the time, Galera is able to manage automatically data recovering, some times (if split brain occurs for example) you need to manually do specific stuffs to recover the cluster.
-I hope this will help some of you if problems occurs.</description></item><item><title>Galera Cluster : choose the better SST method</title><link>https://blog.deimos.fr/2013/07/25/galera-choosing-the-better-sst-method/</link><pubDate>Thu, 25 Jul 2013 10:00:10 +0000</pubDate><guid>https://blog.deimos.fr/2013/07/25/galera-choosing-the-better-sst-method/</guid><description>Last month, I&amp;rsquo;ve wrote a document accessible on slideshare to explain some of basic/advanced features of MySQL/MariaDB.
-In addition, there were some informations related to Galera Cluster running on top of MariaDB. I&amp;rsquo;ve updated my documentation to help on choosing the better SST method and understand the differences (in french).</description></item><item><title>MariaDB Galera Cluster : la réplication multi maitres</title><link>https://blog.deimos.fr/2013/05/02/mariadb-galera-cluster-la-replication-multi-maitres/</link><pubDate>Thu, 02 May 2013 10:00:41 +0000</pubDate><guid>https://blog.deimos.fr/2013/05/02/mariadb-galera-cluster-la-replication-multi-maitres/</guid><description>Pour ceux qui ont l&amp;rsquo;habitude de faire de la réplication MySQL Master to Master, vous allez kiffer cet article ! Vous connaissez MariaDB ? Je vous en avait déjà parlé il y a quelques temps. Allez&amp;hellip;un petit refresh pour ceux qui ont oubliés : c&amp;rsquo;est un fork de MySQL, fait par l&amp;rsquo;auteur de MySQL.
-MariaDB prends aujourd&amp;rsquo;hui de plus en plus d’essor et nous propose depuis un petit moment maintenant sa solution cluster à base de Galera (qui fonctionne aussi sous MySQL).</description></item><item><title>Au revoir MySQL/Oracle, Bonjour MariaDB/SkySQL :-)</title><link>https://blog.deimos.fr/2013/04/24/au-revoir-mysqloracle-bonjour-mariadbskysql/</link><pubDate>Wed, 24 Apr 2013 10:00:15 +0000</pubDate><guid>https://blog.deimos.fr/2013/04/24/au-revoir-mysqloracle-bonjour-mariadbskysql/</guid><description>Et voilà, c&amp;rsquo;est une très bonne nouvelle qui vient de tomber ! SkySQL rachète MariaDB. Les boites frileuses de passer sous MariaDB, sous prétexte qu&amp;rsquo;il n&amp;rsquo;y a pas de boites derrière, vont pouvoir être rassurer et y aller pour de la production. C&amp;rsquo;est donc une excellente nouvelle pour MariaDB dont certains moteurs passent en OpenSource comme tokudb par exemple.
-Je pense qu&amp;rsquo;à terme, un bon paquet de distributions, tel que Mageia (cc Kharec), vont switcher sur MariaDB et abandonner définitivement MySQL.</description></item><item><title>2ème et dernier jour au FOSDEM !</title><link>https://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/</link><pubDate>Tue, 05 Feb 2013 11:00:24 +0000</pubDate><guid>https://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/</guid><description>Avant d&amp;rsquo;attaquer le 2 ème jour, je vais finir sur le premier (la suite d&amp;rsquo;hier).
-Un des supers sujet était Bind 10 que j&amp;rsquo;attendais avec impatience. Il n&amp;rsquo;y a malheureusement eu d&amp;rsquo;informations sur les nouveautés aidant a la HA. Cependant il a été totalement réécrit pour supporter + de 100 cores alors qu&amp;rsquo;aujourd&amp;rsquo;hui au delà de 6, il y a des problèmes de performances. On a également (et étrangement) un serveur DHCP qui est intégré a Bind.</description></item><item><title>Créer des sondages via Limesurvey</title><link>https://blog.deimos.fr/2012/12/01/creer-des-sondages-limesurvey/</link><pubDate>Sat, 01 Dec 2012 11:00:31 +0000</pubDate><guid>https://blog.deimos.fr/2012/12/01/creer-des-sondages-limesurvey/</guid><description>Si vous ne savez pas quoi utiliser pour faire des sondages professionels, voici Limesurvey. Il est possible de faire des formulaires assez complexe de façon élégantes et assez simple une fois le logiciel prit en main.
-Je vous ai concocté une petite documentation sur sa mise en place, mais pas pour son utilisation. Je pense que l&amp;rsquo;utilisation vous n&amp;rsquo;avez pas besoin de moi :-)</description></item><item><title>Squirrel SQL : le couteau suisse des DBs</title><link>https://blog.deimos.fr/2012/11/07/squirrel-sql-le-couteau-suisse-des-dbs/</link><pubDate>Wed, 07 Nov 2012 11:00:44 +0000</pubDate><guid>https://blog.deimos.fr/2012/11/07/squirrel-sql-le-couteau-suisse-des-dbs/</guid><description>J&amp;rsquo;ai récemment eu besoin de faire des comparaisons de schéma SQL et pouvoir me connecter à des bases de données de type PostgreSQL. Il existe ce merveilleux outil qu&amp;rsquo;un ancien collègue (Merci François S.) m&amp;rsquo;avait parlé qui s&amp;rsquo;appelle SquirrelSQL. Vous connaissez peut être d’ailleurs Squirrelmail :-)
-Il permet de se connecter à plusieurs type de bases de données (MySQL, DB2, Oracle&amp;hellip;) et est multi plateformes !!! Il n&amp;rsquo;est certes pas très beau, mais très fonctionnel !</description></item><item><title>OTRS : Un bel outil de ticketing</title><link>https://blog.deimos.fr/2012/11/01/otrs-bel-outil-de-ticketing/</link><pubDate>Thu, 01 Nov 2012 11:00:24 +0000</pubDate><guid>https://blog.deimos.fr/2012/11/01/otrs-bel-outil-de-ticketing/</guid><description>Cela fait fort longtemps que je connais ce soft, je n&amp;rsquo;en avais encore jamais mis en place. C&amp;rsquo;est ultra puissant (voir trop, tellement c&amp;rsquo;est complexe), alors je vous ai concocté une petite documentation pour sa mise en place avec un backend PostgreSQL.
-Et hop, direction le wiki pour OTRS.</description></item><item><title>PostgreSQL</title><link>https://blog.deimos.fr/2012/10/30/postgresql/</link><pubDate>Tue, 30 Oct 2012 11:00:01 +0000</pubDate><guid>https://blog.deimos.fr/2012/10/30/postgresql/</guid><description>Je travaille actuellement sur un projet dont la base de données est PostgreSQL. Ca faisait des années que je n&amp;rsquo;avais pas bossé sur ce type d&amp;rsquo;instances. J&amp;rsquo;en ai donc profiter pour mettre à jour mon article qui avait prit un bon coup de vieux.
-Vous pouvez consulter mon article sur l&amp;rsquo;administration d&amp;rsquo;une base de données PostgreSQL ici.</description></item><item><title>Introduction au NoSQL</title><link>https://blog.deimos.fr/2012/10/24/introduction-au-nosql/</link><pubDate>Wed, 24 Oct 2012 10:00:15 +0000</pubDate><guid>https://blog.deimos.fr/2012/10/24/introduction-au-nosql/</guid><description>NoSQL signifie “Not Only SQL”, littéralement “pas seulement SQL”. Ce terme désigne l’ensemble des bases de données qui s’opposent à la notion relationnelle des SGBDR. La définition, “pas seulement SQL”, apporte un début de réponse à la question “Est ce que le NoSQL va tuer les bases relationnelles?”. En effet, NoSQL ne vient pas remplacer les BD relationnelles mais proposer une alternative ou compléter les fonctionnalités des SGBDR pour donner des solutions plus intéressantes dans certains contextes.</description></item><item><title>Au revoir MySQL, bonjour MariaDB :-)</title><link>https://blog.deimos.fr/2012/04/27/au-revoir-mysql-bonjour-mariadb/</link><pubDate>Fri, 27 Apr 2012 10:00:43 +0000</pubDate><guid>https://blog.deimos.fr/2012/04/27/au-revoir-mysql-bonjour-mariadb/</guid><description>Jojo, mon expert MySQL (Joffrey de SkySQL pour ne pas le citer) me bassine depuis un moment à abandonner MySQL pour passer sur MariaDB.
+Source : System Linux</description>
+    </item>
+    
+    <item>
+      <title>Galera : Enlarge your gcache</title>
+      <link>https://blog.deimos.fr/2013/11/02/galera-enlarge-your-galera-gcache/</link>
+      <pubDate>Sat, 02 Nov 2013 11:00:19 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/11/02/galera-enlarge-your-galera-gcache/</guid>
+      <description>Galera uses a preallocated file with a specific size called gcache, used to store the writesets in circular buffer style. By default, its size is 128MB and it&amp;rsquo;s a good idea to upgrade it to a higher value.
+I&amp;rsquo;ve updated my documentation on that if you want to check. In addition, you can find more informations, I suggest a Severalnines link.</description>
+    </item>
+    
+    <item>
+      <title>PuPHPet : speed up your Vagrant deployment</title>
+      <link>https://blog.deimos.fr/2013/08/06/puphpet-speed-up-your-vagrant-deployment/</link>
+      <pubDate>Tue, 06 Aug 2013 10:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/08/06/puphpet-speed-up-your-vagrant-deployment/</guid>
+      <description>Vagrant is a fast solution build on top of VirtualBox. I already talked about it in a previous post.
+The thing is, you could do really more with Vagrant by adding Puppet manifests or Chef recipes in your Vagrant configuration file. For those who don&amp;rsquo;t often use one of those 2 softwares, it quickly could transform into a nightmare when they want to deploy softwares in addition of the OS.</description>
+    </item>
+    
+    <item>
+      <title>Galera Cluster : How to do maintenance and recover</title>
+      <link>https://blog.deimos.fr/2013/07/29/galera-cluster-how-to-do-maintenance-and-recover/</link>
+      <pubDate>Mon, 29 Jul 2013 10:00:32 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/07/29/galera-cluster-how-to-do-maintenance-and-recover/</guid>
+      <description>To finish my Galera&amp;rsquo;s posts, I&amp;rsquo;ve wrote tips to help on maintenance and recover for the Galera Cluster (in french). As most of the time, Galera is able to manage automatically data recovering, some times (if split brain occurs for example) you need to manually do specific stuffs to recover the cluster.
+I hope this will help some of you if problems occurs.</description>
+    </item>
+    
+    <item>
+      <title>Galera Cluster : choose the better SST method</title>
+      <link>https://blog.deimos.fr/2013/07/25/galera-choosing-the-better-sst-method/</link>
+      <pubDate>Thu, 25 Jul 2013 10:00:10 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/07/25/galera-choosing-the-better-sst-method/</guid>
+      <description>Last month, I&amp;rsquo;ve wrote a document accessible on slideshare to explain some of basic/advanced features of MySQL/MariaDB.
+In addition, there were some informations related to Galera Cluster running on top of MariaDB. I&amp;rsquo;ve updated my documentation to help on choosing the better SST method and understand the differences (in french).</description>
+    </item>
+    
+    <item>
+      <title>MariaDB Galera Cluster : la réplication multi maitres</title>
+      <link>https://blog.deimos.fr/2013/05/02/mariadb-galera-cluster-la-replication-multi-maitres/</link>
+      <pubDate>Thu, 02 May 2013 10:00:41 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/05/02/mariadb-galera-cluster-la-replication-multi-maitres/</guid>
+      <description>Pour ceux qui ont l&amp;rsquo;habitude de faire de la réplication MySQL Master to Master, vous allez kiffer cet article ! Vous connaissez MariaDB ? Je vous en avait déjà parlé il y a quelques temps. Allez&amp;hellip;un petit refresh pour ceux qui ont oubliés : c&amp;rsquo;est un fork de MySQL, fait par l&amp;rsquo;auteur de MySQL.
+MariaDB prends aujourd&amp;rsquo;hui de plus en plus d’essor et nous propose depuis un petit moment maintenant sa solution cluster à base de Galera (qui fonctionne aussi sous MySQL).</description>
+    </item>
+    
+    <item>
+      <title>Au revoir MySQL/Oracle, Bonjour MariaDB/SkySQL :-)</title>
+      <link>https://blog.deimos.fr/2013/04/24/au-revoir-mysqloracle-bonjour-mariadbskysql/</link>
+      <pubDate>Wed, 24 Apr 2013 10:00:15 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/04/24/au-revoir-mysqloracle-bonjour-mariadbskysql/</guid>
+      <description>Et voilà, c&amp;rsquo;est une très bonne nouvelle qui vient de tomber ! SkySQL rachète MariaDB. Les boites frileuses de passer sous MariaDB, sous prétexte qu&amp;rsquo;il n&amp;rsquo;y a pas de boites derrière, vont pouvoir être rassurer et y aller pour de la production. C&amp;rsquo;est donc une excellente nouvelle pour MariaDB dont certains moteurs passent en OpenSource comme tokudb par exemple.
+Je pense qu&amp;rsquo;à terme, un bon paquet de distributions, tel que Mageia (cc Kharec), vont switcher sur MariaDB et abandonner définitivement MySQL.</description>
+    </item>
+    
+    <item>
+      <title>2ème et dernier jour au FOSDEM !</title>
+      <link>https://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/</link>
+      <pubDate>Tue, 05 Feb 2013 11:00:24 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/</guid>
+      <description>Avant d&amp;rsquo;attaquer le 2 ème jour, je vais finir sur le premier (la suite d&amp;rsquo;hier).
+Un des supers sujet était Bind 10 que j&amp;rsquo;attendais avec impatience. Il n&amp;rsquo;y a malheureusement eu d&amp;rsquo;informations sur les nouveautés aidant a la HA. Cependant il a été totalement réécrit pour supporter + de 100 cores alors qu&amp;rsquo;aujourd&amp;rsquo;hui au delà de 6, il y a des problèmes de performances. On a également (et étrangement) un serveur DHCP qui est intégré a Bind.</description>
+    </item>
+    
+    <item>
+      <title>Créer des sondages via Limesurvey</title>
+      <link>https://blog.deimos.fr/2012/12/01/creer-des-sondages-limesurvey/</link>
+      <pubDate>Sat, 01 Dec 2012 11:00:31 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2012/12/01/creer-des-sondages-limesurvey/</guid>
+      <description>Si vous ne savez pas quoi utiliser pour faire des sondages professionels, voici Limesurvey. Il est possible de faire des formulaires assez complexe de façon élégantes et assez simple une fois le logiciel prit en main.
+Je vous ai concocté une petite documentation sur sa mise en place, mais pas pour son utilisation. Je pense que l&amp;rsquo;utilisation vous n&amp;rsquo;avez pas besoin de moi :-)</description>
+    </item>
+    
+    <item>
+      <title>Squirrel SQL : le couteau suisse des DBs</title>
+      <link>https://blog.deimos.fr/2012/11/07/squirrel-sql-le-couteau-suisse-des-dbs/</link>
+      <pubDate>Wed, 07 Nov 2012 11:00:44 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2012/11/07/squirrel-sql-le-couteau-suisse-des-dbs/</guid>
+      <description>J&amp;rsquo;ai récemment eu besoin de faire des comparaisons de schéma SQL et pouvoir me connecter à des bases de données de type PostgreSQL. Il existe ce merveilleux outil qu&amp;rsquo;un ancien collègue (Merci François S.) m&amp;rsquo;avait parlé qui s&amp;rsquo;appelle SquirrelSQL. Vous connaissez peut être d’ailleurs Squirrelmail :-)
+Il permet de se connecter à plusieurs type de bases de données (MySQL, DB2, Oracle&amp;hellip;) et est multi plateformes !!! Il n&amp;rsquo;est certes pas très beau, mais très fonctionnel !</description>
+    </item>
+    
+    <item>
+      <title>OTRS : Un bel outil de ticketing</title>
+      <link>https://blog.deimos.fr/2012/11/01/otrs-bel-outil-de-ticketing/</link>
+      <pubDate>Thu, 01 Nov 2012 11:00:24 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2012/11/01/otrs-bel-outil-de-ticketing/</guid>
+      <description>Cela fait fort longtemps que je connais ce soft, je n&amp;rsquo;en avais encore jamais mis en place. C&amp;rsquo;est ultra puissant (voir trop, tellement c&amp;rsquo;est complexe), alors je vous ai concocté une petite documentation pour sa mise en place avec un backend PostgreSQL.
+Et hop, direction le wiki pour OTRS.</description>
+    </item>
+    
+    <item>
+      <title>PostgreSQL</title>
+      <link>https://blog.deimos.fr/2012/10/30/postgresql/</link>
+      <pubDate>Tue, 30 Oct 2012 11:00:01 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2012/10/30/postgresql/</guid>
+      <description>Je travaille actuellement sur un projet dont la base de données est PostgreSQL. Ca faisait des années que je n&amp;rsquo;avais pas bossé sur ce type d&amp;rsquo;instances. J&amp;rsquo;en ai donc profiter pour mettre à jour mon article qui avait prit un bon coup de vieux.
+Vous pouvez consulter mon article sur l&amp;rsquo;administration d&amp;rsquo;une base de données PostgreSQL ici.</description>
+    </item>
+    
+    <item>
+      <title>Introduction au NoSQL</title>
+      <link>https://blog.deimos.fr/2012/10/24/introduction-au-nosql/</link>
+      <pubDate>Wed, 24 Oct 2012 10:00:15 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2012/10/24/introduction-au-nosql/</guid>
+      <description>NoSQL signifie “Not Only SQL”, littéralement “pas seulement SQL”. Ce terme désigne l’ensemble des bases de données qui s’opposent à la notion relationnelle des SGBDR. La définition, “pas seulement SQL”, apporte un début de réponse à la question “Est ce que le NoSQL va tuer les bases relationnelles?”. En effet, NoSQL ne vient pas remplacer les BD relationnelles mais proposer une alternative ou compléter les fonctionnalités des SGBDR pour donner des solutions plus intéressantes dans certains contextes.</description>
+    </item>
+    
+    <item>
+      <title>Au revoir MySQL, bonjour MariaDB :-)</title>
+      <link>https://blog.deimos.fr/2012/04/27/au-revoir-mysql-bonjour-mariadb/</link>
+      <pubDate>Fri, 27 Apr 2012 10:00:43 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2012/04/27/au-revoir-mysql-bonjour-mariadb/</guid>
+      <description>Jojo, mon expert MySQL (Joffrey de SkySQL pour ne pas le citer) me bassine depuis un moment à abandonner MySQL pour passer sur MariaDB.
 Après quelques benchs qu&amp;rsquo;il a effectué, j&amp;rsquo;ai été bluffé et quant il m&amp;rsquo;a dit qu&amp;rsquo;en 5 min ça s&amp;rsquo;installait&amp;hellip;je n&amp;rsquo;ai pas perdu de temps. Donc le blog et le wiki tournent maintenant sur MariaDB :-)
-Je vous conseil fortement de passer dessus, car au final, vous ne serrez pas perdu, vu que ce sont les mêmes commandes que MySQL (normal c&amp;rsquo;est un fork) et vous aurez de biens meilleures performances.</description></item></channel></rss>
+Je vous conseil fortement de passer dessus, car au final, vous ne serrez pas perdu, vu que ce sont les mêmes commandes que MySQL (normal c&amp;rsquo;est un fork) et vous aurez de biens meilleures performances.</description>
+    </item>
+    
+  </channel>
+</rss>

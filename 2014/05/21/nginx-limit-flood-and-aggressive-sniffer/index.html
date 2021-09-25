@@ -1,11 +1,558 @@
-<!doctype html><html lang=en-us><head><script type=application/ld+json>{"@context":"http://schema.org","@type":"Website","@id":"https:\/\/blog.deimos.fr","author":{"@type":"Person","name":"Pierre Mavro / Deimosfr","image":"https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"},"name":"Deimosfr Blog","description":"Last week, have been faced on a big sniffing issue on my wiki. The guy wanted to download all my wiki content. In reality I do not really care as it is open, free for read and contribution is welcome. However, the current VM where the blog and wiki are running didn\x26rsquo;t support aggressive sniffing that this guy made. That\x26rsquo;s why CPUs were at 100% of usage because of PHP requests, PHP-FPM was overloaded (reached my configuration limits).","url":"https:\/\/blog.deimos.fr\/2014\/05\/21\/nginx-limit-flood-and-aggressive-sniffer\/","keywords":"[]"}</script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Hugo 0.69.2 with theme Tranquilpeak 0.5.2-BETA"><meta name=author content="Pierre Mavro / Deimosfr"><meta name=keywords content><meta name=description content="Last week, have been faced on a big sniffing issue on my wiki. The guy wanted to download all my wiki content. In reality I do not really care as it is open, free for read and contribution is welcome. However, the current VM where the blog and wiki are running didn&rsquo;t support aggressive sniffing that this guy made. That&rsquo;s why CPUs were at 100% of usage because of PHP requests, PHP-FPM was overloaded (reached my configuration limits)."><meta property="og:description" content="Last week, have been faced on a big sniffing issue on my wiki. The guy wanted to download all my wiki content. In reality I do not really care as it is open, free for read and contribution is welcome. However, the current VM where the blog and wiki are running didn&rsquo;t support aggressive sniffing that this guy made. That&rsquo;s why CPUs were at 100% of usage because of PHP requests, PHP-FPM was overloaded (reached my configuration limits)."><meta property="og:type" content="article"><meta property="og:title" content="Nginx: limit flooding and aggressive sniffing"><meta name=twitter:title content="Nginx: limit flooding and aggressive sniffing"><meta property="og:url" content="https://blog.deimos.fr/2014/05/21/nginx-limit-flood-and-aggressive-sniffer/"><meta property="twitter:url" content="https://blog.deimos.fr/2014/05/21/nginx-limit-flood-and-aggressive-sniffer/"><meta property="og:site_name" content="Deimosfr Blog"><meta property="og:description" content="Last week, have been faced on a big sniffing issue on my wiki. The guy wanted to download all my wiki content. In reality I do not really care as it is open, free for read and contribution is welcome. However, the current VM where the blog and wiki are running didn&rsquo;t support aggressive sniffing that this guy made. That&rsquo;s why CPUs were at 100% of usage because of PHP requests, PHP-FPM was overloaded (reached my configuration limits)."><meta name=twitter:description content="Last week, have been faced on a big sniffing issue on my wiki. The guy wanted to download all my wiki content. In reality I do not really care as it is open, free for read and contribution is welcome. However, the current VM where the blog and wiki are running didn&rsquo;t support aggressive sniffing that this guy made. That&rsquo;s why CPUs were at 100% of usage because of PHP requests, PHP-FPM was overloaded (reached my configuration limits)."><meta property="og:locale" content="en-us"><meta property="article:published_time" content="2014-05-21T10:00:00"><meta property="article:modified_time" content="2014-05-21T10:00:00"><meta property="article:section" content="Debian"><meta property="article:section" content="Hi-Tech"><meta property="article:section" content="Linux"><meta property="article:section" content="Security"><meta property="article:section" content="Web"><meta property="article:tag" content="Nginx"><meta name=twitter:card content="summary"><meta name=twitter:site content="@deimosfr"><meta name=twitter:creator content="@deimosfr"><meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_ngnix.png"><meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_ngnix.png"><title>Nginx: limit flooding and aggressive sniffing</title><link rel=icon href=https://blog.deimos.fr/favicon.png><link rel=canonical href=https://blog.deimos.fr/2014/05/21/nginx-limit-flood-and-aggressive-sniffer/><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://blog.deimos.fr/css/style-c5yjx2losbmkttdif4mskx5f9pqjjquywurgngxfvceyyrtyatseix5hpd.min.css><link rel=stylesheet href=https://blog.deimos.fr/css/custom.css><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-63927289-1','auto');ga('send','pageview');}</script></head><body><div id=blog><header id=header data-behavior=5><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=https://blog.deimos.fr/ aria-label="Go to homepage">Deimosfr Blog</a></div><a class=header-right-picture href=https://blog.deimos.fr/#about aria-label="Open the link: /#about"><img class=header-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author's picture"></a></header><nav id=sidebar data-behavior=5><div class=sidebar-container><div class=sidebar-profile><a href=https://blog.deimos.fr/#about aria-label="Read more about the author"><img class=sidebar-profile-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"></a><h4 class=sidebar-profile-name>Pierre Mavro / Deimosfr</h4></div><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/ title=Home><i class="sidebar-button-icon fa fa-lg fa-home"></i><span class=sidebar-button-desc>Home</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/archives title=Archives><i class="sidebar-button-icon fa fa-lg fa-archive"></i><span class=sidebar-button-desc>Archives</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/categories title=Categories><i class="sidebar-button-icon fa fa-lg fa-bookmark"></i><span class=sidebar-button-desc>Categories</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/tags title=Tags><i class="sidebar-button-icon fa fa-lg fa-tags"></i><span class=sidebar-button-desc>Tags</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/index.xml title=RSS><i class="sidebar-button-icon fa fa-lg fa-rss"></i><span class=sidebar-button-desc>RSS</span></a></li></ul><ul class=sidebar-buttons></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://www.deimos.fr target=_blank rel=noopener title=About><i class="sidebar-button-icon fa fa-lg fa-user"></i><span class=sidebar-button-desc>About</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://wiki.deimos.fr target=_blank rel=noopener title=Wiki><i class="sidebar-button-icon fa fa-wikipedia-w"></i><span class=sidebar-button-desc>Wiki</span></a></li></ul></div></nav><div id=main data-behavior=5 class=hasCoverMetaIn><article class=post id=top><div class="post-header main-content-wrap text-left"><h1 class=post-title>Nginx: limit flooding and aggressive sniffing</h1><div class="postShorten-meta post-meta"><time datetime=2014-05-21T10:00:00Z>21 May 2014</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/security>Security</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/web>Web</a></div></div><div class="post-content markdown"><div class=main-content-wrap><p><img src=https://blog.deimos.fr/images/logo_ngnix.png alt=Nginx-logo>
-Last week, have been faced on a <strong>big sniffing issue on my wiki</strong>. The guy wanted to download all my wiki content. In reality I do not really care as it is open, free for read and contribution is welcome. However, the current VM where the blog and wiki are running didn&rsquo;t support <strong>aggressive sniffing</strong> that this guy made. That&rsquo;s why <strong>CPUs were at 100% of usage</strong> because of PHP requests, PHP-FPM was overloaded (reached my configuration limits).</p><p>The only way to <strong>temporary solve the issue was to block the IP address</strong> (from OVH) with iptables. This guy recurred a little bit slower from another IP (from Orange) a few hours later. I pretty sure this was the same guy as the user agent in the logs was the same in addition of a non usual useragent name:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=s2>&#34;Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)&#34;</span></code></pre></div><p>I finally find a long term solution to solve this problem using an <strong>Nginx module called req_limit</strong>. You can specify how many requests per seconds per IPs are allowed, if you return a 503 error or simply delay aggressive requests, burst for a virtualhost etc&mldr;</p><p>I&rsquo;ve added to my current <a href=http://wiki.deimos.fr/Nginx_:_Installation_et_configuration_d%27une_alternative_d%27Apache#Limiter_le_flood_et_les_sniffers>Nginx documentation (in French)</a> the way to configure this req_limit module. I hope this will help some of you too.</p><p>Note for the sniffer guy: you can try now it should be OK :-)</p></div></div><div id=post-footer class="post-footer main-content-wrap"><div class=post-footer-tags><span class="text-color-light text-small">TAGGED IN</span><br><a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/nginx/>Nginx</a></div><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2014/05/23/galaxy-s5-feedbacks-after-2-weeks-usage/ data-tooltip="Galaxy S5: feedbacks after 2 weeks usage and ROM customization" aria-label="NEXT: Galaxy S5: feedbacks after 2 weeks usage and ROM customization"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2014/05/19/dotscale-european-tech-conference-on-scalability/ data-tooltip="dotScale: european tech conference on scalability" aria-label="PREVIOUS: dotScale: european tech conference on scalability"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post"><i class="fa fa-share-alt" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2014/05/21/nginx-limit-flood-and-aggressive-sniffer/" title="Share on Facebook" aria-label="Share on Facebook"><i class=fa-facebook-official aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2014/05/21/nginx-limit-flood-and-aggressive-sniffer/" title="Share on Twitter" aria-label="Share on Twitter"><i class=fa-twitter aria-hidden=true></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#top aria-label="Back to top"><i class="fa fa-arrow-up" aria-hidden=true></i></a></li></ul></div></div></article><footer id=footer class=main-content-wrap><span class=copyrights>&copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved</span></footer></div><div id=bottom-bar class=post-bottom-bar data-behavior=5><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2014/05/23/galaxy-s5-feedbacks-after-2-weeks-usage/ data-tooltip="Galaxy S5: feedbacks after 2 weeks usage and ROM customization" aria-label="NEXT: Galaxy S5: feedbacks after 2 weeks usage and ROM customization"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2014/05/19/dotscale-european-tech-conference-on-scalability/ data-tooltip="dotScale: european tech conference on scalability" aria-label="PREVIOUS: dotScale: european tech conference on scalability"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post"><i class="fa fa-share-alt" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2014/05/21/nginx-limit-flood-and-aggressive-sniffer/" title="Share on Facebook" aria-label="Share on Facebook"><i class=fa-facebook-official aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2014/05/21/nginx-limit-flood-and-aggressive-sniffer/" title="Share on Twitter" aria-label="Share on Twitter"><i class=fa-twitter aria-hidden=true></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#top aria-label="Back to top"><i class="fa fa-arrow-up" aria-hidden=true></i></a></li></ul></div></div><div id=share-options-bar class=share-options-bar data-behavior=5><i id=btn-close-shareoptions class="fa fa-times"></i><ul class=share-options><li class=share-option><a class=share-option-btn target=new href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2014%2F05%2F21%2Fnginx-limit-flood-and-aggressive-sniffer%2F" aria-label="Share on Facebook"><i class=fa-facebook-official aria-hidden=true></i><span>Share on Facebook</span></a></li><li class=share-option><a class=share-option-btn target=new href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2014%2F05%2F21%2Fnginx-limit-flood-and-aggressive-sniffer%2F" aria-label="Share on Twitter"><i class=fa-twitter aria-hidden=true></i><span>Share on Twitter</span></a></li></ul></div><div id=share-options-mask class=share-options-mask></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-times"></i></div><img id=about-card-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"><h4 id=about-card-name>Pierre Mavro / Deimosfr</h4><div id=about-card-job><i class="fa fa-briefcase"></i><br>Qovery Co-Founder and CTO</div><div id=about-card-location><i class="fa fa-map-marker-alt"></i><br>Paris - France</div></div></div><div id=cover style=background-image:url(https://blog.deimos.fr/images/fish_background.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js></script><script src=https://blog.deimos.fr/js/custom.js></script><script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:false});$('pre.code-highlight > code, pre > code').each(function(i,block){if(!$(this).hasClass('codeblock')){$(this).addClass('codeblock');}
-hljs.highlightBlock(block);});});</script></body></html>
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/blog.deimos.fr",
+  "author": {
+    "@type": "Person",
+    "name": "Pierre Mavro / Deimosfr",
+    
+    "image": "https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"
+    
+  },
+  "name":"Deimosfr Blog",
+  "description":"Last week, have been faced on a big sniffing issue on my wiki. The guy wanted to download all my wiki content. In reality I do not really care as it is open, free for read and contribution is welcome. However, the current VM where the blog and wiki are running didn\u0026rsquo;t support aggressive sniffing that this guy made. That\u0026rsquo;s why CPUs were at 100% of usage because of PHP requests, PHP-FPM was overloaded (reached my configuration limits).",
+  "url":"https:\/\/blog.deimos.fr\/2014\/05\/21\/nginx-limit-flood-and-aggressive-sniffer\/",
+  "keywords":"[]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.88.1 with theme Tranquilpeak 0.5.2-BETA">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Last week, have been faced on a big sniffing issue on my wiki. The guy wanted to download all my wiki content. In reality I do not really care as it is open, free for read and contribution is welcome. However, the current VM where the blog and wiki are running didn&rsquo;t support aggressive sniffing that this guy made. That&rsquo;s why CPUs were at 100% of usage because of PHP requests, PHP-FPM was overloaded (reached my configuration limits).">
+
+
+<meta property="og:description" content="Last week, have been faced on a big sniffing issue on my wiki. The guy wanted to download all my wiki content. In reality I do not really care as it is open, free for read and contribution is welcome. However, the current VM where the blog and wiki are running didn&rsquo;t support aggressive sniffing that this guy made. That&rsquo;s why CPUs were at 100% of usage because of PHP requests, PHP-FPM was overloaded (reached my configuration limits).">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx: limit flooding and aggressive sniffing">
+<meta name="twitter:title" content="Nginx: limit flooding and aggressive sniffing">
+<meta property="og:url" content="https://blog.deimos.fr/2014/05/21/nginx-limit-flood-and-aggressive-sniffer/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2014/05/21/nginx-limit-flood-and-aggressive-sniffer/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Last week, have been faced on a big sniffing issue on my wiki. The guy wanted to download all my wiki content. In reality I do not really care as it is open, free for read and contribution is welcome. However, the current VM where the blog and wiki are running didn&rsquo;t support aggressive sniffing that this guy made. That&rsquo;s why CPUs were at 100% of usage because of PHP requests, PHP-FPM was overloaded (reached my configuration limits).">
+<meta name="twitter:description" content="Last week, have been faced on a big sniffing issue on my wiki. The guy wanted to download all my wiki content. In reality I do not really care as it is open, free for read and contribution is welcome. However, the current VM where the blog and wiki are running didn&rsquo;t support aggressive sniffing that this guy made. That&rsquo;s why CPUs were at 100% of usage because of PHP requests, PHP-FPM was overloaded (reached my configuration limits).">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2014-05-21T10:00:00">
+  
+  
+    <meta property="article:modified_time" content="2014-05-21T10:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="Debian">
+    
+      <meta property="article:section" content="Hi-Tech">
+    
+      <meta property="article:section" content="Linux">
+    
+      <meta property="article:section" content="Security">
+    
+      <meta property="article:section" content="Web">
+    
+  
+  
+    
+      <meta property="article:tag" content="Nginx">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_ngnix.png">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_ngnix.png">
+
+
+    <title>Nginx: limit flooding and aggressive sniffing</title>
+
+    <link rel="icon" href="https://blog.deimos.fr/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://blog.deimos.fr/2014/05/21/nginx-limit-flood-and-aggressive-sniffer/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-c5yjx2losbmkttdif4mskx5f9pqjjquywurgngxfvceyyrtyatseix5hpd.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
+      
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-63927289-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.deimos.fr/" aria-label="Go to homepage">Deimosfr Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://blog.deimos.fr/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.deimos.fr/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/" title="Home">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/index.xml" title="RSS">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.deimos.fr" target="_blank" rel="noopener" title="About">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-user"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank" rel="noopener" title="Wiki">
+    
+      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
+      
+      <span class="sidebar-button-desc">Wiki</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      Nginx: limit flooding and aggressive sniffing
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2014-05-21T10:00:00Z">
+        
+  
+  
+  
+  
+    21 May 2014
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/security">Security</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/web">Web</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p><img src="https://blog.deimos.fr/images/logo_ngnix.png" alt="Nginx-logo">
+Last week, have been faced on a <strong>big sniffing issue on my wiki</strong>. The guy wanted to download all my wiki content. In reality I do not really care as it is open, free for read and contribution is welcome. However, the current VM where the blog and wiki are running didn&rsquo;t support <strong>aggressive sniffing</strong> that this guy made. That&rsquo;s why <strong>CPUs were at 100% of usage</strong> because of PHP requests, PHP-FPM was overloaded (reached my configuration limits).</p>
+<p>The only way to <strong>temporary solve the issue was to block the IP address</strong> (from OVH) with iptables. This guy recurred a little bit slower from another IP (from Orange) a few hours later. I pretty sure this was the same guy as the user agent in the logs was the same in addition of a non usual useragent name:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="s2">&#34;Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)&#34;</span></code></pre></div>
+<p>I finally find a long term solution to solve this problem using an <strong>Nginx module called req_limit</strong>. You can specify how many requests per seconds per IPs are allowed, if you return a 503 error or simply delay aggressive requests, burst for a virtualhost etc&hellip;</p>
+<p>I&rsquo;ve added to my current <a href="http://wiki.deimos.fr/Nginx_:_Installation_et_configuration_d%27une_alternative_d%27Apache#Limiter_le_flood_et_les_sniffers">Nginx documentation (in French)</a> the way to configure this req_limit module. I hope this will help some of you too.</p>
+<p>Note for the sniffer guy: you can try now it should be OK :-)</p>
+
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/nginx/">Nginx</a>
+
+                  </div>
+                
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2014/05/23/galaxy-s5-feedbacks-after-2-weeks-usage/" data-tooltip="Galaxy S5: feedbacks after 2 weeks usage and ROM customization" aria-label="NEXT: Galaxy S5: feedbacks after 2 weeks usage and ROM customization">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2014/05/19/dotscale-european-tech-conference-on-scalability/" data-tooltip="dotScale: european tech conference on scalability" aria-label="PREVIOUS: dotScale: european tech conference on scalability">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2014/05/21/nginx-limit-flood-and-aggressive-sniffer/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fa-facebook-official" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2014/05/21/nginx-limit-flood-and-aggressive-sniffer/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2014/05/23/galaxy-s5-feedbacks-after-2-weeks-usage/" data-tooltip="Galaxy S5: feedbacks after 2 weeks usage and ROM customization" aria-label="NEXT: Galaxy S5: feedbacks after 2 weeks usage and ROM customization">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2014/05/19/dotscale-european-tech-conference-on-scalability/" data-tooltip="dotScale: european tech conference on scalability" aria-label="PREVIOUS: dotScale: european tech conference on scalability">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2014/05/21/nginx-limit-flood-and-aggressive-sniffer/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fa-facebook-official" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2014/05/21/nginx-limit-flood-and-aggressive-sniffer/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2014%2F05%2F21%2Fnginx-limit-flood-and-aggressive-sniffer%2F" aria-label="Share on Facebook">
+          <i class="fa-facebook-official" aria-hidden="true"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2014%2F05%2F21%2Fnginx-limit-flood-and-aggressive-sniffer%2F" aria-label="Share on Twitter">
+          <i class="fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Qovery Co-Founder and CTO
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Paris - France
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      
+      <div id="cover" style="background-image:url('https://blog.deimos.fr/images/fish_background.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script src="https://blog.deimos.fr/js/custom.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+

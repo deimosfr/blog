@@ -1,49 +1,862 @@
-<!doctype html><html lang=en-us><head><script type=application/ld+json>{"@context":"http://schema.org","@type":"Website","@id":"https:\/\/blog.deimos.fr","author":{"@type":"Person","name":"Pierre Mavro / Deimosfr","image":"https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"},"name":"Deimosfr Blog","description":"Deimos Blog","url":"https:\/\/blog.deimos.fr\/tags\/debian\/","keywords":"[]"}</script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Hugo 0.69.2 with theme Tranquilpeak 0.5.2-BETA"><meta name=author content="Pierre Mavro / Deimosfr"><meta name=keywords content><meta name=description content="Deimos Blog"><meta property="og:description" content="Deimos Blog"><meta property="og:type" content="website"><meta property="og:title" content="debian"><meta name=twitter:title content="debian"><meta property="og:url" content="https://blog.deimos.fr/tags/debian/"><meta property="twitter:url" content="https://blog.deimos.fr/tags/debian/"><meta property="og:site_name" content="Deimosfr Blog"><meta property="og:description" content="Deimos Blog"><meta name=twitter:description content="Deimos Blog"><meta property="og:locale" content="en-us"><meta name=twitter:card content="summary"><meta name=twitter:site content="@deimosfr"><meta name=twitter:creator content="@deimosfr"><meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><title>debian</title><link rel=icon href=https://blog.deimos.fr/favicon.png><link rel=alternate type=application/rss+xml title=RSS href=https://blog.deimos.fr/tags/debian/index.xml><link rel=canonical href=https://blog.deimos.fr/tags/debian/><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://blog.deimos.fr/css/style-c5yjx2losbmkttdif4mskx5f9pqjjquywurgngxfvceyyrtyatseix5hpd.min.css><link rel=stylesheet href=https://blog.deimos.fr/css/custom.css><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-63927289-1','auto');ga('send','pageview');}</script></head><body><div id=blog><header id=header data-behavior=2><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=https://blog.deimos.fr/ aria-label="Go to homepage">Deimosfr Blog</a></div><a class=header-right-picture href=https://blog.deimos.fr/#about aria-label="Open the link: /#about"><img class=header-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author's picture"></a></header><nav id=sidebar data-behavior=2><div class=sidebar-container><div class=sidebar-profile><a href=https://blog.deimos.fr/#about aria-label="Read more about the author"><img class=sidebar-profile-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"></a><h4 class=sidebar-profile-name>Pierre Mavro / Deimosfr</h4></div><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/ title=Home><i class="sidebar-button-icon fa fa-lg fa-home"></i><span class=sidebar-button-desc>Home</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/archives title=Archives><i class="sidebar-button-icon fa fa-lg fa-archive"></i><span class=sidebar-button-desc>Archives</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/categories title=Categories><i class="sidebar-button-icon fa fa-lg fa-bookmark"></i><span class=sidebar-button-desc>Categories</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/tags title=Tags><i class="sidebar-button-icon fa fa-lg fa-tags"></i><span class=sidebar-button-desc>Tags</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/index.xml title=RSS><i class="sidebar-button-icon fa fa-lg fa-rss"></i><span class=sidebar-button-desc>RSS</span></a></li></ul><ul class=sidebar-buttons></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://www.deimos.fr target=_blank rel=noopener title=About><i class="sidebar-button-icon fa fa-lg fa-user"></i><span class=sidebar-button-desc>About</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://wiki.deimos.fr target=_blank rel=noopener title=Wiki><i class="sidebar-button-icon fa fa-wikipedia-w"></i><span class=sidebar-button-desc>Wiki</span></a></li></ul></div></nav><div id=main data-behavior=2 class=hasCoverMetaIn><section class="postShorten-group main-content-wrap"><article class="postShorten postShorten--thumbnailimg-left"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2013/08/02/lxc-debian-reported-issue-still-not-fixed/ aria-label="Open the post: LXC : Debian reported issue still not fixed">LXC : Debian reported issue still not fixed</a></h1><div class="postShorten-meta post-meta"><time datetime=2013-08-02T10:00:00Z>2 August 2013</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a></div></div><div class=postShorten-excerpt>Hi everyone ! As you know I recently started to play with LXC :-)
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/blog.deimos.fr",
+  "author": {
+    "@type": "Person",
+    "name": "Pierre Mavro / Deimosfr",
+    
+    "image": "https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"
+    
+  },
+  "name":"Deimosfr Blog",
+  "description":"Deimos Blog",
+  "url":"https:\/\/blog.deimos.fr\/tags\/debian\/",
+  "keywords":"[]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.88.1 with theme Tranquilpeak 0.5.2-BETA">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="debian">
+<meta name="twitter:title" content="debian">
+<meta property="og:url" content="https://blog.deimos.fr/tags/debian/">
+<meta property="twitter:url" content="https://blog.deimos.fr/tags/debian/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
+
+
+
+
+    <title>debian</title>
+
+    <link rel="icon" href="https://blog.deimos.fr/favicon.png">
+    
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://blog.deimos.fr/tags/debian/index.xml">
+    
+
+    
+
+    <link rel="canonical" href="https://blog.deimos.fr/tags/debian/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-c5yjx2losbmkttdif4mskx5f9pqjjquywurgngxfvceyyrtyatseix5hpd.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
+      
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-63927289-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="2">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.deimos.fr/" aria-label="Go to homepage">Deimosfr Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://blog.deimos.fr/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="2">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.deimos.fr/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/" title="Home">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/index.xml" title="RSS">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.deimos.fr" target="_blank" rel="noopener" title="About">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-user"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank" rel="noopener" title="Wiki">
+    
+      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
+      
+      <span class="sidebar-button-desc">Wiki</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+        
+
+      
+      <div id="main" data-behavior="2"
+        class="
+               hasCoverMetaIn
+               ">
+        
+          <section class="postShorten-group main-content-wrap">
+            
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2013/08/02/lxc-debian-reported-issue-still-not-fixed/" aria-label="Open the post: LXC : Debian reported issue still not fixed">
+      
+          LXC : Debian reported issue still not fixed
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2013-08-02T10:00:00Z">
+        
+  
+  
+  
+  
+    2 August 2013
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        Hi everyone ! As you know I recently started to play with LXC :-)
 At the beginning of my tests, I unfortunately found an annoying bug which avoid performing correct Debian installation over LVM.
 I tried to resolve it by myself but didn&rsquo;t had enough time to finish my investigation. After quick searches, I found that other people found the bug on github : https://github.com/simonvanderveldt/lxc-debian-wheezy-template/issues/1#issuecomment-21303483
-As a rule, I searched it on Debian bugs list but nothing was reported.<p><a href=https://blog.deimos.fr/2013/08/02/lxc-debian-reported-issue-still-not-fixed/ class="postShorten-excerpt_link link" aria-label="Open the post: LXC : Debian reported issue still not fixed">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2013/08/02/lxc-debian-reported-issue-still-not-fixed/ aria-label="Open the post: LXC : Debian reported issue still not fixed"><div class=postShorten-thumbnailimg><img alt src=https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg></div></a></article><article class="postShorten postShorten--thumbnailimg-left"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2013/07/21/book-pro-git/ aria-label="Open the post: Book : Pro Git">Book : Pro Git</a></h1><div class="postShorten-meta post-meta"><time datetime=2013-07-21T10:00:00Z>21 July 2013</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/mac>Mac</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/openbsd>OpenBSD</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/windows>Windows</a></div></div><div class=postShorten-excerpt>Git : have you ever tried to play with it ? For several years I&rsquo;m working with that fantastic tool. Anyway the biggest problem is : if you don&rsquo;t work day to day with Git, you need a memento or something similar (like my wiki 😉).
-Also, if you use it for your personal usage, you&rsquo;ll be lost when you will work with complex workflows. As I&rsquo;m not a developer, I use Git to manage my etc configuration, my puppet manifests, my custom scripts&mldr;so many basic usage that really help me to win time as a sysadmin.<p><a href=https://blog.deimos.fr/2013/07/21/book-pro-git/ class="postShorten-excerpt_link link" aria-label="Open the post: Book : Pro Git">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2013/07/21/book-pro-git/ aria-label="Open the post: Book : Pro Git"><div class=postShorten-thumbnailimg><img alt src=https://blog.deimos.fr/thumbnails/pro-git.jpg></div></a></article><article class="postShorten postShorten--thumbnailimg-left"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2013/07/17/lxc-basic-installation-and-usage/ aria-label="Open the post: LXC : basic installation and usage">LXC : basic installation and usage</a></h1><div class="postShorten-meta post-meta"><time datetime=2013-07-17T10:00:12Z>17 July 2013</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a></div></div><div class=postShorten-excerpt>Last week, I started to play with LXC. It is the userspace control package for Linux Containers, a lightweight virtual system mechanism sometimes described as “chroot on steroids”.
+As a rule, I searched it on Debian bugs list but nothing was reported.
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2013/08/02/lxc-debian-reported-issue-still-not-fixed/" class="postShorten-excerpt_link link" aria-label="Open the post: LXC : Debian reported issue still not fixed">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2013/08/02/lxc-debian-reported-issue-still-not-fixed/" aria-label="Open the post: LXC : Debian reported issue still not fixed">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2013/07/21/book-pro-git/" aria-label="Open the post: Book : Pro Git">
+      
+          Book : Pro Git
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2013-07-21T10:00:00Z">
+        
+  
+  
+  
+  
+    21 July 2013
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/mac">Mac</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/openbsd">OpenBSD</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/windows">Windows</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        Git : have you ever tried to play with it ? For several years I&rsquo;m working with that fantastic tool. Anyway the biggest problem is : if you don&rsquo;t work day to day with Git, you need a memento or something similar (like my wiki 😉).
+Also, if you use it for your personal usage, you&rsquo;ll be lost when you will work with complex workflows. As I&rsquo;m not a developer, I use Git to manage my etc configuration, my puppet manifests, my custom scripts&hellip;so many basic usage that really help me to win time as a sysadmin.
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2013/07/21/book-pro-git/" class="postShorten-excerpt_link link" aria-label="Open the post: Book : Pro Git">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2013/07/21/book-pro-git/" aria-label="Open the post: Book : Pro Git">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="https://blog.deimos.fr/thumbnails/pro-git.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2013/07/17/lxc-basic-installation-and-usage/" aria-label="Open the post: LXC : basic installation and usage">
+      
+          LXC : basic installation and usage
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2013-07-17T10:00:12Z">
+        
+  
+  
+  
+  
+    17 July 2013
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        Last week, I started to play with LXC. It is the userspace control package for Linux Containers, a lightweight virtual system mechanism sometimes described as “chroot on steroids”.
 LXC builds up from chroot to implement complete virtual systems, adding resource management and isolation mechanisms to Linux’s existing process management infrastructure.
-I wanted to look at an alternative of OpenVZ and LXC seams to be the better solution. That&rsquo;s why I started to play with.<p><a href=https://blog.deimos.fr/2013/07/17/lxc-basic-installation-and-usage/ class="postShorten-excerpt_link link" aria-label="Open the post: LXC : basic installation and usage">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2013/07/17/lxc-basic-installation-and-usage/ aria-label="Open the post: LXC : basic installation and usage"><div class=postShorten-thumbnailimg><img alt src=https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg></div></a></article><article class="postShorten postShorten--thumbnailimg-bottom"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2013/07/13/drbd-how-to-recover-failed-synchronisation/ aria-label="Open the post: DRBD : how to recover failed synchronisation">DRBD : how to recover failed synchronisation</a></h1><div class="postShorten-meta post-meta"><time datetime=2013-07-13T10:00:00Z>13 July 2013</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/ha>HA</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a></div></div><div class=postShorten-excerpt>DRBD is an old stable solution to create block disk replications over the network. However in some case, we need to deal with failures for several reasons (hardware, network issues&mldr;).
-I&rsquo;ve updated my current documentation on this point and hope this will help some of you. You can find the update here.<p><a href=https://blog.deimos.fr/2013/07/13/drbd-how-to-recover-failed-synchronisation/ class="postShorten-excerpt_link link" aria-label="Open the post: DRBD : how to recover failed synchronisation">Continue reading</a></p></div></div></article><article class="postShorten postShorten--thumbnailimg-bottom"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2013/07/09/yubikey-protect-your-desktop-authentication-using-pam-and-yubikey-library/ aria-label="Open the post: Yubikey : protect your desktop authentication using pam and yubikey library">Yubikey : protect your desktop authentication using pam and yubikey library</a></h1><div class="postShorten-meta post-meta"><time datetime=2013-07-09T10:00:00Z>9 July 2013</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/security>Security</a></div></div><div class=postShorten-excerpt>I&rsquo;ve bought 2 Yubikeys several months ago and didn&rsquo;t really took the time to play with them.
+I wanted to look at an alternative of OpenVZ and LXC seams to be the better solution. That&rsquo;s why I started to play with.
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2013/07/17/lxc-basic-installation-and-usage/" class="postShorten-excerpt_link link" aria-label="Open the post: LXC : basic installation and usage">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2013/07/17/lxc-basic-installation-and-usage/" aria-label="Open the post: LXC : basic installation and usage">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2013/07/13/drbd-how-to-recover-failed-synchronisation/" aria-label="Open the post: DRBD : how to recover failed synchronisation">
+      
+          DRBD : how to recover failed synchronisation
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2013-07-13T10:00:00Z">
+        
+  
+  
+  
+  
+    13 July 2013
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/ha">HA</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        DRBD is an old stable solution to create block disk replications over the network. However in some case, we need to deal with failures for several reasons (hardware, network issues&hellip;).
+I&rsquo;ve updated my current documentation on this point and hope this will help some of you. You can find the update here.
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2013/07/13/drbd-how-to-recover-failed-synchronisation/" class="postShorten-excerpt_link link" aria-label="Open the post: DRBD : how to recover failed synchronisation">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2013/07/09/yubikey-protect-your-desktop-authentication-using-pam-and-yubikey-library/" aria-label="Open the post: Yubikey : protect your desktop authentication using pam and yubikey library">
+      
+          Yubikey : protect your desktop authentication using pam and yubikey library
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2013-07-09T10:00:00Z">
+        
+  
+  
+  
+  
+    9 July 2013
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/security">Security</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        I&rsquo;ve bought 2 Yubikeys several months ago and didn&rsquo;t really took the time to play with them.
 A ex-colleague took that time and configured it on his desktop under ArchLinux. I decided to play with it, see how could it works and with his help, put it in place in a very short time.
-I configured it to work in parallel of my password. With that configuration, I do not need anymore typing my password, but only need to plug in my Yubikey.<p><a href=https://blog.deimos.fr/2013/07/09/yubikey-protect-your-desktop-authentication-using-pam-and-yubikey-library/ class="postShorten-excerpt_link link" aria-label="Open the post: Yubikey : protect your desktop authentication using pam and yubikey library">Continue reading</a></p></div></div></article><article class="postShorten postShorten--thumbnailimg-left"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2013/07/07/how-to-use-old-debian-repository-for-unmaintained-debian-versions/ aria-label="Open the post: How to use old Debian repository for unmaintained Debian versions">How to use old Debian repository for unmaintained Debian versions</a></h1><div class="postShorten-meta post-meta"><time datetime=2013-07-07T10:00:25Z>7 July 2013</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a></div></div><div class=postShorten-excerpt>Installing old Debian to prepare a migration is quite good when repositories are still available. But for old unmaintained versions of Debian, we need to change some things.
+I configured it to work in parallel of my password. With that configuration, I do not need anymore typing my password, but only need to plug in my Yubikey.
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2013/07/09/yubikey-protect-your-desktop-authentication-using-pam-and-yubikey-library/" class="postShorten-excerpt_link link" aria-label="Open the post: Yubikey : protect your desktop authentication using pam and yubikey library">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2013/07/07/how-to-use-old-debian-repository-for-unmaintained-debian-versions/" aria-label="Open the post: How to use old Debian repository for unmaintained Debian versions">
+      
+          How to use old Debian repository for unmaintained Debian versions
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2013-07-07T10:00:25Z">
+        
+  
+  
+  
+  
+    7 July 2013
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        Installing old Debian to prepare a migration is quite good when repositories are still available. But for old unmaintained versions of Debian, we need to change some things.
 Hopefully Debian still keep all the old versions in an archive repository that is accessible by changing the default url. Even if during install it fails, you can set it up afterward.
-I&rsquo;ve wrote a little article on it, follow the link.<p><a href=https://blog.deimos.fr/2013/07/07/how-to-use-old-debian-repository-for-unmaintained-debian-versions/ class="postShorten-excerpt_link link" aria-label="Open the post: How to use old Debian repository for unmaintained Debian versions">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2013/07/07/how-to-use-old-debian-repository-for-unmaintained-debian-versions/ aria-label="Open the post: How to use old Debian repository for unmaintained Debian versions"><div class=postShorten-thumbnailimg><img alt src=https://blog.deimos.fr/thumbnails/logo_debian.png></div></a></article><article class="postShorten postShorten--thumbnailimg-bottom"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2013/06/29/my-slim-theme/ aria-label="Open the post: My slim theme">My slim theme</a></h1><div class="postShorten-meta post-meta"><time datetime=2013-06-29T10:00:52Z>29 June 2013</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a></div></div><div class=postShorten-excerpt>I&rsquo;m using Slim for a few months and I&rsquo;m very happy with it. It&rsquo;s simple, do what does it have to do and it&rsquo;s light. But I wanted to customize it to give a look similar to my Awesome theme.
+I&rsquo;ve wrote a little article on it, follow the link.
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2013/07/07/how-to-use-old-debian-repository-for-unmaintained-debian-versions/" class="postShorten-excerpt_link link" aria-label="Open the post: How to use old Debian repository for unmaintained Debian versions">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2013/07/07/how-to-use-old-debian-repository-for-unmaintained-debian-versions/" aria-label="Open the post: How to use old Debian repository for unmaintained Debian versions">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="https://blog.deimos.fr/thumbnails/logo_debian.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2013/06/29/my-slim-theme/" aria-label="Open the post: My slim theme">
+      
+          My slim theme
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2013-06-29T10:00:52Z">
+        
+  
+  
+  
+  
+    29 June 2013
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        I&rsquo;m using Slim for a few months and I&rsquo;m very happy with it. It&rsquo;s simple, do what does it have to do and it&rsquo;s light. But I wanted to customize it to give a look similar to my Awesome theme.
 That&rsquo;s why I&rsquo;ve took Gimp and modified a theme I liked. You can see the result :-)
-You can find my configuration here and modify it if you want :-)<p><a href=https://blog.deimos.fr/2013/06/29/my-slim-theme/ class="postShorten-excerpt_link link" aria-label="Open the post: My slim theme">Continue reading</a></p></div></div></article><div class=pagination-bar><ul class=pagination><li class=pagination-prev><a class="btn btn--default btn--small" href=https://blog.deimos.fr/tags/debian/page/15/ aria-label="NEWER POSTS"><i class="fa fa-angle-left text-base icon-mr"></i><span>NEWER POSTS</span></a></li><li class=pagination-next><a class="btn btn--default btn--small" href=https://blog.deimos.fr/tags/debian/page/17/ aria-label="OLDER POSTS"><span>OLDER POSTS</span>
-<i class="fa fa-angle-right text-base icon-ml"></i></a></li><li class=pagination-number>page 16 of 30</li></ul></div></section><footer id=footer class=main-content-wrap><span class=copyrights>&copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved</span></footer></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-times"></i></div><img id=about-card-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"><h4 id=about-card-name>Pierre Mavro / Deimosfr</h4><div id=about-card-job><i class="fa fa-briefcase"></i><br>Qovery Co-Founder and CTO</div><div id=about-card-location><i class="fa fa-map-marker-alt"></i><br>Paris - France</div></div></div><div id=cover style=background-image:url(https://blog.deimos.fr/images/fish_background.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js></script><script src=https://blog.deimos.fr/js/custom.js></script><script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:false});$('pre.code-highlight > code, pre > code').each(function(i,block){if(!$(this).hasClass('codeblock')){$(this).addClass('codeblock');}
-hljs.highlightBlock(block);});});</script></body></html>
+You can find my configuration here and modify it if you want :-)
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2013/06/29/my-slim-theme/" class="postShorten-excerpt_link link" aria-label="Open the post: My slim theme">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+            
+  <div class="pagination-bar">
+    <ul class="pagination">
+      
+        
+          <li class="pagination-prev">
+            <a class="btn btn--default btn--small" href="https://blog.deimos.fr/tags/debian/page/15/" aria-label="NEWER POSTS">
+              <i class="fa fa-angle-left text-base icon-mr"></i>
+              <span>NEWER POSTS</span>
+            </a>
+          </li>
+        
+        
+          <li class="pagination-next">
+            <a class="btn btn--default btn--small" href="https://blog.deimos.fr/tags/debian/page/17/" aria-label="OLDER POSTS">
+              <span>OLDER POSTS</span>
+              <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+          </li>
+        
+      
+      <li class="pagination-number">page 16 of 30</li>
+    </ul>
+  </div>
+
+
+          </section>
+        
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Qovery Co-Founder and CTO
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Paris - France
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      
+      <div id="cover" style="background-image:url('https://blog.deimos.fr/images/fish_background.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script src="https://blog.deimos.fr/js/custom.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+

@@ -1,2 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>arch on Deimosfr Blog</title><link>https://blog.deimos.fr/tags/arch/</link><description>Recent content in arch on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 29 Mar 2020 00:00:00 +0200</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/arch/index.xml" rel="self" type="application/rss+xml"/><item><title>Arch Linux install with UEFI and encrypted disk</title><link>https://blog.deimos.fr/2020/03/29/arch-linux-install-with-uefi-and-encrypted-disk/</link><pubDate>Sun, 29 Mar 2020 00:00:00 +0200</pubDate><guid>https://blog.deimos.fr/2020/03/29/arch-linux-install-with-uefi-and-encrypted-disk/</guid><description>Several times I had to install Arch Linux those 8 past years. Not because it&amp;rsquo;s not stable but because I changed hardware. Any time it was a pain to remind me how to do stuff during the install process. I really love this Linux distribution, but I have to admit the install process is far complex that what we found on other distribution.
-I never did a how to and once again I wasted my time on reading the doc etc&amp;hellip;but I just wanted to go fast.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>arch on Deimosfr Blog</title>
+    <link>https://blog.deimos.fr/tags/arch/</link>
+    <description>Recent content in arch on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 29 Mar 2020 00:00:00 +0200</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/arch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arch Linux install with UEFI and encrypted disk</title>
+      <link>https://blog.deimos.fr/2020/03/29/arch-linux-install-with-uefi-and-encrypted-disk/</link>
+      <pubDate>Sun, 29 Mar 2020 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/2020/03/29/arch-linux-install-with-uefi-and-encrypted-disk/</guid>
+      <description>Several times I had to install Arch Linux those 8 past years. Not because it&amp;rsquo;s not stable but because I changed hardware. Any time it was a pain to remind me how to do stuff during the install process. I really love this Linux distribution, but I have to admit the install process is far complex that what we found on other distribution.
+I never did a how to and once again I wasted my time on reading the doc etc&amp;hellip;but I just wanted to go fast.</description>
+    </item>
+    
+  </channel>
+</rss>

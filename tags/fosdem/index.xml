@@ -1,2 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>fosdem on Deimosfr Blog</title><link>https://blog.deimos.fr/tags/fosdem/</link><description>Recent content in fosdem on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 31 Jan 2015 06:30:20 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/fosdem/index.xml" rel="self" type="application/rss+xml"/><item><title>FOSDEM…in the road again dude!</title><link>https://blog.deimos.fr/2015/01/31/fosdem-in-the-road-again-dude/</link><pubDate>Sat, 31 Jan 2015 06:30:20 +0000</pubDate><guid>https://blog.deimos.fr/2015/01/31/fosdem-in-the-road-again-dude/</guid><description>Once again I&amp;rsquo;m on the road of the FOSDEM. Thanks Red Hat for it :-)
-I hope I&amp;rsquo;ll meet all of you! For some it&amp;rsquo;s already planned :-)</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fosdem on Deimosfr Blog</title>
+    <link>https://blog.deimos.fr/tags/fosdem/</link>
+    <description>Recent content in fosdem on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 31 Jan 2015 06:30:20 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/fosdem/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FOSDEM…in the road again dude!</title>
+      <link>https://blog.deimos.fr/2015/01/31/fosdem-in-the-road-again-dude/</link>
+      <pubDate>Sat, 31 Jan 2015 06:30:20 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2015/01/31/fosdem-in-the-road-again-dude/</guid>
+      <description>Once again I&amp;rsquo;m on the road of the FOSDEM. Thanks Red Hat for it :-)
+I hope I&amp;rsquo;ll meet all of you! For some it&amp;rsquo;s already planned :-)</description>
+    </item>
+    
+  </channel>
+</rss>

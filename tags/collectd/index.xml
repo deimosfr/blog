@@ -1,2 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>collectd on Deimosfr Blog</title><link>https://blog.deimos.fr/tags/collectd/</link><description>Recent content in collectd on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 09 Jun 2010 22:09:28 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/collectd/index.xml" rel="self" type="application/rss+xml"/><item><title>Collectd pour remplacer Munin</title><link>https://blog.deimos.fr/2010/06/09/collectd-pour-remplacer-munin/</link><pubDate>Wed, 09 Jun 2010 22:09:28 +0000</pubDate><guid>https://blog.deimos.fr/2010/06/09/collectd-pour-remplacer-munin/</guid><description>Pendant des années, j’ai adoré la simplicité de Munin. Et puis au fil du temps, avec les besoins du taf et notamment Solaris, ça devient de plus en plus galère de l’installer et d’avoir des graphs très précis. Je suis tombé sur cet article qui parle de Collectd.
-Je me suis donc intéressé à la chose et suis très satisfait du résultat. C&amp;rsquo;est très rapide, il existe plusieurs interfaces graphiques (plus ou moins jolie, plus ou moins fonctionnelles) et surtout, il y a une tonne de modules de base pour Collectd !</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>collectd on Deimosfr Blog</title>
+    <link>https://blog.deimos.fr/tags/collectd/</link>
+    <description>Recent content in collectd on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 Jun 2010 22:09:28 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/collectd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Collectd pour remplacer Munin</title>
+      <link>https://blog.deimos.fr/2010/06/09/collectd-pour-remplacer-munin/</link>
+      <pubDate>Wed, 09 Jun 2010 22:09:28 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2010/06/09/collectd-pour-remplacer-munin/</guid>
+      <description>Pendant des années, j’ai adoré la simplicité de Munin. Et puis au fil du temps, avec les besoins du taf et notamment Solaris, ça devient de plus en plus galère de l’installer et d’avoir des graphs très précis. Je suis tombé sur cet article qui parle de Collectd.
+Je me suis donc intéressé à la chose et suis très satisfait du résultat. C&amp;rsquo;est très rapide, il existe plusieurs interfaces graphiques (plus ou moins jolie, plus ou moins fonctionnelles) et surtout, il y a une tonne de modules de base pour Collectd !</description>
+    </item>
+    
+  </channel>
+</rss>
