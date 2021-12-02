@@ -208,8 +208,10 @@ echo 'title Arch Linux' > /boot/loader/entries/arch.conf
 echo 'linux /vmlinuz-linux' >> /boot/loader/entries/arch.conf
 echo 'initrd /intel-ucode.img' >> /boot/loader/entries/arch.conf
 echo 'initrd /initramfs-linux.img' >> /boot/loader/entries/arch.conf
-echo "options cryptdevice=UUID=${UUID}:vg0 root=/dev/mapper/vg0-root rw intel_pstate=no_hwp" >> /boot/loader/entries/arch.conf
+echo "options cryptdevice=UUID=${UUID}:vg0 root=/dev/mapper/vg0-root rw intel_pstate=no_hwpi msr.allow_writes=on" >> /boot/loader/entries/arch.conf
 ```
+
+Note: you can add ```mitigations=off``` if you want more performances. But it will allow Spectre and Metldown security issues (https://meltdownattack.com/).
 
 # End install
 
