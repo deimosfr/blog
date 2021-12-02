@@ -1,45 +1,271 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Solaris on Deimosfr Blog</title><link>https://blog.deimos.fr/tags/solaris/</link><description>Recent content in Solaris on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 24 May 2013 10:00:30 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/solaris/index.xml" rel="self" type="application/rss+xml"/><item><title>Weechat : a user friendly IRC client</title><link>https://blog.deimos.fr/2013/05/24/weechat-a-user-friendly-irc-client/</link><pubDate>Fri, 24 May 2013 10:00:30 +0000</pubDate><guid>https://blog.deimos.fr/2013/05/24/weechat-a-user-friendly-irc-client/</guid><description>WeeChat is a fast, light and extensible chat client. It runs on many platforms (including Linux, BSD and Mac OS). I&amp;rsquo;m using it over a year and really love that client.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Solaris on Deimosfr Blog</title>
+    <link>https://blog.deimos.fr/tags/solaris/</link>
+    <description>Recent content in Solaris on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 24 May 2013 10:00:30 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/solaris/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Weechat : a user friendly IRC client</title>
+      <link>https://blog.deimos.fr/2013/05/24/weechat-a-user-friendly-irc-client/</link>
+      <pubDate>Fri, 24 May 2013 10:00:30 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/05/24/weechat-a-user-friendly-irc-client/</guid>
+      <description>WeeChat is a fast, light and extensible chat client. It runs on many platforms (including Linux, BSD and Mac OS). I&amp;rsquo;m using it over a year and really love that client.
 WeeChat is:
-modular: a lightweight core with plugins around multi-protocols: IRC and Jabber (other soon) extensible: C plugins and scripts (Perl, Python, Ruby, Lua, Tcl and Scheme) free software: released under GPLv3 license fully documented: user&amp;rsquo;s guide, API, FAQ,.</description></item><item><title>Un utilitaire pour commandlinefu.com</title><link>https://blog.deimos.fr/2012/04/03/un-utilitaire-pour-commandlinefu-com/</link><pubDate>Tue, 03 Apr 2012 11:00:48 +0000</pubDate><guid>https://blog.deimos.fr/2012/04/03/un-utilitaire-pour-commandlinefu-com/</guid><description>Sachez que vous pouvez faire une recherche dans ce site pour en extraire des exemples grâce à un petit script. Exemple : &amp;gt; fu -a awk 1 # List of commands you use most often history | awk &amp;#39;{a[$2]++}END{for(i in a){print a[i] &amp;#34; &amp;#34; i}}&amp;#39; | sort -rn | head&amp;lt;/p&amp;gt; 2 # Display a block of text with AWK awk &amp;#39;/start_pattern/,/stop_pattern/&amp;#39; file.txt&amp;lt;/p&amp;gt; 3 # Remove duplicate entries in a file without sorting.</description></item><item><title>MySQL : Augmenter radicalement les performances des accès sur les fichiers temporaires</title><link>https://blog.deimos.fr/2012/03/01/mysql-augmenter-radicalement-les-performances-des-acces-sur-les-fichiers-temporaires/</link><pubDate>Thu, 01 Mar 2012 11:00:52 +0000</pubDate><guid>https://blog.deimos.fr/2012/03/01/mysql-augmenter-radicalement-les-performances-des-acces-sur-les-fichiers-temporaires/</guid><description>Si vous avez des problèmes de temps d’accès et de débit sur votre espace disque temporaire pour MySQL, alors cet article est fait pour vous.
+ modular: a lightweight core with plugins around multi-protocols: IRC and Jabber (other soon) extensible: C plugins and scripts (Perl, Python, Ruby, Lua, Tcl and Scheme) free software: released under GPLv3 license fully documented: user&amp;rsquo;s guide, API, FAQ,.</description>
+    </item>
+    
+    <item>
+      <title>Un utilitaire pour commandlinefu.com</title>
+      <link>https://blog.deimos.fr/2012/04/03/un-utilitaire-pour-commandlinefu-com/</link>
+      <pubDate>Tue, 03 Apr 2012 11:00:48 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2012/04/03/un-utilitaire-pour-commandlinefu-com/</guid>
+      <description>Sachez que vous pouvez faire une recherche dans ce site pour en extraire des exemples grâce à un petit script. Exemple : &amp;gt; fu -a awk 1	# List of commands you use most often history | awk &amp;#39;{a[$2]++}END{for(i in a){print a[i] &amp;#34; &amp;#34; i}}&amp;#39; | sort -rn | head&amp;lt;/p&amp;gt; 2	# Display a block of text with AWK awk &amp;#39;/start_pattern/,/stop_pattern/&amp;#39; file.txt&amp;lt;/p&amp;gt; 3	# Remove duplicate entries in a file without sorting.</description>
+    </item>
+    
+    <item>
+      <title>MySQL : Augmenter radicalement les performances des accès sur les fichiers temporaires</title>
+      <link>https://blog.deimos.fr/2012/03/01/mysql-augmenter-radicalement-les-performances-des-acces-sur-les-fichiers-temporaires/</link>
+      <pubDate>Thu, 01 Mar 2012 11:00:52 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2012/03/01/mysql-augmenter-radicalement-les-performances-des-acces-sur-les-fichiers-temporaires/</guid>
+      <description>Si vous avez des problèmes de temps d’accès et de débit sur votre espace disque temporaire pour MySQL, alors cet article est fait pour vous.
 La solution consiste donc à utiliser le filesystem tmpfs et rediriger ses fichiers temporaires dessus.
 J&amp;rsquo;ai donc créer et mis à jour mes documentations. Vous aurez donc besoin de :
-Tmpfs sous Solaris Tmpfs sous Linux MySQL : augmenter les perfs pour les fichiers temporaires  </description></item><item><title>Tmux Cheat Sheet</title><link>https://blog.deimos.fr/2012/02/24/tmux-cheat-sheet/</link><pubDate>Fri, 24 Feb 2012 11:00:40 +0000</pubDate><guid>https://blog.deimos.fr/2012/02/24/tmux-cheat-sheet/</guid><description>Je ne me suis pas mis au LaTeX pour rien, j’avais pour idée de pondre une Cheat Sheet sur Tmux, vu que je n’en avais trouvé aucune sur le net.
+ Tmpfs sous Solaris Tmpfs sous Linux MySQL : augmenter les perfs pour les fichiers temporaires   </description>
+    </item>
+    
+    <item>
+      <title>Tmux Cheat Sheet</title>
+      <link>https://blog.deimos.fr/2012/02/24/tmux-cheat-sheet/</link>
+      <pubDate>Fri, 24 Feb 2012 11:00:40 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2012/02/24/tmux-cheat-sheet/</guid>
+      <description>Je ne me suis pas mis au LaTeX pour rien, j’avais pour idée de pondre une Cheat Sheet sur Tmux, vu que je n’en avais trouvé aucune sur le net.
 J&amp;rsquo;ai donc mis à jour la documentation Tmux avec les Cheat Sheet en anglais et français.
 Je les fournis également ici :
-Tmux French Cheat Sheet
-Tmux English Cheat Sheet
-N&amp;rsquo;hésitez pas à me faire un retour ou des propositions sur d&amp;rsquo;éventuels ajouts.</description></item><item><title>Au revoir Screen, bonjour Tmux</title><link>https://blog.deimos.fr/2012/02/16/au-revoir-screen-bonjour-tmux/</link><pubDate>Thu, 16 Feb 2012 11:00:54 +0000</pubDate><guid>https://blog.deimos.fr/2012/02/16/au-revoir-screen-bonjour-tmux/</guid><description>Screen n’est plus maintenu et a apparemment un code illisible (je n’ai pas vérifier, mais on peut lire ça un peu partout). Il était temps qu’un remplaçant arrive dans mes mains et je ne suis pas déçu car il y a plein de fonctionnalité, une belle stabilité et surtout une plus grande réactivité.
-J&amp;rsquo;ai donc fait une petite documentation dessus. Je vous conseil fortement de switcher, Tmux c&amp;rsquo;est géniale !</description></item><item><title>Ajouter de la swap sur Solaris</title><link>https://blog.deimos.fr/2012/02/01/1580/</link><pubDate>Wed, 01 Feb 2012 11:00:42 +0000</pubDate><guid>https://blog.deimos.fr/2012/02/01/1580/</guid><description>Solaris c&amp;rsquo;est bien, sur UFS, c&amp;rsquo;est tout de suite moins bien. J&amp;rsquo;ai eu besoin d&amp;rsquo;ajouter de la swap sur une partition, et quand on fait pas ça tous les 4 matins, se replonger dedans c&amp;rsquo;est vraiment très très chiant.
+  Tmux French Cheat Sheet
+  Tmux English Cheat Sheet
+  N&amp;rsquo;hésitez pas à me faire un retour ou des propositions sur d&amp;rsquo;éventuels ajouts.</description>
+    </item>
+    
+    <item>
+      <title>Au revoir Screen, bonjour Tmux</title>
+      <link>https://blog.deimos.fr/2012/02/16/au-revoir-screen-bonjour-tmux/</link>
+      <pubDate>Thu, 16 Feb 2012 11:00:54 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2012/02/16/au-revoir-screen-bonjour-tmux/</guid>
+      <description>Screen n’est plus maintenu et a apparemment un code illisible (je n’ai pas vérifier, mais on peut lire ça un peu partout). Il était temps qu’un remplaçant arrive dans mes mains et je ne suis pas déçu car il y a plein de fonctionnalité, une belle stabilité et surtout une plus grande réactivité.
+J&amp;rsquo;ai donc fait une petite documentation dessus. Je vous conseil fortement de switcher, Tmux c&amp;rsquo;est géniale !</description>
+    </item>
+    
+    <item>
+      <title>Ajouter de la swap sur Solaris</title>
+      <link>https://blog.deimos.fr/2012/02/01/1580/</link>
+      <pubDate>Wed, 01 Feb 2012 11:00:42 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2012/02/01/1580/</guid>
+      <description>Solaris c&amp;rsquo;est bien, sur UFS, c&amp;rsquo;est tout de suite moins bien. J&amp;rsquo;ai eu besoin d&amp;rsquo;ajouter de la swap sur une partition, et quand on fait pas ça tous les 4 matins, se replonger dedans c&amp;rsquo;est vraiment très très chiant.
 C&amp;rsquo;est pourquoi j&amp;rsquo;ai fais une petite documentation pour créer du swap sur UFS/ZFS/Fichiers. J&amp;rsquo;en ai du coup profiter pour mettre à jour mes documentations sur :
-ZFS : Le FileSystem par excellence</description></item><item><title>Sun Cluster : sortir d’amnésie</title><link>https://blog.deimos.fr/2011/11/04/sun-cluster-sortir-damnesie/</link><pubDate>Fri, 04 Nov 2011 16:59:31 +0000</pubDate><guid>https://blog.deimos.fr/2011/11/04/sun-cluster-sortir-damnesie/</guid><description>Cette semaine, j’ai eu des GROOOOOOOOSSES merdes avec une baie de disques. Une fois réparée, mon quorum cluster était injoignable, bien que pourtant présent en tant que LUN sur la baie de disques.
+  ZFS : Le FileSystem par excellence</description>
+    </item>
+    
+    <item>
+      <title>Sun Cluster : sortir d’amnésie</title>
+      <link>https://blog.deimos.fr/2011/11/04/sun-cluster-sortir-damnesie/</link>
+      <pubDate>Fri, 04 Nov 2011 16:59:31 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2011/11/04/sun-cluster-sortir-damnesie/</guid>
+      <description>Cette semaine, j’ai eu des GROOOOOOOOSSES merdes avec une baie de disques. Une fois réparée, mon quorum cluster était injoignable, bien que pourtant présent en tant que LUN sur la baie de disques.
 Donc quant mes noeuds du serveur se sont mis à booter, l&amp;rsquo;absence de quorum empêchait le cluster de monter et je n&amp;rsquo;avais donc pas la main sur mes machines.
-C&amp;rsquo;est donc un cluster de 6 noeuds qui était en amnésie (youpi).</description></item><item><title>ZFS : empêcher le montage des zpool au boot</title><link>https://blog.deimos.fr/2011/11/01/zfs-empecher-le-montage-des-zpool-au-boot/</link><pubDate>Tue, 01 Nov 2011 11:00:48 +0000</pubDate><guid>https://blog.deimos.fr/2011/11/01/zfs-empecher-le-montage-des-zpool-au-boot/</guid><description>Voilà une petite astuce bien pratique qui permet temporairement, ne pas avoir de zpool montés au démarrage.
-C&amp;rsquo;est très pratique lorsque comme moi, vos noeuds reboot sans cesse pour des partitions flinguées. La documentation est ici.</description></item><item><title>Puppet ça pête !</title><link>https://blog.deimos.fr/2010/06/24/puppet-ca-pete/</link><pubDate>Thu, 24 Jun 2010 14:50:45 +0000</pubDate><guid>https://blog.deimos.fr/2010/06/24/puppet-ca-pete/</guid><description>Et bah voilà ! Ca y est je vais passer mon puppet en prod au taf. Franchement c&amp;rsquo;est vraiment bien. Très long à mettre en place mais pour après arrêter les taches répétitives sur les serveurs ! Ça vaut le coup surtout si on a une belle ferme de machines.
-J&amp;rsquo;ai donc prévu une petite doc à cet effet pour ceux que ça intéresse. J&amp;rsquo;ai été aidé de Luc (un presta qui depuis a fait quelques commentaires sur le blog) et ai enrichi un peu le tout.</description></item><item><title>ZFS trop gourmand en RAM</title><link>https://blog.deimos.fr/2010/05/28/zfs-trop-gourmand-en-ram/</link><pubDate>Fri, 28 May 2010 05:23:07 +0000</pubDate><guid>https://blog.deimos.fr/2010/05/28/zfs-trop-gourmand-en-ram/</guid><description>J’ai eu une petite mésaventure depuis quelques mois au taf avec ce merveilleux filesystem qu’est ZFS. Le problème est simple, j’ai des machines à 72Go de RAM et ne peut dépasser ~ les 48Go.
-Comment ça se fait ? Tout simplement parce que ZFS se réserve 1/8 de la mémoire dispo (RAM+SWAP) pour son cache. Sur des petites config ça ne se voit pas mais sur des machines avec autant de RAM, ça ait mal.</description></item><item><title>MySQL : Audit et optimisation</title><link>https://blog.deimos.fr/2010/01/29/mysql-audit-et-optimisation/</link><pubDate>Fri, 29 Jan 2010 06:14:18 +0000</pubDate><guid>https://blog.deimos.fr/2010/01/29/mysql-audit-et-optimisation/</guid><description>Depuis le début de la semaine et jusqu’à aujourd’hui, j’ai un expert MySQL qui est à côté de moi au taf. C’est fou tout ce qu’on peut apprendre :-p. Pour moi les optimisations MySQL n’étaient nécessaire que quand des milliers de personnes font des requêtes ou quand vraiment on ressent de grosses pertes de perfs etc…
-Nous avons eu besoin de lui car c&amp;rsquo;est les pertes de perfs qui nous troublaient.</description></item><item><title>Encore de nouvelles contributions pour Nagios</title><link>https://blog.deimos.fr/2009/12/22/encore-de-nouvelles-contributions-pour-nagios/</link><pubDate>Tue, 22 Dec 2009 16:25:27 +0000</pubDate><guid>https://blog.deimos.fr/2009/12/22/encore-de-nouvelles-contributions-pour-nagios/</guid><description>Oyé oyé, les contributions nagios se suivent mais ne se ressemblent pas. J’ai concocté 2 nouveaux modules nagios :
-check_sun_cluster : qui permet de surveiller l&amp;rsquo;état du cluster sun check_multi_procs : permet de surveiller plusieurs process dans un seul check Et puis j&amp;rsquo;ai pu en améliorer d&amp;rsquo;autres :
-check_backuppc_hosts : ajout d&amp;rsquo;une fonctionnalité pour monitorer qu&amp;rsquo;un seuil hôte Voilà donc mes dernières œuvres.</description></item><item><title>Encore 2 nouveaux plugins pour Nagios</title><link>https://blog.deimos.fr/2009/12/13/encore-2-nouveaux-plugins-pour-nagios/</link><pubDate>Sun, 13 Dec 2009 00:29:02 +0000</pubDate><guid>https://blog.deimos.fr/2009/12/13/encore-2-nouveaux-plugins-pour-nagios/</guid><description>Et oui, ça continue. J’ai créer 2 nouveaux plugins pour Nagios :
-Check_ldap_request : Permet d&amp;rsquo;effectuer une requêtes LDAP pour vérifier l&amp;rsquo;existance d&amp;rsquo;un attribut
-Check_rss_mem : Vérifie la mémoire réservée de tous les processus sous Solaris
-Quelques nouveaux vont arriver d&amp;rsquo;ici peu et des améliorations pour les existants.</description></item><item><title>Le Gity, le Gitou à Pitou est dispo</title><link>https://blog.deimos.fr/2009/12/03/le-gity-le-gitou-a-pitou-est-dispo/</link><pubDate>Thu, 03 Dec 2009 13:33:56 +0000</pubDate><guid>https://blog.deimos.fr/2009/12/03/le-gity-le-gitou-a-pitou-est-dispo/</guid><description>Et bah voilà, c’est fait, j’ai un beau Git mise à dispo avec un Gitweb, pour vous messieurs, pour vous mes dammes, mais surtout pour vous mes dammes….
+C&amp;rsquo;est donc un cluster de 6 noeuds qui était en amnésie (youpi).</description>
+    </item>
+    
+    <item>
+      <title>ZFS : empêcher le montage des zpool au boot</title>
+      <link>https://blog.deimos.fr/2011/11/01/zfs-empecher-le-montage-des-zpool-au-boot/</link>
+      <pubDate>Tue, 01 Nov 2011 11:00:48 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2011/11/01/zfs-empecher-le-montage-des-zpool-au-boot/</guid>
+      <description>Voilà une petite astuce bien pratique qui permet temporairement, ne pas avoir de zpool montés au démarrage.
+C&amp;rsquo;est très pratique lorsque comme moi, vos noeuds reboot sans cesse pour des partitions flinguées. La documentation est ici.</description>
+    </item>
+    
+    <item>
+      <title>Puppet ça pête !</title>
+      <link>https://blog.deimos.fr/2010/06/24/puppet-ca-pete/</link>
+      <pubDate>Thu, 24 Jun 2010 14:50:45 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2010/06/24/puppet-ca-pete/</guid>
+      <description>Et bah voilà ! Ca y est je vais passer mon puppet en prod au taf. Franchement c&amp;rsquo;est vraiment bien. Très long à mettre en place mais pour après arrêter les taches répétitives sur les serveurs ! Ça vaut le coup surtout si on a une belle ferme de machines.
+J&amp;rsquo;ai donc prévu une petite doc à cet effet pour ceux que ça intéresse. J&amp;rsquo;ai été aidé de Luc (un presta qui depuis a fait quelques commentaires sur le blog) et ai enrichi un peu le tout.</description>
+    </item>
+    
+    <item>
+      <title>ZFS trop gourmand en RAM</title>
+      <link>https://blog.deimos.fr/2010/05/28/zfs-trop-gourmand-en-ram/</link>
+      <pubDate>Fri, 28 May 2010 05:23:07 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2010/05/28/zfs-trop-gourmand-en-ram/</guid>
+      <description>J’ai eu une petite mésaventure depuis quelques mois au taf avec ce merveilleux filesystem qu’est ZFS. Le problème est simple, j’ai des machines à 72Go de RAM et ne peut dépasser ~ les 48Go.
+Comment ça se fait ? Tout simplement parce que ZFS se réserve 1/8 de la mémoire dispo (RAM+SWAP) pour son cache. Sur des petites config ça ne se voit pas mais sur des machines avec autant de RAM, ça ait mal.</description>
+    </item>
+    
+    <item>
+      <title>MySQL : Audit et optimisation</title>
+      <link>https://blog.deimos.fr/2010/01/29/mysql-audit-et-optimisation/</link>
+      <pubDate>Fri, 29 Jan 2010 06:14:18 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2010/01/29/mysql-audit-et-optimisation/</guid>
+      <description>Depuis le début de la semaine et jusqu’à aujourd’hui, j’ai un expert MySQL qui est à côté de moi au taf. C’est fou tout ce qu’on peut apprendre :-p. Pour moi les optimisations MySQL n’étaient nécessaire que quand des milliers de personnes font des requêtes ou quand vraiment on ressent de grosses pertes de perfs etc…
+Nous avons eu besoin de lui car c&amp;rsquo;est les pertes de perfs qui nous troublaient.</description>
+    </item>
+    
+    <item>
+      <title>Encore de nouvelles contributions pour Nagios</title>
+      <link>https://blog.deimos.fr/2009/12/22/encore-de-nouvelles-contributions-pour-nagios/</link>
+      <pubDate>Tue, 22 Dec 2009 16:25:27 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2009/12/22/encore-de-nouvelles-contributions-pour-nagios/</guid>
+      <description>Oyé oyé, les contributions nagios se suivent mais ne se ressemblent pas. J’ai concocté 2 nouveaux modules nagios :
+ check_sun_cluster : qui permet de surveiller l&amp;rsquo;état du cluster sun check_multi_procs : permet de surveiller plusieurs process dans un seul check  Et puis j&amp;rsquo;ai pu en améliorer d&amp;rsquo;autres :
+ check_backuppc_hosts : ajout d&amp;rsquo;une fonctionnalité pour monitorer qu&amp;rsquo;un seuil hôte  Voilà donc mes dernières œuvres.</description>
+    </item>
+    
+    <item>
+      <title>Encore 2 nouveaux plugins pour Nagios</title>
+      <link>https://blog.deimos.fr/2009/12/13/encore-2-nouveaux-plugins-pour-nagios/</link>
+      <pubDate>Sun, 13 Dec 2009 00:29:02 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2009/12/13/encore-2-nouveaux-plugins-pour-nagios/</guid>
+      <description>Et oui, ça continue. J’ai créer 2 nouveaux plugins pour Nagios :
+  Check_ldap_request : Permet d&amp;rsquo;effectuer une requêtes LDAP pour vérifier l&amp;rsquo;existance d&amp;rsquo;un attribut
+  Check_rss_mem : Vérifie la mémoire réservée de tous les processus sous Solaris
+  Quelques nouveaux vont arriver d&amp;rsquo;ici peu et des améliorations pour les existants.</description>
+    </item>
+    
+    <item>
+      <title>Le Gity, le Gitou à Pitou est dispo</title>
+      <link>https://blog.deimos.fr/2009/12/03/le-gity-le-gitou-a-pitou-est-dispo/</link>
+      <pubDate>Thu, 03 Dec 2009 13:33:56 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2009/12/03/le-gity-le-gitou-a-pitou-est-dispo/</guid>
+      <description>Et bah voilà, c’est fait, j’ai un beau Git mise à dispo avec un Gitweb, pour vous messieurs, pour vous mes dammes, mais surtout pour vous mes dammes….
 J&amp;rsquo;ai pas grand chose pour le moment dessus, mais on peut trouver ma configuration de VIM et de ZSH. La suite arrivera avec le temps.
 Pour consulter mon gitweb, voici l&amp;rsquo;adresse : http://www.deimos.fr/gitweb/
-Vous pouvez également trouver les documentations concernant git que j&amp;rsquo;ai un peu étoffées :</description></item><item><title>Backups de bases SQL avec BackupPC</title><link>https://blog.deimos.fr/2009/11/27/backups-de-bases-sql-avec-backuppc/</link><pubDate>Fri, 27 Nov 2009 16:39:16 +0000</pubDate><guid>https://blog.deimos.fr/2009/11/27/backups-de-bases-sql-avec-backuppc/</guid><description>Voilà un moment que je me demande pourquoi le formidable logiciel de backup “BackupPC” ne sauvegarde pas les bases SQL en standard.
+Vous pouvez également trouver les documentations concernant git que j&amp;rsquo;ai un peu étoffées :</description>
+    </item>
+    
+    <item>
+      <title>Backups de bases SQL avec BackupPC</title>
+      <link>https://blog.deimos.fr/2009/11/27/backups-de-bases-sql-avec-backuppc/</link>
+      <pubDate>Fri, 27 Nov 2009 16:39:16 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2009/11/27/backups-de-bases-sql-avec-backuppc/</guid>
+      <description>Voilà un moment que je me demande pourquoi le formidable logiciel de backup “BackupPC” ne sauvegarde pas les bases SQL en standard.
 Faute de n&amp;rsquo;avoir rien d&amp;rsquo;intégré de base, j&amp;rsquo;ai décidé de trouve une alternative pour les bases MySQL et PostgreSQL. Voici donc le résultat :
-BackupPC_:_Un_outil_complet_de_backup</description></item><item><title>MySecureShell sur Solaris ça roxxxxx :-)</title><link>https://blog.deimos.fr/2009/11/16/mysecureshell-sur-solaris-ca-roxxxxx/</link><pubDate>Mon, 16 Nov 2009 14:06:15 +0000</pubDate><guid>https://blog.deimos.fr/2009/11/16/mysecureshell-sur-solaris-ca-roxxxxx/</guid><description>Et voilà, j’me suis fais chier, mais ça rox, je suis content. Il y a un beau petit package qui va voir le jour lors de la prochaine version de MySecureShell.
-Je vais essayer de voir maintenant comment soumettre tout ça à Blastwave ou SUN Freeware.</description></item><item><title>MySecureShell sur Solaris</title><link>https://blog.deimos.fr/2009/11/13/mysecureshell-sur-solaris/</link><pubDate>Fri, 13 Nov 2009 21:26:30 +0000</pubDate><guid>https://blog.deimos.fr/2009/11/13/mysecureshell-sur-solaris/</guid><description>Je suis en train de bosser avec Seb sur la nouvelle mouture de MySecureShell. On a fait pas mal de chemin jusqu’à présent et je dois maintenant l’utiliser pour des besoins de productions dans la société dans laquelle je travaille, mais tournant sur Solaris.
-Seb a du faire quelques ajustements rapide pour que ça tourne convenablement, mais certaines fonctionnalités ne fonctionne pas encore tout à fait bien. Bref, il travail dessus.</description></item><item><title>Les ACL c’est top</title><link>https://blog.deimos.fr/2009/10/17/les-acl-cest-top/</link><pubDate>Sat, 17 Oct 2009 08:21:38 +0000</pubDate><guid>https://blog.deimos.fr/2009/10/17/les-acl-cest-top/</guid><description>Une fois de plus, je vous livre ma petite doc qui porte cette fois ci sur les ACL Solaris. J’ai beaucoup pompé sur la doc officielle mais ai essayer de raccourcir au maximum pour raccourcir et ne prendre que ce qui est le plus vitale.
-Ca donne quand même une belle doc du fait que la complexité de la chose. En effet, pas de grande similitudes avec les ACL Linux pour le côté utilisation, parcontre dans les faits, le système est assez similaire.</description></item><item><title>Merci Oracle :-)</title><link>https://blog.deimos.fr/2009/10/12/merci-oracle/</link><pubDate>Mon, 12 Oct 2009 14:30:25 +0000</pubDate><guid>https://blog.deimos.fr/2009/10/12/merci-oracle/</guid><description>Je suis trop content, j’avais vraiment peur que de belles technologies tombent dans l’oublie. Ce n’est pas le cas puisqu’Oracle a confirmer son maintient ET investissement dans :
-Solaris
-MySQL
-SPARC
-MySQL, j&amp;rsquo;y croyais pas du tout, mais c&amp;rsquo;est super, je suis content. J&amp;rsquo;espère qu&amp;rsquo;xVM Server va également sortir rapidement en stable etc&amp;hellip; Je trouve parcontre vraiment dommage qu&amp;rsquo;ils abandonnent OpenSolaris. C&amp;rsquo;était, je pense, une très bonne solution pour améliorer la stabilité de leurs produits finaux et intéresser un plus large publique bien que Solaris soit aujourd&amp;rsquo;hui gratuit.</description></item><item><title>PAM mkhomedir sur Solaris</title><link>https://blog.deimos.fr/2009/10/05/pam-mkhomedir-sur-solaris/</link><pubDate>Mon, 05 Oct 2009 11:43:13 +0000</pubDate><guid>https://blog.deimos.fr/2009/10/05/pam-mkhomedir-sur-solaris/</guid><description>Solaris n’intègre pas par défaut un mécanisme de création de dossiers personnels. Il faut donc utiliser PAM Linux, le compiler et copier la librairie qui va bien. Heureusement ça marche :-)
-J&amp;rsquo;ai fais une petite doc pour ceux que ça intéressent.</description></item><item><title>ZaidaiSsacHeuuu</title><link>https://blog.deimos.fr/2009/10/01/zaidaissacheuuu/</link><pubDate>Thu, 01 Oct 2009 18:07:11 +0000</pubDate><guid>https://blog.deimos.fr/2009/10/01/zaidaissacheuuu/</guid><description>Cela fait des années que j’utilise maintenant ZSH à la maison et au boulot. J’ai refais moulte fois la conf et pense être arrivé à un truc plutôt pas mal. Au vu de ce qui m’est arrivé aujourd’hui, j’aurais encore quelques corrections à apporter dessus, mais pour l’heure c’est déjà pas mal.
-Voici donc ma configuration ZSH</description></item><item><title>Mais quel boulet !</title><link>https://blog.deimos.fr/2009/10/01/mais-quel-boulet/</link><pubDate>Thu, 01 Oct 2009 10:01:38 +0000</pubDate><guid>https://blog.deimos.fr/2009/10/01/mais-quel-boulet/</guid><description>Et bah voilà ! Un rm sur le / et sur une machine de prod. Heureusement, pas en vraiment en prod, mais pré prod ouf. J’étais sur que ça allait m’arriver un jour ! Ca fait 2 fois ! La dernière fois c’était ya ptete 5 ans chez moi. Tout ça parceque le shell il dit pas ou t’es, que ya pas de rm -i. Enfin bref, va falloir faire un shell de prod c’est sur !</description></item><item><title>Pourquoi Solaris n’améliore pas sa gestion des packages bordel ?!</title><link>https://blog.deimos.fr/2009/09/18/pourquoi-solaris-nameliore-pas-sa-gestion-des-packages-bordel/</link><pubDate>Fri, 18 Sep 2009 08:09:27 +0000</pubDate><guid>https://blog.deimos.fr/2009/09/18/pourquoi-solaris-nameliore-pas-sa-gestion-des-packages-bordel/</guid><description>Solaris est super évolué sur certaines technos, mais alors sur certains trucs comme les packages, c’est une horreur ! Exemple :
-Très mauvaise gestion des dépendances
-Pas de repository (je parle en natif, sinon il existe pkgget)
-Pas d&amp;rsquo;utilisation simple
-Bref, un bon coup de pied au cul leur ferait pas de mal à Sun. Espérons que le rachat par Oracle améliorera les points archaïque qui mette à ce bel OS des coups de freins à tous ceux qui voudraient l&amp;rsquo;utiliser.</description></item><item><title>Sun Cluster 3.2u2 sur Solaris 10u7</title><link>https://blog.deimos.fr/2009/08/02/sun-cluster-3-2u2-sur-solaris-10u7/</link><pubDate>Sun, 02 Aug 2009 08:59:12 +0000</pubDate><guid>https://blog.deimos.fr/2009/08/02/sun-cluster-3-2u2-sur-solaris-10u7/</guid><description>Bon, je pense avoir ma doc suffisamment éprouvée maintenant sur Sun Cluster. Je risque de faire quelques petits ajouts mineurs dans quelques temps. Mais pour l’instant, voici ma doc :
+BackupPC_:_Un_outil_complet_de_backup</description>
+    </item>
+    
+    <item>
+      <title>MySecureShell sur Solaris ça roxxxxx :-)</title>
+      <link>https://blog.deimos.fr/2009/11/16/mysecureshell-sur-solaris-ca-roxxxxx/</link>
+      <pubDate>Mon, 16 Nov 2009 14:06:15 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2009/11/16/mysecureshell-sur-solaris-ca-roxxxxx/</guid>
+      <description>Et voilà, j’me suis fais chier, mais ça rox, je suis content. Il y a un beau petit package qui va voir le jour lors de la prochaine version de MySecureShell.
+Je vais essayer de voir maintenant comment soumettre tout ça à Blastwave ou SUN Freeware.</description>
+    </item>
+    
+    <item>
+      <title>MySecureShell sur Solaris</title>
+      <link>https://blog.deimos.fr/2009/11/13/mysecureshell-sur-solaris/</link>
+      <pubDate>Fri, 13 Nov 2009 21:26:30 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2009/11/13/mysecureshell-sur-solaris/</guid>
+      <description>Je suis en train de bosser avec Seb sur la nouvelle mouture de MySecureShell. On a fait pas mal de chemin jusqu’à présent et je dois maintenant l’utiliser pour des besoins de productions dans la société dans laquelle je travaille, mais tournant sur Solaris.
+Seb a du faire quelques ajustements rapide pour que ça tourne convenablement, mais certaines fonctionnalités ne fonctionne pas encore tout à fait bien. Bref, il travail dessus.</description>
+    </item>
+    
+    <item>
+      <title>Les ACL c’est top</title>
+      <link>https://blog.deimos.fr/2009/10/17/les-acl-cest-top/</link>
+      <pubDate>Sat, 17 Oct 2009 08:21:38 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2009/10/17/les-acl-cest-top/</guid>
+      <description>Une fois de plus, je vous livre ma petite doc qui porte cette fois ci sur les ACL Solaris. J’ai beaucoup pompé sur la doc officielle mais ai essayer de raccourcir au maximum pour raccourcir et ne prendre que ce qui est le plus vitale.
+Ca donne quand même une belle doc du fait que la complexité de la chose. En effet, pas de grande similitudes avec les ACL Linux pour le côté utilisation, parcontre dans les faits, le système est assez similaire.</description>
+    </item>
+    
+    <item>
+      <title>Merci Oracle :-)</title>
+      <link>https://blog.deimos.fr/2009/10/12/merci-oracle/</link>
+      <pubDate>Mon, 12 Oct 2009 14:30:25 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2009/10/12/merci-oracle/</guid>
+      <description>Je suis trop content, j’avais vraiment peur que de belles technologies tombent dans l’oublie. Ce n’est pas le cas puisqu’Oracle a confirmer son maintient ET investissement dans :
+  Solaris
+  MySQL
+  SPARC
+  MySQL, j&amp;rsquo;y croyais pas du tout, mais c&amp;rsquo;est super, je suis content. J&amp;rsquo;espère qu&amp;rsquo;xVM Server va également sortir rapidement en stable etc&amp;hellip; Je trouve parcontre vraiment dommage qu&amp;rsquo;ils abandonnent OpenSolaris. C&amp;rsquo;était, je pense, une très bonne solution pour améliorer la stabilité de leurs produits finaux et intéresser un plus large publique bien que Solaris soit aujourd&amp;rsquo;hui gratuit.</description>
+    </item>
+    
+    <item>
+      <title>PAM mkhomedir sur Solaris</title>
+      <link>https://blog.deimos.fr/2009/10/05/pam-mkhomedir-sur-solaris/</link>
+      <pubDate>Mon, 05 Oct 2009 11:43:13 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2009/10/05/pam-mkhomedir-sur-solaris/</guid>
+      <description>Solaris n’intègre pas par défaut un mécanisme de création de dossiers personnels. Il faut donc utiliser PAM Linux, le compiler et copier la librairie qui va bien. Heureusement ça marche :-)
+J&amp;rsquo;ai fais une petite doc pour ceux que ça intéressent.</description>
+    </item>
+    
+    <item>
+      <title>ZaidaiSsacHeuuu</title>
+      <link>https://blog.deimos.fr/2009/10/01/zaidaissacheuuu/</link>
+      <pubDate>Thu, 01 Oct 2009 18:07:11 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2009/10/01/zaidaissacheuuu/</guid>
+      <description>Cela fait des années que j’utilise maintenant ZSH à la maison et au boulot. J’ai refais moulte fois la conf et pense être arrivé à un truc plutôt pas mal. Au vu de ce qui m’est arrivé aujourd’hui, j’aurais encore quelques corrections à apporter dessus, mais pour l’heure c’est déjà pas mal.
+Voici donc ma configuration ZSH</description>
+    </item>
+    
+    <item>
+      <title>Mais quel boulet !</title>
+      <link>https://blog.deimos.fr/2009/10/01/mais-quel-boulet/</link>
+      <pubDate>Thu, 01 Oct 2009 10:01:38 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2009/10/01/mais-quel-boulet/</guid>
+      <description>Et bah voilà ! Un rm sur le / et sur une machine de prod. Heureusement, pas en vraiment en prod, mais pré prod ouf. J’étais sur que ça allait m’arriver un jour ! Ca fait 2 fois ! La dernière fois c’était ya ptete 5 ans chez moi. Tout ça parceque le shell il dit pas ou t’es, que ya pas de rm -i. Enfin bref, va falloir faire un shell de prod c’est sur !</description>
+    </item>
+    
+    <item>
+      <title>Pourquoi Solaris n’améliore pas sa gestion des packages bordel ?!</title>
+      <link>https://blog.deimos.fr/2009/09/18/pourquoi-solaris-nameliore-pas-sa-gestion-des-packages-bordel/</link>
+      <pubDate>Fri, 18 Sep 2009 08:09:27 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2009/09/18/pourquoi-solaris-nameliore-pas-sa-gestion-des-packages-bordel/</guid>
+      <description>Solaris est super évolué sur certaines technos, mais alors sur certains trucs comme les packages, c’est une horreur ! Exemple :
+  Très mauvaise gestion des dépendances
+  Pas de repository (je parle en natif, sinon il existe pkgget)
+  Pas d&amp;rsquo;utilisation simple
+  Bref, un bon coup de pied au cul leur ferait pas de mal à Sun. Espérons que le rachat par Oracle améliorera les points archaïque qui mette à ce bel OS des coups de freins à tous ceux qui voudraient l&amp;rsquo;utiliser.</description>
+    </item>
+    
+    <item>
+      <title>Sun Cluster 3.2u2 sur Solaris 10u7</title>
+      <link>https://blog.deimos.fr/2009/08/02/sun-cluster-3-2u2-sur-solaris-10u7/</link>
+      <pubDate>Sun, 02 Aug 2009 08:59:12 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2009/08/02/sun-cluster-3-2u2-sur-solaris-10u7/</guid>
+      <description>Bon, je pense avoir ma doc suffisamment éprouvée maintenant sur Sun Cluster. Je risque de faire quelques petits ajouts mineurs dans quelques temps. Mais pour l’instant, voici ma doc :
 Documentation on Sun Cluster
-Je vous suggère, si vous savez comment fonctionne un cluster de lire ma doc si c&amp;rsquo;est la première fois que vous faites une install, car il faut se tirer les cheveux quelques fois avant d&amp;rsquo;arriver à faire une installe propre par rapport aux exigences de Sun.</description></item></channel></rss>
+Je vous suggère, si vous savez comment fonctionne un cluster de lire ma doc si c&amp;rsquo;est la première fois que vous faites une install, car il faut se tirer les cheveux quelques fois avant d&amp;rsquo;arriver à faire une installe propre par rapport aux exigences de Sun.</description>
+    </item>
+    
+  </channel>
+</rss>

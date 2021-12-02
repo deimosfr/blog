@@ -1,89 +1,678 @@
-<!doctype html><html lang=en-us><head><script type=application/ld+json>{"@context":"http://schema.org","@type":"Website","@id":"https:\/\/blog.deimos.fr","author":{"@type":"Person","name":"Pierre Mavro / Deimosfr","image":"https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"},"name":"Deimosfr Blog","description":"I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, this is not the first time I want to use Debian on a new MacBookPro version.\nOverview History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:","url":"https:\/\/blog.deimos.fr\/2015\/04\/28\/debian-jessie-and-macbookpro-13-2015121-with-kernel-4\/","keywords":"[]"}</script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Hugo 0.69.2 with theme Tranquilpeak 0.5.2-BETA"><meta name=author content="Pierre Mavro / Deimosfr"><meta name=keywords content><meta name=description content="I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, this is not the first time I want to use Debian on a new MacBookPro version.
-Overview History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:"><meta property="og:description" content="I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, this is not the first time I want to use Debian on a new MacBookPro version.
-Overview History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:"><meta property="og:type" content="article"><meta property="og:title" content="Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4"><meta name=twitter:title content="Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4"><meta property="og:url" content="https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/"><meta property="twitter:url" content="https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/"><meta property="og:site_name" content="Deimosfr Blog"><meta property="og:description" content="I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, this is not the first time I want to use Debian on a new MacBookPro version.
-Overview History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:"><meta name=twitter:description content="I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, this is not the first time I want to use Debian on a new MacBookPro version.
-Overview History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:"><meta property="og:locale" content="en-us"><meta property="article:published_time" content="2015-04-28T10:00:45"><meta property="article:modified_time" content="2015-04-28T10:00:45"><meta property="article:section" content="Debian"><meta property="article:section" content="Hi-Tech"><meta property="article:section" content="Linux"><meta property="article:section" content="Mac"><meta property="article:tag" content="Debian"><meta property="article:tag" content="Hi-Tech"><meta property="article:tag" content="Linux"><meta property="article:tag" content="Mac"><meta name=twitter:card content="summary"><meta name=twitter:site content="@deimosfr"><meta name=twitter:creator content="@deimosfr"><meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_debian.png"><meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_debian.png"><title>Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4</title><link rel=icon href=https://blog.deimos.fr/favicon.png><link rel=canonical href=https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://blog.deimos.fr/css/style-c5yjx2losbmkttdif4mskx5f9pqjjquywurgngxfvceyyrtyatseix5hpd.min.css><link rel=stylesheet href=https://blog.deimos.fr/css/custom.css><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-63927289-1','auto');ga('send','pageview');}</script></head><body><div id=blog><header id=header data-behavior=5><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=https://blog.deimos.fr/ aria-label="Go to homepage">Deimosfr Blog</a></div><a class=header-right-picture href=https://blog.deimos.fr/#about aria-label="Open the link: /#about"><img class=header-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author's picture"></a></header><nav id=sidebar data-behavior=5><div class=sidebar-container><div class=sidebar-profile><a href=https://blog.deimos.fr/#about aria-label="Read more about the author"><img class=sidebar-profile-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"></a><h4 class=sidebar-profile-name>Pierre Mavro / Deimosfr</h4></div><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/ title=Home><i class="sidebar-button-icon fa fa-lg fa-home"></i><span class=sidebar-button-desc>Home</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/archives title=Archives><i class="sidebar-button-icon fa fa-lg fa-archive"></i><span class=sidebar-button-desc>Archives</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/categories title=Categories><i class="sidebar-button-icon fa fa-lg fa-bookmark"></i><span class=sidebar-button-desc>Categories</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/tags title=Tags><i class="sidebar-button-icon fa fa-lg fa-tags"></i><span class=sidebar-button-desc>Tags</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/index.xml title=RSS><i class="sidebar-button-icon fa fa-lg fa-rss"></i><span class=sidebar-button-desc>RSS</span></a></li></ul><ul class=sidebar-buttons></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://www.deimos.fr target=_blank rel=noopener title=About><i class="sidebar-button-icon fa fa-lg fa-user"></i><span class=sidebar-button-desc>About</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://wiki.deimos.fr target=_blank rel=noopener title=Wiki><i class="sidebar-button-icon fa fa-wikipedia-w"></i><span class=sidebar-button-desc>Wiki</span></a></li></ul></div></nav><div id=main data-behavior=5 class=hasCoverMetaIn><article class=post id=top><div class="post-header main-content-wrap text-left"><h1 class=post-title>Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4</h1><div class="postShorten-meta post-meta"><time datetime=2015-04-28T10:00:45Z>28 April 2015</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/mac>Mac</a></div></div><div class="post-content markdown"><div class=main-content-wrap><p><img src=https://blog.deimos.fr/images/logo_debian.png alt=debian_logo>
-I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, <a href=https://blog.deimos.fr/2014/01/07/update-3-debian-on-the-111-model-macbook-pro-13/>this is not the first time</a> I want to use Debian on a new MacBookPro version.</p><h2 id=overview>Overview</h2><p>History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:</p><ul><li>Wifi: not supported on 3.16 kernel version. Need the 3.19 at least. <strong>Fixed</strong></li><li>Fn keyboard key: this key is not recognized by the kernel. <strong>Fixed</strong></li><li>Sound: sound is not working because of the boot sequence. <strong>Fixed</strong></li><li>SSD lockups: I encountered a freeze like on the previous mac du to SSD. <strong>Fixed</strong></li><li>Screen backlight: xbacklight doesn&rsquo;t work. <strong>Fixed with a workaround</strong></li><li>Video drivers: some slowdown due to missing video driver. <strong>Fixed</strong></li><li>Keyboard inversed keys: the &lsquo;@&rsquo; and &lsquo;&lt;>&rsquo; are inversed. <strong>To fix</strong></li><li>Trackpad: no right click because of the new mechanism. <strong>To fix</strong></li><li>Webcam: no chance to work now as no drivers exists :-(</li></ul><p>Now you&rsquo;ve got an overview. Let&rsquo;s take each point to see how you can fix the one I could resolve.</p><h2 id=wifi>Wifi</h2><p>The wifi broadcom chipset is unfortunately not working out of the box <a href="http://ubuntuforums.org/showthread.php?t=2274110">(source)</a>. For this you need a kernel version at least equal to 3.19. As the Linux Kernel 4 is out, I recompiled a kernel with this version and added the wifi support in it. Here is the procedure:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>wget https://blog.deimos.fr/wp-content/uploads/2015/04/linux-image-4.0.0_4.0_amd64.deb_.tgz
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/blog.deimos.fr",
+  "author": {
+    "@type": "Person",
+    "name": "Pierre Mavro / Deimosfr",
+    
+    "image": "https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"
+    
+  },
+  "name":"Deimosfr Blog",
+  "description":"I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, this is not the first time I want to use Debian on a new MacBookPro version.\nOverview History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:",
+  "url":"https:\/\/blog.deimos.fr\/2015\/04\/28\/debian-jessie-and-macbookpro-13-2015121-with-kernel-4\/",
+  "keywords":"[]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.89.4 with theme Tranquilpeak 0.5.2-BETA">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, this is not the first time I want to use Debian on a new MacBookPro version.
+Overview History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:">
+
+
+<meta property="og:description" content="I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, this is not the first time I want to use Debian on a new MacBookPro version.
+Overview History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4">
+<meta name="twitter:title" content="Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4">
+<meta property="og:url" content="https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, this is not the first time I want to use Debian on a new MacBookPro version.
+Overview History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:">
+<meta name="twitter:description" content="I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, this is not the first time I want to use Debian on a new MacBookPro version.
+Overview History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2015-04-28T10:00:45">
+  
+  
+    <meta property="article:modified_time" content="2015-04-28T10:00:45">
+  
+  
+  
+    
+      <meta property="article:section" content="Debian">
+    
+      <meta property="article:section" content="Hi-Tech">
+    
+      <meta property="article:section" content="Linux">
+    
+      <meta property="article:section" content="Mac">
+    
+  
+  
+    
+      <meta property="article:tag" content="Debian">
+    
+      <meta property="article:tag" content="Hi-Tech">
+    
+      <meta property="article:tag" content="Linux">
+    
+      <meta property="article:tag" content="Mac">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_debian.png">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_debian.png">
+
+
+    <title>Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4</title>
+
+    <link rel="icon" href="https://blog.deimos.fr/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-c5yjx2losbmkttdif4mskx5f9pqjjquywurgngxfvceyyrtyatseix5hpd.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
+      
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-63927289-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.deimos.fr/" aria-label="Go to homepage">Deimosfr Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://blog.deimos.fr/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.deimos.fr/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/" title="Home">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/index.xml" title="RSS">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.deimos.fr" target="_blank" rel="noopener" title="About">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-user"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank" rel="noopener" title="Wiki">
+    
+      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
+      
+      <span class="sidebar-button-desc">Wiki</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2015-04-28T10:00:45Z">
+        
+  
+  
+  
+  
+    28 April 2015
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/mac">Mac</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p><img src="https://blog.deimos.fr/images/logo_debian.png" alt="debian_logo">
+I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, <a href="https://blog.deimos.fr/2014/01/07/update-3-debian-on-the-111-model-macbook-pro-13/">this is not the first time</a> I want to use Debian on a new MacBookPro version.</p>
+<h2 id="overview">Overview</h2>
+<p>History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:</p>
+<ul>
+<li>Wifi: not supported on 3.16 kernel version. Need the 3.19 at least. <strong>Fixed</strong></li>
+<li>Fn keyboard key: this key is not recognized by the kernel. <strong>Fixed</strong></li>
+<li>Sound: sound is not working because of the boot sequence. <strong>Fixed</strong></li>
+<li>SSD lockups: I encountered a freeze like on the previous mac du to SSD. <strong>Fixed</strong></li>
+<li>Screen backlight: xbacklight doesn&rsquo;t work. <strong>Fixed with a workaround</strong></li>
+<li>Video drivers: some slowdown due to missing video driver. <strong>Fixed</strong></li>
+<li>Keyboard inversed keys: the &lsquo;@&rsquo; and &lsquo;&lt;&gt;&rsquo; are inversed. <strong>To fix</strong></li>
+<li>Trackpad: no right click because of the new mechanism. <strong>To fix</strong></li>
+<li>Webcam: no chance to work now as no drivers exists :-(</li>
+</ul>
+<p>Now you&rsquo;ve got an overview. Let&rsquo;s take each point to see how you can fix the one I could resolve.</p>
+<h2 id="wifi">Wifi</h2>
+<p>The wifi broadcom chipset is unfortunately not working out of the box <a href="http://ubuntuforums.org/showthread.php?t=2274110">(source)</a>. For this you need a kernel version at least equal to 3.19. As the Linux Kernel 4 is out, I recompiled a kernel with this version and added the wifi support in it. Here is the procedure:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">wget https://blog.deimos.fr/wp-content/uploads/2015/04/linux-image-4.0.0_4.0_amd64.deb_.tgz
 tar -xzf linux-image-4.0.0_4.0_amd64.deb_.tgz
 sudo dpkg -i linux-image-4.0.0_4.0_amd64.deb
-sudo wget -O /lib/firmware/brcm/brcmfmac43602-pcie.bin https://git.kernel.org/cgit/linux/kernel/git/firmware/linux-firmware.git/plain/brcm/brcmfmac43602-pcie.bin</code></pre></div><p>Reboot and boot to the new kernel, it works :-)</p><h2 id=fn-keyboard-key>Fn keyboard key</h2><p>Following this <a href=https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1443370>thread</a>, the Fn key doesn&rsquo;t work at all because not recognized by the kernel. I included the patch in the kernel as well. So you can use the same procedure than above to install the kernel.</p><p>Also, here is another interesting <a href=https://github.com/SicVolo/hid-apple-3.19>link</a>.</p><h2 id=sound>Sound</h2><p>Regarding the sound, it&rsquo;s like for the previous MacBookPro, you need to adjust some module parameters:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>$ cat /etc/modprobe.d/alsa.conf
-<span class=c1># alsa fix</span>
-options snd-hda-intel <span class=nv>model</span><span class=o>=</span>mbp101 <span class=nv>index</span><span class=o>=</span><span class=m>1</span>
-<span class=c1># Keep snd-pcsp from beeing loaded as first soundcard</span>
-options snd-pcsp <span class=nv>index</span><span class=o>=</span>-2</code></pre></div><p> </p><h2 id=ssd-lockups>SSD lockups</h2><p>Here is the line I&rsquo;ve got in /etc/default/grub to resolve the problem:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=nv>GRUB_CMDLINE_LINUX_DEFAULT</span><span class=o>=</span><span class=s2>&#34;quiet libata.force=noncq rootflags=data=writeback&#34;</span></code></pre></div><h2 id=screen-backlight>Screen backlight</h2><p>I used a script for the previous Mac (11,1) but needed to update it to make it work properly. Here is the updated version:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=cp>#!/bin/bash
-</span><span class=cp></span>
-<span class=k>if</span> <span class=o>[</span> <span class=nv>$UID</span> -ne <span class=m>0</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
-    <span class=nb>echo</span> <span class=s2>&#34;Please run this program as superuser&#34;</span>
-    <span class=nb>exit</span> <span class=m>1</span>
-<span class=k>fi</span>
+sudo wget -O /lib/firmware/brcm/brcmfmac43602-pcie.bin https://git.kernel.org/cgit/linux/kernel/git/firmware/linux-firmware.git/plain/brcm/brcmfmac43602-pcie.bin</code></pre></div>
+<p>Reboot and boot to the new kernel, it works :-)</p>
+<h2 id="fn-keyboard-key">Fn keyboard key</h2>
+<p>Following this <a href="https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1443370">thread</a>, the Fn key doesn&rsquo;t work at all because not recognized by the kernel. I included the patch in the kernel as well. So you can use the same procedure than above to install the kernel.</p>
+<p>Also, here is another interesting <a href="https://github.com/SicVolo/hid-apple-3.19">link</a>.</p>
+<h2 id="sound">Sound</h2>
+<p>Regarding the sound, it&rsquo;s like for the previous MacBookPro, you need to adjust some module parameters:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ cat /etc/modprobe.d/alsa.conf
+<span class="c1"># alsa fix</span>
+options snd-hda-intel <span class="nv">model</span><span class="o">=</span>mbp101 <span class="nv">index</span><span class="o">=</span><span class="m">1</span>
+<span class="c1"># Keep snd-pcsp from beeing loaded as first soundcard</span>
+options snd-pcsp <span class="nv">index</span><span class="o">=</span>-2</code></pre></div>
+<p> </p>
+<h2 id="ssd-lockups">SSD lockups</h2>
+<p>Here is the line I&rsquo;ve got in /etc/default/grub to resolve the problem:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&#34;quiet libata.force=noncq rootflags=data=writeback&#34;</span></code></pre></div>
+<h2 id="screen-backlight">Screen backlight</h2>
+<p>I used a script for the previous Mac (11,1) but needed to update it to make it work properly. Here is the updated version:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$UID</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&#34;Please run this program as superuser&#34;</span>
+    <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
 
-<span class=nv>GMDIR</span><span class=o>=</span>/sys/class/backlight/acpi_video0
-<span class=nv>BLDIR</span><span class=o>=</span>/sys/class/backlight/intel_backlight
-<span class=k>if</span> <span class=o>[[</span> ! -d <span class=nv>$BLDIR</span> <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
-    <span class=k>if</span> <span class=o>[[</span> -d <span class=nv>$GMDIR</span> <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
-        <span class=nv>BLDIR</span><span class=o>=</span><span class=nv>$GMDIR</span>
-    <span class=k>else</span>
-        <span class=nb>echo</span> <span class=s2>&#34;Check what directory your backlight is stored in /sys/class/backlight/&#34;</span>
-        <span class=nb>exit</span> <span class=m>1</span>
-    <span class=k>fi</span>
-<span class=k>fi</span>
+<span class="nv">GMDIR</span><span class="o">=</span>/sys/class/backlight/acpi_video0
+<span class="nv">BLDIR</span><span class="o">=</span>/sys/class/backlight/intel_backlight
+<span class="k">if</span> <span class="o">[[</span> ! -d <span class="nv">$BLDIR</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="k">if</span> <span class="o">[[</span> -d <span class="nv">$GMDIR</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nv">BLDIR</span><span class="o">=</span><span class="nv">$GMDIR</span>
+    <span class="k">else</span>
+        <span class="nb">echo</span> <span class="s2">&#34;Check what directory your backlight is stored in /sys/class/backlight/&#34;</span>
+        <span class="nb">exit</span> <span class="m">1</span>
+    <span class="k">fi</span>
+<span class="k">fi</span>
 
-<span class=nv>BLFILE</span><span class=o>=</span><span class=s2>&#34;</span><span class=nv>$BLDIR</span><span class=s2>/brightness&#34;</span>
-<span class=nv>BACKLIGHT</span><span class=o>=</span><span class=k>$(</span>cat <span class=nv>$BLFILE</span><span class=k>)</span>
-<span class=nv>INCREMENT</span><span class=o>=</span><span class=m>50</span>
-<span class=nv>SET_VALUE</span><span class=o>=</span><span class=m>0</span>
-<span class=nv>MAX</span><span class=o>=</span><span class=k>$(</span>cat <span class=s2>&#34;</span><span class=nv>$BLDIR</span><span class=s2>/max_brightness&#34;</span><span class=k>)</span>
+<span class="nv">BLFILE</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$BLDIR</span><span class="s2">/brightness&#34;</span>
+<span class="nv">BACKLIGHT</span><span class="o">=</span><span class="k">$(</span>cat <span class="nv">$BLFILE</span><span class="k">)</span>
+<span class="nv">INCREMENT</span><span class="o">=</span><span class="m">50</span>
+<span class="nv">SET_VALUE</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">MAX</span><span class="o">=</span><span class="k">$(</span>cat <span class="s2">&#34;</span><span class="nv">$BLDIR</span><span class="s2">/max_brightness&#34;</span><span class="k">)</span>
 
-<span class=k>case</span> <span class=nv>$1</span> in
+<span class="k">case</span> <span class="nv">$1</span> in
 
-    up<span class=o>)</span>
-        <span class=nv>TOTAL</span><span class=o>=</span><span class=sb>`</span>expr <span class=nv>$BACKLIGHT</span> + <span class=nv>$INCREMENT</span><span class=sb>`</span>
-        <span class=k>if</span> <span class=o>[</span> <span class=nv>$TOTAL</span> -gt <span class=s2>&#34;</span><span class=nv>$MAX</span><span class=s2>&#34;</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
-            <span class=nb>exit</span> <span class=m>1</span>
-        <span class=k>fi</span>
-        <span class=nv>SET_VALUE</span><span class=o>=</span><span class=m>1</span>
-        <span class=p>;;</span>
-    down<span class=o>)</span>
-        <span class=nv>TOTAL</span><span class=o>=</span><span class=sb>`</span>expr <span class=nv>$BACKLIGHT</span> - <span class=nv>$INCREMENT</span><span class=sb>`</span>
-        <span class=k>if</span> <span class=o>[</span> <span class=nv>$TOTAL</span> -lt <span class=s2>&#34;0&#34;</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
-            <span class=nb>exit</span> <span class=m>1</span>
-        <span class=k>fi</span>
-        <span class=nv>SET_VALUE</span><span class=o>=</span><span class=m>1</span>
-        <span class=p>;;</span>
-    total<span class=o>)</span>
-	<span class=nv>TEMP_VALUE</span><span class=o>=</span><span class=nv>$BACKLIGHT</span>
-	<span class=k>while</span> <span class=o>[</span> <span class=nv>$TEMP_VALUE</span> -lt <span class=s2>&#34;</span><span class=nv>$MAX</span><span class=s2>&#34;</span> <span class=o>]</span><span class=p>;</span> <span class=k>do</span>
-		<span class=nv>TEMP_VALUE</span><span class=o>=</span><span class=sb>`</span>expr <span class=nv>$TEMP_VALUE</span> + 1<span class=sb>`</span>
-		<span class=k>if</span> <span class=o>[</span> <span class=nv>$TEMP_VALUE</span> -gt <span class=s2>&#34;</span><span class=nv>$MAX</span><span class=s2>&#34;</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span> <span class=nv>TEMP_VALUE</span><span class=o>=</span><span class=nv>$MAX</span><span class=p>;</span> <span class=k>fi</span>
-		<span class=nb>echo</span> <span class=nv>$TEMP_VALUE</span> <span class=p>&amp;</span>gt<span class=p>;</span> <span class=nv>$BLFILE</span>
-	<span class=k>done</span>
-        <span class=p>;;</span>
-    off<span class=o>)</span>
-	<span class=nv>TEMP_VALUE</span><span class=o>=</span><span class=nv>$BACKLIGHT</span>
-	<span class=k>while</span> <span class=o>[</span> <span class=nv>$TEMP_VALUE</span> -gt <span class=s2>&#34;0&#34;</span> <span class=o>]</span><span class=p>;</span> <span class=k>do</span>
-		<span class=nv>TEMP_VALUE</span><span class=o>=</span><span class=sb>`</span>expr <span class=nv>$TEMP_VALUE</span> - 1<span class=sb>`</span>
-		<span class=k>if</span> <span class=o>[</span> <span class=nv>$TEMP_VALUE</span> -lt <span class=s2>&#34;0&#34;</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span> <span class=nv>TEMP_VALUE</span><span class=o>=</span>0<span class=p>;</span> <span class=k>fi</span>
-		<span class=nb>echo</span> <span class=nv>$TEMP_VALUE</span> <span class=p>&amp;</span>gt<span class=p>;</span> <span class=nv>$BLFILE</span>
-	<span class=k>done</span>
-        <span class=p>;;</span>
-    *<span class=o>)</span>
-        <span class=nb>echo</span> <span class=s2>&#34;Use: screen-backlight up|down|total|off&#34;</span>
-        <span class=p>;;</span>
-<span class=k>esac</span>
+    up<span class="o">)</span>
+        <span class="nv">TOTAL</span><span class="o">=</span><span class="sb">`</span>expr <span class="nv">$BACKLIGHT</span> + <span class="nv">$INCREMENT</span><span class="sb">`</span>
+        <span class="k">if</span> <span class="o">[</span> <span class="nv">$TOTAL</span> -gt <span class="s2">&#34;</span><span class="nv">$MAX</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+            <span class="nb">exit</span> <span class="m">1</span>
+        <span class="k">fi</span>
+        <span class="nv">SET_VALUE</span><span class="o">=</span><span class="m">1</span>
+        <span class="p">;;</span>
+    down<span class="o">)</span>
+        <span class="nv">TOTAL</span><span class="o">=</span><span class="sb">`</span>expr <span class="nv">$BACKLIGHT</span> - <span class="nv">$INCREMENT</span><span class="sb">`</span>
+        <span class="k">if</span> <span class="o">[</span> <span class="nv">$TOTAL</span> -lt <span class="s2">&#34;0&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+            <span class="nb">exit</span> <span class="m">1</span>
+        <span class="k">fi</span>
+        <span class="nv">SET_VALUE</span><span class="o">=</span><span class="m">1</span>
+        <span class="p">;;</span>
+    total<span class="o">)</span>
+	<span class="nv">TEMP_VALUE</span><span class="o">=</span><span class="nv">$BACKLIGHT</span>
+	<span class="k">while</span> <span class="o">[</span> <span class="nv">$TEMP_VALUE</span> -lt <span class="s2">&#34;</span><span class="nv">$MAX</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">do</span>
+		<span class="nv">TEMP_VALUE</span><span class="o">=</span><span class="sb">`</span>expr <span class="nv">$TEMP_VALUE</span> + 1<span class="sb">`</span>
+		<span class="k">if</span> <span class="o">[</span> <span class="nv">$TEMP_VALUE</span> -gt <span class="s2">&#34;</span><span class="nv">$MAX</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="nv">TEMP_VALUE</span><span class="o">=</span><span class="nv">$MAX</span><span class="p">;</span> <span class="k">fi</span>
+		<span class="nb">echo</span> <span class="nv">$TEMP_VALUE</span> <span class="p">&amp;</span>gt<span class="p">;</span> <span class="nv">$BLFILE</span>
+	<span class="k">done</span>
+        <span class="p">;;</span>
+    off<span class="o">)</span>
+	<span class="nv">TEMP_VALUE</span><span class="o">=</span><span class="nv">$BACKLIGHT</span>
+	<span class="k">while</span> <span class="o">[</span> <span class="nv">$TEMP_VALUE</span> -gt <span class="s2">&#34;0&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">do</span>
+		<span class="nv">TEMP_VALUE</span><span class="o">=</span><span class="sb">`</span>expr <span class="nv">$TEMP_VALUE</span> - 1<span class="sb">`</span>
+		<span class="k">if</span> <span class="o">[</span> <span class="nv">$TEMP_VALUE</span> -lt <span class="s2">&#34;0&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="nv">TEMP_VALUE</span><span class="o">=</span>0<span class="p">;</span> <span class="k">fi</span>
+		<span class="nb">echo</span> <span class="nv">$TEMP_VALUE</span> <span class="p">&amp;</span>gt<span class="p">;</span> <span class="nv">$BLFILE</span>
+	<span class="k">done</span>
+        <span class="p">;;</span>
+    *<span class="o">)</span>
+        <span class="nb">echo</span> <span class="s2">&#34;Use: screen-backlight up|down|total|off&#34;</span>
+        <span class="p">;;</span>
+<span class="k">esac</span>
 
-<span class=k>if</span> <span class=o>[</span> <span class=nv>$SET_VALUE</span> -eq <span class=s2>&#34;1&#34;</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
-    <span class=nb>echo</span> <span class=nv>$TOTAL</span> <span class=p>&amp;</span>gt<span class=p>;</span> <span class=nv>$BLFILE</span>
-<span class=k>fi</span></code></pre></div><p>As I&rsquo;m using i3 wm, I added those lines in my configuration to make keyboard bindings:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>bindcode <span class=m>233</span> <span class=nb>exec</span> --no-startup-id <span class=s2>&#34;sudo screen-backlight up&#34;</span>
-bindcode <span class=m>232</span> <span class=nb>exec</span> --no-startup-id <span class=s2>&#34;sudo screen-backlight down&#34;</span></code></pre></div><p>As you can see, some sudo commands are required, so I&rsquo;ve created a file in /etc/sudoers.d with this content:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>Cmnd_Alias <span class=nv>SCREENBACKLIGHT</span> <span class=o>=</span> /usr/bin/screen-backlight
-%deimos <span class=nv>ALL</span> <span class=o>=</span> <span class=o>(</span>ALL<span class=o>)</span> NOPASSWD: SCREENBACKLIGHT</code></pre></div><h2 id=video-driver>Video driver</h2><p>You can get working video drivers by installing experimental version of xorg intel package. You need to get experimental repository in your sources.list, then upgrade the package:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>apt-get install -t experimental xserver-xorg-video-intel</code></pre></div><h2 id=conclusion>Conclusion</h2><p>I have some work to do to make all the things work and wait for some drivers to be released. Debian Jessie is now out and I&rsquo;ll switch to the next testing branch. This will permit to avoid doing so manual stuffs like kernel recompilation.</p><p>If you encounter other issues, you should also take a look at Arch Linux wiki on the previous MacBookPro version as a lot of things corresponding to this new MacBooPro version as well: <a href=https://wiki.archlinux.org/index.php/MacBookPro11,x>https://wiki.archlinux.org/index.php/MacBookPro11,x</a></p></div></div><div id=post-footer class="post-footer main-content-wrap"><div class=post-footer-tags><span class="text-color-light text-small">TAGGED IN</span><br><a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/debian/>Debian</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/hi-tech/>Hi-Tech</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/linux/>Linux</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/mac/>Mac</a></div><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2015/09/11/ansible-meetup-with-nousmotards-in-paris/ data-tooltip="Ansible Meetup with Nousmotards in Paris!!!" aria-label="NEXT: Ansible Meetup with Nousmotards in Paris!!!"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2015/04/26/debian-8-jessie-is-out-2/ data-tooltip="Debian 8 (Jessie) is out !!!" aria-label="PREVIOUS: Debian 8 (Jessie) is out !!!"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post"><i class="fa fa-share-alt" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/" title="Share on Facebook" aria-label="Share on Facebook"><i class=fa-facebook-official aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/" title="Share on Twitter" aria-label="Share on Twitter"><i class=fa-twitter aria-hidden=true></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#top aria-label="Back to top"><i class="fa fa-arrow-up" aria-hidden=true></i></a></li></ul></div></div></article><footer id=footer class=main-content-wrap><span class=copyrights>&copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved</span></footer></div><div id=bottom-bar class=post-bottom-bar data-behavior=5><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2015/09/11/ansible-meetup-with-nousmotards-in-paris/ data-tooltip="Ansible Meetup with Nousmotards in Paris!!!" aria-label="NEXT: Ansible Meetup with Nousmotards in Paris!!!"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2015/04/26/debian-8-jessie-is-out-2/ data-tooltip="Debian 8 (Jessie) is out !!!" aria-label="PREVIOUS: Debian 8 (Jessie) is out !!!"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post"><i class="fa fa-share-alt" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/" title="Share on Facebook" aria-label="Share on Facebook"><i class=fa-facebook-official aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/" title="Share on Twitter" aria-label="Share on Twitter"><i class=fa-twitter aria-hidden=true></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#top aria-label="Back to top"><i class="fa fa-arrow-up" aria-hidden=true></i></a></li></ul></div></div><div id=share-options-bar class=share-options-bar data-behavior=5><i id=btn-close-shareoptions class="fa fa-times"></i><ul class=share-options><li class=share-option><a class=share-option-btn target=new href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2015%2F04%2F28%2Fdebian-jessie-and-macbookpro-13-2015121-with-kernel-4%2F" aria-label="Share on Facebook"><i class=fa-facebook-official aria-hidden=true></i><span>Share on Facebook</span></a></li><li class=share-option><a class=share-option-btn target=new href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2015%2F04%2F28%2Fdebian-jessie-and-macbookpro-13-2015121-with-kernel-4%2F" aria-label="Share on Twitter"><i class=fa-twitter aria-hidden=true></i><span>Share on Twitter</span></a></li></ul></div><div id=share-options-mask class=share-options-mask></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-times"></i></div><img id=about-card-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"><h4 id=about-card-name>Pierre Mavro / Deimosfr</h4><div id=about-card-job><i class="fa fa-briefcase"></i><br>Qovery Co-Founder and CTO</div><div id=about-card-location><i class="fa fa-map-marker-alt"></i><br>Paris - France</div></div></div><div id=cover style=background-image:url(https://blog.deimos.fr/images/fish_background.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js></script><script src=https://blog.deimos.fr/js/custom.js></script><script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:false});$('pre.code-highlight > code, pre > code').each(function(i,block){if(!$(this).hasClass('codeblock')){$(this).addClass('codeblock');}
-hljs.highlightBlock(block);});});</script></body></html>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$SET_VALUE</span> -eq <span class="s2">&#34;1&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="nv">$TOTAL</span> <span class="p">&amp;</span>gt<span class="p">;</span> <span class="nv">$BLFILE</span>
+<span class="k">fi</span></code></pre></div>
+<p>As I&rsquo;m using i3 wm, I added those lines in my configuration to make keyboard bindings:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">bindcode <span class="m">233</span> <span class="nb">exec</span> --no-startup-id <span class="s2">&#34;sudo screen-backlight up&#34;</span>
+bindcode <span class="m">232</span> <span class="nb">exec</span> --no-startup-id <span class="s2">&#34;sudo screen-backlight down&#34;</span></code></pre></div>
+<p>As you can see, some sudo commands are required, so I&rsquo;ve created a file in /etc/sudoers.d with this content:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">Cmnd_Alias <span class="nv">SCREENBACKLIGHT</span> <span class="o">=</span> /usr/bin/screen-backlight
+%deimos <span class="nv">ALL</span> <span class="o">=</span> <span class="o">(</span>ALL<span class="o">)</span> NOPASSWD: SCREENBACKLIGHT</code></pre></div>
+<h2 id="video-driver">Video driver</h2>
+<p>You can get working video drivers by installing experimental version of xorg intel package. You need to get experimental repository in your sources.list, then upgrade the package:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">apt-get install -t experimental xserver-xorg-video-intel</code></pre></div>
+<h2 id="conclusion">Conclusion</h2>
+<p>I have some work to do to make all the things work and wait for some drivers to be released. Debian Jessie is now out and I&rsquo;ll switch to the next testing branch. This will permit to avoid doing so manual stuffs like kernel recompilation.</p>
+<p>If you encounter other issues, you should also take a look at Arch Linux wiki on the previous MacBookPro version as a lot of things corresponding to this new MacBooPro version as well: <a href="https://wiki.archlinux.org/index.php/MacBookPro11,x">https://wiki.archlinux.org/index.php/MacBookPro11,x</a></p>
+
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/debian/">Debian</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/hi-tech/">Hi-Tech</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/linux/">Linux</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/mac/">Mac</a>
+
+                  </div>
+                
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/09/11/ansible-meetup-with-nousmotards-in-paris/" data-tooltip="Ansible Meetup with Nousmotards in Paris!!!" aria-label="NEXT: Ansible Meetup with Nousmotards in Paris!!!">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/04/26/debian-8-jessie-is-out-2/" data-tooltip="Debian 8 (Jessie) is out !!!" aria-label="PREVIOUS: Debian 8 (Jessie) is out !!!">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fa-facebook-official" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/09/11/ansible-meetup-with-nousmotards-in-paris/" data-tooltip="Ansible Meetup with Nousmotards in Paris!!!" aria-label="NEXT: Ansible Meetup with Nousmotards in Paris!!!">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/04/26/debian-8-jessie-is-out-2/" data-tooltip="Debian 8 (Jessie) is out !!!" aria-label="PREVIOUS: Debian 8 (Jessie) is out !!!">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fa-facebook-official" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2015%2F04%2F28%2Fdebian-jessie-and-macbookpro-13-2015121-with-kernel-4%2F" aria-label="Share on Facebook">
+          <i class="fa-facebook-official" aria-hidden="true"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2015%2F04%2F28%2Fdebian-jessie-and-macbookpro-13-2015121-with-kernel-4%2F" aria-label="Share on Twitter">
+          <i class="fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Qovery Co-Founder and CTO
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Paris - France
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      
+      <div id="cover" style="background-image:url('https://blog.deimos.fr/images/fish_background.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script src="https://blog.deimos.fr/js/custom.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+

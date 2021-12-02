@@ -1,21 +1,581 @@
-<!doctype html><html lang=en-us><head><script type=application/ld+json>{"@context":"http://schema.org","@type":"Website","@id":"https:\/\/blog.deimos.fr","author":{"@type":"Person","name":"Pierre Mavro / Deimosfr","image":"https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"},"name":"Deimosfr Blog","description":"Et me voilà parti grâce à Linagora au FOSDEM 2013 :-). C\x26rsquo;est donc mon premier jour et premier FOSDEM.\nAu menu une petite intro Ubuntu sur Juju et MASS mais piètre qualité du représentant de Canonical. Quelque chose a retenir cependant, il faut vraiment tester Ceph :\nHeureusement qu\x26rsquo;il y a eu une magnifique représentation MediaWiki avec du Jenkins, PhantomJS (incroyable) et d\x26rsquo;autres produits dont Cucumber (qui est très impressionnant). Le mec de Wikipedia\/MediaWiki avait vraiment l\x26rsquo;air de bien connaître son sujet c\x26rsquo;était top :","url":"https:\/\/blog.deimos.fr\/2013\/02\/03\/en-direct-du-fosdem-2013\/","keywords":"[]"}</script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Hugo 0.69.2 with theme Tranquilpeak 0.5.2-BETA"><meta name=author content="Pierre Mavro / Deimosfr"><meta name=keywords content><meta name=description content="Et me voilà parti grâce à Linagora au FOSDEM 2013 :-). C&rsquo;est donc mon premier jour et premier FOSDEM.
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/blog.deimos.fr",
+  "author": {
+    "@type": "Person",
+    "name": "Pierre Mavro / Deimosfr",
+    
+    "image": "https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"
+    
+  },
+  "name":"Deimosfr Blog",
+  "description":"Et me voilà parti grâce à Linagora au FOSDEM 2013 :-). C\u0026rsquo;est donc mon premier jour et premier FOSDEM.\nAu menu une petite intro Ubuntu sur Juju et MASS mais piètre qualité du représentant de Canonical. Quelque chose a retenir cependant, il faut vraiment tester Ceph :\nHeureusement qu\u0026rsquo;il y a eu une magnifique représentation MediaWiki avec du Jenkins, PhantomJS (incroyable) et d\u0026rsquo;autres produits dont Cucumber (qui est très impressionnant). Le mec de Wikipedia\/MediaWiki avait vraiment l\u0026rsquo;air de bien connaître son sujet c\u0026rsquo;était top :",
+  "url":"https:\/\/blog.deimos.fr\/2013\/02\/03\/en-direct-du-fosdem-2013\/",
+  "keywords":"[]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.89.4 with theme Tranquilpeak 0.5.2-BETA">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Et me voilà parti grâce à Linagora au FOSDEM 2013 :-). C&rsquo;est donc mon premier jour et premier FOSDEM.
 Au menu une petite intro Ubuntu sur Juju et MASS mais piètre qualité du représentant de Canonical. Quelque chose a retenir cependant, il faut vraiment tester Ceph :
-Heureusement qu&rsquo;il y a eu une magnifique représentation MediaWiki avec du Jenkins, PhantomJS (incroyable) et d&rsquo;autres produits dont Cucumber (qui est très impressionnant). Le mec de Wikipedia/MediaWiki avait vraiment l&rsquo;air de bien connaître son sujet c&rsquo;était top :"><meta property="og:description" content="Et me voilà parti grâce à Linagora au FOSDEM 2013 :-). C&rsquo;est donc mon premier jour et premier FOSDEM.
+Heureusement qu&rsquo;il y a eu une magnifique représentation MediaWiki avec du Jenkins, PhantomJS (incroyable) et d&rsquo;autres produits dont Cucumber (qui est très impressionnant). Le mec de Wikipedia/MediaWiki avait vraiment l&rsquo;air de bien connaître son sujet c&rsquo;était top :">
+
+
+<meta property="og:description" content="Et me voilà parti grâce à Linagora au FOSDEM 2013 :-). C&rsquo;est donc mon premier jour et premier FOSDEM.
 Au menu une petite intro Ubuntu sur Juju et MASS mais piètre qualité du représentant de Canonical. Quelque chose a retenir cependant, il faut vraiment tester Ceph :
-Heureusement qu&rsquo;il y a eu une magnifique représentation MediaWiki avec du Jenkins, PhantomJS (incroyable) et d&rsquo;autres produits dont Cucumber (qui est très impressionnant). Le mec de Wikipedia/MediaWiki avait vraiment l&rsquo;air de bien connaître son sujet c&rsquo;était top :"><meta property="og:type" content="article"><meta property="og:title" content="Mon premier jour au FOSDEM (2013)"><meta name=twitter:title content="Mon premier jour au FOSDEM (2013)"><meta property="og:url" content="https://blog.deimos.fr/2013/02/03/en-direct-du-fosdem-2013/"><meta property="twitter:url" content="https://blog.deimos.fr/2013/02/03/en-direct-du-fosdem-2013/"><meta property="og:site_name" content="Deimosfr Blog"><meta property="og:description" content="Et me voilà parti grâce à Linagora au FOSDEM 2013 :-). C&rsquo;est donc mon premier jour et premier FOSDEM.
+Heureusement qu&rsquo;il y a eu une magnifique représentation MediaWiki avec du Jenkins, PhantomJS (incroyable) et d&rsquo;autres produits dont Cucumber (qui est très impressionnant). Le mec de Wikipedia/MediaWiki avait vraiment l&rsquo;air de bien connaître son sujet c&rsquo;était top :">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mon premier jour au FOSDEM (2013)">
+<meta name="twitter:title" content="Mon premier jour au FOSDEM (2013)">
+<meta property="og:url" content="https://blog.deimos.fr/2013/02/03/en-direct-du-fosdem-2013/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2013/02/03/en-direct-du-fosdem-2013/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Et me voilà parti grâce à Linagora au FOSDEM 2013 :-). C&rsquo;est donc mon premier jour et premier FOSDEM.
 Au menu une petite intro Ubuntu sur Juju et MASS mais piètre qualité du représentant de Canonical. Quelque chose a retenir cependant, il faut vraiment tester Ceph :
-Heureusement qu&rsquo;il y a eu une magnifique représentation MediaWiki avec du Jenkins, PhantomJS (incroyable) et d&rsquo;autres produits dont Cucumber (qui est très impressionnant). Le mec de Wikipedia/MediaWiki avait vraiment l&rsquo;air de bien connaître son sujet c&rsquo;était top :"><meta name=twitter:description content="Et me voilà parti grâce à Linagora au FOSDEM 2013 :-). C&rsquo;est donc mon premier jour et premier FOSDEM.
+Heureusement qu&rsquo;il y a eu une magnifique représentation MediaWiki avec du Jenkins, PhantomJS (incroyable) et d&rsquo;autres produits dont Cucumber (qui est très impressionnant). Le mec de Wikipedia/MediaWiki avait vraiment l&rsquo;air de bien connaître son sujet c&rsquo;était top :">
+<meta name="twitter:description" content="Et me voilà parti grâce à Linagora au FOSDEM 2013 :-). C&rsquo;est donc mon premier jour et premier FOSDEM.
 Au menu une petite intro Ubuntu sur Juju et MASS mais piètre qualité du représentant de Canonical. Quelque chose a retenir cependant, il faut vraiment tester Ceph :
-Heureusement qu&rsquo;il y a eu une magnifique représentation MediaWiki avec du Jenkins, PhantomJS (incroyable) et d&rsquo;autres produits dont Cucumber (qui est très impressionnant). Le mec de Wikipedia/MediaWiki avait vraiment l&rsquo;air de bien connaître son sujet c&rsquo;était top :"><meta property="og:locale" content="en-us"><meta property="article:published_time" content="2013-02-03T11:00:18"><meta property="article:modified_time" content="2013-02-03T11:00:18"><meta property="article:section" content="Hi-Tech"><meta property="article:section" content="Linux"><meta property="article:section" content="Others"><meta property="article:section" content="Private life"><meta property="article:tag" content="Hi-Tech"><meta property="article:tag" content="Linux"><meta property="article:tag" content="Others"><meta property="article:tag" content="Private life"><meta name=twitter:card content="summary"><meta name=twitter:site content="@deimosfr"><meta name=twitter:creator content="@deimosfr"><meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_fosdem.png"><meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_fosdem.png"><title>Mon premier jour au FOSDEM (2013)</title><link rel=icon href=https://blog.deimos.fr/favicon.png><link rel=canonical href=https://blog.deimos.fr/2013/02/03/en-direct-du-fosdem-2013/><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://blog.deimos.fr/css/style-c5yjx2losbmkttdif4mskx5f9pqjjquywurgngxfvceyyrtyatseix5hpd.min.css><link rel=stylesheet href=https://blog.deimos.fr/css/custom.css><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-63927289-1','auto');ga('send','pageview');}</script></head><body><div id=blog><header id=header data-behavior=5><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=https://blog.deimos.fr/ aria-label="Go to homepage">Deimosfr Blog</a></div><a class=header-right-picture href=https://blog.deimos.fr/#about aria-label="Open the link: /#about"><img class=header-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author's picture"></a></header><nav id=sidebar data-behavior=5><div class=sidebar-container><div class=sidebar-profile><a href=https://blog.deimos.fr/#about aria-label="Read more about the author"><img class=sidebar-profile-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"></a><h4 class=sidebar-profile-name>Pierre Mavro / Deimosfr</h4></div><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/ title=Home><i class="sidebar-button-icon fa fa-lg fa-home"></i><span class=sidebar-button-desc>Home</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/archives title=Archives><i class="sidebar-button-icon fa fa-lg fa-archive"></i><span class=sidebar-button-desc>Archives</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/categories title=Categories><i class="sidebar-button-icon fa fa-lg fa-bookmark"></i><span class=sidebar-button-desc>Categories</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/tags title=Tags><i class="sidebar-button-icon fa fa-lg fa-tags"></i><span class=sidebar-button-desc>Tags</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/index.xml title=RSS><i class="sidebar-button-icon fa fa-lg fa-rss"></i><span class=sidebar-button-desc>RSS</span></a></li></ul><ul class=sidebar-buttons></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://www.deimos.fr target=_blank rel=noopener title=About><i class="sidebar-button-icon fa fa-lg fa-user"></i><span class=sidebar-button-desc>About</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://wiki.deimos.fr target=_blank rel=noopener title=Wiki><i class="sidebar-button-icon fa fa-wikipedia-w"></i><span class=sidebar-button-desc>Wiki</span></a></li></ul></div></nav><div id=main data-behavior=5 class=hasCoverMetaIn><article class=post id=top><div class="post-header main-content-wrap text-left"><h1 class=post-title>Mon premier jour au FOSDEM (2013)</h1><div class="postShorten-meta post-meta"><time datetime=2013-02-03T11:00:18Z>3 February 2013</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/others>Others</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/private-life>Private life</a></div></div><div class="post-content markdown"><div class=main-content-wrap><p><img src=https://blog.deimos.fr/images/logo_fosdem.png alt=fosdem_logo>
-Et me voilà parti grâce à <a href=http://www.linagora.com/>Linagora</a> au FOSDEM 2013 :-). C&rsquo;est donc mon premier jour et premier FOSDEM.</p><p>Au menu une petite intro Ubuntu sur <a href=https://juju.ubuntu.com/>Juju</a> et MASS mais piètre qualité du représentant de Canonical. Quelque chose a retenir cependant, il faut vraiment tester <a href=http://ceph.com/>Ceph</a> :</p><p><img src=https://blog.deimos.fr/images/wpid-IMG_20130202_120504.jpg alt=wpid-IMG_20130202_120504></p><p>Heureusement qu&rsquo;il y a eu une magnifique représentation <a href=http://wiki.deimos.fr/Serveurs#Mediawiki>MediaWiki</a> avec du <a href=http://wiki.deimos.fr/Jenkins_:_Mise_en_place_d%27un_outil_d%27int%C3%A9gration_continue>Jenkins</a>, <a href=http://phantomjs.org/>PhantomJS</a> (incroyable) et d&rsquo;autres produits dont <a href=http://cukes.info/>Cucumber</a> (qui est très impressionnant). Le mec de Wikipedia/MediaWiki avait vraiment l&rsquo;air de bien connaître son sujet c&rsquo;était top :</p><p><img src=https://blog.deimos.fr/images/wpid-IMG_20130202_135319.jpg alt=wpid-IMG_20130202_135319></p><p>J&rsquo;ai également eu le droit a une présentation loupée (projecteur cassé, pas de bol) mais néanmoins très intéressante sur les contraintes du balooning et KSM. La solution est l&rsquo;ordonnanceur MOM, merci RedHat. J&rsquo;ai tout de même des doutes sur la qualité d&rsquo;<a href=http://www.ovirt.org/>oVirt</a> vu le retour de Linagora sur le produit (visiblement avant que ça devienne RedHat). Ça tombe bien, j&rsquo;ai eu une conférence sur oVirt peut de temps après.</p><p>Je n&rsquo;ai pu assister a certaines conférences sur &ldquo;Learning to automate&rdquo; et &ldquo;Using ruby testing framework&mldr;". Trop de monde, la queue ne se désemplissait pas. Des personnes attendaient depuis plus d&rsquo;une heure. Et vu que c&rsquo;était la même salle, les mecs dans la salle ont campés. Pas cool pour les autres. J&rsquo;espère qu&rsquo;au moins ce sera filmé.</p><p>J&rsquo;ai assisté a une présentation oVirt comme je le disais plus haut :</p><p><img src=https://blog.deimos.fr/images/wpid-wp-1359816076197.jpg alt=wpid-wp-1359816076197></p><p>Intéressante, avec du glusterfs. Intéressant, j&rsquo;aurais voulu que ça rentre plus dans les détails mais bon.</p><p>J&rsquo;ai également suivit la partie sécurité, très intéressante qui m&rsquo;a fait découvrir la distribution <a href=http://freeipa.org/>FreeIPA</a>. Effectivement, ne travaillant pas dans la sécurité, ce genre d&rsquo;OS m&rsquo;intéresse. Soit a mettre en place, soit pour apprendre. Mais d&rsquo;après le gars qui fait la près, c&rsquo;est pour gagner du temps de mise en place et s&rsquo;assurer que rien a été laissé de cote en sécurité . Ça s&rsquo;appuyer sur un LDAP 389 donc c&rsquo;est un point assez positif pour la scalabilité.</p><p><img src=https://blog.deimos.fr:443/wp-content/uploads/2013/02/fosdem2013_freeipa-300x225.jpg alt=fosdem2013_freeipa-300x225></p><p>Je n&rsquo;ai malheureusement pas le temps de continuer d&rsquo;écrire plus pour le moment. Je vous raconterais la suite dans le prochain post et retoucherai un petit peu celui la.</p></div></div><div id=post-footer class="post-footer main-content-wrap"><div class=post-footer-tags><span class="text-color-light text-small">TAGGED IN</span><br><a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/hi-tech/>Hi-Tech</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/linux/>Linux</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/others/>Others</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/private-life/>Private life</a></div><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/ data-tooltip="2ème et dernier jour au FOSDEM !" aria-label="NEXT: 2ème et dernier jour au FOSDEM !"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2013/02/01/dina-une-police-pour-developper/ data-tooltip="Dina : une police lisible pour développer" aria-label="PREVIOUS: Dina : une police lisible pour développer"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post"><i class="fa fa-share-alt" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2013/02/03/en-direct-du-fosdem-2013/" title="Share on Facebook" aria-label="Share on Facebook"><i class=fa-facebook-official aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2013/02/03/en-direct-du-fosdem-2013/" title="Share on Twitter" aria-label="Share on Twitter"><i class=fa-twitter aria-hidden=true></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#top aria-label="Back to top"><i class="fa fa-arrow-up" aria-hidden=true></i></a></li></ul></div></div></article><footer id=footer class=main-content-wrap><span class=copyrights>&copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved</span></footer></div><div id=bottom-bar class=post-bottom-bar data-behavior=5><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/ data-tooltip="2ème et dernier jour au FOSDEM !" aria-label="NEXT: 2ème et dernier jour au FOSDEM !"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2013/02/01/dina-une-police-pour-developper/ data-tooltip="Dina : une police lisible pour développer" aria-label="PREVIOUS: Dina : une police lisible pour développer"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post"><i class="fa fa-share-alt" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2013/02/03/en-direct-du-fosdem-2013/" title="Share on Facebook" aria-label="Share on Facebook"><i class=fa-facebook-official aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2013/02/03/en-direct-du-fosdem-2013/" title="Share on Twitter" aria-label="Share on Twitter"><i class=fa-twitter aria-hidden=true></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#top aria-label="Back to top"><i class="fa fa-arrow-up" aria-hidden=true></i></a></li></ul></div></div><div id=share-options-bar class=share-options-bar data-behavior=5><i id=btn-close-shareoptions class="fa fa-times"></i><ul class=share-options><li class=share-option><a class=share-option-btn target=new href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2013%2F02%2F03%2Fen-direct-du-fosdem-2013%2F" aria-label="Share on Facebook"><i class=fa-facebook-official aria-hidden=true></i><span>Share on Facebook</span></a></li><li class=share-option><a class=share-option-btn target=new href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2013%2F02%2F03%2Fen-direct-du-fosdem-2013%2F" aria-label="Share on Twitter"><i class=fa-twitter aria-hidden=true></i><span>Share on Twitter</span></a></li></ul></div><div id=share-options-mask class=share-options-mask></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-times"></i></div><img id=about-card-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"><h4 id=about-card-name>Pierre Mavro / Deimosfr</h4><div id=about-card-job><i class="fa fa-briefcase"></i><br>Qovery Co-Founder and CTO</div><div id=about-card-location><i class="fa fa-map-marker-alt"></i><br>Paris - France</div></div></div><div id=cover style=background-image:url(https://blog.deimos.fr/images/fish_background.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js></script><script src=https://blog.deimos.fr/js/custom.js></script><script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:false});$('pre.code-highlight > code, pre > code').each(function(i,block){if(!$(this).hasClass('codeblock')){$(this).addClass('codeblock');}
-hljs.highlightBlock(block);});});</script></body></html>
+Heureusement qu&rsquo;il y a eu une magnifique représentation MediaWiki avec du Jenkins, PhantomJS (incroyable) et d&rsquo;autres produits dont Cucumber (qui est très impressionnant). Le mec de Wikipedia/MediaWiki avait vraiment l&rsquo;air de bien connaître son sujet c&rsquo;était top :">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2013-02-03T11:00:18">
+  
+  
+    <meta property="article:modified_time" content="2013-02-03T11:00:18">
+  
+  
+  
+    
+      <meta property="article:section" content="Hi-Tech">
+    
+      <meta property="article:section" content="Linux">
+    
+      <meta property="article:section" content="Others">
+    
+      <meta property="article:section" content="Private life">
+    
+  
+  
+    
+      <meta property="article:tag" content="Hi-Tech">
+    
+      <meta property="article:tag" content="Linux">
+    
+      <meta property="article:tag" content="Others">
+    
+      <meta property="article:tag" content="Private life">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_fosdem.png">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_fosdem.png">
+
+
+    <title>Mon premier jour au FOSDEM (2013)</title>
+
+    <link rel="icon" href="https://blog.deimos.fr/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://blog.deimos.fr/2013/02/03/en-direct-du-fosdem-2013/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-c5yjx2losbmkttdif4mskx5f9pqjjquywurgngxfvceyyrtyatseix5hpd.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
+      
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-63927289-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.deimos.fr/" aria-label="Go to homepage">Deimosfr Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://blog.deimos.fr/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.deimos.fr/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/" title="Home">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/index.xml" title="RSS">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.deimos.fr" target="_blank" rel="noopener" title="About">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-user"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank" rel="noopener" title="Wiki">
+    
+      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
+      
+      <span class="sidebar-button-desc">Wiki</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      Mon premier jour au FOSDEM (2013)
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2013-02-03T11:00:18Z">
+        
+  
+  
+  
+  
+    3 February 2013
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/others">Others</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/private-life">Private life</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p><img src="https://blog.deimos.fr/images/logo_fosdem.png" alt="fosdem_logo">
+Et me voilà parti grâce à <a href="http://www.linagora.com/">Linagora</a> au FOSDEM 2013 :-). C&rsquo;est donc mon premier jour et premier FOSDEM.</p>
+<p>Au menu une petite intro Ubuntu sur <a href="https://juju.ubuntu.com/">Juju</a> et MASS mais piètre qualité du représentant de Canonical. Quelque chose a retenir cependant, il faut vraiment tester <a href="http://ceph.com/">Ceph</a> :</p>
+<p><img src="https://blog.deimos.fr/images/wpid-IMG_20130202_120504.jpg" alt="wpid-IMG_20130202_120504"></p>
+<p>Heureusement qu&rsquo;il y a eu une magnifique représentation <a href="http://wiki.deimos.fr/Serveurs#Mediawiki">MediaWiki</a> avec du <a href="http://wiki.deimos.fr/Jenkins_:_Mise_en_place_d%27un_outil_d%27int%C3%A9gration_continue">Jenkins</a>, <a href="http://phantomjs.org/">PhantomJS</a> (incroyable) et d&rsquo;autres produits dont <a href="http://cukes.info/">Cucumber</a> (qui est très impressionnant). Le mec de Wikipedia/MediaWiki avait vraiment l&rsquo;air de bien connaître son sujet c&rsquo;était top :</p>
+<p><img src="https://blog.deimos.fr/images/wpid-IMG_20130202_135319.jpg" alt="wpid-IMG_20130202_135319"></p>
+<p>J&rsquo;ai également eu le droit a une présentation loupée (projecteur cassé, pas de bol) mais néanmoins très intéressante sur les contraintes du balooning et KSM. La solution est l&rsquo;ordonnanceur MOM, merci RedHat. J&rsquo;ai tout de même des doutes sur la qualité d'<a href="http://www.ovirt.org/">oVirt</a> vu le retour de Linagora sur le produit (visiblement avant que ça devienne RedHat). Ça tombe bien, j&rsquo;ai eu une conférence sur oVirt peut de temps après.</p>
+<p>Je n&rsquo;ai pu assister a certaines conférences sur &ldquo;Learning to automate&rdquo; et &ldquo;Using ruby testing framework&hellip;&rdquo;. Trop de monde, la queue ne se désemplissait pas. Des personnes attendaient depuis plus d&rsquo;une heure. Et vu que c&rsquo;était la même salle, les mecs dans la salle ont campés. Pas cool pour les autres. J&rsquo;espère qu&rsquo;au moins ce sera filmé.</p>
+<p>J&rsquo;ai assisté a une présentation oVirt comme je le disais plus haut :</p>
+<p><img src="https://blog.deimos.fr/images/wpid-wp-1359816076197.jpg" alt="wpid-wp-1359816076197"></p>
+<p>Intéressante, avec du glusterfs. Intéressant, j&rsquo;aurais voulu que ça rentre plus dans les détails mais bon.</p>
+<p>J&rsquo;ai également suivit la partie sécurité, très intéressante qui m&rsquo;a fait découvrir la distribution <a href="http://freeipa.org/">FreeIPA</a>. Effectivement, ne travaillant pas dans la sécurité, ce genre d&rsquo;OS m&rsquo;intéresse. Soit a mettre en place, soit pour apprendre. Mais d&rsquo;après le gars qui fait la près, c&rsquo;est pour gagner du temps de mise en place et s&rsquo;assurer que rien a été laissé de cote en sécurité . Ça s&rsquo;appuyer sur un LDAP 389 donc c&rsquo;est un point assez positif pour la scalabilité.</p>
+<p><img src="https://blog.deimos.fr:443/wp-content/uploads/2013/02/fosdem2013_freeipa-300x225.jpg" alt="fosdem2013_freeipa-300x225"></p>
+<p>Je n&rsquo;ai malheureusement pas le temps de continuer d&rsquo;écrire plus pour le moment. Je vous raconterais la suite dans le prochain post et retoucherai un petit peu celui la.</p>
+
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/hi-tech/">Hi-Tech</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/linux/">Linux</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/others/">Others</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/private-life/">Private life</a>
+
+                  </div>
+                
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/" data-tooltip="2ème et dernier jour au FOSDEM !" aria-label="NEXT: 2ème et dernier jour au FOSDEM !">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2013/02/01/dina-une-police-pour-developper/" data-tooltip="Dina : une police lisible pour développer" aria-label="PREVIOUS: Dina : une police lisible pour développer">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2013/02/03/en-direct-du-fosdem-2013/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fa-facebook-official" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2013/02/03/en-direct-du-fosdem-2013/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2013/02/05/2eme-et-dernier-jour-au-fosdem-2/" data-tooltip="2ème et dernier jour au FOSDEM !" aria-label="NEXT: 2ème et dernier jour au FOSDEM !">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2013/02/01/dina-une-police-pour-developper/" data-tooltip="Dina : une police lisible pour développer" aria-label="PREVIOUS: Dina : une police lisible pour développer">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2013/02/03/en-direct-du-fosdem-2013/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fa-facebook-official" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2013/02/03/en-direct-du-fosdem-2013/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2013%2F02%2F03%2Fen-direct-du-fosdem-2013%2F" aria-label="Share on Facebook">
+          <i class="fa-facebook-official" aria-hidden="true"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2013%2F02%2F03%2Fen-direct-du-fosdem-2013%2F" aria-label="Share on Twitter">
+          <i class="fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Qovery Co-Founder and CTO
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Paris - France
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      
+      <div id="cover" style="background-image:url('https://blog.deimos.fr/images/fish_background.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script src="https://blog.deimos.fr/js/custom.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+

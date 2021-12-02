@@ -1,215 +1,768 @@
-<!doctype html><html lang=en-us><head><script type=application/ld+json>{"@context":"http://schema.org","@type":"Website","@id":"https:\/\/blog.deimos.fr","author":{"@type":"Person","name":"Pierre Mavro / Deimosfr","image":"https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"},"name":"Deimosfr Blog","description":"CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications. I\x26rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.\nAs I\x26rsquo;m still an Ansible lover, I\x26rsquo;ve made 2 roles:\n CoreOS Ansible: Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  If you want to quickly look at the result:","url":"https:\/\/blog.deimos.fr\/2016\/09\/30\/deploy-coreos-with-ansible\/","keywords":"[]"}</script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Hugo 0.69.2 with theme Tranquilpeak 0.5.2-BETA"><meta name=author content="Pierre Mavro / Deimosfr"><meta name=keywords content><meta name=description content="CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications. I&rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/blog.deimos.fr",
+  "author": {
+    "@type": "Person",
+    "name": "Pierre Mavro / Deimosfr",
+    
+    "image": "https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"
+    
+  },
+  "name":"Deimosfr Blog",
+  "description":"CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications. I\u0026rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.\nAs I\u0026rsquo;m still an Ansible lover, I\u0026rsquo;ve made 2 roles:\n CoreOS Ansible: Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  If you want to quickly look at the result:",
+  "url":"https:\/\/blog.deimos.fr\/2016\/09\/30\/deploy-coreos-with-ansible\/",
+  "keywords":"[]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.89.4 with theme Tranquilpeak 0.5.2-BETA">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications. I&rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
 As I&rsquo;m still an Ansible lover, I&rsquo;ve made 2 roles:
- CoreOS Ansible: Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  If you want to quickly look at the result:"><meta property="og:description" content="CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications. I&rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
+ CoreOS Ansible: Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  If you want to quickly look at the result:">
+
+
+<meta property="og:description" content="CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications. I&rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
 As I&rsquo;m still an Ansible lover, I&rsquo;ve made 2 roles:
- CoreOS Ansible: Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  If you want to quickly look at the result:"><meta property="og:type" content="article"><meta property="og:title" content="Deploy CoreOS with Ansible"><meta name=twitter:title content="Deploy CoreOS with Ansible"><meta property="og:url" content="https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/"><meta property="twitter:url" content="https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/"><meta property="og:site_name" content="Deimosfr Blog"><meta property="og:description" content="CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications. I&rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
+ CoreOS Ansible: Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  If you want to quickly look at the result:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deploy CoreOS with Ansible">
+<meta name="twitter:title" content="Deploy CoreOS with Ansible">
+<meta property="og:url" content="https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications. I&rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
 As I&rsquo;m still an Ansible lover, I&rsquo;ve made 2 roles:
- CoreOS Ansible: Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  If you want to quickly look at the result:"><meta name=twitter:description content="CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications. I&rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
+ CoreOS Ansible: Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  If you want to quickly look at the result:">
+<meta name="twitter:description" content="CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications. I&rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
 As I&rsquo;m still an Ansible lover, I&rsquo;ve made 2 roles:
- CoreOS Ansible: Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  If you want to quickly look at the result:"><meta property="og:locale" content="en-us"><meta property="article:published_time" content="2016-09-30T21:35:17"><meta property="article:modified_time" content="2016-09-30T21:35:17"><meta property="article:section" content="Ansible"><meta property="article:section" content="Cloud"><meta property="article:section" content="Hi-Tech"><meta property="article:section" content="Linux"><meta property="article:tag" content="nousmotards"><meta name=twitter:card content="summary"><meta name=twitter:site content="@deimosfr"><meta name=twitter:creator content="@deimosfr"><meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_coreos.png"><meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_coreos.png"><title>Deploy CoreOS with Ansible</title><link rel=icon href=https://blog.deimos.fr/favicon.png><link rel=canonical href=https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://blog.deimos.fr/css/style-c5yjx2losbmkttdif4mskx5f9pqjjquywurgngxfvceyyrtyatseix5hpd.min.css><link rel=stylesheet href=https://blog.deimos.fr/css/custom.css><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-63927289-1','auto');ga('send','pageview');}</script></head><body><div id=blog><header id=header data-behavior=5><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=https://blog.deimos.fr/ aria-label="Go to homepage">Deimosfr Blog</a></div><a class=header-right-picture href=https://blog.deimos.fr/#about aria-label="Open the link: /#about"><img class=header-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author's picture"></a></header><nav id=sidebar data-behavior=5><div class=sidebar-container><div class=sidebar-profile><a href=https://blog.deimos.fr/#about aria-label="Read more about the author"><img class=sidebar-profile-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"></a><h4 class=sidebar-profile-name>Pierre Mavro / Deimosfr</h4></div><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/ title=Home><i class="sidebar-button-icon fa fa-lg fa-home"></i><span class=sidebar-button-desc>Home</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/archives title=Archives><i class="sidebar-button-icon fa fa-lg fa-archive"></i><span class=sidebar-button-desc>Archives</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/categories title=Categories><i class="sidebar-button-icon fa fa-lg fa-bookmark"></i><span class=sidebar-button-desc>Categories</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/tags title=Tags><i class="sidebar-button-icon fa fa-lg fa-tags"></i><span class=sidebar-button-desc>Tags</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/index.xml title=RSS><i class="sidebar-button-icon fa fa-lg fa-rss"></i><span class=sidebar-button-desc>RSS</span></a></li></ul><ul class=sidebar-buttons></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://www.deimos.fr target=_blank rel=noopener title=About><i class="sidebar-button-icon fa fa-lg fa-user"></i><span class=sidebar-button-desc>About</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://wiki.deimos.fr target=_blank rel=noopener title=Wiki><i class="sidebar-button-icon fa fa-wikipedia-w"></i><span class=sidebar-button-desc>Wiki</span></a></li></ul></div></nav><div id=main data-behavior=5 class=hasCoverMetaIn><article class=post id=top><div class="post-header main-content-wrap text-left"><h1 class=post-title>Deploy CoreOS with Ansible</h1><div class="postShorten-meta post-meta"><time datetime=2016-09-30T21:35:17Z>30 September 2016</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/ansible>Ansible</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/cloud>Cloud</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a></div></div><div class="post-content markdown"><div class=main-content-wrap><p><img src=https://blog.deimos.fr/images/logo_coreos.png alt=CoreOS_logo>
- </p><p><a href=https://coreos.com>CoreOS</a> is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications. I&rsquo;ve been playing with <a href=https://coreos.com>CoreOS</a> to replace Debian hosts which run Docker containers on <a href=https://www.nousmotards.com>Nousmotards</a> project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.</p><p>As I&rsquo;m still an Ansible lover, I&rsquo;ve made 2 roles:</p><ul><li><a href=https://galaxy.ansible.com/deimosfr/coreos-container-linux/>CoreOS Ansible</a>: Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites</li><li><a href=https://galaxy.ansible.com/deimosfr/coreos-ansible/>CoreOS</a>: Ansible CoreOS role to deploy CoreOS on bare metal servers</li></ul><p>If you want to quickly look at the result:</p><p>The first one is for installing pypy to run Ansible and the other one to bootstrap CoreOS with Cloudinit or/and Igninition. Those role will bootstrap a complete cluster with etcd, flannel, fleet etc&mldr;ready to run a <a href=http://kubernetes.io/>Kubernetes</a> cluster on it! It will generate configs for each hosts and deploy them automatically. It will permit to add vars, generate the configs and you can keep history with git for example. Here are the options of the role:</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=c># Choose CoreOS channel between stable, beta or alpha channels</span><span class=w>
-</span><span class=w></span><span class=k>coreos_channel</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;stable&#34;</span><span class=w>
-</span><span class=w></span><span class=c># Generate a token: https://discovery.etcd.io/new?size=3</span><span class=w>
-</span><span class=w></span><span class=k>coreos_token</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;81b89915ae4edd9a65ad9d0301381c52&#34;</span><span class=w>
-</span><span class=w></span><span class=c># Choose reboot strategy between: etcd-lock, reboot and off</span><span class=w>
-</span><span class=w></span><span class=k>coreos_reboot_strategy</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;etcd-lock&#34;</span><span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=c># Define your public interface and IP</span><span class=w>
-</span><span class=w></span><span class=k>coreos_public_ip</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{ansible_default_ipv4.address}}&#34;</span><span class=w>
-</span><span class=w></span><span class=k>coreos_public_if</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{ansible_default_ipv4.interface}}&#34;</span><span class=w>
-</span><span class=w></span><span class=c># Define your private interface and IP</span><span class=w>
-</span><span class=w></span><span class=k>coreos_private_ip</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{priv_ip}}&#34;</span><span class=w>
-</span><span class=w></span><span class=k>coreos_private_if</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{priv_if}}&#34;</span><span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=c># Define dedicated subnet for containers communication</span><span class=w>
-</span><span class=w></span><span class=k>coreos_flanneld_subnet</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;10.1.0.0/16&#34;</span><span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=c># Add fleet metadata</span><span class=w>
-</span><span class=w></span><span class=k>coreos_fleet_metadata</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;cluster=dev&#34;</span><span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=c># If true, will bootstrap the server (data may be lost),</span><span class=w>
-</span><span class=w></span><span class=c># else config files will be generated</span><span class=w>
-</span><span class=w></span><span class=k>coreos_launch_bootstrap</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w></span><span class=k>coreos_device_install</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;/dev/sda&#34;</span><span class=w>
-</span><span class=w></span><span class=k>coreos_install_additional_options</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;&#34;</span><span class=w>
-</span><span class=w></span><span class=k>coreos_eject_cd_before_reboot</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w></span><span class=k>coreos_reboot_after_bootstrap</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=c># Dump generated Ingition and Cloudinit configs</span><span class=w>
-</span><span class=w></span><span class=k>coreos_dump_ignition_cloudinit_config</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w></span><span class=k>coreos_dump_ignition_cloudinit_dest</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{role_path}}/files/generated_configs&#34;</span><span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=c># Select Timezone</span><span class=w>
-</span><span class=w></span><span class=k>coreos_timezone</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;UTC&#34;</span><span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=c># CoreOS toolbox image type</span><span class=w>
-</span><span class=w></span><span class=k>coreos_toolbox_docker_image</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;debian&#34;</span><span class=w>
-</span><span class=w></span><span class=k>coreos_toolbox_docker_tag</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;stable&#34;</span><span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=c># Ignition</span><span class=w>
-</span><span class=w></span><span class=k>coreos_bootstrap_ignition</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w>
-</span><span class=w></span><span class=k>coreos_ignition</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>ignition</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=k>version</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;2.0.0&#34;</span><span class=w>
-</span><span class=w>  </span><span class=k>storage</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=k>disks</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=k>device</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;/dev/sdb&#34;</span><span class=w>
-</span><span class=w>        </span><span class=k>wipeTable</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>        </span><span class=k>partitions</span><span class=p>:</span><span class=w>
-</span><span class=w>          </span>- <span class=k>label</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;data.0&#34;</span><span class=w>
-</span><span class=w>            </span><span class=k>number</span><span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w>
-</span><span class=w>            </span><span class=k>size</span><span class=p>:</span><span class=w> </span><span class=m>0</span><span class=w>
-</span><span class=w>            </span><span class=k>start</span><span class=p>:</span><span class=w> </span><span class=m>0</span><span class=w>
-</span><span class=w>      </span>- <span class=k>device</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;/dev/sdc&#34;</span><span class=w>
-</span><span class=w>        </span><span class=k>wipeTable</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>        </span><span class=k>partitions</span><span class=p>:</span><span class=w>
-</span><span class=w>          </span>- <span class=k>label</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;data.1&#34;</span><span class=w>
-</span><span class=w>            </span><span class=k>number</span><span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w>
-</span><span class=w>            </span><span class=k>size</span><span class=p>:</span><span class=w> </span><span class=m>0</span><span class=w>
-</span><span class=w>            </span><span class=k>start</span><span class=p>:</span><span class=w> </span><span class=m>0</span><span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=c># Cloudinit</span><span class=w>
-</span><span class=w></span><span class=k>coreos_bootstrap_cloudinit</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w></span><span class=k>coreos_cloudinit</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>hostname</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{inventory_hostname}}&#34;</span><span class=w>
-</span><span class=w>  </span><span class=k>coreos</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=k>etcd2</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=k>discovery</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;https://discovery.etcd.io/{{coreos_token}}&#34;</span><span class=w>
-</span><span class=w>      </span><span class=c>#name: &#39;cluster01&#39;</span><span class=w>
-</span><span class=w>      </span><span class=k>advertise-client-urls</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;http://{{coreos_public_ip}}:2379&#34;</span><span class=w>
-</span><span class=w>      </span><span class=c>#initial-cluster-token: &#39;cluster-prod&#39;</span><span class=w>
-</span><span class=w>      </span><span class=c>#initial-cluster-state: &#34;{{coreos_cluster_state}}&#34;</span><span class=w>
-</span><span class=w>      </span><span class=c>#initial-cluster: &#34;core01=http://172.17.8.101:2380, core02=http://172.17.8.102:2380, core03=http://172.17.8.103:2380,&#34;</span><span class=w>
-</span><span class=w>      </span><span class=k>initial-advertise-peer-urls</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;http://{{coreos_private_ip}}:2380&#34;</span><span class=w>
-</span><span class=w>      </span><span class=k>listen-peer-urls</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;http://{{coreos_private_ip}}:2380,http://{{coreos_private_ip}}:7001&#34;</span><span class=w>
-</span><span class=w>      </span><span class=k>listen-client-urls</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;http://0.0.0.0:2379,http://0.0.0.0:4001&#34;</span><span class=w>
-</span><span class=w>    </span><span class=k>update</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=k>group</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{coreos_channel}}&#34;</span><span class=w>
-</span><span class=w>      </span><span class=k>reboot-strategy</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{coreos_reboot_strategy}}&#34;</span><span class=w>
-</span><span class=w>    </span><span class=k>fleet</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=k>public-ip</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{coreos_public_ip}}&#34;</span><span class=w>
-</span><span class=w>      </span><span class=k>metadata</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{coreos_fleet_metadata}}&#34;</span><span class=w>
-</span><span class=w>    </span><span class=k>flannel</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=k>interface</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{coreos_public_ip}}&#34;</span><span class=w>
-</span><span class=w>    </span><span class=k>units</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;00-{{coreos_public_if}}.network&#34;</span><span class=w>
-</span><span class=w>      </span><span class=k>runtime</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>      </span><span class=k>content</span><span class=p>:</span><span class=w> </span><span class=sd>|
-</span><span class=sd>        [Match]</span><span class=w>
-</span><span class=w>        </span>Name={{coreos_public_if}}<span class=w>
-</span><span class=w>        </span><span class=p>[</span>Network<span class=p>]</span><span class=w>
-</span><span class=w>        </span>DHCP=<span class=kc>true</span><span class=w>
-</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;00-{{coreos_private_if}}.network&#34;</span><span class=w>
-</span><span class=w>      </span><span class=k>runtime</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>      </span><span class=k>content</span><span class=p>:</span><span class=w> </span><span class=sd>|
-</span><span class=sd>        [Match]</span><span class=w>
-</span><span class=w>        </span>Name={{coreos_private_if}}<span class=w>
-</span><span class=w>        </span><span class=p>[</span>Network<span class=p>]</span><span class=w>
-</span><span class=w>        </span>Address={{coreos_private_ip}}/<span class=m>24</span><span class=w>
-</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>iptables-restore.service<span class=w>
-</span><span class=w>      </span><span class=k>enable</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>      </span><span class=k>command</span><span class=p>:</span><span class=w> </span>start<span class=w>
-</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>settimezone.service<span class=w>
-</span><span class=w>      </span><span class=k>command</span><span class=p>:</span><span class=w> </span>start<span class=w>
-</span><span class=w>      </span><span class=k>content</span><span class=p>:</span><span class=w> </span><span class=sd>|
-</span><span class=sd>        [Unit]</span><span class=w>
-</span><span class=w>        </span>Description=Set<span class=w> </span>the<span class=w> </span>time<span class=w> </span>zone<span class=w>
-</span><span class=w>        </span><span class=p>[</span>Service<span class=p>]</span><span class=w>
-</span><span class=w>        </span>ExecStart=/usr/bin/timedatectl<span class=w> </span>set-timezone<span class=w> </span>{{coreos_timezone}}<span class=w>
-</span><span class=w>        </span>RemainAfterExit=yes<span class=w>
-</span><span class=w>        </span>Type=oneshot<span class=w>
-</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>systemd-modules-load.service<span class=w>
-</span><span class=w>      </span><span class=k>command</span><span class=p>:</span><span class=w> </span>restart<span class=w>
-</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>systemd-sysctl.service<span class=w>
-</span><span class=w>      </span><span class=k>command</span><span class=p>:</span><span class=w> </span>restart<span class=w>
-</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>systemd-timesyncd.service<span class=w>
-</span><span class=w>      </span><span class=k>command</span><span class=p>:</span><span class=w> </span>start<span class=w>
-</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>etcd2.service<span class=w>
-</span><span class=w>      </span><span class=k>command</span><span class=p>:</span><span class=w> </span>start<span class=w>
-</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>fleet.service<span class=w>
-</span><span class=w>      </span><span class=k>command</span><span class=p>:</span><span class=w> </span>start<span class=w>
-</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>docker.service<span class=w>
-</span><span class=w>      </span><span class=k>command</span><span class=p>:</span><span class=w> </span>start<span class=w>
-</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>flanneld.service<span class=w>
-</span><span class=w>      </span><span class=k>drop-ins</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span><span class=m>50</span>-network-config.conf<span class=w>
-</span><span class=w>        </span><span class=k>content</span><span class=p>:</span><span class=w> </span><span class=sd>|
-</span><span class=sd>          [Service]</span><span class=w>
-</span><span class=w>          </span>ExecStartPre=/usr/bin/etcdctl<span class=w> </span>set<span class=w> </span>/coreos.com/network/config<span class=w> </span><span class=s1>&#39;{ &#34;Network&#34;: &#34;{{coreos_flanneld_subnet}}&#34; }&#39;</span><span class=w>
-</span><span class=w>      </span><span class=k>command</span><span class=p>:</span><span class=w> </span>start<span class=w>
-</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>docker-tcp.socket<span class=w>
-</span><span class=w>      </span><span class=k>command</span><span class=p>:</span><span class=w> </span>start<span class=w>
-</span><span class=w>      </span><span class=k>enable</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>      </span><span class=k>content</span><span class=p>:</span><span class=w> </span><span class=sd>|
-</span><span class=sd>        [Unit]</span><span class=w>
-</span><span class=w>        </span>Description=Docker<span class=w> </span>Socket<span class=w> </span>for<span class=w> </span>the<span class=w> </span>API<span class=w>
-</span><span class=w>        </span>After=mnt-data.mount<span class=w>
-</span><span class=w>        </span>Requires=mnt-data.mount<span class=w>
-</span><span class=w>        </span><span class=p>[</span>Socket<span class=p>]</span><span class=w>
-</span><span class=w>        </span>ListenStream=<span class=m>2375</span><span class=w>
-</span><span class=w>        </span>Service=docker.service<span class=w>
-</span><span class=w>        </span>BindIPv6Only=both<span class=w>
-</span><span class=w>        </span><span class=p>[</span>Install<span class=p>]</span><span class=w>
-</span><span class=w>        </span>WantedBy=sockets.target<span class=w>
-</span><span class=w>  </span><span class=k>write_files</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span>- <span class=k>path</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;/home/core/.toolboxrc&#34;</span><span class=w>
-</span><span class=w>    </span><span class=k>owner</span><span class=p>:</span><span class=w> </span>core<span class=w>
-</span><span class=w>    </span><span class=k>content</span><span class=p>:</span><span class=w> </span><span class=sd>|
-</span><span class=sd>      TOOLBOX_DOCKER_IMAGE={{coreos_toolbox_docker_image}}</span><span class=w>
-</span><span class=w>      </span>TOOLBOX_DOCKER_TAG={{coreos_toolbox_docker_tag}}<span class=w>
-</span><span class=w>  </span>- <span class=k>path</span><span class=p>:</span><span class=w> </span>/var/lib/iptables/rules-save<span class=w>
-</span><span class=w>    </span><span class=k>permissions</span><span class=p>:</span><span class=w> </span><span class=m>0644</span><span class=w>
-</span><span class=w>    </span><span class=k>owner</span><span class=p>:</span><span class=w> </span>root<span class=p>:</span>root<span class=w>
-</span><span class=w>    </span><span class=k>content</span><span class=p>:</span><span class=w> </span><span class=sd>|
-</span><span class=sd>      *filter</span><span class=w>
-</span><span class=w>      </span><span class=p>:</span>INPUT<span class=w> </span>DROP<span class=w> </span><span class=p>[</span><span class=m>0</span><span class=p>:</span><span class=m>0</span><span class=p>]</span><span class=w>
-</span><span class=w>      </span><span class=p>:</span>FORWARD<span class=w> </span>DROP<span class=w> </span><span class=p>[</span><span class=m>0</span><span class=p>:</span><span class=m>0</span><span class=p>]</span><span class=w>
-</span><span class=w>      </span><span class=p>:</span>OUTPUT<span class=w> </span>ACCEPT<span class=w> </span><span class=p>[</span><span class=m>0</span><span class=p>:</span><span class=m>0</span><span class=p>]</span><span class=w>
-</span><span class=w>      </span>-A<span class=w> </span>INPUT<span class=w> </span>-i<span class=w> </span>lo<span class=w> </span>-j<span class=w> </span>ACCEPT<span class=w>
-</span><span class=w>      </span>-A<span class=w> </span>INPUT<span class=w> </span>-i<span class=w> </span>{{coreos_private_if}}<span class=w> </span>-j<span class=w> </span>ACCEPT<span class=w>
-</span><span class=w>      </span>-A<span class=w> </span>INPUT<span class=w> </span>-i<span class=w> </span>tap0<span class=w> </span>-p<span class=w> </span>all<span class=w> </span>-j<span class=w> </span>ACCEPT<span class=w>
-</span><span class=w>      </span>-A<span class=w> </span>INPUT<span class=w> </span>-m<span class=w> </span>conntrack<span class=w> </span>--ctstate<span class=w> </span>RELATED<span class=p>,</span>ESTABLISHED<span class=w> </span>-j<span class=w> </span>ACCEPT<span class=w>
-</span><span class=w>      </span>-A<span class=w> </span>INPUT<span class=w> </span>-p<span class=w> </span>tcp<span class=w> </span>-m<span class=w> </span>tcp<span class=w> </span>--dport<span class=w> </span><span class=m>22</span><span class=w> </span>-j<span class=w> </span>ACCEPT<span class=w>
-</span><span class=w>      </span>-A<span class=w> </span>INPUT<span class=w> </span>-p<span class=w> </span>tcp<span class=w> </span>-m<span class=w> </span>tcp<span class=w> </span>--dport<span class=w> </span><span class=m>80</span><span class=w> </span>-j<span class=w> </span>ACCEPT<span class=w>
-</span><span class=w>      </span>-A<span class=w> </span>INPUT<span class=w> </span>-p<span class=w> </span>tcp<span class=w> </span>-m<span class=w> </span>tcp<span class=w> </span>--dport<span class=w> </span><span class=m>443</span><span class=w> </span>-j<span class=w> </span>ACCEPT<span class=w>
-</span><span class=w>      </span>-A<span class=w> </span>INPUT<span class=w> </span>-p<span class=w> </span>icmp<span class=w> </span>-m<span class=w> </span>icmp<span class=w> </span>--icmp-type<span class=w> </span><span class=m>0</span><span class=w> </span>-j<span class=w> </span>ACCEPT<span class=w>
-</span><span class=w>      </span>-A<span class=w> </span>INPUT<span class=w> </span>-p<span class=w> </span>icmp<span class=w> </span>-m<span class=w> </span>icmp<span class=w> </span>--icmp-type<span class=w> </span><span class=m>3</span><span class=w> </span>-j<span class=w> </span>ACCEPT<span class=w>
-</span><span class=w>      </span>-A<span class=w> </span>INPUT<span class=w> </span>-p<span class=w> </span>icmp<span class=w> </span>-m<span class=w> </span>icmp<span class=w> </span>--icmp-type<span class=w> </span><span class=m>11</span><span class=w> </span>-j<span class=w> </span>ACCEPT<span class=w>
-</span><span class=w>      </span>COMMIT<span class=w>
-</span><span class=w>  </span><span class=k>users</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span>- <span class=k>name</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;core&#39;</span><span class=w>
-</span><span class=w>      </span><span class=k>ssh-authorized-keys</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=s2>&#34;your ssh key here&#34;</span><span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=k>ansible_ssh_user</span><span class=p>:</span><span class=w> </span>core<span class=w>
-</span><span class=w></span><span class=k>ansible_python_interpreter</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;/opt/python/bin/python&#34;</span></code></pre></div><p>Finally call it that way:</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml>- <span class=k>name</span><span class=p>:</span><span class=w> </span>coreos-ansible<span class=w>
-</span><span class=w>  </span><span class=k>hosts</span><span class=p>:</span><span class=w> </span>coreos<span class=w>
-</span><span class=w>  </span><span class=k>user</span><span class=p>:</span><span class=w> </span>core<span class=w>
-</span><span class=w>  </span><span class=k>become</span><span class=p>:</span><span class=w> </span>yes<span class=w>
-</span><span class=w>  </span><span class=k>gather_facts</span><span class=p>:</span><span class=w> </span>False<span class=w>
-</span><span class=w>    </span><span class=k>serial</span><span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w>
-</span><span class=w>  </span><span class=k>roles</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span>- deimosfr.coreos-ansible<span class=w>
-</span><span class=w>  </span><span class=k>vars</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=k>ansible_ssh_user</span><span class=p>:</span><span class=w> </span>core<span class=w>
-</span><span class=w>    </span><span class=k>ansible_python_interpreter</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;/opt/python/bin/python&#34;</span><span class=w>
-</span><span class=w>
-</span><span class=w></span>- <span class=k>name</span><span class=p>:</span><span class=w> </span>coreos-bootstrap<span class=w>
-</span><span class=w>  </span><span class=k>hosts</span><span class=p>:</span><span class=w> </span>coreos<span class=w>
-</span><span class=w>  </span><span class=k>user</span><span class=p>:</span><span class=w> </span>core<span class=w>
-</span><span class=w>  </span><span class=k>become</span><span class=p>:</span><span class=w> </span>yes<span class=w>
-</span><span class=w>  </span><span class=c>#become_method: su</span><span class=w>
-</span><span class=w>  </span><span class=c>#gather_facts: False</span><span class=w>
-</span><span class=w>  </span><span class=k>roles</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span>- deimosfr.coreos<span class=w>
-</span><span class=w>  </span><span class=k>vars</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=k>ansible_ssh_user</span><span class=p>:</span><span class=w> </span>core<span class=w>
-</span><span class=w>    </span><span class=k>ansible_python_interpreter</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;/opt/python/bin/python&#34;</span></code></pre></div><p>Inside this role you&rsquo;ll also find a Vagrantfile to deploy a test cluster easily!</p><p>Do not hesitate to give feedback and participate to enhance them :-)</p></div></div><div id=post-footer class="post-footer main-content-wrap"><div class=post-footer-tags><span class="text-color-light text-small">TAGGED IN</span><br><a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/nousmotards/>nousmotards</a></div><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2017/04/18/blog-migrated-to-hugo-on-github/ data-tooltip="Blog migrated to Hugo on Github" aria-label="NEXT: Blog migrated to Hugo on Github"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/ data-tooltip="Do not waste time with grep anymore, use tag" aria-label="PREVIOUS: Do not waste time with grep anymore, use tag"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post"><i class="fa fa-share-alt" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/" title="Share on Facebook" aria-label="Share on Facebook"><i class=fa-facebook-official aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/" title="Share on Twitter" aria-label="Share on Twitter"><i class=fa-twitter aria-hidden=true></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#top aria-label="Back to top"><i class="fa fa-arrow-up" aria-hidden=true></i></a></li></ul></div></div></article><footer id=footer class=main-content-wrap><span class=copyrights>&copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved</span></footer></div><div id=bottom-bar class=post-bottom-bar data-behavior=5><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2017/04/18/blog-migrated-to-hugo-on-github/ data-tooltip="Blog migrated to Hugo on Github" aria-label="NEXT: Blog migrated to Hugo on Github"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/ data-tooltip="Do not waste time with grep anymore, use tag" aria-label="PREVIOUS: Do not waste time with grep anymore, use tag"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post"><i class="fa fa-share-alt" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/" title="Share on Facebook" aria-label="Share on Facebook"><i class=fa-facebook-official aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/" title="Share on Twitter" aria-label="Share on Twitter"><i class=fa-twitter aria-hidden=true></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#top aria-label="Back to top"><i class="fa fa-arrow-up" aria-hidden=true></i></a></li></ul></div></div><div id=share-options-bar class=share-options-bar data-behavior=5><i id=btn-close-shareoptions class="fa fa-times"></i><ul class=share-options><li class=share-option><a class=share-option-btn target=new href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2016%2F09%2F30%2Fdeploy-coreos-with-ansible%2F" aria-label="Share on Facebook"><i class=fa-facebook-official aria-hidden=true></i><span>Share on Facebook</span></a></li><li class=share-option><a class=share-option-btn target=new href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2016%2F09%2F30%2Fdeploy-coreos-with-ansible%2F" aria-label="Share on Twitter"><i class=fa-twitter aria-hidden=true></i><span>Share on Twitter</span></a></li></ul></div><div id=share-options-mask class=share-options-mask></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-times"></i></div><img id=about-card-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"><h4 id=about-card-name>Pierre Mavro / Deimosfr</h4><div id=about-card-job><i class="fa fa-briefcase"></i><br>Qovery Co-Founder and CTO</div><div id=about-card-location><i class="fa fa-map-marker-alt"></i><br>Paris - France</div></div></div><div id=cover style=background-image:url(https://blog.deimos.fr/images/fish_background.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js></script><script src=https://blog.deimos.fr/js/custom.js></script><script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:false});$('pre.code-highlight > code, pre > code').each(function(i,block){if(!$(this).hasClass('codeblock')){$(this).addClass('codeblock');}
-hljs.highlightBlock(block);});});</script></body></html>
+ CoreOS Ansible: Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  If you want to quickly look at the result:">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2016-09-30T21:35:17">
+  
+  
+    <meta property="article:modified_time" content="2016-09-30T21:35:17">
+  
+  
+  
+    
+      <meta property="article:section" content="Ansible">
+    
+      <meta property="article:section" content="Cloud">
+    
+      <meta property="article:section" content="Hi-Tech">
+    
+      <meta property="article:section" content="Linux">
+    
+  
+  
+    
+      <meta property="article:tag" content="nousmotards">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_coreos.png">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_coreos.png">
+
+
+    <title>Deploy CoreOS with Ansible</title>
+
+    <link rel="icon" href="https://blog.deimos.fr/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-c5yjx2losbmkttdif4mskx5f9pqjjquywurgngxfvceyyrtyatseix5hpd.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
+      
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-63927289-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.deimos.fr/" aria-label="Go to homepage">Deimosfr Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://blog.deimos.fr/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.deimos.fr/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/" title="Home">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/index.xml" title="RSS">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.deimos.fr" target="_blank" rel="noopener" title="About">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-user"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank" rel="noopener" title="Wiki">
+    
+      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
+      
+      <span class="sidebar-button-desc">Wiki</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      Deploy CoreOS with Ansible
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2016-09-30T21:35:17Z">
+        
+  
+  
+  
+  
+    30 September 2016
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/ansible">Ansible</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/cloud">Cloud</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p><img src="https://blog.deimos.fr/images/logo_coreos.png" alt="CoreOS_logo">
+ </p>
+<p><a href="https://coreos.com">CoreOS</a> is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications. I&rsquo;ve been playing with <a href="https://coreos.com">CoreOS</a> to replace Debian hosts which run Docker containers on <a href="https://www.nousmotards.com">Nousmotards</a> project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.</p>
+<p>As I&rsquo;m still an Ansible lover, I&rsquo;ve made 2 roles:</p>
+<ul>
+<li><a href="https://galaxy.ansible.com/deimosfr/coreos-container-linux/">CoreOS Ansible</a>: Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites</li>
+<li><a href="https://galaxy.ansible.com/deimosfr/coreos-ansible/">CoreOS</a>: Ansible CoreOS role to deploy CoreOS on bare metal servers</li>
+</ul>
+<p>If you want to quickly look at the result:</p>
+<!-- raw HTML omitted -->
+<p>The first one is for installing pypy to run Ansible and the other one to bootstrap CoreOS with Cloudinit or/and Igninition. Those role will bootstrap a complete cluster with etcd, flannel, fleet etc&hellip;ready to run a <a href="http://kubernetes.io/">Kubernetes</a> cluster on it! It will generate configs for each hosts and deploy them automatically. It will permit to add vars, generate the configs and you can keep history with git for example. Here are the options of the role:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># Choose CoreOS channel between stable, beta or alpha channels</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_channel</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;stable&#34;</span><span class="w">
+</span><span class="w"></span><span class="c"># Generate a token: https://discovery.etcd.io/new?size=3</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_token</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;81b89915ae4edd9a65ad9d0301381c52&#34;</span><span class="w">
+</span><span class="w"></span><span class="c"># Choose reboot strategy between: etcd-lock, reboot and off</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_reboot_strategy</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;etcd-lock&#34;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Define your public interface and IP</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_public_ip</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ansible_default_ipv4.address}}&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_public_if</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ansible_default_ipv4.interface}}&#34;</span><span class="w">
+</span><span class="w"></span><span class="c"># Define your private interface and IP</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_private_ip</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{priv_ip}}&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_private_if</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{priv_if}}&#34;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Define dedicated subnet for containers communication</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_flanneld_subnet</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;10.1.0.0/16&#34;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Add fleet metadata</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_fleet_metadata</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;cluster=dev&#34;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># If true, will bootstrap the server (data may be lost),</span><span class="w">
+</span><span class="w"></span><span class="c"># else config files will be generated</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_launch_bootstrap</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_device_install</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;/dev/sda&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_install_additional_options</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_eject_cd_before_reboot</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_reboot_after_bootstrap</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Dump generated Ingition and Cloudinit configs</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_dump_ignition_cloudinit_config</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_dump_ignition_cloudinit_dest</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{role_path}}/files/generated_configs&#34;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Select Timezone</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_timezone</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;UTC&#34;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># CoreOS toolbox image type</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_toolbox_docker_image</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;debian&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_toolbox_docker_tag</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;stable&#34;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Ignition</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_bootstrap_ignition</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_ignition</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">ignition</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;2.0.0&#34;</span><span class="w">
+</span><span class="w">  </span><span class="nt">storage</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">disks</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;/dev/sdb&#34;</span><span class="w">
+</span><span class="w">        </span><span class="nt">wipeTable</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">        </span><span class="nt">partitions</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span>- <span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;data.0&#34;</span><span class="w">
+</span><span class="w">            </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">            </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span><span class="w">            </span><span class="nt">start</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;/dev/sdc&#34;</span><span class="w">
+</span><span class="w">        </span><span class="nt">wipeTable</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">        </span><span class="nt">partitions</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span>- <span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;data.1&#34;</span><span class="w">
+</span><span class="w">            </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">            </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span><span class="w">            </span><span class="nt">start</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Cloudinit</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_bootstrap_cloudinit</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w"></span><span class="nt">coreos_cloudinit</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{inventory_hostname}}&#34;</span><span class="w">
+</span><span class="w">  </span><span class="nt">coreos</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">etcd2</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">discovery</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://discovery.etcd.io/{{coreos_token}}&#34;</span><span class="w">
+</span><span class="w">      </span><span class="c">#name: &#39;cluster01&#39;</span><span class="w">
+</span><span class="w">      </span><span class="nt">advertise-client-urls</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;http://{{coreos_public_ip}}:2379&#34;</span><span class="w">
+</span><span class="w">      </span><span class="c">#initial-cluster-token: &#39;cluster-prod&#39;</span><span class="w">
+</span><span class="w">      </span><span class="c">#initial-cluster-state: &#34;{{coreos_cluster_state}}&#34;</span><span class="w">
+</span><span class="w">      </span><span class="c">#initial-cluster: &#34;core01=http://172.17.8.101:2380, core02=http://172.17.8.102:2380, core03=http://172.17.8.103:2380,&#34;</span><span class="w">
+</span><span class="w">      </span><span class="nt">initial-advertise-peer-urls</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;http://{{coreos_private_ip}}:2380&#34;</span><span class="w">
+</span><span class="w">      </span><span class="nt">listen-peer-urls</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;http://{{coreos_private_ip}}:2380,http://{{coreos_private_ip}}:7001&#34;</span><span class="w">
+</span><span class="w">      </span><span class="nt">listen-client-urls</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;http://0.0.0.0:2379,http://0.0.0.0:4001&#34;</span><span class="w">
+</span><span class="w">    </span><span class="nt">update</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{coreos_channel}}&#34;</span><span class="w">
+</span><span class="w">      </span><span class="nt">reboot-strategy</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{coreos_reboot_strategy}}&#34;</span><span class="w">
+</span><span class="w">    </span><span class="nt">fleet</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">public-ip</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{coreos_public_ip}}&#34;</span><span class="w">
+</span><span class="w">      </span><span class="nt">metadata</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{coreos_fleet_metadata}}&#34;</span><span class="w">
+</span><span class="w">    </span><span class="nt">flannel</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">interface</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{coreos_public_ip}}&#34;</span><span class="w">
+</span><span class="w">    </span><span class="nt">units</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;00-{{coreos_public_if}}.network&#34;</span><span class="w">
+</span><span class="w">      </span><span class="nt">runtime</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span><span class="sd">        [Match]
+</span><span class="sd">        Name={{coreos_public_if}}
+</span><span class="sd">        [Network]
+</span><span class="sd">        DHCP=true</span><span class="w">        
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;00-{{coreos_private_if}}.network&#34;</span><span class="w">
+</span><span class="w">      </span><span class="nt">runtime</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span><span class="sd">        [Match]
+</span><span class="sd">        Name={{coreos_private_if}}
+</span><span class="sd">        [Network]
+</span><span class="sd">        Address={{coreos_private_ip}}/24</span><span class="w">        
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">iptables-restore.service</span><span class="w">
+</span><span class="w">      </span><span class="nt">enable</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">start</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">settimezone.service</span><span class="w">
+</span><span class="w">      </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">start</span><span class="w">
+</span><span class="w">      </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span><span class="sd">        [Unit]
+</span><span class="sd">        Description=Set the time zone
+</span><span class="sd">        [Service]
+</span><span class="sd">        ExecStart=/usr/bin/timedatectl set-timezone {{coreos_timezone}}
+</span><span class="sd">        RemainAfterExit=yes
+</span><span class="sd">        Type=oneshot</span><span class="w">        
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">systemd-modules-load.service</span><span class="w">
+</span><span class="w">      </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">restart</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">systemd-sysctl.service</span><span class="w">
+</span><span class="w">      </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">restart</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">systemd-timesyncd.service</span><span class="w">
+</span><span class="w">      </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">start</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">etcd2.service</span><span class="w">
+</span><span class="w">      </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">start</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">fleet.service</span><span class="w">
+</span><span class="w">      </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">start</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">docker.service</span><span class="w">
+</span><span class="w">      </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">start</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">flanneld.service</span><span class="w">
+</span><span class="w">      </span><span class="nt">drop-ins</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="m">50</span>-<span class="l">network-config.conf</span><span class="w">
+</span><span class="w">        </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span><span class="sd">          [Service]
+</span><span class="sd">          ExecStartPre=/usr/bin/etcdctl set /coreos.com/network/config &#39;{ &#34;Network&#34;: &#34;{{coreos_flanneld_subnet}}&#34; }&#39;</span><span class="w">          
+</span><span class="w">      </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">start</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">docker-tcp.socket</span><span class="w">
+</span><span class="w">      </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">start</span><span class="w">
+</span><span class="w">      </span><span class="nt">enable</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span><span class="sd">        [Unit]
+</span><span class="sd">        Description=Docker Socket for the API
+</span><span class="sd">        After=mnt-data.mount
+</span><span class="sd">        Requires=mnt-data.mount
+</span><span class="sd">        [Socket]
+</span><span class="sd">        ListenStream=2375
+</span><span class="sd">        Service=docker.service
+</span><span class="sd">        BindIPv6Only=both
+</span><span class="sd">        [Install]
+</span><span class="sd">        WantedBy=sockets.target</span><span class="w">        
+</span><span class="w">  </span><span class="nt">write_files</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;/home/core/.toolboxrc&#34;</span><span class="w">
+</span><span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l">core</span><span class="w">
+</span><span class="w">    </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span><span class="sd">      TOOLBOX_DOCKER_IMAGE={{coreos_toolbox_docker_image}}
+</span><span class="sd">      TOOLBOX_DOCKER_TAG={{coreos_toolbox_docker_tag}}</span><span class="w">      
+</span><span class="w">  </span>- <span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/var/lib/iptables/rules-save</span><span class="w">
+</span><span class="w">    </span><span class="nt">permissions</span><span class="p">:</span><span class="w"> </span><span class="m">0644</span><span class="w">
+</span><span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l">root:root</span><span class="w">
+</span><span class="w">    </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span><span class="sd">      *filter
+</span><span class="sd">      :INPUT DROP [0:0]
+</span><span class="sd">      :FORWARD DROP [0:0]
+</span><span class="sd">      :OUTPUT ACCEPT [0:0]
+</span><span class="sd">      -A INPUT -i lo -j ACCEPT
+</span><span class="sd">      -A INPUT -i {{coreos_private_if}} -j ACCEPT
+</span><span class="sd">      -A INPUT -i tap0 -p all -j ACCEPT
+</span><span class="sd">      -A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+</span><span class="sd">      -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
+</span><span class="sd">      -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+</span><span class="sd">      -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT
+</span><span class="sd">      -A INPUT -p icmp -m icmp --icmp-type 0 -j ACCEPT
+</span><span class="sd">      -A INPUT -p icmp -m icmp --icmp-type 3 -j ACCEPT
+</span><span class="sd">      -A INPUT -p icmp -m icmp --icmp-type 11 -j ACCEPT
+</span><span class="sd">      COMMIT</span><span class="w">      
+</span><span class="w">  </span><span class="nt">users</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;core&#39;</span><span class="w">
+</span><span class="w">      </span><span class="nt">ssh-authorized-keys</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="s2">&#34;your ssh key here&#34;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">ansible_ssh_user</span><span class="p">:</span><span class="w"> </span><span class="l">core</span><span class="w">
+</span><span class="w"></span><span class="nt">ansible_python_interpreter</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;/opt/python/bin/python&#34;</span></code></pre></div>
+<p>Finally call it that way:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml">- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">coreos-ansible</span><span class="w">
+</span><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l">coreos</span><span class="w">
+</span><span class="w">  </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l">core</span><span class="w">
+</span><span class="w">  </span><span class="nt">become</span><span class="p">:</span><span class="w"> </span><span class="kc">yes</span><span class="w">
+</span><span class="w">  </span><span class="nt">gather_facts</span><span class="p">:</span><span class="w"> </span><span class="kc">False</span><span class="w">
+</span><span class="w">    </span><span class="nt">serial</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">  </span><span class="nt">roles</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- <span class="l">deimosfr.coreos-ansible</span><span class="w">
+</span><span class="w">  </span><span class="nt">vars</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">ansible_ssh_user</span><span class="p">:</span><span class="w"> </span><span class="l">core</span><span class="w">
+</span><span class="w">    </span><span class="nt">ansible_python_interpreter</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;/opt/python/bin/python&#34;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">coreos-bootstrap</span><span class="w">
+</span><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l">coreos</span><span class="w">
+</span><span class="w">  </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l">core</span><span class="w">
+</span><span class="w">  </span><span class="nt">become</span><span class="p">:</span><span class="w"> </span><span class="kc">yes</span><span class="w">
+</span><span class="w">  </span><span class="c">#become_method: su</span><span class="w">
+</span><span class="w">  </span><span class="c">#gather_facts: False</span><span class="w">
+</span><span class="w">  </span><span class="nt">roles</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- <span class="l">deimosfr.coreos</span><span class="w">
+</span><span class="w">  </span><span class="nt">vars</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">ansible_ssh_user</span><span class="p">:</span><span class="w"> </span><span class="l">core</span><span class="w">
+</span><span class="w">    </span><span class="nt">ansible_python_interpreter</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;/opt/python/bin/python&#34;</span></code></pre></div>
+<p>Inside this role you&rsquo;ll also find a Vagrantfile to deploy a test cluster easily!</p>
+<p>Do not hesitate to give feedback and participate to enhance them :-)</p>
+
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/nousmotards/">nousmotards</a>
+
+                  </div>
+                
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2017/04/18/blog-migrated-to-hugo-on-github/" data-tooltip="Blog migrated to Hugo on Github" aria-label="NEXT: Blog migrated to Hugo on Github">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/" data-tooltip="Do not waste time with grep anymore, use tag" aria-label="PREVIOUS: Do not waste time with grep anymore, use tag">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fa-facebook-official" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2017/04/18/blog-migrated-to-hugo-on-github/" data-tooltip="Blog migrated to Hugo on Github" aria-label="NEXT: Blog migrated to Hugo on Github">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/" data-tooltip="Do not waste time with grep anymore, use tag" aria-label="PREVIOUS: Do not waste time with grep anymore, use tag">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fa-facebook-official" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2016%2F09%2F30%2Fdeploy-coreos-with-ansible%2F" aria-label="Share on Facebook">
+          <i class="fa-facebook-official" aria-hidden="true"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2016%2F09%2F30%2Fdeploy-coreos-with-ansible%2F" aria-label="Share on Twitter">
+          <i class="fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Qovery Co-Founder and CTO
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Paris - France
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      
+      <div id="cover" style="background-image:url('https://blog.deimos.fr/images/fish_background.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script src="https://blog.deimos.fr/js/custom.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+

@@ -1,171 +1,750 @@
-<!doctype html><html lang=en-us><head><script type=application/ld+json>{"@context":"http://schema.org","@type":"Website","@id":"https:\/\/blog.deimos.fr","author":{"@type":"Person","name":"Pierre Mavro / Deimosfr","image":"https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"},"name":"Deimosfr Blog","description":"Since several years, I\x26rsquo;m hosting a lot of things: blog, wiki, emails etc\x26hellip; I\x26rsquo;ve played with Vserver, OpenVZ, KVM and finaly LXC. For years, I\x26rsquo;ve learned how to use all of them but the most known solution during the last years is Docker.\nI even can remeber the first Meetup I\x26rsquo;ve attended in Paris talking about Docker 5 years ago. Now containers are eveverywhere. I recently changed the server I\x26rsquo;m running for my own usage and this was the good timing to switch from LXC to Docker.","url":"https:\/\/blog.deimos.fr\/2018\/12\/19\/running-docker-for-your-home-server\/","keywords":"[]"}</script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Hugo 0.69.2 with theme Tranquilpeak 0.5.2-BETA"><meta name=author content="Pierre Mavro / Deimosfr"><meta name=keywords content><meta name=description content="Since several years, I&rsquo;m hosting a lot of things: blog, wiki, emails etc&mldr; I&rsquo;ve played with Vserver, OpenVZ, KVM and finaly LXC. For years, I&rsquo;ve learned how to use all of them but the most known solution during the last years is Docker.
-I even can remeber the first Meetup I&rsquo;ve attended in Paris talking about Docker 5 years ago. Now containers are eveverywhere. I recently changed the server I&rsquo;m running for my own usage and this was the good timing to switch from LXC to Docker."><meta property="og:description" content="Since several years, I&rsquo;m hosting a lot of things: blog, wiki, emails etc&mldr; I&rsquo;ve played with Vserver, OpenVZ, KVM and finaly LXC. For years, I&rsquo;ve learned how to use all of them but the most known solution during the last years is Docker.
-I even can remeber the first Meetup I&rsquo;ve attended in Paris talking about Docker 5 years ago. Now containers are eveverywhere. I recently changed the server I&rsquo;m running for my own usage and this was the good timing to switch from LXC to Docker."><meta property="og:type" content="article"><meta property="og:title" content="Running Docker for your home server"><meta name=twitter:title content="Running Docker for your home server"><meta property="og:url" content="https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/"><meta property="twitter:url" content="https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/"><meta property="og:site_name" content="Deimosfr Blog"><meta property="og:description" content="Since several years, I&rsquo;m hosting a lot of things: blog, wiki, emails etc&mldr; I&rsquo;ve played with Vserver, OpenVZ, KVM and finaly LXC. For years, I&rsquo;ve learned how to use all of them but the most known solution during the last years is Docker.
-I even can remeber the first Meetup I&rsquo;ve attended in Paris talking about Docker 5 years ago. Now containers are eveverywhere. I recently changed the server I&rsquo;m running for my own usage and this was the good timing to switch from LXC to Docker."><meta name=twitter:description content="Since several years, I&rsquo;m hosting a lot of things: blog, wiki, emails etc&mldr; I&rsquo;ve played with Vserver, OpenVZ, KVM and finaly LXC. For years, I&rsquo;ve learned how to use all of them but the most known solution during the last years is Docker.
-I even can remeber the first Meetup I&rsquo;ve attended in Paris talking about Docker 5 years ago. Now containers are eveverywhere. I recently changed the server I&rsquo;m running for my own usage and this was the good timing to switch from LXC to Docker."><meta property="og:locale" content="en-us"><meta property="article:published_time" content="2018-12-19T00:00:00"><meta property="article:modified_time" content="2018-12-19T00:00:00"><meta property="article:section" content="linux"><meta property="article:section" content="docker"><meta property="article:section" content="wordpress"><meta property="article:section" content="traefik"><meta property="article:section" content="docker-compose"><meta property="article:tag" content="linux"><meta property="article:tag" content="docker"><meta property="article:tag" content="wordpress"><meta property="article:tag" content="traefik"><meta property="article:tag" content="docker-compose"><meta name=twitter:card content="summary"><meta name=twitter:site content="@deimosfr"><meta name=twitter:creator content="@deimosfr"><meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_docker.png"><meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_docker.png"><title>Running Docker for your home server</title><link rel=icon href=https://blog.deimos.fr/favicon.png><link rel=canonical href=https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://blog.deimos.fr/css/style-c5yjx2losbmkttdif4mskx5f9pqjjquywurgngxfvceyyrtyatseix5hpd.min.css><link rel=stylesheet href=https://blog.deimos.fr/css/custom.css><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-63927289-1','auto');ga('send','pageview');}</script></head><body><div id=blog><header id=header data-behavior=5><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=https://blog.deimos.fr/ aria-label="Go to homepage">Deimosfr Blog</a></div><a class=header-right-picture href=https://blog.deimos.fr/#about aria-label="Open the link: /#about"><img class=header-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author's picture"></a></header><nav id=sidebar data-behavior=5><div class=sidebar-container><div class=sidebar-profile><a href=https://blog.deimos.fr/#about aria-label="Read more about the author"><img class=sidebar-profile-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"></a><h4 class=sidebar-profile-name>Pierre Mavro / Deimosfr</h4></div><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/ title=Home><i class="sidebar-button-icon fa fa-lg fa-home"></i><span class=sidebar-button-desc>Home</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/archives title=Archives><i class="sidebar-button-icon fa fa-lg fa-archive"></i><span class=sidebar-button-desc>Archives</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/categories title=Categories><i class="sidebar-button-icon fa fa-lg fa-bookmark"></i><span class=sidebar-button-desc>Categories</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/tags title=Tags><i class="sidebar-button-icon fa fa-lg fa-tags"></i><span class=sidebar-button-desc>Tags</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/index.xml title=RSS><i class="sidebar-button-icon fa fa-lg fa-rss"></i><span class=sidebar-button-desc>RSS</span></a></li></ul><ul class=sidebar-buttons></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://www.deimos.fr target=_blank rel=noopener title=About><i class="sidebar-button-icon fa fa-lg fa-user"></i><span class=sidebar-button-desc>About</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://wiki.deimos.fr target=_blank rel=noopener title=Wiki><i class="sidebar-button-icon fa fa-wikipedia-w"></i><span class=sidebar-button-desc>Wiki</span></a></li></ul></div></nav><div id=main data-behavior=5 class=hasCoverMetaIn><article class=post id=top><div class="post-header main-content-wrap text-left"><h1 class=post-title>Running Docker for your home server</h1><div class="postShorten-meta post-meta"><time datetime=2018-12-19T00:00:00+02:00>19 December 2018</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/linux>linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/docker>docker</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/wordpress>wordpress</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/traefik>traefik</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/docker-compose>docker-compose</a></div></div><div class="post-content markdown"><div class=main-content-wrap><p><img src=https://blog.deimos.fr/images/logo_docker.png alt=Docker></p><p>Since several years, I&rsquo;m hosting a lot of things: blog, wiki, emails etc&mldr; I&rsquo;ve played with <a href=https://wiki.deimos.fr/VServer_:_Mise_en_place_de_VServer>Vserver</a>, <a href="https://wiki.deimos.fr/OpenVZ_:_Mise_en_place_d'OpenVZ">OpenVZ</a>, <a href=https://wiki.deimos.fr/KVM_:_Mise_en_place_de_KVM>KVM</a> and finaly <a href=https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers>LXC</a>. For years, I&rsquo;ve learned how to use all of them but the most known solution during the last years is <a href=https://www.docker.com/>Docker</a>.</p><p>I even can remeber the first Meetup I&rsquo;ve attended in Paris talking about Docker 5 years ago. Now containers are eveverywhere. I recently changed the server I&rsquo;m running for my own usage and this was the good timing to switch from LXC to Docker.</p><p>I&rsquo;ve wrote several blog posts regarding <a href=https://kubernetes.io/>Kubernetes</a> and my first thoughts were about using Kubernetes. But it looks like really overkill on a single machine. I then tought about using <a href=https://docs.docker.com/compose/>Docker Compose</a> and I think this is the most appropriate solution for this use case.</p><h1 id=install-and-configure-docker-compose>Install and configure Docker Compose</h1><p>I&rsquo;m running on a Debian server and have installed Docker from the <a href=https://docs.docker.com/install/linux/docker-ce/debian/>official repository</a>.</p><p>Then to make it simple, I&rsquo;m using systemd to automatically run my containers when the server boots up <code>/etc/systemd/system/docker-compose@.service</code> :</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=o>[</span>Unit<span class=o>]</span>
-<span class=nv>Description</span><span class=o>=</span>%i service with docker compose
-<span class=nv>Requires</span><span class=o>=</span>docker.service
-<span class=nv>After</span><span class=o>=</span>docker.service
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
 
-<span class=o>[</span>Service<span class=o>]</span>
-<span class=nv>Restart</span><span class=o>=</span>always
-<span class=c1># The directory where your compose config files are stored</span>
-<span class=nv>WorkingDirectory</span><span class=o>=</span>/etc/docker/compose/%i
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/blog.deimos.fr",
+  "author": {
+    "@type": "Person",
+    "name": "Pierre Mavro / Deimosfr",
+    
+    "image": "https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"
+    
+  },
+  "name":"Deimosfr Blog",
+  "description":"Since several years, I\u0026rsquo;m hosting a lot of things: blog, wiki, emails etc\u0026hellip; I\u0026rsquo;ve played with Vserver, OpenVZ, KVM and finaly LXC. For years, I\u0026rsquo;ve learned how to use all of them but the most known solution during the last years is Docker.\nI even can remeber the first Meetup I\u0026rsquo;ve attended in Paris talking about Docker 5 years ago. Now containers are eveverywhere. I recently changed the server I\u0026rsquo;m running for my own usage and this was the good timing to switch from LXC to Docker.",
+  "url":"https:\/\/blog.deimos.fr\/2018\/12\/19\/running-docker-for-your-home-server\/",
+  "keywords":"[]"
+}
 
-<span class=c1># Remove old containers, images and volumes</span>
-<span class=nv>ExecStartPre</span><span class=o>=</span>/usr/bin/docker-compose down -v
-<span class=nv>ExecStartPre</span><span class=o>=</span>/usr/bin/docker-compose rm -fv
-<span class=nv>ExecStartPre</span><span class=o>=</span>-/bin/bash -c <span class=s1>&#39;docker volume ls -qf &#34;name=%i_&#34; | xargs docker volume rm&#39;</span>
-<span class=nv>ExecStartPre</span><span class=o>=</span>-/bin/bash -c <span class=s1>&#39;docker network ls -qf &#34;name=%i_&#34; | xargs docker network rm&#39;</span>
-<span class=nv>ExecStartPre</span><span class=o>=</span>-/bin/bash -c <span class=s1>&#39;docker ps -aqf &#34;name=%i_*&#34; | xargs docker rm&#39;</span>
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.89.4 with theme Tranquilpeak 0.5.2-BETA">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Since several years, I&rsquo;m hosting a lot of things: blog, wiki, emails etc&hellip; I&rsquo;ve played with Vserver, OpenVZ, KVM and finaly LXC. For years, I&rsquo;ve learned how to use all of them but the most known solution during the last years is Docker.
+I even can remeber the first Meetup I&rsquo;ve attended in Paris talking about Docker 5 years ago. Now containers are eveverywhere. I recently changed the server I&rsquo;m running for my own usage and this was the good timing to switch from LXC to Docker.">
 
-<span class=c1># Compose up</span>
-<span class=nv>ExecStart</span><span class=o>=</span>/usr/bin/docker-compose up
 
-<span class=c1># Compose down, remove containers and volumes</span>
-<span class=nv>ExecStop</span><span class=o>=</span>/usr/bin/docker-compose down -v
+<meta property="og:description" content="Since several years, I&rsquo;m hosting a lot of things: blog, wiki, emails etc&hellip; I&rsquo;ve played with Vserver, OpenVZ, KVM and finaly LXC. For years, I&rsquo;ve learned how to use all of them but the most known solution during the last years is Docker.
+I even can remeber the first Meetup I&rsquo;ve attended in Paris talking about Docker 5 years ago. Now containers are eveverywhere. I recently changed the server I&rsquo;m running for my own usage and this was the good timing to switch from LXC to Docker.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Running Docker for your home server">
+<meta name="twitter:title" content="Running Docker for your home server">
+<meta property="og:url" content="https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Since several years, I&rsquo;m hosting a lot of things: blog, wiki, emails etc&hellip; I&rsquo;ve played with Vserver, OpenVZ, KVM and finaly LXC. For years, I&rsquo;ve learned how to use all of them but the most known solution during the last years is Docker.
+I even can remeber the first Meetup I&rsquo;ve attended in Paris talking about Docker 5 years ago. Now containers are eveverywhere. I recently changed the server I&rsquo;m running for my own usage and this was the good timing to switch from LXC to Docker.">
+<meta name="twitter:description" content="Since several years, I&rsquo;m hosting a lot of things: blog, wiki, emails etc&hellip; I&rsquo;ve played with Vserver, OpenVZ, KVM and finaly LXC. For years, I&rsquo;ve learned how to use all of them but the most known solution during the last years is Docker.
+I even can remeber the first Meetup I&rsquo;ve attended in Paris talking about Docker 5 years ago. Now containers are eveverywhere. I recently changed the server I&rsquo;m running for my own usage and this was the good timing to switch from LXC to Docker.">
+<meta property="og:locale" content="en-us">
 
-<span class=o>[</span>Install<span class=o>]</span>
-<span class=nv>WantedBy</span><span class=o>=</span>multi-user.target
-</code></pre></div><p>You can add a Docker compose configuration file (docker-compose.yml) and start it:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>systemctl <span class=nb>enable</span> docker-compose@myservice
+  
+    <meta property="article:published_time" content="2018-12-19T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2018-12-19T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="linux">
+    
+      <meta property="article:section" content="docker">
+    
+      <meta property="article:section" content="wordpress">
+    
+      <meta property="article:section" content="traefik">
+    
+      <meta property="article:section" content="docker-compose">
+    
+  
+  
+    
+      <meta property="article:tag" content="linux">
+    
+      <meta property="article:tag" content="docker">
+    
+      <meta property="article:tag" content="wordpress">
+    
+      <meta property="article:tag" content="traefik">
+    
+      <meta property="article:tag" content="docker-compose">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_docker.png">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_docker.png">
+
+
+    <title>Running Docker for your home server</title>
+
+    <link rel="icon" href="https://blog.deimos.fr/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-c5yjx2losbmkttdif4mskx5f9pqjjquywurgngxfvceyyrtyatseix5hpd.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
+      
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-63927289-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.deimos.fr/" aria-label="Go to homepage">Deimosfr Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://blog.deimos.fr/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.deimos.fr/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/" title="Home">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/index.xml" title="RSS">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.deimos.fr" target="_blank" rel="noopener" title="About">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-user"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank" rel="noopener" title="Wiki">
+    
+      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
+      
+      <span class="sidebar-button-desc">Wiki</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      Running Docker for your home server
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2018-12-19T00:00:00&#43;02:00">
+        
+  
+  
+  
+  
+    19 December 2018
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/docker">docker</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/wordpress">wordpress</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/traefik">traefik</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/docker-compose">docker-compose</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p><img src="https://blog.deimos.fr/images/logo_docker.png" alt="Docker"></p>
+<p>Since several years, I&rsquo;m hosting a lot of things: blog, wiki, emails etc&hellip; I&rsquo;ve played with <a href="https://wiki.deimos.fr/VServer_:_Mise_en_place_de_VServer">Vserver</a>, <a href="https://wiki.deimos.fr/OpenVZ_:_Mise_en_place_d'OpenVZ">OpenVZ</a>, <a href="https://wiki.deimos.fr/KVM_:_Mise_en_place_de_KVM">KVM</a> and finaly <a href="https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers">LXC</a>. For years, I&rsquo;ve learned how to use all of them but the most known solution during the last years is <a href="https://www.docker.com/">Docker</a>.</p>
+<p>I even can remeber the first Meetup I&rsquo;ve attended in Paris talking about Docker 5 years ago. Now containers are eveverywhere. I recently changed the server I&rsquo;m running for my own usage and this was the good timing to switch from LXC to Docker.</p>
+<p>I&rsquo;ve wrote several blog posts regarding <a href="https://kubernetes.io/">Kubernetes</a> and my first thoughts were about using Kubernetes. But it looks like really overkill on a single machine. I then tought about using <a href="https://docs.docker.com/compose/">Docker Compose</a> and I think this is the most appropriate solution for this use case.</p>
+<h1 id="install-and-configure-docker-compose">Install and configure Docker Compose</h1>
+<p>I&rsquo;m running on a Debian server and have installed Docker from the <a href="https://docs.docker.com/install/linux/docker-ce/debian/">official repository</a>.</p>
+<p>Then to make it simple, I&rsquo;m using systemd to automatically run my containers when the server boots up <code>/etc/systemd/system/docker-compose@.service</code> :</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>Unit<span class="o">]</span>
+<span class="nv">Description</span><span class="o">=</span>%i service with docker compose
+<span class="nv">Requires</span><span class="o">=</span>docker.service
+<span class="nv">After</span><span class="o">=</span>docker.service
+
+<span class="o">[</span>Service<span class="o">]</span>
+<span class="nv">Restart</span><span class="o">=</span>always
+<span class="c1"># The directory where your compose config files are stored</span>
+<span class="nv">WorkingDirectory</span><span class="o">=</span>/etc/docker/compose/%i
+
+<span class="c1"># Remove old containers, images and volumes</span>
+<span class="nv">ExecStartPre</span><span class="o">=</span>/usr/bin/docker-compose down -v
+<span class="nv">ExecStartPre</span><span class="o">=</span>/usr/bin/docker-compose rm -fv
+<span class="nv">ExecStartPre</span><span class="o">=</span>-/bin/bash -c <span class="s1">&#39;docker volume ls -qf &#34;name=%i_&#34; | xargs docker volume rm&#39;</span>
+<span class="nv">ExecStartPre</span><span class="o">=</span>-/bin/bash -c <span class="s1">&#39;docker network ls -qf &#34;name=%i_&#34; | xargs docker network rm&#39;</span>
+<span class="nv">ExecStartPre</span><span class="o">=</span>-/bin/bash -c <span class="s1">&#39;docker ps -aqf &#34;name=%i_*&#34; | xargs docker rm&#39;</span>
+
+<span class="c1"># Compose up</span>
+<span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/docker-compose up
+
+<span class="c1"># Compose down, remove containers and volumes</span>
+<span class="nv">ExecStop</span><span class="o">=</span>/usr/bin/docker-compose down -v
+
+<span class="o">[</span>Install<span class="o">]</span>
+<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</code></pre></div><p>You can add a Docker compose configuration file (docker-compose.yml) and start it:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">systemctl <span class="nb">enable</span> docker-compose@myservice
 systemctl start docker-compose@myservice
-</code></pre></div><p>This makes container configuration very simple and easily manageable.</p><p>To finish, let&rsquo;s create a dedicated network for containers (here called frontend):</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>docker network create frontend
-</code></pre></div><h1 id=using-traefik-as-reverse-proxy>Using Traefik as reverse proxy</h1><p>To make containers accessible from the outside, with <a href=https://letsencrypt.org/>Let&rsquo;s Encrypt</a> TLS and connected to Docker. For this I&rsquo;ve setup <a href=https://traefik.io/>Traefik</a> with Docker compose.</p><p>I&rsquo;m using this Docker compose configuration file <code>/etc/docker/compose/traefik/docker-compose.yml</code>:</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>version</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;3&#39;</span><span class=w>
-</span><span class=w></span><span class=k>services</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>traefik</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=k>image</span><span class=p>:</span><span class=w> </span>traefik<span class=p>:</span><span class=m>1.7.6</span>-alpine<span class=w>
-</span><span class=w>    </span><span class=k>restart</span><span class=p>:</span><span class=w> </span>always<span class=w>
-</span><span class=w>    </span><span class=k>ports</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=s2>&#34;80:80&#34;</span><span class=w>
-</span><span class=w>      </span>- <span class=s2>&#34;443:443&#34;</span><span class=w>
-</span><span class=w>      </span><span class=c># WebUI admin port</span><span class=w>
-</span><span class=w>      </span>- <span class=s2>&#34;8082:8080&#34;</span><span class=w>
-</span><span class=w>    </span><span class=c># Need this network to make Traefik able to forward on all containers running on this one too</span><span class=w>
-</span><span class=w>    </span><span class=k>networks</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- frontend<span class=w>
-</span><span class=w>    </span><span class=k>labels</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=k>traefik.enable</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>      </span><span class=k>traefik.domain</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;fqdn.com&#39;</span><span class=w>
-</span><span class=w>      </span><span class=k>traefik.tags</span><span class=p>:</span><span class=w> </span>web<span class=p>,</span>lb<span class=p>,</span>traefik<span class=w>
-</span><span class=w>      </span><span class=k>traefik.frontend.rule</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;Host:traefik.docker.local&#39;</span><span class=w>
-</span><span class=w>      </span><span class=k>traefik.docker.network</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;frontend&#39;</span><span class=w>
-</span><span class=w>    </span><span class=k>volumes</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- ./conf/traefik<span class=p>:</span>/etc/traefik<span class=w>
-</span><span class=w>      </span>- /var/run/docker.sock<span class=p>:</span>/var/run/docker.sock<span class=w>
-</span><span class=w>    </span><span class=k>environment</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=k>TZ</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;Europe/Paris&#34;</span><span class=w>
-</span><span class=w>      </span><span class=c># Cloudflare API credentials</span><span class=w>
-</span><span class=w>      </span><span class=k>CF_API_EMAIL</span><span class=p>:</span><span class=w> </span>my@email<span class=w>
-</span><span class=w>      </span><span class=k>CF_API_KEY</span><span class=p>:</span><span class=w> </span>mykey<span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=k>networks</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>frontend</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=k>external</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
-</span></code></pre></div><p>And the Traefik configuration <code>/etc/docker/compose/traefik/conf/traefik/traefik.toml</code>:</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=c># Set default entrypoints</span><span class=w>
-</span><span class=w></span>defaultEntryPoints<span class=w> </span>=<span class=w> </span><span class=p>[</span><span class=s2>&#34;http&#34;</span><span class=p>,</span><span class=w> </span><span class=s2>&#34;https&#34;</span><span class=p>]</span><span class=w>
-</span><span class=w>
-</span><span class=w></span>checkNewVersion<span class=w> </span>=<span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w></span>MaxIdleConnsPerHost<span class=w> </span>=<span class=w> </span><span class=m>500</span><span class=w>
-</span><span class=w></span>logLevel<span class=w> </span>=<span class=w> </span><span class=s2>&#34;INFO&#34;</span><span class=w>
-</span><span class=w></span>sendAnonymousUsage<span class=w> </span>=<span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=c># Launch API</span><span class=w>
-</span><span class=w></span><span class=p>[</span>api<span class=p>]</span><span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=c># Connect to Docker host to get the running docker instances</span><span class=w>
-</span><span class=w></span><span class=p>[</span>docker<span class=p>]</span><span class=w>
-</span><span class=w>  </span>domain<span class=w> </span>=<span class=w> </span><span class=s2>&#34;docker.local&#34;</span><span class=w>
-</span><span class=w>  </span>watch<span class=w> </span>=<span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>  </span>exposedByDefault<span class=w> </span>=<span class=w> </span><span class=kc>false</span><span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=c># Additional static configuration file</span><span class=w>
-</span><span class=w></span><span class=p>[</span>file<span class=p>]</span><span class=w>
-</span><span class=w>  </span>filename<span class=w> </span>=<span class=w> </span><span class=s2>&#34;/etc/traefik/rules.toml&#34;</span><span class=w>
-</span><span class=w>  </span>watch<span class=w> </span>=<span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=c># TLS Let&#39;s Encrypt configuration with Cloudflare support</span><span class=w>
-</span><span class=w></span><span class=p>[</span>acme<span class=p>]</span><span class=w>
-</span><span class=w></span>email<span class=w> </span>=<span class=w> </span><span class=s2>&#34;my@email&#34;</span><span class=w>
-</span><span class=w></span>storage<span class=w> </span>=<span class=w> </span><span class=s2>&#34;/etc/traefik/acme/acme.json&#34;</span><span class=w>
-</span><span class=w></span>entryPoint<span class=w> </span>=<span class=w> </span><span class=s2>&#34;https&#34;</span><span class=w>
-</span><span class=w></span>OnHostRule<span class=w> </span>=<span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w></span>acmeLogging<span class=w> </span>=<span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>  </span><span class=p>[</span>acme.DNSChallenge<span class=p>]</span><span class=w>
-</span><span class=w>  </span>provider<span class=w> </span>=<span class=w> </span><span class=s2>&#34;cloudflare&#34;</span><span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=c># Request wildcard domain TLS</span><span class=w>
-</span><span class=w></span><span class=p>[[</span>acme.domains<span class=p>]]</span><span class=w>
-</span><span class=w>  </span>main<span class=w> </span>=<span class=w> </span><span class=s2>&#34;*.fqdn.com&#34;</span><span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=c># Run on those ports</span><span class=w>
-</span><span class=w></span><span class=p>[</span>entryPoints<span class=p>]</span><span class=w>
-</span><span class=w>  </span><span class=p>[</span>entryPoints.http<span class=p>]</span><span class=w>
-</span><span class=w>  </span>address<span class=w> </span>=<span class=w> </span><span class=s2>&#34;:80&#34;</span><span class=w>
-</span><span class=w>  </span>compress<span class=w> </span>=<span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>  </span><span class=p>[</span>entryPoints.https<span class=p>]</span><span class=w>
-</span><span class=w>  </span>address<span class=w> </span>=<span class=w> </span><span class=s2>&#34;:443&#34;</span><span class=w>
-</span><span class=w>  </span>compress<span class=w> </span>=<span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>    </span><span class=p>[</span>entryPoints.https.tls<span class=p>]</span><span class=w>
-</span></code></pre></div><p>I&rsquo;m now able to test it with:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=nb>cd</span> /etc/docker/compose/traefik/
+</code></pre></div><p>This makes container configuration very simple and easily manageable.</p>
+<p>To finish, let&rsquo;s create a dedicated network for containers (here called frontend):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">docker network create frontend
+</code></pre></div><h1 id="using-traefik-as-reverse-proxy">Using Traefik as reverse proxy</h1>
+<p>To make containers accessible from the outside, with <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a> TLS and connected to Docker. For this I&rsquo;ve setup <a href="https://traefik.io/">Traefik</a> with Docker compose.</p>
+<p>I&rsquo;m using this Docker compose configuration file <code>/etc/docker/compose/traefik/docker-compose.yml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">traefik</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">traefik:1.7.6-alpine</span><span class="w">
+</span><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="s2">&#34;80:80&#34;</span><span class="w">
+</span><span class="w">      </span>- <span class="s2">&#34;443:443&#34;</span><span class="w">
+</span><span class="w">      </span><span class="c"># WebUI admin port</span><span class="w">
+</span><span class="w">      </span>- <span class="s2">&#34;8082:8080&#34;</span><span class="w">
+</span><span class="w">    </span><span class="c"># Need this network to make Traefik able to forward on all containers running on this one too</span><span class="w">
+</span><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">frontend</span><span class="w">
+</span><span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">traefik.enable</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span><span class="nt">traefik.domain</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;fqdn.com&#39;</span><span class="w">
+</span><span class="w">      </span><span class="nt">traefik.tags</span><span class="p">:</span><span class="w"> </span><span class="l">web,lb,traefik</span><span class="w">
+</span><span class="w">      </span><span class="nt">traefik.frontend.rule</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Host:traefik.docker.local&#39;</span><span class="w">
+</span><span class="w">      </span><span class="nt">traefik.docker.network</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;frontend&#39;</span><span class="w">
+</span><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">./conf/traefik:/etc/traefik</span><span class="w">
+</span><span class="w">      </span>- <span class="l">/var/run/docker.sock:/var/run/docker.sock</span><span class="w">
+</span><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">TZ</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Europe/Paris&#34;</span><span class="w">
+</span><span class="w">      </span><span class="c"># Cloudflare API credentials</span><span class="w">
+</span><span class="w">      </span><span class="nt">CF_API_EMAIL</span><span class="p">:</span><span class="w"> </span><span class="l">my@email</span><span class="w">
+</span><span class="w">      </span><span class="nt">CF_API_KEY</span><span class="p">:</span><span class="w"> </span><span class="l">mykey</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">frontend</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></code></pre></div><p>And the Traefik configuration <code>/etc/docker/compose/traefik/conf/traefik/traefik.toml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># Set default entrypoints</span><span class="w">
+</span><span class="w"></span><span class="l">defaultEntryPoints = [&#34;http&#34;, &#34;https&#34;]</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="l">checkNewVersion = true</span><span class="w">
+</span><span class="w"></span><span class="l">MaxIdleConnsPerHost = 500</span><span class="w">
+</span><span class="w"></span><span class="l">logLevel = &#34;INFO&#34;</span><span class="w">
+</span><span class="w"></span><span class="l">sendAnonymousUsage = true</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Launch API</span><span class="w">
+</span><span class="w"></span><span class="p">[</span><span class="l">api]</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Connect to Docker host to get the running docker instances</span><span class="w">
+</span><span class="w"></span><span class="p">[</span><span class="l">docker]</span><span class="w">
+</span><span class="w">  </span><span class="l">domain = &#34;docker.local&#34;</span><span class="w">
+</span><span class="w">  </span><span class="l">watch = true</span><span class="w">
+</span><span class="w">  </span><span class="l">exposedByDefault = false</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Additional static configuration file</span><span class="w">
+</span><span class="w"></span><span class="p">[</span><span class="l">file]</span><span class="w">
+</span><span class="w">  </span><span class="l">filename = &#34;/etc/traefik/rules.toml&#34;</span><span class="w">
+</span><span class="w">  </span><span class="l">watch = true</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># TLS Let&#39;s Encrypt configuration with Cloudflare support</span><span class="w">
+</span><span class="w"></span><span class="p">[</span><span class="l">acme]</span><span class="w">
+</span><span class="w"></span><span class="l">email = &#34;my@email&#34;</span><span class="w">
+</span><span class="w"></span><span class="l">storage = &#34;/etc/traefik/acme/acme.json&#34;</span><span class="w">
+</span><span class="w"></span><span class="l">entryPoint = &#34;https&#34;</span><span class="w">
+</span><span class="w"></span><span class="l">OnHostRule = true</span><span class="w">
+</span><span class="w"></span><span class="l">acmeLogging = true</span><span class="w">
+</span><span class="w">  </span><span class="p">[</span><span class="l">acme.DNSChallenge]</span><span class="w">
+</span><span class="w">  </span><span class="l">provider = &#34;cloudflare&#34;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Request wildcard domain TLS</span><span class="w">
+</span><span class="w"></span><span class="p">[[</span><span class="l">acme.domains]]</span><span class="w">
+</span><span class="w">  </span><span class="l">main = &#34;*.fqdn.com&#34;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Run on those ports</span><span class="w">
+</span><span class="w"></span><span class="p">[</span><span class="l">entryPoints]</span><span class="w">
+</span><span class="w">  </span><span class="p">[</span><span class="l">entryPoints.http]</span><span class="w">
+</span><span class="w">  </span><span class="l">address = &#34;:80&#34;</span><span class="w">
+</span><span class="w">  </span><span class="l">compress = true</span><span class="w">
+</span><span class="w">  </span><span class="p">[</span><span class="l">entryPoints.https]</span><span class="w">
+</span><span class="w">  </span><span class="l">address = &#34;:443&#34;</span><span class="w">
+</span><span class="w">  </span><span class="l">compress = true</span><span class="w">
+</span><span class="w">    </span><span class="p">[</span><span class="l">entryPoints.https.tls]</span><span class="w">
+</span></code></pre></div><p>I&rsquo;m now able to test it with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /etc/docker/compose/traefik/
 docker-compose up
-</code></pre></div><p>Port 80 and 443 should be open of course and they should now answer. The admin WebUI port is not open from the outside so you need a VPN or an SSH tunnel to access it for example.</p><p>Once your configuration works as expected, you enable this docker compose as a service:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>systemctl <span class=nb>enable</span> docker-compose@traefik
+</code></pre></div><p>Port 80 and 443 should be open of course and they should now answer. The admin WebUI port is not open from the outside so you need a VPN or an SSH tunnel to access it for example.</p>
+<p>Once your configuration works as expected, you enable this docker compose as a service:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">systemctl <span class="nb">enable</span> docker-compose@traefik
 systemctl start docker-compose@traefik
-</code></pre></div><h1 id=wordpress-configuration>Wordpress configuration</h1><p>For Wordpress, the documentation recommended to mount only some folders (like plugins and uploads). However, I do not especially recommand it because you&rsquo;ll need to restart the container with a newer version anytime you want to upgrade it. That&rsquo;s why I&rsquo;m mounting all the Wordpress folder. This is not the &ldquo;Container way&rdquo; theory with immutable images, but from a pragmatic point of view, I prefer having a Wordpress always up to date (with dedicated plugin managing the upgrade of all components) instead of having a process managing the upgrade of my containers like <a href=https://github.com/v2tec/watchtower>Watchtower</a>. That&rsquo;s my choice and point of view, I know that other persons would choose the other solution, so select the most appropriate one.</p><p>Here is my config:</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>version</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;3&#39;</span><span class=w>
-</span><span class=w></span><span class=k>services</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=c># Required MariaDB instance with mounted volumes</span><span class=w>
-</span><span class=w>  </span><span class=k>mysql</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=k>image</span><span class=p>:</span><span class=w> </span>mariadb<span class=p>:</span><span class=m>10.3.11</span><span class=w>
-</span><span class=w>    </span><span class=k>restart</span><span class=p>:</span><span class=w> </span>always<span class=w>
-</span><span class=w>    </span><span class=k>volumes</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- ./conf/mariadb<span class=p>:</span>/etc/mysql/mariadb.conf.d<span class=w>
-</span><span class=w>      </span>- /mnt/container/wordpress/mariadb<span class=p>:</span>/var/lib/mysql<span class=w>
-</span><span class=w>    </span><span class=k>networks</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- frontend<span class=w>
-</span><span class=w>    </span><span class=k>environment</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=k>MYSQL_ROOT_PASSWORD</span><span class=p>:</span><span class=w> </span>password<span class=w>
-</span><span class=w>  </span><span class=c># Wordpress:expose it using labels with defined rule name</span><span class=w>
-</span><span class=w>  </span><span class=k>wordpress</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=k>image</span><span class=p>:</span><span class=w> </span>wordpress<span class=p>:</span><span class=m>5.0.0</span>-php7<span class=m>.1</span><span class=w>
-</span><span class=w>    </span><span class=k>restart</span><span class=p>:</span><span class=w> </span>always<span class=w>
-</span><span class=w>    </span><span class=k>labels</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=k>traefik.enable</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>      </span><span class=k>traefik.tags</span><span class=p>:</span><span class=w> </span>web<span class=w>
-</span><span class=w>      </span><span class=k>traefik.frontend.rule</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;Host:test.fqdn.com&#39;</span><span class=w>
-</span><span class=w>      </span><span class=k>traefik.frontend.entryPoints</span><span class=p>:</span><span class=w> </span>https<span class=w>
-</span><span class=w>    </span><span class=c># Need this network to allow traefik redirect to it</span><span class=w>
-</span><span class=w>    </span><span class=k>networks</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- frontend<span class=w>
-</span><span class=w>    </span><span class=k>ports</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=s2>&#34;8080:80&#34;</span><span class=w>
-</span><span class=w>    </span><span class=k>volumes</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- ./conf/php/uploads.ini<span class=p>:</span>/usr/local/etc/php/conf.d/uploads.ini<span class=w>
-</span><span class=w>      </span>- /mnt/container/wordpress/wordpress<span class=p>:</span>/var/www/html<span class=w>
-</span><span class=w>    </span><span class=k>environment</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span><span class=k>WORDPRESS_DB_PASSWORD</span><span class=p>:</span><span class=w> </span>password<span class=w>
-</span><span class=w>      </span><span class=k>WORDPRESS_DB_USER</span><span class=p>:</span><span class=w> </span>root<span class=w>
-</span><span class=w>      </span><span class=k>WORDPRESS_DB_NAME</span><span class=p>:</span><span class=w> </span>wordpress<span class=w>
-</span><span class=w>    </span><span class=k>links</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- mysql<span class=w>
-</span><span class=w>    </span><span class=k>depends_on</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- mysql<span class=w>
-</span><span class=w></span><span class=k>networks</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=k>frontend</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=k>external</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
-</span></code></pre></div><p><em>Note: if you&rsquo;re using it this way like me, the very first time, you&rsquo;ll need to copy a wordpress content from the container to your volume. Otherwise, your Wordpress volume will be empty.</em></p><p>Same as Traefik, I&rsquo;m now able to test it with:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=nb>cd</span> /etc/docker/compose/wordpress/
+</code></pre></div><h1 id="wordpress-configuration">Wordpress configuration</h1>
+<p>For Wordpress, the documentation recommended to mount only some folders (like plugins and uploads). However, I do not especially recommand it because you&rsquo;ll need to restart the container with a newer version anytime you want to upgrade it. That&rsquo;s why I&rsquo;m mounting all the Wordpress folder. This is not the &ldquo;Container way&rdquo; theory with immutable images, but from a pragmatic point of view, I prefer having a Wordpress always up to date (with dedicated plugin managing the upgrade of all components) instead of having a process managing the upgrade of my containers like <a href="https://github.com/v2tec/watchtower">Watchtower</a>. That&rsquo;s my choice and point of view, I know that other persons would choose the other solution, so select the most appropriate one.</p>
+<p>Here is my config:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="c"># Required MariaDB instance with mounted volumes</span><span class="w">
+</span><span class="w">  </span><span class="nt">mysql</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">mariadb:10.3.11</span><span class="w">
+</span><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">./conf/mariadb:/etc/mysql/mariadb.conf.d</span><span class="w">
+</span><span class="w">      </span>- <span class="l">/mnt/container/wordpress/mariadb:/var/lib/mysql</span><span class="w">
+</span><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">frontend</span><span class="w">
+</span><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">MYSQL_ROOT_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l">password</span><span class="w">
+</span><span class="w">  </span><span class="c"># Wordpress:expose it using labels with defined rule name</span><span class="w">
+</span><span class="w">  </span><span class="nt">wordpress</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">wordpress:5.0.0-php7.1</span><span class="w">
+</span><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span><span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">traefik.enable</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span><span class="nt">traefik.tags</span><span class="p">:</span><span class="w"> </span><span class="l">web</span><span class="w">
+</span><span class="w">      </span><span class="nt">traefik.frontend.rule</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Host:test.fqdn.com&#39;</span><span class="w">
+</span><span class="w">      </span><span class="nt">traefik.frontend.entryPoints</span><span class="p">:</span><span class="w"> </span><span class="l">https</span><span class="w">
+</span><span class="w">    </span><span class="c"># Need this network to allow traefik redirect to it</span><span class="w">
+</span><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">frontend</span><span class="w">
+</span><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="s2">&#34;8080:80&#34;</span><span class="w">
+</span><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">./conf/php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini</span><span class="w">
+</span><span class="w">      </span>- <span class="l">/mnt/container/wordpress/wordpress:/var/www/html</span><span class="w">
+</span><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">WORDPRESS_DB_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l">password</span><span class="w">
+</span><span class="w">      </span><span class="nt">WORDPRESS_DB_USER</span><span class="p">:</span><span class="w"> </span><span class="l">root</span><span class="w">
+</span><span class="w">      </span><span class="nt">WORDPRESS_DB_NAME</span><span class="p">:</span><span class="w"> </span><span class="l">wordpress</span><span class="w">
+</span><span class="w">    </span><span class="nt">links</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">mysql</span><span class="w">
+</span><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">mysql</span><span class="w">
+</span><span class="w"></span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">frontend</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></code></pre></div><p><em>Note: if you&rsquo;re using it this way like me, the very first time, you&rsquo;ll need to copy a wordpress content from the container to your volume. Otherwise, your Wordpress volume will be empty.</em></p>
+<p>Same as Traefik, I&rsquo;m now able to test it with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /etc/docker/compose/wordpress/
 docker-compose up
-</code></pre></div><p>It should be now accessible from <a href=https://test.fqdn.com>https://test.fqdn.com</a>. You can double check on the Traefik WebUI if your service is correctly exposed to the outside.</p><p>Once your configuration works as expected, you enable this docker compose as a service:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>systemctl <span class=nb>enable</span> docker-compose@wordpress
+</code></pre></div><p>It should be now accessible from <a href="https://test.fqdn.com">https://test.fqdn.com</a>. You can double check on the Traefik WebUI if your service is correctly exposed to the outside.</p>
+<p>Once your configuration works as expected, you enable this docker compose as a service:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">systemctl <span class="nb">enable</span> docker-compose@wordpress
 systemctl start docker-compose@wordpress
-</code></pre></div><p>I&rsquo;ve finished with it. It&rsquo;s a simple and smart way to manage containers on a single server, it&rsquo;s repetable. Do not forget to backup your data, configuration files and you&rsquo;re good to go.</p><p>Hope this helped</p></div></div><div id=post-footer class="post-footer main-content-wrap"><div class=post-footer-tags><span class="text-color-light text-small">TAGGED IN</span><br><a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/linux/>linux</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/docker/>docker</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/wordpress/>wordpress</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/traefik/>traefik</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/docker-compose/>docker-compose</a></div><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2019/02/08/k8s-euft-run-functional-tests-on-your-helm-charts/ data-tooltip="k8s-euft: run functional tests on your Helm charts" aria-label="NEXT: k8s-euft: run functional tests on your Helm charts"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2018/11/20/wireguard-on-debian-and-edgerouter/ data-tooltip="WireGuard on Debian and EdgeRouter" aria-label="PREVIOUS: WireGuard on Debian and EdgeRouter"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post"><i class="fa fa-share-alt" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/" title="Share on Facebook" aria-label="Share on Facebook"><i class=fa-facebook-official aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/" title="Share on Twitter" aria-label="Share on Twitter"><i class=fa-twitter aria-hidden=true></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#top aria-label="Back to top"><i class="fa fa-arrow-up" aria-hidden=true></i></a></li></ul></div></div></article><footer id=footer class=main-content-wrap><span class=copyrights>&copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved</span></footer></div><div id=bottom-bar class=post-bottom-bar data-behavior=5><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2019/02/08/k8s-euft-run-functional-tests-on-your-helm-charts/ data-tooltip="k8s-euft: run functional tests on your Helm charts" aria-label="NEXT: k8s-euft: run functional tests on your Helm charts"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2018/11/20/wireguard-on-debian-and-edgerouter/ data-tooltip="WireGuard on Debian and EdgeRouter" aria-label="PREVIOUS: WireGuard on Debian and EdgeRouter"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post"><i class="fa fa-share-alt" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/" title="Share on Facebook" aria-label="Share on Facebook"><i class=fa-facebook-official aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/" title="Share on Twitter" aria-label="Share on Twitter"><i class=fa-twitter aria-hidden=true></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#top aria-label="Back to top"><i class="fa fa-arrow-up" aria-hidden=true></i></a></li></ul></div></div><div id=share-options-bar class=share-options-bar data-behavior=5><i id=btn-close-shareoptions class="fa fa-times"></i><ul class=share-options><li class=share-option><a class=share-option-btn target=new href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2018%2F12%2F19%2Frunning-docker-for-your-home-server%2F" aria-label="Share on Facebook"><i class=fa-facebook-official aria-hidden=true></i><span>Share on Facebook</span></a></li><li class=share-option><a class=share-option-btn target=new href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2018%2F12%2F19%2Frunning-docker-for-your-home-server%2F" aria-label="Share on Twitter"><i class=fa-twitter aria-hidden=true></i><span>Share on Twitter</span></a></li></ul></div><div id=share-options-mask class=share-options-mask></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-times"></i></div><img id=about-card-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"><h4 id=about-card-name>Pierre Mavro / Deimosfr</h4><div id=about-card-job><i class="fa fa-briefcase"></i><br>Qovery Co-Founder and CTO</div><div id=about-card-location><i class="fa fa-map-marker-alt"></i><br>Paris - France</div></div></div><div id=cover style=background-image:url(https://blog.deimos.fr/images/fish_background.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js></script><script src=https://blog.deimos.fr/js/custom.js></script><script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:false});$('pre.code-highlight > code, pre > code').each(function(i,block){if(!$(this).hasClass('codeblock')){$(this).addClass('codeblock');}
-hljs.highlightBlock(block);});});</script></body></html>
+</code></pre></div><p>I&rsquo;ve finished with it. It&rsquo;s a simple and smart way to manage containers on a single server, it&rsquo;s repetable. Do not forget to backup your data, configuration files and you&rsquo;re good to go.</p>
+<p>Hope this helped</p>
+
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/linux/">linux</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/docker/">docker</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/wordpress/">wordpress</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/traefik/">traefik</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/docker-compose/">docker-compose</a>
+
+                  </div>
+                
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2019/02/08/k8s-euft-run-functional-tests-on-your-helm-charts/" data-tooltip="k8s-euft: run functional tests on your Helm charts" aria-label="NEXT: k8s-euft: run functional tests on your Helm charts">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2018/11/20/wireguard-on-debian-and-edgerouter/" data-tooltip="WireGuard on Debian and EdgeRouter" aria-label="PREVIOUS: WireGuard on Debian and EdgeRouter">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fa-facebook-official" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2019/02/08/k8s-euft-run-functional-tests-on-your-helm-charts/" data-tooltip="k8s-euft: run functional tests on your Helm charts" aria-label="NEXT: k8s-euft: run functional tests on your Helm charts">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2018/11/20/wireguard-on-debian-and-edgerouter/" data-tooltip="WireGuard on Debian and EdgeRouter" aria-label="PREVIOUS: WireGuard on Debian and EdgeRouter">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fa-facebook-official" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2018%2F12%2F19%2Frunning-docker-for-your-home-server%2F" aria-label="Share on Facebook">
+          <i class="fa-facebook-official" aria-hidden="true"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2018%2F12%2F19%2Frunning-docker-for-your-home-server%2F" aria-label="Share on Twitter">
+          <i class="fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Qovery Co-Founder and CTO
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Paris - France
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      
+      <div id="cover" style="background-image:url('https://blog.deimos.fr/images/fish_background.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script src="https://blog.deimos.fr/js/custom.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+
