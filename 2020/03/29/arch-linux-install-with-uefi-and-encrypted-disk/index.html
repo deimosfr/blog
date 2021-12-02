@@ -25,7 +25,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.88.1 with theme Tranquilpeak 0.5.2-BETA">
+<meta name="generator" content="Hugo 0.89.4 with theme Tranquilpeak 0.5.2-BETA">
 <meta name="author" content="Pierre Mavro / Deimosfr">
 <meta name="keywords" content="">
 <meta name="description" content="Several times I had to install Arch Linux those 8 past years. Not because it&rsquo;s not stable but because I changed hardware. Any time it was a pain to remind me how to do stuff during the install process. I really love this Linux distribution, but I have to admit the install process is far complex that what we found on other distribution.
@@ -397,8 +397,9 @@ locale-gen
 <span class="nb">echo</span> <span class="s1">&#39;linux /vmlinuz-linux&#39;</span> &gt;&gt; /boot/loader/entries/arch.conf
 <span class="nb">echo</span> <span class="s1">&#39;initrd /intel-ucode.img&#39;</span> &gt;&gt; /boot/loader/entries/arch.conf
 <span class="nb">echo</span> <span class="s1">&#39;initrd /initramfs-linux.img&#39;</span> &gt;&gt; /boot/loader/entries/arch.conf
-<span class="nb">echo</span> <span class="s2">&#34;options cryptdevice=UUID=</span><span class="si">${</span><span class="nv">UUID</span><span class="si">}</span><span class="s2">:vg0 root=/dev/mapper/vg0-root rw intel_pstate=no_hwp&#34;</span> &gt;&gt; /boot/loader/entries/arch.conf
-</code></pre></div><h1 id="end-install">End install</h1>
+<span class="nb">echo</span> <span class="s2">&#34;options cryptdevice=UUID=</span><span class="si">${</span><span class="nv">UUID</span><span class="si">}</span><span class="s2">:vg0 root=/dev/mapper/vg0-root rw intel_pstate=no_hwpi msr.allow_writes=on&#34;</span> &gt;&gt; /boot/loader/entries/arch.conf
+</code></pre></div><p>Note: you can add <code>mitigations=off</code> if you want more performances. But it will allow Spectre and Metldown security issues (<a href="https://meltdownattack.com/)">https://meltdownattack.com/)</a>.</p>
+<h1 id="end-install">End install</h1>
 <p>Before ending, <strong>install Network Manager</strong> or anything you need for the network part.</p>
 <p>To finish, setup a root password:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">passwd
