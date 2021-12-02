@@ -1,213 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>FreeBSD on Deimosfr Blog</title>
-    <link>https://blog.deimos.fr/categories/freebsd/</link>
-    <description>Recent content in FreeBSD on Deimosfr Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 03 Aug 2014 10:00:25 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/categories/freebsd/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Upgrading my Soekris to FreeBSD 10</title>
-      <link>https://blog.deimos.fr/2014/08/03/upgrading-my-soekris-to-freebsd-10/</link>
-      <pubDate>Sun, 03 Aug 2014 10:00:25 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2014/08/03/upgrading-my-soekris-to-freebsd-10/</guid>
-      <description>In previous posts, I was talking about brainfucks I had when migrating OpenBSD from a version to another. I really love OpenBSD but this fed me up a couple of years ago.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FreeBSD on Deimosfr Blog</title><link>https://blog.deimos.fr/categories/freebsd/</link><description>Recent content in FreeBSD on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 03 Aug 2014 10:00:25 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/categories/freebsd/index.xml" rel="self" type="application/rss+xml"/><item><title>Upgrading my Soekris to FreeBSD 10</title><link>https://blog.deimos.fr/2014/08/03/upgrading-my-soekris-to-freebsd-10/</link><pubDate>Sun, 03 Aug 2014 10:00:25 +0000</pubDate><guid>https://blog.deimos.fr/2014/08/03/upgrading-my-soekris-to-freebsd-10/</guid><description>In previous posts, I was talking about brainfucks I had when migrating OpenBSD from a version to another. I really love OpenBSD but this fed me up a couple of years ago.
 That&amp;rsquo;s why I decided to test and switch to FreeBSD. Which one I forgot to upgrade since a while and I decided to do it to see if it&amp;rsquo;s the same nightmare I encountered on OpenBSD.
-I was surprised by the simplicity of the upgrade and how things happens without any issues.</description>
-    </item>
-    
-    <item>
-      <title>FreeBSD binaries upgrade with pkgng</title>
-      <link>https://blog.deimos.fr/2013/06/23/freebsd-binaries-upgrade-with-pkgng/</link>
-      <pubDate>Sun, 23 Jun 2013 10:00:04 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2013/06/23/freebsd-binaries-upgrade-with-pkgng/</guid>
-      <description>I&amp;rsquo;ve recently played with pkgin under NetBSD and searched to make it work under FreeBSD. Anyway it&amp;rsquo;s not really compatible. I saw old unmaintained version, but no one worked for me as expected :-(.
+I was surprised by the simplicity of the upgrade and how things happens without any issues.</description></item><item><title>FreeBSD binaries upgrade with pkgng</title><link>https://blog.deimos.fr/2013/06/23/freebsd-binaries-upgrade-with-pkgng/</link><pubDate>Sun, 23 Jun 2013 10:00:04 +0000</pubDate><guid>https://blog.deimos.fr/2013/06/23/freebsd-binaries-upgrade-with-pkgng/</guid><description>I&amp;rsquo;ve recently played with pkgin under NetBSD and searched to make it work under FreeBSD. Anyway it&amp;rsquo;s not really compatible. I saw old unmaintained version, but no one worked for me as expected :-(.
 After a few searches, I found pkg2ng :-). That&amp;rsquo;s THE tool for FreeBSD. But unfortunately, as written in the wiki :
- As a consequence of the security incident on 11th November 2012, for the time being pre-compiled packages for pkgng are not available from any official FreeBSD repository.</description>
-    </item>
-    
-    <item>
-      <title>Weechat : a user friendly IRC client</title>
-      <link>https://blog.deimos.fr/2013/05/24/weechat-a-user-friendly-irc-client/</link>
-      <pubDate>Fri, 24 May 2013 10:00:30 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2013/05/24/weechat-a-user-friendly-irc-client/</guid>
-      <description>WeeChat is a fast, light and extensible chat client. It runs on many platforms (including Linux, BSD and Mac OS). I&amp;rsquo;m using it over a year and really love that client.
+As a consequence of the security incident on 11th November 2012, for the time being pre-compiled packages for pkgng are not available from any official FreeBSD repository.</description></item><item><title>Weechat : a user friendly IRC client</title><link>https://blog.deimos.fr/2013/05/24/weechat-a-user-friendly-irc-client/</link><pubDate>Fri, 24 May 2013 10:00:30 +0000</pubDate><guid>https://blog.deimos.fr/2013/05/24/weechat-a-user-friendly-irc-client/</guid><description>WeeChat is a fast, light and extensible chat client. It runs on many platforms (including Linux, BSD and Mac OS). I&amp;rsquo;m using it over a year and really love that client.
 WeeChat is:
- modular: a lightweight core with plugins around multi-protocols: IRC and Jabber (other soon) extensible: C plugins and scripts (Perl, Python, Ruby, Lua, Tcl and Scheme) free software: released under GPLv3 license fully documented: user&amp;rsquo;s guide, API, FAQ,.</description>
-    </item>
-    
-    <item>
-      <title>NetBSD : c’est bien mais…</title>
-      <link>https://blog.deimos.fr/2013/04/28/netbsd-cest-bien-mais/</link>
-      <pubDate>Sun, 28 Apr 2013 10:00:42 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2013/04/28/netbsd-cest-bien-mais/</guid>
-      <description>Il y a quelques semaines, je discutais avec un collègue de NetBSD. Il me racontait ses bonnes expériences avec cet OS. Vu que ça faisait un moment que je voulais essayé, je me suis lancé et ai changé l&amp;rsquo;OS de ma Soekris de FreeBSD à NetBSD. De plus, iMil n&amp;rsquo;arrête pas d&amp;rsquo;en parler et ça m&amp;rsquo;a donc fortement chatouillé.
-L&amp;rsquo;installeur est sympatoche, le coup du pkgin à la fin c&amp;rsquo;est top (bien qu&amp;rsquo;un peu de simplification pour les néophytes serait pas mal) et les VirtIO intégrés, c&amp;rsquo;est vraiment bien joué.</description>
-    </item>
-    
-    <item>
-      <title>UFS : Slice it !</title>
-      <link>https://blog.deimos.fr/2012/06/20/ufs-slice-it/</link>
-      <pubDate>Wed, 20 Jun 2012 10:00:43 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2012/06/20/ufs-slice-it/</guid>
-      <description>Pour les plus gamers d&amp;rsquo;entre vous, vous aurez sans doutes reconnu ce jeu de mot minable entre le jeu dispo sur l&amp;rsquo;App Store appelé &amp;lsquo;Slice it !&amp;rsquo; et les slices de l&amp;rsquo;UFS. Bref, j&amp;rsquo;ai fais une petite doc pour l&amp;rsquo;utilisation d&amp;rsquo;UFS sur FreeBSD et surtout le management des slices sur une partition FreeBayEsseDay.
-Ca se passe ici.</description>
-    </item>
-    
-    <item>
-      <title>Squid pour FreeBSD</title>
-      <link>https://blog.deimos.fr/2012/06/10/1896/</link>
-      <pubDate>Sun, 10 Jun 2012 10:00:58 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2012/06/10/1896/</guid>
-      <description>J&amp;rsquo;ai mis à jour une documentation sur Squid. Cette fois ci, la configuration se passe sur une FreeBSD et ai beaucoup plus détaillée (normal, je me suis tapé le man en entier) que la précédente. Il me reste encore quelques améliorations à faire, mais ça fera l&amp;rsquo;objet d&amp;rsquo;un futur post.
-La doc de Squid, c&amp;rsquo;est ici.</description>
-    </item>
-    
-    <item>
-      <title>DHCPd 4 sur FreeBSD</title>
-      <link>https://blog.deimos.fr/2012/06/02/dhcp4-server-sur-freebsd/</link>
-      <pubDate>Sat, 02 Jun 2012 10:00:30 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2012/06/02/dhcp4-server-sur-freebsd/</guid>
-      <description>Comme je l&amp;rsquo;expliquais dans le post précédent, j&amp;rsquo;ai passé ma Soekris sous FreeBSD. Alors je met à jour petit à petit mes documentations.
-On va donc la faire courte et simple : La documentation pour mettre en place DHCP4 d&amp;rsquo;ISC sur FreeBSD, c&amp;rsquo;est ici.</description>
-    </item>
-    
-    <item>
-      <title>Les fondamentaux du réseau sous FreeBSD</title>
-      <link>https://blog.deimos.fr/2012/05/31/les-fondamentaux-du-reseau-sous-freebsd/</link>
-      <pubDate>Thu, 31 May 2012 10:00:26 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2012/05/31/les-fondamentaux-du-reseau-sous-freebsd/</guid>
-      <description>J&amp;rsquo;ai récemment passé ma Soekris sur FreeBSD (oui marre de PFSense, je sais je change vite d&amp;rsquo;avis, mais là ça sent bon), et je n&amp;rsquo;ai pas encore tous les automatismes, alors j&amp;rsquo;ai fais une petite documentation sur les fondamentaux réseaux de FreeBSD.
-Voici la documentation.</description>
-    </item>
-    
-    <item>
-      <title>DJ Port Série, à l’ancienne…Tonight we are…</title>
-      <link>https://blog.deimos.fr/2012/05/23/dj-port-serie-a-lancienne-tonight-we-are/</link>
-      <pubDate>Wed, 23 May 2012 10:00:06 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2012/05/23/dj-port-serie-a-lancienne-tonight-we-are/</guid>
-      <description>Derrière ce titre pompeux se cache en fait la méthode pour activer le port série au démarrage d&amp;rsquo;une machine. Cette solution s&amp;rsquo;avère vite pratique lorsque l&amp;rsquo;on souhaites accéder à certaines machines qui ne répondent plus, ou bien via des solutions de virtualisation.
+modular: a lightweight core with plugins around multi-protocols: IRC and Jabber (other soon) extensible: C plugins and scripts (Perl, Python, Ruby, Lua, Tcl and Scheme) free software: released under GPLv3 license fully documented: user&amp;rsquo;s guide, API, FAQ,.</description></item><item><title>NetBSD : c’est bien mais…</title><link>https://blog.deimos.fr/2013/04/28/netbsd-cest-bien-mais/</link><pubDate>Sun, 28 Apr 2013 10:00:42 +0000</pubDate><guid>https://blog.deimos.fr/2013/04/28/netbsd-cest-bien-mais/</guid><description>Il y a quelques semaines, je discutais avec un collègue de NetBSD. Il me racontait ses bonnes expériences avec cet OS. Vu que ça faisait un moment que je voulais essayé, je me suis lancé et ai changé l&amp;rsquo;OS de ma Soekris de FreeBSD à NetBSD. De plus, iMil n&amp;rsquo;arrête pas d&amp;rsquo;en parler et ça m&amp;rsquo;a donc fortement chatouillé.
+L&amp;rsquo;installeur est sympatoche, le coup du pkgin à la fin c&amp;rsquo;est top (bien qu&amp;rsquo;un peu de simplification pour les néophytes serait pas mal) et les VirtIO intégrés, c&amp;rsquo;est vraiment bien joué.</description></item><item><title>UFS : Slice it !</title><link>https://blog.deimos.fr/2012/06/20/ufs-slice-it/</link><pubDate>Wed, 20 Jun 2012 10:00:43 +0000</pubDate><guid>https://blog.deimos.fr/2012/06/20/ufs-slice-it/</guid><description>Pour les plus gamers d&amp;rsquo;entre vous, vous aurez sans doutes reconnu ce jeu de mot minable entre le jeu dispo sur l&amp;rsquo;App Store appelé &amp;lsquo;Slice it !&amp;rsquo; et les slices de l&amp;rsquo;UFS. Bref, j&amp;rsquo;ai fais une petite doc pour l&amp;rsquo;utilisation d&amp;rsquo;UFS sur FreeBSD et surtout le management des slices sur une partition FreeBayEsseDay.
+Ca se passe ici.</description></item><item><title>Squid pour FreeBSD</title><link>https://blog.deimos.fr/2012/06/10/1896/</link><pubDate>Sun, 10 Jun 2012 10:00:58 +0000</pubDate><guid>https://blog.deimos.fr/2012/06/10/1896/</guid><description>J&amp;rsquo;ai mis à jour une documentation sur Squid. Cette fois ci, la configuration se passe sur une FreeBSD et ai beaucoup plus détaillée (normal, je me suis tapé le man en entier) que la précédente. Il me reste encore quelques améliorations à faire, mais ça fera l&amp;rsquo;objet d&amp;rsquo;un futur post.
+La doc de Squid, c&amp;rsquo;est ici.</description></item><item><title>DHCPd 4 sur FreeBSD</title><link>https://blog.deimos.fr/2012/06/02/dhcp4-server-sur-freebsd/</link><pubDate>Sat, 02 Jun 2012 10:00:30 +0000</pubDate><guid>https://blog.deimos.fr/2012/06/02/dhcp4-server-sur-freebsd/</guid><description>Comme je l&amp;rsquo;expliquais dans le post précédent, j&amp;rsquo;ai passé ma Soekris sous FreeBSD. Alors je met à jour petit à petit mes documentations.
+On va donc la faire courte et simple : La documentation pour mettre en place DHCP4 d&amp;rsquo;ISC sur FreeBSD, c&amp;rsquo;est ici.</description></item><item><title>Les fondamentaux du réseau sous FreeBSD</title><link>https://blog.deimos.fr/2012/05/31/les-fondamentaux-du-reseau-sous-freebsd/</link><pubDate>Thu, 31 May 2012 10:00:26 +0000</pubDate><guid>https://blog.deimos.fr/2012/05/31/les-fondamentaux-du-reseau-sous-freebsd/</guid><description>J&amp;rsquo;ai récemment passé ma Soekris sur FreeBSD (oui marre de PFSense, je sais je change vite d&amp;rsquo;avis, mais là ça sent bon), et je n&amp;rsquo;ai pas encore tous les automatismes, alors j&amp;rsquo;ai fais une petite documentation sur les fondamentaux réseaux de FreeBSD.
+Voici la documentation.</description></item><item><title>DJ Port Série, à l’ancienne…Tonight we are…</title><link>https://blog.deimos.fr/2012/05/23/dj-port-serie-a-lancienne-tonight-we-are/</link><pubDate>Wed, 23 May 2012 10:00:06 +0000</pubDate><guid>https://blog.deimos.fr/2012/05/23/dj-port-serie-a-lancienne-tonight-we-are/</guid><description>Derrière ce titre pompeux se cache en fait la méthode pour activer le port série au démarrage d&amp;rsquo;une machine. Cette solution s&amp;rsquo;avère vite pratique lorsque l&amp;rsquo;on souhaites accéder à certaines machines qui ne répondent plus, ou bien via des solutions de virtualisation.
 C&amp;rsquo;est pourquoi je vous ai concocté :
- Une petite doc sur le port série sous Linux Une petite doc sur le port série sous FreeBSD Une mise à jour de la doc de KVM pour pouvoir y accéder cash (oui comme tabata)   </description>
-    </item>
-    
-    <item>
-      <title>Un utilitaire pour commandlinefu.com</title>
-      <link>https://blog.deimos.fr/2012/04/03/un-utilitaire-pour-commandlinefu-com/</link>
-      <pubDate>Tue, 03 Apr 2012 11:00:48 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2012/04/03/un-utilitaire-pour-commandlinefu-com/</guid>
-      <description>Sachez que vous pouvez faire une recherche dans ce site pour en extraire des exemples grâce à un petit script. Exemple : &amp;gt; fu -a awk 1	# List of commands you use most often history | awk &amp;#39;{a[$2]++}END{for(i in a){print a[i] &amp;#34; &amp;#34; i}}&amp;#39; | sort -rn | head&amp;lt;/p&amp;gt; 2	# Display a block of text with AWK awk &amp;#39;/start_pattern/,/stop_pattern/&amp;#39; file.txt&amp;lt;/p&amp;gt; 3	# Remove duplicate entries in a file without sorting.</description>
-    </item>
-    
-    <item>
-      <title>Rebooter sa Freebox Server 6 en ligne de commande</title>
-      <link>https://blog.deimos.fr/2012/03/30/rebooter-sa-freebox-server-6-en-ligne-de-commande/</link>
-      <pubDate>Fri, 30 Mar 2012 11:00:38 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2012/03/30/rebooter-sa-freebox-server-6-en-ligne-de-commande/</guid>
-      <description>Depuis la version 6 de la Freebox, il y a une interface web (http://mafreebox.freebox.fr) qui permet de controler plusieurs options de celle ci et notamment de la redémarrer.
-Pour ceux que ça intéresse, j&amp;rsquo;ai fais une documentation.</description>
-    </item>
-    
-    <item>
-      <title>Samba : leurrer l’espace disponible</title>
-      <link>https://blog.deimos.fr/2012/02/26/1634/</link>
-      <pubDate>Sun, 26 Feb 2012 11:00:57 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2012/02/26/1634/</guid>
-      <description>J&amp;rsquo;ai un collègue qui s&amp;rsquo;est retrouvé dans une situation assez délicate. Je vous explique la situation :
- 2 points de montages dans /mnt dont un imbriqué dans l&amp;rsquo;autre. 1 partage sur le principale  Lorsque le point de montage principale est full, ont ne peut plus rien copier, même si la 2ème imbrication a encore de l&amp;rsquo;espace de libre. Pour ceux qui n&amp;rsquo;ont toujours pas compris :
- /mnt/ : 30 Mb restant /mnt/disk1 : 10Gb restant share : /mnt/  Le share me dit qu&amp;rsquo;il ne peut pas copier plus de 30 Mb, même dans /share/disk1.</description>
-    </item>
-    
-    <item>
-      <title>Tmux Cheat Sheet</title>
-      <link>https://blog.deimos.fr/2012/02/24/tmux-cheat-sheet/</link>
-      <pubDate>Fri, 24 Feb 2012 11:00:40 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2012/02/24/tmux-cheat-sheet/</guid>
-      <description>Je ne me suis pas mis au LaTeX pour rien, j’avais pour idée de pondre une Cheat Sheet sur Tmux, vu que je n’en avais trouvé aucune sur le net.
+Une petite doc sur le port série sous Linux Une petite doc sur le port série sous FreeBSD Une mise à jour de la doc de KVM pour pouvoir y accéder cash (oui comme tabata)  </description></item><item><title>Un utilitaire pour commandlinefu.com</title><link>https://blog.deimos.fr/2012/04/03/un-utilitaire-pour-commandlinefu-com/</link><pubDate>Tue, 03 Apr 2012 11:00:48 +0000</pubDate><guid>https://blog.deimos.fr/2012/04/03/un-utilitaire-pour-commandlinefu-com/</guid><description>Sachez que vous pouvez faire une recherche dans ce site pour en extraire des exemples grâce à un petit script. Exemple : &amp;gt; fu -a awk 1 # List of commands you use most often history | awk &amp;#39;{a[$2]++}END{for(i in a){print a[i] &amp;#34; &amp;#34; i}}&amp;#39; | sort -rn | head&amp;lt;/p&amp;gt; 2 # Display a block of text with AWK awk &amp;#39;/start_pattern/,/stop_pattern/&amp;#39; file.txt&amp;lt;/p&amp;gt; 3 # Remove duplicate entries in a file without sorting.</description></item><item><title>Rebooter sa Freebox Server 6 en ligne de commande</title><link>https://blog.deimos.fr/2012/03/30/rebooter-sa-freebox-server-6-en-ligne-de-commande/</link><pubDate>Fri, 30 Mar 2012 11:00:38 +0000</pubDate><guid>https://blog.deimos.fr/2012/03/30/rebooter-sa-freebox-server-6-en-ligne-de-commande/</guid><description>Depuis la version 6 de la Freebox, il y a une interface web (http://mafreebox.freebox.fr) qui permet de controler plusieurs options de celle ci et notamment de la redémarrer.
+Pour ceux que ça intéresse, j&amp;rsquo;ai fais une documentation.</description></item><item><title>Samba : leurrer l’espace disponible</title><link>https://blog.deimos.fr/2012/02/26/1634/</link><pubDate>Sun, 26 Feb 2012 11:00:57 +0000</pubDate><guid>https://blog.deimos.fr/2012/02/26/1634/</guid><description>J&amp;rsquo;ai un collègue qui s&amp;rsquo;est retrouvé dans une situation assez délicate. Je vous explique la situation :
+2 points de montages dans /mnt dont un imbriqué dans l&amp;rsquo;autre. 1 partage sur le principale Lorsque le point de montage principale est full, ont ne peut plus rien copier, même si la 2ème imbrication a encore de l&amp;rsquo;espace de libre. Pour ceux qui n&amp;rsquo;ont toujours pas compris :
+/mnt/ : 30 Mb restant /mnt/disk1 : 10Gb restant share : /mnt/ Le share me dit qu&amp;rsquo;il ne peut pas copier plus de 30 Mb, même dans /share/disk1.</description></item><item><title>Tmux Cheat Sheet</title><link>https://blog.deimos.fr/2012/02/24/tmux-cheat-sheet/</link><pubDate>Fri, 24 Feb 2012 11:00:40 +0000</pubDate><guid>https://blog.deimos.fr/2012/02/24/tmux-cheat-sheet/</guid><description>Je ne me suis pas mis au LaTeX pour rien, j’avais pour idée de pondre une Cheat Sheet sur Tmux, vu que je n’en avais trouvé aucune sur le net.
 J&amp;rsquo;ai donc mis à jour la documentation Tmux avec les Cheat Sheet en anglais et français.
 Je les fournis également ici :
-  Tmux French Cheat Sheet
-  Tmux English Cheat Sheet
-  N&amp;rsquo;hésitez pas à me faire un retour ou des propositions sur d&amp;rsquo;éventuels ajouts.</description>
-    </item>
-    
-    <item>
-      <title>Au revoir Screen, bonjour Tmux</title>
-      <link>https://blog.deimos.fr/2012/02/16/au-revoir-screen-bonjour-tmux/</link>
-      <pubDate>Thu, 16 Feb 2012 11:00:54 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2012/02/16/au-revoir-screen-bonjour-tmux/</guid>
-      <description>Screen n’est plus maintenu et a apparemment un code illisible (je n’ai pas vérifier, mais on peut lire ça un peu partout). Il était temps qu’un remplaçant arrive dans mes mains et je ne suis pas déçu car il y a plein de fonctionnalité, une belle stabilité et surtout une plus grande réactivité.
-J&amp;rsquo;ai donc fait une petite documentation dessus. Je vous conseil fortement de switcher, Tmux c&amp;rsquo;est géniale !</description>
-    </item>
-    
-    <item>
-      <title>ZFS sur Linux</title>
-      <link>https://blog.deimos.fr/2011/03/24/zfs-sur-linux/</link>
-      <pubDate>Thu, 24 Mar 2011 11:16:29 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2011/03/24/zfs-sur-linux/</guid>
-      <description>Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur lequel je souhaites la double parité et surtout un OS Linux car c&amp;rsquo;est ce que je connais de mieux pour la partie multimédia.
-Aujourd&amp;rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&amp;rsquo;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.</description>
-    </item>
-    
-    <item>
-      <title>pfSense sur Soekris</title>
-      <link>https://blog.deimos.fr/2010/12/04/pfsense-sur-soekris/</link>
-      <pubDate>Fri, 03 Dec 2010 23:54:12 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/12/04/pfsense-sur-soekris/</guid>
-      <description>Un ami m&amp;rsquo;a demandé un routeur de bonne qualité pour chez lui et assez simple d&amp;rsquo;utilisation. Au début j&amp;rsquo;ai pensé à des produits commerciaux que l&amp;rsquo;on peut trouver dans n&amp;rsquo;importe quelle grande surface un peu spécialisée. Je connais bien les problématiques, ce n&amp;rsquo;est pas toujours stable, c&amp;rsquo;est pauvre en options&amp;hellip;
-Je possède une Soekris et j&amp;rsquo;en suis très content. Mais le fait d&amp;rsquo;avoir choisis OpenBSD est un choix personnel qui ne correspond pas vraiment à celui de mon ami car pas très user friendly.</description>
-    </item>
-    
-    <item>
-      <title>FreeBSD pas si stable…</title>
-      <link>https://blog.deimos.fr/2010/11/01/freebsd-pas-si-stable/</link>
-      <pubDate>Mon, 01 Nov 2010 09:29:21 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/11/01/freebsd-pas-si-stable/</guid>
-      <description>J&amp;rsquo;ai une très mauvaise expérience actuellement avec FreeBSD. J&amp;rsquo;ai effectuer plusieurs tests hard avant de remettre sur FreeBSD.
+Tmux French Cheat Sheet
+Tmux English Cheat Sheet
+N&amp;rsquo;hésitez pas à me faire un retour ou des propositions sur d&amp;rsquo;éventuels ajouts.</description></item><item><title>Au revoir Screen, bonjour Tmux</title><link>https://blog.deimos.fr/2012/02/16/au-revoir-screen-bonjour-tmux/</link><pubDate>Thu, 16 Feb 2012 11:00:54 +0000</pubDate><guid>https://blog.deimos.fr/2012/02/16/au-revoir-screen-bonjour-tmux/</guid><description>Screen n’est plus maintenu et a apparemment un code illisible (je n’ai pas vérifier, mais on peut lire ça un peu partout). Il était temps qu’un remplaçant arrive dans mes mains et je ne suis pas déçu car il y a plein de fonctionnalité, une belle stabilité et surtout une plus grande réactivité.
+J&amp;rsquo;ai donc fait une petite documentation dessus. Je vous conseil fortement de switcher, Tmux c&amp;rsquo;est géniale !</description></item><item><title>ZFS sur Linux</title><link>https://blog.deimos.fr/2011/03/24/zfs-sur-linux/</link><pubDate>Thu, 24 Mar 2011 11:16:29 +0000</pubDate><guid>https://blog.deimos.fr/2011/03/24/zfs-sur-linux/</guid><description>Je suis actuellement en train de refaire un de mes 2 serveurs avec 5 disques sur lequel je souhaites la double parité et surtout un OS Linux car c&amp;rsquo;est ce que je connais de mieux pour la partie multimédia.
+Aujourd&amp;rsquo;hui, je suis sous FreeBSD et je ne suis pas convaincu vu les bugs auxquels je me suis confronté (certainement du à l&amp;rsquo;émulation de couches basses Linux). Je me tourne donc vers ZFS on Linux.</description></item><item><title>pfSense sur Soekris</title><link>https://blog.deimos.fr/2010/12/04/pfsense-sur-soekris/</link><pubDate>Fri, 03 Dec 2010 23:54:12 +0000</pubDate><guid>https://blog.deimos.fr/2010/12/04/pfsense-sur-soekris/</guid><description>Un ami m&amp;rsquo;a demandé un routeur de bonne qualité pour chez lui et assez simple d&amp;rsquo;utilisation. Au début j&amp;rsquo;ai pensé à des produits commerciaux que l&amp;rsquo;on peut trouver dans n&amp;rsquo;importe quelle grande surface un peu spécialisée. Je connais bien les problématiques, ce n&amp;rsquo;est pas toujours stable, c&amp;rsquo;est pauvre en options&amp;hellip;
+Je possède une Soekris et j&amp;rsquo;en suis très content. Mais le fait d&amp;rsquo;avoir choisis OpenBSD est un choix personnel qui ne correspond pas vraiment à celui de mon ami car pas très user friendly.</description></item><item><title>FreeBSD pas si stable…</title><link>https://blog.deimos.fr/2010/11/01/freebsd-pas-si-stable/</link><pubDate>Mon, 01 Nov 2010 09:29:21 +0000</pubDate><guid>https://blog.deimos.fr/2010/11/01/freebsd-pas-si-stable/</guid><description>J&amp;rsquo;ai une très mauvaise expérience actuellement avec FreeBSD. J&amp;rsquo;ai effectuer plusieurs tests hard avant de remettre sur FreeBSD.
 Pourquoi avais je pris FreeBSD au lieu de Debian ? :
-  Pour le ZFS
-  Sa réputation
-  Pour essayer
-  Seulement voilà, quand on commence à faire du fuse + encfs + sshfs&amp;hellip;bah c&amp;rsquo;est pas aussi stable qu&amp;rsquo;on est en droit de penser. J&amp;rsquo;ai des kernel panic qui ne font même pas rebooter ma machine (alors que c&amp;rsquo;est pourtant le comportement par défaut de FreeBSD) visiblement à cause de Fuse ou SSHfs et c&amp;rsquo;est très handicapant.</description>
-    </item>
-    
-    <item>
-      <title>RAIDZ2 Degarded sur FreeBSD en Zroot</title>
-      <link>https://blog.deimos.fr/2010/09/21/raidz2-degarded-sur-freebsd-en-zroot/</link>
-      <pubDate>Tue, 21 Sep 2010 21:30:25 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/09/21/raidz2-degarded-sur-freebsd-en-zroot/</guid>
-      <description>Que de mots pour le néophyte du ZFS. C’est en gros mon raidz2 (~ raid6) qui est parti en cacahuète à cause d’un disque pourave dont FreeBSD est également présent sur ce raid.
-J&amp;rsquo;explique donc la marche à suivre pour remplacer son disque défectueux :-)</description>
-    </item>
-    
-    <item>
-      <title>Zaid et fesse sur Fribay SD</title>
-      <link>https://blog.deimos.fr/2010/06/05/zaid-et-fesse-sur-friblsd/</link>
-      <pubDate>Sat, 05 Jun 2010 12:13:46 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/06/05/zaid-et-fesse-sur-friblsd/</guid>
-      <description>Je suis en train de revoir mon archi à la maison pour me faire un NAS multimédia qui tournerait sur FreeBSD. J’ai donc pour le moment besoin d’un bon RAID qui tourne bien et vu qu’il y a ZFS sur FreeBSD, ça tombe bien.
-J&amp;rsquo;ai pour l&amp;rsquo;instant fait une petite doc (qui est plus que très proche de la doc officielle tellement elle est bien faite) qui résume comment s&amp;rsquo;y prendre pour faire booter son FreeBSD sur du RAIDZ.</description>
-    </item>
-    
-  </channel>
-</rss>
+Pour le ZFS
+Sa réputation
+Pour essayer
+Seulement voilà, quand on commence à faire du fuse + encfs + sshfs&amp;hellip;bah c&amp;rsquo;est pas aussi stable qu&amp;rsquo;on est en droit de penser. J&amp;rsquo;ai des kernel panic qui ne font même pas rebooter ma machine (alors que c&amp;rsquo;est pourtant le comportement par défaut de FreeBSD) visiblement à cause de Fuse ou SSHfs et c&amp;rsquo;est très handicapant.</description></item><item><title>RAIDZ2 Degarded sur FreeBSD en Zroot</title><link>https://blog.deimos.fr/2010/09/21/raidz2-degarded-sur-freebsd-en-zroot/</link><pubDate>Tue, 21 Sep 2010 21:30:25 +0000</pubDate><guid>https://blog.deimos.fr/2010/09/21/raidz2-degarded-sur-freebsd-en-zroot/</guid><description>Que de mots pour le néophyte du ZFS. C’est en gros mon raidz2 (~ raid6) qui est parti en cacahuète à cause d’un disque pourave dont FreeBSD est également présent sur ce raid.
+J&amp;rsquo;explique donc la marche à suivre pour remplacer son disque défectueux :-)</description></item><item><title>Zaid et fesse sur Fribay SD</title><link>https://blog.deimos.fr/2010/06/05/zaid-et-fesse-sur-friblsd/</link><pubDate>Sat, 05 Jun 2010 12:13:46 +0000</pubDate><guid>https://blog.deimos.fr/2010/06/05/zaid-et-fesse-sur-friblsd/</guid><description>Je suis en train de revoir mon archi à la maison pour me faire un NAS multimédia qui tournerait sur FreeBSD. J’ai donc pour le moment besoin d’un bon RAID qui tourne bien et vu qu’il y a ZFS sur FreeBSD, ça tombe bien.
+J&amp;rsquo;ai pour l&amp;rsquo;instant fait une petite doc (qui est plus que très proche de la doc officielle tellement elle est bien faite) qui résume comment s&amp;rsquo;y prendre pour faire booter son FreeBSD sur du RAIDZ.</description></item></channel></rss>

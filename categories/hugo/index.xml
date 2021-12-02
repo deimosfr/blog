@@ -1,21 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Hugo on Deimosfr Blog</title>
-    <link>https://blog.deimos.fr/categories/hugo/</link>
-    <description>Recent content in Hugo on Deimosfr Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 17 Apr 2017 21:28:52 +0200</lastBuildDate><atom:link href="https://blog.deimos.fr/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Blog migrated to Hugo on Github</title>
-      <link>https://blog.deimos.fr/2017/04/18/blog-migrated-to-hugo-on-github/</link>
-      <pubDate>Mon, 17 Apr 2017 21:28:52 +0200</pubDate>
-      
-      <guid>https://blog.deimos.fr/2017/04/18/blog-migrated-to-hugo-on-github/</guid>
-      <description>As you certainly seen, the blog has been migrated :-). Visualy there is a big change and technically it&amp;rsquo;s the same.
-I was fed up about maintaining Wordpress with its stack (Nginx / php-fpm / MariaDB) for a mostly static blog. I was thinking about migrating from Wordpress to something in markdown since several years but didn&amp;rsquo;t know exactly which solution I wanted to choose. I really enjoyed using Wordpress but wanted to keep hands on my blog and didn&amp;rsquo;t want to switch to full hosted Wordpress because of its limitations (image size etc&amp;hellip;).</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo on Deimosfr Blog</title><link>https://blog.deimos.fr/categories/hugo/</link><description>Recent content in Hugo on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 17 Apr 2017 21:28:52 +0200</lastBuildDate><atom:link href="https://blog.deimos.fr/categories/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog migrated to Hugo on Github</title><link>https://blog.deimos.fr/2017/04/18/blog-migrated-to-hugo-on-github/</link><pubDate>Mon, 17 Apr 2017 21:28:52 +0200</pubDate><guid>https://blog.deimos.fr/2017/04/18/blog-migrated-to-hugo-on-github/</guid><description>As you certainly seen, the blog has been migrated :-). Visualy there is a big change and technically it&amp;rsquo;s the same.
+I was fed up about maintaining Wordpress with its stack (Nginx / php-fpm / MariaDB) for a mostly static blog. I was thinking about migrating from Wordpress to something in markdown since several years but didn&amp;rsquo;t know exactly which solution I wanted to choose. I really enjoyed using Wordpress but wanted to keep hands on my blog and didn&amp;rsquo;t want to switch to full hosted Wordpress because of its limitations (image size etc&amp;hellip;).</description></item></channel></rss>

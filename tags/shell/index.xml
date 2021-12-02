@@ -1,21 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>shell on Deimosfr Blog</title>
-    <link>https://blog.deimos.fr/tags/shell/</link>
-    <description>Recent content in shell on Deimosfr Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 16 Jan 2010 11:36:50 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/shell/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>MySecureShell &#43; Lshell : le couple gagnant</title>
-      <link>https://blog.deimos.fr/2010/01/16/mysecureshell-lshell-le-couple-gagnant/</link>
-      <pubDate>Sat, 16 Jan 2010 11:36:50 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/01/16/mysecureshell-lshell-le-couple-gagnant/</guid>
-      <description>J’ai découvert dans le dernier Linux Mag HS un shell permettant de limiter les accès aux commandes pour les utilisateurs. Il possède aussi quelques options pour le sftp, mais est très loin d’égaler MySecureShell.
-En disposant donc MySecureShell en shell primaire, puis en déclarant lshell en shell sous-jacent (dans la conf de MySecureShell), on peut alors parfaitement maitriser les faits et gestes de nos précieux utilisateurs afin qu&amp;rsquo;ils ne fassent pas de bêtises.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>shell on Deimosfr Blog</title><link>https://blog.deimos.fr/tags/shell/</link><description>Recent content in shell on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 16 Jan 2010 11:36:50 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/shell/index.xml" rel="self" type="application/rss+xml"/><item><title>MySecureShell + Lshell : le couple gagnant</title><link>https://blog.deimos.fr/2010/01/16/mysecureshell-lshell-le-couple-gagnant/</link><pubDate>Sat, 16 Jan 2010 11:36:50 +0000</pubDate><guid>https://blog.deimos.fr/2010/01/16/mysecureshell-lshell-le-couple-gagnant/</guid><description>J’ai découvert dans le dernier Linux Mag HS un shell permettant de limiter les accès aux commandes pour les utilisateurs. Il possède aussi quelques options pour le sftp, mais est très loin d’égaler MySecureShell.
+En disposant donc MySecureShell en shell primaire, puis en déclarant lshell en shell sous-jacent (dans la conf de MySecureShell), on peut alors parfaitement maitriser les faits et gestes de nos précieux utilisateurs afin qu&amp;rsquo;ils ne fassent pas de bêtises.</description></item></channel></rss>

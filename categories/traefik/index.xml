@@ -1,42 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Traefik on Deimosfr Blog</title>
-    <link>https://blog.deimos.fr/categories/traefik/</link>
-    <description>Recent content in Traefik on Deimosfr Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 19 Dec 2018 00:00:00 +0200</lastBuildDate><atom:link href="https://blog.deimos.fr/categories/traefik/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Running Docker for your home server</title>
-      <link>https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/</link>
-      <pubDate>Wed, 19 Dec 2018 00:00:00 +0200</pubDate>
-      
-      <guid>https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/</guid>
-      <description>Since several years, I&amp;rsquo;m hosting a lot of things: blog, wiki, emails etc&amp;hellip; I&amp;rsquo;ve played with Vserver, OpenVZ, KVM and finaly LXC. For years, I&amp;rsquo;ve learned how to use all of them but the most known solution during the last years is Docker.
-I even can remeber the first Meetup I&amp;rsquo;ve attended in Paris talking about Docker 5 years ago. Now containers are eveverywhere. I recently changed the server I&amp;rsquo;m running for my own usage and this was the good timing to switch from LXC to Docker.</description>
-    </item>
-    
-    <item>
-      <title>Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes</title>
-      <link>https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/</link>
-      <pubDate>Tue, 23 Jan 2018 18:00:00 +0200</pubDate>
-      
-      <guid>https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/</guid>
-      <description>Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
-In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.</description>
-    </item>
-    
-    <item>
-      <title>Kubernetes with Traefik and Let&#39;s Encrypt</title>
-      <link>https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/</link>
-      <pubDate>Sun, 20 Aug 2017 14:58:07 +0200</pubDate>
-      
-      <guid>https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/</guid>
-      <description>Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Traefik on Deimosfr Blog</title><link>https://blog.deimos.fr/categories/traefik/</link><description>Recent content in Traefik on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 19 Dec 2018 00:00:00 +0200</lastBuildDate><atom:link href="https://blog.deimos.fr/categories/traefik/index.xml" rel="self" type="application/rss+xml"/><item><title>Running Docker for your home server</title><link>https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/</link><pubDate>Wed, 19 Dec 2018 00:00:00 +0200</pubDate><guid>https://blog.deimos.fr/2018/12/19/running-docker-for-your-home-server/</guid><description>Since several years, I&amp;rsquo;m hosting a lot of things: blog, wiki, emails etc&amp;hellip; I&amp;rsquo;ve played with Vserver, OpenVZ, KVM and finaly LXC. For years, I&amp;rsquo;ve learned how to use all of them but the most known solution during the last years is Docker.
+I even can remeber the first Meetup I&amp;rsquo;ve attended in Paris talking about Docker 5 years ago. Now containers are eveverywhere. I recently changed the server I&amp;rsquo;m running for my own usage and this was the good timing to switch from LXC to Docker.</description></item><item><title>Traefik HA Helm chart with Let's Encrypt on Kubernetes</title><link>https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/</link><pubDate>Tue, 23 Jan 2018 18:00:00 +0200</pubDate><guid>https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/</guid><description>Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.</description></item><item><title>Kubernetes with Traefik and Let's Encrypt</title><link>https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/</link><pubDate>Sun, 20 Aug 2017 14:58:07 +0200</pubDate><guid>https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/</guid><description>Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
 I wanted to deploy it on Kubernetes for its interesting features like:
- Connect to Kubernetes API to listen changes and perform on the fly updates Automatic SSL management through Let&amp;rsquo;s encrypt (SNI) Prometheus native integration HTTP/2 support  I really like HAProxy, but in a Kubernetes case, it&amp;rsquo;s not the recommended solution because of its lake of features.</description>
-    </item>
-    
-  </channel>
-</rss>
+Connect to Kubernetes API to listen changes and perform on the fly updates Automatic SSL management through Let&amp;rsquo;s encrypt (SNI) Prometheus native integration HTTP/2 support I really like HAProxy, but in a Kubernetes case, it&amp;rsquo;s not the recommended solution because of its lake of features.</description></item></channel></rss>

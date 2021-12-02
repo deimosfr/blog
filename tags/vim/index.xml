@@ -1,22 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>vim on Deimosfr Blog</title>
-    <link>https://blog.deimos.fr/tags/vim/</link>
-    <description>Recent content in vim on Deimosfr Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 20 Oct 2014 10:00:53 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/vim/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>VIM: help coding in Python with plugins</title>
-      <link>https://blog.deimos.fr/2014/10/20/vim-help-coding-in-python-with-plugins/</link>
-      <pubDate>Mon, 20 Oct 2014 10:00:53 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2014/10/20/vim-help-coding-in-python-with-plugins/</guid>
-      <description>In the last blog posts, I talked about Galera Innoptimizer tool I&amp;rsquo;ve made in Python. As a VIM lover, I&amp;rsquo;ve wrote it with that editor and installed additional them with Vundle.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>vim on Deimosfr Blog</title><link>https://blog.deimos.fr/tags/vim/</link><description>Recent content in vim on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 20 Oct 2014 10:00:53 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/vim/index.xml" rel="self" type="application/rss+xml"/><item><title>VIM: help coding in Python with plugins</title><link>https://blog.deimos.fr/2014/10/20/vim-help-coding-in-python-with-plugins/</link><pubDate>Mon, 20 Oct 2014 10:00:53 +0000</pubDate><guid>https://blog.deimos.fr/2014/10/20/vim-help-coding-in-python-with-plugins/</guid><description>In the last blog posts, I talked about Galera Innoptimizer tool I&amp;rsquo;ve made in Python. As a VIM lover, I&amp;rsquo;ve wrote it with that editor and installed additional them with Vundle.
 Here are the one I&amp;rsquo;m using (to my .vimrc file):
-&amp;#34; Python completionPlugin &amp;#39;klen/python-mode&amp;#39;&amp;#34; TabularPlugin &amp;#39;godlygeek/tabular&amp;#39;&amp;#34; Git GutterPlugin &amp;#39;airblade/vim-gitgutter&amp;#39; Python completion helps to autocomplete some Python functions automatically. Tabular helps on correctly aligning multiple lines and gitguuter helps you with git to see a live gitdiff !</description>
-    </item>
-    
-  </channel>
-</rss>
+&amp;#34; Python completionPlugin &amp;#39;klen/python-mode&amp;#39;&amp;#34; TabularPlugin &amp;#39;godlygeek/tabular&amp;#39;&amp;#34; Git GutterPlugin &amp;#39;airblade/vim-gitgutter&amp;#39; Python completion helps to autocomplete some Python functions automatically. Tabular helps on correctly aligning multiple lines and gitguuter helps you with git to see a live gitdiff !</description></item></channel></rss>
