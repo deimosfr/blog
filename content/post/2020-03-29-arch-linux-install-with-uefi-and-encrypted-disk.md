@@ -183,6 +183,8 @@ Edit the `/etc/mkinitcpio.conf` file and update the `HOOKS` part accordingly:
 HOOKS=(base udev autodetect modconf block keyboard keymap encrypt lvm2 filesystems fsck)
 ```
 
+Note: if the file `/etc/mkinitcpio.conf` does not exists, run command ```mkinitcpio -p linux```
+
 And update the initramfs then:
 
 ```bash
