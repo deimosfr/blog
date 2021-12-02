@@ -22,7 +22,7 @@ station wlan0 connect &lt;SSID wifi name&gt;
 cryptsetup luksOpen /dev/nvme0n1p2 luks
 </code></pre></div><p>I wanted to have LVM in order to easily later change the partition configuration if I want:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>pvcreate /dev/mapper/luks
 vgcreate vg0 /dev/mapper/luks
-lvcreate -s 384G vg0 -n root
+lvcreate -L 384G vg0 -n root
 lvcreate -l +100%FREE vg0 -n home
 </code></pre></div><p>Then format to ext4:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>mkfs.ext4 -L root /dev/mapper/vg0-root
 mkfs.ext4 -L home /dev/mapper/vg0-home
