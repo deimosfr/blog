@@ -118,7 +118,7 @@ I wanted to have LVM in order to easily later change the partition configuration
 ```bash
 pvcreate /dev/mapper/luks
 vgcreate vg0 /dev/mapper/luks
-lvcreate -s 384G vg0 -n root
+lvcreate -L 384G vg0 -n root
 lvcreate -l +100%FREE vg0 -n home
 ```
 
