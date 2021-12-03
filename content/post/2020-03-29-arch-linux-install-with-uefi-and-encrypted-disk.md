@@ -205,7 +205,7 @@ echo 'timeout 3' >> /boot/loader/loader.conf
 And adding this specific configuration to boot on the crypted device:
 
 ```bash
-UUID=$(blkid | grep crypto_LUKS | sed -r 's/.+UUID="(.+)"?.+/\1/')
+UUID=$(blkid | grep crypto_LUKS | sed -r 's/.+UUID="(.+?)".+/\1/')
 echo 'title Arch Linux' > /boot/loader/entries/arch.conf
 echo 'linux /vmlinuz-linux' >> /boot/loader/entries/arch.conf
 echo 'initrd /intel-ucode.img' >> /boot/loader/entries/arch.conf
