@@ -383,7 +383,8 @@ locale-gen
 </code></pre></div><h1 id="initramfs">Initramfs</h1>
 <p>Edit the <code>/etc/mkinitcpio.conf</code> file and update the <code>HOOKS</code> part accordingly:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">HOOKS</span><span class="o">=(</span>base udev autodetect modconf block keyboard keymap encrypt lvm2 filesystems fsck<span class="o">)</span>
-</code></pre></div><p>And update the initramfs then:</p>
+</code></pre></div><p>Note: if the file <code>/etc/mkinitcpio.conf</code> does not exists, run command <code>mkinitcpio -p linux</code></p>
+<p>And update the initramfs then:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">mkinitcpio -P
 </code></pre></div><h1 id="bootloader">Bootloader</h1>
 <p>I&rsquo;m using the simplest bootloader (no need grub):</p>
@@ -392,7 +393,7 @@ locale-gen
 <span class="nb">echo</span> <span class="s1">&#39;console-mode 1&#39;</span> &gt;&gt; /boot/loader/loader.conf 
 <span class="nb">echo</span> <span class="s1">&#39;timeout 3&#39;</span> &gt;&gt; /boot/loader/loader.conf
 </code></pre></div><p>And adding this specific configuration to boot on the crypted device:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">UUID</span><span class="o">=</span><span class="k">$(</span>blkid <span class="p">|</span> grep crypto_LUKS <span class="p">|</span> sed -r <span class="s1">&#39;s/.+UUID=&#34;(.+)&#34;?.+/\1/&#39;</span><span class="k">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">UUID</span><span class="o">=</span><span class="k">$(</span>blkid <span class="p">|</span> grep crypto_LUKS <span class="p">|</span> sed -r <span class="s1">&#39;s/.+UUID=&#34;(.+?)&#34;.+/\1/&#39;</span><span class="k">)</span>
 <span class="nb">echo</span> <span class="s1">&#39;title Arch Linux&#39;</span> &gt; /boot/loader/entries/arch.conf
 <span class="nb">echo</span> <span class="s1">&#39;linux /vmlinuz-linux&#39;</span> &gt;&gt; /boot/loader/entries/arch.conf
 <span class="nb">echo</span> <span class="s1">&#39;initrd /intel-ucode.img&#39;</span> &gt;&gt; /boot/loader/entries/arch.conf
