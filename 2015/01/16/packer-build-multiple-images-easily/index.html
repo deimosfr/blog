@@ -1,1011 +1,297 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    
-    <script type="application/ld+json">
+<!doctype html><html lang=en-us><head><script type=application/ld+json>{"@context":"http://schema.org","@type":"Website","@id":"https:\/\/blog.deimos.fr","author":{"@type":"Person","name":"Pierre Mavro / Deimosfr","image":"https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"},"name":"Deimosfr Blog","description":"Packer is one of the tools I\x26rsquo;ve used in the past to build VirtualBox boxes. You can find what I\x26rsquo;ve done on my GitHub account.\nFor Smash project, I wanted to make a packer configuration to manage Docker and VirtualBox. I also wanted to call Ansible to build specific images for each needs. The goal is to be able to build cloud image ready to start, without any special dependencies. This because I need different usages:","url":"https:\/\/blog.deimos.fr\/2015\/01\/16\/packer-build-multiple-images-easily\/","keywords":"[]"}</script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Hugo 0.69.2 with theme Tranquilpeak 0.5.3-BETA"><meta name=author content="Pierre Mavro / Deimosfr"><meta name=keywords content><meta name=description content="Packer is one of the tools I&rsquo;ve used in the past to build VirtualBox boxes. You can find what I&rsquo;ve done on my GitHub account.
+For Smash project, I wanted to make a packer configuration to manage Docker and VirtualBox. I also wanted to call Ansible to build specific images for each needs. The goal is to be able to build cloud image ready to start, without any special dependencies. This because I need different usages:"><meta property="og:description" content="Packer is one of the tools I&rsquo;ve used in the past to build VirtualBox boxes. You can find what I&rsquo;ve done on my GitHub account.
+For Smash project, I wanted to make a packer configuration to manage Docker and VirtualBox. I also wanted to call Ansible to build specific images for each needs. The goal is to be able to build cloud image ready to start, without any special dependencies. This because I need different usages:"><meta property="og:type" content="article"><meta property="og:title" content="Packer: build multiple images easily"><meta name=twitter:title content="Packer: build multiple images easily"><meta property="og:url" content="https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/"><meta property="twitter:url" content="https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/"><meta property="og:site_name" content="Deimosfr Blog"><meta property="og:description" content="Packer is one of the tools I&rsquo;ve used in the past to build VirtualBox boxes. You can find what I&rsquo;ve done on my GitHub account.
+For Smash project, I wanted to make a packer configuration to manage Docker and VirtualBox. I also wanted to call Ansible to build specific images for each needs. The goal is to be able to build cloud image ready to start, without any special dependencies. This because I need different usages:"><meta name=twitter:description content="Packer is one of the tools I&rsquo;ve used in the past to build VirtualBox boxes. You can find what I&rsquo;ve done on my GitHub account.
+For Smash project, I wanted to make a packer configuration to manage Docker and VirtualBox. I also wanted to call Ansible to build specific images for each needs. The goal is to be able to build cloud image ready to start, without any special dependencies. This because I need different usages:"><meta property="og:locale" content="en-us"><meta property="article:published_time" content="2015-01-16T11:00:52"><meta property="article:modified_time" content="2015-01-16T11:00:52"><meta property="article:section" content="Ansible"><meta property="article:section" content="Debian"><meta property="article:section" content="Docker"><meta property="article:section" content="Hi-Tech"><meta property="article:section" content="Linux"><meta property="article:section" content="Red Hat"><meta property="article:section" content="Virtualization"><meta property="article:tag" content="ansible"><meta property="article:tag" content="debian"><meta property="article:tag" content="docker"><meta property="article:tag" content="packer"><meta property="article:tag" content="virtualbox"><meta name=twitter:card content="summary"><meta name=twitter:site content="@deimosfr"><meta name=twitter:creator content="@deimosfr"><meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_packer.png"><meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_packer.png"><title>Packer: build multiple images easily</title><link rel=icon href=https://blog.deimos.fr/favicon.png><link rel=canonical href=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://blog.deimos.fr/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css><link rel=stylesheet href=https://blog.deimos.fr/css/custom.css><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-63927289-1','auto');ga('send','pageview');}</script></head><body><div id=blog><header id=header data-behavior=5><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=https://blog.deimos.fr/ aria-label="Go to homepage">Deimosfr Blog</a></div><a class=header-right-picture href=https://blog.deimos.fr/#about aria-label="Open the link: /#about"><img class=header-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author's picture"></a></header><nav id=sidebar data-behavior=5><div class=sidebar-container><div class=sidebar-profile><a href=https://blog.deimos.fr/#about aria-label="Read more about the author"><img class=sidebar-profile-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"></a><h4 class=sidebar-profile-name>Pierre Mavro / Deimosfr</h4></div><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/ title=Home><i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden=true></i><span class=sidebar-button-desc>Home</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/archives title=Archives><i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden=true></i><span class=sidebar-button-desc>Archives</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/categories title=Categories><i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden=true></i><span class=sidebar-button-desc>Categories</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/tags title=Tags><i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden=true></i><span class=sidebar-button-desc>Tags</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/index.xml title=RSS><i class="sidebar-button-icon fa fa-lg fa-rss"></i><span class=sidebar-button-desc>RSS</span></a></li></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://github.com/deimosfr target=_blank rel=noopener title=GitHub><i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden=true></i><span class=sidebar-button-desc>GitHub</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://wiki.deimos.fr target=_blank rel=noopener title=Wiki><i class="sidebar-button-icon fa fa-wikipedia-w"></i><span class=sidebar-button-desc>Wiki</span></a></li></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://www.deimos.fr target=_blank rel=noopener title=About><i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden=true></i><span class=sidebar-button-desc>About</span></a></li></ul></div></nav><div id=main data-behavior=5 class=hasCoverMetaIn><article class=post id=top><div class="post-header main-content-wrap text-left"><h1 class=post-title>Packer: build multiple images easily</h1><div class="postShorten-meta post-meta"><time datetime=2015-01-16T11:00:52Z>16 January 2015</time>
+<span>in</span>
+<a class=category-link href=https://blog.deimos.fr/categories/ansible>Ansible</a>,
+<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
+<a class=category-link href=https://blog.deimos.fr/categories/docker>Docker</a>,
+<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
+<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
+<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a>,
+<a class=category-link href=https://blog.deimos.fr/categories/virtualization>Virtualization</a></div></div><div class="post-content markdown"><div class=main-content-wrap><p><img src=https://blog.deimos.fr/images/logo_packer.png alt=packer>
+Packer is one of the tools <a href=http://blog.deimos.fr/2014/03/18/packer-win-time-by-easily-testing-your-app-on-multiple-platforms/>I&rsquo;ve used in the past</a> to build VirtualBox boxes. You can find what I&rsquo;ve done <a href=https://github.com/deimosfr/packer-wheezy>on my GitHub account</a>.</p><p>For <a href=http://www.usmash.me/>Smash</a> project, I wanted to make a packer configuration to manage Docker and VirtualBox. I also wanted to call Ansible to build specific images for each needs. The goal is to be able to build cloud image ready to start, without any special dependencies. This because I need different usages:</p><ul><li>Production: multiple images for the cloud (VM/Container)</li><li>CI: multiple images using Docker</li><li>Dev: multiple images using Docker or VirtualBox</li></ul><p>I did not started to manage the cloud provider for the moment as I&rsquo;m not sure which one I&rsquo;ll be using. Anyway it won&rsquo;t be complicated as the biggest part has been done here. First of all, I declared the default vars in the Packer file:</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=p>{</span>
+    <span class=s2>&#34;variables&#34;</span><span class=o>:</span> <span class=p>{</span>
+        <span class=s2>&#34;debian_version&#34;</span><span class=o>:</span> <span class=s2>&#34;7.7.0&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;iso_checksum&#34;</span><span class=o>:</span> <span class=s2>&#34;5cb6e4fea55fbb5173f90c3a545b843c6c193e29c3aa32b3306c9bbdfb1ad6a6a36ae8be50e91af9d03d5f21c472bd05d04d3508172e0b519e76714333c7c74b&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;ansible_inventory_file&#34;</span><span class=o>:</span> <span class=s2>&#34;ansible_inventory_file&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;ansible_environment&#34;</span><span class=o>:</span> <span class=s2>&#34;dev&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;soft_version&#34;</span><span class=o>:</span> <span class=s2>&#34;noversion&#34;</span>
+    <span class=p>},</span>
+</code></pre></div><p>Here I specified the Debian version which will be automatically downloaded by Packer (for VirtualBox). Then the Ansible inventory file which is containing the group of hosts where the generated image will belong to. Example:</p><div class=highlight><pre class=chroma><code class=language-ini data-lang=ini><span class=k>[web]</span>
+<span class=na>127.0.0.1</span>
 
-{  
-  "@context":"http://schema.org",
-  "@type":"Website",
-  "@id":"https:\/\/blog.deimos.fr",
-  "author": {
-    "@type": "Person",
-    "name": "Pierre Mavro / Deimosfr",
-    
-    "image": "https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"
-    
-  },
-  "name":"Deimosfr Blog",
-  "description":"Packer is one of the tools I\u0026rsquo;ve used in the past to build VirtualBox boxes. You can find what I\u0026rsquo;ve done on my GitHub account.\nFor Smash project, I wanted to make a packer configuration to manage Docker and VirtualBox. I also wanted to call Ansible to build specific images for each needs. The goal is to be able to build cloud image ready to start, without any special dependencies. This because I need different usages:",
-  "url":"https:\/\/blog.deimos.fr\/2015\/01\/16\/packer-build-multiple-images-easily\/",
-  "keywords":"[]"
-}
+<span class=k>[webapp]</span>
 
-</script>
-    <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.89.4 with theme Tranquilpeak 0.5.3-BETA">
-<meta name="author" content="Pierre Mavro / Deimosfr">
-<meta name="keywords" content="">
-<meta name="description" content="Packer is one of the tools I&rsquo;ve used in the past to build VirtualBox boxes. You can find what I&rsquo;ve done on my GitHub account.
-For Smash project, I wanted to make a packer configuration to manage Docker and VirtualBox. I also wanted to call Ansible to build specific images for each needs. The goal is to be able to build cloud image ready to start, without any special dependencies. This because I need different usages:">
-
-
-<meta property="og:description" content="Packer is one of the tools I&rsquo;ve used in the past to build VirtualBox boxes. You can find what I&rsquo;ve done on my GitHub account.
-For Smash project, I wanted to make a packer configuration to manage Docker and VirtualBox. I also wanted to call Ansible to build specific images for each needs. The goal is to be able to build cloud image ready to start, without any special dependencies. This because I need different usages:">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Packer: build multiple images easily">
-<meta name="twitter:title" content="Packer: build multiple images easily">
-<meta property="og:url" content="https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/">
-<meta property="twitter:url" content="https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/">
-<meta property="og:site_name" content="Deimosfr Blog">
-<meta property="og:description" content="Packer is one of the tools I&rsquo;ve used in the past to build VirtualBox boxes. You can find what I&rsquo;ve done on my GitHub account.
-For Smash project, I wanted to make a packer configuration to manage Docker and VirtualBox. I also wanted to call Ansible to build specific images for each needs. The goal is to be able to build cloud image ready to start, without any special dependencies. This because I need different usages:">
-<meta name="twitter:description" content="Packer is one of the tools I&rsquo;ve used in the past to build VirtualBox boxes. You can find what I&rsquo;ve done on my GitHub account.
-For Smash project, I wanted to make a packer configuration to manage Docker and VirtualBox. I also wanted to call Ansible to build specific images for each needs. The goal is to be able to build cloud image ready to start, without any special dependencies. This because I need different usages:">
-<meta property="og:locale" content="en-us">
-
-  
-    <meta property="article:published_time" content="2015-01-16T11:00:52">
-  
-  
-    <meta property="article:modified_time" content="2015-01-16T11:00:52">
-  
-  
-  
-    
-      <meta property="article:section" content="Ansible">
-    
-      <meta property="article:section" content="Debian">
-    
-      <meta property="article:section" content="Docker">
-    
-      <meta property="article:section" content="Hi-Tech">
-    
-      <meta property="article:section" content="Linux">
-    
-      <meta property="article:section" content="Red Hat">
-    
-      <meta property="article:section" content="Virtualization">
-    
-  
-  
-    
-      <meta property="article:tag" content="ansible">
-    
-      <meta property="article:tag" content="debian">
-    
-      <meta property="article:tag" content="docker">
-    
-      <meta property="article:tag" content="packer">
-    
-      <meta property="article:tag" content="virtualbox">
-    
-  
-
-
-<meta name="twitter:card" content="summary">
-
-  <meta name="twitter:site" content="@deimosfr">
-
-
-  <meta name="twitter:creator" content="@deimosfr">
-
-
-
-
-
-
-  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
-
-
-
-
-
-  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_packer.png">
-  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_packer.png">
-
-
-    <title>Packer: build multiple images easily</title>
-
-    <link rel="icon" href="https://blog.deimos.fr/favicon.png">
-    
-
-    
-
-    <link rel="canonical" href="https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/">
-
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    
-    
-    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
-    
-    
-      
-        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
-      
-    
-
-    
-      
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-63927289-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-    
-    
-  </head>
-
-  <body>
-    <div id="blog">
-      <header id="header" data-behavior="5">
-  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-  <div class="header-title">
-    <a class="header-title-link" href="https://blog.deimos.fr/" aria-label="Go to homepage">Deimosfr Blog</a>
-  </div>
-  
-    
-      <a class="header-right-picture "
-         href="https://blog.deimos.fr/#about" aria-label="Open the link: /#about">
-    
-    
-    
-      
-        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
-      
-    
-    </a>
-  
-</header>
-
-      <nav id="sidebar" data-behavior="5">
-  <div class="sidebar-container">
-    
-      <div class="sidebar-profile">
-        <a href="https://blog.deimos.fr/#about" aria-label="Read more about the author">
-          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
-        </a>
-        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
-        
-      </div>
-    
-    <ul class="sidebar-buttons">
-      
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://blog.deimos.fr/" title="Home">
-    
-      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
-      
-      <span class="sidebar-button-desc">Home</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://blog.deimos.fr/archives" title="Archives">
-    
-      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
-      
-      <span class="sidebar-button-desc">Archives</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://blog.deimos.fr/categories" title="Categories">
-    
-      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
-      
-      <span class="sidebar-button-desc">Categories</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://blog.deimos.fr/tags" title="Tags">
-    
-      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
-      
-      <span class="sidebar-button-desc">Tags</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://blog.deimos.fr/index.xml" title="RSS">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
-      
-      <span class="sidebar-button-desc">RSS</span>
-    </a>
-  </li>
-
-
-    </ul>
-    <ul class="sidebar-buttons">
-      
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://github.com/deimosfr" target="_blank" rel="noopener" title="GitHub">
-    
-      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
-      
-      <span class="sidebar-button-desc">GitHub</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank" rel="noopener" title="Wiki">
-    
-      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
-      
-      <span class="sidebar-button-desc">Wiki</span>
-    </a>
-  </li>
-
-
-    </ul>
-    <ul class="sidebar-buttons">
-      
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://www.deimos.fr" target="_blank" rel="noopener" title="About">
-    
-      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
-      
-      <span class="sidebar-button-desc">About</span>
-    </a>
-  </li>
-
-
-    </ul>
-  </div>
-</nav>
-
-      
-
-      <div id="main" data-behavior="5"
-        class="
-               hasCoverMetaIn
-               ">
-        <article class="post" id="top">
-          
-          
-            <div class="post-header main-content-wrap text-left">
-  
-    <h1 class="post-title">
-      Packer: build multiple images easily
-    </h1>
-  
-  
-  <div class="postShorten-meta post-meta">
-    
-      <time datetime="2015-01-16T11:00:52Z">
-        
-  
-  
-  
-  
-    16 January 2015
-  
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/ansible">Ansible</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/docker">Docker</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>, 
-    
-      <a class="category-link" href="https://blog.deimos.fr/categories/virtualization">Virtualization</a>
-    
-  
-
-  </div>
-
-</div>
-          
-          <div class="post-content markdown">
-            <div class="main-content-wrap">
-              <p><img src="https://blog.deimos.fr/images/logo_packer.png" alt="packer">
-Packer is one of the tools <a href="http://blog.deimos.fr/2014/03/18/packer-win-time-by-easily-testing-your-app-on-multiple-platforms/">I&rsquo;ve used in the past</a> to build VirtualBox boxes. You can find what I&rsquo;ve done <a href="https://github.com/deimosfr/packer-wheezy">on my GitHub account</a>.</p>
-<p>For <a href="http://www.usmash.me/">Smash</a> project, I wanted to make a packer configuration to manage Docker and VirtualBox. I also wanted to call Ansible to build specific images for each needs. The goal is to be able to build cloud image ready to start, without any special dependencies. This because I need different usages:</p>
-<ul>
-<li>Production: multiple images for the cloud (VM/Container)</li>
-<li>CI: multiple images using Docker</li>
-<li>Dev: multiple images using Docker or VirtualBox</li>
-</ul>
-<p>I did not started to manage the cloud provider for the moment as I&rsquo;m not sure which one I&rsquo;ll be using. Anyway it won&rsquo;t be complicated as the biggest part has been done here. First of all, I declared the default vars in the Packer file:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
-    <span class="s2">&#34;variables&#34;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&#34;debian_version&#34;</span><span class="o">:</span> <span class="s2">&#34;7.7.0&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;iso_checksum&#34;</span><span class="o">:</span> <span class="s2">&#34;5cb6e4fea55fbb5173f90c3a545b843c6c193e29c3aa32b3306c9bbdfb1ad6a6a36ae8be50e91af9d03d5f21c472bd05d04d3508172e0b519e76714333c7c74b&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;ansible_inventory_file&#34;</span><span class="o">:</span> <span class="s2">&#34;ansible_inventory_file&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;ansible_environment&#34;</span><span class="o">:</span> <span class="s2">&#34;dev&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;soft_version&#34;</span><span class="o">:</span> <span class="s2">&#34;noversion&#34;</span>
-    <span class="p">},</span></code></pre></div>
-<p>Here I specified the Debian version which will be automatically downloaded by Packer (for VirtualBox). Then the Ansible inventory file which is containing the group of hosts where the generated image will belong to. Example:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[web]</span>
-<span class="na">127.0.0.1</span>
-
-<span class="k">[webapp]</span>
-
-<span class="c1">#[sql]</span>
-<span class="c1">#127.0.0.1</span></code></pre></div>
-<p>Then we are declaring the 2 builders. The first one for VirtualBox and the second for Docker:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="s2">&#34;builders&#34;</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;virtualbox-iso&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;boot_command&#34;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="s2">&#34;&amp;lt;esc&amp;gt;&amp;lt;wait&amp;gt;&#34;</span><span class="p">,</span>
-<span class="p">...</span>
-      <span class="s2">&#34;vboxmanage&#34;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">[</span> <span class="s2">&#34;modifyvm&#34;</span><span class="p">,</span> <span class="s2">&#34;{{.Name}}&#34;</span><span class="p">,</span> <span class="s2">&#34;--memory&#34;</span><span class="p">,</span> <span class="s2">&#34;512&#34;</span> <span class="p">],</span>
-        <span class="p">[</span> <span class="s2">&#34;modifyvm&#34;</span><span class="p">,</span> <span class="s2">&#34;{{.Name}}&#34;</span><span class="p">,</span> <span class="s2">&#34;--cpus&#34;</span><span class="p">,</span> <span class="s2">&#34;1&#34;</span> <span class="p">]</span>
-      <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;docker&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;image&#34;</span><span class="o">:</span> <span class="s2">&#34;debian:wheezy&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;export_path&#34;</span><span class="o">:</span> <span class="s2">&#34;debian.tar&#34;</span>
-    <span class="p">}</span>
-  <span class="p">],</span></code></pre></div>
-<p>We&rsquo;re calling here the desired version of Debian image in the variables. The automated installation of VirtualBox is ensured by Debian <a href="https://github.com/deimosfr/packer-wheezy/blob/master/http/preseed.cfg">preseed.</a> VirtualBox will also pass required args to Debian grub boot for preseed. Regarding Docker, it&rsquo;s simpler as it will automatically pull from the official Docker repository the required distribution.</p>
-<p>Then you need to use post processor to request the output format from Packer. Here for VirtualBox, I require an export in a .box format with a maximum compression level. And for Docker, I add the image locally to my  list of images:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="s2">&#34;post-processors&#34;</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;vagrant&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;compression_level&#34;</span><span class="o">:</span> <span class="s2">&#34;9&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;output&#34;</span><span class="o">:</span> <span class="s2">&#34;wheezy_{{user `debian_version`}}-{{user `soft_version`}}.box&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;only&#34;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;virtualbox-iso&#34;</span><span class="p">]</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;docker-import&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;repository&#34;</span><span class="o">:</span> <span class="s2">&#34;smash&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;tag&#34;</span><span class="o">:</span> <span class="s2">&#34;wheezy_{{user `debian_version`}}-{{user `soft_version`}}&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;only&#34;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;docker&#34;</span><span class="p">]</span>
-    <span class="p">}</span>
-  <span class="p">],</span></code></pre></div>
-<p>Regarding the provisioner part, the way to call VirtualBox scripts and Docker are different. VirtualBox uses sudo command while Docker doesn&rsquo;t need it. As you can see, I&rsquo;m executing several scripts (some are the same and others are specific):</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="s2">&#34;provisioners&#34;</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;shell&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;execute_command&#34;</span><span class="o">:</span> <span class="s2">&#34;echo &#39;vagrant&#39; | {{.Vars}} sudo -E -S bash &#39;{{.Path}}&#39;&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;scripts&#34;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="s2">&#34;scripts/update.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/sshd.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/networking.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/ansible_prequesites.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/sudoers.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/vagrant.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/vbaddguest.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/ansible_bin.sh&#34;</span>
-      <span class="p">],</span>
-      <span class="s2">&#34;only&#34;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;virtualbox-iso&#34;</span><span class="p">]</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;shell&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;scripts&#34;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="s2">&#34;scripts/update.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/sshd.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/networking.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/ansible_prequesites.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/sudoers.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/vagrant.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/ansible_bin.sh&#34;</span>
-      <span class="p">],</span>
-      <span class="s2">&#34;only&#34;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;docker&#34;</span><span class="p">]</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;ansible-local&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;playbook_dir&#34;</span><span class="o">:</span> <span class="s2">&#34;..&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;playbook_file&#34;</span><span class="o">:</span> <span class="s2">&#34;../site.yml&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;inventory_file&#34;</span><span class="o">:</span> <span class="s2">&#34;{{user `ansible_inventory_file`}}&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;extra_arguments&#34;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;-e&#34;</span><span class="p">,</span> <span class="s2">&#34;set_env={{user `ansible_environment`}}&#34;</span><span class="p">,</span> <span class="s2">&#34;-v&#34;</span><span class="p">]</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;shell&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;execute_command&#34;</span><span class="o">:</span> <span class="s2">&#34;echo &#39;vagrant&#39; | {{.Vars}} sudo -E -S bash &#39;{{.Path}}&#39;&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;scripts&#34;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="s2">&#34;scripts/cleanup.sh&#34;</span>
-      <span class="p">],</span>
-      <span class="s2">&#34;only&#34;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;virtualbox-iso&#34;</span><span class="p">]</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;shell&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;scripts&#34;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="s2">&#34;scripts/cleanup.sh&#34;</span>
-      <span class="p">],</span>
-      <span class="s2">&#34;only&#34;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;docker&#34;</span><span class="p">]</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span></code></pre></div>
-<p>Ansible is also executed to create a complete image (and specific vars can be added). Of course this is a little bit boring to create a new image on every release (but can be automated), however when your goal is to auto-scale your images in a cloud environment, it&rsquo;s relevant to be not dependent of tier party applications (GitHub, Apt/Yum repo etc&hellip;). That&rsquo;s why this solution is better in my opinion.</p>
-<p>If you&rsquo;re wondering what the scripts are doing:</p>
-<ul>
-<li>&ldquo;scripts/update.sh&rdquo;: install curl</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
-</span><span class="cp"></span>apt-get update
-<span class="c1"># install curl to fix broken wget while retrieving content from secured sites</span>
-apt-get -y install curl</code></pre></div>
-<ul>
-<li>&ldquo;scripts/sshd.sh&rdquo;: install SSH and set 2 options</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
-</span><span class="cp"></span>apt-get -y install openssh-server
-<span class="nb">echo</span> <span class="s2">&#34;UseDNS no&#34;</span> <span class="p">&amp;</span>gt<span class="p">;&amp;</span>gt<span class="p">;</span> /etc/ssh/sshd_config
-<span class="nb">echo</span> <span class="s2">&#34;GSSAPIAuthentication no&#34;</span> <span class="p">&amp;</span>gt<span class="p">;&amp;</span>gt<span class="p">;</span> /etc/ssh/sshd_config</code></pre></div>
-<ul>
-<li>&ldquo;scripts/networking.sh&rdquo;: reset network device interface name</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
-</span><span class="cp"></span>rm /etc/udev/rules.d/70-persistent-net.rules
+<span class=c1>#[sql]</span>
+<span class=c1>#127.0.0.1</span></code></pre></div><p>Then we are declaring the 2 builders. The first one for VirtualBox and the second for Docker:</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=s2>&#34;builders&#34;</span><span class=o>:</span> <span class=p>[</span>
+    <span class=p>{</span>
+      <span class=s2>&#34;type&#34;</span><span class=o>:</span> <span class=s2>&#34;virtualbox-iso&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;boot_command&#34;</span><span class=o>:</span> <span class=p>[</span>
+        <span class=s2>&#34;&amp;lt;esc&amp;gt;&amp;lt;wait&amp;gt;&#34;</span><span class=p>,</span>
+<span class=p>...</span>
+      <span class=s2>&#34;vboxmanage&#34;</span><span class=o>:</span> <span class=p>[</span>
+        <span class=p>[</span> <span class=s2>&#34;modifyvm&#34;</span><span class=p>,</span> <span class=s2>&#34;{{.Name}}&#34;</span><span class=p>,</span> <span class=s2>&#34;--memory&#34;</span><span class=p>,</span> <span class=s2>&#34;512&#34;</span> <span class=p>],</span>
+        <span class=p>[</span> <span class=s2>&#34;modifyvm&#34;</span><span class=p>,</span> <span class=s2>&#34;{{.Name}}&#34;</span><span class=p>,</span> <span class=s2>&#34;--cpus&#34;</span><span class=p>,</span> <span class=s2>&#34;1&#34;</span> <span class=p>]</span>
+      <span class=p>]</span>
+    <span class=p>},</span>
+    <span class=p>{</span>
+      <span class=s2>&#34;type&#34;</span><span class=o>:</span> <span class=s2>&#34;docker&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;image&#34;</span><span class=o>:</span> <span class=s2>&#34;debian:wheezy&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;export_path&#34;</span><span class=o>:</span> <span class=s2>&#34;debian.tar&#34;</span>
+    <span class=p>}</span>
+  <span class=p>],</span>
+</code></pre></div><p>We&rsquo;re calling here the desired version of Debian image in the variables. The automated installation of VirtualBox is ensured by Debian <a href=https://github.com/deimosfr/packer-wheezy/blob/master/http/preseed.cfg>preseed.</a> VirtualBox will also pass required args to Debian grub boot for preseed. Regarding Docker, it&rsquo;s simpler as it will automatically pull from the official Docker repository the required distribution.</p><p>Then you need to use post processor to request the output format from Packer. Here for VirtualBox, I require an export in a .box format with a maximum compression level. And for Docker, I add the image locally to my  list of images:</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=s2>&#34;post-processors&#34;</span><span class=o>:</span> <span class=p>[</span>
+    <span class=p>{</span>
+      <span class=s2>&#34;type&#34;</span><span class=o>:</span> <span class=s2>&#34;vagrant&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;compression_level&#34;</span><span class=o>:</span> <span class=s2>&#34;9&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;output&#34;</span><span class=o>:</span> <span class=s2>&#34;wheezy_{{user `debian_version`}}-{{user `soft_version`}}.box&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;only&#34;</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;virtualbox-iso&#34;</span><span class=p>]</span>
+    <span class=p>},</span>
+    <span class=p>{</span>
+      <span class=s2>&#34;type&#34;</span><span class=o>:</span> <span class=s2>&#34;docker-import&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;repository&#34;</span><span class=o>:</span> <span class=s2>&#34;smash&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;tag&#34;</span><span class=o>:</span> <span class=s2>&#34;wheezy_{{user `debian_version`}}-{{user `soft_version`}}&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;only&#34;</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;docker&#34;</span><span class=p>]</span>
+    <span class=p>}</span>
+  <span class=p>],</span>
+</code></pre></div><p>Regarding the provisioner part, the way to call VirtualBox scripts and Docker are different. VirtualBox uses sudo command while Docker doesn&rsquo;t need it. As you can see, I&rsquo;m executing several scripts (some are the same and others are specific):</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=s2>&#34;provisioners&#34;</span><span class=o>:</span> <span class=p>[</span>
+    <span class=p>{</span>
+      <span class=s2>&#34;type&#34;</span><span class=o>:</span> <span class=s2>&#34;shell&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;execute_command&#34;</span><span class=o>:</span> <span class=s2>&#34;echo &#39;vagrant&#39; | {{.Vars}} sudo -E -S bash &#39;{{.Path}}&#39;&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;scripts&#34;</span><span class=o>:</span> <span class=p>[</span>
+        <span class=s2>&#34;scripts/update.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/sshd.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/networking.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/ansible_prequesites.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/sudoers.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/vagrant.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/vbaddguest.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/ansible_bin.sh&#34;</span>
+      <span class=p>],</span>
+      <span class=s2>&#34;only&#34;</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;virtualbox-iso&#34;</span><span class=p>]</span>
+    <span class=p>},</span>
+    <span class=p>{</span>
+      <span class=s2>&#34;type&#34;</span><span class=o>:</span> <span class=s2>&#34;shell&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;scripts&#34;</span><span class=o>:</span> <span class=p>[</span>
+        <span class=s2>&#34;scripts/update.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/sshd.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/networking.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/ansible_prequesites.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/sudoers.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/vagrant.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/ansible_bin.sh&#34;</span>
+      <span class=p>],</span>
+      <span class=s2>&#34;only&#34;</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;docker&#34;</span><span class=p>]</span>
+    <span class=p>},</span>
+    <span class=p>{</span>
+        <span class=s2>&#34;type&#34;</span><span class=o>:</span> <span class=s2>&#34;ansible-local&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;playbook_dir&#34;</span><span class=o>:</span> <span class=s2>&#34;..&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;playbook_file&#34;</span><span class=o>:</span> <span class=s2>&#34;../site.yml&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;inventory_file&#34;</span><span class=o>:</span> <span class=s2>&#34;{{user `ansible_inventory_file`}}&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;extra_arguments&#34;</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;-e&#34;</span><span class=p>,</span> <span class=s2>&#34;set_env={{user `ansible_environment`}}&#34;</span><span class=p>,</span> <span class=s2>&#34;-v&#34;</span><span class=p>]</span>
+    <span class=p>},</span>
+    <span class=p>{</span>
+      <span class=s2>&#34;type&#34;</span><span class=o>:</span> <span class=s2>&#34;shell&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;execute_command&#34;</span><span class=o>:</span> <span class=s2>&#34;echo &#39;vagrant&#39; | {{.Vars}} sudo -E -S bash &#39;{{.Path}}&#39;&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;scripts&#34;</span><span class=o>:</span> <span class=p>[</span>
+        <span class=s2>&#34;scripts/cleanup.sh&#34;</span>
+      <span class=p>],</span>
+      <span class=s2>&#34;only&#34;</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;virtualbox-iso&#34;</span><span class=p>]</span>
+    <span class=p>},</span>
+    <span class=p>{</span>
+      <span class=s2>&#34;type&#34;</span><span class=o>:</span> <span class=s2>&#34;shell&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;scripts&#34;</span><span class=o>:</span> <span class=p>[</span>
+        <span class=s2>&#34;scripts/cleanup.sh&#34;</span>
+      <span class=p>],</span>
+      <span class=s2>&#34;only&#34;</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;docker&#34;</span><span class=p>]</span>
+    <span class=p>}</span>
+  <span class=p>]</span>
+<span class=p>}</span>
+</code></pre></div><p>Ansible is also executed to create a complete image (and specific vars can be added). Of course this is a little bit boring to create a new image on every release (but can be automated), however when your goal is to auto-scale your images in a cloud environment, it&rsquo;s relevant to be not dependent of tier party applications (GitHub, Apt/Yum repo etc&mldr;). That&rsquo;s why this solution is better in my opinion.</p><p>If you&rsquo;re wondering what the scripts are doing:</p><ul><li>&ldquo;scripts/update.sh&rdquo;: install curl</li></ul><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=cp>#!/bin/bash
+</span><span class=cp></span>apt-get update
+<span class=c1># install curl to fix broken wget while retrieving content from secured sites</span>
+apt-get -y install curl</code></pre></div><ul><li>&ldquo;scripts/sshd.sh&rdquo;: install SSH and set 2 options</li></ul><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=cp>#!/bin/bash
+</span><span class=cp></span>apt-get -y install openssh-server
+<span class=nb>echo</span> <span class=s2>&#34;UseDNS no&#34;</span> <span class=p>&amp;</span>gt<span class=p>;&amp;</span>gt<span class=p>;</span> /etc/ssh/sshd_config
+<span class=nb>echo</span> <span class=s2>&#34;GSSAPIAuthentication no&#34;</span> <span class=p>&amp;</span>gt<span class=p>;&amp;</span>gt<span class=p>;</span> /etc/ssh/sshd_config</code></pre></div><ul><li>&ldquo;scripts/networking.sh&rdquo;: reset network device interface name</li></ul><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=cp>#!/bin/bash
+</span><span class=cp></span>rm /etc/udev/rules.d/70-persistent-net.rules
 mkdir /etc/udev/rules.d/70-persistent-net.rules
 rm /lib/udev/rules.d/75-persistent-net-generator.rules
 rm -rf /dev/.udev/ /var/lib/dhcp/*
-<span class="nb">echo</span> <span class="s2">&#34;pre-up sleep 2&#34;</span> <span class="p">&amp;</span>gt<span class="p">;&amp;</span>gt<span class="p">;</span> /etc/network/interfaces</code></pre></div>
-<ul>
-<li>&ldquo;scripts/ansible_prequesites.sh&rdquo;: install prerequisite for any Ansible client</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Ansible prequesites</span>
-apt-get -y install python ruby ruby-json facter ohai</code></pre></div>
-<ul>
-<li>&ldquo;scripts/sudoers.sh&rdquo;: install sudo and give to vagrant user all privileges</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
-</span><span class="cp"></span>apt-get -y install sudo
-<span class="c1"># Set up password-less sudo for user vagrant</span>
-<span class="nb">echo</span> <span class="s1">&#39;vagrant ALL=(ALL) NOPASSWD:ALL&#39;</span> <span class="p">&amp;</span>gt<span class="p">;</span> /etc/sudoers.d/vagrant
-chmod <span class="m">440</span> /etc/sudoers.d/vagrant
-<span class="c1"># no tty</span>
-<span class="nb">echo</span> <span class="s2">&#34;Defaults !requiretty&#34;</span> <span class="p">&amp;</span>gt<span class="p">;&amp;</span>gt<span class="p">;</span> /etc/sudoers</code></pre></div>
-<ul>
-<li>&ldquo;scripts/vagrant.sh&rdquo;: create vagrant user and add vagrant public key to vagrant user (for VirtualBox) and to root user (for Docker)</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
-</span><span class="cp"></span>
-<span class="c1">### WARNING: DO NOT FORGET TO REMOVE IT IF ACCESSIBLE FROM OUTSIDE !!!</span>
+<span class=nb>echo</span> <span class=s2>&#34;pre-up sleep 2&#34;</span> <span class=p>&amp;</span>gt<span class=p>;&amp;</span>gt<span class=p>;</span> /etc/network/interfaces</code></pre></div><ul><li>&ldquo;scripts/ansible_prequesites.sh&rdquo;: install prerequisite for any Ansible client</li></ul><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># Ansible prequesites</span>
+apt-get -y install python ruby ruby-json facter ohai</code></pre></div><ul><li>&ldquo;scripts/sudoers.sh&rdquo;: install sudo and give to vagrant user all privileges</li></ul><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=cp>#!/bin/bash
+</span><span class=cp></span>apt-get -y install sudo
+<span class=c1># Set up password-less sudo for user vagrant</span>
+<span class=nb>echo</span> <span class=s1>&#39;vagrant ALL=(ALL) NOPASSWD:ALL&#39;</span> <span class=p>&amp;</span>gt<span class=p>;</span> /etc/sudoers.d/vagrant
+chmod <span class=m>440</span> /etc/sudoers.d/vagrant
+<span class=c1># no tty</span>
+<span class=nb>echo</span> <span class=s2>&#34;Defaults !requiretty&#34;</span> <span class=p>&amp;</span>gt<span class=p>;&amp;</span>gt<span class=p>;</span> /etc/sudoers</code></pre></div><ul><li>&ldquo;scripts/vagrant.sh&rdquo;: create vagrant user and add vagrant public key to vagrant user (for VirtualBox) and to root user (for Docker)</li></ul><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=cp>#!/bin/bash
+</span><span class=cp></span>
+<span class=c1>### WARNING: DO NOT FORGET TO REMOVE IT IF ACCESSIBLE FROM OUTSIDE !!!</span>
 
-<span class="k">function</span> add_vagrant_key <span class="o">{</span>
-    <span class="nv">homedir</span><span class="o">=</span><span class="k">$(</span>su - <span class="nv">$1</span> -c <span class="s1">&#39;echo $HOME&#39;</span><span class="k">)</span>
-    mkdir -p <span class="nv">$homedir</span>/.ssh
-    curl -L <span class="s1">&#39;https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub&#39;</span> -o <span class="nv">$homedir</span>/.ssh/authorized_keys2
-    chown -Rf <span class="nv">$1</span>. <span class="nv">$homedir</span>/.ssh
-    chmod <span class="m">700</span> <span class="nv">$homedir</span>/.ssh
-    chmod <span class="m">600</span> <span class="nv">$homedir</span>/.ssh/authorized_keys2
-<span class="o">}</span>
+<span class=k>function</span> add_vagrant_key <span class=o>{</span>
+    <span class=nv>homedir</span><span class=o>=</span><span class=k>$(</span>su - <span class=nv>$1</span> -c <span class=s1>&#39;echo $HOME&#39;</span><span class=k>)</span>
+    mkdir -p <span class=nv>$homedir</span>/.ssh
+    curl -L <span class=s1>&#39;https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub&#39;</span> -o <span class=nv>$homedir</span>/.ssh/authorized_keys2
+    chown -Rf <span class=nv>$1</span>. <span class=nv>$homedir</span>/.ssh
+    chmod <span class=m>700</span> <span class=nv>$homedir</span>/.ssh
+    chmod <span class=m>600</span> <span class=nv>$homedir</span>/.ssh/authorized_keys2
+<span class=o>}</span>
 
-<span class="k">if</span> <span class="o">[</span> <span class="k">$(</span>grep -c vagrant /etc/passwd<span class="k">)</span> <span class="o">==</span> <span class="m">0</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+<span class=k>if</span> <span class=o>[</span> <span class=k>$(</span>grep -c vagrant /etc/passwd<span class=k>)</span> <span class=o>==</span> <span class=m>0</span> <span class=o>]</span> <span class=p>;</span> <span class=k>then</span>
     useradd vagrant -m
-<span class="k">fi</span>
+<span class=k>fi</span>
 
-<span class="c1"># Add public key to vagrant user</span>
+<span class=c1># Add public key to vagrant user</span>
 add_vagrant_key vagrant
-<span class="c1"># Needed for vagrant provider using docker</span>
-add_vagrant_key root</code></pre></div>
-<ul>
-<li>&ldquo;scripts/ansible_bin.sh&rdquo;: install Ansible to be able to run playbooks locally</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
-</span><span class="cp"></span>
-<span class="c1"># Install backports for wheezy</span>
-<span class="k">if</span> <span class="o">[</span> <span class="k">$(</span>grep -c <span class="s2">&#34;^7\.&#34;</span> /etc/debian_version<span class="k">)</span> <span class="o">==</span> <span class="m">1</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&#34;deb http://http.debian.net/debian wheezy-backports main&#34;</span> <span class="p">&amp;</span>gt<span class="p">;</span> /etc/apt/sources.list.d/backports.list
+<span class=c1># Needed for vagrant provider using docker</span>
+add_vagrant_key root</code></pre></div><ul><li>&ldquo;scripts/ansible_bin.sh&rdquo;: install Ansible to be able to run playbooks locally</li></ul><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=cp>#!/bin/bash
+</span><span class=cp></span>
+<span class=c1># Install backports for wheezy</span>
+<span class=k>if</span> <span class=o>[</span> <span class=k>$(</span>grep -c <span class=s2>&#34;^7\.&#34;</span> /etc/debian_version<span class=k>)</span> <span class=o>==</span> <span class=m>1</span> <span class=o>]</span> <span class=p>;</span> <span class=k>then</span>
+    <span class=nb>echo</span> <span class=s2>&#34;deb http://http.debian.net/debian wheezy-backports main&#34;</span> <span class=p>&amp;</span>gt<span class=p>;</span> /etc/apt/sources.list.d/backports.list
     apt-get update
-<span class="k">fi</span>
-<span class="c1"># Install Ansible</span>
+<span class=k>fi</span>
+<span class=c1># Install Ansible</span>
 apt-get -y install ansible
 touch /var/log/ansible.log
-chown vagrant. /var/log/ansible.log</code></pre></div>
-<ul>
-<li>&ldquo;<a href="https://github.com/deimosfr/packer-wheezy/blob/master/scripts/vbaddguest.sh">scripts/vbaddguest.sh</a>&quot;: install virtualbox guests additions</li>
-<li>&ldquo;<a href="https://github.com/deimosfr/packer-wheezy/blob/master/scripts/cleanup.sh">scripts/cleanup.sh</a>&quot;: cleanup script to reduce the VM/container size</li>
-</ul>
-<p>Now we&rsquo;re ready to play ! You can have a variables file that will override the default set vars in your Packer file. Example:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
-    <span class="s2">&#34;debian_version&#34;</span><span class="o">:</span> <span class="s2">&#34;7.7.0&#34;</span><span class="p">,</span>
-    <span class="s2">&#34;iso_checksum&#34;</span><span class="o">:</span> <span class="s2">&#34;5cb6e4fea55fbb5173f90c3a545b843c6c193e29c3aa32b3306c9bbdfb1ad6a6a36ae8be50e91af9d03d5f21c472bd05d04d3508172e0b519e76714333c7c74b&#34;</span><span class="p">,</span>
-    <span class="s2">&#34;ansible_inventory_file&#34;</span><span class="o">:</span> <span class="s2">&#34;ansible_inventory_file&#34;</span><span class="p">,</span>
-    <span class="s2">&#34;ansible_environment&#34;</span><span class="o">:</span> <span class="s2">&#34;prod&#34;</span><span class="p">,</span>
-    <span class="s2">&#34;soft_version&#34;</span><span class="o">:</span> <span class="s2">&#34;0.1&#34;</span>
-<span class="p">}</span></code></pre></div>
-<p>Now if I want to create an exported VirtualBox .box with default vars, I only have to run:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">packer build -only<span class="o">=</span>virtualbox-iso packerfile</code></pre></div>
-<p>And if I want a Docker container added to your images with my custom vars:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">packer build -only<span class="o">=</span>docker -var-file<span class="o">=</span>packer_vars packerfile</code></pre></div>
-<p>If you do not specify an output format, it will build both in parallel :-)</p>
-<p>Here is the complete packerfile:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
-    <span class="s2">&#34;variables&#34;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&#34;debian_version&#34;</span><span class="o">:</span> <span class="s2">&#34;7.7.0&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;iso_checksum&#34;</span><span class="o">:</span> <span class="s2">&#34;5cb6e4fea55fbb5173f90c3a545b843c6c193e29c3aa32b3306c9bbdfb1ad6a6a36ae8be50e91af9d03d5f21c472bd05d04d3508172e0b519e76714333c7c74b&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;ansible_inventory_file&#34;</span><span class="o">:</span> <span class="s2">&#34;ansible_inventory_file&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;ansible_environment&#34;</span><span class="o">:</span> <span class="s2">&#34;dev&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;soft_version&#34;</span><span class="o">:</span> <span class="s2">&#34;noversion&#34;</span>
-    <span class="p">},</span>
-  <span class="s2">&#34;builders&#34;</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;virtualbox-iso&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;boot_command&#34;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="s2">&#34;&amp;lt;esc&amp;gt;&amp;lt;wait&amp;gt;&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;install &amp;lt;wait&amp;gt;&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg &amp;lt;wait&amp;gt;&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;debian-installer=en_US &amp;lt;wait&amp;gt;&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;auto &amp;lt;wait&amp;gt;&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;locale=en_US &amp;lt;wait&amp;gt;&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;kbd-chooser/method=us &amp;lt;wait&amp;gt;&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;keyboard-configuration/xkb-keymap=us &amp;lt;wait&amp;gt;&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;netcfg/get_hostname={{ .Name }} &amp;lt;wait&amp;gt;&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;netcfg/get_domain=vagrantup.com &amp;lt;wait&amp;gt;&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;fb=false &amp;lt;wait&amp;gt;&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;debconf/frontend=noninteractive &amp;lt;wait&amp;gt;&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;console-setup/ask_detect=false &amp;lt;wait&amp;gt;&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;console-keymaps-at/keymap=us &amp;lt;wait&amp;gt;&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;&amp;lt;enter&amp;gt;&amp;lt;wait&amp;gt;&#34;</span>
-      <span class="p">],</span>
-      <span class="s2">&#34;boot_wait&#34;</span><span class="o">:</span> <span class="s2">&#34;10s&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;disk_size&#34;</span><span class="o">:</span> <span class="mi">32768</span><span class="p">,</span>
-      <span class="s2">&#34;guest_os_type&#34;</span><span class="o">:</span> <span class="s2">&#34;Debian_64&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;headless&#34;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-      <span class="s2">&#34;http_directory&#34;</span><span class="o">:</span> <span class="s2">&#34;http&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;iso_checksum&#34;</span><span class="o">:</span> <span class="s2">&#34;{{user `iso_checksum`}}&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;iso_checksum_type&#34;</span><span class="o">:</span> <span class="s2">&#34;sha512&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;iso_url&#34;</span><span class="o">:</span> <span class="s2">&#34;http://cdimage.debian.org/cdimage/release/{{user `debian_version`}}/amd64/iso-cd/debian-{{user `debian_version`}}-amd64-netinst.iso&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;ssh_username&#34;</span><span class="o">:</span> <span class="s2">&#34;vagrant&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;ssh_password&#34;</span><span class="o">:</span> <span class="s2">&#34;vagrant&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;ssh_port&#34;</span><span class="o">:</span> <span class="mi">22</span><span class="p">,</span>
-      <span class="s2">&#34;ssh_wait_timeout&#34;</span><span class="o">:</span> <span class="s2">&#34;10000s&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;shutdown_command&#34;</span><span class="o">:</span> <span class="s2">&#34;echo &#39;vagrant&#39;|sudo -S /sbin/shutdown -hP now&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;guest_additions_path&#34;</span><span class="o">:</span> <span class="s2">&#34;VBoxGuestAdditions_{{.Version}}.iso&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;virtualbox_version_file&#34;</span><span class="o">:</span> <span class="s2">&#34;.vbox_version&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;vm_name&#34;</span><span class="o">:</span> <span class="s2">&#34;debian-{{user `debian_version`}}-amd64&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;vboxmanage&#34;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">[</span> <span class="s2">&#34;modifyvm&#34;</span><span class="p">,</span> <span class="s2">&#34;{{.Name}}&#34;</span><span class="p">,</span> <span class="s2">&#34;--memory&#34;</span><span class="p">,</span> <span class="s2">&#34;512&#34;</span> <span class="p">],</span>
-        <span class="p">[</span> <span class="s2">&#34;modifyvm&#34;</span><span class="p">,</span> <span class="s2">&#34;{{.Name}}&#34;</span><span class="p">,</span> <span class="s2">&#34;--cpus&#34;</span><span class="p">,</span> <span class="s2">&#34;1&#34;</span> <span class="p">]</span>
-      <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;docker&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;image&#34;</span><span class="o">:</span> <span class="s2">&#34;debian:wheezy&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;export_path&#34;</span><span class="o">:</span> <span class="s2">&#34;debian.tar&#34;</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="s2">&#34;post-processors&#34;</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;vagrant&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;compression_level&#34;</span><span class="o">:</span> <span class="s2">&#34;9&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;output&#34;</span><span class="o">:</span> <span class="s2">&#34;wheezy_{{user `debian_version`}}-{{user `soft_version`}}.box&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;only&#34;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;virtualbox-iso&#34;</span><span class="p">]</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;docker-import&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;repository&#34;</span><span class="o">:</span> <span class="s2">&#34;smash&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;tag&#34;</span><span class="o">:</span> <span class="s2">&#34;wheezy_{{user `debian_version`}}-{{user `soft_version`}}&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;only&#34;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;docker&#34;</span><span class="p">]</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="s2">&#34;provisioners&#34;</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;shell&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;execute_command&#34;</span><span class="o">:</span> <span class="s2">&#34;echo &#39;vagrant&#39; | {{.Vars}} sudo -E -S bash &#39;{{.Path}}&#39;&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;scripts&#34;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="s2">&#34;scripts/update.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/sshd.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/networking.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/ansible_prequesites.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/sudoers.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/vagrant.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/vbaddguest.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/ansible_bin.sh&#34;</span>
-      <span class="p">],</span>
-      <span class="s2">&#34;only&#34;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;virtualbox-iso&#34;</span><span class="p">]</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;shell&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;scripts&#34;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="s2">&#34;scripts/update.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/sshd.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/networking.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/ansible_prequesites.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/sudoers.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/vagrant.sh&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;scripts/ansible_bin.sh&#34;</span>
-      <span class="p">],</span>
-      <span class="s2">&#34;only&#34;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;docker&#34;</span><span class="p">]</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;ansible-local&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;playbook_dir&#34;</span><span class="o">:</span> <span class="s2">&#34;..&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;playbook_file&#34;</span><span class="o">:</span> <span class="s2">&#34;../site.yml&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;inventory_file&#34;</span><span class="o">:</span> <span class="s2">&#34;{{user `ansible_inventory_file`}}&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;extra_arguments&#34;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;-e&#34;</span><span class="p">,</span> <span class="s2">&#34;set_env={{user `ansible_environment`}}&#34;</span><span class="p">,</span> <span class="s2">&#34;-v&#34;</span><span class="p">]</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;shell&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;execute_command&#34;</span><span class="o">:</span> <span class="s2">&#34;echo &#39;vagrant&#39; | {{.Vars}} sudo -E -S bash &#39;{{.Path}}&#39;&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;scripts&#34;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="s2">&#34;scripts/cleanup.sh&#34;</span>
-      <span class="p">],</span>
-      <span class="s2">&#34;only&#34;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;virtualbox-iso&#34;</span><span class="p">]</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;shell&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;scripts&#34;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="s2">&#34;scripts/cleanup.sh&#34;</span>
-      <span class="p">],</span>
-      <span class="s2">&#34;only&#34;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;docker&#34;</span><span class="p">]</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span></code></pre></div>
-<p>Thanks again to Hashicorp and hope you enjoyed explanations !</p>
-
-              
-
-
-            </div>
-          </div>
-          <div id="post-footer" class="post-footer main-content-wrap">
-            
-              
-                
-                
-                  <div class="post-footer-tags">
-                    <span class="text-color-light text-small">TAGGED IN</span><br/>
-                    
-  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/ansible/">ansible</a>
-
-  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/debian/">debian</a>
-
-  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/docker/">docker</a>
-
-  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/packer/">packer</a>
-
-  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/virtualbox/">virtualbox</a>
-
-                  </div>
-                
-              
-            
-            
-<div class="post-actions-wrap">
-  <nav >
-    <ul class="post-actions post-action-nav">
-      
-        <li class="post-action">
-          
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/01/20/simple-ec2-snapshot-released/" data-tooltip="Simple EC2 snapshot released !" aria-label="NEXT: Simple EC2 snapshot released !">
-          
-              <i class="fa fa-angle-left"></i>
-              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-            </a>
-        </li>
-        <li class="post-action">
-          
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/01/13/vagrant-provision-vms-and-containers-with-ansible/" data-tooltip="Vagrant: provision vms and containers with Ansible" aria-label="PREVIOUS: Vagrant: provision vms and containers with Ansible">
-          
-              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-              <i class="fa fa-angle-right"></i>
-            </a>
-        </li>
-      
-    </ul>
-  </nav>
-<ul class="post-actions post-action-share" >
-  
-    <li class="post-action hide-lg hide-md hide-sm">
-      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
-        <i class="fa fa-share-alt" aria-hidden="true"></i>
-      </a>
-    </li>
-    
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/" title="Share on Facebook" aria-label="Share on Facebook">
-          <i class="fab fa-facebook-square" aria-hidden="true"></i>
-        </a>
-      </li>
-    
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/" title="Share on Twitter" aria-label="Share on Twitter">
-          <i class="fab fa-twitter" aria-hidden="true"></i>
-        </a>
-      </li>
-    
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.reddit.com/submit?url=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/" title="Share on Reddit" aria-label="Share on Reddit">
-          <i class="fab fa-reddit" aria-hidden="true"></i>
-        </a>
-      </li>
-    
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://news.ycombinator.com/submitlink?u=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/" title="Share on Hacker News" aria-label="Share on Hacker News">
-          <i class="fab fa-hacker-news" aria-hidden="true"></i>
-        </a>
-      </li>
-    
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/" title="Share on Linkedin" aria-label="Share on Linkedin">
-          <i class="fab fa-linkedin" aria-hidden="true"></i>
-        </a>
-      </li>
-    
-  
-  
-    <li class="post-action">
-      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
-        <i class="far fa-comment"></i>
-      </a>
-    </li>
-  
-  <li class="post-action">
-    
-      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
-      <i class="fa fa-arrow-up" aria-hidden="true"></i>
-    
-    </a>
-  </li>
-</ul>
-</div>
-
-
-            
-  
-    <div id="disqus_thread">
-      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-    </div>
-    <script type="text/javascript">
-      var disqus_config = function() {
-        this.page.url = 'https:\/\/blog.deimos.fr\/2015\/01\/16\/packer-build-multiple-images-easily\/';
-        
-          this.page.identifier = '\/2015\/01\/16\/packer-build-multiple-images-easily\/'
-        
-      };
-      (function() {
-        
-        
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-          document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-          return;
-        }
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        var disqus_shortname = 'blog-deimosfr';
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
-    </script>
-  
-
-
-          </div>
-        </article>
-        <footer id="footer" class="main-content-wrap">
-  <span class="copyrights">
-    &copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved
-  </span>
-</footer>
-
-      </div>
-      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        
-<div class="post-actions-wrap">
-  <nav >
-    <ul class="post-actions post-action-nav">
-      
-        <li class="post-action">
-          
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/01/20/simple-ec2-snapshot-released/" data-tooltip="Simple EC2 snapshot released !" aria-label="NEXT: Simple EC2 snapshot released !">
-          
-              <i class="fa fa-angle-left"></i>
-              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-            </a>
-        </li>
-        <li class="post-action">
-          
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2015/01/13/vagrant-provision-vms-and-containers-with-ansible/" data-tooltip="Vagrant: provision vms and containers with Ansible" aria-label="PREVIOUS: Vagrant: provision vms and containers with Ansible">
-          
-              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-              <i class="fa fa-angle-right"></i>
-            </a>
-        </li>
-      
-    </ul>
-  </nav>
-<ul class="post-actions post-action-share" >
-  
-    <li class="post-action hide-lg hide-md hide-sm">
-      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
-        <i class="fa fa-share-alt" aria-hidden="true"></i>
-      </a>
-    </li>
-    
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/" title="Share on Facebook" aria-label="Share on Facebook">
-          <i class="fab fa-facebook-square" aria-hidden="true"></i>
-        </a>
-      </li>
-    
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/" title="Share on Twitter" aria-label="Share on Twitter">
-          <i class="fab fa-twitter" aria-hidden="true"></i>
-        </a>
-      </li>
-    
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.reddit.com/submit?url=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/" title="Share on Reddit" aria-label="Share on Reddit">
-          <i class="fab fa-reddit" aria-hidden="true"></i>
-        </a>
-      </li>
-    
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://news.ycombinator.com/submitlink?u=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/" title="Share on Hacker News" aria-label="Share on Hacker News">
-          <i class="fab fa-hacker-news" aria-hidden="true"></i>
-        </a>
-      </li>
-    
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/" title="Share on Linkedin" aria-label="Share on Linkedin">
-          <i class="fab fa-linkedin" aria-hidden="true"></i>
-        </a>
-      </li>
-    
-  
-  
-    <li class="post-action">
-      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
-        <i class="far fa-comment"></i>
-      </a>
-    </li>
-  
-  <li class="post-action">
-    
-      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
-      <i class="fa fa-arrow-up" aria-hidden="true"></i>
-    
-    </a>
-  </li>
-</ul>
-</div>
-
-
-      </div>
-      
-<div id="share-options-bar" class="share-options-bar" data-behavior="5">
-  <i id="btn-close-shareoptions" class="fa fa-times"></i>
-  <ul class="share-options">
-    
-      <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2015%2F01%2F16%2Fpacker-build-multiple-images-easily%2F" aria-label="Share on Facebook">
-          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>Share on Facebook</span>
-        </a>
-      </li>
-    
-      <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2015%2F01%2F16%2Fpacker-build-multiple-images-easily%2F" aria-label="Share on Twitter">
-          <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
-        </a>
-      </li>
-    
-      <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.reddit.com/submit?url=https%3A%2F%2Fblog.deimos.fr%2F2015%2F01%2F16%2Fpacker-build-multiple-images-easily%2F" aria-label="Share on Reddit">
-          <i class="fab fa-reddit" aria-hidden="true"></i><span>Share on Reddit</span>
-        </a>
-      </li>
-    
-      <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fblog.deimos.fr%2F2015%2F01%2F16%2Fpacker-build-multiple-images-easily%2F" aria-label="Share on Hacker News">
-          <i class="fab fa-hacker-news" aria-hidden="true"></i><span>Share on Hacker News</span>
-        </a>
-      </li>
-    
-      <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fblog.deimos.fr%2F2015%2F01%2F16%2Fpacker-build-multiple-images-easily%2F" aria-label="Share on Linkedin">
-          <i class="fab fa-linkedin" aria-hidden="true"></i><span>Share on Linkedin</span>
-        </a>
-      </li>
-    
-  </ul>
-</div>
-<div id="share-options-mask" class="share-options-mask"></div>
-
-
-    </div>
-    
-    <div id="about">
-  <div id="about-card">
-    <div id="about-btn-close">
-      <i class="fa fa-times"></i>
-    </div>
-    
-      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
-    
-    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
-    
-    
-      <div id="about-card-job">
-        <i class="fa fa-briefcase"></i>
-        <br/>
-        Qovery Co-Founder and CTO
-      </div>
-    
-    
-      <div id="about-card-location">
-        <i class="fa fa-map-marker-alt"></i>
-        <br/>
-        Paris - France
-      </div>
-    
-  </div>
-</div>
-
-    
-
-    
-  
-    
-      
-      <div id="cover" style="background-image:url('https://blog.deimos.fr/images/fish_background.jpg');"></div>
-    
-  
-
-
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
-<script src="https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
-
-
-  
-    <script src="https://blog.deimos.fr/js/custom.js"></script>
-  
-
-
-<script>
-$(document).ready(function() {
-  hljs.configure({ classPrefix: '', useBR: false });
-  $('pre.code-highlight > code, pre > code').each(function(i, block) {
-    if (!$(this).hasClass('codeblock')) {
-      $(this).addClass('codeblock');
-    }
-    hljs.highlightBlock(block);
-  });
-});
-</script>
-
-
-
-
-    
-  </body>
-</html>
-
+chown vagrant. /var/log/ansible.log</code></pre></div><ul><li>&ldquo;<a href=https://github.com/deimosfr/packer-wheezy/blob/master/scripts/vbaddguest.sh>scripts/vbaddguest.sh</a>": install virtualbox guests additions</li><li>&ldquo;<a href=https://github.com/deimosfr/packer-wheezy/blob/master/scripts/cleanup.sh>scripts/cleanup.sh</a>": cleanup script to reduce the VM/container size</li></ul><p>Now we&rsquo;re ready to play ! You can have a variables file that will override the default set vars in your Packer file. Example:</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=p>{</span>
+    <span class=s2>&#34;debian_version&#34;</span><span class=o>:</span> <span class=s2>&#34;7.7.0&#34;</span><span class=p>,</span>
+    <span class=s2>&#34;iso_checksum&#34;</span><span class=o>:</span> <span class=s2>&#34;5cb6e4fea55fbb5173f90c3a545b843c6c193e29c3aa32b3306c9bbdfb1ad6a6a36ae8be50e91af9d03d5f21c472bd05d04d3508172e0b519e76714333c7c74b&#34;</span><span class=p>,</span>
+    <span class=s2>&#34;ansible_inventory_file&#34;</span><span class=o>:</span> <span class=s2>&#34;ansible_inventory_file&#34;</span><span class=p>,</span>
+    <span class=s2>&#34;ansible_environment&#34;</span><span class=o>:</span> <span class=s2>&#34;prod&#34;</span><span class=p>,</span>
+    <span class=s2>&#34;soft_version&#34;</span><span class=o>:</span> <span class=s2>&#34;0.1&#34;</span>
+<span class=p>}</span>
+</code></pre></div><p>Now if I want to create an exported VirtualBox .box with default vars, I only have to run:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>packer build -only<span class=o>=</span>virtualbox-iso packerfile</code></pre></div><p>And if I want a Docker container added to your images with my custom vars:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>packer build -only<span class=o>=</span>docker -var-file<span class=o>=</span>packer_vars packerfile</code></pre></div><p>If you do not specify an output format, it will build both in parallel :-)</p><p>Here is the complete packerfile:</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=p>{</span>
+    <span class=s2>&#34;variables&#34;</span><span class=o>:</span> <span class=p>{</span>
+        <span class=s2>&#34;debian_version&#34;</span><span class=o>:</span> <span class=s2>&#34;7.7.0&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;iso_checksum&#34;</span><span class=o>:</span> <span class=s2>&#34;5cb6e4fea55fbb5173f90c3a545b843c6c193e29c3aa32b3306c9bbdfb1ad6a6a36ae8be50e91af9d03d5f21c472bd05d04d3508172e0b519e76714333c7c74b&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;ansible_inventory_file&#34;</span><span class=o>:</span> <span class=s2>&#34;ansible_inventory_file&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;ansible_environment&#34;</span><span class=o>:</span> <span class=s2>&#34;dev&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;soft_version&#34;</span><span class=o>:</span> <span class=s2>&#34;noversion&#34;</span>
+    <span class=p>},</span>
+  <span class=s2>&#34;builders&#34;</span><span class=o>:</span> <span class=p>[</span>
+    <span class=p>{</span>
+      <span class=s2>&#34;type&#34;</span><span class=o>:</span> <span class=s2>&#34;virtualbox-iso&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;boot_command&#34;</span><span class=o>:</span> <span class=p>[</span>
+        <span class=s2>&#34;&amp;lt;esc&amp;gt;&amp;lt;wait&amp;gt;&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;install &amp;lt;wait&amp;gt;&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg &amp;lt;wait&amp;gt;&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;debian-installer=en_US &amp;lt;wait&amp;gt;&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;auto &amp;lt;wait&amp;gt;&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;locale=en_US &amp;lt;wait&amp;gt;&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;kbd-chooser/method=us &amp;lt;wait&amp;gt;&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;keyboard-configuration/xkb-keymap=us &amp;lt;wait&amp;gt;&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;netcfg/get_hostname={{ .Name }} &amp;lt;wait&amp;gt;&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;netcfg/get_domain=vagrantup.com &amp;lt;wait&amp;gt;&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;fb=false &amp;lt;wait&amp;gt;&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;debconf/frontend=noninteractive &amp;lt;wait&amp;gt;&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;console-setup/ask_detect=false &amp;lt;wait&amp;gt;&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;console-keymaps-at/keymap=us &amp;lt;wait&amp;gt;&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;&amp;lt;enter&amp;gt;&amp;lt;wait&amp;gt;&#34;</span>
+      <span class=p>],</span>
+      <span class=s2>&#34;boot_wait&#34;</span><span class=o>:</span> <span class=s2>&#34;10s&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;disk_size&#34;</span><span class=o>:</span> <span class=mi>32768</span><span class=p>,</span>
+      <span class=s2>&#34;guest_os_type&#34;</span><span class=o>:</span> <span class=s2>&#34;Debian_64&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;headless&#34;</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+      <span class=s2>&#34;http_directory&#34;</span><span class=o>:</span> <span class=s2>&#34;http&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;iso_checksum&#34;</span><span class=o>:</span> <span class=s2>&#34;{{user `iso_checksum`}}&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;iso_checksum_type&#34;</span><span class=o>:</span> <span class=s2>&#34;sha512&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;iso_url&#34;</span><span class=o>:</span> <span class=s2>&#34;http://cdimage.debian.org/cdimage/release/{{user `debian_version`}}/amd64/iso-cd/debian-{{user `debian_version`}}-amd64-netinst.iso&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;ssh_username&#34;</span><span class=o>:</span> <span class=s2>&#34;vagrant&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;ssh_password&#34;</span><span class=o>:</span> <span class=s2>&#34;vagrant&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;ssh_port&#34;</span><span class=o>:</span> <span class=mi>22</span><span class=p>,</span>
+      <span class=s2>&#34;ssh_wait_timeout&#34;</span><span class=o>:</span> <span class=s2>&#34;10000s&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;shutdown_command&#34;</span><span class=o>:</span> <span class=s2>&#34;echo &#39;vagrant&#39;|sudo -S /sbin/shutdown -hP now&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;guest_additions_path&#34;</span><span class=o>:</span> <span class=s2>&#34;VBoxGuestAdditions_{{.Version}}.iso&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;virtualbox_version_file&#34;</span><span class=o>:</span> <span class=s2>&#34;.vbox_version&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;vm_name&#34;</span><span class=o>:</span> <span class=s2>&#34;debian-{{user `debian_version`}}-amd64&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;vboxmanage&#34;</span><span class=o>:</span> <span class=p>[</span>
+        <span class=p>[</span> <span class=s2>&#34;modifyvm&#34;</span><span class=p>,</span> <span class=s2>&#34;{{.Name}}&#34;</span><span class=p>,</span> <span class=s2>&#34;--memory&#34;</span><span class=p>,</span> <span class=s2>&#34;512&#34;</span> <span class=p>],</span>
+        <span class=p>[</span> <span class=s2>&#34;modifyvm&#34;</span><span class=p>,</span> <span class=s2>&#34;{{.Name}}&#34;</span><span class=p>,</span> <span class=s2>&#34;--cpus&#34;</span><span class=p>,</span> <span class=s2>&#34;1&#34;</span> <span class=p>]</span>
+      <span class=p>]</span>
+    <span class=p>},</span>
+    <span class=p>{</span>
+      <span class=s2>&#34;type&#34;</span><span class=o>:</span> <span class=s2>&#34;docker&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;image&#34;</span><span class=o>:</span> <span class=s2>&#34;debian:wheezy&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;export_path&#34;</span><span class=o>:</span> <span class=s2>&#34;debian.tar&#34;</span>
+    <span class=p>}</span>
+  <span class=p>],</span>
+  <span class=s2>&#34;post-processors&#34;</span><span class=o>:</span> <span class=p>[</span>
+    <span class=p>{</span>
+      <span class=s2>&#34;type&#34;</span><span class=o>:</span> <span class=s2>&#34;vagrant&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;compression_level&#34;</span><span class=o>:</span> <span class=s2>&#34;9&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;output&#34;</span><span class=o>:</span> <span class=s2>&#34;wheezy_{{user `debian_version`}}-{{user `soft_version`}}.box&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;only&#34;</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;virtualbox-iso&#34;</span><span class=p>]</span>
+    <span class=p>},</span>
+    <span class=p>{</span>
+      <span class=s2>&#34;type&#34;</span><span class=o>:</span> <span class=s2>&#34;docker-import&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;repository&#34;</span><span class=o>:</span> <span class=s2>&#34;smash&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;tag&#34;</span><span class=o>:</span> <span class=s2>&#34;wheezy_{{user `debian_version`}}-{{user `soft_version`}}&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;only&#34;</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;docker&#34;</span><span class=p>]</span>
+    <span class=p>}</span>
+  <span class=p>],</span>
+  <span class=s2>&#34;provisioners&#34;</span><span class=o>:</span> <span class=p>[</span>
+    <span class=p>{</span>
+      <span class=s2>&#34;type&#34;</span><span class=o>:</span> <span class=s2>&#34;shell&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;execute_command&#34;</span><span class=o>:</span> <span class=s2>&#34;echo &#39;vagrant&#39; | {{.Vars}} sudo -E -S bash &#39;{{.Path}}&#39;&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;scripts&#34;</span><span class=o>:</span> <span class=p>[</span>
+        <span class=s2>&#34;scripts/update.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/sshd.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/networking.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/ansible_prequesites.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/sudoers.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/vagrant.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/vbaddguest.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/ansible_bin.sh&#34;</span>
+      <span class=p>],</span>
+      <span class=s2>&#34;only&#34;</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;virtualbox-iso&#34;</span><span class=p>]</span>
+    <span class=p>},</span>
+    <span class=p>{</span>
+      <span class=s2>&#34;type&#34;</span><span class=o>:</span> <span class=s2>&#34;shell&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;scripts&#34;</span><span class=o>:</span> <span class=p>[</span>
+        <span class=s2>&#34;scripts/update.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/sshd.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/networking.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/ansible_prequesites.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/sudoers.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/vagrant.sh&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;scripts/ansible_bin.sh&#34;</span>
+      <span class=p>],</span>
+      <span class=s2>&#34;only&#34;</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;docker&#34;</span><span class=p>]</span>
+    <span class=p>},</span>
+    <span class=p>{</span>
+        <span class=s2>&#34;type&#34;</span><span class=o>:</span> <span class=s2>&#34;ansible-local&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;playbook_dir&#34;</span><span class=o>:</span> <span class=s2>&#34;..&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;playbook_file&#34;</span><span class=o>:</span> <span class=s2>&#34;../site.yml&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;inventory_file&#34;</span><span class=o>:</span> <span class=s2>&#34;{{user `ansible_inventory_file`}}&#34;</span><span class=p>,</span>
+        <span class=s2>&#34;extra_arguments&#34;</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;-e&#34;</span><span class=p>,</span> <span class=s2>&#34;set_env={{user `ansible_environment`}}&#34;</span><span class=p>,</span> <span class=s2>&#34;-v&#34;</span><span class=p>]</span>
+    <span class=p>},</span>
+    <span class=p>{</span>
+      <span class=s2>&#34;type&#34;</span><span class=o>:</span> <span class=s2>&#34;shell&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;execute_command&#34;</span><span class=o>:</span> <span class=s2>&#34;echo &#39;vagrant&#39; | {{.Vars}} sudo -E -S bash &#39;{{.Path}}&#39;&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;scripts&#34;</span><span class=o>:</span> <span class=p>[</span>
+        <span class=s2>&#34;scripts/cleanup.sh&#34;</span>
+      <span class=p>],</span>
+      <span class=s2>&#34;only&#34;</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;virtualbox-iso&#34;</span><span class=p>]</span>
+    <span class=p>},</span>
+    <span class=p>{</span>
+      <span class=s2>&#34;type&#34;</span><span class=o>:</span> <span class=s2>&#34;shell&#34;</span><span class=p>,</span>
+      <span class=s2>&#34;scripts&#34;</span><span class=o>:</span> <span class=p>[</span>
+        <span class=s2>&#34;scripts/cleanup.sh&#34;</span>
+      <span class=p>],</span>
+      <span class=s2>&#34;only&#34;</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;docker&#34;</span><span class=p>]</span>
+    <span class=p>}</span>
+  <span class=p>]</span>
+<span class=p>}</span>
+</code></pre></div><p>Thanks again to Hashicorp and hope you enjoyed explanations !</p></div></div><div id=post-footer class="post-footer main-content-wrap"><div class=post-footer-tags><span class="text-color-light text-small">TAGGED IN</span><br><a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/ansible/>ansible</a>
+<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/debian/>debian</a>
+<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/docker/>docker</a>
+<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/packer/>packer</a>
+<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/virtualbox/>virtualbox</a></div><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2015/01/20/simple-ec2-snapshot-released/ data-tooltip="Simple EC2 snapshot released !" aria-label="NEXT: Simple EC2 snapshot released !"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2015/01/13/vagrant-provision-vms-and-containers-with-ansible/ data-tooltip="Vagrant: provision vms and containers with Ansible" aria-label="PREVIOUS: Vagrant: provision vms and containers with Ansible"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post"><i class="fa fa-share-alt" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/" title="Share on Facebook" aria-label="Share on Facebook"><i class="fab fa-facebook-square" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/" title="Share on Twitter" aria-label="Share on Twitter"><i class="fab fa-twitter" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.reddit.com/submit?url=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/" title="Share on Reddit" aria-label="Share on Reddit"><i class="fab fa-reddit" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://news.ycombinator.com/submitlink?u=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/" title="Share on Hacker News" aria-label="Share on Hacker News"><i class="fab fa-hacker-news" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.linkedin.com/sharing/share-offsite/?url=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/" title="Share on Linkedin" aria-label="Share on Linkedin"><i class="fab fa-linkedin" aria-hidden=true></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#disqus_thread aria-label="Leave a comment"><i class="far fa-comment"></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#top aria-label="Back to top"><i class="fa fa-arrow-up" aria-hidden=true></i></a></li></ul></div><div id=disqus_thread><noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript></div><script type=text/javascript>var disqus_config=function(){this.page.url='https:\/\/blog.deimos.fr\/2015\/01\/16\/packer-build-multiple-images-easily\/';this.page.identifier='\/2015\/01\/16\/packer-build-multiple-images-easily\/'};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return;}
+var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='blog-deimosfr';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script></div></article><footer id=footer class=main-content-wrap><span class=copyrights>&copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved</span></footer></div><div id=bottom-bar class=post-bottom-bar data-behavior=5><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2015/01/20/simple-ec2-snapshot-released/ data-tooltip="Simple EC2 snapshot released !" aria-label="NEXT: Simple EC2 snapshot released !"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2015/01/13/vagrant-provision-vms-and-containers-with-ansible/ data-tooltip="Vagrant: provision vms and containers with Ansible" aria-label="PREVIOUS: Vagrant: provision vms and containers with Ansible"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post"><i class="fa fa-share-alt" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/" title="Share on Facebook" aria-label="Share on Facebook"><i class="fab fa-facebook-square" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/" title="Share on Twitter" aria-label="Share on Twitter"><i class="fab fa-twitter" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.reddit.com/submit?url=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/" title="Share on Reddit" aria-label="Share on Reddit"><i class="fab fa-reddit" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://news.ycombinator.com/submitlink?u=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/" title="Share on Hacker News" aria-label="Share on Hacker News"><i class="fab fa-hacker-news" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.linkedin.com/sharing/share-offsite/?url=https://blog.deimos.fr/2015/01/16/packer-build-multiple-images-easily/" title="Share on Linkedin" aria-label="Share on Linkedin"><i class="fab fa-linkedin" aria-hidden=true></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#disqus_thread aria-label="Leave a comment"><i class="far fa-comment"></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#top aria-label="Back to top"><i class="fa fa-arrow-up" aria-hidden=true></i></a></li></ul></div></div><div id=share-options-bar class=share-options-bar data-behavior=5><i id=btn-close-shareoptions class="fa fa-times"></i><ul class=share-options><li class=share-option><a class=share-option-btn target=new href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2015%2F01%2F16%2Fpacker-build-multiple-images-easily%2F" aria-label="Share on Facebook"><i class="fab fa-facebook-square" aria-hidden=true></i><span>Share on Facebook</span></a></li><li class=share-option><a class=share-option-btn target=new href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2015%2F01%2F16%2Fpacker-build-multiple-images-easily%2F" aria-label="Share on Twitter"><i class="fab fa-twitter" aria-hidden=true></i><span>Share on Twitter</span></a></li><li class=share-option><a class=share-option-btn target=new href="https://www.reddit.com/submit?url=https%3A%2F%2Fblog.deimos.fr%2F2015%2F01%2F16%2Fpacker-build-multiple-images-easily%2F" aria-label="Share on Reddit"><i class="fab fa-reddit" aria-hidden=true></i><span>Share on Reddit</span></a></li><li class=share-option><a class=share-option-btn target=new href="https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fblog.deimos.fr%2F2015%2F01%2F16%2Fpacker-build-multiple-images-easily%2F" aria-label="Share on Hacker News"><i class="fab fa-hacker-news" aria-hidden=true></i><span>Share on Hacker News</span></a></li><li class=share-option><a class=share-option-btn target=new href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fblog.deimos.fr%2F2015%2F01%2F16%2Fpacker-build-multiple-images-easily%2F" aria-label="Share on Linkedin"><i class="fab fa-linkedin" aria-hidden=true></i><span>Share on Linkedin</span></a></li></ul></div><div id=share-options-mask class=share-options-mask></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-times"></i></div><img id=about-card-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"><h4 id=about-card-name>Pierre Mavro / Deimosfr</h4><div id=about-card-job><i class="fa fa-briefcase"></i><br>Qovery Co-Founder and CTO</div><div id=about-card-location><i class="fa fa-map-marker-alt"></i><br>Paris - France</div></div></div><div id=cover style=background-image:url(https://blog.deimos.fr/images/fish_background.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js></script><script src=https://blog.deimos.fr/js/custom.js></script><script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:false});$('pre.code-highlight > code, pre > code').each(function(i,block){if(!$(this).hasClass('codeblock')){$(this).addClass('codeblock');}
+hljs.highlightBlock(block);});});</script></body></html>

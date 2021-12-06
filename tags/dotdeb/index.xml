@@ -1,22 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>dotdeb on Deimosfr Blog</title>
-    <link>https://blog.deimos.fr/tags/dotdeb/</link>
-    <description>Recent content in dotdeb on Deimosfr Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 26 Dec 2014 11:00:07 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/dotdeb/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Ansible: DotDeb and MySQL roles</title>
-      <link>https://blog.deimos.fr/2014/12/26/ansible-dotdeb-and-mysql-roles/</link>
-      <pubDate>Fri, 26 Dec 2014 11:00:07 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2014/12/26/ansible-dotdeb-and-mysql-roles/</guid>
-      <description>For my personal usages, I wanted do use DotDeb and MySQL playbooks. I first looked at the current ones on the Ansible Galaxy. However I did not find a good one for my needs.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>dotdeb on Deimosfr Blog</title><link>https://blog.deimos.fr/tags/dotdeb/</link><description>Recent content in dotdeb on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 26 Dec 2014 11:00:07 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/dotdeb/index.xml" rel="self" type="application/rss+xml"/><item><title>Ansible: DotDeb and MySQL roles</title><link>https://blog.deimos.fr/2014/12/26/ansible-dotdeb-and-mysql-roles/</link><pubDate>Fri, 26 Dec 2014 11:00:07 +0000</pubDate><guid>https://blog.deimos.fr/2014/12/26/ansible-dotdeb-and-mysql-roles/</guid><description>For my personal usages, I wanted do use DotDeb and MySQL playbooks. I first looked at the current ones on the Ansible Galaxy. However I did not find a good one for my needs.
 I first wanted to try to contribute to an existing one. But I needed to have them quickly and unfortunately didn&amp;rsquo;t have the time to do it.
-That&amp;rsquo;s why I made 2 new Ansible roles and added them to Ansible Galaxy.</description>
-    </item>
-    
-  </channel>
-</rss>
+That&amp;rsquo;s why I made 2 new Ansible roles and added them to Ansible Galaxy.</description></item></channel></rss>

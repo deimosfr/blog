@@ -1,22 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>pam on Deimosfr Blog</title>
-    <link>https://blog.deimos.fr/tags/pam/</link>
-    <description>Recent content in pam on Deimosfr Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 14 Mar 2010 10:37:14 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/pam/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>T’as ton passwd ?</title>
-      <link>https://blog.deimos.fr/2010/03/14/tas-ton-passwd/</link>
-      <pubDate>Sun, 14 Mar 2010 10:37:14 +0000</pubDate>
-      
-      <guid>https://blog.deimos.fr/2010/03/14/tas-ton-passwd/</guid>
-      <description>Le titre est une private joke, seuls les inités comprendrons…désolé pour les autres mais j’ai la flemme d’expliquer :-|.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pam on Deimosfr Blog</title><link>https://blog.deimos.fr/tags/pam/</link><description>Recent content in pam on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 14 Mar 2010 10:37:14 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/pam/index.xml" rel="self" type="application/rss+xml"/><item><title>T’as ton passwd ?</title><link>https://blog.deimos.fr/2010/03/14/tas-ton-passwd/</link><pubDate>Sun, 14 Mar 2010 10:37:14 +0000</pubDate><guid>https://blog.deimos.fr/2010/03/14/tas-ton-passwd/</guid><description>Le titre est une private joke, seuls les inités comprendrons…désolé pour les autres mais j’ai la flemme d’expliquer :-|.
 Bref, j&amp;rsquo;avais besoin de forcer mes utilisateurs à utiliser des mots de passe complexe. J&amp;rsquo;ai donc utilisé une librairie (pam_cracklib) qui est assez puissante.
-J&amp;rsquo;ai fais une petite documentation dessus pour ceux qu ça intéresse. Voici la doc sur pam_cracklib.</description>
-    </item>
-    
-  </channel>
-</rss>
+J&amp;rsquo;ai fais une petite documentation dessus pour ceux qu ça intéresse. Voici la doc sur pam_cracklib.</description></item></channel></rss>
