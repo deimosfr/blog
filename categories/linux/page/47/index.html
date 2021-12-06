@@ -1,35 +1,844 @@
-<!doctype html><html lang=en-us><head><script type=application/ld+json>{"@context":"http://schema.org","@type":"Website","@id":"https:\/\/blog.deimos.fr","author":{"@type":"Person","name":"Pierre Mavro / Deimosfr","image":"https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"},"name":"Deimosfr Blog","description":"Deimos Blog","url":"https:\/\/blog.deimos.fr\/categories\/linux\/","keywords":"[]"}</script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Hugo 0.69.2 with theme Tranquilpeak 0.5.2-BETA"><meta name=author content="Pierre Mavro / Deimosfr"><meta name=keywords content><meta name=description content="Deimos Blog"><meta property="og:description" content="Deimos Blog"><meta property="og:type" content="website"><meta property="og:title" content="Linux"><meta name=twitter:title content="Linux"><meta property="og:url" content="https://blog.deimos.fr/categories/linux/"><meta property="twitter:url" content="https://blog.deimos.fr/categories/linux/"><meta property="og:site_name" content="Deimosfr Blog"><meta property="og:description" content="Deimos Blog"><meta name=twitter:description content="Deimos Blog"><meta property="og:locale" content="en-us"><meta name=twitter:card content="summary"><meta name=twitter:site content="@deimosfr"><meta name=twitter:creator content="@deimosfr"><meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><title>Linux</title><link rel=icon href=https://blog.deimos.fr/favicon.png><link rel=alternate type=application/rss+xml title=RSS href=https://blog.deimos.fr/categories/linux/index.xml><link rel=canonical href=https://blog.deimos.fr/categories/linux/><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://blog.deimos.fr/css/style-c5yjx2losbmkttdif4mskx5f9pqjjquywurgngxfvceyyrtyatseix5hpd.min.css><link rel=stylesheet href=https://blog.deimos.fr/css/custom.css><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-63927289-1','auto');ga('send','pageview');}</script></head><body><div id=blog><header id=header data-behavior=2><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=https://blog.deimos.fr/ aria-label="Go to homepage">Deimosfr Blog</a></div><a class=header-right-picture href=https://blog.deimos.fr/#about aria-label="Open the link: /#about"><img class=header-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author's picture"></a></header><nav id=sidebar data-behavior=2><div class=sidebar-container><div class=sidebar-profile><a href=https://blog.deimos.fr/#about aria-label="Read more about the author"><img class=sidebar-profile-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"></a><h4 class=sidebar-profile-name>Pierre Mavro / Deimosfr</h4></div><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/ title=Home><i class="sidebar-button-icon fa fa-lg fa-home"></i><span class=sidebar-button-desc>Home</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/archives title=Archives><i class="sidebar-button-icon fa fa-lg fa-archive"></i><span class=sidebar-button-desc>Archives</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/categories title=Categories><i class="sidebar-button-icon fa fa-lg fa-bookmark"></i><span class=sidebar-button-desc>Categories</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/tags title=Tags><i class="sidebar-button-icon fa fa-lg fa-tags"></i><span class=sidebar-button-desc>Tags</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/index.xml title=RSS><i class="sidebar-button-icon fa fa-lg fa-rss"></i><span class=sidebar-button-desc>RSS</span></a></li></ul><ul class=sidebar-buttons></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://www.deimos.fr target=_blank rel=noopener title=About><i class="sidebar-button-icon fa fa-lg fa-user"></i><span class=sidebar-button-desc>About</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://wiki.deimos.fr target=_blank rel=noopener title=Wiki><i class="sidebar-button-icon fa fa-wikipedia-w"></i><span class=sidebar-button-desc>Wiki</span></a></li></ul></div></nav><div id=main data-behavior=2 class=hasCoverMetaIn><section class="postShorten-group main-content-wrap"><article class="postShorten postShorten--thumbnailimg-bottom"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2010/12/29/mon-nouveau-serveur/ aria-label="Open the post: Mon nouveau serveur">Mon nouveau serveur</a></h1><div class="postShorten-meta post-meta"><time datetime=2010-12-29T13:51:21Z>29 December 2010</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/mac>Mac</a></div></div><div class=postShorten-excerpt>J’avais commencé à faire mon nouveau serveur avant de déménager, mais n’avais pas trop eu le temps d’en parler.
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/blog.deimos.fr",
+  "author": {
+    "@type": "Person",
+    "name": "Pierre Mavro / Deimosfr",
+    
+    "image": "https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"
+    
+  },
+  "name":"Deimosfr Blog",
+  "description":"Deimos Blog",
+  "url":"https:\/\/blog.deimos.fr\/categories\/linux\/",
+  "keywords":"[]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.89.4 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Linux">
+<meta name="twitter:title" content="Linux">
+<meta property="og:url" content="https://blog.deimos.fr/categories/linux/">
+<meta property="twitter:url" content="https://blog.deimos.fr/categories/linux/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
+
+
+
+
+    <title>Linux</title>
+
+    <link rel="icon" href="https://blog.deimos.fr/favicon.png">
+    
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://blog.deimos.fr/categories/linux/index.xml">
+    
+
+    
+
+    <link rel="canonical" href="https://blog.deimos.fr/categories/linux/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
+      
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-63927289-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="2">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.deimos.fr/" aria-label="Go to homepage">Deimosfr Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://blog.deimos.fr/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="2">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.deimos.fr/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/index.xml" title="RSS">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/deimosfr" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank" rel="noopener" title="Wiki">
+    
+      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
+      
+      <span class="sidebar-button-desc">Wiki</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.deimos.fr" target="_blank" rel="noopener" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+        
+
+      
+      <div id="main" data-behavior="2"
+        class="
+               hasCoverMetaIn
+               ">
+        
+          <section class="postShorten-group main-content-wrap">
+            
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2010/12/29/mon-nouveau-serveur/" aria-label="Open the post: Mon nouveau serveur">
+      
+          Mon nouveau serveur
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2010-12-29T13:51:21Z">
+        
+  
+  
+  
+  
+    29 December 2010
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/mac">Mac</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        J’avais commencé à faire mon nouveau serveur avant de déménager, mais n’avais pas trop eu le temps d’en parler.
 Pour être plus gentil avec la planète et avec mon compte en banque, j&rsquo;ai décidé (idée de ma femme) de migrer mon serveur sur un Mac Mini.
-Pourquoi ? Tout simplement parce que je n&rsquo;ai pas tant besoin de puissance que ça et qu&rsquo;avec les Core 2 Duo qu&rsquo;il y a dans l&rsquo;avant dernière génération (celle que j&rsquo;ai), en y ajoutant un peu de RAM (4Go au total) et un disque qui tient la route (500Go 7200trs/min), ça devrait tenir à l&rsquo;aise le coup.<p><a href=https://blog.deimos.fr/2010/12/29/mon-nouveau-serveur/ class="postShorten-excerpt_link link" aria-label="Open the post: Mon nouveau serveur">Continue reading</a></p></div></div></article><article class="postShorten postShorten--thumbnailimg-left"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2010/11/09/soft-de-gestion-de-todo-collaborative/ aria-label="Open the post: Soft de gestion de todo collaborative">Soft de gestion de todo collaborative</a></h1><div class="postShorten-meta post-meta"><time datetime=2010-11-09T21:02:30Z>9 November 2010</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/web>Web</a></div></div><div class=postShorten-excerpt>La solution s&rsquo;appelle Afilefant qui tourne avec Tomcat. Ça m&rsquo;a donc fait un beau paquet de révision sur Tomcat que j&rsquo;ai documenté évidemment.
-Si certains d&rsquo;entre vous ont des retours sur ce soft ou d&rsquo;autres dont les retours sont très positifs, je suis preneur.<p><a href=https://blog.deimos.fr/2010/11/09/soft-de-gestion-de-todo-collaborative/ class="postShorten-excerpt_link link" aria-label="Open the post: Soft de gestion de todo collaborative">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2010/11/09/soft-de-gestion-de-todo-collaborative/ aria-label="Open the post: Soft de gestion de todo collaborative"><div class=postShorten-thumbnailimg><img alt src=https://blog.deimos.fr/thumbnails/agilefant-reflection3.png></div></a></article><article class="postShorten postShorten--thumbnailimg-left"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2010/09/25/vers-une-simplification-du-network-bridge-sur-debian-6/ aria-label="Open the post: Vers une simplification du network bridge sur Debian 6 ?">Vers une simplification du network bridge sur Debian 6 ?</a></h1><div class="postShorten-meta post-meta"><time datetime=2010-09-25T14:04:20Z>25 September 2010</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a></div></div><div class=postShorten-excerpt>Il semblerait que du côté de Debian 6 une nomenclature se fasse pour les interfaces réseaux évoluées. J&rsquo;ai rencontré un problème avec mes interfaces bridgées qui n&rsquo;utilisaient pas des noms &ldquo;génériques&rdquo;. En fait les scripts de base proposés par Debian comportent en dur des noms qu&rsquo;il est préférable d&rsquo;utiliser.
-Pour ceux que ça intéressent voici mes déboires sur OpenVZ.<p><a href=https://blog.deimos.fr/2010/09/25/vers-une-simplification-du-network-bridge-sur-debian-6/ class="postShorten-excerpt_link link" aria-label="Open the post: Vers une simplification du network bridge sur Debian 6 ?">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2010/09/25/vers-une-simplification-du-network-bridge-sur-debian-6/ aria-label="Open the post: Vers une simplification du network bridge sur Debian 6 ?"><div class=postShorten-thumbnailimg><img alt src=https://blog.deimos.fr/thumbnails/debian_banner_12.png></div></a></article><article class="postShorten postShorten--thumbnailimg-bottom"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2010/09/21/easystroke-enfin-merci/ aria-label="Open the post: Easystroke : ENFIN !!! Merci !!!">Easystroke : ENFIN !!! Merci !!!</a></h1><div class="postShorten-meta post-meta"><time datetime=2010-09-21T06:54:17Z>21 September 2010</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a></div></div><div class=postShorten-excerpt>En lisant mes flux RSS matinaux, je suis tombé sur un article parlant d’Easystroke. Le titre de l’article est “un logiciel de mouse gestures pour Linux”.
-Mon coeur à a ce moment palpité, mais mon cerveau à eu quelques soupçons. Après tests, il s&rsquo;avère que c&rsquo;est tout simplement génial ! A peine 5 min que je suis dessus et je kiffe. Je cherchais tellement ce type de soft pour Thunderbird !<p><a href=https://blog.deimos.fr/2010/09/21/easystroke-enfin-merci/ class="postShorten-excerpt_link link" aria-label="Open the post: Easystroke : ENFIN !!! Merci !!!">Continue reading</a></p></div></div></article><article class="postShorten postShorten--thumbnailimg-bottom"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2010/08/27/cache-apt-pour-plusieurs-serveurs-debian/ aria-label="Open the post: Cache APT pour plusieurs serveurs debian">Cache APT pour plusieurs serveurs debian</a></h1><div class="postShorten-meta post-meta"><time datetime=2010-08-27T20:53:22Z>27 August 2010</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a></div></div><div class=postShorten-excerpt>N’ayant pas une connexion internet de dingue et utilisant des machines virtuelles, il devient vite pénible de devoir attendre 50 ans pour télécharger les même paquets pour toutes ces VMs. Donc j’ai cherché une solution pour avoir un espèce de cache spécialement pour apt.
+Pourquoi ? Tout simplement parce que je n&rsquo;ai pas tant besoin de puissance que ça et qu&rsquo;avec les Core 2 Duo qu&rsquo;il y a dans l&rsquo;avant dernière génération (celle que j&rsquo;ai), en y ajoutant un peu de RAM (4Go au total) et un disque qui tient la route (500Go 7200trs/min), ça devrait tenir à l&rsquo;aise le coup.
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2010/12/29/mon-nouveau-serveur/" class="postShorten-excerpt_link link" aria-label="Open the post: Mon nouveau serveur">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2010/11/09/soft-de-gestion-de-todo-collaborative/" aria-label="Open the post: Soft de gestion de todo collaborative">
+      
+          Soft de gestion de todo collaborative
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2010-11-09T21:02:30Z">
+        
+  
+  
+  
+  
+    9 November 2010
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/web">Web</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        La solution s&rsquo;appelle Afilefant qui tourne avec Tomcat. Ça m&rsquo;a donc fait un beau paquet de révision sur Tomcat que j&rsquo;ai documenté évidemment.
+Si certains d&rsquo;entre vous ont des retours sur ce soft ou d&rsquo;autres dont les retours sont très positifs, je suis preneur.
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2010/11/09/soft-de-gestion-de-todo-collaborative/" class="postShorten-excerpt_link link" aria-label="Open the post: Soft de gestion de todo collaborative">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2010/11/09/soft-de-gestion-de-todo-collaborative/" aria-label="Open the post: Soft de gestion de todo collaborative">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="https://blog.deimos.fr/thumbnails/agilefant-reflection3.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2010/09/25/vers-une-simplification-du-network-bridge-sur-debian-6/" aria-label="Open the post: Vers une simplification du network bridge sur Debian 6 ?">
+      
+          Vers une simplification du network bridge sur Debian 6 ?
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2010-09-25T14:04:20Z">
+        
+  
+  
+  
+  
+    25 September 2010
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        Il semblerait que du côté de Debian 6 une nomenclature se fasse pour les interfaces réseaux évoluées. J&rsquo;ai rencontré un problème avec mes interfaces bridgées qui n&rsquo;utilisaient pas des noms &ldquo;génériques&rdquo;. En fait les scripts de base proposés par Debian comportent en dur des noms qu&rsquo;il est préférable d&rsquo;utiliser.
+Pour ceux que ça intéressent voici mes déboires sur OpenVZ.
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2010/09/25/vers-une-simplification-du-network-bridge-sur-debian-6/" class="postShorten-excerpt_link link" aria-label="Open the post: Vers une simplification du network bridge sur Debian 6 ?">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2010/09/25/vers-une-simplification-du-network-bridge-sur-debian-6/" aria-label="Open the post: Vers une simplification du network bridge sur Debian 6 ?">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="https://blog.deimos.fr/thumbnails/debian_banner_12.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2010/09/21/easystroke-enfin-merci/" aria-label="Open the post: Easystroke : ENFIN !!! Merci !!!">
+      
+          Easystroke : ENFIN !!! Merci !!!
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2010-09-21T06:54:17Z">
+        
+  
+  
+  
+  
+    21 September 2010
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        En lisant mes flux RSS matinaux, je suis tombé sur un article parlant d’Easystroke. Le titre de l’article est “un logiciel de mouse gestures pour Linux”.
+Mon coeur à a ce moment palpité, mais mon cerveau à eu quelques soupçons. Après tests, il s&rsquo;avère que c&rsquo;est tout simplement génial ! A peine 5 min que je suis dessus et je kiffe. Je cherchais tellement ce type de soft pour Thunderbird !
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2010/09/21/easystroke-enfin-merci/" class="postShorten-excerpt_link link" aria-label="Open the post: Easystroke : ENFIN !!! Merci !!!">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2010/08/27/cache-apt-pour-plusieurs-serveurs-debian/" aria-label="Open the post: Cache APT pour plusieurs serveurs debian">
+      
+          Cache APT pour plusieurs serveurs debian
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2010-08-27T20:53:22Z">
+        
+  
+  
+  
+  
+    27 August 2010
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        N’ayant pas une connexion internet de dingue et utilisant des machines virtuelles, il devient vite pénible de devoir attendre 50 ans pour télécharger les même paquets pour toutes ces VMs. Donc j’ai cherché une solution pour avoir un espèce de cache spécialement pour apt.
 J&rsquo;ai trouvé mon bonheur avec apt-cacher-ng qui d&rsquo;après ce que j&rsquo;ai lu est la solution la plus aboutie aujourd&rsquo;hui.
-Pour la petite doc, ça se passe ici.<p><a href=https://blog.deimos.fr/2010/08/27/cache-apt-pour-plusieurs-serveurs-debian/ class="postShorten-excerpt_link link" aria-label="Open the post: Cache APT pour plusieurs serveurs debian">Continue reading</a></p></div></div></article><article class="postShorten postShorten--thumbnailimg-bottom"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2010/08/06/freeze-dont-move/ aria-label="Open the post: FREEZE, don’t move !!!">FREEZE, don’t move !!!</a></h1><div class="postShorten-meta post-meta"><time datetime=2010-08-06T19:18:43Z>6 August 2010</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a></div></div><div class=postShorten-excerpt>C’est un peu ce que diraient les poulet ricains pour ce qui est de la prochaine mouture de Debian. Car youpi tralala Debian 6 vient de freezer en version testing. Maintenant, il n’y aura donc que des corrections de bugs et de failles de secu.
-Et ça tombe super bien ça ! Parce que je viens de réinstaller mon serveur (sur mon mac mini) et j&rsquo;ai justement utiliser Debian 6 (je ferais un post bientôt là dessus).<p><a href=https://blog.deimos.fr/2010/08/06/freeze-dont-move/ class="postShorten-excerpt_link link" aria-label="Open the post: FREEZE, don’t move !!!">Continue reading</a></p></div></div></article><article class="postShorten postShorten--thumbnailimg-bottom"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2010/07/29/ndoutils-envoyer-les-etats-de-nagios-en-base-mysql/ aria-label="Open the post: NDOUtils : Envoyer les états de nagios en base MySQL">NDOUtils : Envoyer les états de nagios en base MySQL</a></h1><div class="postShorten-meta post-meta"><time datetime=2010-07-29T16:15:45Z>29 July 2010</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a></div></div><div class=postShorten-excerpt>Ca fait depuis un moment que je dois faire ça et ça y est. J’ai donc comme d’habitude, pondu une petite documentation qui explique comment on l’installe et le paramètre.
-C&rsquo;est vraiment une doc rapide sans trop d&rsquo;explication. Cependant, je conseil plus que fortement de monitorer la base MySQL qui peut rapidement grandir et avoir besoin de tuning si jamais vous avez pas mal de checks.<p><a href=https://blog.deimos.fr/2010/07/29/ndoutils-envoyer-les-etats-de-nagios-en-base-mysql/ class="postShorten-excerpt_link link" aria-label="Open the post: NDOUtils : Envoyer les états de nagios en base MySQL">Continue reading</a></p></div></div></article><div class=pagination-bar><ul class=pagination><li class=pagination-prev><a class="btn btn--default btn--small" href=https://blog.deimos.fr/categories/linux/page/46/ aria-label="NEWER POSTS"><i class="fa fa-angle-left text-base icon-mr"></i><span>NEWER POSTS</span></a></li><li class=pagination-next><a class="btn btn--default btn--small" href=https://blog.deimos.fr/categories/linux/page/48/ aria-label="OLDER POSTS"><span>OLDER POSTS</span>
-<i class="fa fa-angle-right text-base icon-ml"></i></a></li><li class=pagination-number>page 47 of 55</li></ul></div></section><footer id=footer class=main-content-wrap><span class=copyrights>&copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved</span></footer></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-times"></i></div><img id=about-card-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"><h4 id=about-card-name>Pierre Mavro / Deimosfr</h4><div id=about-card-job><i class="fa fa-briefcase"></i><br>Qovery Co-Founder and CTO</div><div id=about-card-location><i class="fa fa-map-marker-alt"></i><br>Paris - France</div></div></div><div id=cover style=background-image:url(https://blog.deimos.fr/images/fish_background.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js></script><script src=https://blog.deimos.fr/js/custom.js></script><script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:false});$('pre.code-highlight > code, pre > code').each(function(i,block){if(!$(this).hasClass('codeblock')){$(this).addClass('codeblock');}
-hljs.highlightBlock(block);});});</script></body></html>
+Pour la petite doc, ça se passe ici.
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2010/08/27/cache-apt-pour-plusieurs-serveurs-debian/" class="postShorten-excerpt_link link" aria-label="Open the post: Cache APT pour plusieurs serveurs debian">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2010/08/06/freeze-dont-move/" aria-label="Open the post: FREEZE, don’t move !!!">
+      
+          FREEZE, don’t move !!!
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2010-08-06T19:18:43Z">
+        
+  
+  
+  
+  
+    6 August 2010
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        C’est un peu ce que diraient les poulet ricains pour ce qui est de la prochaine mouture de Debian. Car youpi tralala Debian 6 vient de freezer en version testing. Maintenant, il n’y aura donc que des corrections de bugs et de failles de secu.
+Et ça tombe super bien ça ! Parce que je viens de réinstaller mon serveur (sur mon mac mini) et j&rsquo;ai justement utiliser Debian 6 (je ferais un post bientôt là dessus).
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2010/08/06/freeze-dont-move/" class="postShorten-excerpt_link link" aria-label="Open the post: FREEZE, don’t move !!!">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2010/07/29/ndoutils-envoyer-les-etats-de-nagios-en-base-mysql/" aria-label="Open the post: NDOUtils : Envoyer les états de nagios en base MySQL">
+      
+          NDOUtils : Envoyer les états de nagios en base MySQL
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2010-07-29T16:15:45Z">
+        
+  
+  
+  
+  
+    29 July 2010
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        Ca fait depuis un moment que je dois faire ça et ça y est. J’ai donc comme d’habitude, pondu une petite documentation qui explique comment on l’installe et le paramètre.
+C&rsquo;est vraiment une doc rapide sans trop d&rsquo;explication. Cependant, je conseil plus que fortement de monitorer la base MySQL qui peut rapidement grandir et avoir besoin de tuning si jamais vous avez pas mal de checks.
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2010/07/29/ndoutils-envoyer-les-etats-de-nagios-en-base-mysql/" class="postShorten-excerpt_link link" aria-label="Open the post: NDOUtils : Envoyer les états de nagios en base MySQL">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+            
+  <div class="pagination-bar">
+    <ul class="pagination">
+      
+        
+          <li class="pagination-prev">
+            <a class="btn btn--default btn--small" href="https://blog.deimos.fr/categories/linux/page/46/" aria-label="NEWER POSTS">
+              <i class="fa fa-angle-left text-base icon-mr"></i>
+              <span>NEWER POSTS</span>
+            </a>
+          </li>
+        
+        
+          <li class="pagination-next">
+            <a class="btn btn--default btn--small" href="https://blog.deimos.fr/categories/linux/page/48/" aria-label="OLDER POSTS">
+              <span>OLDER POSTS</span>
+              <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+          </li>
+        
+      
+      <li class="pagination-number">page 47 of 55</li>
+    </ul>
+  </div>
+
+
+          </section>
+        
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Qovery Co-Founder and CTO
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Paris - France
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      
+      <div id="cover" style="background-image:url('https://blog.deimos.fr/images/fish_background.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script src="https://blog.deimos.fr/js/custom.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+

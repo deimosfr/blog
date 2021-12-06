@@ -1,2 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Distributed on Deimosfr Blog</title><link>https://blog.deimos.fr/tags/distributed/</link><description>Recent content in Distributed on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 16 Jul 2018 00:00:00 +0200</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/distributed/index.xml" rel="self" type="application/rss+xml"/><item><title>Running Cassandra in Kubernetes</title><link>https://blog.deimos.fr/2018/06/24/running-cassandra-on-kubernetes/</link><pubDate>Mon, 16 Jul 2018 00:00:00 +0200</pubDate><guid>https://blog.deimos.fr/2018/06/24/running-cassandra-on-kubernetes/</guid><description>For my own company MySocialApp, I&amp;rsquo;m managing multiple Cassandra clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:
-The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Distributed on Deimosfr Blog</title>
+    <link>https://blog.deimos.fr/tags/distributed/</link>
+    <description>Recent content in Distributed on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 Jul 2018 00:00:00 +0200</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/distributed/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Running Cassandra in Kubernetes</title>
+      <link>https://blog.deimos.fr/2018/06/24/running-cassandra-on-kubernetes/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/2018/06/24/running-cassandra-on-kubernetes/</guid>
+      <description>For my own company MySocialApp, I&amp;rsquo;m managing multiple Cassandra clusters on top of a Kubernetes on premise cluster. For those who never heard of this distributed database, here is the summary from the official website:
+ The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data.</description>
+    </item>
+    
+  </channel>
+</rss>

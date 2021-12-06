@@ -1,30 +1,256 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mac on Deimosfr Blog</title><link>https://blog.deimos.fr/tags/mac/</link><description>Recent content in Mac on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 08 Jun 2020 00:00:00 +0200</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/mac/index.xml" rel="self" type="application/rss+xml"/><item><title>Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4</title><link>https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/</link><pubDate>Tue, 28 Apr 2015 10:00:45 +0000</pubDate><guid>https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/</guid><description>I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, this is not the first time I want to use Debian on a new MacBookPro version.
-Overview History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:</description></item><item><title>Yosemite and Refind: recover your Linux boot</title><link>https://blog.deimos.fr/2014/10/22/yosemite-and-refind-recover-your-linux-boot/</link><pubDate>Wed, 22 Oct 2014 10:00:00 +0000</pubDate><guid>https://blog.deimos.fr/2014/10/22/yosemite-and-refind-recover-your-linux-boot/</guid><description>You may upgrade your Mac OS X version to Yosemite (10.10) and saw you dual boot with Linux not working anymore :-(.
-That&amp;rsquo;s because Apple made changes and Refind is not yet ready for it. So here is the solution to get your dual boot half back. It won&amp;rsquo;t fully work as expected, but you&amp;rsquo;ll be able to boot to Linux with Refind and Mac OS X with the alt key.</description></item><item><title>Linux: better fonts for Retina display</title><link>https://blog.deimos.fr/2014/02/24/linux-better-fonts-for-retina-display/</link><pubDate>Mon, 24 Feb 2014 11:00:00 +0000</pubDate><guid>https://blog.deimos.fr/2014/02/24/linux-better-fonts-for-retina-display/</guid><description>Big resolution with small screens is more and more common and we&amp;rsquo;re facing a problem on fonts visualization as the readability is not optimal. We have a lot of non adapted fonts for retina display, even if most of them are not so bad. The solution to resolve that problem is to install additional fonts to replace the default one. And one of the best one I&amp;rsquo;ve seen is Infinality fonts !</description></item><item><title>Update 2 : Debian on the 11,1 model MacBook Pro 13</title><link>https://blog.deimos.fr/2013/12/08/update-2-debian-on-the-111-model-macbook-pro-13/</link><pubDate>Sun, 08 Dec 2013 11:00:09 +0000</pubDate><guid>https://blog.deimos.fr/2013/12/08/update-2-debian-on-the-111-model-macbook-pro-13/</guid><description>I think this will be the last post for the Debian installation on MacBook Pro 13&amp;rsquo; late 2013. To resume, here are the previous posts :
-http://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/ http://blog.deimos.fr/2013/11/10/update-1-debian-on-the-111-model-macbook-pro-13/ The majority of the bugs will be resolve in the Linux Kernel 3.13. I&amp;rsquo;ve tested the rc2, but it&amp;rsquo;s too much unstable for the moment and I need to wait. Arch wiki gives a lot of informations to make (most of) everything working :</description></item><item><title>Update 1 : Debian on the 11,1 model MacBook Pro 13</title><link>https://blog.deimos.fr/2013/11/10/update-1-debian-on-the-111-model-macbook-pro-13/</link><pubDate>Sun, 10 Nov 2013 11:00:16 +0000</pubDate><guid>https://blog.deimos.fr/2013/11/10/update-1-debian-on-the-111-model-macbook-pro-13/</guid><description>So this is my first update to get a full working MacBook Pro under Debian. For now, as already talked in a last post, I&amp;rsquo;m trying to make every things working.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mac on Deimosfr Blog</title>
+    <link>https://blog.deimos.fr/tags/mac/</link>
+    <description>Recent content in Mac on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Apr 2015 10:00:45 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4</title>
+      <link>https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/</link>
+      <pubDate>Tue, 28 Apr 2015 10:00:45 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/</guid>
+      <description>I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, this is not the first time I want to use Debian on a new MacBookPro version.
+Overview History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:</description>
+    </item>
+    
+    <item>
+      <title>Yosemite and Refind: recover your Linux boot</title>
+      <link>https://blog.deimos.fr/2014/10/22/yosemite-and-refind-recover-your-linux-boot/</link>
+      <pubDate>Wed, 22 Oct 2014 10:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/10/22/yosemite-and-refind-recover-your-linux-boot/</guid>
+      <description>You may upgrade your Mac OS X version to Yosemite (10.10) and saw you dual boot with Linux not working anymore :-(.
+That&amp;rsquo;s because Apple made changes and Refind is not yet ready for it. So here is the solution to get your dual boot half back. It won&amp;rsquo;t fully work as expected, but you&amp;rsquo;ll be able to boot to Linux with Refind and Mac OS X with the alt key.</description>
+    </item>
+    
+    <item>
+      <title>Linux: better fonts for Retina display</title>
+      <link>https://blog.deimos.fr/2014/02/24/linux-better-fonts-for-retina-display/</link>
+      <pubDate>Mon, 24 Feb 2014 11:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/02/24/linux-better-fonts-for-retina-display/</guid>
+      <description>Big resolution with small screens is more and more common and we&amp;rsquo;re facing a problem on fonts visualization as the readability is not optimal. We have a lot of non adapted fonts for retina display, even if most of them are not so bad. The solution to resolve that problem is to install additional fonts to replace the default one. And one of the best one I&amp;rsquo;ve seen is Infinality fonts !</description>
+    </item>
+    
+    <item>
+      <title>Update 2 : Debian on the 11,1 model MacBook Pro 13</title>
+      <link>https://blog.deimos.fr/2013/12/08/update-2-debian-on-the-111-model-macbook-pro-13/</link>
+      <pubDate>Sun, 08 Dec 2013 11:00:09 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/12/08/update-2-debian-on-the-111-model-macbook-pro-13/</guid>
+      <description>I think this will be the last post for the Debian installation on MacBook Pro 13&#39; late 2013. To resume, here are the previous posts :
+ http://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/ http://blog.deimos.fr/2013/11/10/update-1-debian-on-the-111-model-macbook-pro-13/  The majority of the bugs will be resolve in the Linux Kernel 3.13. I&amp;rsquo;ve tested the rc2, but it&amp;rsquo;s too much unstable for the moment and I need to wait. Arch wiki gives a lot of informations to make (most of) everything working :</description>
+    </item>
+    
+    <item>
+      <title>Update 1 : Debian on the 11,1 model MacBook Pro 13</title>
+      <link>https://blog.deimos.fr/2013/11/10/update-1-debian-on-the-111-model-macbook-pro-13/</link>
+      <pubDate>Sun, 10 Nov 2013 11:00:16 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/11/10/update-1-debian-on-the-111-model-macbook-pro-13/</guid>
+      <description>So this is my first update to get a full working MacBook Pro under Debian. For now, as already talked in a last post, I&amp;rsquo;m trying to make every things working.
 The remaining nonworking things/problems were and the resolutions I&amp;rsquo;ve found :
-The iSight Camera : still not working (didn&amp;rsquo;t had time to search solution neither) The Speaker : should work with the latest kernel and patch (RedHat bugzilla) but didn&amp;rsquo;t have the time to test it yet (3.</description></item><item><title>Debian on the 11,1 model MacBook Pro 13</title><link>https://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/</link><pubDate>Sun, 27 Oct 2013 11:00:06 +0000</pubDate><guid>https://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/</guid><description>I tested to install Debian as I love it more than Mac OS X for work on my new MacBook Pro 13 retina. Most of the hardware works out of the box on a Debian Jessie (because of the kernel version &amp;gt; 3.8) but is not really optimal. That&amp;rsquo;s why I&amp;rsquo;m going to explain how I did to make it better.
-First of all, you need an EFI manager. I discovered that Refit is not maintained anymore and let place to rEFInd instead.</description></item><item><title>Getting the new MacBook Pro 13 Retina for work !</title><link>https://blog.deimos.fr/2013/10/25/i-got-the-new-macbook-pro-13-retina-for-work-now/</link><pubDate>Fri, 25 Oct 2013 10:00:16 +0000</pubDate><guid>https://blog.deimos.fr/2013/10/25/i-got-the-new-macbook-pro-13-retina-for-work-now/</guid><description>Yes I did it ! I finally switched from my fantastic Lenovo to the latest MacBook Pro 13.
-Some of you won&amp;rsquo;t understand why I did it, but in fact you&amp;rsquo;ll see this is an evidence. What was the problem with the Lenovo ? Just the weight ! I&amp;rsquo;m usually transporting it from work to home and vice versa. I now have a backache and it couldn&amp;rsquo;t continue like that. Hopefully eNovance is a comprehensive company and allowed me to switch to another laptop of my choice.</description></item><item><title>Xnomad : A tiling window manager for OS X</title><link>https://blog.deimos.fr/2013/10/21/xnomad-a-tiling-window-manager-for-os-x/</link><pubDate>Mon, 21 Oct 2013 10:00:56 +0000</pubDate><guid>https://blog.deimos.fr/2013/10/21/xnomad-a-tiling-window-manager-for-os-x/</guid><description>I finally found a tiling window manager for OS X and it&amp;rsquo;s free ! It&amp;rsquo;s called Xnomad and could be found on GiHub.
+ The iSight Camera : still not working (didn&amp;rsquo;t had time to search solution neither) The Speaker : should work with the latest kernel and patch (RedHat bugzilla) but didn&amp;rsquo;t have the time to test it yet (3.</description>
+    </item>
+    
+    <item>
+      <title>Debian on the 11,1 model MacBook Pro 13</title>
+      <link>https://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/</link>
+      <pubDate>Sun, 27 Oct 2013 11:00:06 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/</guid>
+      <description>I tested to install Debian as I love it more than Mac OS X for work on my new MacBook Pro 13 retina. Most of the hardware works out of the box on a Debian Jessie (because of the kernel version &amp;gt; 3.8) but is not really optimal. That&amp;rsquo;s why I&amp;rsquo;m going to explain how I did to make it better.
+First of all, you need an EFI manager. I discovered that Refit is not maintained anymore and let place to rEFInd instead.</description>
+    </item>
+    
+    <item>
+      <title>Getting the new MacBook Pro 13 Retina for work !</title>
+      <link>https://blog.deimos.fr/2013/10/25/i-got-the-new-macbook-pro-13-retina-for-work-now/</link>
+      <pubDate>Fri, 25 Oct 2013 10:00:16 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/10/25/i-got-the-new-macbook-pro-13-retina-for-work-now/</guid>
+      <description>Yes I did it ! I finally switched from my fantastic Lenovo to the latest MacBook Pro 13.
+Some of you won&amp;rsquo;t understand why I did it, but in fact you&amp;rsquo;ll see this is an evidence. What was the problem with the Lenovo ? Just the weight ! I&amp;rsquo;m usually transporting it from work to home and vice versa. I now have a backache and it couldn&amp;rsquo;t continue like that. Hopefully eNovance is a comprehensive company and allowed me to switch to another laptop of my choice.</description>
+    </item>
+    
+    <item>
+      <title>Xnomad : A tiling window manager for OS X</title>
+      <link>https://blog.deimos.fr/2013/10/21/xnomad-a-tiling-window-manager-for-os-x/</link>
+      <pubDate>Mon, 21 Oct 2013 10:00:56 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/10/21/xnomad-a-tiling-window-manager-for-os-x/</guid>
+      <description>I finally found a tiling window manager for OS X and it&amp;rsquo;s free ! It&amp;rsquo;s called Xnomad and could be found on GiHub.
 Easy to install, it gives the major features of a standard tiling window manager. This is a must have for me now on OS X.
-Hope you&amp;rsquo;ll like it as I !</description></item><item><title>PuPHPet : speed up your Vagrant deployment</title><link>https://blog.deimos.fr/2013/08/06/puphpet-speed-up-your-vagrant-deployment/</link><pubDate>Tue, 06 Aug 2013 10:00:00 +0000</pubDate><guid>https://blog.deimos.fr/2013/08/06/puphpet-speed-up-your-vagrant-deployment/</guid><description>Vagrant is a fast solution build on top of VirtualBox. I already talked about it in a previous post.
-The thing is, you could do really more with Vagrant by adding Puppet manifests or Chef recipes in your Vagrant configuration file. For those who don&amp;rsquo;t often use one of those 2 softwares, it quickly could transform into a nightmare when they want to deploy softwares in addition of the OS.</description></item><item><title>Book : Pro Git</title><link>https://blog.deimos.fr/2013/07/21/book-pro-git/</link><pubDate>Sun, 21 Jul 2013 10:00:00 +0000</pubDate><guid>https://blog.deimos.fr/2013/07/21/book-pro-git/</guid><description>Git : have you ever tried to play with it ? For several years I&amp;rsquo;m working with that fantastic tool. Anyway the biggest problem is : if you don&amp;rsquo;t work day to day with Git, you need a memento or something similar (like my wiki 😉).
-Also, if you use it for your personal usage, you&amp;rsquo;ll be lost when you will work with complex workflows. As I&amp;rsquo;m not a developer, I use Git to manage my etc configuration, my puppet manifests, my custom scripts&amp;hellip;so many basic usage that really help me to win time as a sysadmin.</description></item><item><title>Weechat : a user friendly IRC client</title><link>https://blog.deimos.fr/2013/05/24/weechat-a-user-friendly-irc-client/</link><pubDate>Fri, 24 May 2013 10:00:30 +0000</pubDate><guid>https://blog.deimos.fr/2013/05/24/weechat-a-user-friendly-irc-client/</guid><description>WeeChat is a fast, light and extensible chat client. It runs on many platforms (including Linux, BSD and Mac OS). I&amp;rsquo;m using it over a year and really love that client.
+Hope you&amp;rsquo;ll like it as I !</description>
+    </item>
+    
+    <item>
+      <title>PuPHPet : speed up your Vagrant deployment</title>
+      <link>https://blog.deimos.fr/2013/08/06/puphpet-speed-up-your-vagrant-deployment/</link>
+      <pubDate>Tue, 06 Aug 2013 10:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/08/06/puphpet-speed-up-your-vagrant-deployment/</guid>
+      <description>Vagrant is a fast solution build on top of VirtualBox. I already talked about it in a previous post.
+The thing is, you could do really more with Vagrant by adding Puppet manifests or Chef recipes in your Vagrant configuration file. For those who don&amp;rsquo;t often use one of those 2 softwares, it quickly could transform into a nightmare when they want to deploy softwares in addition of the OS.</description>
+    </item>
+    
+    <item>
+      <title>Book : Pro Git</title>
+      <link>https://blog.deimos.fr/2013/07/21/book-pro-git/</link>
+      <pubDate>Sun, 21 Jul 2013 10:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/07/21/book-pro-git/</guid>
+      <description>Git : have you ever tried to play with it ? For several years I&amp;rsquo;m working with that fantastic tool. Anyway the biggest problem is : if you don&amp;rsquo;t work day to day with Git, you need a memento or something similar (like my wiki 😉).
+Also, if you use it for your personal usage, you&amp;rsquo;ll be lost when you will work with complex workflows. As I&amp;rsquo;m not a developer, I use Git to manage my etc configuration, my puppet manifests, my custom scripts&amp;hellip;so many basic usage that really help me to win time as a sysadmin.</description>
+    </item>
+    
+    <item>
+      <title>Weechat : a user friendly IRC client</title>
+      <link>https://blog.deimos.fr/2013/05/24/weechat-a-user-friendly-irc-client/</link>
+      <pubDate>Fri, 24 May 2013 10:00:30 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/05/24/weechat-a-user-friendly-irc-client/</guid>
+      <description>WeeChat is a fast, light and extensible chat client. It runs on many platforms (including Linux, BSD and Mac OS). I&amp;rsquo;m using it over a year and really love that client.
 WeeChat is:
-modular: a lightweight core with plugins around multi-protocols: IRC and Jabber (other soon) extensible: C plugins and scripts (Perl, Python, Ruby, Lua, Tcl and Scheme) free software: released under GPLv3 license fully documented: user&amp;rsquo;s guide, API, FAQ,.</description></item><item><title>Upgrader la RAM de vos Mac, plus que possible</title><link>https://blog.deimos.fr/2013/03/29/upgrader-la-ram-de-vos-mac-plus-que-possible/</link><pubDate>Fri, 29 Mar 2013 11:00:51 +0000</pubDate><guid>https://blog.deimos.fr/2013/03/29/upgrader-la-ram-de-vos-mac-plus-que-possible/</guid><description>Il y a quelques années, j&amp;rsquo;avais déjà fait un upgrade de mon Mac Mini qui me sert aujourd&amp;rsquo;hui de serveur.
-Maintenant, je commence a avoir de nouveaux besoins, nécessitant de plus en plus de ressources. J&amp;rsquo;avais déjà quelques problèmes d&amp;rsquo;I/O, ce qui m&amp;rsquo;a pousser à prendre un SSD et un besoin de plus des 4 Gb de mémoire installés. En parcourant la documentation de mon Mac mini, la taille maximale annoncée est de 4Gb.</description></item><item><title>1 souris, 1 clavier et des ordinateurs</title><link>https://blog.deimos.fr/2012/11/29/1-souris-1-clavier-des-ordinateurs/</link><pubDate>Thu, 29 Nov 2012 11:00:14 +0000</pubDate><guid>https://blog.deimos.fr/2012/11/29/1-souris-1-clavier-des-ordinateurs/</guid><description>Pour ceux qui n&amp;rsquo;ont pas encore la chance de connaître Synergy, je vais leur montrer un soft qui vaut le détour. Synergy, Kezako ?
-Synergy vous permet de partager facilement votre souris et votre clavier entre plusieurs ordinateurs. Il est libre et Open Source. Il suffit de déplacer la souris d&amp;rsquo;un ordinateur à l&amp;rsquo;autre en passant par leurs bords, comme pour passer d&amp;rsquo;un écran à l&amp;rsquo;autre en multi-écran. Vous pouvez même partager les presse-papiers (copier-coller).</description></item><item><title>iOS 6 et iPhone 5</title><link>https://blog.deimos.fr/2012/09/20/ios-6-iphone-5/</link><pubDate>Thu, 20 Sep 2012 10:00:20 +0000</pubDate><guid>https://blog.deimos.fr/2012/09/20/ios-6-iphone-5/</guid><description>Grosse semaine ! iOS 6 sort et l&amp;rsquo;iPhone 5 aussi :-). Comme décrit dans mes précédents posts, Android ne m&amp;rsquo;a toujours malheureusement pas satisfait, donc je passe à l&amp;rsquo;iPhone 5 !
-J&amp;rsquo;ai commandé ma nouvelle carte SIM chez Free également, alors maintenant la question est : est-ce que tout ça va arriver en même temps ? Bref grosse semaine Apple. Côté nouveautées iOS 6, pas de révolution mais quelques nouvelles fonctionnalités intéressantes (déjà présentent depuis des années sur Android&amp;hellip;bougez vous Apple !</description></item><item><title>Proxychains sur Mac</title><link>https://blog.deimos.fr/2012/05/21/proxychains-sur-mac/</link><pubDate>Mon, 21 May 2012 10:00:51 +0000</pubDate><guid>https://blog.deimos.fr/2012/05/21/proxychains-sur-mac/</guid><description>Proxychains, c’est vraiment pratique, mais sur mac, il n’existe pas dans MacPorts :-)
-Pourquoi dans de haine ? Heureusement des gentils gens ont fait un patch pour qu&amp;rsquo;il fonctionne sous OS X. La procédure est pas là.</description></item><item><title>Wake On Lan sur mac mini</title><link>https://blog.deimos.fr/2012/05/11/wake-on-lan-sur-mac-mini/</link><pubDate>Fri, 11 May 2012 10:00:19 +0000</pubDate><guid>https://blog.deimos.fr/2012/05/11/wake-on-lan-sur-mac-mini/</guid><description>Le mac mini c’est quand même une belle bête. Et sous Debian, c’est la vie ! Donc pour cela, quoi de mieux que d’activer le wake on lan quant il y a besoin d’utiliser cette petite bêbette ?!
-J&amp;rsquo;ai mis à jour ma documentation sur le mac mini avec le wake on lan.</description></item><item><title>News en vrac…</title><link>https://blog.deimos.fr/2012/04/11/news-en-vrac-3/</link><pubDate>Wed, 11 Apr 2012 10:00:24 +0000</pubDate><guid>https://blog.deimos.fr/2012/04/11/news-en-vrac-3/</guid><description>Voici quelques news en vrac :
+ modular: a lightweight core with plugins around multi-protocols: IRC and Jabber (other soon) extensible: C plugins and scripts (Perl, Python, Ruby, Lua, Tcl and Scheme) free software: released under GPLv3 license fully documented: user&amp;rsquo;s guide, API, FAQ,.</description>
+    </item>
+    
+    <item>
+      <title>Upgrader la RAM de vos Mac, plus que possible</title>
+      <link>https://blog.deimos.fr/2013/03/29/upgrader-la-ram-de-vos-mac-plus-que-possible/</link>
+      <pubDate>Fri, 29 Mar 2013 11:00:51 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/03/29/upgrader-la-ram-de-vos-mac-plus-que-possible/</guid>
+      <description>Il y a quelques années, j&amp;rsquo;avais déjà fait un upgrade de mon Mac Mini qui me sert aujourd&amp;rsquo;hui de serveur.
+Maintenant, je commence a avoir de nouveaux besoins, nécessitant de plus en plus de ressources. J&amp;rsquo;avais déjà quelques problèmes d&amp;rsquo;I/O, ce qui m&amp;rsquo;a pousser à prendre un SSD et un besoin de plus des 4 Gb de mémoire installés. En parcourant la documentation de mon Mac mini, la taille maximale annoncée est de 4Gb.</description>
+    </item>
+    
+    <item>
+      <title>1 souris, 1 clavier et des ordinateurs</title>
+      <link>https://blog.deimos.fr/2012/11/29/1-souris-1-clavier-des-ordinateurs/</link>
+      <pubDate>Thu, 29 Nov 2012 11:00:14 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2012/11/29/1-souris-1-clavier-des-ordinateurs/</guid>
+      <description>Pour ceux qui n&amp;rsquo;ont pas encore la chance de connaître Synergy, je vais leur montrer un soft qui vaut le détour. Synergy, Kezako ?
+Synergy vous permet de partager facilement votre souris et votre clavier entre plusieurs ordinateurs. Il est libre et Open Source. Il suffit de déplacer la souris d&amp;rsquo;un ordinateur à l&amp;rsquo;autre en passant par leurs bords, comme pour passer d&amp;rsquo;un écran à l&amp;rsquo;autre en multi-écran. Vous pouvez même partager les presse-papiers (copier-coller).</description>
+    </item>
+    
+    <item>
+      <title>iOS 6 et iPhone 5</title>
+      <link>https://blog.deimos.fr/2012/09/20/ios-6-iphone-5/</link>
+      <pubDate>Thu, 20 Sep 2012 10:00:20 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2012/09/20/ios-6-iphone-5/</guid>
+      <description>Grosse semaine ! iOS 6 sort et l&amp;rsquo;iPhone 5 aussi :-). Comme décrit dans mes précédents posts, Android ne m&amp;rsquo;a toujours malheureusement pas satisfait, donc je passe à l&amp;rsquo;iPhone 5 !
+J&amp;rsquo;ai commandé ma nouvelle carte SIM chez Free également, alors maintenant la question est : est-ce que tout ça va arriver en même temps ? Bref grosse semaine Apple. Côté nouveautées iOS 6, pas de révolution mais quelques nouvelles fonctionnalités intéressantes (déjà présentent depuis des années sur Android&amp;hellip;bougez vous Apple !</description>
+    </item>
+    
+    <item>
+      <title>Proxychains sur Mac</title>
+      <link>https://blog.deimos.fr/2012/05/21/proxychains-sur-mac/</link>
+      <pubDate>Mon, 21 May 2012 10:00:51 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2012/05/21/proxychains-sur-mac/</guid>
+      <description>Proxychains, c’est vraiment pratique, mais sur mac, il n’existe pas dans MacPorts :-)
+Pourquoi dans de haine ? Heureusement des gentils gens ont fait un patch pour qu&amp;rsquo;il fonctionne sous OS X. La procédure est pas là.</description>
+    </item>
+    
+    <item>
+      <title>Wake On Lan sur mac mini</title>
+      <link>https://blog.deimos.fr/2012/05/11/wake-on-lan-sur-mac-mini/</link>
+      <pubDate>Fri, 11 May 2012 10:00:19 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2012/05/11/wake-on-lan-sur-mac-mini/</guid>
+      <description>Le mac mini c’est quand même une belle bête. Et sous Debian, c’est la vie ! Donc pour cela, quoi de mieux que d’activer le wake on lan quant il y a besoin d’utiliser cette petite bêbette ?!
+J&amp;rsquo;ai mis à jour ma documentation sur le mac mini avec le wake on lan.</description>
+    </item>
+    
+    <item>
+      <title>News en vrac…</title>
+      <link>https://blog.deimos.fr/2012/04/11/news-en-vrac-3/</link>
+      <pubDate>Wed, 11 Apr 2012 10:00:24 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2012/04/11/news-en-vrac-3/</guid>
+      <description>Voici quelques news en vrac :
 Astuce Perl : Savoir si un module est intégrée de base dans Perl
 Diff : quelques arguments qui font qu diff devient plus lisible
 Mise à jour de la doc sur SSLH avec ajout de pfSense
-connect-proxy : j&amp;rsquo;ai rajouté la partie sur l&amp;rsquo;installation sur mac</description></item><item><title>Un utilitaire pour commandlinefu.com</title><link>https://blog.deimos.fr/2012/04/03/un-utilitaire-pour-commandlinefu-com/</link><pubDate>Tue, 03 Apr 2012 11:00:48 +0000</pubDate><guid>https://blog.deimos.fr/2012/04/03/un-utilitaire-pour-commandlinefu-com/</guid><description>Sachez que vous pouvez faire une recherche dans ce site pour en extraire des exemples grâce à un petit script. Exemple : &amp;gt; fu -a awk 1 # List of commands you use most often history | awk &amp;#39;{a[$2]++}END{for(i in a){print a[i] &amp;#34; &amp;#34; i}}&amp;#39; | sort -rn | head&amp;lt;/p&amp;gt; 2 # Display a block of text with AWK awk &amp;#39;/start_pattern/,/stop_pattern/&amp;#39; file.txt&amp;lt;/p&amp;gt; 3 # Remove duplicate entries in a file without sorting.</description></item><item><title>Il faut banir le Terminal de Mac OS X !</title><link>https://blog.deimos.fr/2012/02/18/il-faut-banir-le-terminal-de-mac-os-x/</link><pubDate>Sat, 18 Feb 2012 11:00:49 +0000</pubDate><guid>https://blog.deimos.fr/2012/02/18/il-faut-banir-le-terminal-de-mac-os-x/</guid><description>Mais c&amp;rsquo;est quoi ce terminal de merde !!! J&amp;rsquo;hallucine ! Comment peut on faire une merde pareille !
+connect-proxy : j&amp;rsquo;ai rajouté la partie sur l&amp;rsquo;installation sur mac</description>
+    </item>
+    
+    <item>
+      <title>Un utilitaire pour commandlinefu.com</title>
+      <link>https://blog.deimos.fr/2012/04/03/un-utilitaire-pour-commandlinefu-com/</link>
+      <pubDate>Tue, 03 Apr 2012 11:00:48 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2012/04/03/un-utilitaire-pour-commandlinefu-com/</guid>
+      <description>Sachez que vous pouvez faire une recherche dans ce site pour en extraire des exemples grâce à un petit script. Exemple : &amp;gt; fu -a awk 1	# List of commands you use most often history | awk &amp;#39;{a[$2]++}END{for(i in a){print a[i] &amp;#34; &amp;#34; i}}&amp;#39; | sort -rn | head&amp;lt;/p&amp;gt; 2	# Display a block of text with AWK awk &amp;#39;/start_pattern/,/stop_pattern/&amp;#39; file.txt&amp;lt;/p&amp;gt; 3	# Remove duplicate entries in a file without sorting.</description>
+    </item>
+    
+    <item>
+      <title>Il faut banir le Terminal de Mac OS X !</title>
+      <link>https://blog.deimos.fr/2012/02/18/il-faut-banir-le-terminal-de-mac-os-x/</link>
+      <pubDate>Sat, 18 Feb 2012 11:00:49 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2012/02/18/il-faut-banir-le-terminal-de-mac-os-x/</guid>
+      <description>Mais c&amp;rsquo;est quoi ce terminal de merde !!! J&amp;rsquo;hallucine ! Comment peut on faire une merde pareille !
 Je vous explique pourquoi je suis furax : au taf&amp;hellip;je fais des opérations de prod super chaude ou je n&amp;rsquo;ai pas spécialement le droit à l&amp;rsquo;erreur. Je prépare mes commandes dans mon petit bloc note préféré, et au moment opportun, je fais un petit copier/coller.
-Sauf qu&amp;rsquo;au moment du collé : BIIIIIIIIIIM&amp;hellip;le drâme !</description></item><item><title>Encfs sur Mac OS X Lion</title><link>https://blog.deimos.fr/2011/07/18/encfs-sur-mac-os-x-lion/</link><pubDate>Mon, 18 Jul 2011 05:21:36 +0000</pubDate><guid>https://blog.deimos.fr/2011/07/18/encfs-sur-mac-os-x-lion/</guid><description>J’ai eu quelques petits soucis en arrivant sur Lion pour avoir Encfs :
-J&amp;rsquo;ai dû chopper une bêta XCode et l&amp;rsquo;installer Ce Xcode m&amp;rsquo;a été nécessaire pour installer MacPort. Qui lui n&amp;rsquo;était pas encore packagé Lion, j&amp;rsquo;ai donc du recompiler les sources depuis le SVN J&amp;rsquo;ai pu mettre à jour tous mes ports dont Encfs et Macfuse Seulement voilà, même en mettant tout ce petit monde à jour, impossible de monter mon dossier crypté !</description></item><item><title>OS X Lion c’est bien</title><link>https://blog.deimos.fr/2011/07/09/coucou-mon-baby-lov/</link><pubDate>Sat, 09 Jul 2011 16:53:36 +0000</pubDate><guid>https://blog.deimos.fr/2011/07/09/coucou-mon-baby-lov/</guid><description>Encore une fois, c&amp;rsquo;est une réussite d&amp;rsquo;Apple ! Ce Lion est plutôt bien fait, avec les améliorations à la iOS comme la synchronisation sur un compte Exchange (iCal, Mail et Contacts). Ce n&amp;rsquo;est pas une révélation non plus, mais on voit à peut prêt ou Apple veut en venir et j&amp;rsquo;espère que ce ne sera pas une régression pour les utilisateurs avertis dans les prochaines mises à jour de l&amp;rsquo;OS.</description></item><item><title>Activation TRIM sur OS X</title><link>https://blog.deimos.fr/2011/03/27/activation-trim-sur-os-x/</link><pubDate>Sun, 27 Mar 2011 08:03:55 +0000</pubDate><guid>https://blog.deimos.fr/2011/03/27/activation-trim-sur-os-x/</guid><description>Le TRIM permet de modifier le comportement de l’OS avec un disque SSD. Sur Mac OS X, aujourd’hui il n’y a que les SSD “Apple” qui ont cette techno. Le but de cette instruction est de maintenir la vitesse du SSD tout au long de sa vie, évitant le ralentissement que les premiers modèles rencontraient une fois que toutes les cellules étaient écrites au moins une fois.
-Heureusement, d&amp;rsquo;autres gens s&amp;rsquo;y sont pencher pour l&amp;rsquo;activer sur n&amp;rsquo;importe quel type de SSD.</description></item><item><title>Mon nouveau serveur</title><link>https://blog.deimos.fr/2010/12/29/mon-nouveau-serveur/</link><pubDate>Wed, 29 Dec 2010 13:51:21 +0000</pubDate><guid>https://blog.deimos.fr/2010/12/29/mon-nouveau-serveur/</guid><description>J’avais commencé à faire mon nouveau serveur avant de déménager, mais n’avais pas trop eu le temps d’en parler.
+Sauf qu&amp;rsquo;au moment du collé : BIIIIIIIIIIM&amp;hellip;le drâme !</description>
+    </item>
+    
+    <item>
+      <title>Encfs sur Mac OS X Lion</title>
+      <link>https://blog.deimos.fr/2011/07/18/encfs-sur-mac-os-x-lion/</link>
+      <pubDate>Mon, 18 Jul 2011 05:21:36 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2011/07/18/encfs-sur-mac-os-x-lion/</guid>
+      <description>J’ai eu quelques petits soucis en arrivant sur Lion pour avoir Encfs :
+ J&amp;rsquo;ai dû chopper une bêta XCode et l&amp;rsquo;installer Ce Xcode m&amp;rsquo;a été nécessaire pour installer MacPort. Qui lui n&amp;rsquo;était pas encore packagé Lion, j&amp;rsquo;ai donc du recompiler les sources depuis le SVN J&amp;rsquo;ai pu mettre à jour tous mes ports dont Encfs et Macfuse  Seulement voilà, même en mettant tout ce petit monde à jour, impossible de monter mon dossier crypté !</description>
+    </item>
+    
+    <item>
+      <title>OS X Lion c’est bien</title>
+      <link>https://blog.deimos.fr/2011/07/09/coucou-mon-baby-lov/</link>
+      <pubDate>Sat, 09 Jul 2011 16:53:36 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2011/07/09/coucou-mon-baby-lov/</guid>
+      <description>Encore une fois, c&amp;rsquo;est une réussite d&amp;rsquo;Apple ! Ce Lion est plutôt bien fait, avec les améliorations à la iOS comme la synchronisation sur un compte Exchange (iCal, Mail et Contacts). Ce n&amp;rsquo;est pas une révélation non plus, mais on voit à peut prêt ou Apple veut en venir et j&amp;rsquo;espère que ce ne sera pas une régression pour les utilisateurs avertis dans les prochaines mises à jour de l&amp;rsquo;OS.</description>
+    </item>
+    
+    <item>
+      <title>Activation TRIM sur OS X</title>
+      <link>https://blog.deimos.fr/2011/03/27/activation-trim-sur-os-x/</link>
+      <pubDate>Sun, 27 Mar 2011 08:03:55 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2011/03/27/activation-trim-sur-os-x/</guid>
+      <description>Le TRIM permet de modifier le comportement de l’OS avec un disque SSD. Sur Mac OS X, aujourd’hui il n’y a que les SSD “Apple” qui ont cette techno. Le but de cette instruction est de maintenir la vitesse du SSD tout au long de sa vie, évitant le ralentissement que les premiers modèles rencontraient une fois que toutes les cellules étaient écrites au moins une fois.
+Heureusement, d&amp;rsquo;autres gens s&amp;rsquo;y sont pencher pour l&amp;rsquo;activer sur n&amp;rsquo;importe quel type de SSD.</description>
+    </item>
+    
+    <item>
+      <title>Mon nouveau serveur</title>
+      <link>https://blog.deimos.fr/2010/12/29/mon-nouveau-serveur/</link>
+      <pubDate>Wed, 29 Dec 2010 13:51:21 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2010/12/29/mon-nouveau-serveur/</guid>
+      <description>J’avais commencé à faire mon nouveau serveur avant de déménager, mais n’avais pas trop eu le temps d’en parler.
 Pour être plus gentil avec la planète et avec mon compte en banque, j&amp;rsquo;ai décidé (idée de ma femme) de migrer mon serveur sur un Mac Mini.
-Pourquoi ? Tout simplement parce que je n&amp;rsquo;ai pas tant besoin de puissance que ça et qu&amp;rsquo;avec les Core 2 Duo qu&amp;rsquo;il y a dans l&amp;rsquo;avant dernière génération (celle que j&amp;rsquo;ai), en y ajoutant un peu de RAM (4Go au total) et un disque qui tient la route (500Go 7200trs/min), ça devrait tenir à l&amp;rsquo;aise le coup.</description></item><item><title>Le Maki le Makou et son clavier PC Fr</title><link>https://blog.deimos.fr/2010/05/16/le-maki-le-makou-et-son-clavier-pc-fr/</link><pubDate>Sun, 16 May 2010 22:36:19 +0000</pubDate><guid>https://blog.deimos.fr/2010/05/16/le-maki-le-makou-et-son-clavier-pc-fr/</guid><description>Ca y est, j’ai un tout nouveau joujou tout beau tout propre. C’est dire un MacBook Pro Core i7 :-). Ca c’est de la belle bête de guerre. En plus je lui ai collé mon SSD, ça trace !!!
-Pour résumer, j&amp;rsquo;ai pour le moment fait un dual boot avec Ubuntu. Je suis toujours à la recherche d&amp;rsquo;une solution correcte pour lire et écrire sur de l&amp;rsquo;ext4 depuis Mac OS. Ubuntu marche d&amp;rsquo;enfer sur ce mac, et pour finir, je me suis fais chier à faire un clavier Français PC pour Mac OS.</description></item></channel></rss>
+Pourquoi ? Tout simplement parce que je n&amp;rsquo;ai pas tant besoin de puissance que ça et qu&amp;rsquo;avec les Core 2 Duo qu&amp;rsquo;il y a dans l&amp;rsquo;avant dernière génération (celle que j&amp;rsquo;ai), en y ajoutant un peu de RAM (4Go au total) et un disque qui tient la route (500Go 7200trs/min), ça devrait tenir à l&amp;rsquo;aise le coup.</description>
+    </item>
+    
+    <item>
+      <title>Le Maki le Makou et son clavier PC Fr</title>
+      <link>https://blog.deimos.fr/2010/05/16/le-maki-le-makou-et-son-clavier-pc-fr/</link>
+      <pubDate>Sun, 16 May 2010 22:36:19 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2010/05/16/le-maki-le-makou-et-son-clavier-pc-fr/</guid>
+      <description>Ca y est, j’ai un tout nouveau joujou tout beau tout propre. C’est dire un MacBook Pro Core i7 :-). Ca c’est de la belle bête de guerre. En plus je lui ai collé mon SSD, ça trace !!!
+Pour résumer, j&amp;rsquo;ai pour le moment fait un dual boot avec Ubuntu. Je suis toujours à la recherche d&amp;rsquo;une solution correcte pour lire et écrire sur de l&amp;rsquo;ext4 depuis Mac OS. Ubuntu marche d&amp;rsquo;enfer sur ce mac, et pour finir, je me suis fais chier à faire un clavier Français PC pour Mac OS.</description>
+    </item>
+    
+  </channel>
+</rss>

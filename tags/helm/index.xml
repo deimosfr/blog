@@ -1,3 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Helm on Deimosfr Blog</title><link>https://blog.deimos.fr/tags/helm/</link><description>Recent content in Helm on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 08 Feb 2019 00:00:00 +0200</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/helm/index.xml" rel="self" type="application/rss+xml"/><item><title>k8s-euft: run functional tests on your Helm charts</title><link>https://blog.deimos.fr/2019/02/08/k8s-euft-run-functional-tests-on-your-helm-charts/</link><pubDate>Fri, 08 Feb 2019 00:00:00 +0200</pubDate><guid>https://blog.deimos.fr/2019/02/08/k8s-euft-run-functional-tests-on-your-helm-charts/</guid><description>I&amp;rsquo;m managing applications inside Kubernetes for more than 2 years for MySocialApp a social news feed solution and recently Referlab, an impressive referral marketing solution. If you follow me, you certainly know that I&amp;rsquo;ve made multiple Helm charts on distributed technologies like:
-Cassandra Helm chart Elasticsearch Helm chart Traefik Helm chart After several years of experience on it, you can trust me when I say managing statefulset on Kubernetes is not the easiest thing to do.</description></item><item><title>Traefik HA Helm chart with Let's Encrypt on Kubernetes</title><link>https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/</link><pubDate>Tue, 23 Jan 2018 18:00:00 +0200</pubDate><guid>https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/</guid><description>Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
-In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Helm on Deimosfr Blog</title>
+    <link>https://blog.deimos.fr/tags/helm/</link>
+    <description>Recent content in Helm on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 Feb 2019 00:00:00 +0200</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/helm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>k8s-euft: run functional tests on your Helm charts</title>
+      <link>https://blog.deimos.fr/2019/02/08/k8s-euft-run-functional-tests-on-your-helm-charts/</link>
+      <pubDate>Fri, 08 Feb 2019 00:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/2019/02/08/k8s-euft-run-functional-tests-on-your-helm-charts/</guid>
+      <description>I&amp;rsquo;m managing applications inside Kubernetes for more than 2 years for MySocialApp a social news feed solution and recently Referlab, an impressive referral marketing solution. If you follow me, you certainly know that I&amp;rsquo;ve made multiple Helm charts on distributed technologies like:
+ Cassandra Helm chart Elasticsearch Helm chart Traefik Helm chart  After several years of experience on it, you can trust me when I say managing statefulset on Kubernetes is not the easiest thing to do.</description>
+    </item>
+    
+    <item>
+      <title>Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes</title>
+      <link>https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/</link>
+      <pubDate>Tue, 23 Jan 2018 18:00:00 +0200</pubDate>
+      
+      <guid>https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/</guid>
+      <description>Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,68 +1,915 @@
-<!doctype html><html lang=en-us><head><script type=application/ld+json>{"@context":"http://schema.org","@type":"Website","@id":"https:\/\/blog.deimos.fr","author":{"@type":"Person","name":"Pierre Mavro / Deimosfr","image":"https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"},"name":"Deimosfr Blog","description":"Deimos Blog","url":"https:\/\/blog.deimos.fr\/categories\/linux\/","keywords":"[]"}</script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Hugo 0.69.2 with theme Tranquilpeak 0.5.2-BETA"><meta name=author content="Pierre Mavro / Deimosfr"><meta name=keywords content><meta name=description content="Deimos Blog"><meta property="og:description" content="Deimos Blog"><meta property="og:type" content="website"><meta property="og:title" content="Linux"><meta name=twitter:title content="Linux"><meta property="og:url" content="https://blog.deimos.fr/categories/linux/"><meta property="twitter:url" content="https://blog.deimos.fr/categories/linux/"><meta property="og:site_name" content="Deimosfr Blog"><meta property="og:description" content="Deimos Blog"><meta name=twitter:description content="Deimos Blog"><meta property="og:locale" content="en-us"><meta name=twitter:card content="summary"><meta name=twitter:site content="@deimosfr"><meta name=twitter:creator content="@deimosfr"><meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><title>Linux</title><link rel=icon href=https://blog.deimos.fr/favicon.png><link rel=alternate type=application/rss+xml title=RSS href=https://blog.deimos.fr/categories/linux/index.xml><link rel=canonical href=https://blog.deimos.fr/categories/linux/><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://blog.deimos.fr/css/style-c5yjx2losbmkttdif4mskx5f9pqjjquywurgngxfvceyyrtyatseix5hpd.min.css><link rel=stylesheet href=https://blog.deimos.fr/css/custom.css><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-63927289-1','auto');ga('send','pageview');}</script></head><body><div id=blog><header id=header data-behavior=2><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=https://blog.deimos.fr/ aria-label="Go to homepage">Deimosfr Blog</a></div><a class=header-right-picture href=https://blog.deimos.fr/#about aria-label="Open the link: /#about"><img class=header-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author's picture"></a></header><nav id=sidebar data-behavior=2><div class=sidebar-container><div class=sidebar-profile><a href=https://blog.deimos.fr/#about aria-label="Read more about the author"><img class=sidebar-profile-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"></a><h4 class=sidebar-profile-name>Pierre Mavro / Deimosfr</h4></div><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/ title=Home><i class="sidebar-button-icon fa fa-lg fa-home"></i><span class=sidebar-button-desc>Home</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/archives title=Archives><i class="sidebar-button-icon fa fa-lg fa-archive"></i><span class=sidebar-button-desc>Archives</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/categories title=Categories><i class="sidebar-button-icon fa fa-lg fa-bookmark"></i><span class=sidebar-button-desc>Categories</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/tags title=Tags><i class="sidebar-button-icon fa fa-lg fa-tags"></i><span class=sidebar-button-desc>Tags</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/index.xml title=RSS><i class="sidebar-button-icon fa fa-lg fa-rss"></i><span class=sidebar-button-desc>RSS</span></a></li></ul><ul class=sidebar-buttons></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://www.deimos.fr target=_blank rel=noopener title=About><i class="sidebar-button-icon fa fa-lg fa-user"></i><span class=sidebar-button-desc>About</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://wiki.deimos.fr target=_blank rel=noopener title=Wiki><i class="sidebar-button-icon fa fa-wikipedia-w"></i><span class=sidebar-button-desc>Wiki</span></a></li></ul></div></nav><div id=main data-behavior=2 class=hasCoverMetaIn><section class="postShorten-group main-content-wrap"><article class="postShorten postShorten--thumbnailimg-left"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2018/10/11/converting-raw-to-jpg-with-nice-rendering/ aria-label="Open the post: Converting RAW to JPG with nice rendering">Converting RAW to JPG with nice rendering</a></h1><div class="postShorten-meta post-meta"><time datetime=2018-10-11T00:00:00+02:00>11 October 2018</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/photo>photo</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>linux</a></div></div><div class=postShorten-excerpt>I&rsquo;m an amateur photographer and I&rsquo;m using an Olympus E-M1 Mark II camera. I take photos in RAW mode to be able. For those who know me, my computer is running on Linux and I&rsquo;m using Geeqie to display RAW picture. It&rsquo;s a very fast and powerful solution to display them.
-In addition of displaying them quickly, it enhances the look and I really appreciate the rendering. Here is the original image (the first one) and the redered one by Geeqie (the second one):<p><a href=https://blog.deimos.fr/2018/10/11/converting-raw-to-jpg-with-nice-rendering/ class="postShorten-excerpt_link link" aria-label="Open the post: Converting RAW to JPG with nice rendering">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2018/10/11/converting-raw-to-jpg-with-nice-rendering/ aria-label="Open the post: Converting RAW to JPG with nice rendering"><div class=postShorten-thumbnailimg><img alt src=https://blog.deimos.fr/thumbnails/logo-darktable.png></div></a></article><article class="postShorten postShorten--thumbnailimg-left"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/ aria-label="Open the post: Deploy CoreOS with Ansible">Deploy CoreOS with Ansible</a></h1><div class="postShorten-meta post-meta"><time datetime=2016-09-30T21:35:17Z>30 September 2016</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/ansible>Ansible</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/cloud>Cloud</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a></div></div><div class=postShorten-excerpt>CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications. I&rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/blog.deimos.fr",
+  "author": {
+    "@type": "Person",
+    "name": "Pierre Mavro / Deimosfr",
+    
+    "image": "https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"
+    
+  },
+  "name":"Deimosfr Blog",
+  "description":"Deimos Blog",
+  "url":"https:\/\/blog.deimos.fr\/categories\/linux\/",
+  "keywords":"[]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.89.4 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Linux">
+<meta name="twitter:title" content="Linux">
+<meta property="og:url" content="https://blog.deimos.fr/categories/linux/">
+<meta property="twitter:url" content="https://blog.deimos.fr/categories/linux/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
+
+
+
+
+    <title>Linux</title>
+
+    <link rel="icon" href="https://blog.deimos.fr/favicon.png">
+    
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://blog.deimos.fr/categories/linux/index.xml">
+    
+
+    
+
+    <link rel="canonical" href="https://blog.deimos.fr/categories/linux/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
+      
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-63927289-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="2">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.deimos.fr/" aria-label="Go to homepage">Deimosfr Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://blog.deimos.fr/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="2">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.deimos.fr/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/index.xml" title="RSS">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/deimosfr" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank" rel="noopener" title="Wiki">
+    
+      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
+      
+      <span class="sidebar-button-desc">Wiki</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.deimos.fr" target="_blank" rel="noopener" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+        
+
+      
+      <div id="main" data-behavior="2"
+        class="
+               hasCoverMetaIn
+               ">
+        
+          <section class="postShorten-group main-content-wrap">
+            
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2018/10/11/converting-raw-to-jpg-with-nice-rendering/" aria-label="Open the post: Converting RAW to JPG with nice rendering">
+      
+          Converting RAW to JPG with nice rendering
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2018-10-11T00:00:00&#43;02:00">
+        
+  
+  
+  
+  
+    11 October 2018
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/photo">photo</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">linux</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        I&rsquo;m an amateur photographer and I&rsquo;m using an Olympus E-M1 Mark II camera. I take photos in RAW mode to be able. For those who know me, my computer is running on Linux and I&rsquo;m using Geeqie to display RAW picture. It&rsquo;s a very fast and powerful solution to display them.
+In addition of displaying them quickly, it enhances the look and I really appreciate the rendering. Here is the original image (the first one) and the redered one by Geeqie (the second one):
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2018/10/11/converting-raw-to-jpg-with-nice-rendering/" class="postShorten-excerpt_link link" aria-label="Open the post: Converting RAW to JPG with nice rendering">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2018/10/11/converting-raw-to-jpg-with-nice-rendering/" aria-label="Open the post: Converting RAW to JPG with nice rendering">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="https://blog.deimos.fr/thumbnails/logo-darktable.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/" aria-label="Open the post: Deploy CoreOS with Ansible">
+      
+          Deploy CoreOS with Ansible
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2016-09-30T21:35:17Z">
+        
+  
+  
+  
+  
+    30 September 2016
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/ansible">Ansible</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/cloud">Cloud</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        CoreOS is a lightweight Linux operating system designed for clustered deployments providing automation, security, and scalability for your most critical applications. I&rsquo;ve been playing with CoreOS to replace Debian hosts which run Docker containers on Nousmotards project. CoreOS helps on simplifying bare metal deployment and avoid managing OS upgrade.
 As I&rsquo;m still an Ansible lover, I&rsquo;ve made 2 roles:
-CoreOS Ansible: Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers If you want to quickly look at the result:<p><a href=https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/ class="postShorten-excerpt_link link" aria-label="Open the post: Deploy CoreOS with Ansible">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/ aria-label="Open the post: Deploy CoreOS with Ansible"><div class=postShorten-thumbnailimg><img alt src=https://blog.deimos.fr/thumbnails/logo_coreos.png></div></a></article><article class="postShorten postShorten--thumbnailimg-left"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/ aria-label="Open the post: Do not waste time with grep anymore, use tag">Do not waste time with grep anymore, use tag</a></h1><div class="postShorten-meta post-meta"><time datetime=2016-06-18T07:44:11Z>18 June 2016</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a></div></div><div class=postShorten-excerpt>Long time since my last post. This one is not very technical post, but it&rsquo;s a nice to have solution if you use grep usually. Are not you fed up to type vim and search the line after a grep command ? If yes, this post is for you.
-First of all, you may know that an alternative more user friendly to grep exist, called ag (perf comparison). I really like ag and grep, but something make me loose my time since several years and I&rsquo;m pretty sure it&rsquo;s your case too.<p><a href=https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/ class="postShorten-excerpt_link link" aria-label="Open the post: Do not waste time with grep anymore, use tag">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/ aria-label="Open the post: Do not waste time with grep anymore, use tag"><div class=postShorten-thumbnailimg><img alt src=https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg></div></a></article><article class="postShorten postShorten--thumbnailimg-left"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/ aria-label="Open the post: Zero downtime upgrade with Ansible and HAProxy">Zero downtime upgrade with Ansible and HAProxy</a></h1><div class="postShorten-meta post-meta"><time datetime=2016-01-21T13:00:16Z>21 January 2016</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/ansible>Ansible</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/docker>Docker</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/ha>HA</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/nousmotards>Nousmotards</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a></div></div><div class=postShorten-excerpt>Some of you may not be familiar with the terms &ldquo;Rolling upgrade&rdquo; or &ldquo;Rolling restart". This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&rsquo;re managing and the number of active nodes in your cluster.
-At Nousmotards we have several Java Spring Boot applications running. Restarting one application can take up to 1 min.<p><a href=https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/ class="postShorten-excerpt_link link" aria-label="Open the post: Zero downtime upgrade with Ansible and HAProxy">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/ aria-label="Open the post: Zero downtime upgrade with Ansible and HAProxy"><div class=postShorten-thumbnailimg><img alt src=https://blog.deimos.fr/thumbnails/logo_ansible.png></div></a></article><article class="postShorten postShorten--thumbnailimg-left"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/ aria-label="Open the post: Upgrading Ansible Consul Template role">Upgrading Ansible Consul Template role</a></h1><div class="postShorten-meta post-meta"><time datetime=2015-11-27T21:34:03Z>27 November 2015</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/ansible>Ansible</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/cloud>Cloud</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a></div></div><div class=postShorten-excerpt>As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:
-consul_template_version:'0.11.0'consul_template_arch:'linux_amd64'consul_template_http_src:"https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip" You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
-I hope you&rsquo;ll enjoy this new version :-)<p><a href=https://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/ class="postShorten-excerpt_link link" aria-label="Open the post: Upgrading Ansible Consul Template role">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/ aria-label="Open the post: Upgrading Ansible Consul Template role"><div class=postShorten-thumbnailimg><img alt src=https://blog.deimos.fr/thumbnails/logo_ansible.png></div></a></article><article class="postShorten postShorten--thumbnailimg-left"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/ aria-label="Open the post: Ansible Meetup done! Watch again the slides">Ansible Meetup done! Watch again the slides</a></h1><div class="postShorten-meta post-meta"><time datetime=2015-09-15T21:56:06Z>15 September 2015</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/ansible>Ansible</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/cloud>Cloud</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/databases>Databases</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/docker>Docker</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/events>Events</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/git>Git</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/ha>HA</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/lxc>LXC</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/nosql>NoSQL</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/nousmotards>Nousmotards</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/others>Others</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/private-life>Private life</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/sql>SQL</a></div></div><div class=postShorten-excerpt>The Ansible meetup ended ! That was really nice for my first one.
+ CoreOS Ansible: Ansible role to deploy pypy to CoreOS to be able to get Ansible prerequisites CoreOS: Ansible CoreOS role to deploy CoreOS on bare metal servers  If you want to quickly look at the result:
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/" class="postShorten-excerpt_link link" aria-label="Open the post: Deploy CoreOS with Ansible">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2016/09/30/deploy-coreos-with-ansible/" aria-label="Open the post: Deploy CoreOS with Ansible">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="https://blog.deimos.fr/thumbnails/logo_coreos.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/" aria-label="Open the post: Do not waste time with grep anymore, use tag">
+      
+          Do not waste time with grep anymore, use tag
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2016-06-18T07:44:11Z">
+        
+  
+  
+  
+  
+    18 June 2016
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        Long time since my last post. This one is not very technical post, but it&rsquo;s a nice to have solution if you use grep usually. Are not you fed up to type vim and search the line after a grep command ? If yes, this post is for you.
+First of all, you may know that an alternative more user friendly to grep exist, called ag (perf comparison). I really like ag and grep, but something make me loose my time since several years and I&rsquo;m pretty sure it&rsquo;s your case too.
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/" class="postShorten-excerpt_link link" aria-label="Open the post: Do not waste time with grep anymore, use tag">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2016/06/18/do-not-waste-time-with-grep-anymore-use-tag/" aria-label="Open the post: Do not waste time with grep anymore, use tag">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/" aria-label="Open the post: Zero downtime upgrade with Ansible and HAProxy">
+      
+          Zero downtime upgrade with Ansible and HAProxy
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2016-01-21T13:00:16Z">
+        
+  
+  
+  
+  
+    21 January 2016
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/ansible">Ansible</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/docker">Docker</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/ha">HA</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/nousmotards">Nousmotards</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        Some of you may not be familiar with the terms &ldquo;Rolling upgrade&rdquo; or &ldquo;Rolling restart&rdquo;. This is the action of upgrading or restarting a cluster without service interruption (alias zero downtime). In most cases, this is done node by node, but in fact it depends of the technology you&rsquo;re managing and the number of active nodes in your cluster.
+At Nousmotards we have several Java Spring Boot applications running. Restarting one application can take up to 1 min.
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/" class="postShorten-excerpt_link link" aria-label="Open the post: Zero downtime upgrade with Ansible and HAProxy">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2016/01/21/zero-downtime-upgrade-with-ansible-and-haproxy/" aria-label="Open the post: Zero downtime upgrade with Ansible and HAProxy">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="https://blog.deimos.fr/thumbnails/logo_ansible.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/" aria-label="Open the post: Upgrading Ansible Consul Template role">
+      
+          Upgrading Ansible Consul Template role
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2015-11-27T21:34:03Z">
+        
+  
+  
+  
+  
+    27 November 2015
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/ansible">Ansible</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/cloud">Cloud</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        As I wanted to upgrade it and because it has been asked several time, I upgraded the consul-template Ansible role to manage official binaries (and upgrades). Here are the new vars:
+consul_template_version:&#39;0.11.0&#39;consul_template_arch:&#39;linux_amd64&#39;consul_template_http_src:&#34;https://github.com/hashicorp/consul-template/releases/download/v{{consul_template_version}}/consul_template_{{consul_template_version}}_{{consul_template_arch}}.zip&#34; You can of course find the role to Ansible Galaxy: https://galaxy.ansible.com/deimosfr/consul-template/
+I hope you&rsquo;ll enjoy this new version :-)
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/" class="postShorten-excerpt_link link" aria-label="Open the post: Upgrading Ansible Consul Template role">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2015/11/27/upgrading-ansible-consul-template-role/" aria-label="Open the post: Upgrading Ansible Consul Template role">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="https://blog.deimos.fr/thumbnails/logo_ansible.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/" aria-label="Open the post: Ansible Meetup done! Watch again the slides">
+      
+          Ansible Meetup done! Watch again the slides
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2015-09-15T21:56:06Z">
+        
+  
+  
+  
+  
+    15 September 2015
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/ansible">Ansible</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/cloud">Cloud</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/databases">Databases</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/docker">Docker</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/events">Events</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/git">Git</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/ha">HA</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/lxc">LXC</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/nosql">NoSQL</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/nousmotards">Nousmotards</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/others">Others</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/private-life">Private life</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/sql">SQL</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        The Ansible meetup ended ! That was really nice for my first one.
 I had really great feedbacks and liked the questions when ended. More than that I met nice people after the meetup and could have interresting discussions :-). I&rsquo;m really happy about it.
 For those who would like to review the slides, you can find them here:
 http://nousmotards.github.io/ansible-meetup-0915/
 If you want to watch the video:
 http://www.infoq.com/fr/presentations/reseau-social-motard
-or view the PDF version here:<p><a href=https://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/ class="postShorten-excerpt_link link" aria-label="Open the post: Ansible Meetup done! Watch again the slides">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/ aria-label="Open the post: Ansible Meetup done! Watch again the slides"><div class=postShorten-thumbnailimg><img alt src=https://blog.deimos.fr/thumbnails/logo_meetup.png></div></a></article><article class="postShorten postShorten--thumbnailimg-left"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/ aria-label="Open the post: Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4">Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4</a></h1><div class="postShorten-meta post-meta"><time datetime=2015-04-28T10:00:45Z>28 April 2015</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/mac>Mac</a></div></div><div class=postShorten-excerpt>I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, this is not the first time I want to use Debian on a new MacBookPro version.
-Overview History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:<p><a href=https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/ class="postShorten-excerpt_link link" aria-label="Open the post: Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/ aria-label="Open the post: Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4"><div class=postShorten-thumbnailimg><img alt src=https://blog.deimos.fr/thumbnails/logo_debian.png></div></a></article><div class=pagination-bar><ul class=pagination><li class=pagination-prev><a class="btn btn--default btn--small" href=https://blog.deimos.fr/categories/linux/ aria-label="NEWER POSTS"><i class="fa fa-angle-left text-base icon-mr"></i><span>NEWER POSTS</span></a></li><li class=pagination-next><a class="btn btn--default btn--small" href=https://blog.deimos.fr/categories/linux/page/3/ aria-label="OLDER POSTS"><span>OLDER POSTS</span>
-<i class="fa fa-angle-right text-base icon-ml"></i></a></li><li class=pagination-number>page 2 of 55</li></ul></div></section><footer id=footer class=main-content-wrap><span class=copyrights>&copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved</span></footer></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-times"></i></div><img id=about-card-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"><h4 id=about-card-name>Pierre Mavro / Deimosfr</h4><div id=about-card-job><i class="fa fa-briefcase"></i><br>Qovery Co-Founder and CTO</div><div id=about-card-location><i class="fa fa-map-marker-alt"></i><br>Paris - France</div></div></div><div id=cover style=background-image:url(https://blog.deimos.fr/images/fish_background.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js></script><script src=https://blog.deimos.fr/js/custom.js></script><script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:false});$('pre.code-highlight > code, pre > code').each(function(i,block){if(!$(this).hasClass('codeblock')){$(this).addClass('codeblock');}
-hljs.highlightBlock(block);});});</script></body></html>
+or view the PDF version here:
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/" class="postShorten-excerpt_link link" aria-label="Open the post: Ansible Meetup done! Watch again the slides">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2015/09/15/ansible-meetup-done-watch-again-the-slides/" aria-label="Open the post: Ansible Meetup done! Watch again the slides">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="https://blog.deimos.fr/thumbnails/logo_meetup.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/" aria-label="Open the post: Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4">
+      
+          Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2015-04-28T10:00:45Z">
+        
+  
+  
+  
+  
+    28 April 2015
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/mac">Mac</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        I recently had the chance to get the latest MacBookPro 13 for my new work at Criteo. If you follow me and remember, this is not the first time I want to use Debian on a new MacBookPro version.
+Overview History repeats itself and as you can think, some things are not working out of the box on Debian Jessie. Here are the issues I encountered and how i could fix some of them:
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/" class="postShorten-excerpt_link link" aria-label="Open the post: Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/" aria-label="Open the post: Debian Jessie and MacBookPro 13 (2015/12,1) with Kernel 4">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="https://blog.deimos.fr/thumbnails/logo_debian.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+            
+  <div class="pagination-bar">
+    <ul class="pagination">
+      
+        
+          <li class="pagination-prev">
+            <a class="btn btn--default btn--small" href="https://blog.deimos.fr/categories/linux/" aria-label="NEWER POSTS">
+              <i class="fa fa-angle-left text-base icon-mr"></i>
+              <span>NEWER POSTS</span>
+            </a>
+          </li>
+        
+        
+          <li class="pagination-next">
+            <a class="btn btn--default btn--small" href="https://blog.deimos.fr/categories/linux/page/3/" aria-label="OLDER POSTS">
+              <span>OLDER POSTS</span>
+              <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+          </li>
+        
+      
+      <li class="pagination-number">page 2 of 55</li>
+    </ul>
+  </div>
+
+
+          </section>
+        
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Qovery Co-Founder and CTO
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Paris - France
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      
+      <div id="cover" style="background-image:url('https://blog.deimos.fr/images/fish_background.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script src="https://blog.deimos.fr/js/custom.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+

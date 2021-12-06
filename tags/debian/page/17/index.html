@@ -1,51 +1,879 @@
-<!doctype html><html lang=en-us><head><script type=application/ld+json>{"@context":"http://schema.org","@type":"Website","@id":"https:\/\/blog.deimos.fr","author":{"@type":"Person","name":"Pierre Mavro / Deimosfr","image":"https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"},"name":"Deimosfr Blog","description":"Deimos Blog","url":"https:\/\/blog.deimos.fr\/tags\/debian\/","keywords":"[]"}</script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Hugo 0.69.2 with theme Tranquilpeak 0.5.2-BETA"><meta name=author content="Pierre Mavro / Deimosfr"><meta name=keywords content><meta name=description content="Deimos Blog"><meta property="og:description" content="Deimos Blog"><meta property="og:type" content="website"><meta property="og:title" content="debian"><meta name=twitter:title content="debian"><meta property="og:url" content="https://blog.deimos.fr/tags/debian/"><meta property="twitter:url" content="https://blog.deimos.fr/tags/debian/"><meta property="og:site_name" content="Deimosfr Blog"><meta property="og:description" content="Deimos Blog"><meta name=twitter:description content="Deimos Blog"><meta property="og:locale" content="en-us"><meta name=twitter:card content="summary"><meta name=twitter:site content="@deimosfr"><meta name=twitter:creator content="@deimosfr"><meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><title>debian</title><link rel=icon href=https://blog.deimos.fr/favicon.png><link rel=alternate type=application/rss+xml title=RSS href=https://blog.deimos.fr/tags/debian/index.xml><link rel=canonical href=https://blog.deimos.fr/tags/debian/><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://blog.deimos.fr/css/style-c5yjx2losbmkttdif4mskx5f9pqjjquywurgngxfvceyyrtyatseix5hpd.min.css><link rel=stylesheet href=https://blog.deimos.fr/css/custom.css><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-63927289-1','auto');ga('send','pageview');}</script></head><body><div id=blog><header id=header data-behavior=2><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=https://blog.deimos.fr/ aria-label="Go to homepage">Deimosfr Blog</a></div><a class=header-right-picture href=https://blog.deimos.fr/#about aria-label="Open the link: /#about"><img class=header-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author's picture"></a></header><nav id=sidebar data-behavior=2><div class=sidebar-container><div class=sidebar-profile><a href=https://blog.deimos.fr/#about aria-label="Read more about the author"><img class=sidebar-profile-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"></a><h4 class=sidebar-profile-name>Pierre Mavro / Deimosfr</h4></div><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/ title=Home><i class="sidebar-button-icon fa fa-lg fa-home"></i><span class=sidebar-button-desc>Home</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/archives title=Archives><i class="sidebar-button-icon fa fa-lg fa-archive"></i><span class=sidebar-button-desc>Archives</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/categories title=Categories><i class="sidebar-button-icon fa fa-lg fa-bookmark"></i><span class=sidebar-button-desc>Categories</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/tags title=Tags><i class="sidebar-button-icon fa fa-lg fa-tags"></i><span class=sidebar-button-desc>Tags</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/index.xml title=RSS><i class="sidebar-button-icon fa fa-lg fa-rss"></i><span class=sidebar-button-desc>RSS</span></a></li></ul><ul class=sidebar-buttons></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://www.deimos.fr target=_blank rel=noopener title=About><i class="sidebar-button-icon fa fa-lg fa-user"></i><span class=sidebar-button-desc>About</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://wiki.deimos.fr target=_blank rel=noopener title=Wiki><i class="sidebar-button-icon fa fa-wikipedia-w"></i><span class=sidebar-button-desc>Wiki</span></a></li></ul></div></nav><div id=main data-behavior=2 class=hasCoverMetaIn><section class="postShorten-group main-content-wrap"><article class="postShorten postShorten--thumbnailimg-left"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2013/06/21/mariadbmysql-slides-for-ha-and-performances-tuning/ aria-label="Open the post: MariaDB/MySQL slides for HA and performances tuning">MariaDB/MySQL slides for HA and performances tuning</a></h1><div class="postShorten-meta post-meta"><time datetime=2013-06-21T10:00:07Z>21 June 2013</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/databases>Databases</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a></div></div><div class=postShorten-excerpt>I recently gave a training on MariaDB/MySQL regarding performances tuning and High Availability. You can find here the slides I&rsquo;ve made for it (french).
-Some subjects related in that document are replication master -> slave, master &lt; -> master and Galera Cluster. You can download the PDF here or see it directly on SlideShare :
-I hope this will help some of you to get a better understanding on some advanced features.<p><a href=https://blog.deimos.fr/2013/06/21/mariadbmysql-slides-for-ha-and-performances-tuning/ class="postShorten-excerpt_link link" aria-label="Open the post: MariaDB/MySQL slides for HA and performances tuning">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2013/06/21/mariadbmysql-slides-for-ha-and-performances-tuning/ aria-label="Open the post: MariaDB/MySQL slides for HA and performances tuning"><div class=postShorten-thumbnailimg><img alt src=https://blog.deimos.fr/thumbnails/logo_mariadb.png></div></a></article><article class="postShorten postShorten--thumbnailimg-left"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2013/06/19/3508/ aria-label="Open the post: Selfoss : An elegant RSS reader">Selfoss : An elegant RSS reader</a></h1><div class="postShorten-meta post-meta"><time datetime=2013-06-19T10:00:15Z>19 June 2013</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/android>Android</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/web>Web</a></div></div><div class=postShorten-excerpt>Selfoss is a self-hosted RSS reader solution. It could be compared to Tiny Tiny RSS or Feedly.
-I liked to test that nice solution. But I&rsquo;m still staying with Fever, as there is no Android version working with Selfoss (only an old one exist, but doesn&rsquo;t work) and the web interface is a little bit slow (compared to Fever). I hope this will be better in a short term as this is the most elegant Open Source version I&rsquo;ve tested for now.<p><a href=https://blog.deimos.fr/2013/06/19/3508/ class="postShorten-excerpt_link link" aria-label="Open the post: Selfoss : An elegant RSS reader">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2013/06/19/3508/ aria-label="Open the post: Selfoss : An elegant RSS reader"><div class=postShorten-thumbnailimg><img alt src=https://blog.deimos.fr/thumbnails/logo_selfoss.png></div></a></article><article class="postShorten postShorten--thumbnailimg-bottom"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2013/06/03/firefox-sync-build-your-own-sync-server/ aria-label="Open the post: Firefox Sync : build your own sync server">Firefox Sync : build your own sync server</a></h1><div class="postShorten-meta post-meta"><time datetime=2013-06-03T10:00:00Z>3 June 2013</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/web>Web</a></div></div><div class=postShorten-excerpt>I&rsquo;m very happy of Mozilla Sync service and trust more in Mozilla foundation than Google for my datas. Anyway there is a thing that I don&rsquo;t like : sharing my passwords into the cloud !
-That&rsquo;s why I decided to create my own Sync Server. I want to thanks Mozilla for their work, it works like a charm :-). So now I don&rsquo;t use Mozilla server anymore, but my own. Here is the documentation on how I did that.<p><a href=https://blog.deimos.fr/2013/06/03/firefox-sync-build-your-own-sync-server/ class="postShorten-excerpt_link link" aria-label="Open the post: Firefox Sync : build your own sync server">Continue reading</a></p></div></div></article><article class="postShorten postShorten--thumbnailimg-left"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2013/06/01/swith-audio-output-to-another-usb-device/ aria-label="Open the post: Switch audio output to another USB device">Switch audio output to another USB device</a></h1><div class="postShorten-meta post-meta"><time datetime=2013-06-01T10:00:24Z>1 June 2013</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a></div></div><div class=postShorten-excerpt>I recently talked about my new keyboard and the output sound directly on the keyboard. That&rsquo;s a great thing, but depending on your distribution and the desktop you&rsquo;ve installed, it may not work out of the box.
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/blog.deimos.fr",
+  "author": {
+    "@type": "Person",
+    "name": "Pierre Mavro / Deimosfr",
+    
+    "image": "https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"
+    
+  },
+  "name":"Deimosfr Blog",
+  "description":"Deimos Blog",
+  "url":"https:\/\/blog.deimos.fr\/tags\/debian\/",
+  "keywords":"[]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.89.4 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="debian">
+<meta name="twitter:title" content="debian">
+<meta property="og:url" content="https://blog.deimos.fr/tags/debian/">
+<meta property="twitter:url" content="https://blog.deimos.fr/tags/debian/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
+
+
+
+
+    <title>debian</title>
+
+    <link rel="icon" href="https://blog.deimos.fr/favicon.png">
+    
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://blog.deimos.fr/tags/debian/index.xml">
+    
+
+    
+
+    <link rel="canonical" href="https://blog.deimos.fr/tags/debian/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
+      
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-63927289-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="2">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.deimos.fr/" aria-label="Go to homepage">Deimosfr Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://blog.deimos.fr/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="2">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.deimos.fr/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/index.xml" title="RSS">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/deimosfr" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank" rel="noopener" title="Wiki">
+    
+      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
+      
+      <span class="sidebar-button-desc">Wiki</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.deimos.fr" target="_blank" rel="noopener" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+        
+
+      
+      <div id="main" data-behavior="2"
+        class="
+               hasCoverMetaIn
+               ">
+        
+          <section class="postShorten-group main-content-wrap">
+            
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2013/06/21/mariadbmysql-slides-for-ha-and-performances-tuning/" aria-label="Open the post: MariaDB/MySQL slides for HA and performances tuning">
+      
+          MariaDB/MySQL slides for HA and performances tuning
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2013-06-21T10:00:07Z">
+        
+  
+  
+  
+  
+    21 June 2013
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/databases">Databases</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        I recently gave a training on MariaDB/MySQL regarding performances tuning and High Availability. You can find here the slides I&rsquo;ve made for it (french).
+Some subjects related in that document are replication master -&gt; slave, master &lt; -&gt; master and Galera Cluster. You can download the PDF here or see it directly on SlideShare :
+I hope this will help some of you to get a better understanding on some advanced features.
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2013/06/21/mariadbmysql-slides-for-ha-and-performances-tuning/" class="postShorten-excerpt_link link" aria-label="Open the post: MariaDB/MySQL slides for HA and performances tuning">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2013/06/21/mariadbmysql-slides-for-ha-and-performances-tuning/" aria-label="Open the post: MariaDB/MySQL slides for HA and performances tuning">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="https://blog.deimos.fr/thumbnails/logo_mariadb.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2013/06/19/3508/" aria-label="Open the post: Selfoss : An elegant RSS reader">
+      
+          Selfoss : An elegant RSS reader
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2013-06-19T10:00:15Z">
+        
+  
+  
+  
+  
+    19 June 2013
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/android">Android</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/web">Web</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        Selfoss is a self-hosted RSS reader solution. It could be compared to Tiny Tiny RSS or Feedly.
+I liked to test that nice solution. But I&rsquo;m still staying with Fever, as there is no Android version working with Selfoss (only an old one exist, but doesn&rsquo;t work) and the web interface is a little bit slow (compared to Fever). I hope this will be better in a short term as this is the most elegant Open Source version I&rsquo;ve tested for now.
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2013/06/19/3508/" class="postShorten-excerpt_link link" aria-label="Open the post: Selfoss : An elegant RSS reader">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2013/06/19/3508/" aria-label="Open the post: Selfoss : An elegant RSS reader">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="https://blog.deimos.fr/thumbnails/logo_selfoss.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2013/06/03/firefox-sync-build-your-own-sync-server/" aria-label="Open the post: Firefox Sync : build your own sync server">
+      
+          Firefox Sync : build your own sync server
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2013-06-03T10:00:00Z">
+        
+  
+  
+  
+  
+    3 June 2013
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/web">Web</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        I&rsquo;m very happy of Mozilla Sync service and trust more in Mozilla foundation than Google for my datas. Anyway there is a thing that I don&rsquo;t like : sharing my passwords into the cloud !
+That&rsquo;s why I decided to create my own Sync Server. I want to thanks Mozilla for their work, it works like a charm :-). So now I don&rsquo;t use Mozilla server anymore, but my own. Here is the documentation on how I did that.
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2013/06/03/firefox-sync-build-your-own-sync-server/" class="postShorten-excerpt_link link" aria-label="Open the post: Firefox Sync : build your own sync server">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2013/06/01/swith-audio-output-to-another-usb-device/" aria-label="Open the post: Switch audio output to another USB device">
+      
+          Switch audio output to another USB device
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2013-06-01T10:00:24Z">
+        
+  
+  
+  
+  
+    1 June 2013
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        I recently talked about my new keyboard and the output sound directly on the keyboard. That&rsquo;s a great thing, but depending on your distribution and the desktop you&rsquo;ve installed, it may not work out of the box.
 That&rsquo;s why I&rsquo;ve written a documentation to make it work.
-In addition, I&rsquo;ve modified my awesome configuration to get special music keys to work like a charm :-)<p><a href=https://blog.deimos.fr/2013/06/01/swith-audio-output-to-another-usb-device/ class="postShorten-excerpt_link link" aria-label="Open the post: Switch audio output to another USB device">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2013/06/01/swith-audio-output-to-another-usb-device/ aria-label="Open the post: Switch audio output to another USB device"><div class=postShorten-thumbnailimg><img alt src=https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg></div></a></article><article class="postShorten postShorten--thumbnailimg-left"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2013/05/26/integrit-add-an-integrity-control-tool-on-your-debian/ aria-label="Open the post: Integrit : Add an integrity control tool on your Debian">Integrit : Add an integrity control tool on your Debian</a></h1><div class="postShorten-meta post-meta"><time datetime=2013-05-26T10:00:13Z>26 May 2013</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a></div></div><div class=postShorten-excerpt>Integrit is a simple yet secure alternative to products like tripwire. It has a small memory footprint, uses up-to-date cryptographic algorithms, and has features that make sense (like including the MD5 checksum of newly generated databases in the report.
-You may already now the alternatives on OpenBSD or RedHat. So now let&rsquo;s play with Debian :-)<p><a href=https://blog.deimos.fr/2013/05/26/integrit-add-an-integrity-control-tool-on-your-debian/ class="postShorten-excerpt_link link" aria-label="Open the post: Integrit : Add an integrity control tool on your Debian">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2013/05/26/integrit-add-an-integrity-control-tool-on-your-debian/ aria-label="Open the post: Integrit : Add an integrity control tool on your Debian"><div class=postShorten-thumbnailimg><img alt src=https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg></div></a></article><article class="postShorten postShorten--thumbnailimg-bottom"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2013/05/24/weechat-a-user-friendly-irc-client/ aria-label="Open the post: Weechat : a user friendly IRC client">Weechat : a user friendly IRC client</a></h1><div class="postShorten-meta post-meta"><time datetime=2013-05-24T10:00:30Z>24 May 2013</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/freebsd>FreeBSD</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/mac>Mac</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/openbsd>OpenBSD</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/solaris>Solaris</a></div></div><div class=postShorten-excerpt>WeeChat is a fast, light and extensible chat client. It runs on many platforms (including Linux, BSD and Mac OS). I&rsquo;m using it over a year and really love that client.
+In addition, I&rsquo;ve modified my awesome configuration to get special music keys to work like a charm :-)
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2013/06/01/swith-audio-output-to-another-usb-device/" class="postShorten-excerpt_link link" aria-label="Open the post: Switch audio output to another USB device">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2013/06/01/swith-audio-output-to-another-usb-device/" aria-label="Open the post: Switch audio output to another USB device">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2013/05/26/integrit-add-an-integrity-control-tool-on-your-debian/" aria-label="Open the post: Integrit : Add an integrity control tool on your Debian">
+      
+          Integrit : Add an integrity control tool on your Debian
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2013-05-26T10:00:13Z">
+        
+  
+  
+  
+  
+    26 May 2013
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        Integrit is a simple yet secure alternative to products like tripwire. It has a small memory footprint, uses up-to-date cryptographic algorithms, and has features that make sense (like including the MD5 checksum of newly generated databases in the report.
+You may already now the alternatives on OpenBSD or RedHat. So now let&rsquo;s play with Debian :-)
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2013/05/26/integrit-add-an-integrity-control-tool-on-your-debian/" class="postShorten-excerpt_link link" aria-label="Open the post: Integrit : Add an integrity control tool on your Debian">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2013/05/26/integrit-add-an-integrity-control-tool-on-your-debian/" aria-label="Open the post: Integrit : Add an integrity control tool on your Debian">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2013/05/24/weechat-a-user-friendly-irc-client/" aria-label="Open the post: Weechat : a user friendly IRC client">
+      
+          Weechat : a user friendly IRC client
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2013-05-24T10:00:30Z">
+        
+  
+  
+  
+  
+    24 May 2013
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/freebsd">FreeBSD</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/mac">Mac</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/openbsd">OpenBSD</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/solaris">Solaris</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        WeeChat is a fast, light and extensible chat client. It runs on many platforms (including Linux, BSD and Mac OS). I&rsquo;m using it over a year and really love that client.
 WeeChat is:
-modular: a lightweight core with plugins around multi-protocols: IRC and Jabber (other soon) extensible: C plugins and scripts (Perl, Python, Ruby, Lua, Tcl and Scheme) free software: released under GPLv3 license fully documented: user&rsquo;s guide, API, FAQ,.<p><a href=https://blog.deimos.fr/2013/05/24/weechat-a-user-friendly-irc-client/ class="postShorten-excerpt_link link" aria-label="Open the post: Weechat : a user friendly IRC client">Continue reading</a></p></div></div></article><article class="postShorten postShorten--thumbnailimg-bottom"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2013/05/20/simulate-a-black-hole-for-a-domain-with-postfix/ aria-label="Open the post: Simulate a black hole for a domain with Postfix">Simulate a black hole for a domain with Postfix</a></h1><div class="postShorten-meta post-meta"><time datetime=2013-05-20T10:00:17Z>20 May 2013</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a></div></div><div class=postShorten-excerpt>When you manage outgoing emails through SMTP, you may sometimes need to test if a service is able to send correctly emails and itself check that there were no issue during sending. You can create a black hole for a specific domain and Postfix will answer from the same manner as if it is ok. It also permit to test Postfix sending capacities on a server.
-To get more informations on this, follow that link.<p><a href=https://blog.deimos.fr/2013/05/20/simulate-a-black-hole-for-a-domain-with-postfix/ class="postShorten-excerpt_link link" aria-label="Open the post: Simulate a black hole for a domain with Postfix">Continue reading</a></p></div></div></article><div class=pagination-bar><ul class=pagination><li class=pagination-prev><a class="btn btn--default btn--small" href=https://blog.deimos.fr/tags/debian/page/16/ aria-label="NEWER POSTS"><i class="fa fa-angle-left text-base icon-mr"></i><span>NEWER POSTS</span></a></li><li class=pagination-next><a class="btn btn--default btn--small" href=https://blog.deimos.fr/tags/debian/page/18/ aria-label="OLDER POSTS"><span>OLDER POSTS</span>
-<i class="fa fa-angle-right text-base icon-ml"></i></a></li><li class=pagination-number>page 17 of 30</li></ul></div></section><footer id=footer class=main-content-wrap><span class=copyrights>&copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved</span></footer></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-times"></i></div><img id=about-card-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"><h4 id=about-card-name>Pierre Mavro / Deimosfr</h4><div id=about-card-job><i class="fa fa-briefcase"></i><br>Qovery Co-Founder and CTO</div><div id=about-card-location><i class="fa fa-map-marker-alt"></i><br>Paris - France</div></div></div><div id=cover style=background-image:url(https://blog.deimos.fr/images/fish_background.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js></script><script src=https://blog.deimos.fr/js/custom.js></script><script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:false});$('pre.code-highlight > code, pre > code').each(function(i,block){if(!$(this).hasClass('codeblock')){$(this).addClass('codeblock');}
-hljs.highlightBlock(block);});});</script></body></html>
+ modular: a lightweight core with plugins around multi-protocols: IRC and Jabber (other soon) extensible: C plugins and scripts (Perl, Python, Ruby, Lua, Tcl and Scheme) free software: released under GPLv3 license fully documented: user&rsquo;s guide, API, FAQ,.
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2013/05/24/weechat-a-user-friendly-irc-client/" class="postShorten-excerpt_link link" aria-label="Open the post: Weechat : a user friendly IRC client">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2013/05/20/simulate-a-black-hole-for-a-domain-with-postfix/" aria-label="Open the post: Simulate a black hole for a domain with Postfix">
+      
+          Simulate a black hole for a domain with Postfix
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2013-05-20T10:00:17Z">
+        
+  
+  
+  
+  
+    20 May 2013
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        When you manage outgoing emails through SMTP, you may sometimes need to test if a service is able to send correctly emails and itself check that there were no issue during sending. You can create a black hole for a specific domain and Postfix will answer from the same manner as if it is ok. It also permit to test Postfix sending capacities on a server.
+To get more informations on this, follow that link.
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2013/05/20/simulate-a-black-hole-for-a-domain-with-postfix/" class="postShorten-excerpt_link link" aria-label="Open the post: Simulate a black hole for a domain with Postfix">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+            
+  <div class="pagination-bar">
+    <ul class="pagination">
+      
+        
+          <li class="pagination-prev">
+            <a class="btn btn--default btn--small" href="https://blog.deimos.fr/tags/debian/page/16/" aria-label="NEWER POSTS">
+              <i class="fa fa-angle-left text-base icon-mr"></i>
+              <span>NEWER POSTS</span>
+            </a>
+          </li>
+        
+        
+          <li class="pagination-next">
+            <a class="btn btn--default btn--small" href="https://blog.deimos.fr/tags/debian/page/18/" aria-label="OLDER POSTS">
+              <span>OLDER POSTS</span>
+              <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+          </li>
+        
+      
+      <li class="pagination-number">page 17 of 30</li>
+    </ul>
+  </div>
+
+
+          </section>
+        
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Qovery Co-Founder and CTO
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Paris - France
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      
+      <div id="cover" style="background-image:url('https://blog.deimos.fr/images/fish_background.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script src="https://blog.deimos.fr/js/custom.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+

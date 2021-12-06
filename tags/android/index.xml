@@ -1,26 +1,189 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Android on Deimosfr Blog</title><link>https://blog.deimos.fr/tags/android/</link><description>Recent content in Android on Deimosfr Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 26 Oct 2014 11:00:46 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/android/index.xml" rel="self" type="application/rss+xml"/><item><title>Finally: switching back to iOS (from Android)</title><link>https://blog.deimos.fr/2014/10/26/finally-switching-back-to-ios-from-android/</link><pubDate>Sun, 26 Oct 2014 11:00:46 +0000</pubDate><guid>https://blog.deimos.fr/2014/10/26/finally-switching-back-to-ios-from-android/</guid><description>In previous posts, I talked about why I switched from iOS to Android.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android on Deimosfr Blog</title>
+    <link>https://blog.deimos.fr/tags/android/</link>
+    <description>Recent content in Android on Deimosfr Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Oct 2014 11:00:46 +0000</lastBuildDate><atom:link href="https://blog.deimos.fr/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Finally: switching back to iOS (from Android)</title>
+      <link>https://blog.deimos.fr/2014/10/26/finally-switching-back-to-ios-from-android/</link>
+      <pubDate>Sun, 26 Oct 2014 11:00:46 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/10/26/finally-switching-back-to-ios-from-android/</guid>
+      <description>In previous posts, I talked about why I switched from iOS to Android.
 After 1 year and a half, after 3 different Android phones (Nexus 4, Nexus 5 and Samsung Galaxy S5), I&amp;rsquo;m finally going to switch back to iOS. For several reasons in facts but the major ones are those:
-Application quality lower than on iOS Lower global stability on Samsung Touchwizz and Cyanogen I was pretty happy with Google Stock ROM, however it&amp;rsquo;s not available on all devices and the Nexus do not have the better hardware (not talking about Nexus 6).</description></item><item><title>Cyanogen: finally available on Samsung Galaxy S5 EU</title><link>https://blog.deimos.fr/2014/10/04/cyanogen-finally-available-on-samsung-galaxy-s5-eu/</link><pubDate>Sat, 04 Oct 2014 10:00:24 +0000</pubDate><guid>https://blog.deimos.fr/2014/10/04/cyanogen-finally-available-on-samsung-galaxy-s5-eu/</guid><description>Cyanogen is finally available on Sumsung Galaxy S5 Europe (klte) :-). Thanks Cyanogen Team! For the moment, you can only grab nighly builds but everything is working fine on it.
-Regarding the difference with the Samsung ROM, I noticed the battery life time is a little bit reduced (up to 15% depending on your usage). Camera is working fine, calls, screen etc&amp;hellip; are ok too. I only have minor bugs that I don&amp;rsquo;t really care in fact.</description></item><item><title>Android: Aviate launcher danger and F-Droid</title><link>https://blog.deimos.fr/2014/05/25/android-aviate-launcher-danger-and-f-droid/</link><pubDate>Sun, 25 May 2014 10:00:00 +0000</pubDate><guid>https://blog.deimos.fr/2014/05/25/android-aviate-launcher-danger-and-f-droid/</guid><description>As you may know, related to a previous post, I was using Aviate launcher on Android. I was so happy with it that I started to speak about it around me and promoted it.
+ Application quality lower than on iOS Lower global stability on Samsung Touchwizz and Cyanogen  I was pretty happy with Google Stock ROM, however it&amp;rsquo;s not available on all devices and the Nexus do not have the better hardware (not talking about Nexus 6).</description>
+    </item>
+    
+    <item>
+      <title>Cyanogen: finally available on Samsung Galaxy S5 EU</title>
+      <link>https://blog.deimos.fr/2014/10/04/cyanogen-finally-available-on-samsung-galaxy-s5-eu/</link>
+      <pubDate>Sat, 04 Oct 2014 10:00:24 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/10/04/cyanogen-finally-available-on-samsung-galaxy-s5-eu/</guid>
+      <description>Cyanogen is finally available on Sumsung Galaxy S5 Europe (klte) :-). Thanks Cyanogen Team! For the moment, you can only grab nighly builds but everything is working fine on it.
+Regarding the difference with the Samsung ROM, I noticed the battery life time is a little bit reduced (up to 15% depending on your usage). Camera is working fine, calls, screen etc&amp;hellip; are ok too. I only have minor bugs that I don&amp;rsquo;t really care in fact.</description>
+    </item>
+    
+    <item>
+      <title>Android: Aviate launcher danger and F-Droid</title>
+      <link>https://blog.deimos.fr/2014/05/25/android-aviate-launcher-danger-and-f-droid/</link>
+      <pubDate>Sun, 25 May 2014 10:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/05/25/android-aviate-launcher-danger-and-f-droid/</guid>
+      <description>As you may know, related to a previous post, I was using Aviate launcher on Android. I was so happy with it that I started to speak about it around me and promoted it.
 My friend Romaric (@evoxmusic) informed me that this software required too much access in his opinion and that I should look at the privacy policy of Aviate.
 After starting reading it, I could find this:
-we may collect Personal Information such as your name, email address, phone number, location information, unique device identifier, and third-party account credentials (for example, your log-in credentials for Facebook or other third party sites)</description></item><item><title>Galaxy S5: feedbacks after 2 weeks usage and ROM customization</title><link>https://blog.deimos.fr/2014/05/23/galaxy-s5-feedbacks-after-2-weeks-usage/</link><pubDate>Fri, 23 May 2014 10:00:00 +0000</pubDate><guid>https://blog.deimos.fr/2014/05/23/galaxy-s5-feedbacks-after-2-weeks-usage/</guid><description>I recently changed my smartphone (yes once again) because I was very interested in Galaxy S5 features compared to Nexus 5:
-Waterproof: better when you got child&amp;rsquo;s and can record video underwater! Better autonomy: I can have a normal day without charging it! Better camera: once again when you have child&amp;rsquo;s&amp;hellip;The camera makes very good photos compared to Nexus 5. Bigger screen: not a big point for me but it is better Storage: can add a micro SD card.</description></item><item><title>Cyanogen: upgrade your Samsung S2 to Kitkat</title><link>https://blog.deimos.fr/2014/04/17/cyanogen-upgrade-your-samsung-s2-to-kitkat/</link><pubDate>Thu, 17 Apr 2014 10:00:24 +0000</pubDate><guid>https://blog.deimos.fr/2014/04/17/cyanogen-upgrade-your-samsung-s2-to-kitkat/</guid><description>I wanted to upgrade my Android version from Cyanogen 10 to 11M5 on my old Samsung Galaxy S2. I though it would be an easy task, but not at all.
-First of all, I had to be in recovery mod (bottom button + vol up + power). Then I wanted to create a /sdcard but it didn&amp;rsquo;t want to mount and I didn&amp;rsquo;t want to format my sdcard. So I mounted a tmpfs onto it:</description></item><item><title>Android: Aviate + Cover = Epic Win!!!</title><link>https://blog.deimos.fr/2014/04/13/android-aviate-cover-epic-win/</link><pubDate>Sun, 13 Apr 2014 10:00:01 +0000</pubDate><guid>https://blog.deimos.fr/2014/04/13/android-aviate-cover-epic-win/</guid><description>As you may read, I recently decided to drop Cyanogen :-(. Google Now interface is fine, but not enough user oriented for now days in my opinion. A few months ago, a friend (@sebastien_han) show me Aviate and switched to it. This is an interface that helps you day to day to show you informations and apps you need depending on your localization. I really love it!
-Last week I discovered Cover which is a solution for the lockscreen.</description></item><item><title>Cyanogen: see you next time</title><link>https://blog.deimos.fr/2014/04/05/cyanogen-see-you-next-time/</link><pubDate>Sat, 05 Apr 2014 10:00:55 +0000</pubDate><guid>https://blog.deimos.fr/2014/04/05/cyanogen-see-you-next-time/</guid><description>This post is to talk about my experiences on Cyanogen. I&amp;rsquo;m using this ROM since a long time now. When I was on my Galaxy S2, it was perfect! I do not remember to have special issues. I was using nightlies and it was stable enough for me.
-When I switched to Nexus 4, it was not too bad, but I sometimes had problems on updates that forced me to restore.</description></item><item><title>Android : Avoid media to be scanned</title><link>https://blog.deimos.fr/2013/12/30/android-avoid-media-to-be-scanned/</link><pubDate>Mon, 30 Dec 2013 11:00:31 +0000</pubDate><guid>https://blog.deimos.fr/2013/12/30/android-avoid-media-to-be-scanned/</guid><description>On android, you may need some folder to no being indexed. It could be photos or videos&amp;hellip;
+ we may collect Personal Information such as your name, email address, phone number, location information, unique device identifier, and third-party account credentials (for example, your log-in credentials for Facebook or other third party sites)</description>
+    </item>
+    
+    <item>
+      <title>Galaxy S5: feedbacks after 2 weeks usage and ROM customization</title>
+      <link>https://blog.deimos.fr/2014/05/23/galaxy-s5-feedbacks-after-2-weeks-usage/</link>
+      <pubDate>Fri, 23 May 2014 10:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/05/23/galaxy-s5-feedbacks-after-2-weeks-usage/</guid>
+      <description>I recently changed my smartphone (yes once again) because I was very interested in Galaxy S5 features compared to Nexus 5:
+ Waterproof: better when you got child&amp;rsquo;s and can record video underwater! Better autonomy: I can have a normal day without charging it! Better camera: once again when you have child&amp;rsquo;s&amp;hellip;The camera makes very good photos compared to Nexus 5. Bigger screen: not a big point for me but it is better Storage: can add a micro SD card.</description>
+    </item>
+    
+    <item>
+      <title>Cyanogen: upgrade your Samsung S2 to Kitkat</title>
+      <link>https://blog.deimos.fr/2014/04/17/cyanogen-upgrade-your-samsung-s2-to-kitkat/</link>
+      <pubDate>Thu, 17 Apr 2014 10:00:24 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/04/17/cyanogen-upgrade-your-samsung-s2-to-kitkat/</guid>
+      <description>I wanted to upgrade my Android version from Cyanogen 10 to 11M5 on my old Samsung Galaxy S2. I though it would be an easy task, but not at all.
+First of all, I had to be in recovery mod (bottom button + vol up + power). Then I wanted to create a /sdcard but it didn&amp;rsquo;t want to mount and I didn&amp;rsquo;t want to format my sdcard. So I mounted a tmpfs onto it:</description>
+    </item>
+    
+    <item>
+      <title>Android: Aviate &#43; Cover = Epic Win!!!</title>
+      <link>https://blog.deimos.fr/2014/04/13/android-aviate-cover-epic-win/</link>
+      <pubDate>Sun, 13 Apr 2014 10:00:01 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/04/13/android-aviate-cover-epic-win/</guid>
+      <description>As you may read, I recently decided to drop Cyanogen :-(. Google Now interface is fine, but not enough user oriented for now days in my opinion. A few months ago, a friend (@sebastien_han) show me Aviate and switched to it. This is an interface that helps you day to day to show you informations and apps you need depending on your localization. I really love it!
+Last week I discovered Cover which is a solution for the lockscreen.</description>
+    </item>
+    
+    <item>
+      <title>Cyanogen: see you next time</title>
+      <link>https://blog.deimos.fr/2014/04/05/cyanogen-see-you-next-time/</link>
+      <pubDate>Sat, 05 Apr 2014 10:00:55 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2014/04/05/cyanogen-see-you-next-time/</guid>
+      <description>This post is to talk about my experiences on Cyanogen. I&amp;rsquo;m using this ROM since a long time now. When I was on my Galaxy S2, it was perfect! I do not remember to have special issues. I was using nightlies and it was stable enough for me.
+When I switched to Nexus 4, it was not too bad, but I sometimes had problems on updates that forced me to restore.</description>
+    </item>
+    
+    <item>
+      <title>Android : Avoid media to be scanned</title>
+      <link>https://blog.deimos.fr/2013/12/30/android-avoid-media-to-be-scanned/</link>
+      <pubDate>Mon, 30 Dec 2013 11:00:31 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/12/30/android-avoid-media-to-be-scanned/</guid>
+      <description>On android, you may need some folder to no being indexed. It could be photos or videos&amp;hellip;
 To do so, use a ES Explorer for example and a &amp;lsquo;.nomedia&amp;rsquo; file inside the desired folder.
-No index will be done in that folder. I like to do it when I temporary add TV series and don&amp;rsquo;t want them to be indexed. By this way I don&amp;rsquo;t see them in the Gallery application for example.</description></item><item><title>Nexus 5 today :-)</title><link>https://blog.deimos.fr/2013/11/14/nexus-5-today/</link><pubDate>Thu, 14 Nov 2013 11:00:00 +0000</pubDate><guid>https://blog.deimos.fr/2013/11/14/nexus-5-today/</guid><description>I&amp;rsquo;m happy to receive the new Nexus 5 today. I love the Nexus 4 but&amp;hellip;do not have enough space on it, even with the 16G version.
+No index will be done in that folder. I like to do it when I temporary add TV series and don&amp;rsquo;t want them to be indexed. By this way I don&amp;rsquo;t see them in the Gallery application for example.</description>
+    </item>
+    
+    <item>
+      <title>Nexus 5 today :-)</title>
+      <link>https://blog.deimos.fr/2013/11/14/nexus-5-today/</link>
+      <pubDate>Thu, 14 Nov 2013 11:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/11/14/nexus-5-today/</guid>
+      <description>I&amp;rsquo;m happy to receive the new Nexus 5 today. I love the Nexus 4 but&amp;hellip;do not have enough space on it, even with the 16G version.
 So I have bought the 32G and will be happy to get the photo stabilizer. Those are the major enhancement that makes me take the new Nexus.
-I&amp;rsquo;m waiting the Cyanogen ROM to get all advanced features I like and hope it will be available soon.</description></item><item><title>Selfoss : An elegant RSS reader</title><link>https://blog.deimos.fr/2013/06/19/3508/</link><pubDate>Wed, 19 Jun 2013 10:00:15 +0000</pubDate><guid>https://blog.deimos.fr/2013/06/19/3508/</guid><description>Selfoss is a self-hosted RSS reader solution. It could be compared to Tiny Tiny RSS or Feedly.
-I liked to test that nice solution. But I&amp;rsquo;m still staying with Fever, as there is no Android version working with Selfoss (only an old one exist, but doesn&amp;rsquo;t work) and the web interface is a little bit slow (compared to Fever). I hope this will be better in a short term as this is the most elegant Open Source version I&amp;rsquo;ve tested for now.</description></item><item><title>My Android Applications</title><link>https://blog.deimos.fr/2013/06/09/my-android-applications/</link><pubDate>Sun, 09 Jun 2013 10:00:00 +0000</pubDate><guid>https://blog.deimos.fr/2013/06/09/my-android-applications/</guid><description>Since I&amp;rsquo;m an Android user, I try to find all apps that daily helps me. As I&amp;rsquo;ve spent several hours to test and configure them, I would like to share my experience with other peoples that want to switch from iOS like me.
-First of all, you need advanced features if you are a poweruser. So get root privileges. Then install a mod like CyanogenMod. It will gives you more features to fine tune battery, CPU etc&amp;hellip;</description></item><item><title>Google had me : switching from iOS to Android</title><link>https://blog.deimos.fr/2013/06/07/google-had-me-switching-from-ios-to-android/</link><pubDate>Fri, 07 Jun 2013 10:00:00 +0000</pubDate><guid>https://blog.deimos.fr/2013/06/07/google-had-me-switching-from-ios-to-android/</guid><description>I&amp;rsquo;ve wrote several posts on this blog since 2 years while trying to switch from iOS to Android.
-The first time I tried, I was on a 2.x version of Android and a lot of missing features didn&amp;rsquo;t helped me to switch. My cell phone was a Samsung Galaxy S2 and I really can&amp;rsquo;t stand on Samsung Touchwizz layer. That why I decided to install a Mod called Cyanogen (you&amp;rsquo;ve certainly already have heard of this).</description></item><item><title>Android…nan toujours pas !</title><link>https://blog.deimos.fr/2012/08/17/android-nan-toujours-pas/</link><pubDate>Fri, 17 Aug 2012 10:00:45 +0000</pubDate><guid>https://blog.deimos.fr/2012/08/17/android-nan-toujours-pas/</guid><description>Avec la sortie de la cyanogen 9 stable, j&amp;rsquo;ai mis à jour mon Samsung Galaxy S2 et ai voulu squeezer temporairement mon iPhone. C&amp;rsquo;est stable, je n&amp;rsquo;ai pas encore vu de bugs. De grosses améliorations ont été apportées par rapport à la version précédente. C&amp;rsquo;est bourré de gadget plus Geek les uns que les autres, mais tout comme la dernière fois, je regrette qu&amp;rsquo;il n&amp;rsquo;y ai pas nativement :
-Des pastilles sur les applications pour savoir combien de mails non lu, SMS, etc&amp;hellip; (se corrige avec Go Notifier) La lisibilité des mails est pitoyable sur le client de base et aucun autre ne m&amp;rsquo;a vraiment convaincu.</description></item><item><title>De retour sur iPhone</title><link>https://blog.deimos.fr/2011/07/26/de-retour-sur-iphone/</link><pubDate>Tue, 26 Jul 2011 19:54:18 +0000</pubDate><guid>https://blog.deimos.fr/2011/07/26/de-retour-sur-iphone/</guid><description>Back to iPhone ! Je n’en pouvait plus d’Android ! C’est pourtant bien, mais trop loin du confort de l’iOS !
+I&amp;rsquo;m waiting the Cyanogen ROM to get all advanced features I like and hope it will be available soon.</description>
+    </item>
+    
+    <item>
+      <title>Selfoss : An elegant RSS reader</title>
+      <link>https://blog.deimos.fr/2013/06/19/3508/</link>
+      <pubDate>Wed, 19 Jun 2013 10:00:15 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/06/19/3508/</guid>
+      <description>Selfoss is a self-hosted RSS reader solution. It could be compared to Tiny Tiny RSS or Feedly.
+I liked to test that nice solution. But I&amp;rsquo;m still staying with Fever, as there is no Android version working with Selfoss (only an old one exist, but doesn&amp;rsquo;t work) and the web interface is a little bit slow (compared to Fever). I hope this will be better in a short term as this is the most elegant Open Source version I&amp;rsquo;ve tested for now.</description>
+    </item>
+    
+    <item>
+      <title>My Android Applications</title>
+      <link>https://blog.deimos.fr/2013/06/09/my-android-applications/</link>
+      <pubDate>Sun, 09 Jun 2013 10:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/06/09/my-android-applications/</guid>
+      <description>Since I&amp;rsquo;m an Android user, I try to find all apps that daily helps me. As I&amp;rsquo;ve spent several hours to test and configure them, I would like to share my experience with other peoples that want to switch from iOS like me.
+First of all, you need advanced features if you are a poweruser. So get root privileges. Then install a mod like CyanogenMod. It will gives you more features to fine tune battery, CPU etc&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Google had me : switching from iOS to Android</title>
+      <link>https://blog.deimos.fr/2013/06/07/google-had-me-switching-from-ios-to-android/</link>
+      <pubDate>Fri, 07 Jun 2013 10:00:00 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2013/06/07/google-had-me-switching-from-ios-to-android/</guid>
+      <description>I&amp;rsquo;ve wrote several posts on this blog since 2 years while trying to switch from iOS to Android.
+The first time I tried, I was on a 2.x version of Android and a lot of missing features didn&amp;rsquo;t helped me to switch. My cell phone was a Samsung Galaxy S2 and I really can&amp;rsquo;t stand on Samsung Touchwizz layer. That why I decided to install a Mod called Cyanogen (you&amp;rsquo;ve certainly already have heard of this).</description>
+    </item>
+    
+    <item>
+      <title>Android…nan toujours pas !</title>
+      <link>https://blog.deimos.fr/2012/08/17/android-nan-toujours-pas/</link>
+      <pubDate>Fri, 17 Aug 2012 10:00:45 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2012/08/17/android-nan-toujours-pas/</guid>
+      <description>Avec la sortie de la cyanogen 9 stable, j&amp;rsquo;ai mis à jour mon Samsung Galaxy S2 et ai voulu squeezer temporairement mon iPhone. C&amp;rsquo;est stable, je n&amp;rsquo;ai pas encore vu de bugs. De grosses améliorations ont été apportées par rapport à la version précédente. C&amp;rsquo;est bourré de gadget plus Geek les uns que les autres, mais tout comme la dernière fois, je regrette qu&amp;rsquo;il n&amp;rsquo;y ai pas nativement :
+ Des pastilles sur les applications pour savoir combien de mails non lu, SMS, etc&amp;hellip; (se corrige avec Go Notifier) La lisibilité des mails est pitoyable sur le client de base et aucun autre ne m&amp;rsquo;a vraiment convaincu.</description>
+    </item>
+    
+    <item>
+      <title>De retour sur iPhone</title>
+      <link>https://blog.deimos.fr/2011/07/26/de-retour-sur-iphone/</link>
+      <pubDate>Tue, 26 Jul 2011 19:54:18 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2011/07/26/de-retour-sur-iphone/</guid>
+      <description>Back to iPhone ! Je n’en pouvait plus d’Android ! C’est pourtant bien, mais trop loin du confort de l’iOS !
 Alors oui, je vais peut être me faire jeter des tomates, oui, je vais me faire siffler ! Mais c&amp;rsquo;est comme ça ! Le côté gris de la force m&amp;rsquo;attire (noir étant Microsoft).
-Android 3 (la version tablette) est tellement plus sexy que la version téléphone. Je me demande ce que Google fait ?</description></item><item><title>Reretour d’expérience sur Android</title><link>https://blog.deimos.fr/2011/07/11/reretour-dexperience-sur-android/</link><pubDate>Mon, 11 Jul 2011 18:37:23 +0000</pubDate><guid>https://blog.deimos.fr/2011/07/11/reretour-dexperience-sur-android/</guid><description>Je maintiens tout ce que j’ai pu dire sur mes anciens post. Je me rends de plus en plus compte qu’Android c’est top rooté. Quid d’un iOS jailbreaké ?
+Android 3 (la version tablette) est tellement plus sexy que la version téléphone. Je me demande ce que Google fait ?</description>
+    </item>
+    
+    <item>
+      <title>Reretour d’expérience sur Android</title>
+      <link>https://blog.deimos.fr/2011/07/11/reretour-dexperience-sur-android/</link>
+      <pubDate>Mon, 11 Jul 2011 18:37:23 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2011/07/11/reretour-dexperience-sur-android/</guid>
+      <description>Je maintiens tout ce que j’ai pu dire sur mes anciens post. Je me rends de plus en plus compte qu’Android c’est top rooté. Quid d’un iOS jailbreaké ?
 Je pense au finale que ce doit etre kifkif. Je rappelle encore une fois que les grosses différences entre les 2 sont l&amp;rsquo;ergonomie et les fonctionnalités.
-Il ne se passe pas un jour ou je regrette d&amp;rsquo;avoir laissé mon iphone et il ne se passe pas un jour ou je regrette d&amp;rsquo;avoir mon Android.</description></item><item><title>Les dernières news</title><link>https://blog.deimos.fr/2011/06/26/les-dernieres-news/</link><pubDate>Sun, 26 Jun 2011 09:49:10 +0000</pubDate><guid>https://blog.deimos.fr/2011/06/26/les-dernieres-news/</guid><description>Ces dernières semaines, voici quelques articles sur lesquels j’ai travaillé :
-Samba : Migrer de smbpasswd vers tdbsam RedHat : Utilisation d&amp;rsquo;un dépôt locale Ajout d&amp;rsquo;une section Android Tuning d&amp;rsquo;un Samsung Galaxy S2 Ajout d&amp;rsquo;une section pour la validation et la correction des limites sous OpenVZ Résoudre le problème de Nagios (Apache) lors de l&amp;rsquo;upgrade de Debian</description></item><item><title>Retour d’expérience sur Android</title><link>https://blog.deimos.fr/2011/06/18/retour-dexperience-sur-android/</link><pubDate>Sat, 18 Jun 2011 21:09:40 +0000</pubDate><guid>https://blog.deimos.fr/2011/06/18/retour-dexperience-sur-android/</guid><description>Quelques jours / semaines après avoir migré d&amp;rsquo;iPhone (5 ans de bons et loyaux services) vers Android, et faisant suite à un ancien post, je vais essayer de faire un petit article plus constructif.
+Il ne se passe pas un jour ou je regrette d&amp;rsquo;avoir laissé mon iphone et il ne se passe pas un jour ou je regrette d&amp;rsquo;avoir mon Android.</description>
+    </item>
+    
+    <item>
+      <title>Les dernières news</title>
+      <link>https://blog.deimos.fr/2011/06/26/les-dernieres-news/</link>
+      <pubDate>Sun, 26 Jun 2011 09:49:10 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2011/06/26/les-dernieres-news/</guid>
+      <description>Ces dernières semaines, voici quelques articles sur lesquels j’ai travaillé :
+ Samba : Migrer de smbpasswd vers tdbsam RedHat : Utilisation d&amp;rsquo;un dépôt locale Ajout d&amp;rsquo;une section Android Tuning d&amp;rsquo;un Samsung Galaxy S2 Ajout d&amp;rsquo;une section pour la validation et la correction des limites sous OpenVZ Résoudre le problème de Nagios (Apache) lors de l&amp;rsquo;upgrade de Debian  </description>
+    </item>
+    
+    <item>
+      <title>Retour d’expérience sur Android</title>
+      <link>https://blog.deimos.fr/2011/06/18/retour-dexperience-sur-android/</link>
+      <pubDate>Sat, 18 Jun 2011 21:09:40 +0000</pubDate>
+      
+      <guid>https://blog.deimos.fr/2011/06/18/retour-dexperience-sur-android/</guid>
+      <description>Quelques jours / semaines après avoir migré d&amp;rsquo;iPhone (5 ans de bons et loyaux services) vers Android, et faisant suite à un ancien post, je vais essayer de faire un petit article plus constructif.
 Pour rentrer dans le vif du sujet, ceux qui attendent la réponse à : Est-ce que c&amp;rsquo;est l&amp;rsquo;iPhone ou l&amp;rsquo;Android qui est le mieux ?
-La réponse est simple : Il n&amp;rsquo;y en a pas un mieux que l&amp;rsquo;autre, tout dépends de l&amp;rsquo;utilisation que l&amp;rsquo;on souhaites faire de son téléphone</description></item></channel></rss>
+La réponse est simple : Il n&amp;rsquo;y en a pas un mieux que l&amp;rsquo;autre, tout dépends de l&amp;rsquo;utilisation que l&amp;rsquo;on souhaites faire de son téléphone</description>
+    </item>
+    
+  </channel>
+</rss>

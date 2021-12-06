@@ -1,50 +1,871 @@
-<!doctype html><html lang=en-us><head><script type=application/ld+json>{"@context":"http://schema.org","@type":"Website","@id":"https:\/\/blog.deimos.fr","author":{"@type":"Person","name":"Pierre Mavro / Deimosfr","image":"https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"},"name":"Deimosfr Blog","description":"Deimos Blog","url":"https:\/\/blog.deimos.fr\/tags\/debian\/","keywords":"[]"}</script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Hugo 0.69.2 with theme Tranquilpeak 0.5.2-BETA"><meta name=author content="Pierre Mavro / Deimosfr"><meta name=keywords content><meta name=description content="Deimos Blog"><meta property="og:description" content="Deimos Blog"><meta property="og:type" content="website"><meta property="og:title" content="debian"><meta name=twitter:title content="debian"><meta property="og:url" content="https://blog.deimos.fr/tags/debian/"><meta property="twitter:url" content="https://blog.deimos.fr/tags/debian/"><meta property="og:site_name" content="Deimosfr Blog"><meta property="og:description" content="Deimos Blog"><meta name=twitter:description content="Deimos Blog"><meta property="og:locale" content="en-us"><meta name=twitter:card content="summary"><meta name=twitter:site content="@deimosfr"><meta name=twitter:creator content="@deimosfr"><meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><title>debian</title><link rel=icon href=https://blog.deimos.fr/favicon.png><link rel=alternate type=application/rss+xml title=RSS href=https://blog.deimos.fr/tags/debian/index.xml><link rel=canonical href=https://blog.deimos.fr/tags/debian/><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://blog.deimos.fr/css/style-c5yjx2losbmkttdif4mskx5f9pqjjquywurgngxfvceyyrtyatseix5hpd.min.css><link rel=stylesheet href=https://blog.deimos.fr/css/custom.css><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-63927289-1','auto');ga('send','pageview');}</script></head><body><div id=blog><header id=header data-behavior=2><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=https://blog.deimos.fr/ aria-label="Go to homepage">Deimosfr Blog</a></div><a class=header-right-picture href=https://blog.deimos.fr/#about aria-label="Open the link: /#about"><img class=header-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author's picture"></a></header><nav id=sidebar data-behavior=2><div class=sidebar-container><div class=sidebar-profile><a href=https://blog.deimos.fr/#about aria-label="Read more about the author"><img class=sidebar-profile-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"></a><h4 class=sidebar-profile-name>Pierre Mavro / Deimosfr</h4></div><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/ title=Home><i class="sidebar-button-icon fa fa-lg fa-home"></i><span class=sidebar-button-desc>Home</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/archives title=Archives><i class="sidebar-button-icon fa fa-lg fa-archive"></i><span class=sidebar-button-desc>Archives</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/categories title=Categories><i class="sidebar-button-icon fa fa-lg fa-bookmark"></i><span class=sidebar-button-desc>Categories</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/tags title=Tags><i class="sidebar-button-icon fa fa-lg fa-tags"></i><span class=sidebar-button-desc>Tags</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/index.xml title=RSS><i class="sidebar-button-icon fa fa-lg fa-rss"></i><span class=sidebar-button-desc>RSS</span></a></li></ul><ul class=sidebar-buttons></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://www.deimos.fr target=_blank rel=noopener title=About><i class="sidebar-button-icon fa fa-lg fa-user"></i><span class=sidebar-button-desc>About</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://wiki.deimos.fr target=_blank rel=noopener title=Wiki><i class="sidebar-button-icon fa fa-wikipedia-w"></i><span class=sidebar-button-desc>Wiki</span></a></li></ul></div></nav><div id=main data-behavior=2 class=hasCoverMetaIn><section class="postShorten-group main-content-wrap"><article class="postShorten postShorten--thumbnailimg-bottom"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2013/11/24/iptables-is-going-to-be-replaced-by-nftables/ aria-label="Open the post: Iptables is going to be replaced by NFtables">Iptables is going to be replaced by NFtables</a></h1><div class="postShorten-meta post-meta"><time datetime=2013-11-24T11:00:38Z>24 November 2013</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/security>Security</a></div></div><div class=postShorten-excerpt>If you’re not aware that the next kernel version will replace iptables by nftables, it’s time to learn on how it works, what are the features, why the change and how to use it.
-If like me, you love PF, you&rsquo;ll be pleased to find a similar syntax on NFtables ! To have a good introduction on it, look at those slides :<p><a href=https://blog.deimos.fr/2013/11/24/iptables-is-going-to-be-replaced-by-nftables/ class="postShorten-excerpt_link link" aria-label="Open the post: Iptables is going to be replaced by NFtables">Continue reading</a></p></div></div></article><article class="postShorten postShorten--thumbnailimg-left"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2013/11/12/news-in-bulk-2/ aria-label="Open the post: News in bulk">News in bulk</a></h1><div class="postShorten-meta post-meta"><time datetime=2013-11-12T11:00:34Z>12 November 2013</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a></div></div><div class=postShorten-excerpt>I&rsquo;ve recently updated some of my tutorials :
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/blog.deimos.fr",
+  "author": {
+    "@type": "Person",
+    "name": "Pierre Mavro / Deimosfr",
+    
+    "image": "https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"
+    
+  },
+  "name":"Deimosfr Blog",
+  "description":"Deimos Blog",
+  "url":"https:\/\/blog.deimos.fr\/tags\/debian\/",
+  "keywords":"[]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.89.4 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Deimos Blog">
+
+
+<meta property="og:description" content="Deimos Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="debian">
+<meta name="twitter:title" content="debian">
+<meta property="og:url" content="https://blog.deimos.fr/tags/debian/">
+<meta property="twitter:url" content="https://blog.deimos.fr/tags/debian/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Deimos Blog">
+<meta name="twitter:description" content="Deimos Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
+
+
+
+
+    <title>debian</title>
+
+    <link rel="icon" href="https://blog.deimos.fr/favicon.png">
+    
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://blog.deimos.fr/tags/debian/index.xml">
+    
+
+    
+
+    <link rel="canonical" href="https://blog.deimos.fr/tags/debian/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
+      
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-63927289-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="2">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.deimos.fr/" aria-label="Go to homepage">Deimosfr Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://blog.deimos.fr/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="2">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.deimos.fr/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/index.xml" title="RSS">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/deimosfr" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank" rel="noopener" title="Wiki">
+    
+      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
+      
+      <span class="sidebar-button-desc">Wiki</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.deimos.fr" target="_blank" rel="noopener" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+        
+
+      
+      <div id="main" data-behavior="2"
+        class="
+               hasCoverMetaIn
+               ">
+        
+          <section class="postShorten-group main-content-wrap">
+            
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2013/11/24/iptables-is-going-to-be-replaced-by-nftables/" aria-label="Open the post: Iptables is going to be replaced by NFtables">
+      
+          Iptables is going to be replaced by NFtables
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2013-11-24T11:00:38Z">
+        
+  
+  
+  
+  
+    24 November 2013
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/security">Security</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        If you’re not aware that the next kernel version will replace iptables by nftables, it’s time to learn on how it works, what are the features, why the change and how to use it.
+If like me, you love PF, you&rsquo;ll be pleased to find a similar syntax on NFtables ! To have a good introduction on it, look at those slides :
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2013/11/24/iptables-is-going-to-be-replaced-by-nftables/" class="postShorten-excerpt_link link" aria-label="Open the post: Iptables is going to be replaced by NFtables">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2013/11/12/news-in-bulk-2/" aria-label="Open the post: News in bulk">
+      
+          News in bulk
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2013-11-12T11:00:34Z">
+        
+  
+  
+  
+  
+    12 November 2013
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        I&rsquo;ve recently updated some of my tutorials :
 Stress : CPU test usage
 Firefox Sync Server : upgrade procedure updated
 AutoFS : adding FTP (curlfs)
 Kernel compilation : updated with the latest compression format
 PuppetDB : updated to work with the latest PuppetDB version
-SSH : how to change your ssh key passphrase<p><a href=https://blog.deimos.fr/2013/11/12/news-in-bulk-2/ class="postShorten-excerpt_link link" aria-label="Open the post: News in bulk">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2013/11/12/news-in-bulk-2/ aria-label="Open the post: News in bulk"><div class=postShorten-thumbnailimg><img alt src=https://blog.deimos.fr/thumbnails/postit.jpeg></div></a></article><article class="postShorten postShorten--thumbnailimg-bottom"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2013/11/06/redshift-screen-color-temperature-adjuster/ aria-label="Open the post: Redshift : screen color temperature adjuster">Redshift : screen color temperature adjuster</a></h1><div class="postShorten-meta post-meta"><time datetime=2013-11-06T11:00:23Z>6 November 2013</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a></div></div><div class=postShorten-excerpt>Redshift adjusts the color temperature of your screen according to your surroundings. This may help your eyes hurt less if you are working in front of the screen at night.
-Two of my colleagues (Julien and Axel) praise virtues of this application. So I started to use it yesterday. For the moment, my opinion is good during the night, but during the day&mldr;I don&rsquo;t have opinion for the moment.
-Here is my configuration.<p><a href=https://blog.deimos.fr/2013/11/06/redshift-screen-color-temperature-adjuster/ class="postShorten-excerpt_link link" aria-label="Open the post: Redshift : screen color temperature adjuster">Continue reading</a></p></div></div></article><article class="postShorten postShorten--thumbnailimg-bottom"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2013/11/04/yubikey-debug-your-authentication-problems/ aria-label="Open the post: Yubikey : debug your authentication problems">Yubikey : debug your authentication problems</a></h1><div class="postShorten-meta post-meta"><time datetime=2013-11-04T11:00:44Z>4 November 2013</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a></div></div><div class=postShorten-excerpt>Since I&rsquo;ve reinstalled my desktop on my new MacBook Pro 13, I had to fight with some problems with my Yubikey. I never had such and wonder if it couldn&rsquo;t comes from a Debian package update.
-Anyway, I had problem with permissions on the USB device and found a udev solution. I&rsquo;ve updated my documentation and let you check and would like a feedback if some of you have encountered the same issue (USB error: Access denied (insufficient permissions))<p><a href=https://blog.deimos.fr/2013/11/04/yubikey-debug-your-authentication-problems/ class="postShorten-excerpt_link link" aria-label="Open the post: Yubikey : debug your authentication problems">Continue reading</a></p></div></div></article><article class="postShorten postShorten--thumbnailimg-left"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2013/10/29/change-luks-password/ aria-label="Open the post: LUKS and Yubikey for crypted boot">LUKS and Yubikey for crypted boot</a></h1><div class="postShorten-meta post-meta"><time datetime=2013-10-29T11:00:32Z>29 October 2013</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a></div></div><div class=postShorten-excerpt>I recently crypted all my disk as I changed laptop. At the beginning, I just tested a simple password to see performances changes.
+SSH : how to change your ssh key passphrase
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2013/11/12/news-in-bulk-2/" class="postShorten-excerpt_link link" aria-label="Open the post: News in bulk">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2013/11/12/news-in-bulk-2/" aria-label="Open the post: News in bulk">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="https://blog.deimos.fr/thumbnails/postit.jpeg"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2013/11/06/redshift-screen-color-temperature-adjuster/" aria-label="Open the post: Redshift : screen color temperature adjuster">
+      
+          Redshift : screen color temperature adjuster
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2013-11-06T11:00:23Z">
+        
+  
+  
+  
+  
+    6 November 2013
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        Redshift adjusts the color temperature of your screen according to your surroundings. This may help your eyes hurt less if you are working in front of the screen at night.
+Two of my colleagues (Julien and Axel) praise virtues of this application. So I started to use it yesterday. For the moment, my opinion is good during the night, but during the day&hellip;I don&rsquo;t have opinion for the moment.
+Here is my configuration.
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2013/11/06/redshift-screen-color-temperature-adjuster/" class="postShorten-excerpt_link link" aria-label="Open the post: Redshift : screen color temperature adjuster">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2013/11/04/yubikey-debug-your-authentication-problems/" aria-label="Open the post: Yubikey : debug your authentication problems">
+      
+          Yubikey : debug your authentication problems
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2013-11-04T11:00:44Z">
+        
+  
+  
+  
+  
+    4 November 2013
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        Since I&rsquo;ve reinstalled my desktop on my new MacBook Pro 13, I had to fight with some problems with my Yubikey. I never had such and wonder if it couldn&rsquo;t comes from a Debian package update.
+Anyway, I had problem with permissions on the USB device and found a udev solution. I&rsquo;ve updated my documentation and let you check and would like a feedback if some of you have encountered the same issue (USB error: Access denied (insufficient permissions))
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2013/11/04/yubikey-debug-your-authentication-problems/" class="postShorten-excerpt_link link" aria-label="Open the post: Yubikey : debug your authentication problems">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2013/10/29/change-luks-password/" aria-label="Open the post: LUKS and Yubikey for crypted boot">
+      
+          LUKS and Yubikey for crypted boot
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2013-10-29T11:00:32Z">
+        
+  
+  
+  
+  
+    29 October 2013
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        I recently crypted all my disk as I changed laptop. At the beginning, I just tested a simple password to see performances changes.
 I didn&rsquo;t really see changes for the moment.
 Once I&rsquo;ve finished to install and configure my needs, I wanted to have a strong password solution. I decided to use a remembered password concatenated to a generated yubikey password.
-I updated my LUKS tutorial to explain how to update the password.<p><a href=https://blog.deimos.fr/2013/10/29/change-luks-password/ class="postShorten-excerpt_link link" aria-label="Open the post: LUKS and Yubikey for crypted boot">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2013/10/29/change-luks-password/ aria-label="Open the post: LUKS and Yubikey for crypted boot"><div class=postShorten-thumbnailimg><img alt src=https://blog.deimos.fr/thumbnails/logo_debian.png></div></a></article><article class="postShorten postShorten--thumbnailimg-left"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/ aria-label="Open the post: Debian on the 11,1 model MacBook Pro 13">Debian on the 11,1 model MacBook Pro 13</a></h1><div class="postShorten-meta post-meta"><time datetime=2013-10-27T11:00:06Z>27 October 2013</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/mac>Mac</a></div></div><div class=postShorten-excerpt>I tested to install Debian as I love it more than Mac OS X for work on my new MacBook Pro 13 retina. Most of the hardware works out of the box on a Debian Jessie (because of the kernel version > 3.8) but is not really optimal. That&rsquo;s why I&rsquo;m going to explain how I did to make it better.
-First of all, you need an EFI manager. I discovered that Refit is not maintained anymore and let place to rEFInd instead.<p><a href=https://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/ class="postShorten-excerpt_link link" aria-label="Open the post: Debian on the 11,1 model MacBook Pro 13">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/ aria-label="Open the post: Debian on the 11,1 model MacBook Pro 13"><div class=postShorten-thumbnailimg><img alt src=https://blog.deimos.fr/thumbnails/logo_debian.png></div></a></article><article class="postShorten postShorten--thumbnailimg-left"><div class=postShorten-wrap><div class=postShorten-header><h1 class=postShorten-title><a class=link-unstyled href=https://blog.deimos.fr/2013/09/19/shell-back-to-directory-command-bd/ aria-label="Open the post: Shell : back to directory command (bd)">Shell : back to directory command (bd)</a></h1><div class="postShorten-meta post-meta"><time datetime=2013-09-19T10:00:44Z>19 September 2013</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/debian>Debian</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/hi-tech>Hi-Tech</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/linux>Linux</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/red-hat>Red Hat</a></div></div><div class=postShorten-excerpt>I recently read a post (on Korben&rsquo;s blog) regarding a command called bd to go back to a directory from you current full path. It permits to do more than that !
+I updated my LUKS tutorial to explain how to update the password.
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2013/10/29/change-luks-password/" class="postShorten-excerpt_link link" aria-label="Open the post: LUKS and Yubikey for crypted boot">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2013/10/29/change-luks-password/" aria-label="Open the post: LUKS and Yubikey for crypted boot">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="https://blog.deimos.fr/thumbnails/logo_debian.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/" aria-label="Open the post: Debian on the 11,1 model MacBook Pro 13">
+      
+          Debian on the 11,1 model MacBook Pro 13
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2013-10-27T11:00:06Z">
+        
+  
+  
+  
+  
+    27 October 2013
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/mac">Mac</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        I tested to install Debian as I love it more than Mac OS X for work on my new MacBook Pro 13 retina. Most of the hardware works out of the box on a Debian Jessie (because of the kernel version &gt; 3.8) but is not really optimal. That&rsquo;s why I&rsquo;m going to explain how I did to make it better.
+First of all, you need an EFI manager. I discovered that Refit is not maintained anymore and let place to rEFInd instead.
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/" class="postShorten-excerpt_link link" aria-label="Open the post: Debian on the 11,1 model MacBook Pro 13">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2013/10/27/debian-on-the-last-macbook-pro-13/" aria-label="Open the post: Debian on the 11,1 model MacBook Pro 13">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="https://blog.deimos.fr/thumbnails/logo_debian.png"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://blog.deimos.fr/2013/09/19/shell-back-to-directory-command-bd/" aria-label="Open the post: Shell : back to directory command (bd)">
+      
+          Shell : back to directory command (bd)
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2013-09-19T10:00:44Z">
+        
+  
+  
+  
+  
+    19 September 2013
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/debian">Debian</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/hi-tech">Hi-Tech</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/linux">Linux</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/red-hat">Red Hat</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        I recently read a post (on Korben&rsquo;s blog) regarding a command called bd to go back to a directory from you current full path. It permits to do more than that !
 In fact this is a simple shell script, but it really helps when you&rsquo;re in a long subfolder list. For example if you reside in &lsquo;/home/user/project/src/org/main/site/utils/file/reader/whatever&rsquo; and want to change to &lsquo;/home/user/project/test&rsquo;, then try &lsquo;bd p`/test.
-If you want to see all the possibilities, you can look at the main site project.<p><a href=https://blog.deimos.fr/2013/09/19/shell-back-to-directory-command-bd/ class="postShorten-excerpt_link link" aria-label="Open the post: Shell : back to directory command (bd)">Continue reading</a></p></div></div><a href=https://blog.deimos.fr/2013/09/19/shell-back-to-directory-command-bd/ aria-label="Open the post: Shell : back to directory command (bd)"><div class=postShorten-thumbnailimg><img alt src=https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg></div></a></article><div class=pagination-bar><ul class=pagination><li class=pagination-prev><a class="btn btn--default btn--small" href=https://blog.deimos.fr/tags/debian/page/12/ aria-label="NEWER POSTS"><i class="fa fa-angle-left text-base icon-mr"></i><span>NEWER POSTS</span></a></li><li class=pagination-next><a class="btn btn--default btn--small" href=https://blog.deimos.fr/tags/debian/page/14/ aria-label="OLDER POSTS"><span>OLDER POSTS</span>
-<i class="fa fa-angle-right text-base icon-ml"></i></a></li><li class=pagination-number>page 13 of 30</li></ul></div></section><footer id=footer class=main-content-wrap><span class=copyrights>&copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved</span></footer></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-times"></i></div><img id=about-card-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"><h4 id=about-card-name>Pierre Mavro / Deimosfr</h4><div id=about-card-job><i class="fa fa-briefcase"></i><br>Qovery Co-Founder and CTO</div><div id=about-card-location><i class="fa fa-map-marker-alt"></i><br>Paris - France</div></div></div><div id=cover style=background-image:url(https://blog.deimos.fr/images/fish_background.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js></script><script src=https://blog.deimos.fr/js/custom.js></script><script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:false});$('pre.code-highlight > code, pre > code').each(function(i,block){if(!$(this).hasClass('codeblock')){$(this).addClass('codeblock');}
-hljs.highlightBlock(block);});});</script></body></html>
+If you want to see all the possibilities, you can look at the main site project.
+      
+      <p>
+        
+          <a href="https://blog.deimos.fr/2013/09/19/shell-back-to-directory-command-bd/" class="postShorten-excerpt_link link" aria-label="Open the post: Shell : back to directory command (bd)">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://blog.deimos.fr/2013/09/19/shell-back-to-directory-command-bd/" aria-label="Open the post: Shell : back to directory command (bd)">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="https://blog.deimos.fr/thumbnails/Poweredbylinux.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+            
+  <div class="pagination-bar">
+    <ul class="pagination">
+      
+        
+          <li class="pagination-prev">
+            <a class="btn btn--default btn--small" href="https://blog.deimos.fr/tags/debian/page/12/" aria-label="NEWER POSTS">
+              <i class="fa fa-angle-left text-base icon-mr"></i>
+              <span>NEWER POSTS</span>
+            </a>
+          </li>
+        
+        
+          <li class="pagination-next">
+            <a class="btn btn--default btn--small" href="https://blog.deimos.fr/tags/debian/page/14/" aria-label="OLDER POSTS">
+              <span>OLDER POSTS</span>
+              <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+          </li>
+        
+      
+      <li class="pagination-number">page 13 of 30</li>
+    </ul>
+  </div>
+
+
+          </section>
+        
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Qovery Co-Founder and CTO
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Paris - France
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      
+      <div id="cover" style="background-image:url('https://blog.deimos.fr/images/fish_background.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script src="https://blog.deimos.fr/js/custom.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+

@@ -1,80 +1,748 @@
-<!doctype html><html lang=en-us><head><script type=application/ld+json>{"@context":"http://schema.org","@type":"Website","@id":"https:\/\/blog.deimos.fr","author":{"@type":"Person","name":"Pierre Mavro / Deimosfr","image":"https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"},"name":"Deimosfr Blog","description":"Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.\nIn a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.","url":"https:\/\/blog.deimos.fr\/2018\/01\/23\/traefik-ha-helm-chart-with-le-on-k8s\/","keywords":"[]"}</script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Hugo 0.69.2 with theme Tranquilpeak 0.5.2-BETA"><meta name=author content="Pierre Mavro / Deimosfr"><meta name=keywords content><meta name=description content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
-In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it."><meta property="og:description" content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
-In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it."><meta property="og:type" content="article"><meta property="og:title" content="Traefik HA Helm chart with Let's Encrypt on Kubernetes"><meta name=twitter:title content="Traefik HA Helm chart with Let's Encrypt on Kubernetes"><meta property="og:url" content="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/"><meta property="twitter:url" content="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/"><meta property="og:site_name" content="Deimosfr Blog"><meta property="og:description" content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
-In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it."><meta name=twitter:description content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
-In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it."><meta property="og:locale" content="en-us"><meta property="article:published_time" content="2018-01-23T18:00:00"><meta property="article:modified_time" content="2018-01-23T18:00:00"><meta property="article:section" content="Kubernetes"><meta property="article:section" content="SSL"><meta property="article:section" content="Let's Encrypt"><meta property="article:section" content="Consul"><meta property="article:section" content="Traefik"><meta property="article:section" content="Helm"><meta property="article:tag" content="Kubernetes"><meta property="article:tag" content="SSL"><meta property="article:tag" content="Let's Encrypt"><meta property="article:tag" content="Consul"><meta property="article:tag" content="Traefik"><meta property="article:tag" content="Helm"><meta name=twitter:card content="summary"><meta name=twitter:site content="@deimosfr"><meta name=twitter:creator content="@deimosfr"><meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640"><meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_helm.png"><meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_helm.png"><title>Traefik HA Helm chart with Let's Encrypt on Kubernetes</title><link rel=icon href=https://blog.deimos.fr/favicon.png><link rel=canonical href=https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://blog.deimos.fr/css/style-c5yjx2losbmkttdif4mskx5f9pqjjquywurgngxfvceyyrtyatseix5hpd.min.css><link rel=stylesheet href=https://blog.deimos.fr/css/custom.css><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-63927289-1','auto');ga('send','pageview');}</script></head><body><div id=blog><header id=header data-behavior=5><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=https://blog.deimos.fr/ aria-label="Go to homepage">Deimosfr Blog</a></div><a class=header-right-picture href=https://blog.deimos.fr/#about aria-label="Open the link: /#about"><img class=header-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author's picture"></a></header><nav id=sidebar data-behavior=5><div class=sidebar-container><div class=sidebar-profile><a href=https://blog.deimos.fr/#about aria-label="Read more about the author"><img class=sidebar-profile-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"></a><h4 class=sidebar-profile-name>Pierre Mavro / Deimosfr</h4></div><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/ title=Home><i class="sidebar-button-icon fa fa-lg fa-home"></i><span class=sidebar-button-desc>Home</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/archives title=Archives><i class="sidebar-button-icon fa fa-lg fa-archive"></i><span class=sidebar-button-desc>Archives</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/categories title=Categories><i class="sidebar-button-icon fa fa-lg fa-bookmark"></i><span class=sidebar-button-desc>Categories</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/tags title=Tags><i class="sidebar-button-icon fa fa-lg fa-tags"></i><span class=sidebar-button-desc>Tags</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://blog.deimos.fr/index.xml title=RSS><i class="sidebar-button-icon fa fa-lg fa-rss"></i><span class=sidebar-button-desc>RSS</span></a></li></ul><ul class=sidebar-buttons></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://www.deimos.fr target=_blank rel=noopener title=About><i class="sidebar-button-icon fa fa-lg fa-user"></i><span class=sidebar-button-desc>About</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://wiki.deimos.fr target=_blank rel=noopener title=Wiki><i class="sidebar-button-icon fa fa-wikipedia-w"></i><span class=sidebar-button-desc>Wiki</span></a></li></ul></div></nav><div id=main data-behavior=5 class=hasCoverMetaIn><article class=post id=top><div class="post-header main-content-wrap text-left"><h1 class=post-title>Traefik HA Helm chart with Let's Encrypt on Kubernetes</h1><div class="postShorten-meta post-meta"><time datetime=2018-01-23T18:00:00+02:00>23 January 2018</time>
-<span>in</span>
-<a class=category-link href=https://blog.deimos.fr/categories/kubernetes>Kubernetes</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/ssl>SSL</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/lets-encrypt>Let's Encrypt</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/consul>Consul</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/traefik>Traefik</a>,
-<a class=category-link href=https://blog.deimos.fr/categories/helm>Helm</a></div></div><div class="post-content markdown"><div class=main-content-wrap><p><img src=https://blog.deimos.fr/images/logo_traefik.png alt=Traefik></p><p><a href=https://traefik.io/>Traefik</a> (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/blog.deimos.fr",
+  "author": {
+    "@type": "Person",
+    "name": "Pierre Mavro / Deimosfr",
+    
+    "image": "https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e"
+    
+  },
+  "name":"Deimosfr Blog",
+  "description":"Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.\nIn a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.",
+  "url":"https:\/\/blog.deimos.fr\/2018\/01\/23\/traefik-ha-helm-chart-with-le-on-k8s\/",
+  "keywords":"[]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.89.4 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="Pierre Mavro / Deimosfr">
+<meta name="keywords" content="">
+<meta name="description" content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.">
+
+
+<meta property="og:description" content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes">
+<meta name="twitter:title" content="Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes">
+<meta property="og:url" content="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/">
+<meta property="twitter:url" content="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/">
+<meta property="og:site_name" content="Deimosfr Blog">
+<meta property="og:description" content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.">
+<meta name="twitter:description" content="Traefik (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.
+In a previous post, I explained how to manually deploy it in HA mode. For MySocialApp (iOS and Android social app builder - SaaS), I had to automate it.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2018-01-23T18:00:00">
+  
+  
+    <meta property="article:modified_time" content="2018-01-23T18:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="Kubernetes">
+    
+      <meta property="article:section" content="SSL">
+    
+      <meta property="article:section" content="Let&#39;s Encrypt">
+    
+      <meta property="article:section" content="Consul">
+    
+      <meta property="article:section" content="Traefik">
+    
+      <meta property="article:section" content="Helm">
+    
+  
+  
+    
+      <meta property="article:tag" content="Kubernetes">
+    
+      <meta property="article:tag" content="SSL">
+    
+      <meta property="article:tag" content="Let&#39;s Encrypt">
+    
+      <meta property="article:tag" content="Consul">
+    
+      <meta property="article:tag" content="Traefik">
+    
+      <meta property="article:tag" content="Helm">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@deimosfr">
+
+
+  <meta name="twitter:creator" content="@deimosfr">
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=640">
+
+
+
+
+
+  <meta property="og:image" content="https://blog.deimos.fr/thumbnails/logo_helm.png">
+  <meta property="twitter:image" content="https://blog.deimos.fr/thumbnails/logo_helm.png">
+
+
+    <title>Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes</title>
+
+    <link rel="icon" href="https://blog.deimos.fr/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://blog.deimos.fr/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://blog.deimos.fr/css/custom.css">
+      
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-63927289-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.deimos.fr/" aria-label="Go to homepage">Deimosfr Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://blog.deimos.fr/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.deimos.fr/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Pierre Mavro / Deimosfr</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.deimos.fr/index.xml" title="RSS">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/deimosfr" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wiki.deimos.fr" target="_blank" rel="noopener" title="Wiki">
+    
+      <i class="sidebar-button-icon fa fa-wikipedia-w"></i>
+      
+      <span class="sidebar-button-desc">Wiki</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.deimos.fr" target="_blank" rel="noopener" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      Traefik HA Helm chart with Let&#39;s Encrypt on Kubernetes
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2018-01-23T18:00:00&#43;02:00">
+        
+  
+  
+  
+  
+    23 January 2018
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/kubernetes">Kubernetes</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/ssl">SSL</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/lets-encrypt">Let&#39;s Encrypt</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/consul">Consul</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/traefik">Traefik</a>, 
+    
+      <a class="category-link" href="https://blog.deimos.fr/categories/helm">Helm</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p><img src="https://blog.deimos.fr/images/logo_traefik.png" alt="Traefik"></p>
+<p><a href="https://traefik.io/">Traefik</a> (pronounced like traffic) is a modern HTTP reverse proxy and load balancer made to deploy
 microservices with ease. It supports several backends (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd,
-Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.</p><p><a href=https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/>In a previous post</a>, I explained how to manually deploy it in HA mode. For <a href=https://mysocialapp.io/>MySocialApp</a> (iOS and Android social app builder - SaaS), I had to automate it. That&rsquo;s why I used <a href=https://docs.helm.sh/>Helm</a>.</p><p>Where was the complexity? Bootstraping Traefik in HA mode require to push (only the first time) the configuration you&rsquo;ve made to Consul KV store.
-I wanted to get rid of that manual boostraping part. In addition, all pods are booting at the same time and that make it more difficult.</p><p>To avoid multiple bootstrap at the same time, I used the <a href=https://www.consul.io/docs/guides/semaphore.html>distributed lock mechanism in Consul</a>. So when they all start, I randomize the start time and then request a lock. Here is the code:</p><div class=highlight><pre class=chroma><code class=language-shell data-lang=shell><span class=cp>#!/bin/bash
-</span><span class=cp></span><span class=nv>nodes</span><span class=o>=(</span> consul-0.<span class=o>{{</span> .Values.traefikConsulServiceName <span class=o>}}</span> consul-1.<span class=o>{{</span> .Values.traefikConsulServiceName <span class=o>}}</span> consul-2.<span class=o>{{</span> .Values.traefikConsulServiceName <span class=o>}}</span> <span class=o>{{</span> .Values.traefikConsulServiceName <span class=o>}}</span> <span class=o>)</span>
-<span class=nv>bootstraped</span><span class=o>=</span><span class=m>0</span>
-<span class=nv>contacted</span><span class=o>=</span><span class=m>0</span>
-<span class=c1># Look at first 3 nodes + 1 on service name (in case of first 3 nodes are down) if bootstrap has not already been done</span>
-<span class=k>for</span> node in <span class=s2>&#34;</span><span class=si>${</span><span class=nv>nodes</span><span class=p>[@]</span><span class=si>}</span><span class=s2>&#34;</span> <span class=p>;</span> <span class=k>do</span>
-  <span class=c1># Check consul port is open</span>
-  nc -z <span class=si>${</span><span class=nv>node</span><span class=si>}</span>.<span class=o>{{</span> .Release.Namespace <span class=o>}}</span>.svc.<span class=o>{{</span> .Values.traefikResolvConfDomainNameCluster <span class=o>}}</span> <span class=m>8500</span>
-  <span class=k>if</span> <span class=o>[</span> <span class=nv>$?</span> -eq <span class=m>0</span> <span class=o>]</span> <span class=p>;</span> <span class=k>then</span>
-    <span class=nv>contacted</span><span class=o>=</span><span class=m>1</span>
-    <span class=c1># If acme folder exist, that mean a bootstrap already occured</span>
-    <span class=k>if</span> <span class=o>[</span> <span class=k>$(</span>curl http://<span class=si>${</span><span class=nv>node</span><span class=si>}</span>.<span class=o>{{</span> .Release.Namespace <span class=o>}}</span>.svc.<span class=o>{{</span> .Values.traefikResolvConfDomainNameCluster <span class=o>}}</span>:8500/v1/kv/traefik/acme/ 2&gt;/dev/null <span class=p>|</span> wc -c<span class=k>)</span> -ne <span class=m>0</span> <span class=o>]</span> <span class=p>;</span> <span class=k>then</span>
-      <span class=nv>bootstraped</span><span class=o>=</span><span class=m>1</span>
-    <span class=k>fi</span>
-  <span class=k>fi</span>
-  sleep <span class=m>1</span>
-<span class=k>done</span>
-<span class=c1># Check if boostrap has already been done</span>
-<span class=k>if</span> <span class=o>[</span> <span class=nv>$bootstraped</span> -eq <span class=m>1</span> <span class=o>]</span> <span class=p>;</span> <span class=k>then</span>
-  <span class=nb>echo</span> <span class=s2>&#34;Traefik config already exists, no need to bootrap&#34;</span>
-  <span class=nb>exit</span> <span class=m>0</span>
-<span class=k>fi</span>
-<span class=c1># Check if connection of one of the previous nodes succeed</span>
-<span class=k>if</span> <span class=o>[</span> <span class=nv>$contacted</span> -eq <span class=m>0</span> <span class=o>]</span> <span class=p>;</span> <span class=k>then</span>
-  <span class=nb>echo</span> <span class=s2>&#34;Wasn&#39;t able to target one node in the nodes list&#34;</span>
-  <span class=nb>exit</span> <span class=m>1</span>
-<span class=k>fi</span>
-<span class=c1># Check once again consul-0 pod availability before requesting lock (bootstrap only on consul-0 to get a node lock)</span>
-nc -z consul-0.<span class=o>{{</span> .Values.traefikConsulServiceName <span class=o>}}</span>.<span class=o>{{</span> .Release.Namespace <span class=o>}}</span>.svc.<span class=o>{{</span> .Values.traefikResolvConfDomainNameCluster <span class=o>}}</span> <span class=m>8500</span>
-<span class=k>if</span> <span class=o>[</span> <span class=nv>$?</span> -ne <span class=m>0</span> <span class=o>]</span> <span class=p>;</span> <span class=k>then</span>
-  <span class=nb>echo</span> <span class=s2>&#34;Should exit, couldn&#39;t locate consul pod: consul-0.{{ .Values.traefikConsulServiceName }}.{{ .Release.Namespace }}.svc.{{ .Values.traefikResolvConfDomainNameCluster }} port 8500&#34;</span>
-  <span class=nb>exit</span> <span class=m>1</span>
-<span class=k>fi</span>
-<span class=c1># Get session ID</span>
-<span class=nv>id</span><span class=o>=</span><span class=k>$(</span>curl -XPUT http://consul-0.<span class=o>{{</span> .Values.traefikConsulServiceName <span class=o>}}</span>.<span class=o>{{</span> .Release.Namespace <span class=o>}}</span>.svc.<span class=o>{{</span> .Values.traefikResolvConfDomainNameCluster <span class=o>}}</span>:8500/v1/session/create 2&gt;/dev/null <span class=p>|</span> jq -r <span class=s1>&#39;.ID&#39;</span><span class=k>)</span>
-<span class=c1># Check if a lock has been acquired and get one if not the case to bootstrap</span>
-<span class=k>if</span> <span class=o>[</span> <span class=s2>&#34;</span><span class=k>$(</span>curl -XPUT http://consul-0.<span class=o>{{</span> .Values.traefikConsulServiceName <span class=o>}}</span>.<span class=o>{{</span> .Release.Namespace <span class=o>}}</span>.svc.<span class=o>{{</span> .Values.traefikResolvConfDomainNameCluster <span class=o>}}</span>:8500/v1/kv/locks/traefik-bootstrap/.lock<span class=se>\?</span><span class=nv>acquire</span><span class=o>=</span><span class=nv>$id</span> -d <span class=k>$(</span>hostname<span class=k>)</span> 2&gt;/dev/null<span class=k>)</span><span class=s2>&#34;</span> <span class=o>==</span> <span class=s2>&#34;true&#34;</span> <span class=o>]</span> <span class=p>;</span> <span class=k>then</span>
-  <span class=nb>echo</span> <span class=s2>&#34;Traefik bootstrap&#34;</span>
-  traefik storeconfig --configfile<span class=o>=</span>/etc/traefik/traefik.toml <span class=o>&amp;&amp;</span> <span class=se>\
-</span><span class=se></span>  curl -XDELETE http://consul-0.<span class=o>{{</span> .Values.traefikConsulServiceName <span class=o>}}</span>.<span class=o>{{</span> .Release.Namespace <span class=o>}}</span>.svc.<span class=o>{{</span> .Values.traefikResolvConfDomainNameCluster <span class=o>}}</span>:8500/v1/kv/traefik/acme/storagefile 2&gt;/dev/null
-  <span class=c1># Release lock and delete kv entry</span>
-  curl -XPUT <span class=s2>&#34;http://consul-0.{{ .Values.traefikConsulServiceName }}.{{ .Release.Namespace }}.svc.{{ .Values.traefikResolvConfDomainNameCluster }}:8500/v1/kv/locks/traefik-bootstrap/.lock\?release=</span><span class=nv>$id</span><span class=s2>&#34;</span> 2&gt;/dev/null
-<span class=k>else</span>
-  <span class=c1># Wait until bootstrap ended</span>
-  <span class=nv>counter</span><span class=o>=</span><span class=m>0</span>
-  <span class=k>while</span> <span class=o>[</span> <span class=k>$(</span>curl http://consul-0.<span class=o>{{</span> .Values.traefikConsulServiceName <span class=o>}}</span>.<span class=o>{{</span> .Release.Namespace <span class=o>}}</span>.svc.<span class=o>{{</span> .Values.traefikResolvConfDomainNameCluster <span class=o>}}</span>:8500/v1/kv/traefik/acme/ 2&gt;/dev/null <span class=p>|</span> wc -c<span class=k>)</span> -eq <span class=m>0</span> <span class=o>]</span> <span class=p>;</span> <span class=k>do</span>
-    <span class=k>if</span> <span class=o>[[</span> <span class=s2>&#34;</span><span class=nv>$counter</span><span class=s2>&#34;</span> -gt <span class=m>60</span> <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
-      <span class=nb>echo</span> <span class=s2>&#34;After 1 min, the traefik bootstrap has not been done, exiting&#34;</span>
-      <span class=nb>exit</span> <span class=m>1</span>
-    <span class=k>fi</span>
-    sleep <span class=m>2</span>
-    <span class=nv>counter</span><span class=o>=</span><span class=k>$((</span>counter+1<span class=k>))</span>
-  <span class=k>done</span>
-<span class=k>fi</span>
-<span class=c1># Delete session</span>
-curl -XPUT <span class=s2>&#34;http://consul-0.{{ .Values.traefikConsulServiceName }}.{{ .Release.Namespace }}.svc.{{ .Values.traefikResolvConfDomainNameCluster }}:8500/v1/session/destroy/</span><span class=nv>$id</span><span class=s2>&#34;</span> 2&gt;/dev/null
-<span class=nb>echo</span> <span class=s2>&#34;Bootstrap has already been done, traefik container will start&#34;</span>
-<span class=nb>exit</span> <span class=m>0</span></code></pre></div><p>Now if you deploy <a href=https://github.com/MySocialApp/kubernetes-helm-chart-traefik>this Traefik chart</a> for the first time or not, you won&rsquo;t need any manual intervention anymore :)</p><p>Before deploying it, you will need a consul cluster setup and ready. If you&rsquo;re searching for a <a href=https://github.com/MySocialApp/kubernetes-helm-chart-consul>Consul Helm chart</a>, I&rsquo;ve made one also for <a href=https://mysocialapp.io/>MySocialApp</a>. We&rsquo;re using this chart on bare metal with local storage. We recommend that consul servers are used with &ldquo;Node Selector&rdquo; option to stick to specific servers.</p><p>Then you have to update &ldquo;values.yaml&rdquo; from the <a href=https://github.com/MySocialApp/kubernetes-helm-chart-traefik>Traefik chart</a> file before deloying. You&rsquo;re now ready to go.</p></div></div><div id=post-footer class="post-footer main-content-wrap"><div class=post-footer-tags><span class="text-color-light text-small">TAGGED IN</span><br><a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/kubernetes/>Kubernetes</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/ssl/>SSL</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/lets-encrypt/>Let's Encrypt</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/consul/>Consul</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/traefik/>Traefik</a>
-<a class="tag tag--primary tag--small" href=https://blog.deimos.fr/tags/helm/>Helm</a></div><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2018/01/26/install-jeedom-on-synology-with-docker/ data-tooltip="Install Jeedom on Synology with Docker" aria-label="NEXT: Install Jeedom on Synology with Docker"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/ data-tooltip="MySocialApp Create your own social network" aria-label="PREVIOUS: MySocialApp Create your own social network"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post"><i class="fa fa-share-alt" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/" title="Share on Facebook" aria-label="Share on Facebook"><i class=fa-facebook-official aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/" title="Share on Twitter" aria-label="Share on Twitter"><i class=fa-twitter aria-hidden=true></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#top aria-label="Back to top"><i class="fa fa-arrow-up" aria-hidden=true></i></a></li></ul></div></div></article><footer id=footer class=main-content-wrap><span class=copyrights>&copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved</span></footer></div><div id=bottom-bar class=post-bottom-bar data-behavior=5><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2018/01/26/install-jeedom-on-synology-with-docker/ data-tooltip="Install Jeedom on Synology with Docker" aria-label="NEXT: Install Jeedom on Synology with Docker"><i class="fa fa-angle-left"></i><span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/ data-tooltip="MySocialApp Create your own social network" aria-label="PREVIOUS: MySocialApp Create your own social network"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post"><i class="fa fa-share-alt" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/" title="Share on Facebook" aria-label="Share on Facebook"><i class=fa-facebook-official aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/" title="Share on Twitter" aria-label="Share on Twitter"><i class=fa-twitter aria-hidden=true></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#top aria-label="Back to top"><i class="fa fa-arrow-up" aria-hidden=true></i></a></li></ul></div></div><div id=share-options-bar class=share-options-bar data-behavior=5><i id=btn-close-shareoptions class="fa fa-times"></i><ul class=share-options><li class=share-option><a class=share-option-btn target=new href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2018%2F01%2F23%2Ftraefik-ha-helm-chart-with-le-on-k8s%2F" aria-label="Share on Facebook"><i class=fa-facebook-official aria-hidden=true></i><span>Share on Facebook</span></a></li><li class=share-option><a class=share-option-btn target=new href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2018%2F01%2F23%2Ftraefik-ha-helm-chart-with-le-on-k8s%2F" aria-label="Share on Twitter"><i class=fa-twitter aria-hidden=true></i><span>Share on Twitter</span></a></li></ul></div><div id=share-options-mask class=share-options-mask></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-times"></i></div><img id=about-card-picture src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author's picture"><h4 id=about-card-name>Pierre Mavro / Deimosfr</h4><div id=about-card-job><i class="fa fa-briefcase"></i><br>Qovery Co-Founder and CTO</div><div id=about-card-location><i class="fa fa-map-marker-alt"></i><br>Paris - France</div></div></div><div id=cover style=background-image:url(https://blog.deimos.fr/images/fish_background.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js></script><script src=https://blog.deimos.fr/js/custom.js></script><script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:false});$('pre.code-highlight > code, pre > code').each(function(i,block){if(!$(this).hasClass('codeblock')){$(this).addClass('codeblock');}
-hljs.highlightBlock(block);});});</script></body></html>
+Zookeeper, BoltDB, Eureka, Amazon DynamoDB, Rest API, file…) to manage its configuration automatically and dynamically.</p>
+<p><a href="https://blog.deimos.fr/2017/08/20/kubernetes-with-traefik-and-lets-encrypt/">In a previous post</a>, I explained how to manually deploy it in HA mode. For <a href="https://mysocialapp.io/">MySocialApp</a> (iOS and Android social app builder - SaaS), I had to automate it. That&rsquo;s why I used <a href="https://docs.helm.sh/">Helm</a>.</p>
+<p>Where was the complexity? Bootstraping Traefik in HA mode require to push (only the first time) the configuration you&rsquo;ve made to Consul KV store.
+I wanted to get rid of that manual boostraping part. In addition, all pods are booting at the same time and that make it more difficult.</p>
+<p>To avoid multiple bootstrap at the same time, I used the <a href="https://www.consul.io/docs/guides/semaphore.html">distributed lock mechanism in Consul</a>. So when they all start, I randomize the start time and then request a lock. Here is the code:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nv">nodes</span><span class="o">=(</span> consul-0.<span class="o">{{</span> .Values.traefikConsulServiceName <span class="o">}}</span> consul-1.<span class="o">{{</span> .Values.traefikConsulServiceName <span class="o">}}</span> consul-2.<span class="o">{{</span> .Values.traefikConsulServiceName <span class="o">}}</span> <span class="o">{{</span> .Values.traefikConsulServiceName <span class="o">}}</span> <span class="o">)</span>
+<span class="nv">bootstraped</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">contacted</span><span class="o">=</span><span class="m">0</span>
+<span class="c1"># Look at first 3 nodes + 1 on service name (in case of first 3 nodes are down) if bootstrap has not already been done</span>
+<span class="k">for</span> node in <span class="s2">&#34;</span><span class="si">${</span><span class="nv">nodes</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span> <span class="p">;</span> <span class="k">do</span>
+  <span class="c1"># Check consul port is open</span>
+  nc -z <span class="si">${</span><span class="nv">node</span><span class="si">}</span>.<span class="o">{{</span> .Release.Namespace <span class="o">}}</span>.svc.<span class="o">{{</span> .Values.traefikResolvConfDomainNameCluster <span class="o">}}</span> <span class="m">8500</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -eq <span class="m">0</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+    <span class="nv">contacted</span><span class="o">=</span><span class="m">1</span>
+    <span class="c1"># If acme folder exist, that mean a bootstrap already occured</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="k">$(</span>curl http://<span class="si">${</span><span class="nv">node</span><span class="si">}</span>.<span class="o">{{</span> .Release.Namespace <span class="o">}}</span>.svc.<span class="o">{{</span> .Values.traefikResolvConfDomainNameCluster <span class="o">}}</span>:8500/v1/kv/traefik/acme/ 2&gt;/dev/null <span class="p">|</span> wc -c<span class="k">)</span> -ne <span class="m">0</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+      <span class="nv">bootstraped</span><span class="o">=</span><span class="m">1</span>
+    <span class="k">fi</span>
+  <span class="k">fi</span>
+  sleep <span class="m">1</span>
+<span class="k">done</span>
+<span class="c1"># Check if boostrap has already been done</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$bootstraped</span> -eq <span class="m">1</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&#34;Traefik config already exists, no need to bootrap&#34;</span>
+  <span class="nb">exit</span> <span class="m">0</span>
+<span class="k">fi</span>
+<span class="c1"># Check if connection of one of the previous nodes succeed</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$contacted</span> -eq <span class="m">0</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&#34;Wasn&#39;t able to target one node in the nodes list&#34;</span>
+  <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+<span class="c1"># Check once again consul-0 pod availability before requesting lock (bootstrap only on consul-0 to get a node lock)</span>
+nc -z consul-0.<span class="o">{{</span> .Values.traefikConsulServiceName <span class="o">}}</span>.<span class="o">{{</span> .Release.Namespace <span class="o">}}</span>.svc.<span class="o">{{</span> .Values.traefikResolvConfDomainNameCluster <span class="o">}}</span> <span class="m">8500</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -ne <span class="m">0</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&#34;Should exit, couldn&#39;t locate consul pod: consul-0.{{ .Values.traefikConsulServiceName }}.{{ .Release.Namespace }}.svc.{{ .Values.traefikResolvConfDomainNameCluster }} port 8500&#34;</span>
+  <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+<span class="c1"># Get session ID</span>
+<span class="nv">id</span><span class="o">=</span><span class="k">$(</span>curl -XPUT http://consul-0.<span class="o">{{</span> .Values.traefikConsulServiceName <span class="o">}}</span>.<span class="o">{{</span> .Release.Namespace <span class="o">}}</span>.svc.<span class="o">{{</span> .Values.traefikResolvConfDomainNameCluster <span class="o">}}</span>:8500/v1/session/create 2&gt;/dev/null <span class="p">|</span> jq -r <span class="s1">&#39;.ID&#39;</span><span class="k">)</span>
+<span class="c1"># Check if a lock has been acquired and get one if not the case to bootstrap</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="k">$(</span>curl -XPUT http://consul-0.<span class="o">{{</span> .Values.traefikConsulServiceName <span class="o">}}</span>.<span class="o">{{</span> .Release.Namespace <span class="o">}}</span>.svc.<span class="o">{{</span> .Values.traefikResolvConfDomainNameCluster <span class="o">}}</span>:8500/v1/kv/locks/traefik-bootstrap/.lock<span class="se">\?</span><span class="nv">acquire</span><span class="o">=</span><span class="nv">$id</span> -d <span class="k">$(</span>hostname<span class="k">)</span> 2&gt;/dev/null<span class="k">)</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;true&#34;</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&#34;Traefik bootstrap&#34;</span>
+  traefik storeconfig --configfile<span class="o">=</span>/etc/traefik/traefik.toml <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>  curl -XDELETE http://consul-0.<span class="o">{{</span> .Values.traefikConsulServiceName <span class="o">}}</span>.<span class="o">{{</span> .Release.Namespace <span class="o">}}</span>.svc.<span class="o">{{</span> .Values.traefikResolvConfDomainNameCluster <span class="o">}}</span>:8500/v1/kv/traefik/acme/storagefile 2&gt;/dev/null
+  <span class="c1"># Release lock and delete kv entry</span>
+  curl -XPUT <span class="s2">&#34;http://consul-0.{{ .Values.traefikConsulServiceName }}.{{ .Release.Namespace }}.svc.{{ .Values.traefikResolvConfDomainNameCluster }}:8500/v1/kv/locks/traefik-bootstrap/.lock\?release=</span><span class="nv">$id</span><span class="s2">&#34;</span> 2&gt;/dev/null
+<span class="k">else</span>
+  <span class="c1"># Wait until bootstrap ended</span>
+  <span class="nv">counter</span><span class="o">=</span><span class="m">0</span>
+  <span class="k">while</span> <span class="o">[</span> <span class="k">$(</span>curl http://consul-0.<span class="o">{{</span> .Values.traefikConsulServiceName <span class="o">}}</span>.<span class="o">{{</span> .Release.Namespace <span class="o">}}</span>.svc.<span class="o">{{</span> .Values.traefikResolvConfDomainNameCluster <span class="o">}}</span>:8500/v1/kv/traefik/acme/ 2&gt;/dev/null <span class="p">|</span> wc -c<span class="k">)</span> -eq <span class="m">0</span> <span class="o">]</span> <span class="p">;</span> <span class="k">do</span>
+    <span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$counter</span><span class="s2">&#34;</span> -gt <span class="m">60</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+      <span class="nb">echo</span> <span class="s2">&#34;After 1 min, the traefik bootstrap has not been done, exiting&#34;</span>
+      <span class="nb">exit</span> <span class="m">1</span>
+    <span class="k">fi</span>
+    sleep <span class="m">2</span>
+    <span class="nv">counter</span><span class="o">=</span><span class="k">$((</span>counter+1<span class="k">))</span>
+  <span class="k">done</span>
+<span class="k">fi</span>
+<span class="c1"># Delete session</span>
+curl -XPUT <span class="s2">&#34;http://consul-0.{{ .Values.traefikConsulServiceName }}.{{ .Release.Namespace }}.svc.{{ .Values.traefikResolvConfDomainNameCluster }}:8500/v1/session/destroy/</span><span class="nv">$id</span><span class="s2">&#34;</span> 2&gt;/dev/null
+<span class="nb">echo</span> <span class="s2">&#34;Bootstrap has already been done, traefik container will start&#34;</span>
+<span class="nb">exit</span> <span class="m">0</span></code></pre></div>
+<p>Now if you deploy <a href="https://github.com/MySocialApp/kubernetes-helm-chart-traefik">this Traefik chart</a> for the first time or not, you won&rsquo;t need any manual intervention anymore :)</p>
+<p>Before deploying it, you will need a consul cluster setup and ready. If you&rsquo;re searching for a <a href="https://github.com/MySocialApp/kubernetes-helm-chart-consul">Consul Helm chart</a>, I&rsquo;ve made one also for <a href="https://mysocialapp.io/">MySocialApp</a>. We&rsquo;re using this chart on bare metal with local storage. We recommend that consul servers are used with &ldquo;Node Selector&rdquo; option to stick to specific servers.</p>
+<p>Then you have to update &ldquo;values.yaml&rdquo; from the <a href="https://github.com/MySocialApp/kubernetes-helm-chart-traefik">Traefik chart</a> file before deloying. You&rsquo;re now ready to go.</p>
+
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/kubernetes/">Kubernetes</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/ssl/">SSL</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/lets-encrypt/">Let&#39;s Encrypt</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/consul/">Consul</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/traefik/">Traefik</a>
+
+  <a class="tag tag--primary tag--small" href="https://blog.deimos.fr/tags/helm/">Helm</a>
+
+                  </div>
+                
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2018/01/26/install-jeedom-on-synology-with-docker/" data-tooltip="Install Jeedom on Synology with Docker" aria-label="NEXT: Install Jeedom on Synology with Docker">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/" data-tooltip="MySocialApp Create your own social network" aria-label="PREVIOUS: MySocialApp Create your own social network">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.reddit.com/submit?url=https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/" title="Share on Reddit" aria-label="Share on Reddit">
+          <i class="fab fa-reddit" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://news.ycombinator.com/submitlink?u=https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/" title="Share on Hacker News" aria-label="Share on Hacker News">
+          <i class="fab fa-hacker-news" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = 'https:\/\/blog.deimos.fr\/2018\/01\/23\/traefik-ha-helm-chart-with-le-on-k8s\/';
+        
+          this.page.identifier = '\/2018\/01\/23\/traefik-ha-helm-chart-with-le-on-k8s\/'
+        
+      };
+      (function() {
+        
+        
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+          document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+          return;
+        }
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'blog-deimosfr';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Pierre Mavro / Deimosfr. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2018/01/26/install-jeedom-on-synology-with-docker/" data-tooltip="Install Jeedom on Synology with Docker" aria-label="NEXT: Install Jeedom on Synology with Docker">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.deimos.fr/2018/01/18/mysocialapp-crate-your-own-social-network/" data-tooltip="MySocialApp Create your own social network" aria-label="PREVIOUS: MySocialApp Create your own social network">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.reddit.com/submit?url=https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/" title="Share on Reddit" aria-label="Share on Reddit">
+          <i class="fab fa-reddit" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://news.ycombinator.com/submitlink?u=https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/" title="Share on Hacker News" aria-label="Share on Hacker News">
+          <i class="fab fa-hacker-news" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://blog.deimos.fr/2018/01/23/traefik-ha-helm-chart-with-le-on-k8s/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.deimos.fr%2F2018%2F01%2F23%2Ftraefik-ha-helm-chart-with-le-on-k8s%2F" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.deimos.fr%2F2018%2F01%2F23%2Ftraefik-ha-helm-chart-with-le-on-k8s%2F" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.reddit.com/submit?url=https%3A%2F%2Fblog.deimos.fr%2F2018%2F01%2F23%2Ftraefik-ha-helm-chart-with-le-on-k8s%2F" aria-label="Share on Reddit">
+          <i class="fab fa-reddit" aria-hidden="true"></i><span>Share on Reddit</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fblog.deimos.fr%2F2018%2F01%2F23%2Ftraefik-ha-helm-chart-with-le-on-k8s%2F" aria-label="Share on Hacker News">
+          <i class="fab fa-hacker-news" aria-hidden="true"></i><span>Share on Hacker News</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fblog.deimos.fr%2F2018%2F01%2F23%2Ftraefik-ha-helm-chart-with-le-on-k8s%2F" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i><span>Share on Linkedin</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/194382a6478d109ac45c9b11bad1945e?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Pierre Mavro / Deimosfr</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Qovery Co-Founder and CTO
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Paris - France
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      
+      <div id="cover" style="background-image:url('https://blog.deimos.fr/images/fish_background.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://blog.deimos.fr/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script src="https://blog.deimos.fr/js/custom.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+
