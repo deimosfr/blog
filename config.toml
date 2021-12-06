@@ -20,6 +20,13 @@ MetaDataFormat = "yaml"
   category = "categories"
   archive = "archives"
 
+[markup]
+  # Set startLevel = 1 to support # title (<h1>title</h1>) otherwise table of content is blank/empty
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 1
+
 [author]
   name = "Pierre Mavro / Deimosfr"
   #bio = "Super bio with markdown support **COOL**"
@@ -37,44 +44,51 @@ MetaDataFormat = "yaml"
   weight = 1
   identifier = "home"
   name = "Home"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-home\"></i>"
+  pre = "<i class=\"sidebar-button-icon fas fa-lg fa-home\" aria-hidden=\"true\"></i>"
   url = "/"
 [[menu.main]]
   weight = 3
   identifier = "categories"
   name = "Categories"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-bookmark\"></i>"
+  pre = "<i class=\"sidebar-button-icon fas fa-lg fa-bookmark\" aria-hidden=\"true\"></i>"
   url = "/categories"
 [[menu.main]]
   weight = 3
   identifier = "tags"
   name = "Tags"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-tags\"></i>"
+  pre = "<i class=\"sidebar-button-icon fas fa-lg fa-tags\" aria-hidden=\"true\"></i>"
   url = "/tags"
 [[menu.main]]
   weight = 3
   identifier = "archives"
   name = "Archives"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-archive\"></i>"
+  pre = "<i class=\"sidebar-button-icon fas fa-lg fa-archive\" aria-hidden=\"true\"></i>"
   url = "/archives"
 [[menu.main]]
-  weight = 4
+  weight = 4 
   identifier = "rss"
   name = "RSS"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-rss\"></i>"
   url = "/index.xml"
 
-[[menu.misc]]
-  weight = 0
+[[menu.links]]
+  weight = 1
+  identifier = "github"
+  name = "GitHub"
+  pre = "<i class=\"sidebar-button-icon fab fa-lg fa-github\" aria-hidden=\"true\"></i>"
+  url = "https://github.com/deimosfr"
+[[menu.links]]
+  weight = 2
   identifier = "wiki"
   name = "Wiki"
   pre = "<i class=\"sidebar-button-icon fa fa-wikipedia-w\"></i>"
   url = "https://wiki.deimos.fr"
+
 [[menu.misc]]
   weight = 1
   identifier = "about"
   name = "About"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-user\"></i>"
+  pre = "<i class=\"sidebar-button-icon fas fa-lg fa-question\" aria-hidden=\"true\"></i>"
   url = "https://www.deimos.fr"
 
 [params]
@@ -169,27 +183,39 @@ MetaDataFormat = "yaml"
   # Tranquilpeak configuration > Theme configuration > sharing-options
   [[params.sharingOptions]]
     name = "Facebook"
-    icon = "fa-facebook-official"
+    icon = "fab fa-facebook-square"
     url = "https://www.facebook.com/sharer/sharer.php?u=%s"
 
   [[params.sharingOptions]]
     name = "Twitter"
-    icon = "fa-twitter"
+    icon = "fab fa-twitter"
     url = "https://twitter.com/intent/tweet?text=%s"
+
+  [[params.sharingOptions]]
+    name = "Reddit"
+    icon = "fab fa-reddit"
+    url = "https://www.reddit.com/submit?url=%s"
+
+  [[params.sharingOptions]]
+    name = "Hacker News"
+    icon = "fab fa-hacker-news"
+    url = "https://news.ycombinator.com/submitlink?u=%s"
+
+  [[params.sharingOptions]]
+    name = "Linkedin"
+    icon = "fab fa-linkedin"
+    url = "https://www.linkedin.com/sharing/share-offsite/?url=%s"
 
   [params.header.rightLink]
     class = ""
     icon = ""
     url = "/#about"
 
-  # Customize like of athor avatar in sidebar
-  # [params.sidebar.profile]
-  #   url = "/#about"
-
   # Customize copyright value "© 2016 <CUSTOMIZATION>. All Rights Reserved"
   # [params.footer]
   #   copyright = "<a href=\"https://github.com/kakawait\">kakawait</a>"
 
-[blackfriday]
-  plainIDAnchors = true
-  hrefTargetBlank = true
+  [params.comment]
+    [params.comment.disqus]
+      enable = true
+      shortname = "blog-deimosfr"
