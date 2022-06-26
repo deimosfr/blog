@@ -48,7 +48,7 @@ loadkeys fr-latin9
 Connect to the wifi:
 
 ```bash
-device list
+iwctl device list
 ```
 
 You should get the name of your network interface like `wlan0`.
@@ -56,17 +56,26 @@ You should get the name of your network interface like `wlan0`.
 Now, run a scan, look at the wished network name and connect to it:
 
 ```
-station wlan0 scan
-station wlan0 get-networks
-station wlan0 connect <SSID wifi name>
+iwctl station wlan0 scan
+iwctl station wlan0 get-networks
+iwctl station wlan0 connect <SSID wifi name>
 ```
 
 If there is a secret, you should be prompted for it. You can then validate with:
 
 ```
-station wlan0 show
+iwctl station wlan0 show
 ```
 
+# Install menu
+
+At this step, you can choose to run an interractive menu and stop here, or manually perform the installation (continue this post).
+
+If you decide to run the interractive menu, simply run:
+
+```bash
+archinstall
+```
 
 # Configure NTP
 
@@ -94,6 +103,17 @@ This to configure this way:
 Number  Start   End     Size    File system  Name  Flags
  1      1049kB  512MB   511MB   fat32        efi   boot, esp
  2      512MB   1024GB  1024GB               arch
+```
+
+To get this partionning without the parted interractive mode:
+
+```bash
+disk=/dev/nvme0n1
+parted -s -a optimal $disk mklabel gpt
+parted -s -a optimal $disk mkpart efi fat32 0% 512Mb
+parted -s -a optimal $disk mkpart arch ext4 512Mb 100%
+parted -s $disk set 1 boot on
+parted $disk print
 ```
 
 Note: the used flags, do not forget to add them. Also for optimized partition, use multiples of 2 (logic) and percentages to let parted do the optimization. Finally, I'm not using swap to optimize my laptop performances.
@@ -148,7 +168,15 @@ genfstab -U /mnt >> /mnt/etc/fstab
 echo 'tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0' >> /mnt/etc/fstab
 ```
 
-**Important: update the fstab file by changing 'relatime' to 'noatime' on non-boot partitions in order to preserve NVMe lifetime**
+**Important: update the fstab file (/mnt/etc/fstab) by changing 'relatime' to 'noatime' on non-boot partitions (here on /home and /root) in order to preserve NVMe lifetime**
+
+# Editor install (optional)
+
+You may want to install an editor to update manally next configuration file:
+
+```bash
+pacman -Sy vim
+```
 
 # Basic configuration
 
@@ -205,7 +233,7 @@ echo 'timeout 3' >> /boot/loader/loader.conf
 And adding this specific configuration to boot on the crypted device:
 
 ```bash
-UUID=$(blkid | grep crypto_LUKS | sed -r 's/.+UUID="(.+?)".+/\1/')
+UUID=$(blkid | grep crypto_LUKS | sed -r 's/.+UUID="(.+?)".*/\1/')
 echo 'title Arch Linux' > /boot/loader/entries/arch.conf
 echo 'linux /vmlinuz-linux' >> /boot/loader/entries/arch.conf
 echo 'initrd /intel-ucode.img' >> /boot/loader/entries/arch.conf
@@ -217,7 +245,11 @@ Note: you can add ```mitigations=off``` if you want more performances. But it wi
 
 # End install
 
-Before ending, **install Network Manager** or anything you need for the network part.
+Before ending, **install Network Manager** or anything you need for the network part:
+
+```bash
+pacman -Sy networkmanager
+```
 
 To finish, setup a root password:
 ```bash
