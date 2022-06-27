@@ -241,7 +241,13 @@ echo 'initrd /initramfs-linux.img' >> /boot/loader/entries/arch.conf
 echo "options cryptdevice=UUID=${UUID}:vg0 root=/dev/mapper/vg0-root rw intel_pstate=no_hwpi msr.allow_writes=on" >> /boot/loader/entries/arch.conf
 ```
 
-Note: you can add ```mitigations=off``` if you want more performances. But it will allow Spectre and Metldown security issues (https://meltdownattack.com/).
+Note 1: you can add ```mitigations=off``` in the ```options``` if you want more performances. But it will allow Spectre and Metldown security issues (https://meltdownattack.com/).
+
+Note 2: if for some reasons, you need to debug later an issue with systemd during boot time, add:
+```bash
+plymouth.enable=0 systemd.confirm_spawn=true systemd.debug-shell=1 systemd.log_level=debug systemd.unit=multi-user.target console=tty1
+```
+to the end of the ```options``` parameters.
 
 # End install
 
