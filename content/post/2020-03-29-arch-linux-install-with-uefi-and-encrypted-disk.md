@@ -276,8 +276,15 @@ Reboot and you're done :)
 
 If you want to restore from a previous install, here are some advises I can give to you:
 
-1. Get a packages list from your old workstation: `pacman -Qqe > ~/pacman_packages`
-2. On your new workstation, re-inject them (with fish shell): `for i in (cat pacman_packages) ; yay -Sy $i ; end`
+1. Get a packages list from your old workstation:
+- all packages: `pacman -Qqe > pacman_all_packages`
+- all packages (non AUR): `pacman -Qqen > pacman_packages`
+- all packages (only AUR): `pacman -Qqem > pacman_aur_packages`
+2. On your new workstation, re-inject them (with fish shell): 
+```bash
+pacman -S --needed - < pacman_packages
+for i in (cat pacman_aur_packages) ; yay -Sy $i ; end
+```
 3. Finally move current `/etc` to `/etc.old` and restore your /etc backup
 
 Steps order is important because if you restore `/etc` before the 2nd step, some packages install will fail because of already existing files in `/etc`.
