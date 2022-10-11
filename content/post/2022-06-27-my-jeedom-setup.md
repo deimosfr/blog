@@ -4,9 +4,11 @@ type: post
 url: /2022/06/27/my-jeedom-setup/
 categories:
   - linux
+  - home assistant
 date: 2022-06-27T00:00:00+02:00
 tags:
   - linux
+  - home assistant
 image: /images/logo_jeedom.png
 thumbnailImage: /thumbnails/logo_jeedom.png
 thumbnailImagePosition: left

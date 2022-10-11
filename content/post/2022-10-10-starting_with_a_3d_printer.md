@@ -3,11 +3,14 @@ author: Deimos
 type: post
 url: /2022/10/10/starting_with_a_3d_printer/
 categories:
-  - linux
+  - blender
+  - 3d print
+  - home assistant
 date: 2022-10-10T00:00:00+02:00
 tags:
   - blender
   - 3d print
+  - home assistant
 image: /images/logo_blender.png
 thumbnailImage: /thumbnails/logo_blender.png
 thumbnailImagePosition: left
