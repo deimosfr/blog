@@ -72,6 +72,7 @@ Here is the useful tutorial I’ve found (in French):
 * [Build a drawer cabinet](https://www.youtube.com/watch?v=rReEsWLyBDc&t)
 * [Create from scratch a technical piece](https://www.youtube.com/watch?v=d_F1DjB5SjA)
 * [Modeling a vase](https://www.youtube.com/watch?v=a7AiZDEXSIs)
+* [Make a hole](https://www.youtube.com/watch?v=nnspVLPCqpM)
 
 # Slicer
 
