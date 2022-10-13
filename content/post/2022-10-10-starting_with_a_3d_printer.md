@@ -45,6 +45,10 @@ I encountered several issues; some could have been handled better if I had bette
 * Support and Adhesion options are not useless, even for PLA (which does not suffer that much from warping).
 * Unclean nozzle throat: had to manually clean and remove blocked filament (videos: [1](https://www.youtube.com/watch?v=YYHWrRWKkGI&t), [2](https://www.youtube.com/watch?v=AcCsFCJbmKo&t), [3](https://www.youtube.com/watch?v=z0eLN7Gj-YY&t)).
 * Old firmware: firmware I had was buggy LCD touchscreen sensitivity, cloud connectivity didn’t work, and so on. Updating it resolved most issues, and I should have started with this directly.
+* Z axe should be perfectly calibrated on the bed
+* First layer speed should not exceed 30 mm/s (I personnaly uses 10mm/s to avoid issues)
+* Disable fan for the first layer to maximize the grip
+* Create a [temperature tower](https://teachingtechyt.github.io/calibration.html#temp) to better know your filament
 
 One prevalent error everybody makes mistakes on is the **warping effect**. Here are helpful links to better understand the issue and how to solve it:
 * [A complete explanation to avoid warping effect](https://www.youtube.com/watch?v=A8TQ4Itr-uk)
@@ -82,7 +86,7 @@ It will allow you to set printing parameters to define the granularity of your p
 
 I spent some time finding good parameters with an “Amazon Basics” PLA. Here are the ones that work for me (from the standard quality profile) for most printing models:
 * Quality:
-    * Initial Layer Height: 0.35 (lower will grow warping effect)
+    * Initial Layer Height: 0.3 (lower will grow warping effect, **must not exceed 75% of nozzle diameter**)
 * Material:
     * Printing temperature: 200
     * Build plate temperature: 60
