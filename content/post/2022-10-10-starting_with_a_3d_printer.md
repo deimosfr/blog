@@ -77,6 +77,7 @@ Here is the useful tutorial I’ve found (in French):
 * [Create from scratch a technical piece](https://www.youtube.com/watch?v=d_F1DjB5SjA)
 * [Modeling a vase](https://www.youtube.com/watch?v=a7AiZDEXSIs)
 * [Make a hole](https://www.youtube.com/watch?v=nnspVLPCqpM)
+* [Make pipes](https://www.youtube.com/watch?v=0P_rbnyOvvM)
 
 # Slicer
 
